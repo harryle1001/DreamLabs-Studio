@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Lam Kỳ — Reels 9:16 giới thiệu nước hoa, phụ đề động (concept · cảnh quay dựng bằng code)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#000;color:#fff;font-family:"Be Vietnam Pro",sans-serif}
+#footage{filter:url(#grade)}
+#footage canvas{filter:url(#whip)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse 76% 62% at 50% 46%,transparent 48%,rgba(4,8,10,.74))}
+.mist{position:absolute;inset:0;backdrop-filter:blur(14px) brightness(1.15);opacity:.22}
+.flash{position:absolute;inset:0;background:#fff3dc;opacity:0}
+.brand{position:absolute;left:42px;top:68px;display:flex;gap:16px;align-items:center;font-size:16px;letter-spacing:.34em;text-transform:uppercase;font-weight:500;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.brand i{width:26px;height:1px;background:#e9c58a;display:block}
+.brand small{font-size:13px;letter-spacing:.2em;opacity:.7;font-weight:400}
+.bars{position:absolute;left:42px;right:42px;top:42px;display:flex;gap:6px}
+.bars b{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.28);overflow:hidden;position:relative}
+.bars b u{position:absolute;inset:0;background:#fff;transform-origin:0 50%;transform:scaleX(0)}
+.caps{position:absolute;left:42px;right:42px;top:850px;height:180px}
+.cap-ln{position:absolute;left:0;right:0;top:0;text-align:center;font:600 50px/1.18 "Be Vietnam Pro";letter-spacing:-.01em;text-shadow:0 2px 0 rgba(0,0,0,.35),0 6px 26px rgba(0,0,0,.6);text-wrap:balance}
+.cap-ln .wd{margin:0 .12em}
+.cap-ln .hi{font:italic 500 62px/1 "Playfair",serif;color:#f3cd8e;letter-spacing:0}
+.end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(6,9,10,.5);backdrop-filter:blur(16px);opacity:0}
+.end .mk{font:400 20px/1 "Be Vietnam Pro";letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;color:#e9c58a}
+.end h2{margin-top:26px;font:400 110px/1 "Cormorant",serif;letter-spacing:.06em}
+.end p{margin-top:16px;font:italic 400 42px/1 "Cormorant",serif;color:#f1e3c8}
+.end .cta{margin-top:68px;font-size:16px;font-weight:500;letter-spacing:.3em;text-indent:.3em;text-transform:uppercase;padding:16px 42px;border:1px solid rgba(255,255,255,.7);border-radius:99px}
+.end small{position:absolute;bottom:110px;left:0;right:0;font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.5}
+</style></head>
+<body><div id="stage">
+ <div id="footage"></div>
+ <div class="gfx"><div class="mist"></div><div class="vig"></div><div class="flash"></div>
+  <div class="bars"><b><u></u></b><b><u></u></b><b><u></u></b><b><u></u></b><b><u></u></b></div>
+  <div class="brand"><i></i><span>Lam Kỳ</span><small>Concept</small></div>
+  <div class="caps"></div>
+  <div class="end"><div class="mk">Lam Kỳ Parfums</div><h2>Trầm Sương</h2><p>Extrait de parfum · 50 ml</p><div class="cta">Mở bán 01 · 12</div><small>Cảnh quay dựng bằng code · Concept</small></div>
+ </div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script type="module">
+import {THREE,RoundedBoxGeometry,setup,mk,group,canvasTex,noiseTex,stoneTex,gobo,M,spot,plight,shots,ramp} from './lib3d.js';
+const W=720,H=1280,DUR=8;R2.init({W,H,dur:DUR,poster:5.2,cover:[.9,3.6,5.2]});
+R2.filters(R2.grade('grade',{con:.72,split:.085,sat:1.18,lift:.012}),'<filter id="whip" x="-20%" width="140%"><feGaussianBlur id="whipb" stdDeviation="0 0"/></filter>');
+await Promise.all([document.fonts.load('400 40px Cormorant','Lam Kỳ Trầm Sương'),document.fonts.load('400 20px "Be Vietnam Pro"','Kỳ'),document.fonts.load('600 20px "Be Vietnam Pro"','Kỳ'),document.fonts.load('italic 500 20px Playfair','ử')]);
+const {renderer,scene,camera}=setup({W,H,bg:0x101416,exposure:1.05,env:.32});
+/* ---- bối cảnh: bàn đá phiến, khay đồng, vụn trầm ---- */
+const slate=stoneTex({base:[74,78,80],dark:[30,33,35],vein:[150,150,145],veins:5,seed:8,repeat:[2,2]});
+mk(new THREE.PlaneGeometry(14,14),new THREE.MeshStandardMaterial({map:slate,roughness:.42,metalness:.1,bumpMap:noiseTex(256,3,{oct:4,base:16,repeat:[6,6]}),bumpScale:.6}),{rot:[-Math.PI/2,0,0],cast:false});
+mk(new THREE.PlaneGeometry(14,7),M.matte(0x1c2a2c,.95),{pos:[0,3.5,-2.6],cast:false});
+mk(new THREE.CylinderGeometry(.82,.84,.035,96),M.metal(0xb98a4a,.3),{pos:[.05,.018,.05]});
+mk(new THREE.BoxGeometry(.9,1.5,.5),new THREE.MeshStandardMaterial({map:stoneTex({base:[58,62,64],dark:[22,24,26],veins:4,seed:21}),roughness:.7}),{pos:[-.95,.75,-1.1],rot:[0,.35,0]});
+mk(new THREE.SphereGeometry(.2,48,32),M.metal(0x9a7440,.3),{pos:[.78,.2,-.55]});
+const rnd=R2.rng(4),wood=M.matte(0x2a1a10,.8,{bumpMap:noiseTex(128,6,{oct:3,base:8,contrast:2}),bumpScale:2});
+[[-.5,.36,.5,.3],[-.44,.46,.42,-.2],[-.52,.4,.36,.9,.062],[.52,.44,.4,2.2],[.46,.52,.3,1.7]].forEach(([x,z,L,a,y])=>mk(new RoundedBoxGeometry(L,.05,.07,3,.02),wood,{pos:[x,.062+(y||0),z],rot:[rnd()*.3,a,0]}));
+/* ---- chai: khối thủy tinh dày, nước hương hổ phách, nắp sơn mài đen viền vàng ---- */
+const B=group(scene,[.05,.036,.05]);
+mk(new RoundedBoxGeometry(.5,.5,.2,6,.035),new THREE.MeshPhysicalMaterial({color:0xb8601c,roughness:.12,emissive:0x5a2606,emissiveIntensity:.32,clearcoat:.6}),{pos:[0,.33,0],parent:B,cast:false});
+mk(new RoundedBoxGeometry(.62,.8,.3,8,.05),M.glass({thickness:.25,attenuationColor:new THREE.Color(0xffe2b8),attenuationDistance:1.6}),{pos:[0,.4,0],parent:B});
+mk(new THREE.CylinderGeometry(.085,.085,.07,48),M.metal(0xd9b266,.2),{pos:[0,.835,0],parent:B});
+mk(new THREE.CylinderGeometry(.135,.135,.24,64),M.lacquer(0x0c0c0d),{pos:[0,.99,0],parent:B});
+mk(new THREE.CylinderGeometry(.139,.139,.03,64),M.metal(0xe2bd72,.18),{pos:[0,.885,0],parent:B});
+const label=canvasTex(680,400,(g,w,h)=>{g.fillStyle='#efe6d2';g.fillRect(0,0,w,h);g.strokeStyle='#8a6a34';g.lineWidth=3;g.strokeRect(22,22,w-44,h-44);
+  g.fillStyle='#1c1712';g.textAlign='center';g.font='400 118px Cormorant';g.fillText('LAM KỲ',w/2,170);g.fillStyle='#8a6a34';g.fillRect(w/2-50,206,100,2);
+  g.fillStyle='#1c1712';g.font='400 40px "Be Vietnam Pro"';g.fillText('T R Ầ M   S Ư Ơ N G',w/2,274);g.font='400 26px "Be Vietnam Pro"';g.fillStyle='#5c4a30';g.fillText('EXTRAIT DE PARFUM  ·  50 ML',w/2,332)});
+mk(new THREE.PlaneGeometry(.34,.2),new THREE.MeshStandardMaterial({map:label,roughness:.6}),{pos:[0,.34,.1515],parent:B,cast:false});
+/* ---- ánh sáng: key ấm xuyên tán lá, ven lạnh ---- */
+const key=spot(scene,{pos:[-2.6,3.4,2.6],target:[0,.3,0],color:0xffd9ae,intensity:150,angle:.42,pen:.5,map:gobo('leaves',3),radius:6});
+const rim=plight(scene,{pos:[1.8,1.4,-1.6],color:0x8fc4e0,intensity:14});
+const fill=plight(scene,{pos:[.4,1.2,2.4],color:0xffe9d0,intensity:3});
+/* ---- 5 cảnh, cắt theo nhịp ---- */
+const CUT=[0,1.4,2.8,4.3,6.4],SH=shots([
+ {t0:CUT[0],t1:CUT[1],p0:[-.62,.5,1.85],p1:[.5,.58,1.7],l0:[0,.33,.1],l1:[.1,.36,.1],f0:26,ramp:ramp.slowmid(.8),on:v=>{B.rotation.y=.12-v*.2}},
+ {t0:CUT[1],t1:CUT[2],p0:[1.9,2.1,1.7],p1:[.8,2.4,2.3],l0:[.05,.36,.05],roll0:.08,roll1:-.04,f0:30,ramp:ramp.out(2),on:v=>{B.rotation.y=.3}},
+ {t0:CUT[2],t1:CUT[3],p0:[-1.35,1.1,2.0],p1:[-.6,1.16,1.95],l0:[.05,.64,0],l1:[.05,.7,0],f0:28,f1:25,ramp:ramp.slowmid(.7),on:v=>{B.rotation.y=.42-v*.25;key.position.x=-2.6+v*2.4}},
+ {t0:CUT[3],t1:DUR,p0:[.05,.78,3.5],p1:[.05,.64,2.75],l0:[.05,.52,0],f0:30,ramp:ramp.out(1.8),shake:.006,on:v=>{B.rotation.y=-.32+v*.42;key.position.x=-2.6}},
+],camera);
+const whipb=document.getElementById('whipb'),cvs=renderer.domElement,st={whip:0,wx:0};
+R2.frame(t=>{SH(t);renderer.render(scene,camera);whipb.setAttribute('stdDeviation',`${st.whip.toFixed(1)} 0`);cvs.style.transform=`translateX(${st.wx.toFixed(1)}px) scale(${(1+Math.abs(st.whip)/400).toFixed(4)})`});
+
+/* ---- lớp dựng: phụ đề động, thanh tiến trình, flash/whip chuyển cảnh, thẻ kết ---- */
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}});
+R2.captions(document.querySelector('.caps'),[
+ {t:.15,d:1.22,text:'Trầm hương ủ <i>mười tám năm</i>',hi:[3,4,5]},
+ {t:1.5,d:1.26,text:'chưng cất <i>thủ công</i>',hi:[2,3]},
+ {t:2.9,d:1.36,text:'mỗi mẻ chỉ <i>88 chai</i>',hi:[3,4]},
+ {t:4.4,d:1.9,text:'một giọt, <i>lưu hương đến sáng</i>',hi:[2,3,4,5]}],tl);
+document.querySelectorAll('.bars u').forEach((u,i)=>tl.fromTo(u,{scaleX:0},{scaleX:1,duration:(CUT[i+1]??DUR)-CUT[i],ease:'none'},CUT[i]));
+[CUT[1],CUT[3]].forEach(t=>tl.fromTo('.flash',{opacity:.55},{opacity:0,duration:.162,ease:'power1.out',immediateRender:false},t));
+tl.to(st,{whip:60,wx:-80,duration:.13,ease:'power2.in'},CUT[2]-.13).fromTo(st,{whip:60,wx:80},{whip:0,wx:0,duration:.2,ease:'power2.out',immediateRender:false},CUT[2])
+  .fromTo('.brand',{opacity:0,x:-16},{opacity:1,x:0,duration:.424},.1)
+  .to('.end',{opacity:1,duration:.424,ease:'power2.out'},CUT[4])
+  .fromTo('.end .mk',{opacity:0,y:16},{opacity:1,y:0,duration:.424},CUT[4]+.1).fromTo('.end h2',{opacity:0,y:26,letterSpacing:'.2em'},{opacity:1,y:0,letterSpacing:'.06em',duration:.686},CUT[4]+.16)
+  .fromTo('.end p',{opacity:0,y:16},{opacity:1,y:0,duration:.424},CUT[4]+.36).fromTo('.end .cta',{opacity:0,scale:.9},{opacity:1,scale:1,duration:.424,ease:'back.out(1.8)'},CUT[4]+.56)
+  .fromTo('.end small',{opacity:0},{opacity:.5,duration:.424},CUT[4]+.7).to(['.brand','.bars'],{opacity:0,duration:.262},CUT[4]);
+R2.done(tl);
+</script></body></html>

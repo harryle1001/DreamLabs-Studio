@@ -1,0 +1,62 @@
+/* DreamLab base — reset, linen, typography, layout primitives, button, chip, modal. Owner: nền chung (Session A được mở rộng, không phá API). */
+*,*::before,*::after{box-sizing:border-box}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--t1);line-height:var(--lh);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+/* linen: sợi ngang + dọc + hạt nhiễu */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:70;opacity:.55;mix-blend-mode:multiply;
+  background:repeating-linear-gradient(0deg,rgba(120,100,80,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(120,100,80,.03) 0 1px,transparent 1px 4px),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .35 0 0 0 0 .3 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) body::after{mix-blend-mode:screen;opacity:.35}}
+:root[data-theme="dark"] body::after{mix-blend-mode:screen;opacity:.35}
+a{color:inherit}
+img,video,canvas,svg{max-width:100%}
+img,video{display:block;height:auto}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:var(--r0)}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{position:relative}
+.band{padding-block:var(--s7)}
+@media (max-width:760px){.band{padding-block:var(--s6)}}
+.eyebrow{font-size:var(--t0h);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:var(--s2);margin:0}
+.eyebrow::before{content:"";width:var(--s4);height:1px;background:currentColor}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:350;line-height:var(--lh-tight);margin:0;text-wrap:balance;letter-spacing:-.015em}
+h1{font-size:var(--fz-h1)} h2{font-size:var(--fz-h2)} h3{font-size:var(--fz-h3)}
+h1 em,h2 em,h3 em{font-style:italic;font-weight:300;background:linear-gradient(100deg,var(--accent),color-mix(in oklab,var(--peach) 70%,var(--accent)));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+p{margin:0}
+.lead{color:var(--muted);max-width:56ch;font-size:var(--fz-lead)}
+.sec-head{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s5);align-items:end;margin-bottom:var(--s6)}
+.sec-head>*{min-width:0}
+.sec-head .eyebrow{margin-bottom:var(--s3)}
+.golden{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s4)} .golden.r{grid-template-columns:var(--cols-golden-r)} .golden>*{min-width:0}
+@media (max-width:860px){.sec-head,.golden,.golden.r{grid-template-columns:1fr}.sec-head{margin-bottom:var(--s5)}}
+.btn{display:inline-flex;align-items:center;gap:var(--s2);padding:14px var(--s4);border-radius:999px;border:1px solid var(--line);background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  text-decoration:none;cursor:pointer;font-weight:500;font-size:15px;line-height:1.2;transition:background var(--d2) var(--ease),color var(--d2) var(--ease),border-color var(--d2) var(--ease);will-change:transform}
+.btn:hover{border-color:color-mix(in oklab,var(--accent) 45%,transparent)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn.sm{padding:var(--s2) 18px;font-size:14px}
+.btn svg{width:16px;height:16px;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s1)}
+.chip{font-size:12px;padding:var(--s0) 12px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--muted);white-space:nowrap}
+.tag-concept{font-size:var(--t0);letter-spacing:.14em;text-transform:uppercase;padding:3px var(--s2);border-radius:999px;background:var(--ink);color:var(--bg)}
+.card{border-radius:var(--r3);background:var(--paper);border:1px solid var(--line)}
+.ar-golden{aspect-ratio:var(--golden)} .ar-golden-v{aspect-ratio:var(--golden-v)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* modal (DL.modal) */
+dialog.dl-modal{border:0;padding:0;background:none;color:var(--ink);width:min(1180px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);overflow:visible}
+dialog.dl-modal.narrow{width:min(729px,calc(100vw - 32px))}
+dialog.dl-modal::backdrop{background:color-mix(in oklab,var(--ink) 55%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.dl-modal .panel{background:var(--bg);border:1px solid var(--line);border-radius:var(--r3);max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain;box-shadow:0 var(--s5) var(--s7) calc(var(--s5)*-1) var(--shadow)}
+.dl-modal .bar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:var(--s3);padding:var(--s3) var(--s4);background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.dl-modal .bar b{font-family:var(--f-display);font-weight:400;font-size:var(--t1h)}
+.dl-modal .x{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-size:20px;line-height:1}
+.dl-modal .body{padding:var(--s4)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+/* iOS Safari */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-tap-highlight-color:transparent}
+button,a,[role=button],summary,label{touch-action:manipulation}
+input,select,textarea{font-size:max(16px,1em)}

@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Miên Thảo — dưỡng da từ vườn thuốc nam (Concept)</title>
+<meta name="description" content="Website concept do DreamLab thiết kế cho một thương hiệu mỹ phẩm thiên nhiên.">
+<style>
+@font-face{font-family:Cormorant;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:Cormorant;font-weight:400;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Cormorant;font-weight:400;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-vietnamese-400-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:Cormorant;font-weight:400;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Be Vietnam Pro";font-weight:300;font-display:swap;src:url(../fonts/be-vietnam-pro-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Be Vietnam Pro";font-weight:300;font-display:swap;src:url(../fonts/be-vietnam-pro-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Be Vietnam Pro";font-weight:500;font-display:swap;src:url(../fonts/be-vietnam-pro-vietnamese-500-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Be Vietnam Pro";font-weight:500;font-display:swap;src:url(../fonts/be-vietnam-pro-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--phi:1.61803;--ivory:#F6F2E9;--cream:#EFE9DC;--moss:#2E3A2C;--sage:#93A88D;--sage-l:#DCE4D4;--blush:#EBCFC2;--clay:#B9785A;--muted:#6B7466;--line:rgba(46,58,44,.16);
+ --fd:Cormorant,"Cormorant Garamond",Georgia,serif;--fb:"Be Vietnam Pro",system-ui,sans-serif;
+ --s1:6px;--s2:10px;--s3:16px;--s4:26px;--s5:42px;--s6:68px;--s7:110px;--s8:178px;--d2:262ms;--d3:424ms;--d4:686ms;--d5:1110ms;--d6:1796ms;--ease:cubic-bezier(.22,1,.36,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--moss);font-family:var(--fb);font-weight:300;font-size:16px;line-height:1.618;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}svg{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--fd);font-weight:400;line-height:1.1;margin:0;letter-spacing:-.01em}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--clay)}
+p{margin:0}
+.w{width:100%;max-width:1240px;margin:0 auto;padding:0 max(20px,4vw)}
+.cap{font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:99px;border:1px solid var(--moss);background:var(--moss);color:var(--ivory);font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:background var(--d3) var(--ease),color var(--d3) var(--ease),transform var(--d3) var(--ease)}
+.btn:hover{background:var(--clay);border-color:var(--clay)}
+.btn.o{background:transparent;color:var(--moss)}.btn.o:hover{background:var(--moss);color:var(--ivory);border-color:var(--moss)}
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity var(--d5) var(--ease),transform var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
+.js [data-r].in{opacity:1;transform:none}
+header{position:sticky;top:0;z-index:20;background:rgba(246,242,233,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:68px}
+nav{display:flex;gap:26px;font-size:13px}nav a{opacity:.72;transition:opacity var(--d2)}nav a:hover{opacity:1}
+.logo{font-family:var(--fd);font-size:26px;letter-spacing:.04em;text-align:center;min-height:42px;justify-content:center;display:flex;flex-direction:column;align-items:center;line-height:1}
+.logo small{font-family:var(--fb);font-size:8px;letter-spacing:.42em;text-transform:uppercase;margin-top:4px;opacity:.6}
+.bagb{justify-self:end;background:none;border:1px solid var(--line);border-radius:99px;height:42px;padding:0 16px;display:flex;gap:8px;align-items:center;font-size:13px}
+.bagb b{font-weight:500;min-width:20px;height:20px;border-radius:50%;background:var(--sage-l);display:grid;place-items:center;font-size:11px;transition:transform var(--d2) var(--ease),background var(--d2)}
+.bagb b.pop{transform:scale(1.618);background:var(--blush)}
+@media(max-width:860px){nav{display:none}header .w{grid-template-columns:auto 1fr}.logo{align-items:flex-start}}
+/* hero */
+.hero{padding:var(--s6) 0 var(--s7);position:relative}
+.hero .g{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s6);align-items:center}
+.hero h1{font-size:clamp(53px,5.9vw,89px);line-height:1.02;margin:var(--s4) 0}
+.hero h1 span{display:block;white-space:nowrap;animation:fu var(--d6) var(--ease) both}.hero h1 span:nth-child(2){animation-delay:.162s}.hero h1 span:nth-child(3){animation-delay:.324s}
+@keyframes fu{from{opacity:0;transform:translateY(42px)}}
+.hero p.l{max-width:38ch;color:var(--muted);font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:var(--s5)}
+.arches{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s4);align-items:end;position:relative}
+.arch{border-radius:999px 999px 0 0;overflow:hidden;position:relative}
+.arch.a{aspect-ratio:1/1.618;background:linear-gradient(180deg,var(--sage-l),#c5d3bd 61.8%,var(--sage))}
+.arch.b{aspect-ratio:1/1.618;background:linear-gradient(180deg,#f3dfd4,var(--blush) 61.8%,#dcae9a);transform:translateY(var(--s5))}
+.arch svg{position:absolute;inset:0;width:100%;height:100%}
+.sun{position:absolute;left:50%;top:16%;width:38.2%;aspect-ratio:1;border-radius:50%;background:rgba(246,242,233,.7);transform:translateX(-50%)}
+.leaf{transform-box:fill-box;transform-origin:50% 100%;animation:sway 6.86s ease-in-out infinite alternate}
+.leaf.l2{animation-duration:4.24s;animation-delay:-2s}.leaf.l3{animation-duration:5.5s;animation-delay:-1s}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(5deg)}}
+.float{animation:fl 6.86s ease-in-out infinite alternate}@keyframes fl{from{transform:translateY(-6px)}to{transform:translateY(10px)}}
+.seal{position:absolute;left:-42px;bottom:16%;width:110px;height:110px;border-radius:50%;background:var(--ivory);border:1px solid var(--line);display:grid;place-items:center;text-align:center;font-family:var(--fd);font-style:italic;font-size:17px;line-height:1.15;box-shadow:0 26px 42px -26px rgba(46,58,44,.5)}
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s7);padding-top:var(--s4);border-top:1px solid var(--line)}
+.vals div{display:flex;gap:16px;align-items:baseline}.vals b{font-family:var(--fd);font-style:italic;font-weight:400;font-size:26px;color:var(--clay)}
+@media(max-width:860px){.hero{padding:var(--s5) 0 var(--s6)}.hero .g{grid-template-columns:1fr;gap:var(--s5)}.seal{left:auto;right:6px;bottom:auto;top:-16px;width:89px;height:89px;font-size:14px}.vals{grid-template-columns:1fr;gap:10px;margin-top:var(--s6)}}
+/* marquee */
+.mq{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);padding:16px 0;font-family:var(--fd);font-style:italic;font-size:clamp(26px,3.4vw,42px);color:var(--sage)}
+.mq div{display:inline-block;animation:mq 42s linear infinite}.mq span{margin:0 26px}.mq span:nth-child(even){font-style:normal;font-size:.5em;vertical-align:middle;color:var(--clay)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sec{padding:var(--s7) 0}
+.sh{text-align:center;max-width:720px;margin:0 auto var(--s6)}
+.sh h2{font-size:clamp(42px,5.6vw,68px);margin:16px 0}.sh p{color:var(--muted)}
+@media(max-width:860px){.sec{padding:var(--s6) 0}.sh{margin-bottom:var(--s5)}}
+/* sản phẩm */
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.pc{display:flex;flex-direction:column}
+.pc .ph{border-radius:999px 999px var(--s3) var(--s3);aspect-ratio:1/1.3;position:relative;overflow:hidden;display:grid;place-items:end center;transition:transform var(--d4) var(--ease)}
+.pc .ph svg{width:46%;margin-bottom:12%;transition:transform var(--d4) var(--ease);filter:drop-shadow(0 16px 16px rgba(46,58,44,.22))}
+.pc:hover .ph svg{transform:translateY(-10px) rotate(-3deg)}
+.pc .tag{position:absolute;top:26%;left:50%;transform:translateX(-50%);font-family:var(--fd);font-style:italic;font-size:15px;opacity:.7;white-space:nowrap}
+.pc h3{font-size:26px;margin:16px 0 2px}.pc .d{color:var(--muted);font-size:14px;min-height:3.3em}
+.pc .b{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.pc .pr{font-family:var(--fd);font-size:22px}
+.add{background:none;border:0;border-bottom:1px solid currentColor;padding:0;min-height:42px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:color var(--d2)}.add:hover{color:var(--clay)}
+@media(max-width:1000px){.pg{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.pg{gap:var(--s3)}.pc h3{font-size:22px}.pc .d{font-size:13px}.pc .b{flex-direction:column;align-items:flex-start;gap:0}}
+/* thành phần */
+.ing{background:var(--moss);color:var(--ivory)}
+.ing .sh p{color:rgba(246,242,233,.7)}.ing h2 em,.ing h3 em{color:var(--blush)}
+.ig{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s6);align-items:center}
+.draw{aspect-ratio:1;border:1px solid rgba(246,242,233,.2);border-radius:50%;display:grid;place-items:center;position:relative}
+.draw svg{width:72%;height:72%;overflow:visible}
+.draw path,.draw circle,.draw ellipse{fill:none;stroke:var(--sage-l);stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.draw .dr{stroke-dasharray:1;stroke-dashoffset:1;animation:dr var(--d6) var(--ease) forwards;animation-delay:calc(var(--k,0)*42ms)}
+@keyframes dr{to{stroke-dashoffset:0}}
+.draw small{position:absolute;bottom:10%;font-family:var(--fd);font-style:italic;font-size:17px;color:var(--blush)}
+.acc{border-top:1px solid rgba(246,242,233,.2)}
+.acc button{width:100%;background:none;border:0;border-bottom:1px solid rgba(246,242,233,.2);text-align:left;padding:var(--s3) 0;display:grid;grid-template-columns:42px 1fr auto;align-items:baseline;gap:10px}
+.acc button i{font-family:var(--fd);font-style:italic;color:var(--blush);font-size:17px}
+.acc button b{font-family:var(--fd);font-weight:400;font-size:clamp(26px,3.4vw,42px);line-height:1.1;transition:transform var(--d3) var(--ease),color var(--d3)}
+.acc button span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6}
+.acc button.on b{color:var(--blush);transform:translateX(10px);font-style:italic}
+.acc .pn{display:grid;grid-template-rows:0fr;transition:grid-template-rows var(--d4) var(--ease);border-bottom:1px solid rgba(246,242,233,.2)}
+.acc .pn.on{grid-template-rows:1fr}.acc .pn>div{overflow:hidden}.acc .pn p{padding:var(--s3) 0 var(--s4) 52px;color:rgba(246,242,233,.78);max-width:52ch}
+.acc button+.pn{margin-top:-1px}
+@media(max-width:860px){.ig{grid-template-columns:1fr;gap:var(--s5)}.draw{width:61.8%;margin:0 auto}.acc button{grid-template-columns:26px 1fr}.acc button span{display:none}.acc .pn p{padding-left:36px}}
+/* liệu trình */
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:4px;margin-top:var(--s3)}
+.seg button{min-height:42px;padding:0 26px;border:0;background:none;border-radius:99px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:background var(--d3) var(--ease),color var(--d3)}
+.seg button.on{background:var(--moss);color:var(--ivory)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-block:1px solid var(--line);counter-reset:s}
+.st{padding:var(--s5) var(--s4);border-right:1px solid var(--line);position:relative;counter-increment:s;transition:background var(--d4) var(--ease)}
+.st:last-child{border-right:0}.st:hover{background:var(--cream)}
+.st::before{content:"0" counter(s);font-family:var(--fd);font-style:italic;font-size:68px;line-height:1;color:var(--sage);display:block}
+.st h3{font-size:26px;margin:16px 0 6px}.st p{color:var(--muted);font-size:15px}.st small{display:block;margin-top:16px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--clay)}
+.night .st::before{color:var(--clay)}
+@media(max-width:760px){.steps{grid-template-columns:1fr}.st{border-right:0;border-bottom:1px solid var(--line);padding:var(--s4) 0}.st:last-child{border-bottom:0}}
+/* bộ theo loại da */
+.sets{background:var(--cream)}
+.skin{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:var(--s4)}
+.skin button{min-height:48px;padding:0 26px;border-radius:99px;border:1px solid var(--line);background:var(--ivory);font-size:14px;transition:background var(--d3) var(--ease),color var(--d3),border-color var(--d3)}
+.skin button.on{background:var(--moss);color:var(--ivory);border-color:var(--moss)}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.set{background:var(--ivory);border:1px solid var(--line);border-radius:var(--s4);padding:var(--s4);display:flex;flex-direction:column;transition:transform var(--d4) var(--ease),box-shadow var(--d4) var(--ease),border-color var(--d3),opacity var(--d3)}
+.sg.pick .set{opacity:.5}.sg.pick .set.on{opacity:1;transform:translateY(-16px);border-color:var(--clay);box-shadow:0 42px 68px -42px rgba(46,58,44,.5)}
+.set .for{font-family:var(--fd);font-style:italic;color:var(--clay);font-size:17px}
+.set h3{font-size:33px;margin:6px 0 16px}
+.set ul{margin:0 0 var(--s4);padding:0;list-style:none}.set li{padding:10px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font-size:15px}.set li span{color:var(--muted)}
+.set .pr{font-family:var(--fd);font-size:42px;line-height:1;margin-top:auto}.set .pr s{font-family:var(--fb);font-size:14px;color:var(--muted);margin-left:10px}
+.set .btn{margin-top:16px;width:100%}
+@media(max-width:900px){.sg{grid-template-columns:1fr}.sg.pick .set.on{transform:none}}
+/* mẫu thử */
+.try{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s6);align-items:center}
+.try h2{font-size:clamp(42px,5.6vw,68px)}
+.try form{display:grid;gap:10px}
+.fld{height:48px;border:0;border-bottom:1px solid var(--moss);background:none;font:inherit;padding:0;border-radius:0}.fld:focus{outline:0;border-bottom-color:var(--clay);box-shadow:0 1px 0 var(--clay)}
+.msg{font-size:13px;color:var(--muted);min-height:1.6em}
+@media(max-width:860px){.try{grid-template-columns:1fr;gap:var(--s4)}}
+footer{border-top:1px solid var(--line);padding:var(--s6) 0 var(--s7)}
+.fg{display:grid;grid-template-columns:1.618fr 1fr 1fr;gap:var(--s5)}
+.fg .big{font-family:var(--fd);font-size:clamp(53px,8vw,110px);line-height:1;font-style:italic}
+.fg h4{margin:0 0 10px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--clay)}
+.cpt{margin-top:var(--s5);padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between}
+@media(max-width:760px){.fg{grid-template-columns:1fr 1fr}.fg>div:first-child{grid-column:1/-1}}
+.back{position:fixed;left:16px;bottom:16px;z-index:40;background:rgba(246,242,233,.92);border:1px solid var(--line);border-radius:99px;padding:0 16px;min-height:42px;display:flex;align-items:center;gap:8px;font-size:13px;backdrop-filter:blur(10px)}
+.toast{position:fixed;left:50%;bottom:26px;z-index:50;background:var(--moss);color:var(--ivory);padding:12px 26px;border-radius:99px;font-size:14px;transform:translate(-50%,200%);visibility:hidden;transition:transform var(--d3) var(--ease),visibility 0s var(--d3);white-space:nowrap}
+.toast.on{transform:translate(-50%,0);visibility:visible;transition-delay:0s}
+.emb .back{display:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}.draw .dr{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<header><div class="w">
+ <nav><a href="#san-pham">Sản phẩm</a><a href="#thanh-phan">Thành phần</a><a href="#lieu-trinh">Liệu trình</a><a href="#bo-duong">Bộ dưỡng</a></nav>
+ <a class="logo" href="#top">Miên Thảo<small>Botanics</small></a>
+ <button class="bagb" id="bag" aria-label="Túi hàng">Túi <b id="bn">0</b></button>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w">
+ <div class="g">
+  <div>
+   <p class="cap" style="color:var(--clay)">Mỹ phẩm thuần thực vật</p>
+   <h1><span>Dưỡng da từ</span><span><em>vườn thuốc</em></span><span>nam.</span></h1>
+   <p class="l">Bốn sản phẩm, mười ba thành phần, không gì thừa. Chiết xuất từ cây cỏ quen thuộc của người Việt, đủ dịu cho làn da nhạy cảm nhất.</p>
+   <div class="cta"><a class="btn" href="#san-pham">Xem sản phẩm</a><a class="btn o" href="#bo-duong">Chọn theo loại da</a></div>
+  </div>
+  <div class="arches">
+   <div class="arch a" id="pa">
+    <div class="sun"></div>
+    <svg viewBox="0 0 400 647" preserveAspectRatio="xMidYMax slice" aria-label="Chai tinh chất Miên Thảo giữa lá">
+     <g fill="#6f8a69"><path class="leaf" d="M70 647C40 520 60 430 120 360c10 100-6 200-50 287z"/><path class="leaf l2" d="M330 647c40-110 30-200-30-270-16 96-6 186 30 270z" fill="#829b7c"/><path class="leaf l3" d="M150 647c-30-70-20-130 20-180 12 66 4 126-20 180z" fill="#a3b89d"/><path class="leaf l2" d="M270 647c20-60 10-110-24-150-8 56-2 104 24 150z" fill="#5d7858"/></g>
+     <g class="float">
+      <rect x="182" y="250" width="36" height="74" rx="8" fill="#2E3A2C"/><rect x="174" y="312" width="52" height="22" rx="5" fill="#2E3A2C"/>
+      <path d="M170 332h60c22 8 34 26 34 50v170c0 16-10 26-26 26h-76c-16 0-26-10-26-26V382c0-24 12-42 34-50z" fill="#c98f73"/>
+      <path d="M148 392c0-18 6-32 20-42v210c-12 0-20-8-20-18z" fill="#fff" opacity=".25"/>
+      <rect x="136" y="420" width="128" height="112" fill="#F6F2E9"/>
+      <text x="200" y="468" text-anchor="middle" font-family="Cormorant,serif" font-size="25" fill="#2E3A2C">Miên Thảo</text>
+      <path d="M176 480h48" stroke="#2E3A2C" stroke-width=".8"/>
+      <text x="200" y="498" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-size="7" letter-spacing="2.4" fill="#6B7466">TINH CHẤT RAU MÁ</text>
+      <text x="200" y="516" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-size="7" letter-spacing="2" fill="#6B7466">30 ml</text>
+     </g>
+    </svg>
+   </div>
+   <div class="arch b" id="pb">
+    <svg viewBox="0 0 250 404" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+     <ellipse cx="125" cy="372" rx="90" ry="12" fill="#b9785a" opacity=".25"/>
+     <g class="float" style="animation-delay:-3s"><rect x="62" y="268" width="126" height="34" rx="8" fill="#2E3A2C"/><path d="M68 300h114v52c0 12-8 20-20 20H88c-12 0-20-8-20-20z" fill="#F6F2E9"/><text x="125" y="340" text-anchor="middle" font-family="Cormorant,serif" font-size="17" fill="#2E3A2C">Miên Thảo</text></g>
+     <g id="petals" transform="translate(125 150)" fill="#F6F2E9" opacity=".8"></g>
+    </svg>
+   </div>
+   <div class="seal">13<br>thành phần</div>
+  </div>
+ </div>
+ <div class="vals"><div data-r><b>i.</b><span>Thuần chay, không thử nghiệm trên động vật</span></div><div data-r style="--i:1"><b>ii.</b><span>Không hương liệu tổng hợp, không cồn khô</span></div><div data-r style="--i:2"><b>iii.</b><span>Chai thủy tinh, nhận lại vỏ để tái dùng</span></div></div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div><span>Rau má</span><span>✦</span><span>Trà xanh</span><span>✦</span><span>Cám gạo</span><span>✦</span><span>Hoa bưởi</span><span>✦</span><span>Nghệ vàng</span><span>✦</span><span>Bồ kết</span><span>✦</span><span>Rau má</span><span>✦</span><span>Trà xanh</span><span>✦</span><span>Cám gạo</span><span>✦</span><span>Hoa bưởi</span><span>✦</span><span>Nghệ vàng</span><span>✦</span><span>Bồ kết</span><span>✦</span></div></div>
+
+<section class="sec" id="san-pham"><div class="w">
+ <div class="sh" data-r><p class="cap">Bộ sưu tập</p><h2>Bốn bước, <em>đủ cho mỗi ngày</em></h2><p>Mỗi sản phẩm làm tốt một việc. Dùng riêng hay dùng cùng đều được.</p></div>
+ <div class="pg" id="pg"></div>
+</div></section>
+
+<section class="sec ing" id="thanh-phan"><div class="w">
+ <div class="sh" data-r><p class="cap">Thành phần chính</p><h2>Biết rõ thứ bạn <em>thoa lên da</em></h2><p>Chúng tôi ghi đủ tên, tỷ lệ và nơi trồng của từng nguyên liệu ngay trên nhãn.</p></div>
+ <div class="ig">
+  <div class="draw" data-r><svg viewBox="-100 -100 200 200" id="dw" aria-hidden="true"></svg><small id="dn">Centella asiatica</small></div>
+  <div class="acc" id="acc" data-r style="--i:1"></div>
+ </div>
+</div></section>
+
+<section class="sec" id="lieu-trinh"><div class="w">
+ <div class="sh" data-r><p class="cap">Liệu trình gợi ý</p><h2>Ba phút <em>buổi <span id="when">sáng</span></em></h2><div class="seg" id="seg"><button class="on" data-k="0">Buổi sáng</button><button data-k="1">Buổi tối</button></div></div>
+ <div class="steps" id="steps" data-r></div>
+</div></section>
+
+<section class="sec sets" id="bo-duong"><div class="w">
+ <div class="sh" data-r><p class="cap">Bộ dưỡng &amp; giá</p><h2>Da bạn thuộc <em>kiểu nào?</em></h2><p>Chọn tình trạng da gần với bạn nhất, chúng tôi gợi ý bộ phù hợp.</p>
+  <div class="skin" id="skin"><button data-k="0">Dầu, dễ nổi mụn</button><button data-k="1">Khô, thiếu ẩm</button><button data-k="2">Nhạy cảm, dễ đỏ</button></div></div>
+ <div class="sg" id="sg">
+  <article class="set" data-r><span class="for">Cho da dầu</span><h3>Bộ Cân Bằng</h3><ul><li>Sữa rửa mặt trà xanh<span>120 ml</span></li><li>Tinh chất rau má<span>30 ml</span></li><li>Mẫu thử kem đêm<span>5 g</span></li></ul><div class="pr">490.000đ<s>530.000đ</s></div><a class="btn o" href="#mau-thu">Chọn bộ này</a></article>
+  <article class="set" data-r style="--i:1"><span class="for">Cho da khô</span><h3>Bộ Cấp Ẩm</h3><ul><li>Dầu tẩy trang hoa bưởi<span>100 ml</span></li><li>Tinh chất rau má<span>30 ml</span></li><li>Kem đêm cám gạo<span>50 g</span></li></ul><div class="pr">790.000đ<s>870.000đ</s></div><a class="btn o" href="#mau-thu">Chọn bộ này</a></article>
+  <article class="set" data-r style="--i:2"><span class="for">Cho da nhạy cảm</span><h3>Bộ Làm Dịu</h3><ul><li>Sữa rửa mặt trà xanh<span>120 ml</span></li><li>Tinh chất rau má<span>30 ml</span></li><li>Kem đêm cám gạo<span>50 g</span></li></ul><div class="pr">740.000đ<s>820.000đ</s></div><a class="btn o" href="#mau-thu">Chọn bộ này</a></article>
+ </div>
+</div></section>
+
+<section class="sec" id="mau-thu"><div class="w">
+ <div class="try" data-r>
+  <div><p class="cap" style="color:var(--clay)">Dùng thử trước khi mua</p><h2 style="margin-top:16px">Nhận bộ mẫu thử <em>ba ngày</em></h2><p style="color:var(--muted);margin-top:16px;max-width:46ch">Bốn gói nhỏ đủ dùng sáng tối trong ba ngày. Bạn chỉ trả phí giao hàng.</p></div>
+  <form id="tf" novalidate><input class="fld" type="text" placeholder="Họ tên" aria-label="Họ tên" required><input class="fld" type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required><button class="btn" style="margin-top:16px">Gửi cho tôi</button><p class="msg" id="tm" role="status">Trang mẫu: thông tin không được gửi đi.</p></form>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <div class="fg"><div><div class="big">Miên Thảo</div></div><div><h4>Xưởng</h4><p>Số 21 đường Vườn Thuốc<br>Hội An, Quảng Nam</p></div><div><h4>Liên hệ</h4><p>hello@mienthao.example<br>0900 000 000</p></div></div>
+ <div class="cpt"><span>Miên Thảo là thương hiệu concept. Website mẫu do <a href="../index.html" target="_top" style="text-decoration:underline">DreamLab</a> thiết kế, mọi thông tin chỉ để minh họa.</span><span>© 2026</span></div>
+</div></footer>
+<a class="back" href="../index.html">← DreamLab</a>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(()=>{
+document.documentElement.classList.add('js');if(parent!==window)document.documentElement.classList.add('emb');
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const GA=137.508*Math.PI/180,vnd=n=>n.toLocaleString('vi-VN')+'đ';
+/* cánh hoa hero */
+$('#petals').innerHTML=Array.from({length:55},(_,i)=>{const r=7.4*Math.sqrt(i+1),t=(i+1)*GA;return `<circle cx="${(r*Math.cos(t)).toFixed(1)}" cy="${(r*Math.sin(t)).toFixed(1)}" r="${(1+i/55*3.2).toFixed(1)}"/>`}).join('');
+/* sản phẩm */
+const shape=[c=>`<rect x="48" y="6" width="24" height="46" rx="5" fill="#2E3A2C"/><rect x="43" y="46" width="34" height="14" rx="3" fill="#2E3A2C"/><path d="M40 58h40c14 5 20 15 20 30v88c0 10-6 16-16 16H36c-10 0-16-6-16-16V88c0-15 6-25 20-30z" fill="${c}"/><rect x="20" y="104" width="80" height="62" fill="#F6F2E9"/>`,
+ c=>`<rect x="14" y="84" width="92" height="30" rx="7" fill="#2E3A2C"/><path d="M18 112h84v60c0 12-8 20-20 20H38c-12 0-20-8-20-20z" fill="${c}"/><rect x="18" y="130" width="84" height="38" fill="#F6F2E9"/>`,
+ c=>`<path d="M30 22h60l8 150H22z" fill="${c}"/><path d="M26 18h68v8H26z" fill="rgba(46,58,44,.35)"/><rect x="42" y="172" width="36" height="22" rx="4" fill="#2E3A2C"/><rect x="34" y="70" width="52" height="60" fill="#F6F2E9"/>`,
+ c=>`<path d="M52 12h30v10H64v14H52z" fill="#2E3A2C"/><rect x="46" y="34" width="28" height="22" rx="3" fill="#2E3A2C"/><rect x="24" y="54" width="72" height="138" rx="14" fill="${c}"/><rect x="24" y="96" width="72" height="62" fill="#F6F2E9"/>`];
+const lab=y=>`<text x="60" y="${y}" text-anchor="middle" font-family="Cormorant,serif" font-size="11" fill="#2E3A2C">Miên Thảo</text><path d="M46 ${y+6}h28" stroke="#2E3A2C" stroke-width=".5"/>`;
+const P=[{n:'Tinh chất rau má',d:'Làm dịu da đỏ rát, hỗ trợ mờ vết thâm sau mụn.',v:'30 ml',p:320000,c:'#C98F73',bg:'linear-gradient(180deg,#f3dfd4,#EBCFC2)',s:0,ly:132,t:'làm dịu'},
+ {n:'Kem đêm cám gạo',d:'Khóa ẩm suốt đêm, sáng dậy da mềm và đều màu hơn.',v:'50 g',p:290000,c:'#E9DFC8',bg:'linear-gradient(180deg,#f1ecdf,#e3dac3)',s:1,ly:150,t:'khóa ẩm'},
+ {n:'Sữa rửa mặt trà xanh',d:'Sạch dầu thừa mà không khô căng. Bọt mịn, độ pH 5.5.',v:'120 ml',p:210000,c:'#93A88D',bg:'linear-gradient(180deg,#e4ebde,#cfdac7)',s:2,ly:98,t:'làm sạch'},
+ {n:'Dầu tẩy trang hoa bưởi',d:'Tan lớp trang điểm và kem chống nắng, rửa lại không nhờn.',v:'100 ml',p:260000,c:'#E3C27A',bg:'linear-gradient(180deg,#f4ecd6,#ecdcae)',s:3,ly:124,t:'tẩy trang'}];
+$('#pg').innerHTML=P.map((p,i)=>`<article class="pc" data-r style="--i:${i%4}"><div class="ph" style="background:${p.bg}"><span class="tag">${p.t}</span><svg viewBox="0 0 120 200" aria-hidden="true">${shape[p.s](p.c)}${lab(p.ly)}</svg></div><h3>${p.n}</h3><p class="d">${p.d}</p><div class="b"><span class="pr">${vnd(p.p)} <small style="font-family:var(--fb);font-size:12px;color:var(--muted)">/ ${p.v}</small></span><button class="add" data-n="${p.n}">Thêm vào túi</button></div></article>`).join('');
+let bn=0,tt;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2620)};
+$('#pg').addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;bn++;const c=$('#bn');c.textContent=bn;c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),424);toast('Đã thêm '+b.dataset.n)});
+$('#bag').onclick=()=>toast(bn?('Túi có '+bn+' sản phẩm · trang mẫu'):'Túi đang trống');
+/* thành phần: hình vẽ sinh bằng code */
+const pt=(r,t)=>[(r*Math.cos(t)).toFixed(1),(r*Math.sin(t)).toFixed(1)];
+const D=[()=>{let d='';for(let i=0;i<=180;i++){const t=i/180*Math.PI*2*.94+Math.PI/2+.19,r=58*(1+.07*Math.cos(11*t)),[x,y]=pt(r,t);d+=(i?'L':'M')+x+' '+(y-12)}
+  let o=`<path class="dr" pathLength="1" d="${d}"/>`;for(let i=0;i<9;i++){const t=Math.PI/2+.5+i*(Math.PI*2-1)/8,[x,y]=pt(50,t);o+=`<path class="dr" pathLength="1" style="--k:${i+4}" d="M0 -12L${x} ${(+y-12).toFixed(1)}"/>`}
+  return o+`<path class="dr" pathLength="1" style="--k:14" d="M0 -12C4 30 -6 60 10 92"/>`},
+ ()=>{const lf=(x,y,a,s)=>`<g transform="translate(${x} ${y}) rotate(${a}) scale(${s})"><path class="dr" pathLength="1" d="M0 0C-22 -20 -22 -56 0 -80C22 -56 22 -20 0 0z"/><path class="dr" pathLength="1" style="--k:8" d="M0 0V-72M0 -20l-11 -9M0 -20l11 -9M0 -40l-12 -9M0 -40l12 -9M0 -58l-8 -7M0 -58l8 -7"/></g>`;
+  return `<path class="dr" pathLength="1" d="M0 92C-4 50 4 20 0 -6"/>`+lf(0,-6,0,1)+lf(-2,30,-62,.8)+lf(2,46,58,.72)+lf(0,-2,-34,.5)},
+ ()=>{let o=`<path class="dr" pathLength="1" d="M-30 92C-10 30 6 -30 40 -80"/>`;for(let i=0;i<13;i++){const u=i/12,x=-12+u*50,y=30-u*108,a=(i%2?40:-70)-u*20;o+=`<ellipse class="dr" pathLength="1" style="--k:${i+3}" cx="${(x+(i%2?10:-10)).toFixed(1)}" cy="${y.toFixed(1)}" rx="5" ry="11" transform="rotate(${a} ${(x+(i%2?10:-10)).toFixed(1)} ${y.toFixed(1)})"/>`}
+  return o+`<path class="dr" pathLength="1" style="--k:16" d="M-22 70C-50 40 -60 10 -56 -20M-16 52C10 40 30 44 52 60"/>`},
+ ()=>{let o='';for(let i=0;i<5;i++)o+=`<path class="dr" pathLength="1" style="--k:${i*3}" transform="rotate(${i*72})" d="M0 -14C-26 -34 -22 -72 0 -88C22 -72 26 -34 0 -14z"/>`;
+  for(let i=1;i<=21;i++){const [x,y]=pt(3.2*Math.sqrt(i),i*GA);o+=`<circle class="dr" pathLength="1" style="--k:${15+i}" cx="${x}" cy="${y}" r="1.4"/>`}return o}];
+const I=[['Rau má','Centella asiatica','Trồng tại Quảng Nam','Chứa madecassoside giúp làm dịu da kích ứng và hỗ trợ phục hồi hàng rào bảo vệ. Chiếm 42% trong tinh chất.'],
+ ['Trà xanh','Camellia sinensis','Hái tại Thái Nguyên','Giàu chất chống oxy hóa, giúp kiểm soát dầu thừa. Chúng tôi chỉ dùng lá non hái trước 9 giờ sáng.'],
+ ['Cám gạo','Oryza sativa','Xay tại An Giang','Dầu cám gạo ép lạnh giữ ẩm và làm mềm da. Là bí quyết dưỡng da của các bà, các mẹ từ xưa.'],
+ ['Hoa bưởi','Citrus maxima','Thu tại Hưng Yên','Nước cất hoa bưởi cho mùi hương tự nhiên, dịu nhẹ. Thay hoàn toàn cho hương liệu tổng hợp.']];
+$('#acc').innerHTML=I.map((x,i)=>`<button data-k="${i}" aria-expanded="false"><i>${'i'.repeat(i+1).replace('iiii','iv')}.</i><b>${x[0]}</b><span>${x[2]}</span></button><div class="pn"><div><p>${x[3]}</p></div></div>`).join('');
+const setI=k=>{$$('#acc button').forEach((b,i)=>{b.classList.toggle('on',i===k);b.setAttribute('aria-expanded',i===k);b.nextElementSibling.classList.toggle('on',i===k)});$('#dw').innerHTML=D[k]();$('#dn').textContent=I[k][1]};
+$('#acc').addEventListener('click',e=>{const b=e.target.closest('button');b&&setI(+b.dataset.k)});
+/* liệu trình */
+const S=[[['Làm sạch','Sữa rửa mặt trà xanh, mát-xa 30 giây với nước ấm.','30 giây'],['Tinh chất','3 giọt tinh chất rau má, vỗ nhẹ tới khi thấm.','1 phút'],['Bảo vệ','Kem chống nắng bạn đang dùng. Chờ khô rồi trang điểm.','1 phút']],
+ [['Tẩy trang','Dầu hoa bưởi trên da khô, nhũ hóa với nước rồi rửa sạch.','1 phút'],['Tinh chất','4 giọt tinh chất rau má, ưu tiên vùng da đang đỏ.','1 phút'],['Khóa ẩm','Kem đêm cám gạo, lượng bằng hạt đậu, thoa từ trong ra ngoài.','1 phút']]];
+const setS=k=>{$$('#seg button').forEach((b,i)=>b.classList.toggle('on',i===k));$('#when').textContent=k?'tối':'sáng';const el=$('#steps');el.classList.toggle('night',!!k);el.innerHTML=S[k].map(s=>`<div class="st"><h3>${s[0]}</h3><p>${s[1]}</p><small>${s[2]}</small></div>`).join('')};
+$('#seg').addEventListener('click',e=>{const b=e.target.closest('button');b&&setS(+b.dataset.k)});setS(0);
+/* chọn loại da */
+$('#skin').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const k=+b.dataset.k;$$('#skin button').forEach((x,i)=>x.classList.toggle('on',i===k));$('#sg').classList.add('pick');$$('#sg .set').forEach((s,i)=>s.classList.toggle('on',i===k))});
+$('#tf').addEventListener('submit',e=>{e.preventDefault();const ok=$$('#tf .fld').every(f=>f.value.trim());$('#tm').textContent=ok?'Cảm ơn bạn. Đây là trang mẫu nên chưa có gói nào được gửi.':'Bạn điền giúp họ tên và số điện thoại nhé.'});
+/* reveal + parallax nhẹ */
+const els=$$('[data-r]');let drawn=false;
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('draw')&&!drawn){drawn=true;setI(0)}}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>io.observe(el))}else els.forEach(el=>el.classList.add('in'));
+if(!drawn){$('#dw').innerHTML=D[0]().replace(/class="dr"/g,'');$$('#acc button')[0].classList.add('on');$$('#acc .pn')[0].classList.add('on')}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&matchMedia('(min-width:861px)').matches){const a=$('#pb');let tk=false;addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{tk=false;const y=Math.min(scrollY,900);a.style.transform=`translateY(${42-y*.1}px)`})},{passive:true})}
+try{parent!==window&&parent.postMessage({wkDemo:'mien-thao'},'*')}catch(e){}
+})();
+</script>
+</body>
+</html>

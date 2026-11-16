@@ -1,0 +1,37 @@
+<section class="band contact-sec" id="lien-he">
+  <div class="wrap contact">
+    <div class="cinfo">
+      <div><p class="eyebrow">Liên hệ</p><h2 data-split>Kể chúng tôi nghe <em>giấc mơ</em> của bạn.</h2></div>
+      <p class="lead" data-reveal>Nhắn Zalo để được trả lời nhanh nhất, hoặc điền vài dòng bên cạnh: trang soạn sẵn nội dung để bạn dán gửi. Tư vấn không mất phí, không ràng buộc.</p>
+      <dl data-stagger>
+        <div><dt>Zalo / Điện thoại</dt><dd>0934 246 420</dd>
+          <p class="cinfo-act"><a class="btn primary sm" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Mở Zalo <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a><button type="button" class="btn sm" data-copy="0934246420">Sao chép số</button></p></div>
+        <div><dt>Email</dt><dd>harryle1010@gmail.com</dd>
+          <p class="cinfo-act"><button type="button" class="btn sm" data-copy="harryle1010@gmail.com">Sao chép email</button></p></div>
+        <div><dt>Giờ làm việc</dt><dd>T2–T7 · 8:30–18:00</dd></div>
+      </dl>
+    </div>
+    <form class="cf" id="cf" novalidate data-reveal>
+      <div class="cf-pick" id="cfPick" hidden><span>Gói đã chọn</span><b id="cfPickName"></b><button type="button" id="cfPickX" aria-label="Bỏ gói đã chọn">×</button></div>
+      <div class="field"><label for="f-name">Họ tên</label><input id="f-name" name="name" required autocomplete="name" placeholder="Nguyễn Minh An"></div>
+      <div class="field"><label for="f-phone">Số điện thoại / Zalo</label><input id="f-phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx"></div>
+      <div class="field"><label for="f-svc">Dịch vụ quan tâm</label><select id="f-svc" name="svc"><option value="">Chưa chắc, cần tư vấn</option></select></div>
+      <div class="field"><label for="f-budget">Ngân sách</label>
+        <select id="f-budget" name="budget"><option>Dưới 5 triệu</option><option>5–15 triệu</option><option selected>15–40 triệu</option><option>Trên 40 triệu</option></select></div>
+      <div class="field full"><label for="f-msg">Mô tả ngắn</label><textarea id="f-msg" name="msg" placeholder="Thương hiệu của bạn, mục tiêu dự án, thời hạn mong muốn…"></textarea></div>
+      <p class="form-msg" id="formMsg" role="status"></p>
+      <button class="btn primary" type="submit" data-magnetic>Gửi yêu cầu <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></button>
+      <p class="cf-note">Form chưa tự gửi đi đâu: sau khi bấm, bạn nhận nội dung soạn sẵn để dán gửi qua Zalo.</p>
+      <div class="cf-done" id="cfDone" hidden>
+        <h3>Cảm ơn <em id="cfDoneName">bạn</em>, còn một bước.</h3>
+        <p>Form này chưa tự gửi đi đâu cả. Nội dung yêu cầu đã soạn sẵn bên dưới: bấm <b>Sao chép</b> rồi dán vào Zalo <b class="cf-tel">0934 246 420</b> để gửi cho DreamLab.</p>
+        <pre class="cf-req" id="cfReq" tabindex="0" aria-label="Nội dung yêu cầu đã soạn"></pre>
+        <div class="cf-done-act">
+          <button class="btn primary sm" type="button" data-copy-from="#cfReq">Sao chép</button>
+          <a class="btn sm" id="cfZalo" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Mở Zalo <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+          <button class="btn sm" type="button" id="cfAgain">Điền lại</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

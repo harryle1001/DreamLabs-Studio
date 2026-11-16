@@ -1,0 +1,235 @@
+<section id="lab" class="band lab">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Demo Lab</p>
+        <h2 data-split>Đừng chỉ nghe kể.<br><em>Hãy tự tay thử.</em></h2>
+      </div>
+      <p class="lead" data-reveal>Năm bản demo nhỏ cho những việc DreamLab làm mỗi ngày. Tất cả là mô phỏng chạy ngay trên trang này, không gửi dữ liệu của bạn đi đâu.</p>
+    </div>
+
+    <div class="lab-tabs" role="tablist" aria-label="Chọn demo">
+      <button class="lab-tab is-on" role="tab" id="lab-t-chat" aria-controls="lab-p-chat" aria-selected="true" data-lab="chat"><i>01</i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 6.5h18v11H12l-5 4v-4H4z"/><path d="M9 11h8M9 14h5"/></svg><span>Chatbot bán hàng</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-flow" aria-controls="lab-p-flow" aria-selected="false" tabindex="-1" data-lab="flow"><i>02</i><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="5.5" cy="13" r="2.5"/><circle cx="20.5" cy="6.5" r="2.5"/><circle cx="20.5" cy="19.5" r="2.5"/><path d="M8 13h4c3 0 3-6.5 6-6.5M12 13c3 0 3 6.5 6 6.5"/></svg><span>Luồng tự động hóa</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-motion" aria-controls="lab-p-motion" aria-selected="false" tabindex="-1" data-lab="motion"><i>03</i><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="9" cy="13" r="5"/><path d="M16 8a7 7 0 0 1 0 10M20 5.5a11 11 0 0 1 0 15"/></svg><span>Motion graphic</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-grade" aria-controls="lab-p-grade" aria-selected="false" tabindex="-1" data-lab="grade"><i>04</i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 7h18M4 13h18M4 19h18"/><circle cx="9" cy="7" r="2.2"/><circle cx="17" cy="13" r="2.2"/><circle cx="11" cy="19" r="2.2"/></svg><span>Chỉnh màu video</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-build" aria-controls="lab-p-build" aria-selected="false" tabindex="-1" data-lab="build"><i>05</i><svg viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="3" width="12" height="20" rx="3"/><path d="M10 8h6M10 11.5h4"/><rect x="10" y="15" width="6" height="3" rx="1.5"/></svg><span>Landing builder</span></button>
+    </div>
+
+    <div class="lab-stage card">
+
+      <!-- ===== 1. Chatbot ===== -->
+      <div class="lab-panel is-on" id="lab-p-chat" role="tabpanel" aria-labelledby="lab-t-chat" data-lab="chat">
+        <div class="lab-demo lab-chatwrap">
+          <div class="lab-chat">
+            <header class="lab-chat-head">
+              <span class="lab-ava" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 22C6 19 5 12 8 5c6 1 10 6 9 12M13 22c0-6-1-9-3-12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><b>Tiệm trà Lá Lửng</b><small><i></i>Trợ lý AI đang trực</small></div>
+              <span class="tag-concept">Concept</span>
+            </header>
+            <div class="lab-msgs" data-lenis-prevent aria-live="polite" aria-label="Hội thoại demo"></div>
+            <div class="lab-quick" aria-label="Gợi ý câu hỏi"></div>
+            <form class="lab-input" autocomplete="off">
+              <label class="sr-only" for="lab-chat-in">Nhập tin nhắn</label>
+              <input id="lab-chat-in" type="text" maxlength="120" placeholder="Thử gõ: giá, ship, tư vấn, đặt hàng…" enterkeyhint="send">
+              <button type="submit" aria-label="Gửi tin nhắn"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 13h17M14 6l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </form>
+          </div>
+          <div class="lab-board">
+            <div class="lab-board-head"><b>Phía sau màn hình</b><span class="lab-badge">Demo mô phỏng</span></div>
+            <div class="lab-read"><small>AI vừa hiểu</small><p class="lab-read-out">Đang chờ tin nhắn đầu tiên.</p></div>
+            <div class="lab-orders">
+              <small>Bảng đơn hàng</small>
+              <p class="lab-orders-empty">Chưa có đơn. Hãy chat tới bước đặt hàng để xem đơn tự hiện ở đây.</p>
+              <ol class="lab-order-list"></ol>
+            </div>
+            <dl class="lab-kpis">
+              <div><dt>Đã trả lời</dt><dd data-k="msgs">0</dd></div>
+              <div><dt>Đơn chốt</dt><dd data-k="orders">0</dd></div>
+              <div><dt>Doanh thu</dt><dd data-k="rev">0đ</dd></div>
+            </dl>
+          </div>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Chatbot <em>chốt đơn</em> lúc bạn đang ngủ</h3>
+          <p>Khách hỏi giá, hỏi ship, nhờ tư vấn rồi đặt hàng. Trợ lý trả lời trong vài giây và ghi đơn vào bảng. Bản demo chạy theo kịch bản soạn sẵn, không gọi AI thật.</p>
+          <ul class="lab-points"><li>Trả lời Zalo, Messenger, website cùng một nơi</li><li>Học từ bảng giá và chính sách của riêng bạn</li><li>Chuyển cho nhân viên khi gặp câu khó</li></ul>
+          <div class="lab-price"><small>Tự động hóa AI, gói Khởi động</small><b data-lab-price="ai:0">Từ 5.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Tự động hóa AI — Khởi động">Làm chatbot cho shop tôi</a><a class="lab-link" href="#p-ai">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 2. Luồng tự động hóa ===== -->
+      <div class="lab-panel" id="lab-p-flow" role="tabpanel" aria-labelledby="lab-t-flow" data-lab="flow" hidden>
+        <div class="lab-demo lab-flow">
+          <div class="lab-flow-map">
+            <svg class="lab-flow-svg" aria-hidden="true"></svg>
+            <ol class="lab-nodes">
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><path d="M4 6.5h18v11H12l-5 4v-4H4z"/></svg></span><b>Zalo / Form</b><small>Khách để lại lời nhắn</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><path d="M13 3l2.4 7.2L22 13l-6.6 2.8L13 23l-2.4-7.2L4 13l6.6-2.8z"/></svg></span><b>AI phân loại</b><small>Đọc nhu cầu, chấm ưu tiên</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><rect x="4" y="5" width="18" height="16" rx="2"/><path d="M4 10.5h18M4 16h18M10.5 5v16"/></svg></span><b>Google Sheets</b><small>Ghi thêm một dòng</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><circle cx="13" cy="9.5" r="4"/><path d="M5 22c1-4.5 4-6.5 8-6.5s7 2 8 6.5"/></svg></span><b>CRM</b><small>Tạo khách, giao người phụ trách</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><path d="M6.5 18V12a6.5 6.5 0 0 1 13 0v6l2 2.5h-17zM11 22.5h4"/></svg></span><b>Thông báo</b><small>Báo nhóm bán hàng</small></li>
+            </ol>
+            <div class="lab-token" aria-hidden="true"><i>H</i></div>
+          </div>
+          <div class="lab-flow-ctl">
+            <button class="btn primary lab-run" type="button"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M9 5.5v15l12-7.5z" fill="currentColor"/></svg><span>Chạy thử</span></button>
+            <p class="lab-flow-msg" aria-live="polite">Bấm “Chạy thử” để xem một khách hàng đi hết quy trình mà không ai phải động tay.</p>
+          </div>
+          <div class="lab-flow-data">
+            <div class="lab-sheet-wrap">
+              <table class="lab-sheet"><caption>Bảng khách hàng <span class="lab-badge">Demo mô phỏng</span></caption>
+                <thead><tr><th>Khách</th><th>Nhu cầu</th><th>Ưu tiên</th><th>Phụ trách</th></tr></thead>
+                <tbody><tr class="lab-sheet-empty"><td colspan="4">Chưa có dòng nào.</td></tr></tbody>
+              </table>
+            </div>
+            <dl class="lab-kpis">
+              <div><dt>Khách đã xử lý</dt><dd data-k="done">0</dd></div>
+              <div><dt>Mỗi khách mất</dt><dd data-k="time">0 giây</dd></div>
+              <div><dt>Việc làm tay</dt><dd data-k="manual">0</dd></div>
+            </dl>
+          </div>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Việc lặp lại, <em>để máy lo</em></h3>
+          <p>Mỗi lời nhắn mới được AI đọc, phân loại, ghi vào bảng, tạo khách trong CRM rồi báo đúng người. Bạn chỉ còn việc gọi lại cho khách.</p>
+          <ul class="lab-points"><li>Nối Zalo, form, Sheets, CRM, email sẵn có</li><li>Báo cáo tự gửi mỗi sáng</li><li>Có nhật ký để kiểm tra từng bước</li></ul>
+          <div class="lab-price"><small>Tự động hóa AI, gói Tăng trưởng</small><b data-lab-price="ai:1">Từ 15.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Tự động hóa AI — Tăng trưởng">Vẽ quy trình cho tôi</a><a class="lab-link" href="#p-ai">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 3. Motion graphic ===== -->
+      <div class="lab-panel" id="lab-p-motion" role="tabpanel" aria-labelledby="lab-t-motion" data-lab="motion" hidden>
+        <div class="lab-demo lab-motion">
+          <div class="lab-seg" role="group" aria-label="Chọn mẫu motion">
+            <button type="button" class="is-on" data-mo="logo">Logo animation</button>
+            <button type="button" data-mo="type">Chữ chuyển động</button>
+            <button type="button" data-mo="info">Infographic số liệu</button>
+          </div>
+          <div class="lab-mo-stage"><div class="lab-mo-canvas"></div><span class="lab-badge">Demo mô phỏng</span></div>
+          <div class="lab-mo-ctl">
+            <button type="button" class="lab-mo-play" aria-label="Phát"><svg class="i-play" viewBox="0 0 26 26" aria-hidden="true"><path d="M9 5.5v15l12-7.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 26 26" aria-hidden="true"><path d="M8 5.5h3.5v15H8zM14.5 5.5H18v15h-3.5z" fill="currentColor"/></svg></button>
+            <div class="lab-mo-track">
+              <div class="lab-mo-ticks" aria-hidden="true"></div>
+              <label class="sr-only" for="lab-mo-range">Kéo để tua timeline</label>
+              <input id="lab-mo-range" class="lab-range" type="range" min="0" max="1000" value="0" step="1">
+            </div>
+            <span class="lab-mo-time">0,00s</span>
+          </div>
+          <p class="lab-hint">Kéo thanh timeline để tua tới lui từng khung hình. Đây là chuyển động chạy trực tiếp, không phải video.</p>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Chuyển động <em>có chủ đích</em></h3>
+          <p>Ba mẫu ngắn: logo tự vẽ, chữ bật theo nhịp, số liệu tự kể chuyện. Mỗi nhịp nhanh chậm đều được tính trước, bạn tua thử sẽ thấy.</p>
+          <ul class="lab-points"><li>Logo animation, intro, video giải thích</li><li>Xuất đủ tỷ lệ cho web và mạng xã hội</li><li>Nhúng thẳng vào website, nhẹ hơn video</li></ul>
+          <div class="lab-price"><small>Motion Graphic, gói Cơ bản</small><b data-lab-price="motion:0">Từ 3.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Motion Graphic — Cơ bản">Làm motion cho logo tôi</a><a class="lab-link" href="#p-motion">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 4. Chỉnh màu video ===== -->
+      <div class="lab-panel" id="lab-p-grade" role="tabpanel" aria-labelledby="lab-t-grade" data-lab="grade" hidden>
+        <div class="lab-demo lab-grade">
+          <div class="lab-gr-top">
+            <div class="lab-seg lab-gr-presets" role="group" aria-label="Chọn tông màu">
+              <button type="button" class="is-on" data-gr="cine">Điện ảnh</button>
+              <button type="button" data-gr="warm">Ấm</button>
+              <button type="button" data-gr="cool">Mát</button>
+            </div>
+            <div class="lab-seg lab-gr-ratios" role="group" aria-label="Chọn tỷ lệ khung hình">
+              <button type="button" class="is-on" data-ar="16:9">16:9</button>
+              <button type="button" data-ar="1:1">1:1</button>
+              <button type="button" data-ar="9:16">9:16</button>
+            </div>
+          </div>
+          <div class="lab-gr-stage">
+            <div class="lab-gr-frame" data-gr="cine" style="--split:38.2%">
+              <div class="lab-gr-layer lab-gr-after"></div>
+              <div class="lab-gr-layer lab-gr-before"></div>
+              <span class="lab-gr-lb a">Trước</span><span class="lab-gr-lb b">Sau</span>
+              <span class="lab-gr-safe" aria-hidden="true"></span>
+              <span class="lab-gr-handle" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M10 8l-5 5 5 5M16 8l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <label class="sr-only" for="lab-gr-range">Kéo để so sánh trước và sau khi chỉnh màu</label>
+              <input id="lab-gr-range" class="lab-gr-range" type="range" min="0" max="1000" value="382" step="1">
+            </div>
+          </div>
+          <div class="lab-gr-foot">
+            <span class="lab-gr-where">YouTube, website · 16:9</span>
+            <span class="lab-badge">Demo mô phỏng</span>
+          </div>
+          <p class="lab-hint">Kéo vạch giữa để so sánh trước và sau. Khung hình này được vẽ bằng code, không phải ảnh chụp.</p>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Cùng một cảnh, <em>ba cảm xúc</em></h3>
+          <p>Màu quyết định người xem cảm thấy gì trong giây đầu tiên. Thử ba tông màu và ba tỷ lệ khung để thấy một cảnh quay đổi khác thế nào.</p>
+          <ul class="lab-points"><li>Dựng, chỉnh màu, phụ đề, nhạc có bản quyền</li><li>Một lần quay, xuất đủ YouTube, Reels, TikTok</li><li>Giữ đúng tông màu thương hiệu</li></ul>
+          <div class="lab-price"><small>Edit Video, gói Chuyên nghiệp</small><b data-lab-price="video:1">Từ 2.000.000đ/video</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Edit Video — Chuyên nghiệp">Dựng video cho tôi</a><a class="lab-link" href="#p-video">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 5. Landing builder ===== -->
+      <div class="lab-panel" id="lab-p-build" role="tabpanel" aria-labelledby="lab-t-build" data-lab="build" hidden>
+        <div class="lab-demo lab-build">
+          <form class="lab-bd-form" autocomplete="off">
+            <fieldset><legend>Màu chủ đạo</legend>
+              <div class="lab-bd-sw">
+                <button type="button" class="is-on" data-c="#6247B8" style="--c:#6247B8" aria-label="Tím oải hương"></button>
+                <button type="button" data-c="#C2603C" style="--c:#C2603C" aria-label="Cam đất nung"></button>
+                <button type="button" data-c="#2E6B4E" style="--c:#2E6B4E" aria-label="Xanh rừng"></button>
+                <button type="button" data-c="#1F5E8C" style="--c:#1F5E8C" aria-label="Xanh biển"></button>
+                <button type="button" data-c="#B03A5B" style="--c:#B03A5B" aria-label="Hồng mận"></button>
+              </div>
+            </fieldset>
+            <fieldset><legend>Phông tiêu đề</legend>
+              <div class="lab-seg lab-bd-fonts">
+                <button type="button" class="is-on" data-f="serif">Serif</button>
+                <button type="button" data-f="sans">Sans</button>
+                <button type="button" data-f="italic">Italic</button>
+              </div>
+            </fieldset>
+            <fieldset><legend>Giao diện</legend>
+              <div class="lab-seg lab-bd-modes">
+                <button type="button" class="is-on" data-m="light">Sáng</button>
+                <button type="button" data-m="dark">Tối</button>
+              </div>
+            </fieldset>
+            <label class="lab-bd-field"><span>Tiêu đề</span><input type="text" id="lab-bd-title" maxlength="48" value="Ngủ ngon hơn từ tối nay"></label>
+            <label class="lab-bd-field"><span>Chữ trên nút</span><input type="text" id="lab-bd-cta" maxlength="22" value="Nhận ưu đãi 20%"></label>
+            <p class="lab-bd-code" aria-live="polite"></p>
+          </form>
+          <div class="lab-bd-view">
+            <div class="lab-bd-phone" data-f="serif" data-m="light" style="--b:#6247B8">
+              <div class="lab-bd-screen">
+                <div class="lab-bd-nav"><b>Lá Lửng</b><span class="tag-concept">Concept</span></div>
+                <div class="lab-bd-art"><i></i><i></i><i></i><u></u></div>
+                <p class="lab-bd-kicker">Trà hoa cúc mật ong</p>
+                <h4 class="lab-bd-h">Ngủ ngon hơn từ tối nay</h4>
+                <p class="lab-bd-sub">Một tách ấm trước giờ ngủ. Hoa cúc hái tay, không hương liệu.</p>
+                <span class="lab-bd-btn">Nhận ưu đãi 20%</span>
+                <ul class="lab-bd-list"><li>Giao trong 24 giờ</li><li>Đổi trả trong 7 ngày</li></ul>
+                <div class="lab-bd-price"><b>145.000đ</b><s>182.000đ</s><em>Còn 02:14:36</em></div>
+              </div>
+            </div>
+            <span class="lab-badge">Demo mô phỏng</span>
+          </div>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Landing page <em>theo ý bạn</em></h3>
+          <p>Đổi màu, đổi phông, viết lại tiêu đề và xem trang thay đổi ngay. Dự án thật cũng vậy: bạn duyệt từng chi tiết trước khi trang lên sóng.</p>
+          <ul class="lab-points"><li>Viết nội dung bán hàng cùng bạn</li><li>Form thu khách về Sheets, báo qua Zalo</li><li>Gắn Pixel, GA4, sẵn sàng chạy quảng cáo</li></ul>
+          <div class="lab-price"><small>Landing Page, gói Chuyên nghiệp</small><b data-lab-price="landing:1">Từ 6.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Landing Page — Chuyên nghiệp">Làm landing cho tôi</a><a class="lab-link" href="#p-landing">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ondinea · Thuê du thuyền riêng trên vịnh — ước tính giá (Concept)</title>
+<meta name="description" content="Landing page concept do DreamLab thiết kế cho dịch vụ thuê du thuyền riêng: chọn tuyến, số khách và xem giá ước tính.">
+<style>
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-vietnamese-300-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-latin-300-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-weight:300 800;font-style:normal;font-display:swap;src:url(fonts/manrope-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Manrope";font-weight:300 800;font-style:normal;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--phi:1.61803;--s1:6px;--s2:10px;--s3:16px;--s4:26px;--s5:42px;--s6:68px;--s7:110px;--s8:178px;--d1:162ms;--d2:262ms;--d3:424ms;--d4:686ms;--d5:1110ms;--d6:1796ms;--ease:cubic-bezier(.22,1,.36,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-size:16px;line-height:1.618;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,select,input,textarea{font:inherit;color:inherit;border-radius:0}
+button{cursor:pointer;background:none;border:0;padding:0}
+svg{display:block;max-width:100%}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
+.w{width:100%;max-width:1280px;margin:0 auto;padding:0 max(20px,4.4vw)}
+.h1 span{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.h1 i{display:block;font-style:normal;animation:up var(--d6) var(--ease) both}
+.h1 span:nth-child(2) i{animation-delay:.162s}.h1 span:nth-child(3) i{animation-delay:.324s}
+@keyframes up{from{transform:translateY(110%)}}
+@keyframes fade{from{opacity:0}}
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity var(--d5) var(--ease),transform var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
+.js [data-r=clip]{opacity:1;transform:none;clip-path:inset(0 0 100% 0);transition:clip-path var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
+.js [data-r=wipe]{opacity:1;transform:none;clip-path:inset(0 100% 0 0);transition:clip-path var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
+.js [data-r].in{opacity:1;transform:none}
+.js [data-r=clip].in,.js [data-r=wipe].in{clip-path:inset(0)}
+.stk{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform var(--d4) var(--ease)}
+.stk.on{transform:none}
+.stk input{flex:1.618;min-width:0;min-height:48px}.stk button{flex:1;min-height:48px;white-space:nowrap}
+.stk .msg{position:absolute;left:0;right:0;bottom:100%;margin:0;padding:var(--s2) var(--s3);font-size:13px;line-height:1.4}.stk .msg:empty{display:none}
+@media(max-width:760px){.stk{display:flex}body{padding-bottom:0}}
+.emb .bk{display:none!important}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none;clip-path:none}}
+:root{--fm:#F1F5F3;--wh:#fff;--nv:#0C2B3E;--tl:#1F8A8C;--sd:#D9C6A5;--co:#DD6E52;--mu:rgba(12,43,62,.68);--ln:rgba(12,43,62,.16);--ac:var(--tl);--fd:Spectral,Georgia,serif;--fb:Manrope,system-ui,sans-serif}
+body{background:var(--fm);color:var(--nv);font-family:var(--fb);font-weight:400}
+h1,h2,h3{font-family:var(--fd);font-weight:300;line-height:1.14;letter-spacing:-.01em}
+em{font-style:italic;color:var(--tl)}
+.cap{font-size:10px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--tl);display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s3)}
+.cap::before{content:"";width:26px;height:1px;background:currentColor}
+.tc{border:1px solid currentColor;border-radius:99px;padding:2px 9px;letter-spacing:.16em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:52px;padding:0 var(--s4);border-radius:99px;background:var(--nv);color:var(--wh);font-size:13px;font-weight:600;letter-spacing:.04em;white-space:nowrap;transition:background var(--d3) var(--ease),transform var(--d3) var(--ease)}
+.btn::after{content:"→";transition:transform var(--d3) var(--ease)}.btn:hover{background:var(--tl)}.btn:hover::after{transform:translateX(6px)}
+.btn.sm{min-height:42px;padding:0 var(--s3)}.btn.sm::after{content:none}
+header{position:fixed;inset:0 0 auto;z-index:20;transition:background var(--d3),box-shadow var(--d3)}
+header.s{background:rgba(241,245,243,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--ln)}
+header .w{display:flex;align-items:center;gap:var(--s3);height:68px}
+.bk{font-size:13px;min-height:42px;min-width:42px;display:inline-flex;align-items:center;color:var(--mu)}
+.lg{font-family:var(--fd);font-size:26px;font-style:italic;display:flex;align-items:center;gap:var(--s2);min-height:42px;margin-right:auto}
+.lg svg{width:26px;height:26px}
+nav{display:flex;gap:var(--s4);font-size:13px;font-weight:600}nav a{min-height:42px;display:flex;align-items:center;opacity:.74;transition:opacity var(--d2)}nav a:hover{opacity:1}
+/* hero */
+.hero{position:relative;min-height:min(100svh,940px);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:var(--s7) 0 0;background:#CFE6EA}
+.sc{position:absolute;inset:0;width:100%;height:100%}
+.yt{transform:translate(690px,474px) scale(1.14)}
+.yb{transform-origin:310px 150px;animation:bob 6.86s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(-3px) rotate(-.5deg)}to{transform:translateY(3px) rotate(.6deg)}}
+.wv{animation:wv 11s linear infinite}.wv.b{animation-duration:6.86s;animation-direction:reverse}
+@keyframes wv{to{transform:translateX(-120px)}}
+.gl ellipse{animation:gl 2.62s ease-in-out infinite alternate}.gl ellipse:nth-child(2n){animation-delay:-1s}.gl ellipse:nth-child(3n){animation-delay:-1.8s}
+@keyframes gl{from{opacity:.2;transform:scaleX(.7)}to{opacity:.9}}
+.gl ellipse{transform-box:fill-box;transform-origin:center}
+.brd{animation:brd 26s linear infinite}@keyframes brd{from{transform:translateX(-80px)}to{transform:translateX(1520px)}}
+.hero .w{position:relative;z-index:2}
+h1{font-size:clamp(42px,5.6vw,80px);margin:var(--s4) 0}.h1 span{white-space:nowrap}
+.ld{max-width:38ch;font-weight:500;margin-bottom:var(--s4);animation:fade var(--d6) var(--ease) .5s both}
+.hero .btn{animation:fade var(--d6) var(--ease) .68s both}
+.fc{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);color:var(--wh);border-top:1px solid rgba(255,255,255,.34);margin-top:var(--s6)}
+.fc div{padding:var(--s3) var(--s3) var(--s4) 0}.fc div+div{padding-left:var(--s3);border-left:1px solid rgba(255,255,255,.34)}
+.fc b{display:block;font-family:var(--fd);font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.2}.fc span{font-size:13px;opacity:.86}
+/* sections */
+.sec{padding:var(--s7) 0;position:relative}
+.sh{max-width:760px;margin-bottom:var(--s6)}
+h2{font-size:clamp(33px,4.6vw,53px);margin:var(--s3) 0}
+.sh p:not(.cap){color:var(--mu);max-width:52ch}
+.gd{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s6);align-items:center}
+/* onboard */
+.dk{background:var(--wh);border-radius:26px;padding:var(--s4);box-shadow:0 26px 68px -42px rgba(12,43,62,.42)}
+.dk svg{width:100%;overflow:visible}
+.dk .o{fill:none;stroke:var(--nv);stroke-width:1.4;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s var(--ease)}
+.in .o{stroke-dashoffset:0}
+.dk .z{fill:var(--fm);stroke:var(--nv);stroke-width:.8;opacity:0;transition:opacity var(--d5) var(--ease) calc(.6s + var(--k)*.1s)}.in .z{opacity:1}
+.dk .q{fill:#BFE3E2}.dk text{font-family:var(--fb);font-size:10px;font-weight:600;fill:var(--nv);text-anchor:middle;opacity:0;transition:opacity var(--d5) 1.4s}.in text{opacity:1}
+.dk figcaption{font-size:13px;color:var(--mu);margin-top:var(--s2);text-align:center}
+.inc{counter-reset:s}
+.inc li{counter-increment:s;display:grid;grid-template-columns:42px 1fr;padding:var(--s3) 0;border-bottom:1px solid var(--ln)}
+.inc li::before{content:"0" counter(s);font-family:var(--fd);font-style:italic;color:var(--tl);font-size:20px;line-height:1.3}
+.inc h3{font-size:20px;font-family:var(--fb);font-weight:600;letter-spacing:0;line-height:1.3}.inc p{color:var(--mu);grid-column:2}
+/* chooser */
+.cz{background:var(--wh)}
+.mp{position:sticky;top:94px;border-radius:26px;overflow:hidden;background:#DCEDEC;aspect-ratio:1.236/1}
+.mp svg{width:100%;height:100%}
+.mp .rt{fill:none;stroke:var(--nv);stroke-width:1.2;stroke-dasharray:3 6;opacity:.3;transition:opacity var(--d3)}
+.mp .ra{fill:none;stroke:var(--co);stroke-width:3;stroke-linecap:round}
+.mp .sp circle{fill:var(--wh);stroke:var(--co);stroke-width:2.4}
+.mp .sp text{font-size:13px;font-weight:700;fill:var(--nv);paint-order:stroke;stroke:#DCEDEC;stroke-width:4px}
+.mp .sp g{animation:fade var(--d4) var(--ease) both}
+.mp .nd{transform-box:fill-box;transform-origin:50% 100%;animation:nd 4.24s ease-in-out infinite alternate}
+@keyframes nd{from{transform:rotate(-13deg)}to{transform:rotate(21deg)}}
+.mp small{position:absolute;left:var(--s3);bottom:var(--s2);font-size:10px;letter-spacing:.1em;color:var(--mu)}
+.gp{padding:var(--s3) 0 var(--s4);border-top:1px solid var(--ln)}
+.gp>h3{font-family:var(--fb);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--s3)}
+.rs{display:grid;gap:var(--s2)}
+.rs button{display:grid;grid-template-columns:1fr auto;gap:0 var(--s2);text-align:left;padding:var(--s2) var(--s3);min-height:68px;align-content:center;border:1px solid var(--ln);border-radius:16px;transition:border-color var(--d2),background var(--d2),color var(--d2)}
+.rs b{font-family:var(--fd);font-weight:300;font-size:20px;line-height:1.3}.rs span{font-size:13px;color:var(--mu);grid-column:1}.rs i{grid-row:1/3;grid-column:2;align-self:center;font-style:normal;font-size:13px;font-weight:700;color:var(--tl)}
+.rs button[aria-pressed=true]{background:var(--nv);border-color:var(--nv);color:var(--wh)}.rs button[aria-pressed=true] span{color:rgba(255,255,255,.74)}.rs button[aria-pressed=true] i{color:#8FD6D3}
+.stp{display:flex;align-items:center;gap:var(--s3)}
+.stp button{width:48px;height:48px;border-radius:50%;border:1px solid var(--nv);font-size:20px;line-height:1;transition:background var(--d2),color var(--d2)}.stp button:hover{background:var(--nv);color:var(--wh)}
+.stp output{font-family:var(--fd);font-size:42px;font-weight:300;min-width:2ch;text-align:center;line-height:1}.stp span{font-size:13px;color:var(--mu)}
+.ex{display:flex;align-items:center;gap:var(--s2);min-height:48px;cursor:pointer;font-size:16px}
+.ex input{appearance:none;-webkit-appearance:none;width:26px;height:26px;border:1px solid var(--nv);border-radius:6px;flex:none;margin:0;display:grid;place-items:center;transition:background var(--d2)}
+.ex input::after{content:"";width:12px;height:6px;border:2px solid var(--wh);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px) scale(0);transition:transform var(--d2) var(--ease)}
+.ex input:checked{background:var(--nv)}.ex input:checked::after{transform:rotate(-45deg) translate(1px,-1px) scale(1)}
+.ex b{margin-left:auto;font-size:13px;font-weight:700;color:var(--tl);white-space:nowrap}
+.tot{background:var(--fm);border-radius:26px;padding:var(--s4);display:grid;gap:var(--s2)}
+.tot p{font-size:13px;color:var(--mu)}
+.tot strong{display:block;font-family:var(--fd);font-weight:300;font-size:clamp(33px,3.6vw,46px);line-height:1.2;color:var(--nv);font-variant-numeric:tabular-nums}
+.tot .btn{margin-top:var(--s2)}
+/* proof */
+.pf{background:var(--nv);color:var(--wh);--mu:rgba(255,255,255,.7);--ln:rgba(255,255,255,.2)}
+.pf em,.pf .cap{color:#8FD6D3}
+.nm{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-bottom:var(--s7)}
+.nm b{font-family:var(--fd);font-weight:300;font-size:clamp(53px,7vw,110px);line-height:1;display:block}.nm b small{font-size:.3em;font-style:italic;margin-left:.2em}.nm div>span{color:var(--mu);font-size:13px}
+.ps{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.ps::before{content:"";position:absolute;left:0;right:0;top:8px;border-top:1px dashed var(--ln)}
+.ps li{padding:var(--s5) var(--s4) 0 0;position:relative}
+.ps li::before{content:"";position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:var(--nv);border:2px solid #8FD6D3}
+.ps small{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#8FD6D3;font-weight:700}
+.ps h3{font-size:26px;margin:var(--s1) 0}.ps p{color:var(--mu);font-size:13px;line-height:1.618}
+/* faq */
+.fq{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3) var(--s4);align-items:start}
+.fq details{background:var(--wh);border-radius:16px;padding:0 var(--s4)}
+.fq summary{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:var(--s3);font-weight:600;padding:var(--s2) 0}
+.fq summary::after{content:"";flex:none;width:10px;height:10px;border-right:1.6px solid var(--tl);border-bottom:1.6px solid var(--tl);transform:rotate(45deg);transition:transform var(--d3) var(--ease)}
+.fq [open] summary::after{transform:rotate(225deg)}
+.fq details p{padding:0 0 var(--s4);color:var(--mu)}
+/* form */
+.fmw{background:linear-gradient(180deg,#CFE6EA,#F6E4CF)}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center}
+.fm .sum{font-family:var(--fd);font-style:italic;font-size:20px;margin-top:var(--s3)}
+.fm .nt2{font-size:13px;color:var(--mu);margin-top:var(--s2)}
+.fm form{background:var(--wh);border-radius:26px;padding:var(--s5);display:grid;gap:var(--s3);box-shadow:0 26px 68px -42px rgba(12,43,62,.5)}
+.fm label{font-size:13px;font-weight:700;display:grid;gap:var(--s1)}
+.fld{width:100%;min-height:52px;border:1px solid var(--ln);border-radius:10px;background:var(--fm);padding:0 var(--s3);outline:0;font-weight:400;font-size:16px;transition:border-color var(--d2),box-shadow var(--d2)}
+.fld:focus{border-color:var(--tl);box-shadow:0 0 0 3px rgba(31,138,140,.2)}
+.msg{font-size:13px;min-height:21px;color:#B5462C}.msg.ok{color:var(--tl)}
+footer{background:var(--nv);color:rgba(255,255,255,.7);font-size:13px;padding:var(--s4) 0 var(--s5)}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2) var(--s4)}footer a{text-decoration:underline;color:var(--wh);display:inline-block;padding:11px 0;margin:-11px 0}
+.stk{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 -1px 0 var(--ln)}
+.stk input{border:1px solid var(--ln);border-radius:99px;background:var(--fm);padding:0 var(--s3);outline:0}
+.stk button{background:var(--nv);color:var(--wh);border-radius:99px;font-size:13px;font-weight:700}
+.stk .msg{background:var(--tl);color:var(--wh)}
+@media(max-width:860px){
+nav{display:none}.bk span{display:none}
+.hero{padding-top:94px;min-height:max(100svh,700px)}.yt{transform:translate(540px,578px) scale(.58)}
+h1{margin:var(--s3) 0}.ld{margin-bottom:var(--s3)}
+.fc{grid-template-columns:repeat(4,auto);margin-top:0}.fc div{padding:var(--s2) var(--s2) var(--s3) 0}.fc div+div{padding-left:var(--s2)}.fc span{font-size:10px;display:block;line-height:1.4}.fc b{font-size:20px}
+.sec{padding:var(--s6) 0}.sh{margin-bottom:var(--s5)}
+.gd,.fm{grid-template-columns:1fr;gap:var(--s4)}
+.dk{padding:var(--s3);border-radius:16px}.dk text{font-size:14px}.mp .sp text,.mp text{font-size:18px}.mp{position:relative;top:0;border-radius:16px;aspect-ratio:1/1}
+.nm{grid-template-columns:1fr 1fr;gap:var(--s4) var(--s3);margin-bottom:var(--s6)}
+.ps{grid-template-columns:1fr}.ps::before{left:7px;right:auto;top:0;bottom:0;border-top:0;border-left:1px dashed var(--ln)}.ps li{padding:0 0 var(--s4) var(--s5)}
+.fq{grid-template-columns:1fr}.fm form{padding:var(--s4)}
+footer{padding-bottom:94px}
+}
+</style>
+</head>
+<body>
+<header><div class="w"><a class="bk" href="../index.html" target="_top" aria-label="Quay lại DreamLab">←&nbsp;<span>DreamLab</span></a><a class="lg" href="#top"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 17q5.5-5 11 0t11 0M2 22q5.5-5 11 0t11 0M13 3v10M13 4l7 8h-7"/></svg>Ondinea</a><nav><a href="#tren-tau">Trên tàu</a><a href="#chon">Tuyến và giá</a><a href="#hoi-dap">Hỏi đáp</a></nav><a class="btn sm" href="#dk">Giữ lịch</a></div></header>
+<main id="top">
+<section class="hero">
+ <svg class="sc" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+   <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFDDE6"/><stop offset=".62" stop-color="#F3E7D3"/><stop offset="1" stop-color="#FBE3C2"/></linearGradient>
+   <linearGradient id="se" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FD2D2"/><stop offset=".3" stop-color="#3FA3A5"/><stop offset="1" stop-color="#0C3F56"/></linearGradient>
+   <radialGradient id="sn"><stop offset="0" stop-color="#FFF6DF"/><stop offset=".5" stop-color="#FDE4B4" stop-opacity=".8"/><stop offset="1" stop-color="#FDE4B4" stop-opacity="0"/></radialGradient>
+   <linearGradient id="yH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#D5E0E5"/></linearGradient>
+   <linearGradient id="yG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0C2B3E"/><stop offset=".5" stop-color="#2A6C82"/><stop offset=".56" stop-color="#103A52"/><stop offset="1" stop-color="#0C2B3E"/></linearGradient>
+   <pattern id="wp" width="120" height="16" patternUnits="userSpaceOnUse"><path d="M0 8q30-9 60 0t60 0" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.4"/></pattern>
+  </defs>
+  <rect width="1440" height="560" fill="url(#sk)"/>
+  <circle cx="1010" cy="486" r="178" fill="url(#sn)"/><circle cx="1010" cy="486" r="55" fill="#FFF8E6"/>
+  <g class="brd" fill="none" stroke="#0C2B3E" stroke-width="1.4" stroke-linecap="round" opacity=".5"><path d="M0 250q8-8 14 0q6-8 14 0M42 232q6-6 11 0q5-6 11 0M-30 270q5-5 9 0q4-5 9 0"/></g>
+  <g data-p=".04"><path d="M560 556q10-46 40-40 8-34 40-20 22-40 52-6 30-12 36 30 34-4 42 36zM1120 556q14-30 44-26 14-44 52-24 30-22 50 14 34-6 44 36zM880 556q8-20 30-18 12-22 34-6 18-8 26 24z" fill="#A9C6CF"/></g>
+  <g data-p=".07"><path d="M1240 556q6-62 46-54 10-50 54-30 30-40 62 8 28-6 38 76zM400 556q10-34 36-30 12-30 40-12 20-10 30 42z" fill="#7FA6B2"/></g>
+  <rect y="556" width="1440" height="344" fill="url(#se)"/>
+  <g class="gl" fill="#FFF3D6"><ellipse cx="1010" cy="566" rx="60" ry="2"/><ellipse cx="1010" cy="578" rx="46" ry="2"/><ellipse cx="1014" cy="592" rx="68" ry="2.4"/><ellipse cx="1006" cy="610" rx="40" ry="2.4"/><ellipse cx="1012" cy="634" rx="80" ry="3"/><ellipse cx="1008" cy="664" rx="52" ry="3"/><ellipse cx="1014" cy="700" rx="96" ry="3.6"/></g>
+  <rect class="wv" x="0" y="600" width="1680" height="16" fill="url(#wp)" opacity=".5"/>
+  <g class="yt"><g class="yb">
+   <path d="M40 154h530l-50 22H96z" fill="#fff" opacity=".12"/>
+   <path d="M14 108v-26" stroke="#0C2B3E" stroke-width="1.4"/><path d="M14 82h20l-6 5 6 5H14z" fill="#DD6E52"/>
+   <path d="M12 108l10 42q278 9 544 0l54-54q-60 10-150 12z" fill="url(#yH)"/>
+   <path d="M19 137l3 13q278 9 544 0l11-11q-280 8-558-2z" fill="#0C2B3E"/>
+   <path d="M12 108q560-2 608-12" fill="none" stroke="#0C2B3E" stroke-width="1" opacity=".5"/>
+   <g fill="#0C2B3E" opacity=".86"><rect x="110" y="118" width="28" height="8" rx="4"/><rect x="170" y="118" width="28" height="8" rx="4"/><rect x="230" y="118" width="28" height="8" rx="4"/><rect x="290" y="118" width="28" height="8" rx="4"/><rect x="350" y="118" width="28" height="8" rx="4"/><rect x="410" y="118" width="28" height="8" rx="4"/></g>
+   <path d="M26 80h66v3H26zM32 83h3v25h-3z" fill="#fff"/>
+   <path d="M78 108l6-28h322l58 28z" fill="url(#yH)"/><path d="M98 86h300l38 18H98z" fill="url(#yG)"/><path d="M152 86v18M212 86v18M272 86v18M332 86v18M386 86l10 18" stroke="#fff" stroke-width="2"/>
+   <path d="M130 80l8-24h194l50 24z" fill="url(#yH)"/><path d="M152 62h172l30 14H152z" fill="url(#yG)"/><path d="M200 62v14M254 62v14M306 62l8 14" stroke="#fff" stroke-width="2"/>
+   <path d="M150 56l6-12h146l22 12z" fill="#fff"/><path d="M146 41h170v3H146z" fill="#0C2B3E"/>
+   <path d="M232 41l10-26h8l12 26z" fill="#fff"/><circle cx="246" cy="11" r="6" fill="#fff"/><path d="M246 5v-18M238 24h16" stroke="#0C2B3E" stroke-width="1.2"/>
+   <path d="M466 104l136-10M466 98l140-10M500 95v6M540 92v6M580 89v6" stroke="#fff" stroke-width="1.4"/>
+  </g></g>
+  <rect class="wv b" x="0" y="636" width="1680" height="16" fill="url(#wp)"/>
+  <rect class="wv" x="0" y="700" width="1680" height="16" fill="url(#wp)" opacity=".4" transform="scale(1 1.6) translate(0 -260)"/>
+ </svg>
+ <div class="w">
+  <p class="cap">Thuê du thuyền riêng · Vịnh Bắc Bộ <span class="tc">Concept</span></p>
+  <h1 class="h1"><span><i>Ba ngày,</i></span><span><i>một con tàu,</i></span><span><i><em>không ai khác.</em></i></span></h1>
+  <p class="ld">Du thuyền 42 mét cùng thuỷ thủ đoàn 7 người, dành trọn cho gia đình bạn. Chọn tuyến, chọn số khách và xem giá ngay.</p>
+  <a class="btn" href="#chon">Tính giá chuyến đi</a>
+ </div>
+ <div class="w"><div class="fc"><div><b>42 m</b><span>chiều dài tàu</span></div><div><b>5</b><span>cabin có ban công</span></div><div><b>10</b><span>khách tối đa</span></div><div><b>7</b><span>thuỷ thủ đoàn</span></div></div></div>
+</section>
+
+<section class="sec" id="tren-tau"><div class="w">
+ <div class="sh"><p class="cap">Trên tàu</p><h2 data-r>Mọi thứ đã có sẵn. <em>Bạn chỉ cần lên tàu.</em></h2><p data-r style="--i:1">Giá thuê đã gồm tàu, nhiên liệu, thuỷ thủ đoàn, ba bữa mỗi ngày và các hoạt động trên vịnh.</p></div>
+ <div class="gd">
+  <figure class="dk" data-r>
+   <svg viewBox="0 0 640 210" role="img" aria-label="Sơ đồ boong chính du thuyền, hình vẽ bằng SVG">
+    <path class="o" pathLength="1" d="M18 64q0-36 44-38h390q104 12 170 79-66 67-170 79H62q-44-2-44-38z"/>
+    <rect class="z q" style="--k:0" x="30" y="52" width="52" height="106" rx="8"/>
+    <rect class="z" style="--k:1" x="92" y="40" width="96" height="130" rx="8"/><circle class="z" style="--k:1" cx="140" cy="105" r="26"/>
+    <rect class="z" style="--k:2" x="198" y="40" width="130" height="130" rx="8"/><rect class="z" style="--k:2" x="210" y="52" width="68" height="26" rx="8"/><rect class="z" style="--k:2" x="210" y="132" width="68" height="26" rx="8"/>
+    <rect class="z" style="--k:3" x="338" y="40" width="96" height="130" rx="8"/><ellipse class="z" style="--k:3" cx="386" cy="105" rx="34" ry="21"/>
+    <path class="z" style="--k:4" d="M444 40h10q84 12 138 65-54 53-138 65h-10z"/><circle class="z q" style="--k:5" cx="500" cy="105" r="26"/>
+    <text x="56" y="202">Bến tắm</text><text x="142" y="202">Bàn ngoài trời</text><text x="263" y="202">Phòng khách</text><text x="386" y="202">Phòng ăn</text><text x="506" y="202">Bể sục</text>
+   </svg>
+   <figcaption>Boong chính · bản vẽ minh hoạ</figcaption>
+  </figure>
+  <ol class="inc">
+   <li data-r><h3>Thuỷ thủ đoàn 7 người</h3><p>Thuyền trưởng, đầu bếp, quản gia và bốn thuỷ thủ.</p></li>
+   <li data-r><h3>5 cabin, đón 10 khách</h3><p>Mỗi cabin có ban công riêng và phòng tắm đá.</p></li>
+   <li data-r><h3>Ăn uống trọn gói</h3><p>Hải sản mua trong ngày từ làng chài trên tuyến.</p></li>
+   <li data-r><h3>Đồ chơi dưới nước</h3><p>Kayak, ván chèo, ca nô cao tốc và đồ lặn ống thở.</p></li>
+  </ol>
+ </div>
+</div></section>
+
+<section class="sec cz" id="chon"><div class="w">
+ <div class="sh"><p class="cap">Tuyến và giá</p><h2 data-r>Chọn tuyến, số khách. <em>Giá hiện ngay.</em></h2><p data-r style="--i:1">Giá ước tính cho cả tàu, chưa gồm thuế. Giá chốt được gửi kèm lịch trình chi tiết.</p></div>
+ <div class="gd" style="align-items:start">
+  <div class="mp" data-r="clip"><svg viewBox="0 0 640 520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bản đồ minh hoạ các tuyến du thuyền">
+   <g stroke="#0C2B3E" stroke-opacity=".08"><path d="M0 104h640M0 208h640M0 312h640M0 416h640M128 0v520M256 0v520M384 0v520M512 0v520"/></g>
+   <path d="M0 0h250q-30 40-90 44-30 50-90 46Q40 130 0 150z" fill="#E9DCC3" stroke="#C9B58E"/>
+   <g id="isl" fill="#E9DCC3" stroke="#C9B58E"></g>
+   <g transform="translate(524 462)"><circle r="34" fill="#fff" fill-opacity=".6" stroke="#0C2B3E" stroke-opacity=".3"/><path class="nd" d="M0-26l6 26h-12z" fill="#DD6E52"/><path d="M0 26l6-26h-12z" fill="#0C2B3E" opacity=".3"/><text y="-38" text-anchor="middle" font-size="10" font-weight="700" fill="#0C2B3E">B</text></g>
+   <g id="rts"></g><path class="ra" id="ra" d=""/><g class="sp" id="sps"></g>
+   <g id="bt" style="opacity:0"><circle r="12" fill="#0C2B3E"/><path d="M-6 2h12l-3 4h-6zM0-7v8M0-6l5 6H0" stroke="#fff" stroke-width="1.2" fill="none"/></g>
+  </svg><small>Bản đồ minh hoạ, không theo tỷ lệ</small></div>
+  <div>
+   <div class="gp"><h3>Tuyến đi</h3><div class="rs" id="rs"></div></div>
+   <div class="gp"><h3>Số khách</h3><div class="stp"><button type="button" id="gm" aria-label="Bớt khách">−</button><output id="gn">6</output><button type="button" id="gpl" aria-label="Thêm khách">+</button><span>khách, tối đa 10.<br>Từ khách thứ 7 có phụ thu.</span></div></div>
+   <div class="gp"><h3>Thêm cho chuyến đi</h3>
+    <label class="ex"><input type="checkbox" data-x="0"><span>Đầu bếp riêng món Việt</span><b>+21 triệu</b></label>
+    <label class="ex"><input type="checkbox" data-x="1"><span>Hướng dẫn viên lặn biển</span><b>+34 triệu</b></label>
+    <label class="ex"><input type="checkbox" data-x="2"><span>Thuỷ phi cơ đón từ Hà Nội</span><b>+89 triệu</b></label></div>
+   <div class="tot"><p>Giá ước tính cho cả tàu</p><strong><span id="pr">377.000.000</span> ₫</strong><p id="pp">Khoảng 62.833.333 ₫ mỗi khách</p><a class="btn" href="#dk">Giữ lịch với giá này</a></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec pf" id="quy-trinh"><div class="w">
+ <div class="sh"><p class="cap">Con tàu và quy trình</p><h2 data-r>Thông số thật. <em>Bốn bước là ra khơi.</em></h2></div>
+ <div class="nm">
+  <div data-r><b><span data-n="42">42</span><small>m</small></b><span>Chiều dài toàn bộ</span></div>
+  <div data-r style="--i:1"><b><span data-n="8.6" data-dc="1">8,6</span><small>m</small></b><span>Chiều rộng thân tàu</span></div>
+  <div data-r style="--i:2"><b><span data-n="12">12</span><small>hải lý/giờ</small></b><span>Tốc độ hành trình</span></div>
+  <div data-r style="--i:3"><b><span data-n="2021">2021</span></b><span>Năm hạ thuỷ</span></div>
+ </div>
+ <ol class="ps">
+  <li data-r><small>Hôm nay</small><h3>Giữ lịch</h3><p>Để lại ngày đi và số điện thoại. Chưa cần đặt cọc.</p></li>
+  <li data-r style="--i:1"><small>Trong 24 giờ</small><h3>Lên lịch trình</h3><p>Quản gia gọi lại, chốt tuyến, thực đơn và hoạt động.</p></li>
+  <li data-r style="--i:2"><small>Trước 21 ngày</small><h3>Đặt cọc 30%</h3><p>Hợp đồng thuê tàu rõ điều khoản huỷ và đổi ngày.</p></li>
+  <li data-r style="--i:3"><small>Ngày khởi hành</small><h3>Lên tàu</h3><p>Xe đón tận nhà. Thuyền trưởng chờ bạn ở bến.</p></li>
+ </ol>
+</div></section>
+
+<section class="sec" id="hoi-dap"><div class="w">
+ <div class="sh"><p class="cap">Hỏi đáp</p><h2 data-r>Bốn điều khách <em>hay hỏi</em></h2></div>
+ <div class="fq" data-r>
+  <details open><summary>Giá ước tính đã gồm những gì?</summary><p>Tàu, nhiên liệu, thuỷ thủ đoàn, ăn uống, vé tham quan và đồ chơi dưới nước. Chưa gồm thuế và đồ uống có cồn.</p></details>
+  <details><summary>Thời tiết xấu thì sao?</summary><p>Nếu cảng vụ cấm tàu, bạn được đổi ngày miễn phí hoặc hoàn toàn bộ tiền cọc.</p></details>
+  <details><summary>Tôi muốn đổi tuyến giữa chuyến được không?</summary><p>Được, nếu thuyền trưởng xác nhận an toàn và còn giấy phép neo đậu tại điểm mới.</p></details>
+  <details><summary>Có nhận trẻ nhỏ và người lớn tuổi không?</summary><p>Có. Tàu có áo phao trẻ em, lan can cao và một cabin không bậc thang.</p></details>
+ </div>
+</div></section>
+
+<section class="sec fmw" id="dk"><div class="w fm">
+ <div><p class="cap">Giữ lịch</p><h2 data-r>Chọn ngày, <em>chúng tôi giữ tàu.</em></h2><p class="sum" id="sm">Bái Tử Long – Cô Tô · 6 khách · khoảng 377.000.000 ₫</p><p class="nt2">Đây là trang mẫu: thông tin bạn nhập không được gửi đi đâu.</p></div>
+ <form novalidate data-r>
+  <label>Họ và tên<input class="fld" id="f1" required autocomplete="name" placeholder="Nguyễn Văn A"></label>
+  <label>Số điện thoại<input class="fld" id="f2" required type="tel" autocomplete="tel" placeholder="09xx xxx xxx"></label>
+  <label>Ngày muốn khởi hành<input class="fld" id="f3" type="date"></label>
+  <button class="btn">Giữ lịch cho tôi</button><p class="msg" role="status"></p>
+ </form>
+</div></section>
+</main>
+<footer><div class="w"><span>Ondinea là thương hiệu concept, con tàu, tuyến và giá chỉ để minh hoạ. Landing page mẫu do <a href="../index.html" target="_top">DreamLab</a> thiết kế.</span><span>hello@ondinea.example</span></div></footer>
+<form class="stk" novalidate data-ok="Đã ghi số của bạn. Trang mẫu nên chưa gửi đi đâu."><p class="msg" role="status"></p><label class="vh" for="s1">Số điện thoại</label><input id="s1" type="tel" required placeholder="Số điện thoại"><button>Giữ lịch</button></form>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+H.classList.add('js');if(parent!==window)H.classList.add('emb');
+const vnd=n=>Math.round(n).toLocaleString('vi-VN');
+const tween=(el,to,fm=vnd,ms=1110)=>{const fr=+el._v||0;el._v=to;cancelAnimationFrame(el._r);if(RM||!ms){el.textContent=fm(to);return}const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-u,4);el.textContent=fm(fr+(to-fr)*e);if(u<1)el._r=requestAnimationFrame(run)};el._r=requestAnimationFrame(run)};
+const seen=t=>{t.classList.add('in');if(t.dataset.n!=null){const dc=+t.dataset.dc||0;tween(t,+t.dataset.n,v=>v.toLocaleString('vi-VN',{minimumFractionDigits:dc,maximumFractionDigits:dc}),1796)}};
+const watch=r=>{const a=$$('[data-r],[data-n]',r).filter(e=>!e._w);a.forEach(e=>e._w=1);if(!('IntersectionObserver' in window))return a.forEach(seen);const mp=new Map,io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);mp.get(e.target).forEach(seen)}}),{threshold:.1,rootMargin:'0px 0px -6% 0px'});a.forEach(e=>{const t=/clip|wipe/.test(e.dataset.r)?e.parentNode:e;mp.has(t)?mp.get(t).push(e):(mp.set(t,[e]),io.observe(t))})};
+const hd=$('header'),stk=$('.stk'),dk=$('#dk'),px=$$('[data-p]');let tk=0;
+const onS=()=>{tk=0;const y=scrollY,vh=innerHeight;hd&&hd.classList.toggle('s',y>42);if(stk&&dk)stk.classList.toggle('on',y>vh*.618&&dk.getBoundingClientRect().top>vh*.8);
+ if(!RM)px.forEach(p=>{const r=p.parentNode.getBoundingClientRect();if(r.bottom>-99&&r.top<vh+99)p.style.transform=`translate3d(0,${((r.top+r.height/2-vh/2)*+p.dataset.p).toFixed(1)}px,0)`});H.style.setProperty('--sy',y.toFixed(0))};
+addEventListener('scroll',()=>{tk||(tk=requestAnimationFrame(onS))},{passive:true});onS();
+$$('form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.msg',f),ok=$$('[required]',f).every(i=>i.value.trim());m.textContent=ok?(f.dataset.ok||'Cảm ơn bạn. Đây là trang mẫu của DreamLab nên chưa có thông tin nào được gửi đi.'):'Bạn điền giúp các ô còn trống nhé.';m.classList.toggle('ok',ok)}));
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-ondinea',smDemo:'lux-lp-ondinea'},'*')}catch(e){}
+/* đảo: rải theo góc vàng 137,5° */
+$('#isl').innerHTML=Array.from({length:21},(_,i)=>{const a=i*2.39996,r=42+i*13.6,x=330+Math.cos(a)*r*1.1,y=270+Math.sin(a)*r*.82,s=6+(i*7%13);const t=`transform="rotate(${i*34} ${x.toFixed(0)} ${y.toFixed(0)})"`,c=`cx="${x.toFixed(0)}" cy="${y.toFixed(0)}"`;return x<70&&y<170?'':`<ellipse ${c} rx="${s+16}" ry="${s+9}" ${t} fill="#9FD2D2" fill-opacity=".42" stroke="none"/><ellipse ${c} rx="${s+6}" ry="${s}" ${t}/><ellipse ${c} rx="${s*.5+2}" ry="${s*.4}" ${t} fill="#A9C4A0" stroke="none"/>`}).join('');
+const R=[{n:'Lan Hạ – Ba Trái Đào',t:'2 ngày 1 đêm',d:2,p:233e6,pa:'M92 96C150 130 190 170 236 214S250 300 196 326S110 250 92 96',s:[[236,214,'Lan Hạ'],[196,326,'Ba Trái Đào']]},
+ {n:'Bái Tử Long – Cô Tô',t:'3 ngày 2 đêm',d:3,p:377e6,pa:'M92 96C180 110 250 150 330 162S470 120 548 96',s:[[330,162,'Bái Tử Long'],[548,96,'Cô Tô']]},
+ {n:'Hạ Long – Quan Lạn – Minh Châu',t:'5 ngày 4 đêm',d:5,p:61e7,pa:'M92 96C170 170 220 230 292 262S400 330 430 372S520 420 566 380',s:[[292,262,'Hạ Long'],[430,372,'Quan Lạn'],[566,380,'Minh Châu']]}],
+X=[21e6,34e6,89e6],S={r:1,g:6,x:[0,0,0]},ra=$('#ra'),bt=$('#bt');
+$('#rs').innerHTML=R.map((r,i)=>`<button type="button" data-v="${i}"><b>${r.n}</b><span>${r.t}</span><i>từ ${r.p/1e6} triệu</i></button>`).join('');
+$('#rts').innerHTML=R.map(r=>`<path class="rt" d="${r.pa}"/>`).join('')+'<circle cx="92" cy="96" r="7" fill="#0C2B3E"/><text x="104" y="88" font-size="13" font-weight="700" fill="#0C2B3E">Bến du thuyền</text>';
+let an=0;
+const draw=()=>{const r=R[S.r];ra.setAttribute('d',r.pa);const L=ra.getTotalLength();ra.style.strokeDasharray=L;cancelAnimationFrame(an);
+ $('#sps').innerHTML=r.s.map((s,i)=>`<g style="animation-delay:${.4+i*.42}s"><circle cx="${s[0]}" cy="${s[1]}" r="6"/><text x="${s[0]+(s[0]>500?-12:12)}" y="${s[1]+(s[1]>300?24:-12)}" text-anchor="${s[0]>500?'end':'start'}">${s[2]}</text></g>`).join('');
+ bt.style.opacity=1;const put=u=>{const p=ra.getPointAtLength(L*u);ra.style.strokeDashoffset=L*(1-u);bt.setAttribute('transform',`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`)};
+ if(RM)return put(1);const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/1796),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;put(e);if(u<1)an=requestAnimationFrame(run)};an=requestAnimationFrame(run)};
+const up=d=>{const r=R[S.r],p=r.p+Math.max(0,S.g-6)*8e6*(r.d-1)+S.x.reduce((a,v,i)=>a+v*X[i],0);
+ $$('#rs button').forEach((b,i)=>b.setAttribute('aria-pressed',i===S.r));$('#gn').textContent=S.g;
+ tween($('#pr'),p,vnd,686);$('#pp').textContent=`Khoảng ${vnd(p/S.g)} ₫ mỗi khách · ${r.t}`;$('#sm').textContent=`${r.n} · ${S.g} khách · khoảng ${vnd(p)} ₫`;d&&draw()};
+$('#rs').addEventListener('click',e=>{const b=e.target.closest('button');if(b){S.r=+b.dataset.v;up(1)}});
+$('#gm').addEventListener('click',()=>{S.g=Math.max(2,S.g-1);up()});$('#gpl').addEventListener('click',()=>{S.g=Math.min(10,S.g+1);up()});
+$$('.ex input').forEach(c=>c.addEventListener('change',()=>{S.x[+c.dataset.x]=+c.checked;up()}));
+$('#pr')._v=377e6;up(1);
+watch(D);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Belmora — TVC 16:9 túi Sienna (concept · cảnh quay dựng bằng code)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#000;color:#fbf4e8;font-family:"Be Vietnam Pro",sans-serif}
+#footage{filter:url(#grade)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 50% 50%,transparent 54%,rgba(20,10,4,.55))}
+.mist{position:absolute;inset:0;backdrop-filter:blur(12px) brightness(1.12);opacity:.2}
+.flash{position:absolute;inset:0;background:#fff4e2;opacity:0}
+.lb{position:absolute;left:0;right:0;height:68px;background:#000}
+.cap{position:absolute;left:110px;bottom:120px;visibility:hidden;text-shadow:0 2px 26px rgba(40,20,5,.55)}
+.cap .k{font:400 13px/1 "Space Mono",monospace;letter-spacing:.3em;text-transform:uppercase;display:flex;gap:16px;align-items:center}
+.cap .k b{display:block;width:42px;height:1px;background:#fbf4e8;transform-origin:0 50%}
+.cap h3{margin-top:10px;font:italic 400 53px/1.1 "Cormorant",serif}
+.title{position:absolute;left:0;right:0;top:120px;text-align:center;visibility:hidden}
+.title h1{font:400 178px/1 "Cormorant",serif;letter-spacing:.02em;text-shadow:0 6px 42px rgba(60,30,10,.35)}
+.title p{font-size:13px;letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;margin-bottom:10px}
+.end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(18,10,5,.46);backdrop-filter:blur(14px);opacity:0}
+.end .mk{font:400 68px/1 "Cormorant",serif;letter-spacing:.42em;text-indent:.42em}
+.end .ln{width:110px;height:1px;background:#e7c48c;margin:26px 0}
+.end p{font:italic 400 33px/1.3 "Cormorant",serif;color:#f3e3c8}
+.end small{margin-top:42px;font-size:13px;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;opacity:.8}
+.tag{position:absolute;right:68px;top:94px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.6}
+.brand{position:absolute;left:68px;top:94px;font-size:13px;letter-spacing:.42em;text-transform:uppercase}
+</style></head>
+<body><div id="stage">
+ <div id="footage"></div>
+ <div class="gfx"><div class="mist"></div><div class="vig"></div><div class="flash"></div>
+  <div class="cap" id="c1"><div class="k"><b></b>Chất liệu</div><h3>Da bê thuộc thảo mộc</h3></div>
+  <div class="cap" id="c2"><div class="k"><b></b>Chế tác</div><h3>Quai uốn tay, mười bốn giờ</h3></div>
+  <div class="title"><p>Belmora giới thiệu</p><h1 class="t">Sienna</h1></div>
+  <div class="end"><div class="mk">BELMORA</div><div class="ln"></div><p>Sienna — chiếc túi của những buổi chiều dài.</p><small>Bộ sưu tập Hè · Concept</small></div>
+  <div class="lb" style="top:0"></div><div class="lb" style="bottom:0"></div>
+  <div class="brand">Belmora</div><div class="tag">TVC 30s · bản cắt 8s · Cảnh dựng bằng code</div>
+ </div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script type="module">
+import {THREE,RoundedBoxGeometry,setup,mk,group,canvasTex,noiseTex,stoneTex,gobo,M,spot,plight,shots,ramp} from './lib3d.js';
+const W=1280,H=720,DUR=8;R2.init({W,H,dur:DUR,poster:4.9});
+R2.filters(R2.grade('grade',{con:.62,split:.075,sat:1.16,lift:.01,gain:1.03}),'<filter id="whip" x="-20%" width="140%"><feGaussianBlur id="whipb" stdDeviation="0 0"/></filter>');
+await document.fonts.load('400 40px Cormorant','Belmora');
+const {renderer,scene,camera}=setup({W,H,bg:0xb9aa94,exposure:.78,env:.3});
+/* ---- bối cảnh: tường thạch cao, sàn + bục travertine, vòm đất nung ---- */
+const trav=stoneTex({base:[226,212,190],dark:[186,166,140],vein:[150,128,100],veins:3,bands:9,seed:5});
+mk(new THREE.PlaneGeometry(30,30),new THREE.MeshStandardMaterial({map:stoneTex({base:[214,202,184],dark:[178,164,144],veins:2,seed:14,repeat:[3,3]}),roughness:.6}),{rot:[-Math.PI/2,0,0],cast:false});
+mk(new THREE.PlaneGeometry(30,12),M.matte(0xbfae96,.95,{bumpMap:noiseTex(256,7,{oct:4,base:8,repeat:[4,2]}),bumpScale:1.5}),{pos:[0,6,-3.2],cast:false});
+mk(new THREE.CylinderGeometry(1.25,1.25,.5,96),new THREE.MeshStandardMaterial({map:trav,roughness:.55}),{pos:[0,.25,0]});
+const terra=M.matte(0xb5694a,.85,{bumpMap:noiseTex(256,2,{oct:4,base:8}),bumpScale:1});
+mk(new THREE.BoxGeometry(1.5,2.6,.5),terra,{pos:[-2.5,1.3,-1.9]});mk(new THREE.CylinderGeometry(.75,.75,.5,64,1,false,0,Math.PI),terra,{pos:[-2.5,2.6,-1.9],rot:[Math.PI/2,Math.PI/2,0]});
+mk(new THREE.SphereGeometry(.42,64,48),new THREE.MeshStandardMaterial({map:trav,roughness:.5}),{pos:[2.3,.42,-1.1]});
+mk(new THREE.BoxGeometry(1.6,.9,1.0),new THREE.MeshStandardMaterial({map:trav,roughness:.6}),{pos:[2.9,.45,-2.2],rot:[0,-.3,0]});
+/* ---- túi Sienna ---- */
+const LEA=0x9c5630,BAG=group(scene,[0,.5,0]);
+const stitch=(w,h,col)=>canvasTex(1024,Math.round(1024*h/w),(g,cw,ch)=>{g.fillStyle=col;g.fillRect(0,0,cw,ch);g.strokeStyle='rgba(246,222,180,.9)';g.lineWidth=5;g.setLineDash([22,14]);g.lineCap='round';const m=34;g.beginPath();g.roundRect(m,m,cw-2*m,ch-2*m,60);g.stroke()});
+const lb=noiseTex(256,5,{oct:3,base:32,contrast:1.6,grain:.35,repeat:[4,3]});
+const lea=o=>new THREE.MeshPhysicalMaterial(Object.assign({color:LEA,roughness:.48,bumpMap:lb,bumpScale:.55,sheen:.5,sheenRoughness:.5,sheenColor:new THREE.Color(0xffd9b0),clearcoat:.2,clearcoatRoughness:.45},o));
+mk(new RoundedBoxGeometry(1.5,1.05,.52,8,.13),lea({color:0xffffff,map:stitch(1.5,1.05,'#9c5630')}),{pos:[0,.56,0],parent:BAG});
+mk(new RoundedBoxGeometry(1.53,.56,.07,6,.035),lea({color:0xffffff,map:stitch(1.53,.56,'#8a4926')}),{pos:[0,.83,.262],parent:BAG});
+mk(new RoundedBoxGeometry(1.53,.07,.58,6,.035),lea({color:0x8a4926}),{pos:[0,1.105,0],parent:BAG});
+const gold=M.metal(0xe0b565,.2);
+mk(new RoundedBoxGeometry(.36,.1,.05,4,.022),gold,{pos:[0,.6,.3],parent:BAG});mk(new THREE.CylinderGeometry(.04,.04,.06,32),gold,{pos:[0,.6,.34],rot:[Math.PI/2,0,0],parent:BAG});
+mk(new THREE.TorusGeometry(.4,.045,20,80,Math.PI),lea({color:0x8a4926,bumpScale:.8}),{pos:[0,1.16,0],parent:BAG});
+[-.4,.4].forEach(x=>{mk(new THREE.TorusGeometry(.075,.018,12,40),gold,{pos:[x,1.165,0],rot:[0,Math.PI/2,0],parent:BAG});mk(new RoundedBoxGeometry(.1,.07,.16,3,.02),gold,{pos:[x,1.15,0],parent:BAG})});
+[[-.6,-.17],[.6,-.17],[-.6,.17],[.6,.17]].forEach(([x,z])=>mk(new THREE.SphereGeometry(.035,16,12),gold,{pos:[x,.03,z],parent:BAG}));
+/* ---- ánh sáng: nắng qua cửa sổ (gobo), ven ấm ---- */
+const key=spot(scene,{pos:[4.2,5.6,4.4],target:[0,.9,0],color:0xfff0d8,intensity:210,angle:.42,pen:.4,map:gobo('window',1),radius:5});
+plight(scene,{pos:[-3,2.4,2.6],color:0xcfe0ff,intensity:7});plight(scene,{pos:[0,2.6,-2],color:0xffd0a0,intensity:5});
+/* ---- 5 cảnh ---- */
+const CUT=[0,1.3,2.6,4.0,6.3],SH=shots([
+ {t0:CUT[0],t1:CUT[1],p0:[-.75,1.42,1.5],p1:[.25,1.3,1.3],l0:[-.3,1.3,.28],l1:[.12,1.14,.3],f0:24,ramp:ramp.slowmid(.8),on:v=>{BAG.rotation.y=.1}},
+ {t0:CUT[1],t1:CUT[2],p0:[1.5,2.25,1.7],p1:[.9,2.4,1.9],l0:[0,1.9,0],f0:26,ramp:ramp.out(2),on:v=>{BAG.rotation.y=.25}},
+ {t0:CUT[2],t1:CUT[3],p0:[3.6,1.7,4.0],p1:[1.6,1.5,4.9],l0:[0,1.2,0],f0:30,ramp:ramp.slowmid(.6),on:v=>{BAG.rotation.y=.42-v*.2}},
+ {t0:CUT[3],t1:DUR,p0:[0,1.42,6.4],p1:[0,1.3,4.9],l0:[0,1.22,0],f0:28,ramp:ramp.out(1.7),shake:.006,on:v=>{BAG.rotation.y=-.22+v*.3;key.target.position.x=-.8+v*1.2}},
+],camera);
+const whipb=document.getElementById('whipb'),cvs=renderer.domElement,st={whip:0,wx:0};cvs.style.filter='url(#whip)';
+R2.frame(t=>{SH(t);renderer.render(scene,camera);whipb.setAttribute('stdDeviation',`${st.whip.toFixed(1)} 0`);cvs.style.transform=`translateX(${st.wx.toFixed(1)}px) scale(${(1+Math.abs(st.whip)/500).toFixed(4)})`});
+/* ---- lớp dựng ---- */
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}});
+const cap=(id,t0,t1)=>{const s='#'+id;tl.set(s,{visibility:'visible'},t0+.15).fromTo(s+' .k b',{scaleX:0},{scaleX:1,duration:.424},t0+.15).fromTo(s+' .k',{opacity:0},{opacity:1,duration:.262},t0+.15)
+  .fromTo(s+' h3',{opacity:0,y:26},{opacity:1,y:0,duration:.686},t0+.22).to(s,{opacity:0,duration:.162},t1-.162).set(s,{visibility:'hidden'},t1)};
+cap('c1',CUT[0],CUT[1]);cap('c2',CUT[1],CUT[2]);
+const tt=R2.split(document.querySelector('.title .t'));
+tl.fromTo('.flash',{opacity:.6},{opacity:0,duration:.162,immediateRender:false},CUT[1])
+  .to(st,{whip:70,wx:-110,duration:.13,ease:'power2.in'},CUT[2]-.13).fromTo(st,{whip:70,wx:110},{whip:0,wx:0,duration:.22,ease:'power2.out',immediateRender:false},CUT[2])
+  .fromTo('.flash',{opacity:.5},{opacity:0,duration:.262,immediateRender:false},CUT[3])
+  .set('.title',{visibility:'visible'},CUT[2]+.2).fromTo('.title p',{opacity:0,y:10},{opacity:1,y:0,duration:.424},CUT[2]+.2)
+  .fromTo(tt,{opacity:0,y:68,filter:'blur(12px)'},{opacity:1,y:0,filter:'blur(0px)',duration:.9,stagger:.062},CUT[2]+.25)
+  .to('.title',{opacity:0,duration:.162},CUT[3]-.162).set('.title',{visibility:'hidden'},CUT[3])
+  .to('.end',{opacity:1,duration:.686,ease:'power2.out'},CUT[4])
+  .fromTo('.end .mk',{opacity:0,letterSpacing:'.8em',textIndent:'.8em'},{opacity:1,letterSpacing:'.42em',textIndent:'.42em',duration:.9},CUT[4]+.1)
+  .fromTo('.end .ln',{scaleX:0},{scaleX:1,duration:.686,ease:'power2.inOut'},CUT[4]+.3).fromTo('.end p',{opacity:0,y:16},{opacity:1,y:0,duration:.686},CUT[4]+.45).fromTo('.end small',{opacity:0},{opacity:.8,duration:.686},CUT[4]+.7)
+  .to(['.brand','.tag'],{opacity:0,duration:.262},CUT[4]);
+R2.done(tl);
+</script></body></html>

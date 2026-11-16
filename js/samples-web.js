@@ -1,0 +1,107 @@
+/* DreamLab — phòng mẫu hạng mục Website (Session W). Mỗi mẫu là một website concept chạy thật trong demos/. */
+(window.DL_SAMPLES = window.DL_SAMPLES || {}).web = [
+  {
+    id: 'web-ombreve',
+    title: 'Ombrève',
+    industry: 'Nước hoa',
+    desc: 'Website nhà nước hoa niche tông đen và vàng champagne: tám mùi hương có chai tự vẽ, xem nhanh tầng hương, đổi dung tích và đặt lịch thử hương.',
+    tags: ['Tối giản', 'Xem nhanh', 'Đặt lịch'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-ombreve.webp',
+    kind: 'site',
+    demo: 'demos/lux-ombreve.html',
+    long: 'img/sm-web-ombreve-long.webp',
+    longM: 'img/sm-web-ombreve-long-m.webp'
+  },
+  {
+    id: 'web-lavrene',
+    title: 'Lavrène',
+    industry: 'Túi xách',
+    desc: 'Website xưởng túi da thủ công dàn trang kiểu tạp chí: mục lục tám dáng túi, đổi sáu màu da cho cả bộ, ngăn kéo chi tiết và hẹn riêng tại xưởng.',
+    tags: ['Biên tập', 'Đổi màu da', 'Mục lục'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-lavrene.webp',
+    kind: 'site',
+    demo: 'demos/lux-lavrene.html',
+    long: 'img/sm-web-lavrene-long.webp',
+    longM: 'img/sm-web-lavrene-long-m.webp'
+  },
+  {
+    id: 'web-halvesse',
+    title: 'Halvesse',
+    industry: 'Giày',
+    desc: 'Website nhà đóng giày đo chân tông xanh rêu và đồng thau: sáu dáng giày đổi màu da trên từng đôi, bản vẽ chín số đo, quy trình mười hai tuần và hẹn buổi đo.',
+    tags: ['Cổ điển', 'Đổi màu da', 'Quy trình'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-halvesse.webp',
+    kind: 'site',
+    demo: 'demos/lux-halvesse.html',
+    long: 'img/sm-web-halvesse-long.webp',
+    longM: 'img/sm-web-halvesse-long-m.webp'
+  },
+  {
+    id: 'web-orvanthe',
+    title: 'Orvanthe',
+    industry: 'Đồng hồ',
+    desc: 'Website nhà chế tác đồng hồ cơ đơn sắc, chữ lớn: mặt đồng hồ chạy theo giờ thật, sơ đồ bộ máy chuyển động, chọn sáu tham chiếu với ba kiểu dây và bảng thông số toàn màn hình.',
+    tags: ['Chữ lớn', 'Giờ thật', 'Chọn cấu hình'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-orvanthe.webp',
+    kind: 'site',
+    demo: 'demos/lux-orvanthe.html',
+    long: 'img/sm-web-orvanthe-long.webp',
+    longM: 'img/sm-web-orvanthe-long-m.webp'
+  },
+  {
+    id: 'web-ysmarene',
+    title: 'Ysmarène',
+    industry: 'Trang sức',
+    desc: 'Website nhà kim hoàn tông xanh đêm và ánh băng: viên kim cương tự vẽ lấp lánh ở đầu trang, công cụ thử cỡ carat và cấp màu, tám thiết kế đổi ba chất liệu kim loại, hẹn riêng tại salon.',
+    tags: ['Tương tác', 'Đổi kim loại', 'Thử carat'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-ysmarene.webp',
+    kind: 'site',
+    demo: 'demos/lux-ysmarene.html',
+    long: 'img/sm-web-ysmarene-long.webp',
+    longM: 'img/sm-web-ysmarene-long-m.webp'
+  },
+  {
+    id: 'web-vaurelys',
+    title: 'Vaurelys',
+    industry: 'Rượu & ẩm thực',
+    desc: 'Website nhà champagne độc lập trên nền giấy ngà và đỏ rượu vang: kệ tám cuvée có chai tự vẽ, đổi ba cỡ chai để xem giá, thẻ hầm ghi chú nếm thử và thư xin phân bổ.',
+    tags: ['Sổ hầm', 'Đổi cỡ chai', 'Phân bổ'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-vaurelys.webp',
+    kind: 'site',
+    demo: 'demos/lux-vaurelys.html',
+    long: 'img/sm-web-vaurelys-long.webp',
+    longM: 'img/sm-web-vaurelys-long-m.webp'
+  },
+  {
+    id: 'web-gac-khoi',
+    title: 'Gác Khói Roastery',
+    industry: 'Khác',
+    desc: 'Website xưởng rang cà phê thủ công: bảng hạt theo mẻ rang, biểu đồ đường cong rang và công thức pha theo từng dụng cụ. Mẫu tầm trung cho cửa hàng nhỏ.',
+    tags: ['Bán hàng', 'Tầm trung'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/wk-gac-khoi.webp',
+    kind: 'site',
+    demo: 'demos/gac-khoi.html',
+    long: 'img/wk-gac-khoi-long.webp',
+    longM: 'img/wk-gac-khoi-long-m.webp'
+  },
+  {
+    id: 'web-mien-thao',
+    title: 'Miên Thảo Botanics',
+    industry: 'Khác',
+    desc: 'Website mỹ phẩm thuần thực vật: bốn sản phẩm, bảng thành phần và liệu trình chọn theo loại da. Mẫu tầm trung, nhẹ và dễ tự cập nhật.',
+    tags: ['Mỹ phẩm', 'Tầm trung'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/wk-mien-thao.webp',
+    kind: 'site',
+    demo: 'demos/mien-thao.html',
+    long: 'img/wk-mien-thao-long.webp',
+    longM: 'img/wk-mien-thao-long-m.webp'
+  }
+];

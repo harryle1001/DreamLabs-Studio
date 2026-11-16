@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Vân Đỉnh — video tour penthouse 16:9 (concept · cảnh quay dựng bằng code)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#000;color:#fbf5ea;font-family:"Be Vietnam Pro",sans-serif}
+#footage{filter:url(#grade)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse 82% 82% at 50% 50%,transparent 54%,rgba(6,8,14,.6))}
+.mist{position:absolute;inset:0;backdrop-filter:blur(12px) brightness(1.15);opacity:.2}
+.flash{position:absolute;inset:0;background:#fff3e0;opacity:0}
+.scrim{position:absolute;left:0;right:0;bottom:0;height:320px;background:linear-gradient(transparent,rgba(6,8,14,.72))}
+.lb{position:absolute;left:0;right:0;height:42px;background:#000}
+.brand{position:absolute;left:68px;top:68px;font-size:13px;letter-spacing:.42em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.6)}
+.l3{position:absolute;left:68px;bottom:84px;visibility:hidden;text-shadow:0 2px 26px rgba(0,0,0,.65)}
+.l3 .k{font:400 13px/1 "Space Mono",monospace;letter-spacing:.3em;text-transform:uppercase;color:#f2cf96;display:flex;gap:16px;align-items:center}
+.l3 .k b{display:block;width:42px;height:1px;background:#f2cf96;transform-origin:0 50%}
+.l3 h3{margin-top:10px;font:400 53px/1.05 "Cormorant",serif}
+.l3 p{margin-top:6px;font-size:16px;letter-spacing:.06em;opacity:.9}
+.map{position:absolute;right:68px;top:64px;width:178px;height:150px}
+.map svg{width:178px;height:150px;overflow:visible}
+.map span{position:absolute;right:0;top:158px;font:400 10px/1 "Space Mono",monospace;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+.end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(8,10,18,.5);backdrop-filter:blur(14px);opacity:0}
+.end .k{font-size:13px;letter-spacing:.5em;text-indent:.5em;text-transform:uppercase;color:#f2cf96}
+.end h2{margin-top:26px;font:400 126px/1.1 "Cormorant",serif;letter-spacing:.14em;text-indent:.14em}
+.end p{margin-top:10px;font:italic 400 33px/1.2 "Cormorant",serif;color:#f3e6cf}
+.end .cta{margin-top:42px;font-size:13px;font-weight:500;letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;padding:16px 42px;border:1px solid rgba(251,245,234,.7);border-radius:99px}
+.end small{position:absolute;bottom:68px;left:0;right:0;font-size:10px;letter-spacing:.28em;text-transform:uppercase;opacity:.5}
+</style></head>
+<body><div id="stage">
+ <div id="footage"></div>
+ <div class="gfx"><div class="mist"></div><div class="vig"></div><div class="scrim"></div><div class="flash"></div>
+  <div class="l3" id="a1"><div class="k"><b></b>01 · Phòng khách</div><h3>Tám mươi sáu mét vuông ánh chiều</h3><p>Trần 3,6 m · kính suốt hai mặt</p></div>
+  <div class="l3" id="a2"><div class="k"><b></b>02 · Góc nghỉ</div><h3>Sofa bouclé, bàn đá nguyên khối</h3><p>Nội thất đặt làm riêng</p></div>
+  <div class="l3" id="a3"><div class="k"><b></b>03 · Bàn tiệc</div><h3>Tám khách, một đường chân trời</h3><p>Đèn thả thổi thủ công</p></div>
+  <div class="l3" id="a4"><div class="k"><b></b>04 · Tầm nhìn</div><h3>Thành phố ở dưới chân</h3><p>Tầng 68 · hướng Tây Nam</p></div>
+  <div class="lb" style="top:0"></div><div class="lb" style="bottom:0"></div>
+  <div class="brand">Vân Đỉnh · Penthouse 68</div>
+  <div class="map"><svg viewBox="0 0 178 150"><rect x="1" y="1" width="176" height="148" fill="rgba(10,12,20,.35)" stroke="#fbf5ea" stroke-opacity=".8"/><path d="M1 1 H177 V149" fill="none" stroke="#f2cf96" stroke-width="2.5"/>
+    <rect x="52" y="74" width="50" height="16" fill="none" stroke="#fbf5ea" stroke-opacity=".6"/><circle cx="84" cy="52" r="9" fill="none" stroke="#fbf5ea" stroke-opacity=".6"/><rect x="124" y="84" width="36" height="16" fill="none" stroke="#fbf5ea" stroke-opacity=".6"/>
+    <g id="mp"><path d="M0 0 L-16 -34 L16 -34Z" fill="#f2cf96" fill-opacity=".35"/><circle r="4.5" fill="#f2cf96"/></g></svg><span>Mặt bằng · Concept</span></div>
+  <div class="end"><div class="k">Penthouse 68 · 486 m²</div><h2>VÂN ĐỈNH</h2><p>Sống ở nơi mây dừng lại.</p><div class="cta">Đặt lịch xem riêng</div><small>Cảnh quay dựng bằng code · Concept</small></div>
+ </div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script type="module">
+import {THREE,RoundedBoxGeometry,setup,mk,group,canvasTex,noiseTex,stoneTex,gobo,M,spot,plight,shots,ramp} from './lib3d.js';
+const W=1280,H=720,DUR=9;R2.init({W,H,dur:DUR,poster:1.3});
+R2.filters(R2.grade('grade',{con:.62,split:.1,sat:1.2,lift:.012,gain:1.03}),'<filter id="whip" x="-20%" width="140%"><feGaussianBlur id="whipb" stdDeviation="0 0"/></filter>');
+const {renderer,scene,camera}=setup({W,H,bg:0x1a2238,exposure:.74,env:.2,fov:40});
+const rnd=R2.rng(31);
+/* ---- thành phố lúc chạng vạng: texture toàn cảnh 360° ---- */
+const sky=canvasTex(4096,1024,(g,w,h)=>{const hz=h*.56,gr=g.createLinearGradient(0,0,0,hz);gr.addColorStop(0,'#101a3c');gr.addColorStop(.45,'#3a3a6e');gr.addColorStop(.75,'#b0617a');gr.addColorStop(.92,'#f29a5c');gr.addColorStop(1,'#ffc98a');g.fillStyle=gr;g.fillRect(0,0,w,hz);
+  const sun=g.createRadialGradient(w*.58,hz,0,w*.58,hz,520);sun.addColorStop(0,'rgba(255,236,190,1)');sun.addColorStop(.12,'rgba(255,190,110,.75)');sun.addColorStop(1,'rgba(255,150,80,0)');g.fillStyle=sun;g.fillRect(0,0,w,hz);
+  for(let i=0;i<40;i++){const x=rnd()*w,y=hz*(.45+rnd()*.45),cw=200+rnd()*500;const c=g.createLinearGradient(x,0,x+cw,0);c.addColorStop(0,'rgba(255,170,120,0)');c.addColorStop(.5,`rgba(255,${150+rnd()*60|0},130,${.12+rnd()*.25})`);c.addColorStop(1,'rgba(255,170,120,0)');g.fillStyle=c;g.fillRect(x,y,cw,3+rnd()*7)}
+  const gd=g.createLinearGradient(0,hz,0,h);gd.addColorStop(0,'#4a3a52');gd.addColorStop(.25,'#1a1c30');gd.addColorStop(1,'#0a0c18');g.fillStyle=gd;g.fillRect(0,hz,w,h-hz);
+  for(let i=0;i<9000;i++){const d=Math.pow(rnd(),1.6),y=hz+6+d*(h-hz-6),x=rnd()*w;g.fillStyle=`rgba(255,${190+rnd()*50|0},${110+rnd()*90|0},${.25+rnd()*.6})`;const s=.8+d*2.2;g.fillRect(x,y,s*(1+rnd()*2),s)}
+  for(let i=0;i<150;i++){const bw=22+rnd()*60,bh=24+Math.pow(rnd(),3)*150,x=rnd()*w,by=hz+44+rnd()*150;g.fillStyle=`rgb(${16+rnd()*14|0},${18+rnd()*14|0},${34+rnd()*18|0})`;g.fillRect(x,by-bh,bw,bh+200);
+    for(let yy=by-bh+6;yy<by+100;yy+=7)for(let xx=x+4;xx<x+bw-4;xx+=6)if(rnd()<.3){g.fillStyle=`rgba(255,${200+rnd()*40|0},${130+rnd()*80|0},${.5+rnd()*.5})`;g.fillRect(xx,yy,3,3.5)}
+    if(rnd()<.2){g.fillStyle='#ff5a48';g.fillRect(x+bw/2-1.5,by-bh-8,3,3)}}
+  const hzg=g.createLinearGradient(0,hz-30,0,hz+70);hzg.addColorStop(0,'rgba(255,190,130,0)');hzg.addColorStop(.45,'rgba(255,180,130,.35)');hzg.addColorStop(1,'rgba(255,170,120,0)');g.fillStyle=hzg;g.fillRect(0,hz-30,w,100);
+  /* thành phố hơi ngoài nét (độ sâu trường ảnh): làm mềm toàn cảnh */
+  const c2=document.createElement('canvas');c2.width=w;c2.height=h;c2.getContext('2d').drawImage(g.canvas,0,0);g.filter='blur(1.6px)';g.drawImage(c2,0,0);g.filter='none'},{aniso:2});
+sky.wrapS=THREE.RepeatWrapping;sky.repeat.set(2,1);
+const dome=mk(new THREE.CylinderGeometry(46,46,56,96,1,true),new THREE.MeshBasicMaterial({map:sky,side:THREE.BackSide,toneMapped:false}),{pos:[0,-23.04+1.55+28,0],cast:false,recv:false});dome.rotation.y=2.25;
+/* ---- vỏ phòng: sàn đá, trần, tường trái, khung kính hai mặt ---- */
+mk(new THREE.PlaneGeometry(12,10),new THREE.MeshStandardMaterial({map:stoneTex({base:[176,168,158],dark:[126,118,110],vein:[220,214,204],veins:10,seed:4,repeat:[3,3]}),roughness:.16,metalness:.25}),{rot:[-Math.PI/2,0,0],cast:false});
+mk(new THREE.PlaneGeometry(12,10),M.matte(0xe9e2d6,.95),{pos:[0,3.6,0],rot:[Math.PI/2,0,0],cast:false});
+const plaster=M.matte(0xcfc3b2,.95,{bumpMap:noiseTex(256,7,{oct:4,base:8,repeat:[3,1]}),bumpScale:1});
+mk(new THREE.PlaneGeometry(10,3.6),plaster,{pos:[-6,1.8,0],rot:[0,Math.PI/2,0],cast:false});mk(new THREE.PlaneGeometry(12,3.6),plaster,{pos:[0,1.8,5],rot:[0,Math.PI,0],cast:false});
+const frame=M.matte(0x16171b,.5,{metalness:.6});
+for(let x=-6;x<=6;x+=2)mk(new THREE.BoxGeometry(.07,3.6,.1),frame,{pos:[x,1.8,-5]});for(let z=-5;z<=5;z+=2)mk(new THREE.BoxGeometry(.1,3.6,.07),frame,{pos:[6,1.8,z]});
+mk(new THREE.BoxGeometry(12,.1,.12),frame,{pos:[0,3.55,-5]});mk(new THREE.BoxGeometry(12,.08,.12),frame,{pos:[0,.04,-5]});mk(new THREE.BoxGeometry(.12,.1,10),frame,{pos:[6,3.55,0]});mk(new THREE.BoxGeometry(.12,.08,10),frame,{pos:[6,.04,0]});
+mk(new THREE.BoxGeometry(11.6,.04,.25),M.glow(0xffd9a8,1.6),{pos:[0,3.57,-4.6],cast:false});mk(new THREE.BoxGeometry(.25,.04,9.6),M.glow(0xffd9a8,1.6),{pos:[5.6,3.57,0],cast:false});
+/* ---- nội thất ---- */
+const boucle=M.matte(0xc9bda8,.95,{bumpMap:noiseTex(256,9,{oct:3,base:48,contrast:2,grain:.6,repeat:[5,3]}),bumpScale:.8}),walnut=M.matte(0x4a3122,.55),brass=M.metal(0xd2a55c,.28);
+mk(new THREE.PlaneGeometry(5,3.6),M.matte(0x8f8577,.98,{bumpMap:noiseTex(256,2,{oct:3,base:32,grain:.7,repeat:[6,4]}),bumpScale:.9}),{pos:[-.6,.012,-1.1],rot:[-Math.PI/2,0,0],cast:false});
+const SOFA=group(scene,[-.7,0,.4]);
+mk(new RoundedBoxGeometry(3.3,.4,1.1,5,.1),boucle,{pos:[0,.3,0],parent:SOFA});mk(new RoundedBoxGeometry(3.3,.55,.3,5,.1),boucle,{pos:[0,.72,.42],parent:SOFA});
+mk(new RoundedBoxGeometry(1.1,.4,1.9,5,.1),boucle,{pos:[-1.1,.3,-1.3],parent:SOFA});mk(new RoundedBoxGeometry(.3,.5,1.1,5,.1),boucle,{pos:[1.52,.6,0],parent:SOFA});
+[-.9,.1,1.0].forEach((x,i)=>mk(new RoundedBoxGeometry(.9,.2,.85,5,.09),boucle,{pos:[x,.56,-.08],parent:SOFA}));
+mk(new RoundedBoxGeometry(.5,.34,.16,4,.07),M.matte(0x9a5a3a,.9),{pos:[.9,.82,.2],rot:[-.3,.2,0],parent:SOFA});mk(new RoundedBoxGeometry(.46,.32,.16,4,.07),M.matte(0x2f4a44,.9),{pos:[-.5,.8,.22],rot:[-.3,-.15,0],parent:SOFA});
+const marble=new THREE.MeshStandardMaterial({map:stoneTex({base:[236,232,226],dark:[196,190,184],vein:[90,86,84],veins:8,seed:17}),roughness:.2});
+mk(new THREE.CylinderGeometry(.62,.62,.09,64),marble,{pos:[-.2,.36,-1.7]});mk(new THREE.CylinderGeometry(.2,.3,.32,48),brass,{pos:[-.2,.16,-1.7]});
+mk(new THREE.CylinderGeometry(.34,.34,.07,48),M.lacquer(0x1b1b1e),{pos:[.72,.5,-1.3]});mk(new THREE.CylinderGeometry(.05,.16,.48,24),brass,{pos:[.72,.24,-1.3]});
+mk(new THREE.CylinderGeometry(.09,.06,.2,24),M.matte(0x2a3a36,.5),{pos:[-.35,.5,-1.6]});mk(new THREE.BoxGeometry(.4,.04,.28),M.matte(0xc8b08a,.7),{pos:[.05,.425,-1.85],rot:[0,.4,0]});
+const CH=group(scene,[2.3,0,-2.3]);CH.rotation.y=-.75;const cog=M.leather(0x8a4a26,{bumpScale:.5,sheen:.2});
+mk(new RoundedBoxGeometry(.85,.2,.8,4,.08),cog,{pos:[0,.42,0],parent:CH});mk(new RoundedBoxGeometry(.85,.75,.18,4,.08),cog,{pos:[0,.78,.36],rot:[.22,0,0],parent:CH});[[-.36,-.3],[.36,-.3],[-.36,.3],[.36,.3]].forEach(([x,z])=>mk(new THREE.CylinderGeometry(.02,.02,.34,8),brass,{pos:[x,.17,z],parent:CH}));
+/* đèn sàn */
+mk(new THREE.CylinderGeometry(.015,.015,1.7,12),brass,{pos:[-2.9,.85,-2.9]});mk(new THREE.CylinderGeometry(.18,.18,.03,32),brass,{pos:[-2.9,.015,-2.9]});mk(new THREE.SphereGeometry(.2,32,24),M.glow(0xffd7a0,2.2),{pos:[-2.9,1.8,-2.9],cast:false});
+plight(scene,{pos:[-2.9,1.8,-2.9],color:0xffc98a,intensity:14,shadow:true});
+/* bàn tiệc + đèn thả */
+const DN=group(scene,[3.6,0,1.3]);mk(new RoundedBoxGeometry(2.6,.07,1.05,3,.03),marble,{pos:[0,.76,0],parent:DN});[-.8,.8].forEach(x=>mk(new THREE.BoxGeometry(.12,.74,.7),walnut,{pos:[x,.37,0],parent:DN}));
+for(let i=0;i<4;i++)for(const s of[-1,1]){const c=group(DN,[-.9+i*.6,0,s*.82]);mk(new RoundedBoxGeometry(.44,.07,.44,3,.03),walnut,{pos:[0,.46,0],parent:c});mk(new RoundedBoxGeometry(.44,.5,.06,3,.025),walnut,{pos:[0,.74,s*.2],parent:c});mk(new THREE.BoxGeometry(.36,.44,.36),M.matte(0x1c1c1e,.6),{pos:[0,.22,0],parent:c})}
+[[-.75,2.05],[0,2.3],[.75,1.95]].forEach(([x,y],i)=>{mk(new THREE.SphereGeometry(.13,32,24),M.glow(0xffd9a6,2.4),{pos:[x,y,0],parent:DN,cast:false});mk(new THREE.CylinderGeometry(.006,.006,3.6-y,6),frame,{pos:[x,y+(3.6-y)/2,0],parent:DN,cast:false})});
+plight(scene,{pos:[3.6,2.0,1.3],color:0xffcf96,intensity:16,shadow:true});
+mk(new THREE.CylinderGeometry(.24,.14,.08,32),brass,{pos:[-.2,.84,0],parent:DN});mk(new THREE.CylinderGeometry(.03,.04,.26,16),M.matte(0x1c1c1e,.4),{pos:[.5,.93,.1],parent:DN});
+/* tường trái: tranh xoắn ốc vàng + kệ */
+const art=canvasTex(880,640,(g,w,h)=>{g.fillStyle='#e9e0cf';g.fillRect(0,0,w,h);g.translate(w*.56,h*.52);g.strokeStyle='#1c2233';g.lineCap='round';for(let k=0;k<3;k++){g.beginPath();g.lineWidth=[26,10,3][k];g.strokeStyle=['#1c2233','#c8823a','#1c2233'][k];for(let a=0;a<19;a+=.05){const r=6*Math.pow(1.618,a/1.5708)*(1+k*.16);const x=r*Math.cos(a+k*.5),y=r*Math.sin(a+k*.5);a?g.lineTo(x,y):g.moveTo(x,y)}g.stroke()}});
+mk(new THREE.BoxGeometry(.05,1.6,2.2),new THREE.MeshStandardMaterial({map:art,roughness:.8}),{pos:[-5.95,1.95,-1.4]});mk(new THREE.BoxGeometry(.07,1.68,2.28),frame,{pos:[-5.98,1.95,-1.4]});
+mk(new RoundedBoxGeometry(.45,.5,2.6,3,.02),walnut,{pos:[-5.72,.45,-1.4]});mk(new THREE.CylinderGeometry(.1,.14,.5,24),M.matte(0x1c1c1e,.4),{pos:[-5.72,.95,-2.2]});mk(new THREE.SphereGeometry(.15,24,16),brass,{pos:[-5.72,.85,-.7]});
+/* cây */
+mk(new THREE.CylinderGeometry(.26,.2,.5,32),M.matte(0x2a2a2c,.7),{pos:[4.9,.25,-4.1]});for(let i=0;i<9;i++)mk(new THREE.SphereGeometry(.3,12,10),M.matte(0x2f4a30,.9),{pos:[4.9+(rnd()-.5)*.7,.9+rnd()*1.1,-4.1+(rnd()-.5)*.7],scale:[1,1.5,.5],rot:[rnd(),rnd()*3,rnd()]});
+/* ánh sáng: nắng cuối ngày xiên qua kính + trời xanh */
+scene.add(new THREE.HemisphereLight(0x6a7cc0,0x40302a,.32));
+const sun=spot(scene,{pos:[9,3.2,-12],target:[-1,0,0],color:0xffb070,intensity:1100,angle:.5,pen:.6,radius:4});
+plight(scene,{pos:[0,3.2,2],color:0xffe2c0,intensity:5});
+/* ---- 5 cảnh quay ---- */
+const CUT=[0,2.1,3.9,5.6,7.2],SH=shots([
+ {t0:CUT[0],t1:CUT[1],p0:[-4.6,1.55,4.4],p1:[-3.2,1.5,2.8],l0:[1.5,1.2,-4],f0:42,ramp:ramp.out(1.6)},
+ {t0:CUT[1],t1:CUT[2],p0:[-3.2,.95,-.3],p1:[-.4,1.0,-.6],l0:[0,.6,-3],l1:[2.5,.9,-4],f0:38,ramp:ramp.slowmid(.7)},
+ {t0:CUT[2],t1:CUT[3],p0:[1.0,1.55,3.6],p1:[1.8,1.5,2.6],l0:[5,1.2,-.5],f0:40,ramp:ramp.out(1.8)},
+ {t0:CUT[3],t1:CUT[4],p0:[.6,1.6,1.8],p1:[1.6,1.7,-4.2],l0:[3.5,1.6,-30],l1:[6,1.2,-30],f0:44,f1:36,ramp:ramp.in(2.2),shake:.02},
+ {t0:CUT[4],t1:DUR,p0:[-4.9,1.9,4.5],p1:[-5.2,2.0,4.8],l0:[1.5,1.1,-4],f0:44,shake:.006},
+],camera);
+const whipb=document.getElementById('whipb'),cvs=renderer.domElement,st={whip:0,wx:0},mp=document.getElementById('mp'),dir=new THREE.Vector3();cvs.style.filter='url(#whip)';
+R2.frame(t=>{SH(t);renderer.render(scene,camera);whipb.setAttribute('stdDeviation',`${st.whip.toFixed(1)} 0`);cvs.style.transform=`translateX(${st.wx.toFixed(1)}px) scale(${(1+Math.abs(st.whip)/500).toFixed(4)})`;
+  camera.getWorldDirection(dir);const a=Math.atan2(dir.x,-dir.z)*180/Math.PI;mp.setAttribute('transform',`translate(${((camera.position.x+6)/12*176+1).toFixed(1)} ${((camera.position.z+5)/10*148+1).toFixed(1)}) rotate(${a.toFixed(1)})`)});
+/* ---- lớp dựng ---- */
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}});
+const l3=(id,t0,t1)=>{const s='#'+id;tl.set(s,{visibility:'visible'},t0+.2).fromTo(s+' .k b',{scaleX:0},{scaleX:1,duration:.424},t0+.2).fromTo(s+' .k',{opacity:0},{opacity:1,duration:.262},t0+.2)
+  .fromTo(s+' h3',{opacity:0,y:26},{opacity:1,y:0,duration:.686},t0+.28).fromTo(s+' p',{opacity:0,y:10},{opacity:.9,y:0,duration:.424},t0+.5).to(s,{opacity:0,duration:.162},t1-.162).set(s,{visibility:'hidden'},t1)};
+l3('a1',CUT[0],CUT[1]);l3('a2',CUT[1],CUT[2]);l3('a3',CUT[2],CUT[3]);l3('a4',CUT[3],CUT[4]);
+tl.to(st,{whip:70,wx:-110,duration:.13,ease:'power2.in'},CUT[1]-.13).fromTo(st,{whip:70,wx:110},{whip:0,wx:0,duration:.22,ease:'power2.out',immediateRender:false},CUT[1])
+  .to(st,{whip:70,wx:110,duration:.13,ease:'power2.in'},CUT[2]-.13).fromTo(st,{whip:70,wx:-110},{whip:0,wx:0,duration:.22,ease:'power2.out',immediateRender:false},CUT[2])
+  .fromTo('.flash',{opacity:.5},{opacity:0,duration:.2,immediateRender:false},CUT[3]).fromTo('.flash',{opacity:.85},{opacity:0,duration:.424,immediateRender:false},CUT[4])
+  .fromTo(['.brand','.map'],{opacity:0},{opacity:1,duration:.686},.2)
+  .to('.end',{opacity:1,duration:.686,ease:'power2.out'},CUT[4]+.35).to(['.brand','.map'],{opacity:0,duration:.262},CUT[4]+.3)
+  .fromTo('.end .k',{opacity:0,y:10},{opacity:1,y:0,duration:.424},CUT[4]+.45).fromTo('.end h2',{opacity:0,letterSpacing:'.4em',textIndent:'.4em'},{opacity:1,letterSpacing:'.14em',textIndent:'.14em',duration:.9},CUT[4]+.5)
+  .fromTo('.end p',{opacity:0,y:16},{opacity:1,y:0,duration:.686},CUT[4]+.75).fromTo('.end .cta',{opacity:0,scale:.9},{opacity:1,scale:1,duration:.424,ease:'back.out(1.8)'},CUT[4]+1.0).fromTo('.end small',{opacity:0},{opacity:.5,duration:.424},CUT[4]+1.1);
+R2.done(tl);
+</script></body></html>

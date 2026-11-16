@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Valmère — logo animation hãng đồng hồ 1:1 (concept)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#070a11;color:#e9dcc6;font-family:"Be Vietnam Pro",sans-serif}
+#bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 46%,#1a2334,#0b101a 52%,#05070c 86%)}
+svg#art{position:absolute;inset:0;width:900px;height:900px;overflow:visible}
+.wm{position:absolute;left:0;right:0;top:598px;text-align:center;font:400 68px/1 "Playfair",serif;letter-spacing:.3em;text-indent:.3em;white-space:nowrap;
+  background:linear-gradient(100deg,#c9a878 0 42%,#fff6e2 50%,#c9a878 58% 100%);background-size:300% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{position:absolute;left:0;right:0;top:706px;text-align:center;font-size:16px;letter-spacing:.46em;text-indent:.46em;text-transform:uppercase;color:rgba(233,220,198,.72);display:flex;gap:16px;justify-content:center;align-items:center}
+.sub b{width:42px;height:1px;background:#c9a878}
+.cc{position:absolute;left:0;right:0;bottom:42px;text-align:center;font-size:13px;letter-spacing:.3em;text-indent:.3em;text-transform:uppercase;color:rgba(233,220,198,.36)}
+#vig{position:absolute;inset:0;background:radial-gradient(circle at 50% 46%,transparent 46%,rgba(0,0,0,.6))}
+#fade{position:absolute;inset:0;background:#06080d}
+</style></head>
+<body><div id="stage">
+ <div id="bg"></div>
+ <svg id="art" viewBox="0 0 900 900"></svg>
+ <div id="vig"></div>
+ <div class="wm">VALMÈRE</div>
+ <div class="sub"><b></b><span>Manufacture horlogère</span><b></b></div>
+ <div class="cc">Logo animation · Concept</div>
+ <div id="fade"></div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script>
+const W=900,H=900,DUR=7,CX=450,CY=414;R2.init({W,H,dur:DUR,poster:6,cover:[2.6,6]});
+const TAU=Math.PI*2,pol=(r,a)=>[(r*Math.cos(a)).toFixed(2),(r*Math.sin(a)).toFixed(2)];
+/* bánh răng: N răng, mô-đun m -> bán kính chia r=m*N/2 */
+function gearPath(N,m){const r=m*N/2,ro=r+m*.95,ri=r-m*1.15,p=TAU/N;let d='';
+  for(let i=0;i<N;i++){const a=i*p;const q=[[ri,a-p*.5],[ri,a-p*.27],[ro,a-p*.13],[ro,a+p*.13],[ri,a+p*.27]];
+    q.forEach(([rr,aa],j)=>{const[x,y]=pol(rr,aa);d+=(i+j?'L':'M')+x+' '+y})}return d+'Z'}
+function gear(N,m,spokes){const r=m*N/2,rim=r-m*2.4,hub=Math.max(7,r*.2);let s=`<path d="${gearPath(N,m)}" fill="url(#brass)" stroke="#d8b98a" stroke-width="1.3"/>`;
+  s+=`<circle r="${rim}" fill="#0b101a" stroke="#d8b98a" stroke-opacity=".7" stroke-width="1"/>`;
+  for(let i=0;i<spokes;i++){const a=i*TAU/spokes,[x1,y1]=pol(hub,a),[x2,y2]=pol(rim,a);s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="url(#brass)" stroke-width="${Math.max(4,m*.9)}"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#d8b98a" stroke-opacity=".5" stroke-width="1"/>`}
+  s+=`<circle r="${hub}" fill="url(#brass)" stroke="#d8b98a" stroke-width="1"/><circle r="${hub*.5}" fill="url(#ruby)"/><circle cx="${-hub*.14}" cy="${-hub*.16}" r="${hub*.14}" fill="#fff" opacity=".7"/>`;return s}
+/* bộ truyền: A ở tâm, B·C ăn khớp với A, D ăn khớp với C */
+const M=7.5,G=[{N:28,x:0,y:0,sp:7}];
+const mesh=(par,N,deg,sp)=>{const P=G[par],a=deg*Math.PI/180,d=M*(P.N+N)/2;G.push({N,x:P.x+d*Math.cos(a),y:P.y+d*Math.sin(a),sp,par,a});return G.length-1};
+const iB=mesh(0,14,-38,4),iC=mesh(0,20,150,5),iE=mesh(0,16,62,4),iF=mesh(0,12,-112,3);
+const rotOf=(g,rotA)=>{if(g.par===undefined)return rotA;const P=G[g.par],rp=rotOf(P,rotA);return -(P.N/g.N)*(rp-g.a)+g.a+Math.PI+Math.PI/g.N};
+let ticks='';for(let i=0;i<60;i++){const a=i*TAU/60-Math.PI/2,big=i%5===0,[x1,y1]=pol(big?270:286,a),[x2,y2]=pol(300,a);ticks+=`<line class="tk" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#d8b98a" stroke-width="${big?2.2:1}" stroke-linecap="round" opacity="0"/>`}
+let dots='';R2.phyllo(377,13.2).forEach(p=>{if(p.r<262)dots+=`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(1+p.r/200).toFixed(2)}"/>`});
+const hand=(len,w)=>`M0 ${w*2.2} L${w} 0 L0 ${-len} L${-w} 0Z`;
+document.getElementById('art').innerHTML=`<defs>
+ <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5d4a2c"/><stop offset=".5" stop-color="#2b2418"/><stop offset="1" stop-color="#4a3a22"/></linearGradient>
+ <radialGradient id="ruby" cx=".4" cy=".35"><stop offset="0" stop-color="#ff6a8a"/><stop offset=".6" stop-color="#b3123a"/><stop offset="1" stop-color="#5a0a1e"/></radialGradient>
+ <linearGradient id="hg" x1="0" x2="1"><stop offset="0" stop-color="#fff3d6"/><stop offset=".49" stop-color="#e3c48e"/><stop offset=".51" stop-color="#a98450"/><stop offset="1" stop-color="#d8b98a"/></linearGradient>
+ <filter id="gl"><feGaussianBlur stdDeviation="6"/></filter></defs>
+<g id="dial" transform="translate(${CX} ${CY})">
+ <g class="guil" fill="#d8b98a" opacity="0">${dots}</g>
+ <g class="gears">${G.map((g,i)=>`<g class="gpos" transform="translate(${g.x.toFixed(2)} ${g.y.toFixed(2)})"><g class="gsc"><g class="gr" data-i="${i}">${gear(g.N,M,g.sp)}</g></g></g>`).join('')}</g>
+ <g class="ringg"><circle class="ring" r="300" fill="none" stroke="#d8b98a" stroke-width="1.6"/><circle class="ring2" r="308" fill="none" stroke="#d8b98a" stroke-opacity=".35" stroke-width="1"/><g class="tks">${ticks}</g></g>
+ <g class="hands"><g class="sec"><line x1="0" y1="40" x2="0" y2="-262" stroke="#e0566e" stroke-width="1.6"/><circle cy="-218" r="5" fill="none" stroke="#e0566e" stroke-width="1.6"/></g>
+  <g class="hh"><path class="hp" d="${hand(150,11)}" fill="url(#hg)"/></g><g class="mh"><path class="hp" d="${hand(236,9)}" fill="url(#hg)"/></g>
+  <circle class="pin" r="9" fill="#0b101a" stroke="#d8b98a" stroke-width="2"/><circle class="pin" r="3" fill="#d8b98a"/></g>
+ <circle class="seed" r="5" fill="#fff3d6"/><circle class="seedglow" r="60" fill="#f6dba6" opacity=".0" filter="url(#gl)"/>
+ <circle class="top" cx="0" cy="-120" r="5" fill="#d8b98a" opacity="0"/>
+</g>`;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const grs=$$('.gr'),tks=$$('.tk'),st={rot:0,tick:0,h:-120,m:-470,s:0,hl:1,ml:1};
+R2.frame(()=>{grs.forEach((e,i)=>e.setAttribute('transform',`rotate(${(rotOf(G[i],st.rot)*180/Math.PI).toFixed(3)})`));
+  tks.forEach((e,i)=>e.setAttribute('opacity',R2.clamp(st.tick*64-i).toFixed(3)));
+  $('.hh').setAttribute('transform',`rotate(${st.h.toFixed(3)}) scale(1 ${st.hl.toFixed(4)})`);$('.mh').setAttribute('transform',`rotate(${st.m.toFixed(3)}) scale(1 ${st.ml.toFixed(4)})`);
+  $('.sec').setAttribute('transform',`rotate(${st.s.toFixed(3)})`)});
+
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}});
+gsap.set('.gsc',{scale:0,svgOrigin:'0 0'});gsap.set('.hands',{opacity:0});gsap.set(['.ring','.ring2'],{scale:0,svgOrigin:'0 0',opacity:0});gsap.set('.seed',{scale:0,svgOrigin:'0 0'});
+gsap.set(['.wm','.sub','.cc'],{opacity:0});
+tl.to('#fade',{opacity:0,duration:.424,ease:'power1.out'},0)
+  /* 1 — hạt mầm bung thành vành phút */
+  .to('.seed',{scale:1,duration:.424,ease:'back.out(3)'},.1).to('.seedglow',{opacity:.5,duration:.262,yoyo:true,repeat:1},.262)
+  .to(['.ring','.ring2'],{scale:1,opacity:1,duration:1.11,ease:'expo.out',stagger:.062},.424)
+  .to(st,{tick:1,duration:1.11,ease:'power1.inOut'},.686)
+  .to('.guil',{opacity:.13,duration:1.796},.8).fromTo('.guil',{rotation:-30,svgOrigin:'0 0'},{rotation:20,duration:DUR,ease:'none'},0)
+  /* 2 — bộ máy: bánh răng ăn khớp */
+  .to('.gsc',{scale:1,duration:.686,ease:'back.out(1.7)',stagger:.1},.9)
+  .to(st,{rot:TAU*.8,duration:3.3,ease:'power1.inOut'},.9)
+  .to('.seed',{scale:0,duration:.262},1.0)
+  /* 3 — kim chạy tua nhanh, dừng ở 10:10 */
+  .to('.hands',{opacity:1,duration:.424},1.6)
+  .to(st,{m:60,duration:2.5,ease:'power3.inOut'},1.6).to(st,{h:305-360,duration:2.5,ease:'power3.inOut'},1.6)
+  .to(st,{s:360*1.4,duration:4.2,ease:'none'},0)
+  /* 4 — morph: bộ máy thu về tâm, mặt số co thành vòng logo, hai kim thành chữ V */
+  .to('.gsc',{scale:0,duration:.686,ease:'back.in(1.4)',stagger:{each:.062,from:'end'}},4.0)
+  .to('.gears',{opacity:0,duration:.424},4.4)
+  .to('.sec',{opacity:0,duration:.262},3.9).to('.pin',{opacity:0,scale:0,svgOrigin:'0 0',duration:.424},4.2)
+  .to(st,{tick:0,duration:.686,ease:'power2.in'},3.9)
+  .to('.ring',{scale:.4,attr:{'stroke-width':5},duration:1.11,ease:'expo.inOut'},4.1).to('.ring2',{scale:.44,opacity:.5,duration:1.11,ease:'expo.inOut'},4.16)
+  .to('.guil',{opacity:0,duration:.686},4.1)
+  .to(st,{h:-31,m:31,hl:.86,ml:.547,duration:1.11,ease:'expo.inOut'},4.1)
+  .to('.hands',{y:62,duration:1.11,ease:'expo.inOut'},4.1)
+  .to('#dial',{attr:{transform:`translate(${CX} 360)`},duration:1.11,ease:'expo.inOut'},4.1)
+  .to('.top',{opacity:1,duration:.424},5.0).fromTo('.top',{attr:{cy:-150}},{attr:{cy:-120},duration:.686,ease:'bounce.out'},5.0)
+  .to('.seedglow',{opacity:.35,scale:2.4,svgOrigin:'0 0',duration:.424,yoyo:true,repeat:1,ease:'sine.inOut'},4.9)
+  /* 5 — chữ */
+  .fromTo('.wm',{opacity:0,letterSpacing:'.62em',textIndent:'.62em'},{opacity:1,letterSpacing:'.3em',textIndent:'.3em',duration:1.11,ease:'power3.out'},5.0)
+  .to('.wm',{backgroundPosition:'0% 0',duration:1.3,ease:'power1.inOut'},5.3)
+  .fromTo('.sub',{opacity:0,y:10},{opacity:1,y:0,duration:.686},5.5).fromTo('.sub b',{scaleX:0},{scaleX:1,duration:.686},5.5)
+  .to('.cc',{opacity:1,duration:.686},5.7)
+  .to('#fade',{opacity:1,duration:.3,ease:'power1.in'},6.7);
+R2.done(tl);
+</script></body></html>

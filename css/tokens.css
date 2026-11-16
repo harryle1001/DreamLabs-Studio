@@ -1,0 +1,34 @@
+/* DreamLab design tokens — mọi con số sinh từ φ = 1.61803. KHÔNG dùng số lẻ ngoài thang này. */
+:root{
+  --phi:1.61803; --phi-inv:.61803; --phi-inv2:.38197; --sqrt-phi:1.27202;
+  /* màu (light: linen ban ngày) */
+  --bg:#F4EFE6; --paper:#FBF8F3; --ink:#221C2A; --muted:#6C6373; --line:rgba(34,28,42,.12);
+  --lav:#BCA8E6; --peach:#F2C0A8; --mist:#AACBE0; --accent:#5E43A8; --on-accent:#FBF8F3;
+  --glass:rgba(251,248,243,.62); --shadow:rgba(60,30,90,.28);
+  --grad-dream:linear-gradient(135deg,var(--lav),var(--peach) 61.8%,var(--mist));
+  /* chữ */
+  --f-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --t0:10px; --t0h:13px; --t1:16px; --t1h:20px; --t2:26px; --t2h:33px; --t3:42px; --t3h:53px; --t4:68px; --t5:110px; --t6:178px;
+  --fz-h1:clamp(var(--t3),9.2vw,var(--t5)); --fz-h2:clamp(var(--t2),5.4vw,var(--t4)); --fz-h3:clamp(var(--t1h),2.6vw,var(--t2h)); --fz-lead:clamp(var(--t1),1.6vw,18px);
+  --lh:1.618; --lh-tight:1.08; --measure:62ch;
+  /* khoảng cách */
+  --s0:4px; --s1:6px; --s2:10px; --s3:16px; --s4:26px; --s5:42px; --s6:68px; --s7:110px; --s8:178px;
+  /* bo góc */
+  --r0:6px; --r1:10px; --r2:16px; --r3:26px; --r4:42px; --r5:68px;
+  /* thời lượng + easing */
+  --d0:100ms; --d1:162ms; --d2:262ms; --d3:424ms; --d4:686ms; --d5:1110ms; --d6:1796ms;
+  --ease:cubic-bezier(.22,1,.36,1); --ease-io:cubic-bezier(.618,0,.382,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  /* tỷ lệ */
+  --golden:1.618/1; --golden-v:1/1.618; --col-major:61.8%; --col-minor:38.2%; --cols-golden:1.618fr 1fr; --cols-golden-r:1fr 1.618fr;
+  --op-major:.618; --op-minor:.382;
+  --head:68px; --wrap:1240px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15121C;--paper:#1D1926;--ink:#F1ECE4;--muted:#A9A0B3;--line:rgba(241,236,228,.13);
+  --lav:#6F5BAE;--peach:#A8705F;--mist:#4C7593;--accent:#CDBDF4;--on-accent:#1A1622;
+  --glass:rgba(29,25,38,.6);--shadow:rgba(0,0,0,.5);color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15121C;--paper:#1D1926;--ink:#F1ECE4;--muted:#A9A0B3;--line:rgba(241,236,228,.13);
+  --lav:#6F5BAE;--peach:#A8705F;--mist:#4C7593;--accent:#CDBDF4;--on-accent:#1A1622;
+  --glass:rgba(29,25,38,.6);--shadow:rgba(0,0,0,.5);color-scheme:dark}

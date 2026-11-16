@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Talvère — Arc 28 · phim ra mắt túi xách 9:16 (concept)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#e9dfcf;color:#2a1d14;font-family:"Be Vietnam Pro",sans-serif}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 60% at 50% 40%,#f6efe3,#e6dac7 60%,#d6c7b0)}
+#tint{position:absolute;inset:0;background:#000;opacity:0;mix-blend-mode:multiply}
+.giant{position:absolute;left:0;right:0;top:250px;text-align:center;font:italic 500 560px/1 "Playfair",serif;color:rgba(120,90,60,.1);letter-spacing:-.04em;white-space:nowrap}
+svg#art{position:absolute;inset:0;width:720px;height:1280px;overflow:visible}
+.mono{font-family:"Space Mono",monospace;font-size:16px;letter-spacing:.08em;fill:#7a6450}
+.wm{position:absolute;left:0;right:0;top:68px;text-align:center;font:300 20px/1 "Unbounded",sans-serif;letter-spacing:.62em;text-indent:.62em;text-transform:uppercase}
+.wm small{display:block;margin-top:16px;font:400 13px/1 "Be Vietnam Pro";letter-spacing:.3em;text-indent:.3em;opacity:.62}
+.cw{position:absolute;left:0;right:0;top:900px;text-align:center}
+.cw .nm{font:italic 400 53px/1 "Playfair",serif;height:68px;position:relative}
+.cw .nm span{position:absolute;left:0;right:0;top:0}
+.sw{display:flex;gap:16px;justify-content:center;margin-top:26px}
+.sw i{width:33px;height:33px;border-radius:50%;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.sw i::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid #2a1d14;opacity:var(--on,0);transform:scale(calc(.7 + .3*var(--on,0)))}
+.ttl{position:absolute;left:0;right:0;top:806px;text-align:center}
+.ttl h1{font:500 126px/1 "Playfair",serif;letter-spacing:-.02em}
+.ttl h1 i{font-weight:400}
+.ttl p{margin-top:16px;font:400 26px/1.4 "Be Vietnam Pro";letter-spacing:.02em;color:#5a4636}
+.ttl .date{margin:26px auto 0;display:inline-flex;gap:16px;align-items:center;font:500 16px/1 "Be Vietnam Pro";letter-spacing:.34em;text-transform:uppercase;padding:16px 26px;border:1px solid #2a1d14;border-radius:99px}
+.ttl .date b{width:5px;height:5px;border-radius:50%;background:#b8862f}
+.foot{position:absolute;left:0;right:0;bottom:42px;text-align:center;font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:rgba(42,29,20,.45)}
+#fade{position:absolute;inset:0;background:#e9dfcf;opacity:0}
+</style></head>
+<body><div id="stage">
+ <div id="bg"></div><div id="tint"></div>
+ <div class="giant">28</div>
+ <svg id="art" viewBox="0 0 720 1280"></svg>
+ <div class="wm">Talvère<small>Maison de maroquinerie · Concept</small></div>
+ <div class="cw"><div class="nm"><span>Cognac</span><span>Vert Sapin</span><span>Noir Onyx</span></div><div class="sw"><i style="background:#a5562a"></i><i style="background:#2f4a3a"></i><i style="background:#1d1b1c"></i></div></div>
+ <div class="ttl"><h1><span class="t1">Arc</span> <i class="t2">28</i></h1><p class="t3">Một đường cong.<br>Hai trăm mười hai mũi khâu tay.</p><div class="date"><span>Ra mắt</span><b></b><span>12 · 12</span></div></div>
+ <div class="foot">Bộ sưu tập Thu – Đông</div>
+ <div id="fade"></div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script>
+const W=720,H=1280,DUR=8;R2.init({W,H,dur:DUR,poster:7,cover:[2.5,4.6,7]});
+const BODY='M-190 -110 L190 -110 L190 40 A190 190 0 0 1 -190 40Z';
+const FLAP='M-190 -110 L190 -110 L190 -24 Q0 150 -190 -24Z';
+const STB='M-174 -96 L-174 40 A174 174 0 0 0 174 40 L174 -96';
+const STF='M-176 -30 Q0 128 176 -30';
+const HND='M-104 -112 C-104 -300 104 -300 104 -112';
+document.getElementById('art').innerHTML=`<defs>
+ <linearGradient id="lea" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="var(--l3)"/><stop offset=".45" stop-color="var(--l1)"/><stop offset="1" stop-color="var(--l2)"/></linearGradient>
+ <linearGradient id="leaf" x1="0" y1="0" x2=".6" y2="1"><stop offset="0" stop-color="var(--l3)"/><stop offset=".6" stop-color="var(--l1)"/><stop offset="1" stop-color="var(--l2)"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3c9"/><stop offset=".3" stop-color="#d9ac55"/><stop offset=".55" stop-color="#8f6a25"/><stop offset=".75" stop-color="#f1d58c"/><stop offset="1" stop-color="#7a5a1e"/></linearGradient>
+ <linearGradient id="sweep" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <radialGradient id="flare"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#fff3cf" stop-opacity=".8"/><stop offset="1" stop-color="#ffe2a0" stop-opacity="0"/></radialGradient>
+ <filter id="grain" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .9 .9 .9 0 -.95"/></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter><filter id="soft2"><feGaussianBlur stdDeviation="5"/></filter>
+ <clipPath id="cbody"><path d="${BODY}"/></clipPath><clipPath id="cflap"><path d="${FLAP}"/></clipPath><clipPath id="cclasp"><circle cx="0" cy="70" r="30"/></clipPath>
+ <clipPath id="rise"><rect class="riser" x="-260" y="240" width="520" height="0"/></clipPath>
+ <mask id="mstb"><path class="dr" d="${STB}" fill="none" stroke="#fff" stroke-width="6"/></mask><mask id="mstf"><path class="dr" d="${STF}" fill="none" stroke="#fff" stroke-width="6"/></mask>
+ <mask id="mhnd"><path class="dr" d="${HND}" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round"/></mask>
+</defs>
+<g id="bag" transform="translate(360 560)">
+ <ellipse class="shadow" cx="0" cy="262" rx="230" ry="26" fill="#3a2414" opacity=".42" filter="url(#soft)"/>
+ <g class="blue" fill="none" stroke="#7a6450" stroke-width="1.2">
+  <circle class="dr" cx="0" cy="40" r="190"/><rect class="dr" x="-190" y="-110" width="380" height="150"/>
+  <path class="dr" d="M-190 -150 L190 -150 M-190 -158 L-190 -142 M190 -158 L190 -142" /><path class="dr" d="M230 -110 L230 230 M222 -110 L238 -110 M222 230 L238 230"/>
+  <path class="rad" d="M0 40 L134 174" stroke-dasharray="3 5" opacity="0"/>
+  <text class="mono bt" x="0" y="-166" text-anchor="middle" stroke="none">28 cm</text><text class="mono bt" x="250" y="64" stroke="none">φ</text><text class="mono bt" x="60" y="92" stroke="none">R 14</text>
+ </g>
+ <g class="hnd" mask="url(#mhnd)"><path d="${HND}" fill="none" stroke="var(--l2)" stroke-width="24" stroke-linecap="round"/><path d="${HND}" fill="none" stroke="var(--l1)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M-98 -150 C-98 -292 98 -292 98 -150" fill="none" stroke="var(--l3)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+  <path d="${HND}" fill="none" stroke="var(--st)" stroke-width="1.6" stroke-dasharray="7 6" opacity=".85" transform="translate(0 -6) scale(.93 1)"/></g>
+ <g class="ring"><rect x="-122" y="-128" width="36" height="24" rx="6" fill="url(#gold)"/><rect x="86" y="-128" width="36" height="24" rx="6" fill="url(#gold)"/></g>
+ <g class="bodyg" clip-path="url(#rise)">
+  <path d="${BODY}" fill="url(#lea)"/>
+  <g clip-path="url(#cbody)"><rect x="-200" y="-120" width="400" height="360" filter="url(#grain)" opacity=".5"/>
+   <ellipse cx="-70" cy="170" rx="150" ry="60" fill="#fff" opacity=".1" filter="url(#soft)"/>
+   <path d="${FLAP}" fill="#000" opacity=".5" filter="url(#soft)" transform="translate(0 16)"/></g>
+  <g mask="url(#mstb)"><path d="${STB}" fill="none" stroke="var(--st)" stroke-width="2" stroke-dasharray="8 7" stroke-linecap="round"/></g>
+ </g>
+ <g class="flap">
+  <path d="${FLAP}" fill="url(#leaf)"/>
+  <g clip-path="url(#cflap)"><rect x="-200" y="-120" width="400" height="280" filter="url(#grain)" opacity=".45"/>
+   <rect x="-190" y="-110" width="380" height="16" fill="#fff" opacity=".12"/>
+   <rect class="lsweep" x="-70" y="-140" width="140" height="330" fill="url(#sweep)" opacity=".34" transform="translate(-420 0) skewX(-20)"/></g>
+  <g mask="url(#mstf)"><path d="${STF}" fill="none" stroke="var(--st)" stroke-width="2" stroke-dasharray="8 7" stroke-linecap="round"/></g>
+ </g>
+ <g class="clasp"><circle cx="0" cy="74" r="32" fill="#000" opacity=".3" filter="url(#soft2)"/>
+  <circle cx="0" cy="70" r="30" fill="url(#gold)"/><circle cx="0" cy="70" r="22" fill="none" stroke="#6d5019" stroke-width="1.2" opacity=".7"/><circle cx="0" cy="70" r="21" fill="none" stroke="#fff6d8" stroke-width=".8" opacity=".8"/>
+  <path d="M-12 70 L12 70" fill="none" stroke="#5a4012" stroke-width="3.6" stroke-linecap="round"/><path d="M-12 71.6 L12 71.6" fill="none" stroke="#fff3c9" stroke-width=".8" stroke-linecap="round" opacity=".8"/>
+  <g clip-path="url(#cclasp)"><rect class="csweep" x="-14" y="30" width="28" height="80" fill="url(#sweep)" transform="translate(-70 0) skewX(-20)"/></g></g>
+ <g class="flareg" transform="translate(12 58)"><g class="flare"><ellipse rx="150" ry="5" fill="url(#flare)"/><ellipse rx="5" ry="110" fill="url(#flare)"/><ellipse rx="70" ry="3" fill="url(#flare)" transform="rotate(45)"/><ellipse rx="70" ry="3" fill="url(#flare)" transform="rotate(-45)"/><circle r="34" fill="url(#flare)"/></g></g>
+</g>`;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+/* đường tự vẽ */
+$$('.dr').forEach(p=>{const L=p.getTotalLength();p.dataset.len=L;if(!p.getAttribute('stroke-dasharray')){p.style.strokeDasharray=L+1;p.style.strokeDashoffset=L+1}});
+const draw=(sel,o)=>({targets:$$(sel),vars:Object.assign({strokeDashoffset:0},o)});
+/* 3 màu da: [sáng, chính, tối, chỉ khâu, độ phủ nền] */
+const PAL=[[[203,124,72],[158,82,40],[92,42,18],[244,214,170],0],[[78,112,90],[44,72,56],[20,36,28],[214,200,150],.1],[[70,66,68],[30,28,29],[10,9,10],[200,170,110],.2]];
+const st={c:0},art=$('#art'),mix=(a,b,u)=>a.map((v,i)=>Math.round(v+(b[i]-v)*u));
+R2.frame(()=>{const i=Math.min(1,Math.floor(st.c)),u=st.c-i,A=PAL[i],B=PAL[i+1]||A;
+  ['--l3','--l1','--l2','--st'].forEach((k,j)=>art.style.setProperty(k,`rgb(${mix(A[j],B[j],u)})`));
+  $('#tint').style.opacity=A[4]+(B[4]-A[4])*u;
+  $$('.sw i').forEach((e,j)=>e.style.setProperty('--on',Math.max(0,1-Math.abs(st.c-j)*1.6).toFixed(3)))});
+
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}});
+const t1=R2.split($('.t1')),t2=R2.split($('.t2')),t3=R2.split($('.t3'),'words');
+gsap.set(['.flap','.clasp','.ring'],{opacity:0});gsap.set('.shadow',{opacity:0});gsap.set('.flare',{svgOrigin:'0 0',scale:0,opacity:0});gsap.set('.cw',{opacity:0});gsap.set('.cw .nm span',{opacity:0,y:16});gsap.set('.ttl',{opacity:0});
+gsap.set('.flap',{svgOrigin:'0 -110',scaleY:0});gsap.set('.clasp',{svgOrigin:'0 70',scale:0});gsap.set('.flare',{svgOrigin:'0 0'});
+tl.fromTo('.wm',{opacity:0,y:-16},{opacity:1,y:0,duration:.686},.1)
+  .fromTo('.giant',{opacity:0,scale:1.2},{opacity:1,scale:1,duration:1.796,ease:'power2.out'},0).to('.giant',{y:-42,duration:DUR,ease:'none'},0)
+  /* 1 — hình khối: tròn + chữ nhật = thân túi */
+  .to('.blue circle.dr',{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},.2).to('.blue rect.dr',{strokeDashoffset:0,duration:.8,ease:'power2.inOut'},.45)
+  .to('.blue path.dr',{strokeDashoffset:0,duration:.686,stagger:.1,ease:'power2.inOut'},.8).to('.rad',{opacity:1,duration:.424},1.0).fromTo('.bt',{opacity:0},{opacity:1,duration:.424,stagger:.1},1.0)
+  .to('.riser',{attr:{y:-120,height:360},duration:.9,ease:'power3.inOut'},1.3).to('.shadow',{opacity:.42,duration:.686},1.5)
+  .to('.blue',{opacity:0,duration:.686},2.0)
+  /* 2 — đường khâu, quai, nắp */
+  .to('#mstb .dr',{strokeDashoffset:0,duration:1.11,ease:'power2.inOut'},1.9)
+  .to('#mhnd .dr',{strokeDashoffset:0,duration:.9,ease:'power2.inOut'},2.1).to('.ring',{opacity:1,duration:.262},2.1)
+  .to('.flap',{opacity:1,duration:.1},2.5).to('.flap',{scaleY:1,duration:.686,ease:'back.out(1.4)'},2.5)
+  .to('#mstf .dr',{strokeDashoffset:0,duration:.686,ease:'power2.inOut'},3.0)
+  /* 3 — khóa kim loại lóe sáng */
+  .to('.clasp',{opacity:1,scale:1,duration:.424,ease:'back.out(2.6)'},3.3)
+  .to('.csweep',{attr:{transform:'translate(70 0) skewX(-20)'},duration:.424,ease:'power2.inOut'},3.62)
+  .to('.flare',{scale:1,opacity:1,rotation:20,duration:.262,ease:'power2.out'},3.7).to('.flare',{scale:0,opacity:0,rotation:55,duration:.686,ease:'power2.in'},3.962)
+  .to('.lsweep',{attr:{transform:'translate(420 0) skewX(-20)'},duration:1.11,ease:'power2.inOut'},3.7)
+  .fromTo('#bag',{attr:{transform:'translate(360 650) scale(1.14)'}},{attr:{transform:'translate(360 540) scale(1)'},duration:4.2,ease:'power1.inOut'},0)
+  /* 4 — ba màu da */
+  .to('.cw',{opacity:1,duration:.424},3.9).to('.cw .nm span:nth-child(1)',{opacity:1,y:0,duration:.424},3.9);
+[1,2].forEach(i=>{const t=3.7+i*.65;
+  tl.to(st,{c:i,duration:.424,ease:'power2.inOut'},t)
+    .to(`.cw .nm span:nth-child(${i})`,{opacity:0,y:-16,duration:.262,ease:'power2.in'},t).to(`.cw .nm span:nth-child(${i+1})`,{opacity:1,y:0,duration:.424},t+.162)
+    .fromTo('.bodyg, .flap, .hnd, .clasp, .ring',{y:0},{y:-10,duration:.162,yoyo:true,repeat:1,ease:'power2.out'},t)
+    .fromTo('.csweep',{attr:{transform:'translate(-70 0) skewX(-20)'}},{attr:{transform:'translate(70 0) skewX(-20)'},duration:.424,ease:'power2.inOut',immediateRender:false},t+.2)});
+tl.to(st,{c:0,duration:.686,ease:'power2.inOut'},6.0)
+  .to('.cw',{opacity:0,y:-16,duration:.424,ease:'power2.in'},5.95)
+  /* 5 — tiêu đề */
+  .to('#bag',{attr:{transform:'translate(360 468) scale(.9)'},duration:1.11,ease:'power3.inOut'},5.9)
+  .set('.ttl',{opacity:1},6.2)
+  .fromTo(t1,{yPercent:110,opacity:0},{yPercent:0,opacity:1,duration:.686,stagger:.062},6.2).fromTo(t2,{yPercent:110,opacity:0},{yPercent:0,opacity:1,duration:.686,stagger:.062},6.4)
+  .fromTo(t3,{opacity:0,y:10},{opacity:1,y:0,duration:.424,stagger:.045},6.6)
+  .fromTo('.ttl .date',{opacity:0,scale:.9},{opacity:1,scale:1,duration:.686,ease:'back.out(1.6)'},6.9)
+  .fromTo('.foot',{opacity:0},{opacity:1,duration:.686},6.9)
+  .fromTo('.lsweep',{attr:{transform:'translate(-420 0) skewX(-20)'}},{attr:{transform:'translate(420 0) skewX(-20)'},duration:1.11,ease:'power2.inOut',immediateRender:false},6.5)
+  .to('#fade',{opacity:1,duration:.3,ease:'power1.in'},7.7);
+R2.done(tl);
+</script></body></html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Nère — video lookbook giày 9:16 (concept · cảnh quay dựng bằng code)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#000;color:#f4efe6;font-family:"Be Vietnam Pro",sans-serif}
+#footage{filter:url(#grade)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse 80% 66% at 50% 50%,transparent 50%,rgba(6,6,10,.62))}
+.flash{position:absolute;inset:0;background:#fff;opacity:0}
+.frame{position:absolute;inset:26px;border:1px solid rgba(244,239,230,.5)}
+.hd{position:absolute;left:52px;right:52px;top:52px;display:flex;justify-content:space-between;font:400 16px/1 "Space Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+.look{position:absolute;left:52px;right:52px;top:960px;visibility:hidden}
+.look .no{font:400 16px/1 "Space Mono",monospace;letter-spacing:.3em;display:flex;gap:16px;align-items:center}
+.look .no b{display:block;width:68px;height:1px;background:#f4efe6;transform-origin:0 50%}
+.look h2{margin-top:16px;font:italic 400 100px/1 "Playfair",serif;letter-spacing:-.02em;white-space:nowrap}
+.look p{margin-top:16px;font:500 26px/1.3 "Be Vietnam Pro";letter-spacing:.01em}
+.look p span{display:inline-block;background:#f4efe6;color:#141214;padding:6px 16px;margin:0 6px 6px 0}
+.big{position:absolute;right:42px;top:120px;font:400 300px/1 "Anton",sans-serif;color:transparent;-webkit-text-stroke:2px rgba(244,239,230,.75);visibility:hidden}
+.end{position:absolute;inset:0;background:#141214;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;visibility:hidden}
+.end h3{font:400 190px/1 "Anton",sans-serif;letter-spacing:.04em}
+.end .l{width:262px;height:2px;background:#f4efe6;margin:26px 0}
+.end p{font:italic 400 53px/1.1 "Playfair",serif}
+.end .cta{margin-top:68px;font:500 16px/1 "Be Vietnam Pro";letter-spacing:.3em;text-indent:.3em;text-transform:uppercase;padding:16px 42px;border:1px solid #f4efe6;border-radius:99px}
+.end small{position:absolute;bottom:110px;font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.5}
+</style></head>
+<body><div id="stage">
+ <div id="footage"><canvas id="cv" width="720" height="1280"></canvas></div>
+ <div class="gfx"><div class="vig"></div><div class="flash"></div><div class="frame"></div>
+  <div class="hd"><span>Nère · Lookbook</span><span id="cnt">Look 01/03</span></div>
+  <div class="big" id="bg1">01</div><div class="big" id="bg2">02</div><div class="big" id="bg3">03</div>
+  <div class="look" id="k1"><div class="no"><b></b>Look 01</div><h2>Derby Noir</h2><p><span>Da bê hộp</span><span>Đế khâu tay</span></p></div>
+  <div class="look" id="k2"><div class="no"><b></b>Chi tiết</div><h2>Mũi giày</h2><p><span>Đánh bóng gương</span><span>12 lớp sáp</span></p></div>
+  <div class="look" id="k3"><div class="no"><b></b>Look 02 · 03</div><h2>Ba sắc da</h2><p><span>Noir</span><span>Cognac</span><span>Xám khói</span></p></div>
+  <div class="look" id="k4"><div class="no"><b></b>Chuyển động chậm</div><h2>Từng bước</h2><p><span>Êm</span><span>Chắc</span><span>Không tiếng động</span></p></div>
+  <div class="end"><h3>NÈRE</h3><div class="l"></div><p>Lookbook<br>Thu – Đông</p><div class="cta">Xem bộ sưu tập</div><small>Cảnh quay dựng bằng code · Concept</small></div>
+ </div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script>
+const W=720,H=1280,DUR=8;R2.init({W,H,dur:DUR,poster:1.1,cover:[1.1,2.3,5.4]});
+R2.filters(R2.grade('grade',{con:.8,split:.07,sat:1.12,lift:.01,gain:1.03}));
+const cv=document.getElementById('cv'),g=cv.getContext('2d'),D=Math.PI/180,rnd=R2.rng(9);
+const UP=new Path2D('M52 232 L52 208 C40 172 42 112 68 74 C74 64 88 62 98 68 C140 90 190 96 240 100 C262 102 274 108 292 120 C350 156 430 172 506 186 C552 194 590 204 592 220 C592 228 584 232 570 232 Z');
+const SOLE=new Path2D('M50 232 H582 C592 234 598 244 594 254 H50 Z'),HEEL=new Path2D('M50 252 H168 V272 H56 C52 272 50 270 50 266 Z');
+/* ---- giày derby: bản silhouette (ngược sáng) và bản sản phẩm (đủ chất liệu) ---- */
+function shoe(x,y,rot,s,{col='#0b0a0b',rim=0,product=null}={}){g.save();g.translate(x,y);g.rotate(rot);g.scale(s,s);g.translate(-150,-92);
+  if(!product){g.fillStyle=col;g.fill(UP);g.fill(SOLE);g.fill(HEEL);
+    if(rim){g.strokeStyle=`rgba(255,214,170,${rim})`;g.lineWidth=3;g.stroke(new Path2D('M98 68 C140 90 190 96 240 100 C262 102 274 108 292 120 C350 156 430 172 506 186 C552 194 590 204 592 220'))}}
+  else{const p=product,lg=g.createLinearGradient(0,60,0,240);lg.addColorStop(0,p.c[0]);lg.addColorStop(.55,p.c[1]);lg.addColorStop(1,p.c[2]);g.fillStyle=lg;g.fill(UP);
+    g.save();g.clip(UP);
+    let hg=g.createLinearGradient(240,90,330,200);hg.addColorStop(0,'rgba(255,255,255,0)');hg.addColorStop(.5,`rgba(255,255,255,${.3*p.gl})`);hg.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=hg;g.fillRect(200,60,260,180);
+    const tg=g.createRadialGradient(520,196,2,520,200,70);tg.addColorStop(0,`rgba(255,255,255,${.75*p.gl})`);tg.addColorStop(.3,`rgba(255,255,255,${.2*p.gl})`);tg.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=tg;g.fillRect(430,150,180,90);
+    const sx=p.sweep*760-120;hg=g.createLinearGradient(sx,0,sx+110,0);hg.addColorStop(0,'rgba(255,255,255,0)');hg.addColorStop(.5,'rgba(255,255,255,.5)');hg.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=hg;g.transform(1,0,-.4,1,0,0);g.fillRect(sx,0,110,300);
+    g.restore();
+    g.strokeStyle='rgba(0,0,0,.55)';g.lineWidth=2.4;g.stroke(new Path2D('M462 178 C472 194 474 214 466 232 M240 100 C250 150 276 198 306 232'));
+    g.strokeStyle='rgba(255,255,255,.28)';g.lineWidth=1.2;g.setLineDash([5,5]);g.stroke(new Path2D('M456 180 C466 196 468 214 460 232 M70 86 C100 106 170 114 228 116 M246 104 C256 150 282 198 312 232'));g.setLineDash([]);
+    g.strokeStyle=p.c[2];g.lineWidth=5;g.lineCap='round';g.stroke(new Path2D('M262 116 l24 -15 M283 128 l24 -15 M304 139 l24 -15 M325 149 l24 -15'));
+    g.fillStyle=p.welt;g.fill(SOLE);g.fillStyle='rgba(255,255,255,.2)';g.fillRect(50,233,540,2.5);g.fillStyle='#14100e';g.fill(HEEL);g.fillRect(50,250,544,5)}
+  g.restore()}
+/* ---- đôi chân bước đi (quần âu + derby), tham số hóa theo pha φ ---- */
+const L1=250,L2=250,SS=.6;
+function leg(hx,hy,ph,col,rim){const s=Math.sin(ph),c=Math.cos(ph),a1=27*D*s,k=60*D*Math.pow(Math.max(0,c),.85),a2=a1-k;
+  const kx=hx+L1*Math.sin(a1),ky=hy+L1*Math.cos(a1),ax=kx+L2*Math.sin(a2),ay=ky+L2*Math.cos(a2);
+  const rot=25*D*Math.pow(Math.max(0,-s),3)+30*D*Math.max(0,c)*(1-s)/2-17*D*Math.pow(Math.max(0,s),5)*(c>0?1:Math.max(0,1+3*c));
+  const n1=[Math.cos(a1),-Math.sin(a1)],n2=[Math.cos(a2),-Math.sin(a2)],hemx=ax-34*Math.sin(a2),hemy=ay-34*Math.cos(a2);
+  shoe(ax,ay,rot,SS,{col,rim});
+  g.fillStyle=col;g.beginPath();g.moveTo(hx-52*n1[0]-40,hy-52*n1[1]);g.lineTo(hx+56*n1[0]+10,hy+56*n1[1]);g.quadraticCurveTo(kx+46*n1[0],ky+46*n1[1],hemx+38*n2[0],hemy+38*n2[1]);g.lineTo(hemx-36*n2[0],hemy-36*n2[1]);g.quadraticCurveTo(kx-44*n1[0]-10*c,ky-44*n1[1],hx-52*n1[0]-40,hy-52*n1[1]);g.fill();
+  if(rim){g.strokeStyle=`rgba(255,214,170,${rim})`;g.lineWidth=3;g.beginPath();g.moveTo(hx+56*n1[0]+10,hy+56*n1[1]);g.quadraticCurveTo(kx+46*n1[0],ky+46*n1[1],hemx+38*n2[0],hemy+38*n2[1]);g.stroke()}
+  return ay+108*SS*1.75*Math.cos(rot)+Math.max(0,Math.sin(rot))*270*SS}
+function walker(cx,GY,ph,{col='#0b0a0b',rim=.5}={}){
+  /* đặt hông sao cho bàn chân thấp nhất chạm sàn */
+  g.save();g.globalAlpha=0;const lo=Math.max(leg(cx,0,ph,col,0),leg(cx,0,ph+Math.PI,col,0));g.restore();const hy=GY-lo;
+  leg(cx-14,hy,ph+Math.PI,'#161315',0);leg(cx+14,hy,ph,col,rim);
+  g.fillStyle=col;g.beginPath();g.moveTo(cx-120,hy-400);g.lineTo(cx+96,hy-400);g.lineTo(cx+84+Math.sin(ph)*8,hy+70);g.quadraticCurveTo(cx,hy+92,cx-112-Math.sin(ph)*10,hy+56);g.closePath();g.fill();return hy}
+/* ---- bối cảnh: phông vô cực ngược sáng, sàn bóng ---- */
+const BOK=Array.from({length:26},()=>({x:rnd()*1800,y:120+rnd()*520,r:16+rnd()*60,a:.05+rnd()*.14}));
+function stageBg(GY,tint,scroll,glowX=.5){const sky=g.createLinearGradient(0,0,0,GY);sky.addColorStop(0,tint[0]);sky.addColorStop(1,tint[1]);g.fillStyle=sky;g.fillRect(0,0,W,GY);
+  const gl=g.createRadialGradient(W*glowX,GY-40,10,W*glowX,GY-40,620);gl.addColorStop(0,'rgba(255,236,206,.95)');gl.addColorStop(.35,'rgba(255,214,170,.42)');gl.addColorStop(1,'rgba(255,200,150,0)');g.fillStyle=gl;g.fillRect(0,0,W,GY);
+  g.globalCompositeOperation='lighter';for(const b of BOK){const x=((b.x-scroll*.25)%1800+1800)%1800-300;const bg=g.createRadialGradient(x,b.y,0,x,b.y,b.r);bg.addColorStop(0,`rgba(255,230,200,${b.a})`);bg.addColorStop(.8,`rgba(255,220,190,${b.a*.8})`);bg.addColorStop(1,'rgba(255,220,190,0)');g.fillStyle=bg;g.fillRect(x-b.r,b.y-b.r,b.r*2,b.r*2)}g.globalCompositeOperation='source-over';
+  const fl=g.createLinearGradient(0,GY,0,H);fl.addColorStop(0,tint[2]);fl.addColorStop(1,tint[3]);g.fillStyle=fl;g.fillRect(0,GY,W,H-GY);
+  const fg=g.createRadialGradient(W*glowX,GY,10,W*glowX,GY,520);fg.addColorStop(0,'rgba(255,232,200,.7)');fg.addColorStop(1,'rgba(255,220,180,0)');g.save();g.translate(0,GY);g.scale(1,.42);g.translate(0,-GY);g.fillStyle=fg;g.fillRect(0,GY,W,H);g.restore();
+  g.strokeStyle='rgba(0,0,0,.12)';g.lineWidth=2;for(let i=0;i<8;i++){const x=((i*260-scroll)%2080+2080)%2080-400;g.beginPath();g.moveTo(x,GY);g.lineTo(x+(x-W/2)*.9,H);g.stroke()}}
+function walkShot(ph,scroll,{GY=900,tint=['#8d8478','#d9cbb6','#b9ab97','#5d544b'],cx=330,zoom=1,zy=0,col,glowX=.62}={}){
+  g.save();g.translate(W/2,GY);g.scale(zoom,zoom);g.translate(-W/2,-GY+zy);
+  stageBg(GY,tint,scroll,glowX);
+  g.save();g.translate(0,GY);g.scale(1,-.55);g.translate(0,-GY);g.globalAlpha=.22;g.filter='blur(4px)';walker(cx,GY,ph,{col:'#0b0a0b',rim:0});g.restore();
+  g.fillStyle='rgba(0,0,0,.35)';g.filter='blur(10px)';g.beginPath();g.ellipse(cx+20,GY+6,220,14,0,0,7);g.fill();g.filter='none';
+  walker(cx,GY,ph,{col:col||'#0b0a0b',rim:.55});g.restore()}
+function productShot(v,pal){const wall=g.createLinearGradient(0,0,W,H);wall.addColorStop(0,'#cfc6b8');wall.addColorStop(1,'#9d9385');g.fillStyle=wall;g.fillRect(0,0,W,H);
+  g.save();g.globalAlpha=.5;g.fillStyle='#f3ead9';g.filter='blur(14px)';g.beginPath();g.moveTo(180+v*40,0);g.lineTo(520+v*40,0);g.lineTo(820+v*40,900);g.lineTo(420+v*40,900);g.fill();g.restore();
+  g.save();const z=1.06+v*.1;g.translate(W/2,700);g.scale(z,z);g.rotate((-1.5+v*2)*D);g.translate(-W/2,-700);
+  const pl=g.createLinearGradient(0,760,0,1280);pl.addColorStop(0,'#b5aa9b');pl.addColorStop(1,'#766d62');g.fillStyle=pl;g.fillRect(-100,752,920,600);g.fillStyle='#e2d9c9';g.fillRect(-100,722,920,34);
+  g.fillStyle='rgba(20,14,10,.5)';g.filter='blur(12px)';g.beginPath();g.ellipse(370,732,260,13,0,0,7);g.fill();g.filter='none';
+  shoe(212,570,0,.86,{product:{c:pal.c,welt:pal.welt,gl:.6+v*.5,sweep:v}});g.restore()}
+/* ---- 5 cảnh + speed ramp ---- */
+const CUT=[0,1.5,2.9,4.3,6.3],slow=u=>u+.8*Math.sin(2*Math.PI*u)/(2*Math.PI);
+const PAL=[{c:['#3a3434','#15110f','#050404'],welt:'#3d2a1c'},{c:['#b06a3a','#7a3f1c','#3d1c0a'],welt:'#2a1a10'},{c:['#8a8d92','#565a60','#2c2f34'],welt:'#1f1c1a'}];
+R2.frame(t=>{g.setTransform(1,0,0,1,0,0);g.clearRect(0,0,W,H);let i=0;CUT.forEach((c,k)=>{if(t>=c-1e-6)i=k});const u=R2.clamp((t-CUT[i])/((CUT[i+1]||DUR)-CUT[i]));
+  const hx=R2.noise(t*1.4,3)*5,hy=R2.noise(t*1.2,8)*4;g.translate(hx,hy);
+  if(i===0){const v=slow(u);walkShot(v*2.4*Math.PI+.4,v*900,{zoom:1.04+u*.06})}
+  else if(i===1){productShot(1-Math.pow(1-u,2),PAL[0])}
+  else if(i===2){const tints=[['#8d8478','#d9cbb6','#b9ab97','#5d544b'],['#a08a78','#e0c2a0','#c0a488','#66503e'],['#7f858c','#cfd3d6','#aab0b6','#51565c']],cols=['#0b0a0b','#3a1e0e','#2c2f34'];
+    for(let s=0;s<3;s++){const op=R2.clamp((u*4.2-s*.5));if(op<=0)continue;const x0=s*240,off=(1-Math.pow(op,.4))*(s%2?-1:1)*H;g.save();g.beginPath();g.rect(x0+3,0,234,H);g.clip();g.translate(x0-240+ (s-1)*0,off);
+      walkShot((u*1.5+s*.31)*2*Math.PI,u*700+s*400,{tint:tints[s],cx:360,col:cols[s],zoom:1.0,glowX:.5});g.restore()}
+    g.fillStyle='#141214';g.fillRect(237,0,6,H);g.fillRect(477,0,6,H)}
+  else if(i===3){const v=u+.86*Math.sin(2*Math.PI*u)/(2*Math.PI);walkShot(.9+v*1.7*Math.PI,v*600,{zoom:1.75,zy:-36,cx:300,glowX:.7})}
+  else{const v=slow(u);walkShot(v*2.4*Math.PI,v*700,{zoom:1.1})}});
+/* ---- lớp dựng ---- */
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}}),$=s=>document.querySelector(s);
+const look=(id,big,t0,t1)=>{const s='#'+id;tl.set(s,{visibility:'visible'},t0+.1).fromTo(s+' .no b',{scaleX:0},{scaleX:1,duration:.424},t0+.1).fromTo(s+' .no',{opacity:0},{opacity:1,duration:.262},t0+.1)
+  .fromTo(s+' h2',{opacity:0,x:-42},{opacity:1,x:0,duration:.424,ease:'expo.out'},t0+.16).fromTo(s+' p span',{opacity:0,y:16},{opacity:1,y:0,duration:.262,stagger:.1},t0+.3)
+  .set(s,{visibility:'hidden'},t1);if(big)tl.set(big,{visibility:'visible'},t0).fromTo(big,{y:42,opacity:0},{y:0,opacity:1,duration:.686},t0).set(big,{visibility:'hidden'},t1)};
+look('k1','#bg1',CUT[0],CUT[1]);look('k2',null,CUT[1],CUT[2]);look('k3','#bg2',CUT[2],CUT[3]);look('k4','#bg3',CUT[3],CUT[4]);
+CUT.slice(1).forEach(t=>tl.fromTo('.flash',{opacity:.7},{opacity:0,duration:.13,ease:'power1.out',immediateRender:false},t));
+[['Look 01/03',0],['Chi tiết',CUT[1]],['Look 02–03',CUT[2]],['Slow motion',CUT[3]]].forEach(([s,t])=>tl.call(()=>{},null,t));
+R2.frame(t=>{$('#cnt').textContent=t<CUT[1]?'Look 01/03':t<CUT[2]?'Cận cảnh':t<CUT[3]?'Look 02–03':'Slow-mo 25%'});
+tl.set('.end',{visibility:'visible'},CUT[4]).fromTo('.end',{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:.424,ease:'expo.inOut'},CUT[4])
+  .fromTo('.end h3',{opacity:0,y:42},{opacity:1,y:0,duration:.686,ease:'expo.out'},CUT[4]+.3).fromTo('.end .l',{scaleX:0},{scaleX:1,duration:.686,ease:'expo.inOut'},CUT[4]+.4)
+  .fromTo('.end p',{opacity:0,y:26},{opacity:1,y:0,duration:.686},CUT[4]+.5).fromTo('.end .cta',{opacity:0,scale:.9},{opacity:1,scale:1,duration:.424,ease:'back.out(1.8)'},CUT[4]+.75)
+  .fromTo('.end small',{opacity:0},{opacity:.5,duration:.424},CUT[4]+.9).to(['.hd','.frame'],{opacity:0,duration:.2},CUT[4]);
+R2.done(tl);
+</script></body></html>

@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15121C" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="DreamLab">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="icon" type="image/png" href="img/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:title" content="DreamLab Studio">
+<meta property="og:image" content="img/og.webp">
+<style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>DreamLab Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="DreamLab — studio thiết kế website, landing page, video, motion graphic, bao bì sản phẩm và tự động hóa doanh nghiệp bằng AI.">
+<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/work.css">
+<link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/samples.css">
+<!-- 00-chrome.html -->
+<svg class="sr-only" width="0" height="0" aria-hidden="true" focusable="false"><defs>
+  <symbol id="dl-spiral" viewBox="-1 -1 57 36"><path d="M15 10A1 1 0 0 0 16 9A1 1 0 0 0 15 8A2 2 0 0 0 13 10A3 3 0 0 0 16 13A5 5 0 0 0 21 8A8 8 0 0 0 13 0A13 13 0 0 0 0 13A21 21 0 0 0 21 34A34 34 0 0 0 55 0" fill="none" stroke="currentColor" stroke-linecap="round" vector-effect="non-scaling-stroke"/></symbol>
+  <symbol id="dl-grid" viewBox="-1 -1 57 36"><path d="M15 9h1v1h-1zM15 8h1v1h-1zM13 8h2v2h-2zM13 10h3v3h-3zM16 8h5v5h-5zM13 0h8v8h-8zM0 0h13v13h-13zM0 13h21v21h-21zM21 0h34v34h-34z" fill="none" stroke="currentColor" vector-effect="non-scaling-stroke"/></symbol>
+  <symbol id="dl-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="dl-logo" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="url(#dl-lg)"/><path d="M17 6.5a7.5 7.5 0 1 0 2.5 10.6A6 6 0 0 1 17 6.5z" style="fill:var(--paper)" opacity=".85"/></symbol>
+  <linearGradient id="dl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".618" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient>
+</defs></svg>
+
+<div class="pre" id="pre" aria-hidden="true">
+  <div class="pre-in">
+    <svg class="pre-sp" viewBox="-1 -1 57 36"><path class="pre-g" d="M13 10h3v3h-3zM16 8h5v5h-5zM13 0h8v8h-8zM0 0h13v13h-13zM0 13h21v21h-21zM21 0h34v34h-34z"/><path class="pre-s" pathLength="1" d="M15 10A1 1 0 0 0 16 9A1 1 0 0 0 15 8A2 2 0 0 0 13 10A3 3 0 0 0 16 13A5 5 0 0 0 21 8A8 8 0 0 0 13 0A13 13 0 0 0 0 13A21 21 0 0 0 21 34A34 34 0 0 0 55 0"/></svg>
+    <p class="pre-w">Dream<i>Lab</i></p>
+  </div>
+</div>
+
+<div class="veil" id="veil" aria-hidden="true"><svg viewBox="-1 -1 57 36"><use href="#dl-spiral"/></svg></div>
+<div class="cur" id="cur" aria-hidden="true"><i class="cur-ring"></i><span class="cur-label"></span></div>
+
+<header class="head" id="head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="DreamLab, về đầu trang">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><use href="#dl-logo"/></svg>
+      <span>Dream<i>Lab</i></span>
+    </a>
+    <nav class="nav" aria-label="Chính">
+      <a href="#dich-vu">Dịch vụ</a><a href="#du-an">Dự án</a><a href="#lab">Lab</a><a href="#phong-mau" data-sm-open hidden>Phòng mẫu</a><a href="#bao-gia">Báo giá</a><a href="#lien-he">Liên hệ</a>
+    </nav>
+    <div class="head-act">
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Đổi giao diện sáng hoặc tối" aria-pressed="false">
+        <svg class="tm" viewBox="0 0 26 26" aria-hidden="true"><g class="tm-sun"><circle cx="13" cy="13" r="4.6"/><path d="M13 3v2.4M13 20.6V23M3 13h2.4M20.6 13H23M5.9 5.9l1.7 1.7M18.4 18.4l1.7 1.7M5.9 20.1l1.7-1.7M18.4 7.6l1.7-1.7"/></g><path class="tm-moon" d="M19.6 15.4A7.6 7.6 0 0 1 10.6 6.4a7.6 7.6 0 1 0 9 9z"/></svg>
+      </button>
+      <a class="btn primary sm head-cta" href="#bao-gia" data-magnetic>Xem báo giá</a>
+      <button class="icon-btn burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Mở menu"><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="head-prog" aria-hidden="true"><i id="headProg"></i></div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <svg class="menu-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-grid" class="g"/><use href="#dl-spiral"/></svg>
+  <nav class="menu-nav" aria-label="Menu điện thoại">
+    <a href="#dich-vu"><small>01</small><span>Dịch vụ</span></a>
+    <a href="#du-an"><small>02</small><span>Dự án</span></a>
+    <a href="#lab"><small>03</small><span>Lab</span></a>
+    <a href="#quy-trinh"><small>04</small><span>Quy trình</span></a>
+    <a href="#bao-gia"><small>05</small><span>Báo giá</span></a>
+    <a href="#lien-he"><small>06</small><span>Liên hệ</span></a>
+    <a href="#phong-mau" data-sm-open hidden><small>07</small><span>Phòng mẫu</span></a>
+  </nav>
+  <div class="menu-foot">
+    <p><small>Email</small><b>harryle1010@gmail.com</b></p>
+    <p><small>Zalo / Điện thoại</small><b>0934 246 420</b></p>
+    <a class="btn" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo</a>
+    <a class="btn primary" href="#lien-he">Nhận tư vấn</a>
+  </div>
+</div>
+
+<div class="fab" id="fab">
+  <div class="fab-card" id="fabCard" role="group" aria-label="Liên hệ nhanh" hidden>
+    <p class="fab-t">Nói chuyện với <em>DreamLab</em></p>
+    <dl>
+      <div><dt>Zalo / Điện thoại</dt><dd>0934 246 420</dd><button type="button" class="fab-copy" data-copy="0934246420">Sao chép</button></div>
+      <div><dt>Email</dt><dd>harryle1010@gmail.com</dd><button type="button" class="fab-copy" data-copy="harryle1010@gmail.com">Sao chép</button></div>
+    </dl>
+    <a class="btn primary sm" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo ngay <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+    <a class="btn sm" href="#lien-he">Gửi yêu cầu tư vấn</a>
+    <p class="fab-n">Phản hồi trong 24h · T2–T7, 8:30–18:00</p>
+  </div>
+  <button class="fab-btn" id="fabBtn" type="button" aria-expanded="false" aria-controls="fabCard" aria-label="Liên hệ nhanh qua Zalo">
+    <svg class="fab-i" viewBox="0 0 26 26" aria-hidden="true"><path class="a" d="M13 4.2c-5.2 0-9.4 3.5-9.4 7.9 0 2.5 1.4 4.7 3.5 6.2l-.8 3.5 3.8-2.1c.9.2 1.9.3 2.9.3 5.2 0 9.4-3.5 9.4-7.9S18.2 4.2 13 4.2z"/><path class="b" d="M9 10.4h4.2L9 14.2h4.2M15.6 10.4v3.8M18 12.3h-.01"/><path class="c" d="M8 8l10 10M18 8L8 18"/></svg>
+    <span>Zalo</span>
+  </button>
+</div>
+<!-- 10-hero.html -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-fb" id="heroFb"></div>
+    <canvas id="sky"></canvas>
+  </div>
+  <span class="hero-note" aria-hidden="true">Web · Motion · AI — Studio 2026</span>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="eyebrow">Creative &amp; AI Studio · Việt Nam</p>
+        <h1 class="hero-title" id="heroTitle">Dệt giấc mơ thành <em>trải nghiệm số.</em></h1>
+      </div>
+      <div class="hero-side">
+        <p class="lead">DreamLab thiết kế website, landing page, video motion graphic, bao bì sản phẩm và hệ thống tự động hóa bằng AI cho thương hiệu muốn được nhớ đến.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#bao-gia" data-magnetic>Xem bảng giá <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+          <a class="btn" href="#lien-he" data-magnetic>Tư vấn miễn phí</a>
+        </div>
+        <div class="chips"><span class="chip">Phản hồi trong 24h</span><span class="chip">Bàn giao mã nguồn</span><span class="chip">Bảo hành 6 tháng</span></div>
+      </div>
+    </div>
+    <div class="hero-foot">
+      <a class="hero-scroll" href="#dich-vu"><i aria-hidden="true"></i><span>Cuộn xuống: hạt tự xếp thành xoắn ốc vàng</span></a>
+      <p class="hero-phi" aria-hidden="true"><span>φ 1,61803</span><span>góc vàng 137,5°</span><span id="heroN">1.597 hạt</span></p>
+    </div>
+  </div>
+</section>
+<!-- 20-marquee.html -->
+<section class="mq" id="marquee" aria-label="Các dịch vụ của DreamLab">
+  <div class="mq-row" data-dir="-1"><div class="mq-track">
+    <span>Website cao cấp</span><span>Landing page</span><span>Edit video</span><span>Thiết kế sản phẩm</span><span>Motion graphic</span><span>Tự động hóa AI</span>
+  </div></div>
+  <div class="mq-row alt" data-dir="1" aria-hidden="true"><div class="mq-track">
+    <span>Thiết kế riêng</span><span>Tỷ lệ vàng 1,618</span><span>Mượt trên điện thoại</span><span>Giá rõ ràng</span><span>Bàn giao mã nguồn</span><span>Phản hồi trong 24h</span>
+  </div></div>
+</section>
+<!-- 30-services.html -->
+<section class="band svc-sec" id="dich-vu">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Dịch vụ</p><h2 data-split>Sáu cách chúng tôi <em>biến ý tưởng</em> thành thật.</h2></div>
+      <p class="lead" data-reveal>Một đội ngũ, một ngôn ngữ thiết kế xuyên suốt từ website, video đến bao bì và quy trình AI phía sau. Bấm vào từng dịch vụ để xem bảng giá.</p>
+    </div>
+    <div class="svc-rows" id="svc"></div>
+  </div>
+</section>
+<!-- 40-reel.html -->
+<section id="showreel" class="band reel">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Showreel</p>
+        <h2 data-split>Hai mươi mốt giây, <em>dựng hoàn toàn bằng code</em></h2>
+      </div>
+      <p class="lead" data-reveal>Không quay, không kéo thả. Từng khung hình của đoạn phim này do DreamLab viết ra rồi xuất thành MP4. Đó cũng là cách chúng tôi làm motion graphic cho thương hiệu của bạn.</p>
+    </div>
+
+    <div class="reel-stage">
+      <div class="reel-frame" data-cursor="Phát / dừng">
+        <video class="reel-video" muted playsinline loop preload="none" poster="media/showreel-poster.webp" width="1280" height="792" aria-label="Showreel DreamLab: sáu dịch vụ trong 21 giây, phim không có tiếng">
+          <source src="media/showreel.mp4" type="video/mp4">
+        </video>
+        <button class="reel-toggle" type="button" aria-label="Phát showreel">
+          <svg class="i-play" viewBox="0 0 26 26" aria-hidden="true"><path d="M9 5.5v15l12-7.5z" fill="currentColor"/></svg>
+          <svg class="i-pause" viewBox="0 0 26 26" aria-hidden="true"><path d="M8 5.5h3.5v15H8zM14.5 5.5H18v15h-3.5z" fill="currentColor"/></svg>
+        </button>
+        <span class="reel-time" aria-hidden="true">0:00 / 0:21</span>
+        <div class="reel-bar" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="reel-chapters" role="group" aria-label="Nhảy tới từng đoạn của phim">
+        <button type="button" data-t="0">Mở đầu</button>
+        <button type="button" data-t="2.8"><b>01</b>Website</button>
+        <button type="button" data-t="5.15"><b>02</b>Landing Page</button>
+        <button type="button" data-t="7.5"><b>03</b>Edit Video</button>
+        <button type="button" data-t="9.85"><b>04</b>Sản phẩm</button>
+        <button type="button" data-t="12.2"><b>05</b>Motion</button>
+        <button type="button" data-t="14.55"><b>06</b>Tự động hóa AI</button>
+        <button type="button" data-t="16.9">Logo</button>
+      </div>
+    </div>
+
+    <div class="golden reel-info">
+      <div class="reel-how">
+        <h3>Phim này được làm <em>thế nào</em></h3>
+        <ol class="reel-steps" data-stagger>
+          <li><b>1</b><div><strong>Kịch bản và nhịp</strong><p>Mở đầu 2,8 giây, sáu dịch vụ nối nhau, kết bằng logo. Nhịp chia theo tỷ lệ vàng.</p></div></li>
+          <li><b>2</b><div><strong>Dựng bằng code</strong><p>Một timeline duy nhất. Máy quay xoắn dần vào tâm hình chữ nhật vàng, mỗi ô vuông là một dịch vụ.</p></div></li>
+          <li><b>3</b><div><strong>Xuất từng khung hình</strong><p>630 khung hình, 30 khung mỗi giây, chụp chính xác từng khung nên chuyển động không giật.</p></div></li>
+          <li><b>4</b><div><strong>Nén cho web và quảng cáo</strong><p>Bản ngang 1280×792 cho website, bản dọc 9:16 cho TikTok và Reels. Mỗi bản dưới 3MB.</p></div></li>
+        </ol>
+        <dl class="reel-facts">
+          <div><dt>Thời lượng</dt><dd><span data-count="21" data-format="int">21</span> giây</dd></div>
+          <div><dt>Khung hình</dt><dd><span data-count="630" data-format="int">630</span></dd></div>
+          <div><dt>Tỷ lệ xuất</dt><dd>1.618:1 · 9:16</dd></div>
+          <div><dt>Cảnh quay sẵn</dt><dd>0</dd></div>
+        </dl>
+        <div class="reel-cta">
+          <a class="btn primary" href="#lien-he" data-pick="Motion Graphic — Chuyên nghiệp" data-magnetic>Đặt một phim như thế này</a>
+          <a class="btn" href="#p-motion">Xem giá Motion Graphic</a>
+        </div>
+      </div>
+      <figure class="reel-ad" data-reveal="scale">
+        <div class="reel-phone">
+          <video class="reel-video-v" muted playsinline loop preload="none" poster="media/dreamlab-ad-9x16-poster.webp" width="720" height="1280" aria-label="Bản dọc 9:16 của showreel, phim không có tiếng">
+            <source src="media/dreamlab-ad-9x16.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption><b>Bản dọc 9:16</b>Cùng một timeline, xuất lại cho TikTok và Reels.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- 45-work.html -->
+<section id="du-an" class="band wk">
+  <svg class="wk-deco" viewBox="0 0 610 377" aria-hidden="true" data-parallax="0.06"><path d="M0 377A377 377 0 0 1 377 0A233 233 0 0 1 610 233A144 144 0 0 1 466 377A89 89 0 0 1 377 288A55 55 0 0 1 432 233A34 34 0 0 1 466 267"/><path d="M0 0h610v377H0zM377 0v377M377 233h233M466 233v144M377 288h89"/></svg>
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Dự án concept</p>
+        <h2 data-split>Bốn thương hiệu,<br><em>bấm vào là chạy.</em></h2>
+      </div>
+      <p class="lead" data-reveal>Đây là các thương hiệu DreamLab tự nghĩ ra để bạn thấy đúng thứ mình sẽ nhận: website mở được ngay, bao bì dựng 3D xoay được, kèm cách làm và mức giá tương ứng.</p>
+    </div>
+
+    <div class="wk-bar" data-reveal>
+      <div class="wk-chips" role="group" aria-label="Lọc dự án theo dịch vụ">
+        <button class="wk-chip on" type="button" data-f="all" aria-pressed="true">Tất cả <i>7</i></button>
+        <button class="wk-chip" type="button" data-f="web" aria-pressed="false">Website <i>2</i></button>
+        <button class="wk-chip" type="button" data-f="landing" aria-pressed="false">Landing Page <i>2</i></button>
+        <button class="wk-chip" type="button" data-f="product" aria-pressed="false">Bao bì &amp; 3D <i>3</i></button>
+      </div>
+      <p class="wk-note"><span class="tag-concept">Concept</span> Thương hiệu minh họa, không phải khách hàng thật.</p>
+    </div>
+
+    <div class="wk-grid" id="wk-grid">
+      <article class="wk-card" data-cat="web" data-id="gac-khoi">
+        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án Gác Khói Roastery, website xưởng rang cà phê">
+          <span class="wk-media"><span class="wk-par"><img src="img/wk-gac-khoi.webp" width="1280" height="791" loading="lazy" alt="Website Gác Khói Roastery trên laptop và điện thoại"></span>
+            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Website</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
+          <span class="wk-cap"><span><b>Gác Khói Roastery</b><small>Xưởng rang cà phê · website bán hàng</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
+        </button>
+      </article>
+      <article class="wk-card" data-cat="product" data-id="mt-pack">
+        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án bao bì Miên Thảo">
+          <span class="wk-media"><span class="wk-par"><img src="img/wk-3d-mt.webp" width="1280" height="791" loading="lazy" alt="Bộ bao bì mỹ phẩm Miên Thảo dựng 3D: hộp, chai tinh chất, hũ kem"></span>
+            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Bao bì &amp; 3D</span></span></span>
+          <span class="wk-cap"><span><b>Miên Thảo · bộ bao bì</b><small>Mỹ phẩm thiên nhiên · nhãn, hộp, mockup 3D</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
+        </button>
+      </article>
+      <article class="wk-card" data-cat="product" data-id="gk-pack">
+        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án túi cà phê Gác Khói">
+          <span class="wk-media"><span class="wk-par"><img src="img/wk-3d-gk.webp" width="1280" height="791" loading="lazy" alt="Ba túi cà phê Gác Khói dựng 3D"></span>
+            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Bao bì &amp; 3D</span></span></span>
+          <span class="wk-cap"><span><b>Gác Khói · túi cà phê</b><small>Cà phê rang xay · thiết kế lại bao bì</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
+        </button>
+      </article>
+      <article class="wk-card" data-cat="web" data-id="mien-thao">
+        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án Miên Thảo Botanics, website mỹ phẩm thiên nhiên">
+          <span class="wk-media"><span class="wk-par"><img src="img/wk-mien-thao.webp" width="1280" height="791" loading="lazy" alt="Website Miên Thảo Botanics trên laptop và điện thoại"></span>
+            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Website</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
+          <span class="wk-cap"><span><b>Miên Thảo Botanics</b><small>Mỹ phẩm thiên nhiên · website thương hiệu</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
+        </button>
+      </article>
+      <article class="wk-card" data-cat="landing" data-id="doi-lang">
+        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án Đồi Lặng Villas, landing page bất động sản nghỉ dưỡng">
+          <span class="wk-media"><span class="wk-par"><img src="img/wk-doi-lang.webp" width="1280" height="791" loading="lazy" alt="Landing page Đồi Lặng Villas trên laptop và điện thoại"></span>
+            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Landing Page</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
+          <span class="wk-cap"><span><b>Đồi Lặng Villas</b><small>Bất động sản nghỉ dưỡng · landing thu khách</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
+        </button>
+      </article>
+      <article class="wk-card" data-cat="product" data-id="vu-pack">
+        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án bao bì VƯƠN">
+          <span class="wk-media"><span class="wk-par"><img src="img/wk-3d-vu.webp" width="1280" height="791" loading="lazy" alt="Hũ protein và lon nước VƯƠN dựng 3D"></span>
+            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Bao bì &amp; 3D</span></span></span>
+          <span class="wk-cap"><span><b>VƯƠN · hũ và lon</b><small>Thể thao · dòng sản phẩm bán tại phòng tập</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
+        </button>
+      </article>
+      <article class="wk-card wk-cta" data-cat="all">
+        <div class="wk-cta-in">
+          <svg viewBox="-100 -100 200 200" aria-hidden="true" class="wk-cta-phy"></svg>
+          <p class="eyebrow">Tiếp theo</p>
+          <h3>Dự án kế tiếp có thể là <em>của bạn.</em></h3>
+          <p>Kể cho chúng tôi nghe bạn bán gì. Bạn sẽ nhận phác thảo hướng thiết kế và báo giá trong 24 giờ.</p>
+          <a class="btn primary" href="#lien-he" data-magnetic>Bắt đầu dự án <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 13h14M14 7l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="wk-card" data-cat="landing" data-id="vuon-club">
+        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án VƯƠN Club, landing page phòng tập">
+          <span class="wk-media"><span class="wk-par"><img src="img/wk-vuon-club.webp" width="1280" height="791" loading="lazy" alt="Landing page VƯƠN Club trên laptop và điện thoại"></span>
+            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Landing Page</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
+          <span class="wk-cap"><span><b>VƯƠN Club</b><small>Phòng tập nhóm nhỏ · landing tập thử</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
+        </button>
+      </article>
+    </div>
+
+    <div class="wk-studio" id="wk-studio">
+      <div class="wk-studio-head">
+        <div>
+          <p class="eyebrow">Xưởng bao bì</p>
+          <h3 data-reveal>Cầm thử bao bì <em>trước khi in.</em></h3>
+        </div>
+        <p class="lead" data-reveal>Kéo để xoay, đổi màu, đổi nhãn. Đây cũng là cách chúng tôi duyệt mẫu cùng bạn trước khi gửi file cho nhà in.</p>
+      </div>
+      <div class="wk-studio-grid">
+        <div class="wk-view card" id="wk-view" data-reveal>
+          <div class="wk-stage" id="wk-stage" data-cursor="Kéo" data-p="bottle">
+            <img class="wk-poster" id="wk-poster" src="img/wk-3d-mt.webp" width="1280" height="791" loading="lazy" alt="Ảnh render bao bì Miên Thảo">
+            <span class="wk-badge"><span class="tag-concept">3D trực tiếp</span></span>
+            <span class="wk-hint" id="wk-hint"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h20M7 9l-4 4 4 4M19 9l4 4-4 4"/></svg>Kéo để xoay</span>
+          </div>
+          <div class="wk-ctl">
+            <div class="wk-row">
+              <span class="wk-lb">Sản phẩm</span>
+              <div class="wk-seg" id="wk-prod" role="group" aria-label="Chọn sản phẩm">
+                <button type="button" class="on" data-p="bottle" aria-pressed="true">Chai serum</button>
+                <button type="button" data-p="bag" aria-pressed="false">Túi cà phê</button>
+                <button type="button" data-p="tub" aria-pressed="false">Hũ protein</button>
+              </div>
+            </div>
+            <div class="wk-row">
+              <span class="wk-lb">Màu</span>
+              <div class="wk-sw" id="wk-sw" role="group" aria-label="Chọn màu"></div>
+              <span class="wk-lb wk-lb2">Nhãn</span>
+              <div class="wk-seg sm" id="wk-lab" role="group" aria-label="Chọn kiểu nhãn">
+                <button type="button" class="on" data-v="0" aria-pressed="true">Kiểu A</button>
+                <button type="button" data-v="1" aria-pressed="false">Kiểu B</button>
+              </div>
+            </div>
+            <p class="wk-fall" id="wk-fall" hidden>Thiết bị này chưa bật được đồ họa 3D nên đang hiện ảnh render tĩnh.</p>
+          </div>
+        </div>
+
+        <figure class="wk-bacard card" data-reveal data-delay="0.1">
+          <div class="wk-ba" id="wk-ba" style="--p:50%" data-cursor="Kéo">
+            <img src="img/wk-3d-new.webp" width="1280" height="791" loading="lazy" alt="Túi cà phê Gác Khói sau khi thiết kế lại">
+            <div class="wk-ba-old"><img src="img/wk-3d-old.webp" width="1280" height="791" loading="lazy" alt="Túi cà phê trước khi thiết kế lại"></div>
+            <span class="wk-ba-l">Trước</span><span class="wk-ba-r">Sau</span>
+            <div class="wk-ba-h" aria-hidden="true"><i><svg viewBox="0 0 26 26"><path d="M10 8l-5 5 5 5M16 8l5 5-5 5"/></svg></i></div>
+            <input class="sr-only" id="wk-ba-in" type="range" min="0" max="100" value="50" aria-label="So sánh bao bì trước và sau: kéo sang trái để xem bản mới">
+          </div>
+          <figcaption><b>Trước và sau</b><span>Túi cà phê Gác Khói: từ nhãn dán chung chung sang bộ nhận diện riêng. Kéo thanh để so sánh.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 50-lab.html -->
+<section id="lab" class="band lab">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Demo Lab</p>
+        <h2 data-split>Đừng chỉ nghe kể.<br><em>Hãy tự tay thử.</em></h2>
+      </div>
+      <p class="lead" data-reveal>Năm bản demo nhỏ cho những việc DreamLab làm mỗi ngày. Tất cả là mô phỏng chạy ngay trên trang này, không gửi dữ liệu của bạn đi đâu.</p>
+    </div>
+
+    <div class="lab-tabs" role="tablist" aria-label="Chọn demo">
+      <button class="lab-tab is-on" role="tab" id="lab-t-chat" aria-controls="lab-p-chat" aria-selected="true" data-lab="chat"><i>01</i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 6.5h18v11H12l-5 4v-4H4z"/><path d="M9 11h8M9 14h5"/></svg><span>Chatbot bán hàng</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-flow" aria-controls="lab-p-flow" aria-selected="false" tabindex="-1" data-lab="flow"><i>02</i><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="5.5" cy="13" r="2.5"/><circle cx="20.5" cy="6.5" r="2.5"/><circle cx="20.5" cy="19.5" r="2.5"/><path d="M8 13h4c3 0 3-6.5 6-6.5M12 13c3 0 3 6.5 6 6.5"/></svg><span>Luồng tự động hóa</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-motion" aria-controls="lab-p-motion" aria-selected="false" tabindex="-1" data-lab="motion"><i>03</i><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="9" cy="13" r="5"/><path d="M16 8a7 7 0 0 1 0 10M20 5.5a11 11 0 0 1 0 15"/></svg><span>Motion graphic</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-grade" aria-controls="lab-p-grade" aria-selected="false" tabindex="-1" data-lab="grade"><i>04</i><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 7h18M4 13h18M4 19h18"/><circle cx="9" cy="7" r="2.2"/><circle cx="17" cy="13" r="2.2"/><circle cx="11" cy="19" r="2.2"/></svg><span>Chỉnh màu video</span></button>
+      <button class="lab-tab" role="tab" id="lab-t-build" aria-controls="lab-p-build" aria-selected="false" tabindex="-1" data-lab="build"><i>05</i><svg viewBox="0 0 26 26" aria-hidden="true"><rect x="7" y="3" width="12" height="20" rx="3"/><path d="M10 8h6M10 11.5h4"/><rect x="10" y="15" width="6" height="3" rx="1.5"/></svg><span>Landing builder</span></button>
+    </div>
+
+    <div class="lab-stage card">
+
+      <!-- ===== 1. Chatbot ===== -->
+      <div class="lab-panel is-on" id="lab-p-chat" role="tabpanel" aria-labelledby="lab-t-chat" data-lab="chat">
+        <div class="lab-demo lab-chatwrap">
+          <div class="lab-chat">
+            <header class="lab-chat-head">
+              <span class="lab-ava" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M13 22C6 19 5 12 8 5c6 1 10 6 9 12M13 22c0-6-1-9-3-12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <div><b>Tiệm trà Lá Lửng</b><small><i></i>Trợ lý AI đang trực</small></div>
+              <span class="tag-concept">Concept</span>
+            </header>
+            <div class="lab-msgs" data-lenis-prevent aria-live="polite" aria-label="Hội thoại demo"></div>
+            <div class="lab-quick" aria-label="Gợi ý câu hỏi"></div>
+            <form class="lab-input" autocomplete="off">
+              <label class="sr-only" for="lab-chat-in">Nhập tin nhắn</label>
+              <input id="lab-chat-in" type="text" maxlength="120" placeholder="Thử gõ: giá, ship, tư vấn, đặt hàng…" enterkeyhint="send">
+              <button type="submit" aria-label="Gửi tin nhắn"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M4 13h17M14 6l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            </form>
+          </div>
+          <div class="lab-board">
+            <div class="lab-board-head"><b>Phía sau màn hình</b><span class="lab-badge">Demo mô phỏng</span></div>
+            <div class="lab-read"><small>AI vừa hiểu</small><p class="lab-read-out">Đang chờ tin nhắn đầu tiên.</p></div>
+            <div class="lab-orders">
+              <small>Bảng đơn hàng</small>
+              <p class="lab-orders-empty">Chưa có đơn. Hãy chat tới bước đặt hàng để xem đơn tự hiện ở đây.</p>
+              <ol class="lab-order-list"></ol>
+            </div>
+            <dl class="lab-kpis">
+              <div><dt>Đã trả lời</dt><dd data-k="msgs">0</dd></div>
+              <div><dt>Đơn chốt</dt><dd data-k="orders">0</dd></div>
+              <div><dt>Doanh thu</dt><dd data-k="rev">0đ</dd></div>
+            </dl>
+          </div>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Chatbot <em>chốt đơn</em> lúc bạn đang ngủ</h3>
+          <p>Khách hỏi giá, hỏi ship, nhờ tư vấn rồi đặt hàng. Trợ lý trả lời trong vài giây và ghi đơn vào bảng. Bản demo chạy theo kịch bản soạn sẵn, không gọi AI thật.</p>
+          <ul class="lab-points"><li>Trả lời Zalo, Messenger, website cùng một nơi</li><li>Học từ bảng giá và chính sách của riêng bạn</li><li>Chuyển cho nhân viên khi gặp câu khó</li></ul>
+          <div class="lab-price"><small>Tự động hóa AI, gói Khởi động</small><b data-lab-price="ai:0">Từ 5.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Tự động hóa AI — Khởi động">Làm chatbot cho shop tôi</a><a class="lab-link" href="#p-ai">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 2. Luồng tự động hóa ===== -->
+      <div class="lab-panel" id="lab-p-flow" role="tabpanel" aria-labelledby="lab-t-flow" data-lab="flow" hidden>
+        <div class="lab-demo lab-flow">
+          <div class="lab-flow-map">
+            <svg class="lab-flow-svg" aria-hidden="true"></svg>
+            <ol class="lab-nodes">
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><path d="M4 6.5h18v11H12l-5 4v-4H4z"/></svg></span><b>Zalo / Form</b><small>Khách để lại lời nhắn</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><path d="M13 3l2.4 7.2L22 13l-6.6 2.8L13 23l-2.4-7.2L4 13l6.6-2.8z"/></svg></span><b>AI phân loại</b><small>Đọc nhu cầu, chấm ưu tiên</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><rect x="4" y="5" width="18" height="16" rx="2"/><path d="M4 10.5h18M4 16h18M10.5 5v16"/></svg></span><b>Google Sheets</b><small>Ghi thêm một dòng</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><circle cx="13" cy="9.5" r="4"/><path d="M5 22c1-4.5 4-6.5 8-6.5s7 2 8 6.5"/></svg></span><b>CRM</b><small>Tạo khách, giao người phụ trách</small></li>
+              <li class="lab-node"><span class="lab-node-ic"><svg viewBox="0 0 26 26"><path d="M6.5 18V12a6.5 6.5 0 0 1 13 0v6l2 2.5h-17zM11 22.5h4"/></svg></span><b>Thông báo</b><small>Báo nhóm bán hàng</small></li>
+            </ol>
+            <div class="lab-token" aria-hidden="true"><i>H</i></div>
+          </div>
+          <div class="lab-flow-ctl">
+            <button class="btn primary lab-run" type="button"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M9 5.5v15l12-7.5z" fill="currentColor"/></svg><span>Chạy thử</span></button>
+            <p class="lab-flow-msg" aria-live="polite">Bấm “Chạy thử” để xem một khách hàng đi hết quy trình mà không ai phải động tay.</p>
+          </div>
+          <div class="lab-flow-data">
+            <div class="lab-sheet-wrap">
+              <table class="lab-sheet"><caption>Bảng khách hàng <span class="lab-badge">Demo mô phỏng</span></caption>
+                <thead><tr><th>Khách</th><th>Nhu cầu</th><th>Ưu tiên</th><th>Phụ trách</th></tr></thead>
+                <tbody><tr class="lab-sheet-empty"><td colspan="4">Chưa có dòng nào.</td></tr></tbody>
+              </table>
+            </div>
+            <dl class="lab-kpis">
+              <div><dt>Khách đã xử lý</dt><dd data-k="done">0</dd></div>
+              <div><dt>Mỗi khách mất</dt><dd data-k="time">0 giây</dd></div>
+              <div><dt>Việc làm tay</dt><dd data-k="manual">0</dd></div>
+            </dl>
+          </div>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Việc lặp lại, <em>để máy lo</em></h3>
+          <p>Mỗi lời nhắn mới được AI đọc, phân loại, ghi vào bảng, tạo khách trong CRM rồi báo đúng người. Bạn chỉ còn việc gọi lại cho khách.</p>
+          <ul class="lab-points"><li>Nối Zalo, form, Sheets, CRM, email sẵn có</li><li>Báo cáo tự gửi mỗi sáng</li><li>Có nhật ký để kiểm tra từng bước</li></ul>
+          <div class="lab-price"><small>Tự động hóa AI, gói Tăng trưởng</small><b data-lab-price="ai:1">Từ 15.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Tự động hóa AI — Tăng trưởng">Vẽ quy trình cho tôi</a><a class="lab-link" href="#p-ai">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 3. Motion graphic ===== -->
+      <div class="lab-panel" id="lab-p-motion" role="tabpanel" aria-labelledby="lab-t-motion" data-lab="motion" hidden>
+        <div class="lab-demo lab-motion">
+          <div class="lab-seg" role="group" aria-label="Chọn mẫu motion">
+            <button type="button" class="is-on" data-mo="logo">Logo animation</button>
+            <button type="button" data-mo="type">Chữ chuyển động</button>
+            <button type="button" data-mo="info">Infographic số liệu</button>
+          </div>
+          <div class="lab-mo-stage"><div class="lab-mo-canvas"></div><span class="lab-badge">Demo mô phỏng</span></div>
+          <div class="lab-mo-ctl">
+            <button type="button" class="lab-mo-play" aria-label="Phát"><svg class="i-play" viewBox="0 0 26 26" aria-hidden="true"><path d="M9 5.5v15l12-7.5z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 26 26" aria-hidden="true"><path d="M8 5.5h3.5v15H8zM14.5 5.5H18v15h-3.5z" fill="currentColor"/></svg></button>
+            <div class="lab-mo-track">
+              <div class="lab-mo-ticks" aria-hidden="true"></div>
+              <label class="sr-only" for="lab-mo-range">Kéo để tua timeline</label>
+              <input id="lab-mo-range" class="lab-range" type="range" min="0" max="1000" value="0" step="1">
+            </div>
+            <span class="lab-mo-time">0,00s</span>
+          </div>
+          <p class="lab-hint">Kéo thanh timeline để tua tới lui từng khung hình. Đây là chuyển động chạy trực tiếp, không phải video.</p>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Chuyển động <em>có chủ đích</em></h3>
+          <p>Ba mẫu ngắn: logo tự vẽ, chữ bật theo nhịp, số liệu tự kể chuyện. Mỗi nhịp nhanh chậm đều được tính trước, bạn tua thử sẽ thấy.</p>
+          <ul class="lab-points"><li>Logo animation, intro, video giải thích</li><li>Xuất đủ tỷ lệ cho web và mạng xã hội</li><li>Nhúng thẳng vào website, nhẹ hơn video</li></ul>
+          <div class="lab-price"><small>Motion Graphic, gói Cơ bản</small><b data-lab-price="motion:0">Từ 3.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Motion Graphic — Cơ bản">Làm motion cho logo tôi</a><a class="lab-link" href="#p-motion">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 4. Chỉnh màu video ===== -->
+      <div class="lab-panel" id="lab-p-grade" role="tabpanel" aria-labelledby="lab-t-grade" data-lab="grade" hidden>
+        <div class="lab-demo lab-grade">
+          <div class="lab-gr-top">
+            <div class="lab-seg lab-gr-presets" role="group" aria-label="Chọn tông màu">
+              <button type="button" class="is-on" data-gr="cine">Điện ảnh</button>
+              <button type="button" data-gr="warm">Ấm</button>
+              <button type="button" data-gr="cool">Mát</button>
+            </div>
+            <div class="lab-seg lab-gr-ratios" role="group" aria-label="Chọn tỷ lệ khung hình">
+              <button type="button" class="is-on" data-ar="16:9">16:9</button>
+              <button type="button" data-ar="1:1">1:1</button>
+              <button type="button" data-ar="9:16">9:16</button>
+            </div>
+          </div>
+          <div class="lab-gr-stage">
+            <div class="lab-gr-frame" data-gr="cine" style="--split:38.2%">
+              <div class="lab-gr-layer lab-gr-after"></div>
+              <div class="lab-gr-layer lab-gr-before"></div>
+              <span class="lab-gr-lb a">Trước</span><span class="lab-gr-lb b">Sau</span>
+              <span class="lab-gr-safe" aria-hidden="true"></span>
+              <span class="lab-gr-handle" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M10 8l-5 5 5 5M16 8l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <label class="sr-only" for="lab-gr-range">Kéo để so sánh trước và sau khi chỉnh màu</label>
+              <input id="lab-gr-range" class="lab-gr-range" type="range" min="0" max="1000" value="382" step="1">
+            </div>
+          </div>
+          <div class="lab-gr-foot">
+            <span class="lab-gr-where">YouTube, website · 16:9</span>
+            <span class="lab-badge">Demo mô phỏng</span>
+          </div>
+          <p class="lab-hint">Kéo vạch giữa để so sánh trước và sau. Khung hình này được vẽ bằng code, không phải ảnh chụp.</p>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Cùng một cảnh, <em>ba cảm xúc</em></h3>
+          <p>Màu quyết định người xem cảm thấy gì trong giây đầu tiên. Thử ba tông màu và ba tỷ lệ khung để thấy một cảnh quay đổi khác thế nào.</p>
+          <ul class="lab-points"><li>Dựng, chỉnh màu, phụ đề, nhạc có bản quyền</li><li>Một lần quay, xuất đủ YouTube, Reels, TikTok</li><li>Giữ đúng tông màu thương hiệu</li></ul>
+          <div class="lab-price"><small>Edit Video, gói Chuyên nghiệp</small><b data-lab-price="video:1">Từ 2.000.000đ/video</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Edit Video — Chuyên nghiệp">Dựng video cho tôi</a><a class="lab-link" href="#p-video">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+      <!-- ===== 5. Landing builder ===== -->
+      <div class="lab-panel" id="lab-p-build" role="tabpanel" aria-labelledby="lab-t-build" data-lab="build" hidden>
+        <div class="lab-demo lab-build">
+          <form class="lab-bd-form" autocomplete="off">
+            <fieldset><legend>Màu chủ đạo</legend>
+              <div class="lab-bd-sw">
+                <button type="button" class="is-on" data-c="#6247B8" style="--c:#6247B8" aria-label="Tím oải hương"></button>
+                <button type="button" data-c="#C2603C" style="--c:#C2603C" aria-label="Cam đất nung"></button>
+                <button type="button" data-c="#2E6B4E" style="--c:#2E6B4E" aria-label="Xanh rừng"></button>
+                <button type="button" data-c="#1F5E8C" style="--c:#1F5E8C" aria-label="Xanh biển"></button>
+                <button type="button" data-c="#B03A5B" style="--c:#B03A5B" aria-label="Hồng mận"></button>
+              </div>
+            </fieldset>
+            <fieldset><legend>Phông tiêu đề</legend>
+              <div class="lab-seg lab-bd-fonts">
+                <button type="button" class="is-on" data-f="serif">Serif</button>
+                <button type="button" data-f="sans">Sans</button>
+                <button type="button" data-f="italic">Italic</button>
+              </div>
+            </fieldset>
+            <fieldset><legend>Giao diện</legend>
+              <div class="lab-seg lab-bd-modes">
+                <button type="button" class="is-on" data-m="light">Sáng</button>
+                <button type="button" data-m="dark">Tối</button>
+              </div>
+            </fieldset>
+            <label class="lab-bd-field"><span>Tiêu đề</span><input type="text" id="lab-bd-title" maxlength="48" value="Ngủ ngon hơn từ tối nay"></label>
+            <label class="lab-bd-field"><span>Chữ trên nút</span><input type="text" id="lab-bd-cta" maxlength="22" value="Nhận ưu đãi 20%"></label>
+            <p class="lab-bd-code" aria-live="polite"></p>
+          </form>
+          <div class="lab-bd-view">
+            <div class="lab-bd-phone" data-f="serif" data-m="light" style="--b:#6247B8">
+              <div class="lab-bd-screen">
+                <div class="lab-bd-nav"><b>Lá Lửng</b><span class="tag-concept">Concept</span></div>
+                <div class="lab-bd-art"><i></i><i></i><i></i><u></u></div>
+                <p class="lab-bd-kicker">Trà hoa cúc mật ong</p>
+                <h4 class="lab-bd-h">Ngủ ngon hơn từ tối nay</h4>
+                <p class="lab-bd-sub">Một tách ấm trước giờ ngủ. Hoa cúc hái tay, không hương liệu.</p>
+                <span class="lab-bd-btn">Nhận ưu đãi 20%</span>
+                <ul class="lab-bd-list"><li>Giao trong 24 giờ</li><li>Đổi trả trong 7 ngày</li></ul>
+                <div class="lab-bd-price"><b>145.000đ</b><s>182.000đ</s><em>Còn 02:14:36</em></div>
+              </div>
+            </div>
+            <span class="lab-badge">Demo mô phỏng</span>
+          </div>
+        </div>
+        <aside class="lab-side">
+          <span class="lab-badge">Demo mô phỏng</span>
+          <h3>Landing page <em>theo ý bạn</em></h3>
+          <p>Đổi màu, đổi phông, viết lại tiêu đề và xem trang thay đổi ngay. Dự án thật cũng vậy: bạn duyệt từng chi tiết trước khi trang lên sóng.</p>
+          <ul class="lab-points"><li>Viết nội dung bán hàng cùng bạn</li><li>Form thu khách về Sheets, báo qua Zalo</li><li>Gắn Pixel, GA4, sẵn sàng chạy quảng cáo</li></ul>
+          <div class="lab-price"><small>Landing Page, gói Chuyên nghiệp</small><b data-lab-price="landing:1">Từ 6.000.000đ</b></div>
+          <div class="lab-cta"><a class="btn primary" href="#lien-he" data-pick="Landing Page — Chuyên nghiệp">Làm landing cho tôi</a><a class="lab-link" href="#p-landing">Xem bảng giá</a></div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- 60-process.html -->
+<section class="proc" id="quy-trinh">
+  <div class="proc-pin" id="procPin">
+    <div class="proc-sticky">
+      <div class="wrap">
+        <div class="sec-head">
+          <div><p class="eyebrow">Quy trình</p><h2 data-split>Năm bước, <em>không bất ngờ.</em></h2></div>
+          <p class="lead" data-reveal>Bạn luôn biết dự án đang ở đâu, ai phụ trách và khi nào bàn giao.</p>
+        </div>
+      </div>
+      <div class="proc-view" id="procView">
+        <div class="proc-track" id="procTrack">
+          <svg class="proc-line" id="procLine" aria-hidden="true"><path class="bg"/><path class="fg"/></svg>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="proc-meta" aria-hidden="true">
+          <span class="proc-count"><b id="procNow">01</b> / 05</span>
+          <span class="proc-bar"><i id="procBar"></i></span>
+          <span class="proc-hint"><span class="d">Cuộn để đi tiếp</span><span class="m">Vuốt ngang để xem tiếp</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 70-pricing.html -->
+<section class="price" id="bao-gia">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Bảng giá</p><h2 data-split>Giá rõ ràng cho <em>từng hạng mục.</em></h2></div>
+      <p class="lead" data-reveal>Chọn hạng mục ở thanh bên dưới. Giá đã gồm thiết kế và số vòng chỉnh sửa ghi trong gói, chưa gồm VAT.</p>
+    </div>
+    <div class="sm-strip" id="phong-mau" hidden></div>
+  </div>
+  <div class="pzone">
+    <div class="ptabs"><div class="wrap"><div class="ptabs-in" id="ptabs" role="tablist" aria-label="Hạng mục báo giá"><i class="ptab-pill" aria-hidden="true"></i></div></div></div>
+    <div class="wrap" id="pbody"></div>
+  </div>
+  <div class="wrap">
+    <div class="est" id="tinh-gia">
+      <div class="est-main">
+        <div class="est-head">
+          <p class="eyebrow">Tự tính báo giá</p>
+          <h2 data-split>Ghép gói của <em>riêng bạn.</em></h2>
+          <p class="lead" data-reveal>Chọn gói cho từng hạng mục cần làm. Từ 3 hạng mục trở lên, tổng giá tự giảm 10%.</p>
+        </div>
+        <div class="est-list" id="estList"></div>
+      </div>
+      <aside class="est-sum" aria-live="polite">
+        <svg class="est-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-spiral"/></svg>
+        <span class="lbl">Tổng dự kiến</span>
+        <div class="total" id="estTotal">0đ</div>
+        <div class="lines" id="estLines"><div><span>Chưa chọn hạng mục nào</span></div></div>
+        <div class="combo" id="estCombo" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="save" id="estSave">Combo từ 3 hạng mục: giảm 10%</div>
+        <a class="btn" href="#lien-he" id="estGo" data-magnetic>Gửi cấu hình này <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+        <p class="note">Giá tham khảo. Báo giá chính thức gửi sau buổi tư vấn.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<!-- 80-faq.html -->
+<section class="band faq-sec" id="faq">
+  <div class="wrap faq">
+    <div class="faq-side">
+      <p class="eyebrow">Câu hỏi thường gặp</p>
+      <h2 data-split>Trước khi <em>bắt đầu.</em></h2>
+      <p class="lead" data-reveal>Chưa thấy câu trả lời bạn cần? Nhắn cho chúng tôi, phản hồi trong 24h.</p>
+      <a class="btn" href="#lien-he" data-reveal data-magnetic>Hỏi trực tiếp <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+      <svg class="faq-sp" viewBox="-1 -1 57 36" aria-hidden="true" data-parallax="0.1"><use href="#dl-grid" class="g"/><use href="#dl-spiral"/></svg>
+    </div>
+    <div class="faq-list" id="faqList">
+      <details name="faq"><summary><span class="n">01</span><span class="q">Một website mất bao lâu để hoàn thành?</span><i aria-hidden="true"></i></summary><div class="a"><p>Gói Cơ bản 7–10 ngày, Chuyên nghiệp 14–21 ngày, Cao cấp 30–45 ngày tùy số trang và tính năng. Lịch chi tiết được chốt ngay sau buổi khám phá.</p></div></details>
+      <details name="faq"><summary><span class="n">02</span><span class="q">Thanh toán như thế nào?</span><i aria-hidden="true"></i></summary><div class="a"><p>Đặt cọc 50% khi ký hợp đồng, 50% còn lại khi nghiệm thu. Dự án trên 30 triệu chia 3 đợt 40 / 30 / 30.</p></div></details>
+      <details name="faq"><summary><span class="n">03</span><span class="q">Tôi được chỉnh sửa bao nhiêu lần?</span><i aria-hidden="true"></i></summary><div class="a"><p>Mỗi gói ghi rõ số vòng chỉnh sửa. Sửa lỗi kỹ thuật trong thời gian bảo hành luôn miễn phí và không tính vào số vòng.</p></div></details>
+      <details name="faq"><summary><span class="n">04</span><span class="q">DreamLab có viết nội dung và chụp ảnh không?</span><i aria-hidden="true"></i></summary><div class="a"><p>Có. Gói Chuyên nghiệp trở lên gồm viết nội dung chuẩn SEO. Chụp ảnh sản phẩm và quay phim được báo giá riêng theo buổi.</p></div></details>
+      <details name="faq"><summary><span class="n">05</span><span class="q">Tự động hóa AI kết nối được với hệ thống nào?</span><i aria-hidden="true"></i></summary><div class="a"><p>Zalo OA, Facebook Messenger, Google Sheets, Gmail, các CRM phổ biến và phần mềm bán hàng có API. Chúng tôi dùng n8n, Make hoặc code riêng tùy quy mô.</p></div></details>
+      <details name="faq"><summary><span class="n">06</span><span class="q">Các dự án trên trang này có phải của khách hàng thật không?</span><i aria-hidden="true"></i></summary><div class="a"><p>Chưa. Các thương hiệu gắn nhãn Concept là dự án do DreamLab tự nghĩ và tự dựng để bạn thấy đúng tay nghề: website chạy thật, video thật, demo AI bấm thử được.</p></div></details>
+    </div>
+  </div>
+</section>
+<!-- 90-contact.html -->
+<section class="band contact-sec" id="lien-he">
+  <div class="wrap contact">
+    <div class="cinfo">
+      <div><p class="eyebrow">Liên hệ</p><h2 data-split>Kể chúng tôi nghe <em>giấc mơ</em> của bạn.</h2></div>
+      <p class="lead" data-reveal>Nhắn Zalo để được trả lời nhanh nhất, hoặc điền vài dòng bên cạnh: trang soạn sẵn nội dung để bạn dán gửi. Tư vấn không mất phí, không ràng buộc.</p>
+      <dl data-stagger>
+        <div><dt>Zalo / Điện thoại</dt><dd>0934 246 420</dd>
+          <p class="cinfo-act"><a class="btn primary sm" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Mở Zalo <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a><button type="button" class="btn sm" data-copy="0934246420">Sao chép số</button></p></div>
+        <div><dt>Email</dt><dd>harryle1010@gmail.com</dd>
+          <p class="cinfo-act"><button type="button" class="btn sm" data-copy="harryle1010@gmail.com">Sao chép email</button></p></div>
+        <div><dt>Giờ làm việc</dt><dd>T2–T7 · 8:30–18:00</dd></div>
+      </dl>
+    </div>
+    <form class="cf" id="cf" novalidate data-reveal>
+      <div class="cf-pick" id="cfPick" hidden><span>Gói đã chọn</span><b id="cfPickName"></b><button type="button" id="cfPickX" aria-label="Bỏ gói đã chọn">×</button></div>
+      <div class="field"><label for="f-name">Họ tên</label><input id="f-name" name="name" required autocomplete="name" placeholder="Nguyễn Minh An"></div>
+      <div class="field"><label for="f-phone">Số điện thoại / Zalo</label><input id="f-phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="09xx xxx xxx"></div>
+      <div class="field"><label for="f-svc">Dịch vụ quan tâm</label><select id="f-svc" name="svc"><option value="">Chưa chắc, cần tư vấn</option></select></div>
+      <div class="field"><label for="f-budget">Ngân sách</label>
+        <select id="f-budget" name="budget"><option>Dưới 5 triệu</option><option>5–15 triệu</option><option selected>15–40 triệu</option><option>Trên 40 triệu</option></select></div>
+      <div class="field full"><label for="f-msg">Mô tả ngắn</label><textarea id="f-msg" name="msg" placeholder="Thương hiệu của bạn, mục tiêu dự án, thời hạn mong muốn…"></textarea></div>
+      <p class="form-msg" id="formMsg" role="status"></p>
+      <button class="btn primary" type="submit" data-magnetic>Gửi yêu cầu <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></button>
+      <p class="cf-note">Form chưa tự gửi đi đâu: sau khi bấm, bạn nhận nội dung soạn sẵn để dán gửi qua Zalo.</p>
+      <div class="cf-done" id="cfDone" hidden>
+        <h3>Cảm ơn <em id="cfDoneName">bạn</em>, còn một bước.</h3>
+        <p>Form này chưa tự gửi đi đâu cả. Nội dung yêu cầu đã soạn sẵn bên dưới: bấm <b>Sao chép</b> rồi dán vào Zalo <b class="cf-tel">0934 246 420</b> để gửi cho DreamLab.</p>
+        <pre class="cf-req" id="cfReq" tabindex="0" aria-label="Nội dung yêu cầu đã soạn"></pre>
+        <div class="cf-done-act">
+          <button class="btn primary sm" type="button" data-copy-from="#cfReq">Sao chép</button>
+          <a class="btn sm" id="cfZalo" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Mở Zalo <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+          <button class="btn sm" type="button" id="cfAgain">Điền lại</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- 95-footer.html -->
+<footer class="foot" id="chan-trang">
+  <div class="wrap">
+    <svg class="foot-sp" viewBox="-1 -1 57 36" aria-hidden="true"><path class="g" d="M13 10h3v3h-3zM16 8h5v5h-5zM13 0h8v8h-8zM0 0h13v13h-13zM0 13h21v21h-21zM21 0h34v34h-34z"/><path class="s" id="footSpiral" pathLength="1" d="M15 10A1 1 0 0 0 16 9A1 1 0 0 0 15 8A2 2 0 0 0 13 10A3 3 0 0 0 16 13A5 5 0 0 0 21 8A8 8 0 0 0 13 0A13 13 0 0 0 0 13A21 21 0 0 0 21 34A34 34 0 0 0 55 0"/></svg>
+    <div class="foot-top">
+      <div class="foot-cta">
+        <p class="eyebrow">Bắt đầu</p>
+        <h2>Có ý tưởng? <em>Dệt nó thành thật.</em></h2>
+        <a class="btn primary" href="#lien-he" data-magnetic>Nhận tư vấn miễn phí <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+      </div>
+      <div class="foot-cols">
+        <div><b>Liên hệ</b><span>harryle1010@gmail.com</span><span>0934 246 420</span><a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
+        <nav aria-label="Dịch vụ"><b>Dịch vụ</b><a href="#p-web">Website</a><a href="#p-landing">Landing Page</a><a href="#p-video">Edit Video</a><a href="#p-product">Thiết kế sản phẩm</a><a href="#p-motion">Motion Graphic</a><a href="#p-ai">Tự động hóa AI</a></nav>
+        <nav aria-label="Khám phá"><b>Khám phá</b><a href="#du-an">Dự án</a><a href="#lab">Lab</a><a href="#phong-mau" data-sm-open hidden>Phòng mẫu</a><a href="#quy-trinh">Quy trình</a><a href="#tinh-gia">Tự tính giá</a><a href="#faq">Câu hỏi</a></nav>
+      </div>
+    </div>
+  </div>
+  <div class="giant" aria-hidden="true"><div class="giant-in" id="giant">Dream<i>Lab</i><svg viewBox="-1 -1 57 36"><use href="#dl-spiral"/></svg>Dream<i>Lab</i><svg viewBox="-1 -1 57 36"><use href="#dl-spiral"/></svg>Dream<i>Lab</i></div></div>
+  <div class="wrap">
+    <div class="foot-bot">
+      <span>© 2026 DreamLab Studio</span>
+      <span>Thiết kế theo tỷ lệ vàng φ = 1,61803</span>
+      <a href="#top" class="foot-up">Về đầu trang <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+    </div>
+  </div>
+</footer>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/SplitText.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/kit.js"></script>
+<script src="js/core.js"></script>
+<script src="js/work.js"></script>
+<script src="js/lab.js"></script>
+<script src="js/samples-ai.js"></script>
+<script src="js/samples-landing.js"></script>
+<script src="js/samples-motion.js"></script>
+<script src="js/samples-product.js"></script>
+<script src="js/samples-video.js"></script>
+<script src="js/samples-web.js"></script>
+<script src="js/samples.js"></script>
+</body>
+</html>

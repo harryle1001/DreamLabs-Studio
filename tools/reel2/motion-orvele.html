@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Maison Orvèle — Ambre Minuit · quảng cáo nước hoa 16:9 (concept)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#080605;color:#f3e6cf;font-family:"Be Vietnam Pro",sans-serif}
+#cam{position:absolute;inset:0;transform-origin:61.8% 50%}
+.glow{position:absolute;left:791px;top:330px;width:900px;height:900px;margin:-450px;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(226,142,52,.5),rgba(150,70,20,.2) 42%,rgba(60,26,10,0) 72%)}
+.floor{position:absolute;left:0;right:0;top:562px;bottom:0;background:linear-gradient(#1b110a,#070504 68%)}
+.floor::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(240,190,120,.5) 61.8%,transparent)}
+.pool{position:absolute;left:791px;top:566px;width:560px;height:68px;margin-left:-280px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,176,84,.55),rgba(255,150,60,0));filter:blur(6px)}
+#bottle{position:absolute;left:791px;top:0;width:0;height:0;overflow:visible}
+#bottle svg{position:absolute;left:-200px;top:96px;width:400px;height:560px;overflow:visible}
+#refl{position:absolute;left:591px;top:562px;width:400px;height:150px;overflow:hidden;opacity:.34;-webkit-mask-image:linear-gradient(#000,transparent 86%);mask-image:linear-gradient(#000,transparent 86%)}
+#refl svg{position:absolute;left:0;top:-410px;width:400px;height:560px;transform:scaleY(-1);transform-origin:50% 466px;filter:blur(1.5px);overflow:visible}
+.kick{position:absolute;left:110px;top:172px;font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:#d9a86a;font-weight:500;display:flex;align-items:center;gap:16px}
+.kick b{display:block;width:42px;height:1px;background:#d9a86a;transform-origin:0 50%}
+h1{position:absolute;left:104px;top:200px;font:400 126px/0.92 "Cormorant",serif;letter-spacing:-.012em;color:#f6ead6}
+h1 i{color:#e9b56c;display:block;padding-left:68px}
+.sub{position:absolute;left:110px;top:452px;font:italic 400 33px/1 "Cormorant",serif;color:#e3cfb0}
+.meta{position:absolute;left:110px;top:520px;font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:rgba(243,230,207,.62);display:flex;gap:16px;align-items:center}
+.meta u{text-decoration:none;width:4px;height:4px;border-radius:50%;background:#d9a86a}
+.rule{position:absolute;left:110px;top:500px;width:262px;height:1px;background:linear-gradient(90deg,#d9a86a,rgba(217,168,106,0));transform-origin:0 50%}
+.tagc{position:absolute;right:42px;bottom:26px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(243,230,207,.38)}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse 78% 86% at 58% 46%,transparent 52%,rgba(0,0,0,.72));pointer-events:none}
+#black{position:absolute;inset:0;background:#050403}
+</style></head>
+<body><div id="stage">
+ <div id="cam">
+  <div class="glow"></div>
+  <canvas id="fx" width="1280" height="720"></canvas>
+  <div class="floor"></div><div class="pool"></div>
+  <div id="refl"></div>
+  <div id="bottle"></div>
+ </div>
+ <div class="kick"><b></b><span>Maison Orvèle</span></div>
+ <h1><span class="l1">Ambre</span><i class="l2">Minuit</i></h1>
+ <div class="rule"></div>
+ <div class="sub">Hổ phách lúc nửa đêm</div>
+ <div class="meta"><span>Eau de Parfum</span><u></u><span>61,8 ml</span><u></u><span>Concept</span></div>
+ <div id="vig"></div><div id="black"></div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script>
+const W=1280,H=720,DUR=8;R2.init({W,H,dur:DUR,poster:5.2});
+/* ---------- chai thủy tinh dạng vòm, vẽ hoàn toàn bằng SVG ---------- */
+const body='M-104 432 L-104 196 A104 104 0 0 1 104 196 L104 432 Q104 452 84 452 L-84 452 Q-104 452 -104 432Z';
+const liquid='M-86 250 Q0 242 86 250 L86 414 Q86 426 74 426 L-74 426 Q-86 426 -86 414Z';
+const svg=uid=>`<svg viewBox="-200 0 400 560"><defs>
+ <linearGradient id="gl${uid}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".07" stop-color="#fff" stop-opacity=".14"/><stop offset=".5" stop-color="#fff" stop-opacity=".03"/><stop offset=".93" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity=".36"/></linearGradient>
+ <linearGradient id="lq${uid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8cf7c"/><stop offset=".45" stop-color="#dc8a34"/><stop offset="1" stop-color="#8a3d12"/></linearGradient>
+ <linearGradient id="lqs${uid}" x1="0" x2="1"><stop offset="0" stop-color="#2a0f04" stop-opacity=".7"/><stop offset=".22" stop-color="#2a0f04" stop-opacity="0"/><stop offset=".78" stop-color="#2a0f04" stop-opacity="0"/><stop offset="1" stop-color="#2a0f04" stop-opacity=".62"/></linearGradient>
+ <linearGradient id="gd${uid}" x1="0" x2="1"><stop offset="0" stop-color="#6d4a1e"/><stop offset=".2" stop-color="#f7dfa4"/><stop offset=".36" stop-color="#b98a3e"/><stop offset=".62" stop-color="#fff1c8"/><stop offset=".8" stop-color="#9c6d2a"/><stop offset="1" stop-color="#4f3413"/></linearGradient>
+ <radialGradient id="sp${uid}" cx=".36" cy=".3" r=".8"><stop offset="0" stop-color="#fff6d8"/><stop offset=".22" stop-color="#e9c477"/><stop offset=".62" stop-color="#8d6226"/><stop offset="1" stop-color="#3a260c"/></radialGradient>
+ <linearGradient id="sw${uid}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <clipPath id="cb${uid}"><path d="${body}"/></clipPath><filter id="bl${uid}"><feGaussianBlur stdDeviation="5"/></filter>
+ </defs>
+ <g class="btl">
+  <path d="${body}" fill="#120a06" opacity=".55"/>
+  <path class="liq" d="${liquid}" fill="url(#lq${uid})"/>
+  <path d="${liquid}" fill="url(#lqs${uid})"/>
+  <path class="liqglow" d="M-70 262 Q0 256 70 262 L70 330 L-70 330Z" fill="#ffe6a8" opacity=".0" filter="url(#bl${uid})"/>
+  <path d="${body}" fill="url(#gl${uid})"/>
+  <path class="rim" d="${body}" fill="none" stroke="#ffe9c4" stroke-opacity=".7" stroke-width="1.6"/>
+  <path d="M-92 200 A92 92 0 0 1 -30 113" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="5" stroke-linecap="round" filter="url(#bl${uid})"/>
+  <rect x="-96" y="210" width="7" height="200" rx="3.5" fill="#fff" opacity=".42"/>
+  <rect x="88" y="230" width="3" height="170" rx="1.5" fill="#fff" opacity=".3"/>
+  <rect x="-84" y="430" width="168" height="14" rx="7" fill="#fff" opacity=".1"/>
+  <g clip-path="url(#cb${uid})"><rect class="sweep" x="-60" y="60" width="120" height="420" fill="url(#sw${uid})" transform="translate(-330 0) skewX(-18)" opacity=".8"/></g>
+  <g class="lbl"><rect x="-42" y="322" width="84" height="52" fill="none" stroke="#f3dcae" stroke-opacity=".75" stroke-width="1"/>
+   <text x="0" y="345" text-anchor="middle" font-family="Cormorant" font-size="17" letter-spacing="3" fill="#fbeccd">ORVÈLE</text>
+   <text x="0" y="362" text-anchor="middle" font-family="Be Vietnam Pro" font-size="6" letter-spacing="2.4" fill="#fbeccd" opacity=".8">AMBRE MINUIT</text></g>
+  <rect x="-25" y="68" width="50" height="26" fill="url(#gl${uid})"/><rect x="-25" y="68" width="50" height="26" fill="#f7c873" opacity=".2"/>
+  <rect x="-33" y="50" width="66" height="22" rx="3" fill="url(#gd${uid})"/>
+  <circle cx="0" cy="14" r="38" fill="url(#sp${uid})"/>
+  <ellipse cx="-13" cy="-2" rx="10" ry="6" fill="#fff" opacity=".8" filter="url(#bl${uid})"/>
+ </g></svg>`;
+document.getElementById('bottle').innerHTML=svg('a');document.getElementById('refl').innerHTML=svg('b');
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+/* ---------- hạt hương: phyllotaxis 377 điểm (Fibonacci), bung từ vòi xịt ---------- */
+const cv=$('#fx'),cx=cv.getContext('2d'),N=377,pts=R2.phyllo(N,15.5),st={p:0,rot:0,a:1};
+const spr=document.createElement('canvas');spr.width=spr.height=64;{const g=spr.getContext('2d'),r=g.createRadialGradient(32,32,0,32,32,32);r.addColorStop(0,'rgba(255,236,190,1)');r.addColorStop(.25,'rgba(255,200,120,.75)');r.addColorStop(1,'rgba(255,160,60,0)');g.fillStyle=r;g.fillRect(0,0,64,64)}
+R2.frame(t=>{cx.clearRect(0,0,W,H);cx.globalCompositeOperation='lighter';
+  const ox=791,oy=300,born=N*(1-st.p);
+  for(const q of pts){const k=q.i+1-born;if(k<=0)continue;
+    const r=15.5*Math.sqrt(k),a=q.a+st.rot+r*.0016,u=r/300;
+    const x=ox+r*Math.cos(a),y=oy+r*Math.sin(a)*.94-u*u*42;
+    const s=(3+u*15)*(1+.18*Math.sin(t*2.2+q.i)),al=st.a*Math.min(1,k/8)*(1-R2.ss(.72,1.06,u))*(.34+.5*u);
+    if(al<=.004)continue;cx.globalAlpha=al;cx.drawImage(spr,x-s,y-s,s*2,s*2)}
+  cx.globalAlpha=1});
+
+/* ---------- timeline ---------- */
+const h1a=R2.split($('.l1')),h1b=R2.split($('.l2')),sub=R2.split($('.sub'),'words');
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}});
+gsap.set('.btl',{opacity:0});gsap.set('.glow',{scale:.38,opacity:0});gsap.set('.pool',{opacity:0,scaleX:.4});gsap.set('#refl',{opacity:0});
+tl.to('#black',{opacity:0,duration:.686,ease:'power1.out'},0)
+  .to('.glow',{scale:1,opacity:1,duration:1.796,ease:'power2.out'},.1)
+  .to('.btl',{opacity:1,duration:1.11,ease:'power2.out'},.262)
+  .fromTo('#bottle',{y:26},{y:0,duration:1.796,ease:'power3.out'},.262)
+  .to('.pool',{opacity:1,scaleX:1,duration:1.11},.686).to('#refl',{opacity:.34,duration:1.11},.686)
+  .fromTo('#cam',{scale:1.09},{scale:1,duration:DUR,ease:'none'},0)
+  /* ánh sáng lướt qua thân chai (2 lần) */
+  .fromTo('.sweep',{attr:{transform:'translate(-330 0) skewX(-18)'}},{attr:{transform:'translate(330 0) skewX(-18)'},duration:1.11,ease:'power2.inOut'},1.0)
+  .to('.liqglow',{opacity:.55,duration:.424,yoyo:true,repeat:1,ease:'sine.inOut'},1.262)
+  .fromTo('.sweep',{attr:{transform:'translate(-330 0) skewX(-18)'}},{attr:{transform:'translate(330 0) skewX(-18)'},duration:1.11,ease:'power2.inOut',immediateRender:false},4.9)
+  .to('.liqglow',{opacity:.5,duration:.424,yoyo:true,repeat:1,ease:'sine.inOut'},5.162)
+  /* hạt hương */
+  .to(st,{p:1,duration:4.6,ease:'power2.out'},1.11).to(st,{rot:.9,duration:DUR,ease:'none'},0)
+  /* chữ */
+  .fromTo('.kick b',{scaleX:0},{scaleX:1,duration:.686},1.4).fromTo('.kick span',{opacity:0,x:-10},{opacity:1,x:0,duration:.686},1.5)
+  .fromTo(h1a,{opacity:0,y:42,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1.11,stagger:.062},1.7)
+  .fromTo(h1b,{opacity:0,y:42,filter:'blur(10px)'},{opacity:1,y:0,filter:'blur(0px)',duration:1.11,stagger:.062},2.124)
+  .fromTo('.rule',{scaleX:0},{scaleX:1,duration:1.11,ease:'power2.inOut'},3.1)
+  .fromTo(sub,{opacity:0,y:16},{opacity:1,y:0,duration:.686,stagger:.1},3.3)
+  .fromTo('.meta>*',{opacity:0,y:10},{opacity:1,y:0,duration:.686,stagger:.062},3.9)
+  /* kết: lặp mượt về đen */
+  .to(st,{a:0,duration:.686,ease:'power1.in'},7.2)
+  .to('#black',{opacity:1,duration:.55,ease:'power1.in'},7.45);
+R2.done(tl);
+</script></body></html>

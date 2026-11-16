@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Đồi Lặng Villas — biệt thự nghỉ dưỡng bên vịnh (Concept)</title>
+<meta name="description" content="Landing page concept do DreamLab thiết kế cho một dự án biệt thự nghỉ dưỡng.">
+<style>
+@font-face{font-family:Playfair;font-weight:400 900;font-display:swap;src:url(fonts/playfair-display-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:Playfair;font-weight:400 900;font-display:swap;src:url(fonts/playfair-display-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Playfair;font-weight:400 900;font-style:italic;font-display:swap;src:url(fonts/playfair-display-vietnamese-wght-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:Playfair;font-weight:400 900;font-style:italic;font-display:swap;src:url(fonts/playfair-display-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Be Vietnam Pro";font-weight:300;font-display:swap;src:url(../fonts/be-vietnam-pro-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Be Vietnam Pro";font-weight:300;font-display:swap;src:url(../fonts/be-vietnam-pro-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Be Vietnam Pro";font-weight:500;font-display:swap;src:url(../fonts/be-vietnam-pro-vietnamese-500-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Be Vietnam Pro";font-weight:500;font-display:swap;src:url(../fonts/be-vietnam-pro-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--phi:1.61803;--night:#0C1B22;--deep:#12303A;--sea:#1E5560;--sand:#E8D9BC;--gold:#C9A66B;--mist:#F4EFE4;--coral:#DE8E6E;--muted:rgba(244,239,228,.66);--line:rgba(201,166,107,.3);
+ --fd:Playfair,"Playfair Display",Georgia,serif;--fb:"Be Vietnam Pro",system-ui,sans-serif;
+ --s1:6px;--s2:10px;--s3:16px;--s4:26px;--s5:42px;--s6:68px;--s7:110px;--s8:178px;--d2:262ms;--d3:424ms;--d4:686ms;--d5:1110ms;--d6:1796ms;--ease:cubic-bezier(.22,1,.36,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--mist);font-family:var(--fb);font-weight:300;font-size:16px;line-height:1.618;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button,select,input{font:inherit;color:inherit}button{cursor:pointer}svg{display:block;max-width:100%}
+h1,h2,h3{font-family:var(--fd);font-weight:400;line-height:1.12;margin:0}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--gold)}
+p{margin:0}
+.w{width:100%;max-width:1280px;margin:0 auto;padding:0 max(20px,4.4vw)}
+.cap{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--gold);display:flex;align-items:center;gap:16px}
+.cap::before{content:"";width:42px;height:1px;background:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:1px solid var(--gold);background:var(--gold);color:var(--night);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;position:relative;overflow:hidden;transition:color var(--d3) var(--ease),background var(--d3) var(--ease)}
+.btn:hover{background:var(--mist);border-color:var(--mist)}
+.btn.o{background:transparent;color:var(--mist);border-color:rgba(244,239,228,.4)}.btn.o:hover{background:var(--mist);color:var(--night)}
+.js [data-r]{opacity:0;transform:translateY(42px);transition:opacity var(--d5) var(--ease),transform var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
+.js [data-r].in{opacity:1;transform:none}
+header{position:fixed;inset:0 0 auto;z-index:20;transition:background var(--d3),border-color var(--d3);border-bottom:1px solid transparent}
+header.s{background:rgba(12,27,34,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:20px;letter-spacing:.2em;text-transform:uppercase;min-height:42px}
+.logo svg{width:33px;height:33px}
+nav{display:flex;gap:26px;font-size:13px;letter-spacing:.06em}nav a{opacity:.8;transition:opacity var(--d2),color var(--d2);padding:10px 0}nav a:hover{opacity:1;color:var(--gold)}
+header .btn{min-height:42px;padding:0 16px;font-size:11px}
+@media(max-width:940px){nav{display:none}}
+/* hero */
+.hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;overflow:hidden;padding:var(--s8) 0 0}
+.scene{position:absolute;inset:0;width:100%;height:100%}
+.scene .p{will-change:transform}
+.win{animation:tw 4.24s ease-in-out infinite alternate}.win:nth-child(3n){animation-delay:-1.6s}.win:nth-child(2n){animation-delay:-2.6s}
+@keyframes tw{from{opacity:.45}to{opacity:1}}
+.shim line{stroke:#F6DDB0;stroke-linecap:round;animation:sh 2.62s ease-in-out infinite alternate}
+@keyframes sh{from{opacity:.1;transform:translateX(-10px)}to{opacity:.7;transform:translateX(10px)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,27,34,.8) 0,rgba(12,27,34,.25) 46%,transparent 61.8%),linear-gradient(0deg,rgba(12,27,34,.92) 0,rgba(12,27,34,.5) 16%,transparent 34%);pointer-events:none}
+.hero .c{position:relative;z-index:2;width:100%}
+.hero h1{font-size:clamp(46px,7.2vw,110px);max-width:11ch;margin:var(--s4) 0}
+.hero h1 span{display:block;overflow:hidden;padding-bottom:.08em}.hero h1 i{display:block;font-style:normal;animation:up var(--d6) var(--ease) both}
+.hero h1 span:nth-child(2) i{animation-delay:.162s}.hero h1 span:nth-child(3) i{animation-delay:.324s}
+@keyframes up{from{transform:translateY(110%)}}
+.hero .l{max-width:44ch;color:rgba(244,239,228,.82);font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:var(--s5)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--s6);border-top:1px solid var(--line)}
+.facts div{padding:var(--s4) var(--s4) var(--s4) 0;border-right:1px solid var(--line);padding-left:var(--s4)}.facts div:first-child{padding-left:0}.facts div:last-child{border-right:0}
+.facts b{font-family:var(--fd);font-weight:400;font-size:clamp(33px,4vw,53px);line-height:1;display:block;color:var(--sand)}.facts span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:760px){.hero{padding-top:var(--s7)}.hero::after{background:linear-gradient(0deg,rgba(12,27,34,.96) 0,rgba(12,27,34,.6) 55%,rgba(12,27,34,.1) 80%)}.facts{grid-template-columns:1fr 1fr;margin-top:var(--s5)}.facts div{padding:var(--s3) var(--s3) var(--s3) 0}.facts div:nth-child(2){border-right:0}.facts div:nth-child(odd){padding-left:0}.facts div:nth-child(even){padding-left:var(--s3)}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+.sec{padding:var(--s7) 0;position:relative}
+.sh{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s6);align-items:end;margin-bottom:var(--s6)}
+.sh h2{font-size:clamp(33px,5vw,68px);margin-top:var(--s4)}.sh p{color:var(--muted)}
+@media(max-width:860px){.sec{padding:var(--s6) 0}.sh{grid-template-columns:1fr;gap:var(--s3);margin-bottom:var(--s5)}}
+/* vị trí */
+.loc{background:var(--deep)}
+.lg{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:center}
+.map{border:1px solid var(--line);aspect-ratio:1.618/1;position:relative;overflow:hidden;background:var(--night)}
+.map svg{width:100%;height:100%}
+.rt{fill:none;stroke:var(--gold);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset var(--d6) var(--ease) .3s;stroke-linecap:round}
+.in .rt{stroke-dashoffset:0}
+.pin circle:first-child{transform-box:fill-box;transform-origin:center;animation:pu 2.62s ease-out infinite}
+@keyframes pu{from{transform:scale(.4);opacity:.7}to{transform:scale(2.2);opacity:0}}
+.map text{font-family:var(--fb);font-size:13px;fill:var(--mist)}
+.dist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.dist li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:var(--s3) 0;border-bottom:1px solid var(--line)}
+.dist b{font-family:var(--fd);font-weight:400;font-size:33px;color:var(--sand);white-space:nowrap}.dist b small{font-family:var(--fb);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-left:6px}
+@media(max-width:860px){.lg{grid-template-columns:1fr}}
+/* loại biệt thự */
+.tabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:var(--s5);overflow-x:auto;scrollbar-width:none}
+.tabs button{flex:1 0 auto;padding:0 var(--s3);min-height:68px;background:none;border:0;border-bottom:2px solid transparent;font-family:var(--fd);font-size:clamp(20px,2.6vw,33px);color:var(--muted);transition:color var(--d3),border-color var(--d3);white-space:nowrap}
+.tabs button.on{color:var(--gold);border-bottom-color:var(--gold);font-style:italic}
+.vg{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s6);align-items:center}
+.plan{border:1px solid var(--line);padding:var(--s4);background:var(--deep)}
+.plan svg{width:100%;height:auto;overflow:visible}
+.plan rect{fill:rgba(201,166,107,.05);stroke:var(--gold);stroke-width:1.5;transition:fill var(--d3)}
+.plan g:hover rect{fill:rgba(201,166,107,.22)}
+.plan text{font-family:var(--fb);font-size:13px;fill:var(--sand);text-anchor:middle}.plan text.a{font-size:10px;fill:var(--muted);letter-spacing:.1em}
+.plan g{animation:pin var(--d4) var(--ease) both;animation-delay:calc(var(--k)*62ms)}
+@keyframes pin{from{opacity:0;transform:scale(.94)}}
+.plan .sp{fill:none;stroke:var(--coral);stroke-width:1;opacity:.5}
+.vinfo h3{font-size:clamp(33px,4vw,53px)}.vinfo .d{color:var(--muted);margin:16px 0 var(--s4)}
+.spec{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-bottom:var(--s4)}
+.spec div{padding:var(--s3) 0;border-bottom:1px solid var(--line)}.spec dt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}.spec dd{margin:0;font-family:var(--fd);font-size:26px;color:var(--sand)}
+.price{display:flex;align-items:baseline;gap:10px;margin-bottom:var(--s4)}.price b{font-family:var(--fd);font-weight:400;font-size:clamp(42px,5vw,68px);line-height:1;color:var(--gold)}
+@media(max-width:860px){.vg{grid-template-columns:1fr;gap:var(--s5)}.plan{padding:var(--s3)}.plan text{font-size:15px}.plan text.a{font-size:12px}}
+/* tiện ích */
+.am{background:var(--mist);color:var(--night)}
+.am .sh p{color:rgba(12,27,34,.66)}.am h2 em{color:#9c7a3e}.am .cap{color:#9c7a3e}.am .cap::before{background:#9c7a3e}
+.ag{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(12,27,34,.16);border-left:1px solid rgba(12,27,34,.16)}
+.ai{padding:var(--s5) var(--s4);border-right:1px solid rgba(12,27,34,.16);border-bottom:1px solid rgba(12,27,34,.16);position:relative;overflow:hidden;transition:color var(--d3) var(--ease)}
+.ai::before{content:"";position:absolute;inset:0;background:var(--deep);transform:translateY(101%);transition:transform var(--d4) var(--ease)}
+.ai:hover{color:var(--mist)}.ai:hover::before{transform:none}
+.ai>*{position:relative}
+.ai svg{width:42px;height:42px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:var(--s4)}
+.ai h3{font-size:26px;margin-bottom:6px}.ai p{font-size:15px;opacity:.72}
+.ai small{position:absolute;top:var(--s3);right:var(--s3);font-family:var(--fd);font-style:italic;opacity:.5}
+@media(max-width:860px){.ag{grid-template-columns:1fr 1fr}.ai{padding:var(--s4) var(--s3)}.ai h3{font-size:20px}.ai p{font-size:14px}}
+/* thanh toán */
+.pay .bar{height:6px;background:rgba(244,239,228,.12);position:relative;margin:var(--s5) 0 0}
+.pay .bar i{position:absolute;inset:0;background:linear-gradient(90deg,var(--gold),var(--coral));transform-origin:left;transform:scaleX(0);transition:transform var(--d6) var(--ease) .2s}
+.pay .in .bar i,.pay .bar.in i{transform:none}
+.pg{display:grid;grid-template-columns:5fr 13fr 21fr 21fr 34fr 6fr;gap:0}
+.ps{padding:var(--s3) var(--s3) 0 0;border-left:1px solid var(--line);padding-left:var(--s2);min-width:0}
+.ps b{font-family:var(--fd);font-weight:400;font-size:clamp(26px,2.3vw,33px);line-height:1;color:var(--sand);display:block}
+.ps span{font-size:13px;color:var(--muted);display:block;margin-top:6px;white-space:nowrap}
+.tbl{width:100%;border-collapse:collapse;margin-top:var(--s6)}
+.tbl th{text-align:left;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding:var(--s3) var(--s3) var(--s3) 0;border-bottom:1px solid var(--line)}
+.tbl td{padding:var(--s3) var(--s3) var(--s3) 0;border-bottom:1px solid var(--line)}.tbl td:first-child{font-family:var(--fd);font-size:26px;color:var(--sand)}.tbl td:last-child{font-family:var(--fd);font-size:26px;color:var(--gold);white-space:nowrap}
+.note{font-size:13px;color:var(--muted);margin-top:var(--s3)}
+@media(max-width:860px){.pay .bar{display:none}.pg{grid-template-columns:1fr 1fr;gap:0;margin-top:var(--s4);border-top:1px solid var(--line)}.ps{border-left:0;border-bottom:1px solid var(--line);padding:var(--s3) 0}.tbl th:nth-child(2),.tbl td:nth-child(2),.tbl th:nth-child(3),.tbl td:nth-child(3){display:none}.tbl td:first-child,.tbl td:last-child{font-size:20px}}
+/* form */
+.lead{background:linear-gradient(180deg,var(--deep),var(--night))}
+.fgd{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s6);align-items:center}
+.fgd h2{font-size:clamp(33px,5vw,68px);margin:var(--s4) 0}
+form{border:1px solid var(--line);padding:var(--s5);background:rgba(12,27,34,.5);display:grid;gap:var(--s3)}
+label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:grid;gap:6px}
+.fld{height:52px;border:0;border-bottom:1px solid rgba(244,239,228,.3);background:transparent;padding:0;border-radius:0;font-size:16px;letter-spacing:0;text-transform:none;color:var(--mist);width:100%}
+.fld:focus{outline:0;border-bottom-color:var(--gold);box-shadow:0 1px 0 var(--gold)}
+select.fld option{color:#0C1B22}
+.msg{font-size:13px;color:var(--muted);min-height:1.6em}
+@media(max-width:860px){.fgd{grid-template-columns:1fr;gap:var(--s4)}form{padding:var(--s4)}}
+footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s7);font-size:13px;color:var(--muted)}
+footer .w{display:flex;flex-wrap:wrap;gap:16px 42px;justify-content:space-between}
+.back{position:fixed;left:16px;bottom:16px;z-index:40;background:rgba(12,27,34,.86);border:1px solid var(--line);padding:0 16px;min-height:42px;display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;backdrop-filter:blur(10px)}
+.emb .back{display:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}.rt{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="w">
+ <a class="logo" href="#top"><svg viewBox="0 0 33 33" fill="none" stroke="#C9A66B" stroke-width="1.2"><circle cx="16.5" cy="16.5" r="15.5"/><path d="M4 22c5-7 8-9 11-5s5 2 7-1 4-2 7 3M7 26h19"/><circle cx="21" cy="10" r="2.6"/></svg>Đồi Lặng</a>
+ <nav><a href="#vi-tri">Vị trí</a><a href="#biet-thu">Biệt thự</a><a href="#tien-ich">Tiện ích</a><a href="#thanh-toan">Thanh toán</a></nav>
+ <a class="btn" href="#dang-ky">Nhận bảng giá</a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <svg class="scene" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+  <defs>
+   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0C1B22"/><stop offset=".42" stop-color="#1E4A54"/><stop offset=".6" stop-color="#8F7C78"/><stop offset=".68" stop-color="#DE8E6E"/><stop offset=".72" stop-color="#F0C493"/></linearGradient>
+   <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98F73"/><stop offset=".12" stop-color="#3E6C73"/><stop offset=".5" stop-color="#1E5560"/><stop offset="1" stop-color="#0C1B22"/></linearGradient>
+   <radialGradient id="glow"><stop offset="0" stop-color="#F6DDB0" stop-opacity=".7"/><stop offset="1" stop-color="#F6DDB0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <g id="stars" fill="#F4EFE4"></g>
+  <g class="p" data-d=".04"><circle cx="890" cy="610" r="233" fill="url(#glow)"/><circle cx="890" cy="612" r="68" fill="#F6DDB0"/></g>
+  <path class="p" data-d=".07" d="M0 610C140 560 250 540 380 574S560 600 660 566 860 520 980 566s220 30 300 6 110-20 160-10v70H0z" fill="#3B6268" opacity=".75"/>
+  <rect y="630" width="1440" height="270" fill="url(#sea)"/>
+  <g class="shim" id="shim"></g>
+  <g class="p" data-d=".12"><g transform="translate(1440 0) scale(-1 1)">
+   <path d="M0 520C120 470 260 474 380 530c90 42 150 96 260 112 60 9 110 4 150 0L760 900H0z" fill="#12303A"/>
+   <g id="pines" fill="#0C1B22"></g>
+   <g id="villas"></g>
+  </g></g>
+  <g class="p" data-d=".2"><g transform="translate(1440 0) scale(-1 1)"><path d="M880 900c70-110 200-176 360-196 80-10 150-12 200-10v206z" fill="#081319"/><g id="pines2" fill="#081319"></g></g></g>
+ </svg>
+ <div class="c"><div class="w">
+  <p class="cap">Biệt thự nghỉ dưỡng · Vịnh Lặng</p>
+  <h1><span><i>Nơi biển lặng</i></span><span><i>gặp <em>đồi thông.</em></i></span></h1>
+  <p class="l">34 căn biệt thự tựa lưng vào đồi, mở mặt ra vịnh. Mỗi căn một hướng nhìn riêng, không căn nào che căn nào.</p>
+  <div class="cta"><a class="btn" href="#dang-ky">Nhận bảng giá &amp; mặt bằng</a><a class="btn o" href="#biet-thu">Xem các loại biệt thự</a></div>
+  <div class="facts"><div><b data-n="34">34</b><span>Căn biệt thự</span></div><div><b data-n="13">13</b><span>Hecta đồi thông</span></div><div><b data-n="21" data-s="%">21%</b><span>Mật độ xây dựng</span></div><div><b data-n="610" data-s="m">610m</b><span>Bãi biển riêng</span></div></div>
+ </div></div>
+</section>
+
+<section class="sec loc" id="vi-tri"><div class="w">
+ <div class="sh"><div><p class="cap">Vị trí</p><h2 data-r>Đủ xa để yên tĩnh,<br><em>đủ gần để tiện.</em></h2></div><p data-r>Dự án nằm trên sườn đồi phía nam Vịnh Lặng, nối thẳng ra đường ven biển. Thời gian di chuyển tính theo tốc độ lái xe thông thường.</p></div>
+ <div class="lg">
+  <div class="map" data-r>
+   <svg viewBox="0 0 610 377" role="img" aria-label="Sơ đồ vị trí dự án Đồi Lặng">
+    <path d="M0 0h610v377H0z" fill="#12303A"/>
+    <path d="M610 60C520 50 470 90 430 140s-30 110-90 150-150 40-200 87H610z" fill="#1E5560"/>
+    <path d="M610 60C520 50 470 90 430 140s-30 110-90 150-150 40-200 87" fill="none" stroke="#E8D9BC" stroke-width="1" opacity=".5"/>
+    <g stroke="rgba(244,239,228,.1)" fill="none"><path d="M560 120c-40 4-70 30-90 60M580 190c-50 0-90 30-110 70M600 270c-50-4-100 20-130 60"/></g>
+    <path class="rt" pathLength="1" d="M40 60C120 70 150 130 220 150s110 0 150 40c26 26 20 60 6 84"/>
+    <path d="M40 60C120 70 150 130 220 150s110 0 150 40c26 26 20 60 6 84" fill="none" stroke="rgba(244,239,228,.25)" stroke-dasharray="2 6"/>
+    <g class="pin"><circle cx="376" cy="274" r="13" fill="#C9A66B"/><circle cx="376" cy="274" r="7" fill="#C9A66B"/><text x="394" y="270" style="font-family:Playfair,serif;font-size:20px;fill:#C9A66B">Đồi Lặng</text><text x="394" y="288" style="font-size:10px;fill:rgba(244,239,228,.6);letter-spacing:.1em">34 CĂN · 13 HA</text></g>
+    <g><circle cx="40" cy="60" r="5" fill="#F4EFE4"/><text x="52" y="56">Sân bay</text></g>
+    <g><circle cx="220" cy="150" r="5" fill="#F4EFE4"/><text x="196" y="176">Trung tâm thị trấn</text></g>
+    <g><circle cx="446" cy="212" r="5" fill="#DE8E6E"/><text x="458" y="216">Bến thuyền</text></g>
+    <g><circle cx="300" cy="96" r="5" fill="#F4EFE4"/><text x="312" y="100">Sân golf</text></g>
+    <g transform="translate(560 330)" stroke="#E8D9BC" fill="none"><circle r="16" opacity=".4"/><path d="M0 -22V22M-5 -12L0 -22L5 -12"/><text y="-28" x="-4" style="font-size:10px;stroke:none">B</text></g>
+   </svg>
+  </div>
+  <ul class="dist" data-r style="--i:1"><li><span>Bãi tắm riêng</span><b>3<small>phút đi bộ</small></b></li><li><span>Bến thuyền</span><b>5<small>phút</small></b></li><li><span>Sân golf 18 hố</span><b>13<small>phút</small></b></li><li><span>Trung tâm thị trấn</span><b>21<small>phút</small></b></li><li><span>Sân bay</span><b>34<small>phút</small></b></li></ul>
+ </div>
+</div></section>
+
+<section class="sec" id="biet-thu"><div class="w">
+ <div class="sh"><div><p class="cap">Ba loại biệt thự</p><h2 data-r>Mặt bằng vẽ theo<br><em>tỷ lệ vàng.</em></h2></div><p data-r>Mỗi căn là một hình chữ nhật vàng chia nhỏ dần: phòng khách lớn nhất, phòng ngủ chính kế tiếp, các không gian phụ nhỏ dần theo cùng một nhịp.</p></div>
+ <div class="tabs" id="vt" role="tablist"><button class="on" data-k="0">Thông · 2 phòng ngủ</button><button data-k="1">Sóng · 3 phòng ngủ</button><button data-k="2">Mây · 4 phòng ngủ</button></div>
+ <div class="vg" data-r>
+  <div class="plan"><svg viewBox="-2 -2 614 381" id="plan" role="img" aria-label="Mặt bằng biệt thự"></svg></div>
+  <div class="vinfo"><h3 id="vn"></h3><p class="d" id="vd"></p>
+   <dl class="spec"><div><dt>Diện tích đất</dt><dd id="v1"></dd></div><div><dt>Diện tích xây dựng</dt><dd id="v2"></dd></div><div><dt>Hồ bơi riêng</dt><dd id="v3"></dd></div><div><dt>Số căn</dt><dd id="v4"></dd></div></dl>
+   <div class="price"><span>Giá từ</span><b id="vp"></b><span>tỷ đồng</span></div>
+   <a class="btn" href="#dang-ky">Nhận mặt bằng chi tiết</a></div>
+ </div>
+</div></section>
+
+<section class="sec am" id="tien-ich"><div class="w">
+ <div class="sh"><div><p class="cap">Tiện ích nội khu</p><h2 data-r>Mọi thứ trong<br><em>năm phút đi bộ.</em></h2></div><p data-r>Tiện ích do đơn vị vận hành quản lý quanh năm, chủ nhà không cần lo bảo trì.</p></div>
+ <div class="ag" id="ag"></div>
+</div></section>
+
+<section class="sec pay" id="thanh-toan"><div class="w">
+ <div class="sh"><div><p class="cap">Giá &amp; tiến độ thanh toán</p><h2 data-r>Thanh toán sáu đợt,<br><em>theo tiến độ xây.</em></h2></div><p data-r>Đợt lớn nhất chỉ đến khi nhận nhà. Hỗ trợ vay tới 61,8% giá trị căn, ân hạn gốc 21 tháng.</p></div>
+ <div data-r><div class="bar"><i></i></div>
+  <div class="pg"><div class="ps"><b>5%</b><span>Đặt chỗ</span></div><div class="ps"><b>13%</b><span>Ký hợp đồng</span></div><div class="ps"><b>21%</b><span>Xong móng</span></div><div class="ps"><b>21%</b><span>Cất nóc</span></div><div class="ps"><b>34%</b><span>Bàn giao nhà</span></div><div class="ps"><b>6%</b><span>Nhận sổ</span></div></div></div>
+ <table class="tbl" data-r><thead><tr><th>Loại</th><th>Phòng ngủ</th><th>Diện tích đất</th><th>Giá từ</th></tr></thead>
+  <tbody><tr><td>Thông</td><td>2 phòng</td><td>233 m²</td><td>8,9 tỷ</td></tr><tr><td>Sóng</td><td>3 phòng</td><td>377 m²</td><td>13,8 tỷ</td></tr><tr><td>Mây</td><td>4 phòng</td><td>610 m²</td><td>21,3 tỷ</td></tr></tbody></table>
+ <p class="note">Giá minh họa cho trang mẫu, chưa gồm thuế và phí bảo trì.</p>
+</div></section>
+
+<section class="sec lead" id="dang-ky"><div class="w">
+ <div class="fgd">
+  <div data-r><p class="cap">Đăng ký tham quan</p><h2>Xem tận mắt<br><em>trước khi quyết định.</em></h2><p style="color:var(--muted);max-width:44ch">Để lại thông tin, chuyên viên sẽ gửi bảng giá, mặt bằng và sắp xếp xe đưa bạn tới thăm nhà mẫu vào cuối tuần.</p></div>
+  <form id="lf" data-r style="--i:1" novalidate>
+   <label>Họ và tên<input class="fld" type="text" required></label>
+   <label>Số điện thoại<input class="fld" type="tel" required></label>
+   <label>Loại biệt thự quan tâm<select class="fld" id="ls"><option>Thông · 2 phòng ngủ</option><option>Sóng · 3 phòng ngủ</option><option>Mây · 4 phòng ngủ</option></select></label>
+   <button class="btn" style="margin-top:10px">Gửi đăng ký</button>
+   <p class="msg" id="lm" role="status">Trang mẫu: thông tin không được gửi đi.</p>
+  </form>
+ </div>
+</div></section>
+</main>
+<footer><div class="w"><span>Đồi Lặng Villas là dự án concept, địa danh và số liệu chỉ để minh họa. Landing page mẫu do <a href="../index.html" target="_top" style="text-decoration:underline;color:var(--sand)">DreamLab</a> thiết kế.</span><span>hello@doilang.example · 0900 000 000</span></div></footer>
+<a class="back" href="../index.html">← DREAMLAB</a>
+
+<script>
+(()=>{
+document.documentElement.classList.add('js');if(parent!==window)document.documentElement.classList.add('emb');
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,GA=137.508*Math.PI/180;
+/* cảnh hero sinh bằng code */
+$('#stars').innerHTML=Array.from({length:144},(_,i)=>{const r=42*Math.sqrt(i+1),t=(i+1)*GA,x=420+r*Math.cos(t)*1.618,y=120+r*Math.sin(t)*.7;return y<420&&y>0?`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(.5+(i%5)*.22).toFixed(1)}" opacity="${(.25+(i%8)*.09).toFixed(2)}"/>`:''}).join('');
+$('#shim').innerHTML=Array.from({length:21},(_,i)=>{const y=640+i*i*.56+i*3,w=30+i*8;return `<line x1="${890-w}" x2="${890+w}" y1="${y.toFixed(0)}" y2="${y.toFixed(0)}" stroke-width="${(1+i*.12).toFixed(1)}" style="animation-delay:${-i*.262}s"/>`}).join('');
+const pine=(x,y,h)=>`<path d="M${x} ${y-h}l${h*.2} ${h*.36}h-${h*.1}l${h*.22} ${h*.34}h-${h*.14}l${h*.2} ${h*.3}H${x-h*.38}l${h*.2}-${h*.3}h-${h*.14}l${h*.22}-${h*.34}h-${h*.1}z"/>`;
+const hill=x=>{const u=x/640;return 520-Math.sin(u*Math.PI*.9)*48+Math.pow(Math.max(0,u-.45),2)*520};
+$('#pines').innerHTML=Array.from({length:34},(_,i)=>{const x=10+i*17.5+(i%3)*5;return pine(x,hill(x)+10,34+(i*37%29))}).join('');
+$('#pines2').innerHTML=Array.from({length:13},(_,i)=>{const x=960+i*38;return pine(x,880-(x-900)*.34+(i%2)*10,89+(i*53%42))}).join('');
+$('#villas').innerHTML=[[96,560,1],[206,548,1.2],[330,588,1],[452,650,1.1],[560,700,.9]].map(([x,y,s],i)=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 0h68v26H0zM10 -16h42v16H10z" fill="#E8D9BC"/><path d="M-6 0h80v-3H-6zM6 -16h50v-3H6z" fill="#0C1B22"/><g fill="#F6B25E"><rect class="win" x="6" y="7" width="16" height="12"/><rect class="win" x="28" y="7" width="34" height="12"/><rect class="win" x="16" y="-11" width="30" height="7"/></g></g>`).join('');
+/* header + parallax */
+const hd=$('#hd'),ps=$$('.scene .p');let tk=false;
+addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{tk=false;const y=scrollY;hd.classList.toggle('s',y>42);if(!RM&&y<1000)ps.forEach(p=>p.style.transform=`translateY(${(y*+p.dataset.d).toFixed(1)}px)`)})},{passive:true});
+/* mặt bằng */
+const V=[{n:'Biệt thự <em>Thông</em>',d:'Căn nhỏ gọn cho gia đình trẻ hoặc cặp đôi. Phòng khách liền bếp mở ra hiên gỗ nhìn xuống vịnh.',s:['233 m²','144 m²','21 m²','13 căn'],p:'8,9',r:[[0,0,377,377,'Khách + bếp','55 m²'],[377,0,233,233,'Ngủ chính','34 m²'],[466,233,144,144,'Ngủ 2','21 m²'],[377,233,89,89,'Tắm',''],[377,322,89,55,'Hiên','']]},
+ {n:'Biệt thự <em>Sóng</em>',d:'Ba phòng ngủ đều có cửa kính lớn hướng biển. Bếp và phòng ăn tách riêng để đón khách.',s:['377 m²','233 m²','34 m²','13 căn'],p:'13,8',r:[[0,0,377,233,'Phòng khách','55 m²'],[0,233,233,144,'Bếp + ăn','34 m²'],[233,233,144,144,'Ngủ 3','21 m²'],[377,0,233,233,'Ngủ chính','55 m²'],[466,233,144,144,'Ngủ 2','21 m²'],[377,233,89,144,'Tắm','']]},
+ {n:'Biệt thự <em>Mây</em>',d:'Căn lớn nhất ở vị trí cao nhất đồi. Bốn phòng ngủ, hồ bơi tràn bờ và khoảng sân cho những buổi tiệc gia đình.',s:['610 m²','377 m²','55 m²','8 căn'],p:'21,3',r:[[0,0,233,233,'Phòng khách','55 m²'],[233,0,144,144,'Phòng ăn','21 m²'],[233,144,144,89,'Bếp','13 m²'],[377,0,233,233,'Ngủ chính','55 m²'],[0,233,144,144,'Ngủ 2','21 m²'],[144,233,144,144,'Ngủ 3','21 m²'],[466,233,144,144,'Ngủ 4','21 m²'],[288,233,89,144,'Tắm',''],[377,233,89,144,'Hồ bơi','']]}];
+const setV=k=>{$$('#vt button').forEach((b,i)=>b.classList.toggle('on',i===k));const v=V[k];$('#vn').innerHTML=v.n;$('#vd').textContent=v.d;v.s.forEach((x,i)=>$('#v'+(i+1)).textContent=x);$('#vp').textContent=v.p;
+ $('#plan').innerHTML=v.r.map((r,i)=>`<g style="--k:${i};transform-origin:${r[0]+r[2]/2}px ${r[1]+r[3]/2}px"><rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}"/><text x="${r[0]+r[2]/2}" y="${r[1]+r[3]/2+(r[5]?-2:5)}">${r[4]}</text>${r[5]?`<text class="a" x="${r[0]+r[2]/2}" y="${r[1]+r[3]/2+16}">${r[5].toUpperCase()}</text>`:''}</g>`).join('')+'<path class="sp" d="M0 377A377 377 0 0 1 377 0A233 233 0 0 1 610 233A144 144 0 0 1 466 377A89 89 0 0 1 377 288A55 55 0 0 1 432 233"/>';
+ const ls=$('#ls');if(ls)ls.selectedIndex=k};
+$('#vt').addEventListener('click',e=>{const b=e.target.closest('button');b&&setV(+b.dataset.k)});setV(0);
+/* tiện ích */
+const A=[['Hồ bơi tràn bờ','Dài 55 m, nhìn thẳng ra vịnh, mở từ 6:00.','<path d="M4 30c5-4 9-4 14 0s9 4 14 0 6-3 6-3M4 36c5-4 9-4 14 0s9 4 14 0M14 26V10a4 4 0 0 1 8 0M26 26V10a4 4 0 0 1 8 0M14 16h12"/>'],
+ ['Spa thảo mộc','Xông hơi đá muối và trị liệu bằng thảo mộc địa phương.','<path d="M21 36C8 30 6 18 21 6c15 12 13 24 0 30zM21 36V16M21 26l-7-6M21 22l6-5"/>'],
+ ['Nhà hàng bến thuyền','Hải sản đánh bắt trong ngày, 89 chỗ ngồi ngoài trời.','<path d="M6 28h30l-5 8H11zM21 28V6l12 16H21M21 10L10 22h11"/>'],
+ ['Đường dạo rừng thông','Vòng quanh đồi 2,1 km, có đèn dẫn lối buổi tối.','<path d="M12 36V24M12 24l-8 0 5-8H6l6-10 6 10h-3l5 8zM30 36V28M30 28h-7l4-7h-2l5-9 5 9h-2l4 7z"/>'],
+ ['Câu lạc bộ trẻ em','Có người trông trẻ, lớp bơi và lớp vẽ cuối tuần.','<circle cx="21" cy="12" r="6"/><path d="M8 36c0-9 6-14 13-14s13 5 13 14M4 20l6 4M38 20l-6 4"/>'],
+ ['Quản lý cho thuê','Đơn vị vận hành lo đặt phòng, dọn dẹp khi bạn không ở.','<path d="M6 36V16l15-10 15 10v20zM16 36V24h10v12M28 14v-6"/>']];
+$('#ag').innerHTML=A.map((a,i)=>`<div class="ai" data-r style="--i:${i%3}"><small>0${i+1}</small><svg viewBox="0 0 42 42" aria-hidden="true">${a[2]}</svg><h3>${a[0]}</h3><p>${a[1]}</p></div>`).join('');
+/* form */
+$('#lf').addEventListener('submit',e=>{e.preventDefault();const ok=$$('#lf input').every(f=>f.value.trim());$('#lm').textContent=ok?'Cảm ơn bạn. Đây là trang mẫu nên chưa có đăng ký nào được ghi nhận.':'Bạn điền giúp họ tên và số điện thoại nhé.'});
+/* reveal + đếm số */
+const count=el=>{const n=+el.dataset.n,s=el.dataset.s||'';if(RM){return}const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/1796),e=1-Math.pow(1-u,3);el.textContent=Math.round(n*(.382+.618*e))+s;u<1&&requestAnimationFrame(run)};requestAnimationFrame(run)};
+$$('.facts b').forEach(count);
+const els=$$('[data-r]');
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>io.observe(el))}else els.forEach(el=>el.classList.add('in'));
+try{parent!==window&&parent.postMessage({wkDemo:'doi-lang'},'*')}catch(e){}
+})();
+</script>
+</body>
+</html>

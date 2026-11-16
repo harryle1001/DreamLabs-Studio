@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gác Khói Roastery — cà phê rang mỗi sáng thứ Ba (Concept)</title>
+<meta name="description" content="Website concept do DreamLab thiết kế cho một xưởng rang cà phê thủ công.">
+<style>
+@font-face{font-family:Anton;font-display:swap;src:url(fonts/anton-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:Anton;font-display:swap;src:url(fonts/anton-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Mono";font-display:swap;src:url(fonts/space-mono-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Mono";font-display:swap;src:url(fonts/space-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Be Vietnam Pro";font-weight:400;font-display:swap;src:url(../fonts/be-vietnam-pro-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Be Vietnam Pro";font-weight:400;font-display:swap;src:url(../fonts/be-vietnam-pro-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Be Vietnam Pro";font-weight:600;font-display:swap;src:url(../fonts/be-vietnam-pro-vietnamese-600-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Be Vietnam Pro";font-weight:600;font-display:swap;src:url(../fonts/be-vietnam-pro-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--phi:1.61803;--paper:#F1E9DA;--paper2:#E8DDC8;--ink:#1F1612;--ember:#E4572E;--kraft:#C9A27A;--smoke:#7F8E93;--line:rgba(31,22,18,.16);
+ --fd:Anton,"Arial Narrow",Impact,sans-serif;--fm:"Space Mono",ui-monospace,Menlo,monospace;--fb:"Be Vietnam Pro",system-ui,sans-serif;
+ --s1:6px;--s2:10px;--s3:16px;--s4:26px;--s5:42px;--s6:68px;--s7:110px;--d2:262ms;--d3:424ms;--d4:686ms;--d5:1110ms;--ease:cubic-bezier(.22,1,.36,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.618;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+ background-image:linear-gradient(rgba(31,22,18,.09) 1px,transparent 1px);background-size:100% 42px}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer}
+img,svg{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--fd);font-weight:400;text-transform:uppercase;line-height:1.14;margin:0;letter-spacing:.005em}
+p{margin:0}
+.w{width:100%;max-width:1280px;margin:0 auto;padding:0 max(16px,4vw)}
+.m{font-family:var(--fm);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 26px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);font-family:var(--fm);font-size:13px;letter-spacing:.06em;text-transform:uppercase;transition:transform var(--d2) var(--ease),background var(--d2),color var(--d2),box-shadow var(--d2);box-shadow:4px 4px 0 var(--ember)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ember)}
+.btn.o{background:transparent;color:var(--ink);box-shadow:none}.btn.o:hover{background:var(--ink);color:var(--paper)}
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity var(--d4) var(--ease),transform var(--d5) var(--ease);transition-delay:calc(var(--i,0)*100ms)}
+.js [data-r].in{opacity:1;transform:none}
+/* thanh trên */
+.tick{background:var(--ember);color:var(--paper);overflow:hidden;white-space:nowrap;border-bottom:2px solid var(--ink)}
+.tick div{display:inline-block;padding:6px 0;animation:mq 26s linear infinite}
+.tick span{margin:0 26px}
+@keyframes mq{to{transform:translateX(-50%)}}
+header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:2px solid var(--ink)}
+header .w{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:var(--fd);font-size:26px;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.logo svg{width:26px;height:26px}
+nav{display:flex;gap:26px}nav a{position:relative;padding:10px 0}nav a::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--ember);transform:scaleX(0);transform-origin:left;transition:transform var(--d3) var(--ease)}nav a:hover::after{transform:scaleX(1)}
+.cart{display:flex;align-items:center;gap:10px;border:2px solid var(--ink);padding:0 16px;height:42px;background:none}
+.cart b{display:grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--ember);color:var(--paper);font-size:12px;transition:transform var(--d2) var(--ease)}
+.cart b.pop{transform:scale(1.618)}
+.back{position:fixed;left:16px;bottom:16px;z-index:40;background:var(--paper);border:2px solid var(--ink);padding:0 16px;min-height:42px;display:flex;align-items:center;gap:8px;box-shadow:3px 3px 0 var(--ink)}
+@media(max-width:860px){nav{display:none}}
+/* hero */
+.hero{padding:var(--s6) 0 var(--s5);position:relative;overflow:hidden}
+.hero .g{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:center}
+.hero h1{font-size:clamp(72px,10.6vw,152px);letter-spacing:-.005em;line-height:1;white-space:nowrap}
+.hero h1 span{display:block;overflow:hidden;padding-top:.2em;margin-top:-.1em}
+.hero h1 i{display:block;font-style:normal;animation:up var(--d5) var(--ease) both}
+.hero h1 span:nth-child(2) i{animation-delay:.1s}.hero h1 span:nth-child(3) i{animation-delay:.2s;color:transparent;-webkit-text-stroke:2px var(--ember)}
+@keyframes up{from{transform:translateY(105%)}}
+.hero .sub{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s4);margin-top:var(--s5);align-items:end;max-width:760px}
+.hero .sub p{font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:var(--s4)}
+.bagbox{position:relative;justify-self:center;width:min(100%,380px)}
+.smoke path{fill:none;stroke:var(--smoke);stroke-width:3;stroke-linecap:round;stroke-dasharray:60 240;animation:sm 4.24s linear infinite;opacity:.7}
+.smoke path:nth-child(2){animation-delay:-1.6s;stroke-dasharray:40 260}.smoke path:nth-child(3){animation-delay:-2.6s}
+@keyframes sm{from{stroke-dashoffset:300}to{stroke-dashoffset:0}}
+.stamp{position:absolute;right:-16px;bottom:26px;width:144px;height:144px;animation:rot 16.18s linear infinite}
+.stamp text{font-family:var(--fm);font-size:11.5px;letter-spacing:.14em;fill:var(--paper)}
+@keyframes rot{to{transform:rotate(360deg)}}
+.orig{border-block:2px solid var(--ink);overflow:hidden;white-space:nowrap;background:var(--ink);color:var(--paper)}
+.orig div{display:inline-block;font-family:var(--fd);font-size:clamp(33px,5vw,68px);text-transform:uppercase;padding:10px 0;animation:mq 42s linear infinite reverse}
+.orig span{margin:0 26px}.orig span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px var(--kraft)}
+@media(max-width:860px){.hero{padding-top:var(--s5)}.hero .g{grid-template-columns:1fr}.hero .sub{grid-template-columns:1fr;gap:var(--s3)}.bagbox{width:68%;margin-top:var(--s4)}.stamp{width:110px;height:110px;right:-26px}}
+/* tiêu đề mục */
+.sec{padding:var(--s7) 0}
+.sh{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:end;margin-bottom:var(--s6)}
+.sh h2{font-size:clamp(42px,7vw,110px)}.sh h2 em{font-style:normal;color:var(--ember)}
+.sh .m{display:flex;gap:10px;align-items:center;margin-bottom:16px}.sh .m::before{content:"";width:26px;height:2px;background:var(--ember)}
+@media(max-width:860px){.sec{padding:var(--s6) 0}.sh{grid-template-columns:1fr;gap:var(--s3);margin-bottom:var(--s5)}}
+/* sản phẩm */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);background:var(--paper)}
+.pc{padding:var(--s4);border-right:2px solid var(--ink);display:flex;flex-direction:column;position:relative;transition:background var(--d3) var(--ease)}
+.pc:last-child{border-right:0}
+.pc:hover{background:var(--paper2)}
+.pc .no{position:absolute;top:16px;right:16px}
+.pc .bag{width:61.8%;margin:var(--s3) auto var(--s4);transition:transform var(--d4) var(--ease)}
+.pc:hover .bag{transform:translateY(-10px) rotate(-3deg)}
+.pc h3{font-size:33px;line-height:1.2}
+.pc .note{color:rgba(31,22,18,.72);font-size:14px;margin:10px 0 16px;min-height:3.3em}
+.lv{display:flex;gap:4px;align-items:center;margin-bottom:16px}.lv i{width:16px;height:8px;border:1.5px solid var(--ink)}.lv i.on{background:var(--ink)}.lv span{margin-left:8px;font-size:11px}
+.pc .buy{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:2px solid var(--ink);padding-top:16px}
+.pc .pr{font-family:var(--fd);font-size:26px}
+.add{width:48px;height:48px;border:2px solid var(--ink);background:var(--ember);color:var(--paper);font-size:22px;line-height:1;transition:transform var(--d2) var(--ease),background var(--d2)}
+.add:hover{transform:rotate(90deg);background:var(--ink)}
+@media(max-width:1000px){.grid{grid-template-columns:1fr 1fr}.pc:nth-child(2){border-right:0}.pc:nth-child(-n+2){border-bottom:2px solid var(--ink)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.pc{border-right:0;border-bottom:2px solid var(--ink)}.pc:last-child{border-bottom:0}.pc .bag{width:42%}}
+/* đường cong rang */
+.roast{background:var(--ink);color:var(--paper);background-image:linear-gradient(rgba(241,233,218,.07) 1px,transparent 1px);background-size:100% 42px}
+.roast .sh h2 em{color:var(--kraft)}
+.rg{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:start}
+.chart{border:2px solid var(--paper);padding:var(--s3)}
+.chart svg{width:100%;height:auto}
+.chart .ax{stroke:rgba(241,233,218,.2);fill:none}
+.chart text{font-family:var(--fm);font-size:11px;fill:rgba(241,233,218,.6)}
+.cv{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:1;opacity:.16;transition:opacity var(--d3)}
+.cv.on{opacity:1;animation:draw var(--d5) var(--ease)}
+@keyframes draw{from{stroke-dashoffset:1}}
+.mk{opacity:0;transition:opacity var(--d3) var(--d4)}.mk.on{opacity:1}
+.tabs{display:flex;gap:0;margin-bottom:var(--s4);border:2px solid currentColor}
+.tabs button{flex:1;min-height:48px;background:none;border:0;border-right:2px solid currentColor;font-family:var(--fm);font-size:13px;text-transform:uppercase;letter-spacing:.06em;transition:background var(--d2),color var(--d2)}
+.tabs button:last-child{border-right:0}
+.roast .tabs button.on{background:var(--ember);color:var(--paper)}
+.rinfo h3{font-size:42px;color:var(--kraft)}.rinfo p{margin:16px 0;color:rgba(241,233,218,.8)}
+.rinfo dl{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0;border-top:2px solid var(--paper)}
+.rinfo dl div{padding:16px 0;border-bottom:1px solid rgba(241,233,218,.25)}.rinfo dt{font-family:var(--fm);font-size:11px;text-transform:uppercase;letter-spacing:.06em;opacity:.6}.rinfo dd{margin:0;font-family:var(--fd);font-size:26px}
+@media(max-width:860px){.rg{grid-template-columns:1fr}}
+/* pha */
+.brew{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s5)}
+.brew .tabs{flex-direction:column;border-width:2px}.brew .tabs button{border-right:0;border-bottom:2px solid var(--ink);text-align:left;padding:0 16px;display:flex;justify-content:space-between;align-items:center;min-height:68px;font-family:var(--fd);font-size:26px}
+.brew .tabs button:last-child{border-bottom:0}.brew .tabs button.on{background:var(--ink);color:var(--paper)}
+.brew .tabs button small{font-family:var(--fm);font-size:11px}
+.bpanel{border:2px solid var(--ink);background:var(--paper);padding:var(--s4)}
+.bnum{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:2px solid var(--ink);margin-bottom:var(--s4)}
+.bnum div{padding:0 0 16px}.bnum b{font-family:var(--fd);font-weight:400;font-size:clamp(33px,6vw,68px);line-height:1.1;display:block}
+.bpanel ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.bpanel li{counter-increment:s;display:grid;grid-template-columns:42px 1fr;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.bpanel li::before{content:"0" counter(s);font-family:var(--fm);font-size:13px;color:var(--ember)}
+@media(max-width:860px){.brew{grid-template-columns:1fr;gap:var(--s4)}.brew .tabs{flex-direction:row}.brew .tabs button{border-bottom:0;border-right:2px solid var(--ink);min-height:48px;font-size:20px;padding:0 10px;justify-content:center}.brew .tabs button small{display:none}}
+/* menu */
+.menu{background:var(--paper2);border-block:2px solid var(--ink)}
+.mcols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
+.mcols h3{font-size:33px;padding-bottom:10px;border-bottom:2px solid var(--ink);margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline}
+.mi{display:flex;align-items:baseline;gap:10px;padding:10px 0}.mi b{font-weight:600}.mi i{flex:1;border-bottom:2px dotted rgba(31,22,18,.4);transform:translateY(-4px)}.mi span{font-family:var(--fm)}
+.mi small{display:block;font-size:13px;color:rgba(31,22,18,.66);font-weight:400}
+@media(max-width:760px){.mcols{grid-template-columns:1fr;gap:var(--s5)}}
+/* gói định kỳ */
+.sub2{display:grid;grid-template-columns:1.618fr 1fr;gap:0;border:2px solid var(--ink);background:var(--ember);color:var(--paper)}
+.sub2>*{padding:var(--s5)}
+.sub2 h2{font-size:clamp(42px,6vw,89px);line-height:1.1}
+.sub2 .r{background:var(--paper);color:var(--ink);border-left:2px solid var(--ink)}
+.opt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+.opt label{border:2px solid var(--ink);padding:16px;cursor:pointer;display:block;transition:background var(--d2),color var(--d2)}
+.opt input{position:absolute;opacity:0}.opt input:checked+label{background:var(--ink);color:var(--paper)}.opt input:focus-visible+label{outline:3px solid var(--ember);outline-offset:2px}
+.opt b{font-family:var(--fd);font-weight:400;font-size:26px;display:block}
+.fld{width:100%;height:48px;border:2px solid var(--ink);background:transparent;padding:0 16px;font:inherit;margin-bottom:10px;border-radius:0}
+.fld:focus{outline:3px solid var(--ember);outline-offset:2px}
+.msg{font-size:13px;margin-top:10px;min-height:1.6em}
+@media(max-width:860px){.sub2{grid-template-columns:1fr}.sub2 .r{border-left:0;border-top:2px solid var(--ink)}.sub2>*{padding:var(--s4)}}
+footer{padding:var(--s6) 0 var(--s7)}
+.fg{display:grid;grid-template-columns:1.618fr 1fr 1fr;gap:var(--s5)}
+.fg .big{font-family:var(--fd);font-size:clamp(68px,12vw,178px);line-height:1.1;text-transform:uppercase}
+.fg h4{font-family:var(--fm);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px;color:var(--ember)}
+.cpt{margin-top:var(--s5);padding-top:16px;border-top:2px solid var(--ink);display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;font-size:13px}
+@media(max-width:760px){.fg{grid-template-columns:1fr 1fr}.fg>div:first-child{grid-column:1/-1}}
+.toast{position:fixed;right:16px;bottom:16px;z-index:50;background:var(--ink);color:var(--paper);padding:16px 26px;border:2px solid var(--paper);transform:translateY(180%);visibility:hidden;transition:transform var(--d3) var(--ease),visibility 0s var(--d3)}
+.toast.on{transform:none;visibility:visible;transition-delay:0s}
+.emb .back{display:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="tick m" aria-hidden="true"><div><span>Mẻ rang số 21 — rang 05:00 thứ Ba</span><span>✦</span><span>Giao trong 48 giờ sau khi rang</span><span>✦</span><span>Miễn phí giao từ 2 túi</span><span>✦</span><span>Mẻ rang số 21 — rang 05:00 thứ Ba</span><span>✦</span><span>Giao trong 48 giờ sau khi rang</span><span>✦</span><span>Miễn phí giao từ 2 túi</span><span>✦</span></div></div>
+<header><div class="w">
+ <a class="logo" href="#top"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.2"><ellipse cx="13" cy="13" rx="8" ry="11" transform="rotate(30 13 13)" fill="#E4572E" stroke="#1F1612"/><path d="M9 5c5 4 3 8 1 10s-1 5 5 6" stroke="#1F1612"/></svg>Gác Khói</a>
+ <nav class="m"><a href="#ca-phe">Cà phê</a><a href="#me-rang">Mẻ rang</a><a href="#pha">Cách pha</a><a href="#menu">Menu quán</a><a href="#dinh-ky">Gói định kỳ</a></nav>
+ <button class="cart m" id="cart" aria-label="Giỏ hàng">Giỏ <b id="cn">0</b></button>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w"><div class="g">
+ <div>
+  <p class="m" style="margin-bottom:16px;color:var(--ember)">Xưởng rang thủ công · Đà Lạt</p>
+  <h1><span><i>Rang tươi</i></span><span><i>mỗi sáng</i></span><span><i>thứ Ba.</i></span></h1>
+  <div class="sub">
+   <p class="m">Từ 2 nông hộ<br>Cầu Đất &amp; Khe Sanh</p>
+   <div><p>Chúng tôi chỉ rang một mẻ mỗi tuần, đóng túi ngay khi hạt nguội và gửi đi trong 48 giờ. Bạn nhận cà phê lúc hương còn đầy.</p>
+   <div class="cta"><a class="btn" href="#ca-phe">Chọn cà phê →</a><a class="btn o" href="#me-rang">Xem mẻ rang</a></div></div>
+  </div>
+ </div>
+ <div class="bagbox">
+  <svg viewBox="0 0 300 420" aria-label="Túi cà phê Gác Khói">
+   <g class="smoke"><path d="M110 70c-20-20 20-30 0-50s20-30 0-50" transform="translate(0 30)"/><path d="M150 70c-20-20 20-30 0-50s20-30 0-50" transform="translate(0 20)"/><path d="M190 70c-20-20 20-30 0-50s20-30 0-50" transform="translate(0 34)"/></g>
+   <path d="M52 110h196l14 280a14 14 0 0 1-14 14H52a14 14 0 0 1-14-14z" fill="#1F1612"/>
+   <path d="M52 110h196v26H52z" fill="#2e221c"/><path d="M52 136h196" stroke="#F1E9DA" stroke-width="2" stroke-dasharray="4 5"/>
+   <rect x="66" y="172" width="168" height="186" fill="#F1E9DA"/>
+   <text x="150" y="222" text-anchor="middle" font-family="Anton,Impact" font-size="44" fill="#1F1612">GÁC KHÓI</text>
+   <path d="M82 236h136" stroke="#1F1612" stroke-width="2"/>
+   <text x="150" y="258" text-anchor="middle" font-family="Space Mono,monospace" font-size="8.5" letter-spacing=".6" fill="#1F1612">CẦU ĐẤT · ARABICA · 250G</text>
+   <rect x="82" y="274" width="136" height="42" fill="#E4572E"/>
+   <text x="150" y="302" text-anchor="middle" font-family="Anton,Impact" font-size="24" fill="#F1E9DA">MẺ SỐ 21</text>
+   <text x="150" y="342" text-anchor="middle" font-family="Space Mono,monospace" font-size="8.5" letter-spacing=".6" fill="#1F1612">RANG: THỨ BA 05:00</text>
+   <circle cx="222" cy="152" r="8" fill="none" stroke="#C9A27A" stroke-width="2"/>
+  </svg>
+  <svg class="stamp" viewBox="0 0 144 144" aria-hidden="true"><circle cx="72" cy="72" r="70" fill="#E4572E" stroke="#1F1612" stroke-width="2"/><path id="cp" d="M72 72m-52 0a52 52 0 1 1 104 0a52 52 0 1 1-104 0" fill="none"/><text><textPath href="#cp">RANG TƯƠI ✦ GIAO TRONG 48 GIỜ ✦ RANG TƯƠI ✦ ĐÓNG TÚI TAY ✦</textPath></text><ellipse cx="72" cy="72" rx="14" ry="20" transform="rotate(30 72 72)" fill="#F1E9DA"/><path d="M66 58c8 6 5 12 2 16s-2 8 8 12" fill="none" stroke="#E4572E" stroke-width="2.5"/></svg>
+ </div>
+</div></div></section>
+
+<div class="orig" aria-hidden="true"><div><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span></div></div>
+
+<section class="sec" id="ca-phe"><div class="w">
+ <div class="sh"><div><p class="m">Mẻ rang tuần này</p><h2 data-r>Bốn túi.<br><em>Không hơn.</em></h2></div><p data-r>Ít lựa chọn để mỗi túi đều được nếm thử, chỉnh lửa và rang lại cho tới khi đúng vị. Giá cho túi 250g, xay theo cách pha của bạn.</p></div>
+ <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="sec roast" id="me-rang"><div class="w">
+ <div class="sh"><div><p class="m">Nhật ký lò rang</p><h2 data-r>Đường cong<br><em>của mẻ 21.</em></h2></div><p data-r style="color:rgba(241,233,218,.8)">Mỗi mẻ được ghi lại nhiệt độ từng giây. Chọn mức rang để xem lửa đi thế nào và ly cà phê sẽ ra sao.</p></div>
+ <div class="rg">
+  <div class="chart" data-r>
+   <svg viewBox="0 0 610 377" role="img" aria-label="Biểu đồ nhiệt độ theo thời gian rang">
+    <g class="ax"><path d="M50 20v310h540M50 252h540M50 174h540M50 96h540"/></g>
+    <text x="14" y="334">100°</text><text x="14" y="256">150°</text><text x="14" y="178">200°</text><text x="14" y="100">230°</text>
+    <text x="50" y="356">0'</text><text x="212" y="356">4'</text><text x="374" y="356">8'</text><text x="536" y="356">12'</text>
+    <path class="cv" data-k="0" pathLength="1" stroke="#C9A27A" d="M50 150 C80 300,110 318,150 290 S260 200,330 172 S400 150,428 142"/>
+    <path class="cv" data-k="1" pathLength="1" stroke="#E4572E" d="M50 140 C80 300,110 322,150 286 S260 190,330 158 S430 122,490 112"/>
+    <path class="cv" data-k="2" pathLength="1" stroke="#F1E9DA" d="M50 130 C80 300,110 326,150 282 S260 180,330 146 S470 96,556 76"/>
+    <g class="mk" data-k="0"><circle cx="428" cy="142" r="7" fill="#C9A27A"/><text x="380" y="126" style="fill:#C9A27A">XẢ 9'20"</text></g>
+    <g class="mk" data-k="1"><circle cx="490" cy="112" r="7" fill="#E4572E"/><text x="440" y="96" style="fill:#E4572E">XẢ 10'50"</text></g>
+    <g class="mk" data-k="2"><circle cx="556" cy="76" r="7" fill="#F1E9DA"/><text x="500" y="60" style="fill:#F1E9DA">XẢ 12'30"</text></g>
+    <g><path d="M330 20v310" stroke="rgba(241,233,218,.4)" stroke-dasharray="3 6"/><text x="338" y="34">NỔ LẦN 1</text></g>
+   </svg>
+  </div>
+  <div class="rinfo" data-r>
+   <div class="tabs" role="tablist" id="rt"><button class="on" data-k="0">Sáng</button><button data-k="1">Vừa</button><button data-k="2">Đậm</button></div>
+   <h3 id="rh">Rang sáng</h3><p id="rp">Xả sớm sau tiếng nổ đầu. Giữ vị chua thanh và hương hoa của hạt Arabica vùng cao. Hợp pha giấy lọc.</p>
+   <dl><div><dt>Nhiệt độ xả</dt><dd id="r1">205°C</dd></div><div><dt>Thời gian</dt><dd id="r2">9 phút 20</dd></div><div><dt>Vị chính</dt><dd id="r3">Cam, mật ong</dd></div><div><dt>Hợp với</dt><dd id="r4">Pour-over</dd></div></dl>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="pha"><div class="w">
+ <div class="sh"><div><p class="m">Hướng dẫn pha</p><h2 data-r>Pha đúng<br><em>trong 4 phút.</em></h2></div><p data-r>Ba cách pha quen thuộc với tỷ lệ chúng tôi dùng ở quán mỗi ngày. Bắt đầu từ đây rồi chỉnh theo khẩu vị.</p></div>
+ <div class="brew" data-r>
+  <div class="tabs" id="bt"><button class="on" data-k="0">Phin <small>ĐẬM · CHẬM</small></button><button data-k="1">Pour-over <small>TRONG · THƠM</small></button><button data-k="2">Espresso <small>DÀY · NHANH</small></button></div>
+  <div class="bpanel">
+   <div class="bnum"><div><b id="b1">20g</b><span class="m">Cà phê</span></div><div><b id="b2">120ml</b><span class="m">Nước 94°C</span></div><div><b id="b3">4:00</b><span class="m">Thời gian</span></div></div>
+   <ol id="bs"></ol>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec menu" id="menu"><div class="w">
+ <div class="sh"><div><p class="m">Uống tại gác</p><h2 data-r>Menu<br><em>quán nhỏ.</em></h2></div><p data-r>Quán chỉ có 13 chỗ ngồi cạnh lò rang. Mở cửa 7:00–17:00, nghỉ thứ Hai.</p></div>
+ <div class="mcols">
+  <div data-r><h3>Cà phê <span class="m">Nóng / đá</span></h3>
+   <div class="mi"><b>Phin đen<small>Fine Robusta Đắk Mil</small></b><i></i><span>35.000</span></div>
+   <div class="mi"><b>Phin sữa<small>Sữa đặc, đá viên lớn</small></b><i></i><span>39.000</span></div>
+   <div class="mi"><b>Pour-over<small>Chọn hạt trong tuần</small></b><i></i><span>65.000</span></div>
+   <div class="mi"><b>Espresso / Americano<small>Blend Gác Số 3</small></b><i></i><span>45.000</span></div>
+   <div class="mi"><b>Latte / Flat white<small>Sữa tươi thanh trùng</small></b><i></i><span>55.000</span></div>
+  </div>
+  <div data-r style="--i:1"><h3>Món khác <span class="m">Làm tại chỗ</span></h3>
+   <div class="mi"><b>Cold brew 18 giờ<small>Chai 250ml mang đi</small></b><i></i><span>59.000</span></div>
+   <div class="mi"><b>Cascara soda<small>Vỏ quả cà phê, chanh vàng</small></b><i></i><span>49.000</span></div>
+   <div class="mi"><b>Bánh chuối nướng<small>Ăn kèm kem dừa</small></b><i></i><span>35.000</span></div>
+   <div class="mi"><b>Bánh quy hạt cà phê<small>Hộp 6 chiếc</small></b><i></i><span>45.000</span></div>
+   <div class="mi"><b>Thử nếm 3 ly nhỏ<small>3 mức rang của tuần</small></b><i></i><span>89.000</span></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="dinh-ky"><div class="w">
+ <div class="sub2" data-r>
+  <div><p class="m" style="margin-bottom:16px">Gói rang định kỳ</p><h2>Cà phê tới cửa, đúng lúc sắp hết.</h2><p style="margin-top:26px;max-width:46ch">Chọn nhịp giao, chúng tôi tự gửi túi mới từ mẻ rang gần nhất. Tạm dừng hoặc đổi hạt bất cứ lúc nào.</p></div>
+  <form class="r" id="sf" novalidate>
+   <p class="m">Chọn nhịp giao</p>
+   <div class="opt"><div><input type="radio" name="n" id="n1" checked><label for="n1"><b>2 tuần</b>165.000đ / túi</label></div><div><input type="radio" name="n" id="n2"><label for="n2"><b>4 tuần</b>175.000đ / túi</label></div></div>
+   <input class="fld" type="text" placeholder="Tên của bạn" aria-label="Tên của bạn" required>
+   <input class="fld" type="tel" placeholder="Số điện thoại" aria-label="Số điện thoại" required>
+   <button class="btn" style="width:100%;justify-content:center">Đăng ký gói →</button>
+   <p class="msg" id="sm" role="status">Trang mẫu: thông tin không được gửi đi.</p>
+  </form>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <div class="fg">
+  <div><div class="big">Gác<br>Khói</div></div>
+  <div><h4>Ghé xưởng</h4><p>Gác 2, số 13 Dốc Sương<br>Đà Lạt, Lâm Đồng<br>7:00–17:00 · nghỉ thứ Hai</p></div>
+  <div><h4>Liên hệ</h4><p>hello@gackhoi.example<br>0900 000 000</p></div>
+ </div>
+ <div class="cpt"><span>Gác Khói là thương hiệu concept. Website mẫu do <a href="../index.html" target="_top" style="text-decoration:underline">DreamLab</a> thiết kế, mọi thông tin chỉ để minh họa.</span><span class="m">© 2026</span></div>
+</div></footer>
+<a class="back m" href="../index.html">← DreamLab</a>
+<div class="toast m" id="toast" role="status"></div>
+
+<script>
+(()=>{
+document.documentElement.classList.add('js');if(parent!==window)document.documentElement.classList.add('emb');
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+/* sản phẩm */
+const P=[
+ {n:'Cầu Đất',t:'Arabica · Washed',c:'#1F1612',a:'#E4572E',note:'Cam vàng, mật ong, hậu trà. Chua thanh, sạch vị.',lv:2,p:185000},
+ {n:'Khe Sanh',t:'Arabica · Honey',c:'#8C4A2F',a:'#F1E9DA',note:'Mận chín, đường nâu, thân vừa. Ngọt kéo dài.',lv:3,p:195000},
+ {n:'Đắk Mil',t:'Fine Robusta',c:'#3E4A3C',a:'#C9A27A',note:'Ca cao, hạt điều rang, đậm mà không gắt.',lv:4,p:145000},
+ {n:'Gác Số 3',t:'Blend 60/40',c:'#E4572E',a:'#1F1612',note:'Sô-cô-la đen, caramel. Sinh ra cho espresso và sữa.',lv:4,p:165000}];
+const vnd=n=>n.toLocaleString('vi-VN')+'đ';
+const bag=p=>`<svg class="bag" viewBox="0 0 200 280" aria-hidden="true"><path d="M30 30h140l10 230a10 10 0 0 1-10 10H30a10 10 0 0 1-10-10z" fill="${p.c}"/><path d="M30 30h140v18H30z" fill="rgba(255,255,255,.12)"/><path d="M30 48h140" stroke="#F1E9DA" stroke-width="1.5" stroke-dasharray="3 4"/><rect x="40" y="84" width="120" height="130" fill="#F1E9DA"/><text x="100" y="124" text-anchor="middle" font-family="Anton,Impact" font-size="${p.n.length>7?24:30}" fill="#1F1612">${p.n.toUpperCase()}</text><path d="M52 136h96" stroke="#1F1612" stroke-width="1.5"/><text x="100" y="154" text-anchor="middle" font-family="Space Mono,monospace" font-size="8" letter-spacing="1" fill="#1F1612">${p.t.toUpperCase()}</text><rect x="52" y="168" width="96" height="30" fill="${p.a==='#F1E9DA'?p.c:p.a}"/><text x="100" y="188" text-anchor="middle" font-family="Anton,Impact" font-size="15" fill="${p.a==='#1F1612'?'#F1E9DA':'#F1E9DA'}">250G</text></svg>`;
+$('#grid').innerHTML=P.map((p,i)=>`<article class="pc" data-r style="--i:${i}"><span class="no m">N°0${i+1}</span>${bag(p)}<p class="m" style="color:var(--ember)">${p.t}</p><h3>${p.n}</h3><p class="note">${p.note}</p><div class="lv" aria-label="Mức rang ${p.lv}/5">${[1,2,3,4,5].map(k=>`<i class="${k<=p.lv?'on':''}"></i>`).join('')}<span class="m">Mức rang</span></div><div class="buy"><span class="pr">${vnd(p.p)}</span><button class="add" aria-label="Thêm ${p.n} vào giỏ" data-n="${p.n}">+</button></div></article>`).join('');
+let cn=0,tt;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2620)};
+$('#grid').addEventListener('click',e=>{const b=e.target.closest('.add');if(!b)return;cn++;const c=$('#cn');c.textContent=cn;c.classList.add('pop');setTimeout(()=>c.classList.remove('pop'),262);toast('Đã thêm '+b.dataset.n+' vào giỏ');});
+$('#cart').onclick=()=>toast(cn?('Giỏ có '+cn+' túi · trang mẫu, chưa thanh toán được'):'Giỏ đang trống');
+/* đường cong rang */
+const R=[['Rang sáng','Xả sớm sau tiếng nổ đầu. Giữ vị chua thanh và hương hoa của hạt Arabica vùng cao. Hợp pha giấy lọc.','205°C','9 phút 20','Cam, mật ong','Pour-over'],
+ ['Rang vừa','Kéo dài thêm 90 giây để đường trong hạt chuyển màu caramel. Cân bằng giữa chua và ngọt, dễ uống mỗi ngày.','216°C','10 phút 50','Mận, đường nâu','Phin, máy'],
+ ['Rang đậm','Đi gần tới tiếng nổ thứ hai. Thân dày, đắng dịu, hậu sô-cô-la. Giữ được vị khi pha cùng sữa đặc.','226°C','12 phút 30','Ca cao, khói','Phin sữa']];
+const setR=k=>{$$('.cv,.mk').forEach(e=>e.classList.toggle('on',+e.dataset.k===k));$$('#rt button').forEach(b=>b.classList.toggle('on',+b.dataset.k===k));const r=R[k];$('#rh').textContent=r[0];$('#rp').textContent=r[1];[2,3,4,5].forEach((j,i)=>$('#r'+(i+1)).textContent=r[j])};
+$('#rt').addEventListener('click',e=>{const b=e.target.closest('button');b&&setR(+b.dataset.k)});
+/* pha */
+const B=[['20g','120ml','4:00',['Tráng phin bằng nước sôi cho nóng đều.','Cho 20g cà phê xay vừa, lắc nhẹ cho phẳng mặt.','Rót 30ml nước, chờ 40 giây cho cà phê nở.','Rót tiếp 90ml, đậy nắp, chờ nhỏ giọt hết.']],
+ ['15g','240ml','2:45',['Gấp giấy lọc, tráng nước nóng rồi đổ bỏ.','Cho 15g cà phê xay như muối hạt.','Rót 40ml, ủ 30 giây.','Rót xoáy tròn 3 lần, mỗi lần khoảng 65ml.']],
+ ['18g','36ml','0:28',['Xay mịn 18g, phân bố đều trong tay cầm.','Nén thẳng tay, lực vừa phải.','Chiết 36ml trong 26–30 giây.','Thêm 120ml sữa nóng nếu thích latte.']]];
+const setB=k=>{$$('#bt button').forEach(b=>b.classList.toggle('on',+b.dataset.k===k));const b=B[k];$('#b1').textContent=b[0];$('#b2').textContent=b[1];$('#b3').textContent=b[2];$('#bs').innerHTML=b[3].map(s=>`<li>${s}</li>`).join('')};
+$('#bt').addEventListener('click',e=>{const b=e.target.closest('button');b&&setB(+b.dataset.k)});setB(0);
+/* form */
+$('#sf').addEventListener('submit',e=>{e.preventDefault();const ok=$$('.fld').every(f=>f.value.trim());$('#sm').textContent=ok?'Cảm ơn bạn. Đây là trang mẫu nên chưa có đơn nào được tạo.':'Bạn điền giúp tên và số điện thoại nhé.'});
+/* reveal */
+const els=$$('[data-r]');
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('chart'))setR(0)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>io.observe(el))}else{els.forEach(el=>el.classList.add('in'));setR(0)}
+try{parent!==window&&parent.postMessage({wkDemo:'gac-khoi'},'*')}catch(e){}
+})();
+</script>
+</body>
+</html>

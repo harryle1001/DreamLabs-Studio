@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>Halden — video unboxing đồng hồ 1:1 (concept · cảnh quay dựng bằng code)</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+<style>
+#stage{background:#000;color:#fff;font-family:"Be Vietnam Pro",sans-serif}
+#footage{filter:url(#grade)}
+.vig{position:absolute;inset:0;background:radial-gradient(circle at 50% 48%,transparent 50%,rgba(6,10,10,.6))}
+.mist{position:absolute;inset:0;backdrop-filter:blur(12px) brightness(1.12);opacity:.18}
+.flash{position:absolute;inset:0;background:#fff;opacity:0}
+.top{position:absolute;left:42px;right:42px;top:42px;display:flex;align-items:center;gap:16px;font:400 13px/1 "Space Mono",monospace;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.top .seg{flex:1;display:flex;gap:6px}
+.top .seg b{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.top .seg u{position:absolute;inset:0;background:#fff;transform-origin:0 50%;transform:scaleX(0)}
+.caps{position:absolute;left:42px;right:42px;top:716px;height:120px}
+.cap-ln{position:absolute;left:0;right:0;top:0;text-align:center;font:600 42px/1.25 "Be Vietnam Pro";letter-spacing:-.01em;text-shadow:0 2px 0 rgba(0,0,0,.3),0 6px 26px rgba(0,0,0,.55)}
+.cap-ln .wd{margin:0 .11em}
+.cap-ln .hi{background:#f1ead8;color:#10231d;padding:.02em .22em;border-radius:10px;text-shadow:none}
+.step{position:absolute;left:42px;top:84px;font:400 110px/1 "Playfair",serif;font-style:italic;opacity:.9;text-shadow:0 4px 26px rgba(0,0,0,.4)}
+.end{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:rgba(8,20,17,.5);backdrop-filter:blur(14px);opacity:0}
+.end h2{font:300 84px/1 "Unbounded",sans-serif;letter-spacing:.3em;text-indent:.3em}
+.end .ln{width:110px;height:1px;background:#e3cd9a;margin:26px 0}
+.end p{font:italic 400 42px/1.2 "Cormorant",serif;color:#f1ead8}
+.end .no{margin-top:26px;font:400 16px/1 "Space Mono",monospace;letter-spacing:.24em;color:#e3cd9a}
+.end small{position:absolute;bottom:68px;left:0;right:0;font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.5}
+</style></head>
+<body><div id="stage">
+ <div id="footage"></div>
+ <div class="gfx"><div class="mist"></div><div class="vig"></div><div class="flash"></div>
+  <div class="top"><span>Unboxing</span><div class="seg"><b><u></u></b><b><u></u></b><b><u></u></b><b><u></u></b></div><span>Halden · Concept</span></div>
+  <div class="step" id="stp">01</div>
+  <div class="caps"></div>
+  <div class="end"><h2>HALDEN</h2><div class="ln"></div><p>Réserve 39 — mặt số xanh đêm</p><div class="no">Đánh số 001 / 300</div><small>Cảnh quay dựng bằng code · Concept</small></div>
+ </div>
+</div>
+<script src="../../vendor/gsap.min.js"></script><script src="lib.js"></script>
+<script type="module">
+import {THREE,RoundedBoxGeometry,setup,mk,group,canvasTex,noiseTex,stoneTex,gobo,M,spot,plight,shots,ramp} from './lib3d.js';
+const W=900,H=900,DUR=7.5;R2.init({W,H,dur:DUR,poster:3.7,cover:[3.7,5.2]});
+R2.filters(R2.grade('grade',{con:.66,split:.07,sat:1.12,lift:.012}));
+await Promise.all([document.fonts.load('300 40px Unbounded','HALDEN'),document.fonts.load('400 20px "Be Vietnam Pro"','Réserve'),document.fonts.load('600 20px "Be Vietnam Pro"','ố'),document.fonts.load('400 20px Cormorant','Giấy chứng nhận')]);
+const {renderer,scene,camera}=setup({W,H,bg:0xb8b0a2,exposure:.85,env:.4,fov:30});
+/* ---- mặt bàn vải lanh ---- */
+mk(new THREE.PlaneGeometry(16,16),M.matte(0xc9c0af,.95,{bumpMap:noiseTex(256,3,{oct:3,base:48,contrast:1.8,grain:.5,repeat:[10,10]}),bumpScale:1.2}),{rot:[-Math.PI/2,0,0],cast:false});
+/* ---- hộp sơn mài + nắp bản lề ---- */
+const GREEN=0x0f2c23,gold=M.metal(0xe0c07a,.22),lac=M.lacquer(GREEN);
+mk(new RoundedBoxGeometry(2.2,.12,2.2,4,.04),lac,{pos:[0,.06,0]});[[0,1.05,2.2,.1],[0,-1.05,2.2,.1],[1.05,0,.1,2.0],[-1.05,0,.1,2.0]].forEach(([x,z,w,d])=>mk(new RoundedBoxGeometry(w,.5,d,3,.03),lac,{pos:[x,.25,z]}));
+mk(new RoundedBoxGeometry(1.92,.08,1.92,4,.035),M.matte(0xe7dcc6,.95,{bumpMap:noiseTex(128,8,{oct:2,base:48,grain:.6,repeat:[4,4]}),bumpScale:.8}),{pos:[0,.25,0],cast:false});
+const LID=group(scene,[0,.5,-1.1]);
+mk(new RoundedBoxGeometry(2.2,.2,2.2,5,.06),lac,{pos:[0,.1,1.1],parent:LID});
+mk(new THREE.TorusGeometry(.3,.012,12,80),gold,{pos:[0,.203,1.1],rot:[Math.PI/2,0,0],parent:LID});mk(new THREE.CylinderGeometry(.05,.05,.012,32),gold,{pos:[0,.204,1.1],parent:LID});
+const lining=canvasTex(1024,1024,(g,w,h)=>{g.fillStyle='#e7dcc6';g.fillRect(0,0,w,h);g.fillStyle='#8a6d2c';g.textAlign='center';g.font='300 84px Unbounded';g.fillText('H A L D E N',w/2,h/2);g.font='400 30px "Be Vietnam Pro"';g.fillText('R É S E R V E   3 9',w/2,h/2+70)});
+mk(new THREE.PlaneGeometry(1.92,1.92),new THREE.MeshStandardMaterial({map:lining,roughness:.9}),{pos:[0,-.002,1.1],rot:[Math.PI/2,0,0],parent:LID,cast:false});
+/* ---- đồng hồ ---- */
+const WT=group(scene,[0,.295,0]),steel=M.metal(0xdcdcde,.2),lea=M.leather(0x2c1a0e,{bumpScale:.6,sheen:.12,sheenColor:new THREE.Color(0xc89a70)});
+[-1,1].forEach(s=>{mk(new RoundedBoxGeometry(.5,.05,.56,4,.022),lea,{pos:[0,.025,s*.66],parent:WT});mk(new RoundedBoxGeometry(.2,.07,.12,3,.02),steel,{pos:[-.14,.05,s*.4],parent:WT});mk(new RoundedBoxGeometry(.2,.07,.12,3,.02),steel,{pos:[.14,.05,s*.4],parent:WT})});
+mk(new RoundedBoxGeometry(.56,.02,.08,2,.008),gold,{pos:[0,.055,.9],parent:WT});
+mk(new THREE.CylinderGeometry(.44,.42,.13,96),steel,{pos:[0,.085,0],parent:WT});
+mk(new THREE.TorusGeometry(.415,.034,20,96),M.metal(0xf0f0f2,.1),{pos:[0,.15,0],rot:[Math.PI/2,0,0],parent:WT});
+mk(new THREE.CylinderGeometry(.055,.055,.09,24),steel,{pos:[.485,.085,0],rot:[0,0,Math.PI/2],parent:WT});
+const dial=canvasTex(1024,1024,(g,w,h)=>{const c=w/2;const cg=g.createConicGradient(0,c,c);for(let i=0;i<=24;i++)cg.addColorStop(i/24,i%2?'#16305a':'#0b1c3a');g.fillStyle=cg;g.fillRect(0,0,w,h);
+  const rg=g.createRadialGradient(c,c,40,c,c,c);rg.addColorStop(0,'rgba(60,110,190,.35)');rg.addColorStop(1,'rgba(0,0,10,.5)');g.fillStyle=rg;g.fillRect(0,0,w,h);
+  g.translate(c,c);for(let i=0;i<60;i++){g.save();g.rotate(i*Math.PI/30);g.fillStyle=i%5?'rgba(240,230,200,.7)':'#f3e2b4';if(i%5)g.fillRect(-2,-486,4,22);else g.fillRect(-11,-486,22,i%15?92:128);g.restore()}
+  g.fillStyle='#f3e2b4';g.textAlign='center';g.font='300 50px Unbounded';g.fillText('HALDEN',0,-190);g.font='400 26px "Be Vietnam Pro"';g.fillStyle='rgba(243,226,180,.8)';g.fillText('R É S E R V E   3 9',0,-146);
+  g.beginPath();g.arc(0,210,112,0,7);g.fillStyle='#081530';g.fill();g.strokeStyle='rgba(243,226,180,.7)';g.lineWidth=3;g.stroke();for(let i=0;i<12;i++){g.save();g.translate(0,210);g.rotate(i*Math.PI/6);g.fillStyle='rgba(243,226,180,.8)';g.fillRect(-2,-104,4,i%3?12:22);g.restore()}});
+mk(new THREE.CircleGeometry(.39,96),new THREE.MeshStandardMaterial({map:dial,roughness:.35,metalness:.5}),{pos:[0,.152,0],rot:[-Math.PI/2,0,0],parent:WT,cast:false});
+const hand=(len,w,col,y)=>{const g=group(WT,[0,y,0]);mk(new THREE.BoxGeometry(w,.008,len),col,{pos:[0,0,-len/2+.04],parent:g,cast:false});return g};
+const hh=hand(.21,.036,gold,.162),mh=hand(.33,.026,gold,.168),shd=group(WT,[0,.158,.08]);mk(new THREE.BoxGeometry(.008,.006,.085),M.matte(0xf3e2b4,.5),{pos:[0,0,-.035],parent:shd,cast:false});
+mk(new THREE.CylinderGeometry(.026,.026,.02,24),gold,{pos:[0,.17,0],parent:WT,cast:false});
+mk(new THREE.CircleGeometry(.4,64),new THREE.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.1,roughness:0,metalness:0,clearcoat:1,clearcoatRoughness:0,envMapIntensity:2}),{pos:[0,.182,0],rot:[-Math.PI/2,0,0],parent:WT,cast:false,recv:false});
+/* ---- phụ kiện: giấy chứng nhận, khăn lau ---- */
+const cert=canvasTex(900,600,(g,w,h)=>{g.fillStyle='#f4eee0';g.fillRect(0,0,w,h);g.strokeStyle='#8a6d2c';g.lineWidth=3;g.strokeRect(26,26,w-52,h-52);g.fillStyle='#1b2a24';g.textAlign='center';g.font='400 64px Cormorant';g.fillText('Giấy chứng nhận',w/2,190);g.font='400 26px "Be Vietnam Pro"';g.fillText('HALDEN  ·  RÉSERVE 39',w/2,260);g.font='400 44px Cormorant';g.fillStyle='#8a6d2c';g.fillText('N° 001 / 300',w/2,400)});
+mk(new THREE.BoxGeometry(1.5,.012,1.0),new THREE.MeshStandardMaterial({map:cert,roughness:.8}),{pos:[2.1,.007,1.25],rot:[0,.32,0]});
+mk(new RoundedBoxGeometry(1.1,.03,1.1,3,.012),M.matte(0x1c3b31,.95),{pos:[-2.15,.016,1.5],rot:[0,-.4,0]});
+/* ---- ánh sáng cửa sổ ---- */
+const key=spot(scene,{pos:[-4.5,6.5,3.5],target:[0,.4,0],color:0xfff2de,intensity:330,angle:.5,pen:.5,map:gobo('window',2),radius:5});
+plight(scene,{pos:[3,2.5,3],color:0xdfe9ff,intensity:10});
+/* ---- 5 cảnh; nắp mở trong cảnh 2 với speed ramp ---- */
+const CUT=[0,1.3,2.9,4.3,5.8],OPEN=-1.9,eo=u=>1-Math.pow(1-u,3);
+const SH=shots([
+ {t0:CUT[0],t1:CUT[1],p0:[0,6.4,.9],p1:[0,5.5,.7],l0:[0,0,0],roll0:-.2,roll1:.02,f0:30,ramp:ramp.out(2),on:()=>{LID.rotation.x=0}},
+ {t0:CUT[1],t1:CUT[2],p0:[3.1,2.7,4.1],p1:[2.5,2.9,3.6],l0:[0,.7,-.3],f0:30,ramp:ramp.slowmid(.75),on:v=>{LID.rotation.x=OPEN*R2.clamp(v*1.06)}},
+ {t0:CUT[2],t1:CUT[3],p0:[.65,1.55,1.15],p1:[.2,1.85,.75],l0:[0,.45,0],f0:25,ramp:ramp.slowmid(.7),on:()=>{LID.rotation.x=OPEN}},
+ {t0:CUT[3],t1:CUT[4],p0:[-1.9,1.5,2.3],p1:[-.7,1.35,2.5],l0:[0,.42,.3],l1:[.1,.42,0],f0:24,ramp:ramp.out(1.8),on:()=>{LID.rotation.x=OPEN}},
+ {t0:CUT[4],t1:DUR,p0:[1.9,3.9,3.8],p1:[1.5,4.3,3.4],l0:[0,.5,-.35],f0:30,shake:.006,on:()=>{LID.rotation.x=OPEN}},
+],camera);
+R2.frame(t=>{const sec=20+t*1.0;mh.rotation.y=-(10/60*Math.PI*2+t*.02);hh.rotation.y=-((10+10/60)/12*Math.PI*2);shd.rotation.y=-Math.floor(sec*4)/4/60*Math.PI*2*6;SH(t);renderer.render(scene,camera)});
+/* ---- lớp dựng ---- */
+const tl=gsap.timeline({paused:true,defaults:{ease:'power3.out'}}),$=s=>document.querySelector(s);
+R2.captions($('.caps'),[
+ {t:.15,d:1.1,text:'Hộp <i>sơn mài</i> mười hai lớp',hi:[1,2]},
+ {t:1.45,d:1.4,text:'Mở nắp. <i>Chậm thôi.</i>',hi:[2,3]},
+ {t:3.0,d:1.25,text:'Mặt số <i>xanh đêm</i> chải tia',hi:[2,3]},
+ {t:4.4,d:1.35,text:'Dây da <i>khâu tay</i>',hi:[2,3]}],tl);
+document.querySelectorAll('.seg u').forEach((u,i)=>tl.fromTo(u,{scaleX:0},{scaleX:1,duration:CUT[i+1]-CUT[i],ease:'none'},CUT[i]));
+R2.frame(t=>{let i=0;CUT.forEach((c,k)=>{if(t>=c-1e-6)i=k});$('#stp').textContent='0'+Math.min(4,i+1)});
+CUT.slice(1,4).forEach(t=>tl.fromTo('.flash',{opacity:.5},{opacity:0,duration:.162,immediateRender:false},t).fromTo('#stp',{y:26,opacity:0},{y:0,opacity:.9,duration:.424,immediateRender:false},t));
+tl.fromTo('#stp',{y:26,opacity:0},{y:0,opacity:.9,duration:.424},.1)
+  .to('.end',{opacity:1,duration:.686,ease:'power2.out'},CUT[4]+.3).to(['#stp','.top'],{opacity:0,duration:.262},CUT[4]+.3)
+  .fromTo('.end h2',{opacity:0,letterSpacing:'.6em',textIndent:'.6em'},{opacity:1,letterSpacing:'.3em',textIndent:'.3em',duration:.9},CUT[4]+.4)
+  .fromTo('.end .ln',{scaleX:0},{scaleX:1,duration:.686,ease:'power2.inOut'},CUT[4]+.6).fromTo('.end p',{opacity:0,y:16},{opacity:1,y:0,duration:.686},CUT[4]+.7)
+  .fromTo('.end .no',{opacity:0},{opacity:1,duration:.424},CUT[4]+.95).fromTo('.end small',{opacity:0},{opacity:.5,duration:.424},CUT[4]+1.05);
+R2.done(tl);
+</script></body></html>
