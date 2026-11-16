@@ -6,6 +6,8 @@ Trang tĩnh thuần HTML/CSS/JS, không cần máy chủ hay bước cài đặt
 
 ## Đưa lên mạng
 
+**GitHub Pages (đang dùng):** repo phải ở chế độ công khai. Settings → Pages → Deploy from a branch → `main` / `/ (root)`. File `CNAME` giữ tên miền `dreamlabs.vn`, file `.nojekyll` để GitHub phục vụ nguyên các file tĩnh. DNS ở Mắt Bão: 4 bản ghi A `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; CNAME `www` → `harryle1001.github.io`.
+
 **Cloudflare Pages / Vercel / Netlify:** nối repo này, để trống lệnh build, thư mục xuất bản là thư mục gốc (`/`). Trang chủ là `index.html`.
 
 **Hosting thường:** tải toàn bộ thư mục lên `public_html`.
