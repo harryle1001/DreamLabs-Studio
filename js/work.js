@@ -1,4 +1,4 @@
-/* DreamLab — Session B "Showroom": phần Dự án (#du-an), trình xem bao bì 3D, thanh trượt trước/sau, case study.
+/* Dream Labs — Session B "Showroom": phần Dự án (#du-an), trình xem bao bì 3D, thanh trượt trước/sau, case study.
    Phần 1: WK3D — bộ dựng bao bì 3D bằng Three.js (dùng chung cho trình xem trên trang và công cụ render ảnh tĩnh).
    Phần 2: giao diện #du-an (xem cuối file). */
 window.WK3D=(()=>{
@@ -137,7 +137,7 @@ const FONT={Anton:['anton-$-400-normal',{}],'Space Mono':['space-mono-$-400-norm
 const fontP={};
 const loadFont=f=>fontP[f]||(fontP[f]=(FONT[f]&&window.FontFace?Promise.all(Object.keys(UR).map(k=>{const ff=new FontFace(f,`url(${url('demos/fonts/'+FONT[f][0].replace('$',k)+'.woff2')})`,{unicodeRange:UR[k],display:'swap',...FONT[f][1]});document.fonts.add(ff);return ff.load()})):Promise.resolve()).catch(()=>{}));
 
-/* ── dữ liệu dự án (thương hiệu concept do DreamLab tự nghĩ) ── */
+/* ── dữ liệu dự án (thương hiệu concept do Dream Labs tự nghĩ) ── */
 const P={
  'gac-khoi':{name:'Gác Khói Roastery',cat:'web',catName:'Website',tier:'Chuyên nghiệp',ind:'Cà phê rang xay',img:'img/wk-gac-khoi.webp',demo:'gac-khoi',
   lead:'Website bán hàng cho một xưởng rang nhỏ: kể chuyện mẻ rang mỗi tuần và để khách đặt túi tiếp theo trong vài chạm.',

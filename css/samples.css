@@ -1,4 +1,4 @@
-/* DreamLab — "Phòng mẫu" (Atelier). Session F (v3). Tiền tố sm- (khung) và smai- (6 mẫu Tự động hóa AI, cuối file).
+/* Dream Labs — "Phòng mẫu" (Atelier). Session F (v3). Tiền tố sm- (khung) và smai- (6 mẫu Tự động hóa AI, cuối file).
    Mọi số đo lấy từ tokens.css (thang φ) + bậc mở rộng --s9…--s11, --hit trong core.css. */
 :root{--sm-night:#15121C;--sm-wrap:calc(var(--wrap) + var(--s8))} /* --sm-night: nền "màn hình" luôn tối (khung phim), không đổi theo theme */
 .sm-room [hidden],.sm-slot[hidden],.sm-strip[hidden],[data-sm-open][hidden]{display:none!important}

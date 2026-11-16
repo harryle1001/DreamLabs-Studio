@@ -1,4 +1,4 @@
-/* DreamLab core — Session A: chrome (theme, menu, con trỏ, chuyển cảnh, nút nổi), hero WebGL, marquee, dịch vụ, quy trình, báo giá + tự tính giá, FAQ, liên hệ, footer.
+/* Dream Labs core — Session A: chrome (theme, menu, con trỏ, chuyển cảnh, nút nổi), hero WebGL, marquee, dịch vụ, quy trình, báo giá + tự tính giá, FAQ, liên hệ, footer.
    API thêm vào DL: DL.go(el|selector) (cuộn có màn chuyển cảnh khi nhảy xa), DL.pick(text) (điền form theo data-pick), DL.isDark(), DL.setTheme('light'|'dark').
    Sự kiện: document 'dl:theme' {detail:{dark}} mỗi khi đổi sáng/tối.
    v3 (Session F): DL.pick(text,note) + thuộc tính data-pick-note="Mẫu tham khảo: Tên (Hạng mục)" ghi thêm một dòng vào ô mô tả; sự kiện 'dl:pick' {detail:{pick,note}} phát ngay trước khi cuộn về form (phòng mẫu nghe để tự đóng);
@@ -508,7 +508,7 @@ safe('contact',()=>{
     /* form chưa gửi đi đâu: soạn sẵn nội dung để khách chép và dán qua Zalo */
     const svc=sel.value==='combo'?'Cấu hình tự tính':sel.value,pr=priceOf(svc),bud=$('#f-budget'),raw=$('#f-msg').value.split('\n').map(l=>l.trim()).filter(Boolean);
     const RE=/^Mẫu tham khảo:\s*/,smp=raw.filter(l=>RE.test(l)).map(l=>l.replace(RE,'')),rest=raw.filter(l=>!RE.test(l)),req=$('#cfReq');
-    if(req)req.textContent=['YÊU CẦU TƯ VẤN · DREAMLAB','Họ tên: '+n,'SĐT / Zalo: '+ph,'Gói quan tâm: '+(svc?svc+(pr?' ('+pr+')':''):'Chưa chọn, cần tư vấn'),bud?'Ngân sách: '+bud.value:'',smp.length?'Mẫu tham khảo: '+smp.join('; '):'','Mô tả: '+(rest.join(' / ')||'(chưa ghi)')].filter(Boolean).join('\n');
+    if(req)req.textContent=['YÊU CẦU TƯ VẤN · DREAM LABS','Họ tên: '+n,'SĐT / Zalo: '+ph,'Gói quan tâm: '+(svc?svc+(pr?' ('+pr+')':''):'Chưa chọn, cần tư vấn'),bud?'Ngân sách: '+bud.value:'',smp.length?'Mẫu tham khảo: '+smp.join('; '):'','Mô tả: '+(rest.join(' / ')||'(chưa ghi)')].filter(Boolean).join('\n');
     m.textContent='';$('#cfDoneName').textContent=n;done.hidden=false;done.scrollTop=0;
     if(g&&!RM){g.fromTo(done,{clipPath:'circle(0% at 50% 100%)'},{clipPath:'circle(150% at 50% 100%)',duration:.686,ease:'power3.inOut',clearProps:'clipPath'});
       g.from(done.children,{y:26,opacity:0,duration:.686,ease:'expo.out',stagger:.1,delay:.262,clearProps:'all'})}

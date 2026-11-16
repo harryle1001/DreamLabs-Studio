@@ -1,4 +1,4 @@
-/* DreamLab — Session C: #showreel (video dựng bằng code) + #lab (5 demo tương tác, tất cả là mô phỏng, không gọi API).
+/* Dream Labs — Session C: #showreel (video dựng bằng code) + #lab (5 demo tương tác, tất cả là mô phỏng, không gọi API).
    Chỉ demo đang mở và đang nằm trong khung nhìn mới chạy; ra khỏi khung nhìn là dừng mọi vòng lặp. */
 (()=>{
 const DL=window.DL;if(!DL)return;
@@ -194,7 +194,7 @@ function motionDemo(root){
        .from($('.tg',cv),{opacity:0,y:10,duration:.686,ease:'power2.out'},2.9)
        .to($('.mn',cv),{rotation:8,transformOrigin:'50% 50%',duration:.8,ease:'sine.inOut'},3.4);
       return{t,marks:[.1,1.3,1.5,2.1,2.75,3.4]}},
-    type(){cv.innerHTML=`<i class="bk"></i><div class="l l1">${chars('Nói ít.')}</div><div class="l l2">${chars('Chuyển động')}</div><div class="l l3">${chars('nhiều hơn.')}</div><i class="rg"></i><i class="cr"></i><div class="sg">DreamLab · Motion</div>`;
+    type(){cv.innerHTML=`<i class="bk"></i><div class="l l1">${chars('Nói ít.')}</div><div class="l l2">${chars('Chuyển động')}</div><div class="l l3">${chars('nhiều hơn.')}</div><i class="rg"></i><i class="cr"></i><div class="sg">Dream Labs · Motion</div>`;
       const t=g.timeline({paused:true}),bk=$('.bk',cv),l2=$('.l2',cv);g.set(l2,{opacity:0});g.set(bk,{scaleX:0,transformOrigin:'0% 50%'});
       t.from($$('.l1 span',cv),{yPercent:126,rotation:8,duration:.686,ease:'expo.out',stagger:.045},.1)
        .to(bk,{scaleX:1,duration:.424,ease:'power3.in'},.9)

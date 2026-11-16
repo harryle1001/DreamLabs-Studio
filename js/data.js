@@ -1,4 +1,4 @@
-/* DreamLab — dữ liệu dùng chung (giá, dịch vụ, quy trình). Sửa giá tại đây. Owner: Session B. Giữ nguyên id. */
+/* Dream Labs — dữ liệu dùng chung (giá, dịch vụ, quy trình). Sửa giá tại đây. Owner: Session B. Giữ nguyên id. */
 (()=>{
 const ICONS={
  web:'<path d="M3 6.5h20v13H3z"/><path d="M3 10h20M7 8.2h.01M9.5 8.2h.01"/><path d="M9 21.5h8"/>',

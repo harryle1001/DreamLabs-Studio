@@ -1,4 +1,4 @@
-/* DreamLab design tokens — mọi con số sinh từ φ = 1.61803. KHÔNG dùng số lẻ ngoài thang này. */
+/* Dream Labs design tokens — mọi con số sinh từ φ = 1.61803. KHÔNG dùng số lẻ ngoài thang này. */
 :root{
   --phi:1.61803; --phi-inv:.61803; --phi-inv2:.38197; --sqrt-phi:1.27202;
   /* màu (light: linen ban ngày) */

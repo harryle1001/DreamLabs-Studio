@@ -1,4 +1,4 @@
-/* DreamLab — Phòng mẫu · Tự động hóa AI. Session F (v3).
+/* Dream Labs — Phòng mẫu · Tự động hóa AI. Session F (v3).
    6 kịch bản AI cho 6 thương hiệu xa xỉ concept (tên tự nghĩ, không trùng hãng thật). Tất cả là DEMO MÔ PHỎNG: hội thoại theo kịch bản,
    số liệu minh họa, không gọi API. mount(el, {snap:true}) dựng thẳng trạng thái cuối (dùng để chụp ảnh cover). CSS: css/samples.css, tiền tố smai-. */
 (()=>{

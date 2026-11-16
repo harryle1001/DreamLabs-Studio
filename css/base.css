@@ -1,4 +1,4 @@
-/* DreamLab base — reset, linen, typography, layout primitives, button, chip, modal. Owner: nền chung (Session A được mở rộng, không phá API). */
+/* Dream Labs base — reset, linen, typography, layout primitives, button, chip, modal. Owner: nền chung (Session A được mở rộng, không phá API). */
 *,*::before,*::after{box-sizing:border-box}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}

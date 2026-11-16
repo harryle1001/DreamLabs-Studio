@@ -1,5 +1,5 @@
 /* Phòng mẫu — Motion Graphic (Session M). Mỗi phim dựng 100% bằng code (GSAP timeline, nguồn ở tools/reel2/motion-*.html),
-   xuất từng khung hình qua Playwright + ffmpeg (H.264 yuv420p, 30fps, không tiếng). Thương hiệu đều là concept của DreamLab. */
+   xuất từng khung hình qua Playwright + ffmpeg (H.264 yuv420p, 30fps, không tiếng). Thương hiệu đều là concept của Dream Labs. */
 (window.DL_SAMPLES = window.DL_SAMPLES || {}).motion = [
   {
     id: 'motion-orvele', title: 'Maison Orvèle — Ambre Minuit', industry: 'Nước hoa',

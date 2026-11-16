@@ -1,6 +1,6 @@
-# DreamLab Studio
+# Dream Labs
 
-Website của DreamLab: thiết kế website, landing page, edit video, thiết kế sản phẩm, motion graphic và tự động hóa doanh nghiệp bằng AI.
+Website của Dream Labs: thiết kế website, landing page, edit video, thiết kế sản phẩm, motion graphic và tự động hóa doanh nghiệp bằng AI.
 
 Trang tĩnh thuần HTML/CSS/JS, không cần máy chủ hay bước cài đặt. Mọi thư viện, phông chữ, ảnh và video nằm sẵn trong repo.
 
@@ -46,6 +46,6 @@ rồi mở http://127.0.0.1:4100
 
 ## Lưu ý
 
-- Thương hiệu trong Phòng mẫu và các demo là concept do DreamLab tự thiết kế, chưa tra cứu nhãn hiệu.
+- Thương hiệu trong Phòng mẫu và các demo là concept do Dream Labs tự thiết kế, chưa tra cứu nhãn hiệu.
 - Form liên hệ chưa gửi tự động: sau khi bấm gửi, trang soạn sẵn nội dung để khách dán vào Zalo.
 - Giá trong `js/data.js` là giá mẫu.

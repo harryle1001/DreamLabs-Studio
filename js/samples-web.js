@@ -1,4 +1,4 @@
-/* DreamLab — phòng mẫu hạng mục Website (Session W). Mỗi mẫu là một website concept chạy thật trong demos/. */
+/* Dream Labs — phòng mẫu hạng mục Website (Session W). Mỗi mẫu là một website concept chạy thật trong demos/. */
 (window.DL_SAMPLES = window.DL_SAMPLES || {}).web = [
   {
     id: 'web-ombreve',

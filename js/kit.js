@@ -1,4 +1,4 @@
-/* DreamLab kit — API dùng chung + motion khai báo. Nạp sau GSAP/ScrollTrigger/SplitText/Lenis, trước core/work/lab.
+/* Dream Labs kit — API dùng chung + motion khai báo. Nạp sau GSAP/ScrollTrigger/SplitText/Lenis, trước core/work/lab.
    Owner: Session A (được mở rộng; KHÔNG đổi/xoá API đã có vì B và C phụ thuộc).
    API: DL.PHI, DL.RM, DL.fine, DL.vnd(n), DL.ready(fn), DL.load(src), DL.scrollTo(target,{offset,immediate}), DL.modal.open({title,node|html,narrow,onClose}), DL.modal.close(), DL.scan(root), DL.refresh(), DL.lenis
         (core.js thêm: DL.go(target) cuộn có màn chuyển cảnh khi nhảy xa · DL.pick(text) điền form liên hệ · DL.isDark() · DL.setTheme('light'|'dark') · sự kiện document 'dl:theme')

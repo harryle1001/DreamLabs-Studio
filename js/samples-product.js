@@ -1,11 +1,11 @@
-/* DreamLab — Phòng mẫu, hạng mục Thiết kế sản phẩm (Session P, v3).
-   Mẫu concept do DreamLab tự thiết kế và render 3D bằng Three.js; thương hiệu không có thật. Sinh bởi công cụ gen.js của Session P. */
+/* Dream Labs — Phòng mẫu, hạng mục Thiết kế sản phẩm (Session P, v3).
+   Mẫu concept do Dream Labs tự thiết kế và render 3D bằng Three.js; thương hiệu không có thật. Sinh bởi công cụ gen.js của Session P. */
 (window.DL_SAMPLES = window.DL_SAMPLES || {}).product = [
  {
   id: 'product-khue-lam',
   title: 'Khuê Lam — Extrait de Parfum',
   industry: 'Nước hoa',
-  desc: 'DreamLab thiết kế trọn dòng nước hoa: dáng chai khối thủy tinh dày với khoang chứa bo tròn, nắp đá mài và đai kim loại, chữ in trên kính, hộp giấy vân nắp rời dập nhũ, kèm bộ ảnh 3D cho ba mùi hương.',
+  desc: 'Dream Labs thiết kế trọn dòng nước hoa: dáng chai khối thủy tinh dày với khoang chứa bo tròn, nắp đá mài và đai kim loại, chữ in trên kính, hộp giấy vân nắp rời dập nhũ, kèm bộ ảnh 3D cho ba mùi hương.',
   tags: [
    'Dáng chai',
    'Bao bì',
@@ -41,7 +41,7 @@
   id: 'product-tinh-van',
   title: 'Tịnh Vân — Túi hộp Vòm',
   industry: 'Túi xách',
-  desc: 'DreamLab thiết kế dáng túi hộp vai vòm với nắp lượn, khóa đĩa tròn, quai cuộn khâu tay và khoen kim loại, phối bốn màu da, cùng hộp cứng, túi vải chống bụi và logo dập nhũ.',
+  desc: 'Dream Labs thiết kế dáng túi hộp vai vòm với nắp lượn, khóa đĩa tròn, quai cuộn khâu tay và khoen kim loại, phối bốn màu da, cùng hộp cứng, túi vải chống bụi và logo dập nhũ.',
   tags: [
    'Dáng túi',
    'Phụ kiện kim loại',
@@ -82,7 +82,7 @@
   id: 'product-vu-hac',
   title: 'Vũ Hạc — Giày cao gót Hạc 95',
   industry: 'Giày',
-  desc: 'DreamLab thiết kế phom giày mũi nhọn gót 9,5 cm, đường miệng giày khoét thấp, đế da viền mảnh và khâu gót mạ vàng, thể hiện trên ba chất liệu da, kèm hộp giày và logo lót trong.',
+  desc: 'Dream Labs thiết kế phom giày mũi nhọn gót 9,5 cm, đường miệng giày khoét thấp, đế da viền mảnh và khâu gót mạ vàng, thể hiện trên ba chất liệu da, kèm hộp giày và logo lót trong.',
   tags: [
    'Phom giày',
    'Chất liệu',
@@ -118,7 +118,7 @@
   id: 'product-thien-truc',
   title: 'Thiên Trục — Calibre TT·01',
   industry: 'Đồng hồ',
-  desc: 'DreamLab thiết kế mặt số tia mặt trời với kim giây nhỏ ở 6 giờ, cọc số và kim nổi, vỏ tròn 40 mm, dây da khâu tay, logo và hộp sơn mài lót nhung cho bốn phiên bản.',
+  desc: 'Dream Labs thiết kế mặt số tia mặt trời với kim giây nhỏ ở 6 giờ, cọc số và kim nổi, vỏ tròn 40 mm, dây da khâu tay, logo và hộp sơn mài lót nhung cho bốn phiên bản.',
   tags: [
    'Mặt số',
    'Vỏ & dây',
@@ -159,7 +159,7 @@
   id: 'product-anh-trieu',
   title: 'Ánh Triêu — Nhẫn Triêu Dương',
   industry: 'Trang sức',
-  desc: 'DreamLab thiết kế mẫu nhẫn đá chủ bốn chấu với hàng đá tấm trên vai nhẫn, hộp vỏ sò bọc da viền kim loại lót nhung, và dấu hiệu mặt trời mọc dập nhũ trong nắp hộp.',
+  desc: 'Dream Labs thiết kế mẫu nhẫn đá chủ bốn chấu với hàng đá tấm trên vai nhẫn, hộp vỏ sò bọc da viền kim loại lót nhung, và dấu hiệu mặt trời mọc dập nhũ trong nắp hộp.',
   tags: [
    'Trang sức',
    'Hộp nhung',
@@ -200,7 +200,7 @@
   id: 'product-van-son',
   title: 'Vân Sơn — Mạch nha đơn cất',
   industry: 'Rượu & ẩm thực',
-  desc: 'DreamLab thiết kế dáng chai vai rộng đáy dày, nhãn giấy theo ba độ tuổi ủ, màng co cổ chai, dấu hiệu núi mây và hộp gỗ khắc logo cho dòng rượu mạch nha ủ thùng sồi.',
+  desc: 'Dream Labs thiết kế dáng chai vai rộng đáy dày, nhãn giấy theo ba độ tuổi ủ, màng co cổ chai, dấu hiệu núi mây và hộp gỗ khắc logo cho dòng rượu mạch nha ủ thùng sồi.',
   tags: [
    'Dáng chai',
    'Nhãn in nổi',
@@ -236,7 +236,7 @@
   id: 'product-tinh-da',
   title: 'Tĩnh Dạ — Nến thơm thủ công',
   industry: 'Khác',
-  desc: 'DreamLab thiết kế cốc nến, nắp kim loại, nhãn chữ và hộp quà nắp rời cho ba mùi hương, mỗi mùi một chất liệu cốc riêng: sứ đen bóng, sứ ngà mờ và thủy tinh hổ phách.',
+  desc: 'Dream Labs thiết kế cốc nến, nắp kim loại, nhãn chữ và hộp quà nắp rời cho ba mùi hương, mỗi mùi một chất liệu cốc riêng: sứ đen bóng, sứ ngà mờ và thủy tinh hổ phách.',
   tags: [
    'Nhãn',
    'Hộp quà',
@@ -272,7 +272,7 @@
   id: 'product-bach-lien',
   title: 'Bạch Liên Privé — Bộ dưỡng da',
   industry: 'Khác',
-  desc: 'DreamLab thiết kế bộ ba bao bì dưỡng da: chai tinh chất ống nhỏ giọt, hũ kem và chai sữa dưỡng vòi nhấn bằng thủy tinh mờ nắp kim loại, nhãn in trực tiếp và hộp bộ quà, phối ba tông màu.',
+  desc: 'Dream Labs thiết kế bộ ba bao bì dưỡng da: chai tinh chất ống nhỏ giọt, hũ kem và chai sữa dưỡng vòi nhấn bằng thủy tinh mờ nắp kim loại, nhãn in trực tiếp và hộp bộ quà, phối ba tông màu.',
   tags: [
    'Bộ bao bì',
    'Thủy tinh mờ',

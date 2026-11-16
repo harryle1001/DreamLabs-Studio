@@ -1,5 +1,5 @@
-/* DreamLab v3 · Phòng mẫu · hạng mục Landing Page (Session L)
-   6 landing xa xỉ mới (demos/lux-lp-*.html) + 2 landing có sẵn. Mọi thương hiệu là concept của DreamLab. */
+/* Dream Labs v3 · Phòng mẫu · hạng mục Landing Page (Session L)
+   6 landing xa xỉ mới (demos/lux-lp-*.html) + 2 landing có sẵn. Mọi thương hiệu là concept của Dream Labs. */
 (window.DL_SAMPLES = window.DL_SAMPLES || {}).landing = [
   {
     id: 'landing-elorne', title: 'Élorne · Trầm Thứ Mười Ba', industry: 'Nước hoa',

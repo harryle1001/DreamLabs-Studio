@@ -1,4 +1,4 @@
-/* DreamLab — Session B "Showroom": phần Dự án (#du-an). Tiền tố wk-. Mọi số đo lấy từ tokens (thang φ). */
+/* Dream Labs — Session B "Showroom": phần Dự án (#du-an). Tiền tố wk-. Mọi số đo lấy từ tokens (thang φ). */
 .wk{overflow:clip;
   /* nền phông chụp của trình xem 3D: màu nhận diện của thương hiệu concept (giống ảnh sản phẩm, không đổi theo sáng/tối) */
   --wk-bd-bottle:radial-gradient(70% 60% at 50% 30%,#eef2e8 0%,#dfe7d6 60%,#cdd8c2 100%);

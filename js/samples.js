@@ -1,4 +1,4 @@
-/* DreamLab — "Phòng mẫu" (Atelier). Session F (v3). Nạp SAU mọi js/samples-<cat>.js.
+/* Dream Labs — "Phòng mẫu" (Atelier). Session F (v3). Nạp SAU mọi js/samples-<cat>.js.
    Dữ liệu: window.DL_SAMPLES[cat] = [item…] (hợp đồng trong BRIEF.md, phần v3). Thiếu trường, ảnh lỗi, hạng mục rỗng đều chịu được.
    Lối vào: mọi phần tử [data-sm-open="<cat>"] (để trống = hạng mục đầu tiên có mẫu), tùy chọn data-sm-id="<id mẫu>".
             core.js chừa sẵn .sm-slot[data-sm-slot="<cat>"] dưới mỗi hạng mục giá; 70-pricing.html có dải #phong-mau.
@@ -64,7 +64,7 @@ let cat='',filter='all',list=[],cur=null,stage=null,closing=false,gridTop=0,wire
 /* ───────── dựng khung một lần ───────── */
 function build(){
   if(dlg)return;
-  dlg=el('dialog','sm-room');dlg.setAttribute('aria-label','Phòng mẫu DreamLab');
+  dlg=el('dialog','sm-room');dlg.setAttribute('aria-label','Phòng mẫu Dream Labs');
   dlg.innerHTML=`<div class="sm-shell">
     <header class="sm-top">
       <div class="sm-brand"><svg viewBox="0 0 26 26" aria-hidden="true"><use href="#dl-logo"/></svg><span>Phòng mẫu</span><i>Atelier</i></div>
@@ -81,7 +81,7 @@ function build(){
         <div class="sm-hero"></div>
         <div class="sm-filter" role="group" aria-label="Lọc theo ngành hàng"></div>
         <div class="sm-grid"></div>
-        <div class="sm-foot"><svg class="sm-bg" viewBox="-1 -1 57 36" aria-hidden="true"><path class="g" d="${GOLD_GRID}"/><path class="s" d="${SPIRAL}"/></svg><p>Mọi mẫu trong phòng là <b>concept do DreamLab tự thiết kế</b>, thương hiệu tự nghĩ, để bạn hình dung chất lượng trước khi đặt làm. Chọn một mẫu, chúng tôi may đo lại cho thương hiệu của bạn.</p>
+        <div class="sm-foot"><svg class="sm-bg" viewBox="-1 -1 57 36" aria-hidden="true"><path class="g" d="${GOLD_GRID}"/><path class="s" d="${SPIRAL}"/></svg><p>Mọi mẫu trong phòng là <b>concept do Dream Labs tự thiết kế</b>, thương hiệu tự nghĩ, để bạn hình dung chất lượng trước khi đặt làm. Chọn một mẫu, chúng tôi may đo lại cho thương hiệu của bạn.</p>
           <a class="btn" href="#lien-he">Chưa thấy mẫu ưng ý? Nhận tư vấn riêng ${ARROW}</a></div>
       </div></div>
       <div class="sm-view sm-detail" data-lenis-prevent tabindex="-1"></div>
@@ -293,7 +293,7 @@ function renderDetail(it,dir){
       <a class="btn primary" href="#lien-he" data-pick="${esc(t.label)}" data-pick-note="${esc(note)}">Chọn mẫu này ${ARROW}</a>
       <a class="sm-lk" href="#p-${esc(c.id)}">Xem cả bảng giá ${esc(c.name)}</a>`
      :`<span class="sm-pkg-l">Thích mẫu này?</span><a class="btn primary" href="#lien-he" data-pick="${esc(c.name)}" data-pick-note="${esc(note)}">Chọn mẫu này ${ARROW}</a>`}
-      <p class="sm-pkg-x">Mẫu concept do DreamLab tự thiết kế. Khi đặt làm, nội dung, màu và hình ảnh được may đo lại theo thương hiệu của bạn.</p></aside>
+      <p class="sm-pkg-x">Mẫu concept do Dream Labs tự thiết kế. Khi đặt làm, nội dung, màu và hình ảnh được may đo lại theo thương hiệu của bạn.</p></aside>
     ${n>1?`<nav class="sm-d-nav" aria-label="Mẫu khác">${[[pv,-1,'Mẫu trước'],[nx,1,'Mẫu tiếp theo']].map(([o,k,l])=>`<button class="sm-nb${k>0?' n':''}" type="button" data-sm-go="${k}"><span class="sm-nb-i" data-imgbox>${coverHTML(o)}</span><span class="sm-nb-t"><small>${l}</small><b>${esc(o.title)}</b></span></button>`).join('')}</nav>`:''}`;
   $('.sm-d-stage',d).append(st.node);
   const slot=$('.sm-d-slot',d);st.picker?slot.append(st.picker):slot.remove();

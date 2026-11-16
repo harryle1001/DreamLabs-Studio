@@ -1,6 +1,6 @@
 /* Phòng mẫu — Edit Video (Session M). Không có footage thật nên "cảnh quay" được dựng bằng code (Three.js / Canvas, nguồn ở tools/reel2/video-*.html),
    rồi mới qua lớp dựng: cắt cảnh theo nhịp, speed ramp, chuyển cảnh, color grading, phụ đề và đồ họa. `before` là cùng khung hình với `poster`
-   nhưng ở dạng màu phẳng (log), chưa có đồ họa, để khung phòng mẫu làm thanh so sánh trước/sau. Thương hiệu đều là concept của DreamLab. */
+   nhưng ở dạng màu phẳng (log), chưa có đồ họa, để khung phòng mẫu làm thanh so sánh trước/sau. Thương hiệu đều là concept của Dream Labs. */
 (window.DL_SAMPLES = window.DL_SAMPLES || {}).video = [
   {
     id: 'video-lamky', title: 'Lam Kỳ — Trầm Sương', industry: 'Nước hoa',
