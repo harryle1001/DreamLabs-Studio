@@ -17,6 +17,7 @@ const seg=(root,sel,fn)=>{const bs=$$(sel,root);bs.forEach(b=>{b.setAttribute('a
 function initReel(){
   const sec=$('#showreel');if(!sec)return;
   const stage=$('.reel-stage',sec),frame=$('.reel-frame',sec),v=$('.reel-video',sec),btn=$('.reel-toggle',sec),bar=$('.reel-bar i',sec),time=$('.reel-time',sec),chips=$$('.reel-chapters button',sec);
+  const vv=$('.reel-video-v',sec);let stop=RM,seen=false;const vvSeen=()=>seen,vvStop=()=>stop;
   const T=chips.map(c=>+c.dataset.t),D0=21,fmt=s=>'0:'+String(Math.floor(s)).padStart(2,'0');
   let userPaused=RM,vis=false,raf=0;
   const paint=()=>{const d=v.duration||D0,t=Math.min(d,v.currentTime||0);bar.style.transform=`scaleX(${(t/d).toFixed(4)})`;time.textContent=fmt(t)+' / '+fmt(d);
@@ -24,17 +25,23 @@ function initReel(){
     chips.forEach((c,i)=>{const on=i===k,end=i+1<T.length?T[i+1]:d;c.classList.toggle('is-on',on);c.style.setProperty('--p',on?Math.max(0,Math.min(1,(t-T[i])/(end-T[i]))).toFixed(3):0)})};
   const loop=()=>{paint();raf=requestAnimationFrame(loop)};
   const sync=()=>{const on=!v.paused&&!v.ended;frame.classList.toggle('is-playing',on);btn.setAttribute('aria-label',on?'Tạm dừng showreel':'Phát showreel');cancelAnimationFrame(raf);on?loop():paint()};
-  const play=x=>{const p=x.play();p&&p.catch&&p.catch(()=>{})};
+  /* Trình duyệt có thể chặn tự phát (iPhone chế độ tiết kiệm pin, Safari cài đặt chặn): khi đó hiện nút "Chạm để xem" và phát ở lần chạm kế tiếp */
+  const play=x=>{let p;try{p=x.play()}catch(e){p=null}
+    const blocked=()=>{(x===v?frame:x.parentElement).classList.add('needs-tap')};
+    if(p&&p.then)p.then(()=>{(x===v?frame:x.parentElement).classList.remove('needs-tap')}).catch(blocked);};
+  ['play','playing'].forEach(e=>v.addEventListener(e,()=>frame.classList.remove('needs-tap')));
   ['play','pause','ended'].forEach(e=>v.addEventListener(e,sync));['seeked','loadedmetadata'].forEach(e=>v.addEventListener(e,paint));
   frame.addEventListener('click',()=>{if(v.paused){userPaused=false;play(v)}else{userPaused=true;v.pause()}});
   chips.forEach(c=>c.addEventListener('click',()=>{try{v.currentTime=+c.dataset.t+.02}catch(e){}userPaused=false;play(v)}));
   inView(frame,on=>{vis=on;if(on&&!userPaused)play(v);else if(!on)v.pause()},{threshold:.26});
+  v.addEventListener('canplay',()=>{if(vis&&!userPaused&&v.paused)play(v)});
+  const kick=()=>{if(vis&&!userPaused&&v.paused)play(v);if(vv&&vvSeen()&&vv.paused&&!vvStop())play(vv)};
+  ['touchend','click','keydown'].forEach(e=>document.addEventListener(e,kick,{passive:true}));
   document.addEventListener('visibilitychange',()=>{if(document.hidden)v.pause();else if(vis&&!userPaused)play(v)});
   paint();
   if(g&&window.ScrollTrigger&&!RM)g.fromTo(frame,{scale:innerWidth<760?.86:.618},{scale:1,ease:'none',scrollTrigger:{trigger:stage,start:'top bottom',end:'top 26%',scrub:true}});
   /* bản dọc 9:16 */
-  const vv=$('.reel-video-v',sec);
-  if(vv){let stop=RM,seen=false;inView(vv,on=>{seen=on;if(on&&!stop)play(vv);else vv.pause()},{threshold:.38});
+  if(vv){inView(vv,on=>{seen=on;if(on&&!stop)play(vv);else vv.pause()},{threshold:.38});
     vv.parentElement.addEventListener('click',()=>{if(vv.paused){stop=false;play(vv)}else{stop=true;vv.pause()}});
     document.addEventListener('visibilitychange',()=>{if(document.hidden)vv.pause();else if(seen&&!stop)play(vv)})}
 }

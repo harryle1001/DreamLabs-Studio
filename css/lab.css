@@ -332,3 +332,9 @@
   .lab-cta .btn{flex:1 1 auto;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){.lab-typing i{animation:none}.reel-phone{transform:none}}
+/* Khi trình duyệt chặn tự phát: lớp phủ mời chạm để xem */
+.needs-tap{cursor:pointer}
+.needs-tap::after{content:"▶  Chạm để xem phim";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;
+  padding:var(--s2) var(--s4);border-radius:999px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--line);color:var(--ink);font-size:15px;font-weight:500;white-space:nowrap;box-shadow:0 var(--s3) var(--s5) calc(var(--s3)*-1) var(--shadow)}
+.reel-phone{position:relative}
