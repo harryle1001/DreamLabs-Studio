@@ -587,3 +587,22 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 /* màn rất hẹp (iPhone SE 320px): nút Xem mẫu không được đẩy trang tràn ngang */
 .sm-open-t{min-width:0}
 @media (max-width:420px){.sm-open-th{display:none}.sm-open{padding-left:var(--s3)}.sm-open-t{white-space:normal;text-align:left}}
+/* Dải mẫu ngay dưới các gói giá */
+.sm-slot{margin-top:var(--s4)}
+.sm-shelf-h{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s2)}
+.sm-shelf-h b{font-family:var(--f-display);font-weight:400;font-size:var(--t1h)}
+.sm-shelf-all{display:inline-flex;align-items:center;gap:var(--s1);min-height:var(--hit,42px);border:0;background:none;padding:0;cursor:pointer;color:var(--accent);font-weight:500;font-size:15px}
+.sm-shelf-all svg{width:16px;height:16px}
+.sm-shelf{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3)}
+.sm-card-mini{appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:var(--paper);border-radius:var(--r2);padding:0 0 var(--s2);text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:var(--s0);overflow:hidden;min-width:0;color:inherit;font:inherit;
+  transition:transform var(--d3) var(--ease),border-color var(--d3) var(--ease)}
+.sm-card-mini:hover{transform:translateY(calc(var(--s1)*-1));border-color:color-mix(in oklab,var(--accent) 38.2%,transparent)}
+.sm-mini-img{display:block;aspect-ratio:1.618/1;background:linear-gradient(135deg,var(--lav),var(--peach));overflow:hidden}
+.sm-mini-img img{width:100%;height:100%;object-fit:cover;display:block}
+.sm-mini-t{padding:var(--s1) var(--s3) 0;font-weight:500;font-size:15px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sm-mini-i{padding:0 var(--s3);color:var(--muted);font-size:13px}
+@media (max-width:860px){.sm-shelf{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(-1*max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+  .sm-shelf::-webkit-scrollbar{display:none}.sm-card-mini{flex:0 0 61.8%;scroll-snap-align:start}}
+.sm-slot:not([hidden]){display:block}
+.sm-strip{display:none!important}
+@media (max-width:860px){.sm-shelf{margin-inline:0;padding-inline:0}}

@@ -64,7 +64,7 @@
       <span>Dream <i>Labs</i></span>
     </a>
     <nav class="nav" aria-label="Chính">
-      <a href="#tu-dong-hoa">Tự động hóa AI</a><a href="#dich-vu">Dịch vụ</a><a href="#du-an">Dự án</a><a href="#lab">Lab</a><a href="#phong-mau" data-sm-open hidden>Phòng mẫu</a><a href="#bao-gia">Báo giá</a><a href="#lien-he">Liên hệ</a>
+      <a href="#bao-gia">Bảng giá</a><a href="#phong-mau" data-sm-open hidden>Mẫu đã làm</a><a href="#tu-dong-hoa">Tự động hóa AI</a><a href="#lab">Lab</a><a href="#lien-he">Liên hệ</a>
     </nav>
     <div class="head-act">
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Đổi giao diện sáng hoặc tối" aria-pressed="false">
@@ -80,14 +80,12 @@
 <div class="menu" id="menu" aria-hidden="true">
   <svg class="menu-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-grid" class="g"/><use href="#dl-spiral"/></svg>
   <nav class="menu-nav" aria-label="Menu điện thoại">
-    <a href="#tu-dong-hoa"><small>01</small><span>Tự động hóa AI</span></a>
-    <a href="#dich-vu"><small>02</small><span>Dịch vụ</span></a>
-    <a href="#du-an"><small>03</small><span>Dự án</span></a>
-    <a href="#lab"><small>04</small><span>Lab</span></a>
-    <a href="#quy-trinh"><small>05</small><span>Quy trình</span></a>
-    <a href="#bao-gia"><small>06</small><span>Báo giá</span></a>
-    <a href="#lien-he"><small>07</small><span>Liên hệ</span></a>
-    <a href="#phong-mau" data-sm-open hidden><small>08</small><span>Phòng mẫu</span></a>
+    <a href="#bao-gia"><small>01</small><span>Bảng giá</span></a>
+    <a href="#phong-mau" data-sm-open><small>02</small><span>Mẫu đã làm</span></a>
+    <a href="#tu-dong-hoa"><small>03</small><span>Tự động hóa AI</span></a>
+    <a href="#showreel"><small>04</small><span>Showreel</span></a>
+    <a href="#lab"><small>05</small><span>Lab</span></a>
+    <a href="#lien-he"><small>06</small><span>Liên hệ</span></a>
   </nav>
   <div class="menu-foot">
     <p><small>Email</small><b>harryle1010@gmail.com</b></p>
@@ -119,7 +117,6 @@
     <div class="hero-fb" id="heroFb"></div>
     <canvas id="sky"></canvas>
   </div>
-  <span class="hero-note" aria-hidden="true">AI · Automation · Web — Studio 2026</span>
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-main">
@@ -127,97 +124,107 @@
         <h1 class="hero-title" id="heroTitle">Tự động hóa quy trình doanh nghiệp <em>bằng AI.</em></h1>
       </div>
       <div class="hero-side">
-        <p class="lead">Dream Labs thiết kế và triển khai hệ thống AI tự động hóa bán hàng, chăm sóc khách hàng, kế toán và báo cáo cho doanh nghiệp Việt Nam. Đi cùng là website, landing page, video và bao bì để thương hiệu bán tốt hơn.</p>
+        <p class="lead">Hệ thống AI tự động hóa bán hàng, chăm sóc khách hàng và báo cáo cho doanh nghiệp Việt Nam. Kèm thiết kế website, video, bao bì.</p>
         <div class="hero-cta">
-          <a class="btn primary" href="#lien-he" data-magnetic>Tư vấn quy trình miễn phí <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
-          <a class="btn" href="#tu-dong-hoa" data-magnetic>Xem giải pháp</a>
+          <a class="btn primary" href="#bao-gia" data-magnetic>Xem bảng giá <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+          <a class="btn" href="#bao-gia" data-sm-open data-magnetic>Xem mẫu đã làm</a>
         </div>
-        <div class="chips"><span class="chip">Kết nối Zalo OA, CRM, Google Sheets</span><span class="chip">Triển khai từ 5 ngày</span><span class="chip">Dữ liệu thuộc về doanh nghiệp</span></div>
       </div>
     </div>
     <div class="hero-foot">
-      <a class="hero-scroll" href="#tu-dong-hoa"><i aria-hidden="true"></i><span>Cuộn xuống để xem giải pháp</span></a>
+      <a class="hero-scroll" href="#bao-gia"><i aria-hidden="true"></i><span>Cuộn xuống xem bảng giá</span></a>
       
     </div>
   </div>
 </section>
-<!-- 15-automation.html -->
+<!-- 12-pricing.html -->
+<section class="price" id="bao-gia">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Bảng giá</p><h2 data-split>Bảng giá <em>và mẫu thực tế.</em></h2></div>
+      <p class="lead" data-reveal>Chọn dịch vụ, xem giá từng gói và mẫu đã làm ngay bên dưới. Giá chưa gồm VAT.</p>
+    </div>
+    <div class="sm-strip" id="phong-mau" hidden></div>
+  </div>
+  <div class="pzone">
+    <div class="ptabs"><div class="wrap"><div class="ptabs-in" id="ptabs" role="tablist" aria-label="Hạng mục báo giá"><i class="ptab-pill" aria-hidden="true"></i></div></div></div>
+    <div class="wrap" id="pbody"></div>
+  </div>
+  <div class="wrap">
+    <div class="est" id="tinh-gia">
+      <div class="est-main">
+        <div class="est-head">
+          <p class="eyebrow">Tự tính báo giá</p>
+          <h2 data-split>Ghép gói của <em>riêng bạn.</em></h2>
+          <p class="lead" data-reveal>Chọn từ 3 dịch vụ, tổng giá tự giảm 10%.</p>
+        </div>
+        <div class="est-list" id="estList"></div>
+      </div>
+      <aside class="est-sum" aria-live="polite">
+        <svg class="est-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-spiral"/></svg>
+        <span class="lbl">Tổng dự kiến</span>
+        <div class="total" id="estTotal">0đ</div>
+        <div class="lines" id="estLines"><div><span>Chưa chọn hạng mục nào</span></div></div>
+        <div class="combo" id="estCombo" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="save" id="estSave">Combo từ 3 hạng mục: giảm 10%</div>
+        <a class="btn" href="#lien-he" id="estGo" data-magnetic>Gửi cấu hình này <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
+        <p class="note">Giá tham khảo. Báo giá chính thức gửi sau buổi tư vấn.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+<!-- 30-automation.html -->
 <section class="band auto-sec" id="tu-dong-hoa" aria-labelledby="auto-h">
   <div class="wrap">
     <div class="sec-head">
       <div><p class="eyebrow">Tự động hóa quy trình doanh nghiệp</p><h2 id="auto-h" data-split>Để AI làm việc lặp lại, <em>đội ngũ làm việc quan trọng.</em></h2></div>
-      <p class="lead" data-reveal>Dream Labs khảo sát quy trình thực tế của doanh nghiệp, chọn những khâu tốn thời gian nhất rồi xây hệ thống AI chạy tự động trên chính công cụ bạn đang dùng. Không thay phần mềm, không đổi thói quen làm việc của nhân viên.</p>
+      <p class="lead" data-reveal>Làm thay việc lặp lại trên chính phần mềm bạn đang dùng. Không đổi thói quen làm việc của nhân viên.</p>
     </div>
     <ol class="auto-grid" data-stagger>
       <li class="auto-card">
         <span class="auto-n">01</span>
         <h3>Bán hàng và chốt đơn</h3>
-        <p>AI tiếp nhận tin nhắn từ Zalo OA, Facebook Messenger và website, tư vấn theo dữ liệu sản phẩm, báo giá, tạo đơn và đẩy thẳng về phần mềm bán hàng.</p>
+        <p>AI trả lời tin nhắn Zalo, Messenger, website; tư vấn, tạo đơn tự động.</p>
       </li>
       <li class="auto-card">
         <span class="auto-n">02</span>
         <h3>Chăm sóc khách hàng</h3>
-        <p>Tự động hỏi thăm sau mua, nhắc lịch bảo hành và tái mua, phân loại phản hồi và chuyển đúng nhân viên phụ trách trong vài giây.</p>
+        <p>Tự hỏi thăm sau mua, nhắc bảo hành, chuyển đúng nhân viên.</p>
       </li>
       <li class="auto-card">
         <span class="auto-n">03</span>
         <h3>Marketing và khách hàng tiềm năng</h3>
-        <p>Gom khách hàng tiềm năng từ quảng cáo và form về một nơi, AI chấm điểm mức độ quan tâm, gửi kịch bản chăm sóc qua Zalo, email và giao việc cho sale.</p>
+        <p>Gom khách tiềm năng về một nơi, AI chấm điểm và giao cho sale.</p>
       </li>
       <li class="auto-card">
         <span class="auto-n">04</span>
         <h3>Kế toán và chứng từ</h3>
-        <p>AI đọc hóa đơn, đối soát thanh toán, nhắc công nợ đến hạn và xuất dữ liệu đúng định dạng cho phần mềm kế toán, giảm nhập liệu thủ công.</p>
+        <p>AI đọc hóa đơn, đối soát thanh toán, nhắc công nợ.</p>
       </li>
       <li class="auto-card">
         <span class="auto-n">05</span>
         <h3>Nhân sự và vận hành nội bộ</h3>
-        <p>Tiếp nhận đơn từ, nhắc việc, hướng dẫn nhân viên mới, trợ lý AI trả lời câu hỏi về quy trình và chính sách nội bộ của công ty.</p>
+        <p>Nhận đơn từ, nhắc việc, trợ lý AI trả lời quy trình nội bộ.</p>
       </li>
       <li class="auto-card">
         <span class="auto-n">06</span>
         <h3>Báo cáo điều hành</h3>
-        <p>Mỗi sáng tổng hợp doanh số, tồn kho và chi phí thành một bản tin; AI cảnh báo khi số liệu bất thường để chủ doanh nghiệp quyết định kịp thời.</p>
+        <p>Bản tin doanh số mỗi sáng, cảnh báo khi số liệu bất thường.</p>
       </li>
     </ol>
-    <div class="auto-foot golden">
+    <div class="auto-foot">
       <div class="auto-int" data-reveal>
         <p class="eyebrow">Kết nối với công cụ doanh nghiệp đang dùng</p>
         <ul class="chips">
           <li class="chip">Zalo OA</li><li class="chip">Facebook Messenger</li><li class="chip">Website</li><li class="chip">Google Sheets</li><li class="chip">Gmail</li><li class="chip">Google Drive</li><li class="chip">CRM</li><li class="chip">Phần mềm bán hàng</li><li class="chip">Phần mềm kế toán</li><li class="chip">n8n</li><li class="chip">Make</li><li class="chip">Hệ thống có API</li>
         </ul>
       </div>
-      <ul class="auto-gain" data-reveal data-delay="0.1">
-        <li><b>24/7</b><span>Khách được phản hồi cả ngoài giờ làm việc</span></li>
-        <li><b>Ít nhập tay</b><span>Dữ liệu tự chảy giữa các phần mềm</span></li>
-        <li><b>Tức thời</b><span>Số liệu kinh doanh cập nhật liên tục</span></li>
-        <li><b>Của bạn</b><span>Dữ liệu nằm trong hệ thống doanh nghiệp</span></li>
-      </ul>
     </div>
     <div class="auto-cta" data-reveal>
       <a class="btn primary" href="#lien-he" data-pick="Tự động hóa quy trình doanh nghiệp — Khởi động" data-magnetic>Nhận tư vấn quy trình <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
       <a class="btn" href="#lab" data-magnetic>Chạy thử demo quy trình</a>
       <a class="btn" href="#p-ai" data-magnetic>Xem gói và giá</a>
     </div>
-  </div>
-</section>
-<!-- 20-marquee.html -->
-<section class="mq" id="marquee" aria-label="Các dịch vụ của Dream Labs">
-  <div class="mq-row" data-dir="-1"><div class="mq-track">
-    <span>Tự động hóa quy trình doanh nghiệp</span><span>AI agent</span><span>Website cao cấp</span><span>Landing page</span><span>Edit video</span><span>Thiết kế sản phẩm</span><span>Motion graphic</span>
-  </div></div>
-  <div class="mq-row alt" data-dir="1" aria-hidden="true"><div class="mq-track">
-    <span>Thiết kế riêng</span><span>Chuẩn SEO</span><span>Mượt trên điện thoại</span><span>Giá rõ ràng</span><span>Bàn giao mã nguồn</span><span>Phản hồi trong 24h</span>
-  </div></div>
-</section>
-<!-- 30-services.html -->
-<section class="band svc-sec" id="dich-vu">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow">Dịch vụ</p><h2 data-split>Tự động hóa là trọng tâm, <em>thiết kế là sức bật.</em></h2></div>
-      <p class="lead" data-reveal>Dream Labs bắt đầu từ quy trình: tự động hóa bằng AI để doanh nghiệp vận hành gọn hơn, rồi dùng website, landing page, video và bao bì để mang khách về hệ thống đó. Bấm vào từng dịch vụ để xem bảng giá.</p>
-    </div>
-    <div class="svc-rows" id="svc"></div>
   </div>
 </section>
 <!-- 40-reel.html -->
@@ -228,7 +235,7 @@
         <p class="eyebrow">Showreel</p>
         <h2 data-split>Hai mươi mốt giây, <em>dựng hoàn toàn bằng code</em></h2>
       </div>
-      <p class="lead" data-reveal>Không quay, không kéo thả. Từng khung hình của đoạn phim này do Dream Labs viết ra rồi xuất thành MP4. Đó cũng là cách chúng tôi làm motion graphic cho thương hiệu của bạn.</p>
+      <p class="lead" data-reveal>21 giây, dựng hoàn toàn bằng code.</p>
     </div>
 
     <div class="reel-stage">
@@ -255,169 +262,6 @@
       </div>
     </div>
 
-    <div class="golden reel-info">
-      <div class="reel-how">
-        <h3>Phim này được làm <em>thế nào</em></h3>
-        <ol class="reel-steps" data-stagger>
-          <li><b>1</b><div><strong>Kịch bản và nhịp</strong><p>Mở đầu 2,8 giây, sáu dịch vụ nối nhau, kết bằng logo.</p></div></li>
-          <li><b>2</b><div><strong>Dựng bằng code</strong><p>Một timeline duy nhất. Máy quay lướt qua từng khung, mỗi khung là một dịch vụ.</p></div></li>
-          <li><b>3</b><div><strong>Xuất từng khung hình</strong><p>630 khung hình, 30 khung mỗi giây, chụp chính xác từng khung nên chuyển động không giật.</p></div></li>
-          <li><b>4</b><div><strong>Nén cho web và quảng cáo</strong><p>Bản ngang 1280×792 cho website, bản dọc 9:16 cho TikTok và Reels. Mỗi bản dưới 3MB.</p></div></li>
-        </ol>
-        <dl class="reel-facts">
-          <div><dt>Thời lượng</dt><dd><span data-count="21" data-format="int">21</span> giây</dd></div>
-          <div><dt>Khung hình</dt><dd><span data-count="630" data-format="int">630</span></dd></div>
-          <div><dt>Tỷ lệ xuất</dt><dd>Ngang · Dọc 9:16</dd></div>
-          <div><dt>Cảnh quay sẵn</dt><dd>0</dd></div>
-        </dl>
-        <div class="reel-cta">
-          <a class="btn primary" href="#lien-he" data-pick="Motion Graphic — Chuyên nghiệp" data-magnetic>Đặt một phim như thế này</a>
-          <a class="btn" href="#p-motion">Xem giá Motion Graphic</a>
-        </div>
-      </div>
-      <figure class="reel-ad" data-reveal="scale">
-        <div class="reel-phone">
-          <video class="reel-video-v" muted playsinline loop preload="none" poster="media/dreamlab-ad-9x16-poster.webp" width="720" height="1280" aria-label="Bản dọc 9:16 của showreel, phim không có tiếng">
-            <source src="media/dreamlab-ad-9x16.mp4" type="video/mp4">
-          </video>
-        </div>
-        <figcaption><b>Bản dọc 9:16</b>Cùng một timeline, xuất lại cho TikTok và Reels.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-<!-- 45-work.html -->
-<section id="du-an" class="band wk">
-  <svg class="wk-deco" viewBox="0 0 610 377" aria-hidden="true" data-parallax="0.06"><path d="M0 377A377 377 0 0 1 377 0A233 233 0 0 1 610 233A144 144 0 0 1 466 377A89 89 0 0 1 377 288A55 55 0 0 1 432 233A34 34 0 0 1 466 267"/><path d="M0 0h610v377H0zM377 0v377M377 233h233M466 233v144M377 288h89"/></svg>
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">Dự án concept</p>
-        <h2 data-split>Bốn thương hiệu,<br><em>bấm vào là chạy.</em></h2>
-      </div>
-      <p class="lead" data-reveal>Đây là các thương hiệu Dream Labs tự nghĩ ra để bạn thấy đúng thứ mình sẽ nhận: website mở được ngay, bao bì dựng 3D xoay được, kèm cách làm và mức giá tương ứng.</p>
-    </div>
-
-    <div class="wk-bar" data-reveal>
-      <div class="wk-chips" role="group" aria-label="Lọc dự án theo dịch vụ">
-        <button class="wk-chip on" type="button" data-f="all" aria-pressed="true">Tất cả <i>7</i></button>
-        <button class="wk-chip" type="button" data-f="web" aria-pressed="false">Website <i>2</i></button>
-        <button class="wk-chip" type="button" data-f="landing" aria-pressed="false">Landing Page <i>2</i></button>
-        <button class="wk-chip" type="button" data-f="product" aria-pressed="false">Bao bì &amp; 3D <i>3</i></button>
-      </div>
-      <p class="wk-note"><span class="tag-concept">Concept</span> Thương hiệu minh họa, không phải khách hàng thật.</p>
-    </div>
-
-    <div class="wk-grid" id="wk-grid">
-      <article class="wk-card" data-cat="web" data-id="gac-khoi">
-        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án Gác Khói Roastery, website xưởng rang cà phê">
-          <span class="wk-media"><span class="wk-par"><img src="img/wk-gac-khoi.webp" width="1280" height="791" loading="lazy" alt="Website Gác Khói Roastery trên laptop và điện thoại"></span>
-            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Website</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
-          <span class="wk-cap"><span><b>Gác Khói Roastery</b><small>Xưởng rang cà phê · website bán hàng</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
-        </button>
-      </article>
-      <article class="wk-card" data-cat="product" data-id="mt-pack">
-        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án bao bì Miên Thảo">
-          <span class="wk-media"><span class="wk-par"><img src="img/wk-3d-mt.webp" width="1280" height="791" loading="lazy" alt="Bộ bao bì mỹ phẩm Miên Thảo dựng 3D: hộp, chai tinh chất, hũ kem"></span>
-            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Bao bì &amp; 3D</span></span></span>
-          <span class="wk-cap"><span><b>Miên Thảo · bộ bao bì</b><small>Mỹ phẩm thiên nhiên · nhãn, hộp, mockup 3D</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
-        </button>
-      </article>
-      <article class="wk-card" data-cat="product" data-id="gk-pack">
-        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án túi cà phê Gác Khói">
-          <span class="wk-media"><span class="wk-par"><img src="img/wk-3d-gk.webp" width="1280" height="791" loading="lazy" alt="Ba túi cà phê Gác Khói dựng 3D"></span>
-            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Bao bì &amp; 3D</span></span></span>
-          <span class="wk-cap"><span><b>Gác Khói · túi cà phê</b><small>Cà phê rang xay · thiết kế lại bao bì</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
-        </button>
-      </article>
-      <article class="wk-card" data-cat="web" data-id="mien-thao">
-        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án Miên Thảo Botanics, website mỹ phẩm thiên nhiên">
-          <span class="wk-media"><span class="wk-par"><img src="img/wk-mien-thao.webp" width="1280" height="791" loading="lazy" alt="Website Miên Thảo Botanics trên laptop và điện thoại"></span>
-            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Website</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
-          <span class="wk-cap"><span><b>Miên Thảo Botanics</b><small>Mỹ phẩm thiên nhiên · website thương hiệu</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
-        </button>
-      </article>
-      <article class="wk-card" data-cat="landing" data-id="doi-lang">
-        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án Đồi Lặng Villas, landing page bất động sản nghỉ dưỡng">
-          <span class="wk-media"><span class="wk-par"><img src="img/wk-doi-lang.webp" width="1280" height="791" loading="lazy" alt="Landing page Đồi Lặng Villas trên laptop và điện thoại"></span>
-            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Landing Page</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
-          <span class="wk-cap"><span><b>Đồi Lặng Villas</b><small>Bất động sản nghỉ dưỡng · landing thu khách</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
-        </button>
-      </article>
-      <article class="wk-card" data-cat="product" data-id="vu-pack">
-        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án bao bì VƯƠN">
-          <span class="wk-media"><span class="wk-par"><img src="img/wk-3d-vu.webp" width="1280" height="791" loading="lazy" alt="Hũ protein và lon nước VƯƠN dựng 3D"></span>
-            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Bao bì &amp; 3D</span></span></span>
-          <span class="wk-cap"><span><b>VƯƠN · hũ và lon</b><small>Thể thao · dòng sản phẩm bán tại phòng tập</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
-        </button>
-      </article>
-      <article class="wk-card wk-cta" data-cat="all">
-        <div class="wk-cta-in">
-          <svg viewBox="-100 -100 200 200" aria-hidden="true" class="wk-cta-phy"></svg>
-          <p class="eyebrow">Tiếp theo</p>
-          <h3>Dự án kế tiếp có thể là <em>của bạn.</em></h3>
-          <p>Kể cho chúng tôi nghe bạn bán gì. Bạn sẽ nhận phác thảo hướng thiết kế và báo giá trong 24 giờ.</p>
-          <a class="btn primary" href="#lien-he" data-magnetic>Bắt đầu dự án <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 13h14M14 7l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-      <article class="wk-card" data-cat="landing" data-id="vuon-club">
-        <button class="wk-open" type="button" data-cursor="Xem" aria-label="Xem dự án VƯƠN Club, landing page phòng tập">
-          <span class="wk-media"><span class="wk-par"><img src="img/wk-vuon-club.webp" width="1280" height="791" loading="lazy" alt="Landing page VƯƠN Club trên laptop và điện thoại"></span>
-            <span class="wk-tags"><span class="tag-concept">Concept</span><span class="chip">Landing Page</span></span><span class="wk-live-dot">Có demo chạy thật</span></span>
-          <span class="wk-cap"><span><b>VƯƠN Club</b><small>Phòng tập nhóm nhỏ · landing tập thử</small></span><i class="wk-go" aria-hidden="true"><svg viewBox="0 0 26 26"><path d="M6 13h14M14 7l6 6-6 6"/></svg></i></span>
-        </button>
-      </article>
-    </div>
-
-    <div class="wk-studio" id="wk-studio">
-      <div class="wk-studio-head">
-        <div>
-          <p class="eyebrow">Xưởng bao bì</p>
-          <h3 data-reveal>Cầm thử bao bì <em>trước khi in.</em></h3>
-        </div>
-        <p class="lead" data-reveal>Kéo để xoay, đổi màu, đổi nhãn. Đây cũng là cách chúng tôi duyệt mẫu cùng bạn trước khi gửi file cho nhà in.</p>
-      </div>
-      <div class="wk-studio-grid">
-        <div class="wk-view card" id="wk-view" data-reveal>
-          <div class="wk-stage" id="wk-stage" data-cursor="Kéo" data-p="bottle">
-            <img class="wk-poster" id="wk-poster" src="img/wk-3d-mt.webp" width="1280" height="791" loading="lazy" alt="Ảnh render bao bì Miên Thảo">
-            <span class="wk-badge"><span class="tag-concept">3D trực tiếp</span></span>
-            <span class="wk-hint" id="wk-hint"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13h20M7 9l-4 4 4 4M19 9l4 4-4 4"/></svg>Kéo để xoay</span>
-          </div>
-          <div class="wk-ctl">
-            <div class="wk-row">
-              <span class="wk-lb">Sản phẩm</span>
-              <div class="wk-seg" id="wk-prod" role="group" aria-label="Chọn sản phẩm">
-                <button type="button" class="on" data-p="bottle" aria-pressed="true">Chai serum</button>
-                <button type="button" data-p="bag" aria-pressed="false">Túi cà phê</button>
-                <button type="button" data-p="tub" aria-pressed="false">Hũ protein</button>
-              </div>
-            </div>
-            <div class="wk-row">
-              <span class="wk-lb">Màu</span>
-              <div class="wk-sw" id="wk-sw" role="group" aria-label="Chọn màu"></div>
-              <span class="wk-lb wk-lb2">Nhãn</span>
-              <div class="wk-seg sm" id="wk-lab" role="group" aria-label="Chọn kiểu nhãn">
-                <button type="button" class="on" data-v="0" aria-pressed="true">Kiểu A</button>
-                <button type="button" data-v="1" aria-pressed="false">Kiểu B</button>
-              </div>
-            </div>
-            <p class="wk-fall" id="wk-fall" hidden>Thiết bị này chưa bật được đồ họa 3D nên đang hiện ảnh render tĩnh.</p>
-          </div>
-        </div>
-
-        <figure class="wk-bacard card" data-reveal data-delay="0.1">
-          <div class="wk-ba" id="wk-ba" style="--p:50%" data-cursor="Kéo">
-            <img src="img/wk-3d-new.webp" width="1280" height="791" loading="lazy" alt="Túi cà phê Gác Khói sau khi thiết kế lại">
-            <div class="wk-ba-old"><img src="img/wk-3d-old.webp" width="1280" height="791" loading="lazy" alt="Túi cà phê trước khi thiết kế lại"></div>
-            <span class="wk-ba-l">Trước</span><span class="wk-ba-r">Sau</span>
-            <div class="wk-ba-h" aria-hidden="true"><i><svg viewBox="0 0 26 26"><path d="M10 8l-5 5 5 5M16 8l5 5-5 5"/></svg></i></div>
-            <input class="sr-only" id="wk-ba-in" type="range" min="0" max="100" value="50" aria-label="So sánh bao bì trước và sau: kéo sang trái để xem bản mới">
-          </div>
-          <figcaption><b>Trước và sau</b><span>Túi cà phê Gác Khói: từ nhãn dán chung chung sang bộ nhận diện riêng. Kéo thanh để so sánh.</span></figcaption>
-        </figure>
-      </div>
-    </div>
   </div>
 </section>
 <!-- 50-lab.html -->
@@ -656,67 +500,6 @@
     </div>
   </div>
 </section>
-<!-- 60-process.html -->
-<section class="proc" id="quy-trinh">
-  <div class="proc-pin" id="procPin">
-    <div class="proc-sticky">
-      <div class="wrap">
-        <div class="sec-head">
-          <div><p class="eyebrow">Quy trình</p><h2 data-split>Năm bước, <em>không bất ngờ.</em></h2></div>
-          <p class="lead" data-reveal>Bạn luôn biết dự án đang ở đâu, ai phụ trách và khi nào bàn giao.</p>
-        </div>
-      </div>
-      <div class="proc-view" id="procView">
-        <div class="proc-track" id="procTrack">
-          <svg class="proc-line" id="procLine" aria-hidden="true"><path class="bg"/><path class="fg"/></svg>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="proc-meta" aria-hidden="true">
-          <span class="proc-count"><b id="procNow">01</b> / 05</span>
-          <span class="proc-bar"><i id="procBar"></i></span>
-          <span class="proc-hint"><span class="d">Cuộn để đi tiếp</span><span class="m">Vuốt ngang để xem tiếp</span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- 70-pricing.html -->
-<section class="price" id="bao-gia">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow">Bảng giá</p><h2 data-split>Giá rõ ràng cho <em>từng hạng mục.</em></h2></div>
-      <p class="lead" data-reveal>Chọn hạng mục ở thanh bên dưới. Giá đã gồm thiết kế và số vòng chỉnh sửa ghi trong gói, chưa gồm VAT.</p>
-    </div>
-    <div class="sm-strip" id="phong-mau" hidden></div>
-  </div>
-  <div class="pzone">
-    <div class="ptabs"><div class="wrap"><div class="ptabs-in" id="ptabs" role="tablist" aria-label="Hạng mục báo giá"><i class="ptab-pill" aria-hidden="true"></i></div></div></div>
-    <div class="wrap" id="pbody"></div>
-  </div>
-  <div class="wrap">
-    <div class="est" id="tinh-gia">
-      <div class="est-main">
-        <div class="est-head">
-          <p class="eyebrow">Tự tính báo giá</p>
-          <h2 data-split>Ghép gói của <em>riêng bạn.</em></h2>
-          <p class="lead" data-reveal>Chọn gói cho từng hạng mục cần làm. Từ 3 hạng mục trở lên, tổng giá tự giảm 10%.</p>
-        </div>
-        <div class="est-list" id="estList"></div>
-      </div>
-      <aside class="est-sum" aria-live="polite">
-        <svg class="est-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-spiral"/></svg>
-        <span class="lbl">Tổng dự kiến</span>
-        <div class="total" id="estTotal">0đ</div>
-        <div class="lines" id="estLines"><div><span>Chưa chọn hạng mục nào</span></div></div>
-        <div class="combo" id="estCombo" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="save" id="estSave">Combo từ 3 hạng mục: giảm 10%</div>
-        <a class="btn" href="#lien-he" id="estGo" data-magnetic>Gửi cấu hình này <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
-        <p class="note">Giá tham khảo. Báo giá chính thức gửi sau buổi tư vấn.</p>
-      </aside>
-    </div>
-  </div>
-</section>
 <!-- 80-faq.html -->
 <section class="band faq-sec" id="faq">
   <div class="wrap faq">
@@ -791,7 +574,7 @@
       <div class="foot-cols">
         <div><b>Liên hệ</b><span>harryle1010@gmail.com</span><span>0934 246 420</span><a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
         <nav aria-label="Dịch vụ"><b>Dịch vụ</b><a href="#p-ai">Tự động hóa quy trình doanh nghiệp</a><a href="#p-web">Website</a><a href="#p-landing">Landing Page</a><a href="#p-video">Edit Video</a><a href="#p-product">Thiết kế sản phẩm</a><a href="#p-motion">Motion Graphic</a></nav>
-        <nav aria-label="Khám phá"><b>Khám phá</b><a href="#du-an">Dự án</a><a href="#lab">Lab</a><a href="#phong-mau" data-sm-open hidden>Phòng mẫu</a><a href="#quy-trinh">Quy trình</a><a href="#tinh-gia">Tự tính giá</a><a href="#faq">Câu hỏi</a></nav>
+        <nav aria-label="Khám phá"><b>Khám phá</b><a href="#bao-gia">Bảng giá</a><a href="#lab">Lab</a><a href="#phong-mau" data-sm-open hidden>Phòng mẫu</a><a href="#quy-trinh">Quy trình</a><a href="#tinh-gia">Tự tính giá</a><a href="#faq">Câu hỏi</a></nav>
       </div>
     </div>
   </div>

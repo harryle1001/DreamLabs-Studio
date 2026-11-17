@@ -85,10 +85,10 @@ safe('render-pricing',()=>{
      <ul>${t.f.map(f=>typeof f==='string'?`<li>${f}</li>`:`<li class="no">${f.x}</li>`).join('')}</ul>
      <a class="btn${t.hot?' primary':''}" href="#lien-he" data-pick="${c.name} — ${t.n}">Chọn gói này</a></article>`).join('')}</div>
    <div class="tier-dots" aria-hidden="true">${c.tiers.map(()=>'<i></i>').join('')}</div>
+   <div class="sm-slot" data-sm-slot="${c.id}"></div>
    <div class="cmp"><button class="cmp-btn" type="button" aria-expanded="false" aria-controls="cmp-${c.id}"><span>So sánh chi tiết ${c.tiers.length} gói ${c.name}</span><i aria-hidden="true"></i></button>
     <div class="cmp-body" id="cmp-${c.id}" hidden><div class="cmp-scroll"><table><thead><tr><th scope="col">Hạng mục</th>${c.tiers.map(t=>`<th scope="col"${t.hot?' class="hot"':''}>${t.n}</th>`).join('')}</tr></thead>
     <tbody>${cmpRows(c).map(r=>`<tr><th scope="row">${r[0]}</th>${c.tiers.map((t,i)=>`<td${t.hot?' class="hot"':''}>${cell(r[i+1])}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div></div>
-   <div class="sm-slot" data-sm-slot="${c.id}"></div>
   </div>`).join('');
   const el=$('#estList');
   if(el)el.innerHTML=CATS.map(c=>`<div class="est-row" data-c="${c.id}"><div class="l" id="el-${c.id}">${icoPlain(c.id)}<span>${c.name}<small>${c.tag}</small></span></div>

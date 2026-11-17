@@ -388,15 +388,17 @@ function wire(){
   const live=liveCats(),sum=total();
   $$('[data-sm-slot]').forEach(s=>{const c=catOf(s.dataset.smSlot),its=c?items(c.id):[];
     if(!its.length){s.hidden=true;s.replaceChildren();return}
-    s.innerHTML=`<button class="sm-open" type="button" data-sm-open="${c.id}" data-cursor="Mở">
-      <span class="sm-open-th" aria-hidden="true">${its.slice(0,3).map(it=>`<span data-imgbox>${it.cover?`<img src="${esc(it.cover)}" width="1280" height="791" alt="" loading="lazy" decoding="async">`:''}</span>`).join('')}</span>
-      <span class="sm-open-t">Xem mẫu ${esc(c.name)}</span><span class="sm-open-n">${its.length} mẫu</span>${ARROW}</button>`});
+    const top=its.slice(0,4);
+    s.innerHTML=`<div class="sm-shelf-h"><b>Mẫu ${esc(c.name)} đã làm</b><button class="sm-shelf-all" type="button" data-sm-open="${c.id}">Xem tất cả ${its.length} mẫu ${ARROW}</button></div>
+      <div class="sm-shelf" role="list">${top.map(it=>`<button class="sm-card-mini" type="button" role="listitem" data-sm-open="${c.id}" data-sm-id="${esc(it.id)}" data-cursor="Xem">
+        <span class="sm-mini-img" data-imgbox>${it.cover?`<img src="${esc(it.cover)}" width="1280" height="791" alt="${esc(it.title)}" loading="lazy" decoding="async">`:''}</span>
+        <span class="sm-mini-t">${esc(it.title)}</span><span class="sm-mini-i">${esc(it.industry||'')}</span></button>`).join('')}</div>`});
   const strip=$('#phong-mau');
   if(strip&&live.length){strip.hidden=false;
     strip.innerHTML=`<div class="sm-strip-l"><svg viewBox="-1 -1 57 36" aria-hidden="true"><path d="${SPIRAL}"/></svg><p><b>Phòng mẫu</b><span>${sum} mẫu concept xa xỉ để bạn xem, thử và chọn</span></p></div>
      <div class="sm-strip-c" role="group" aria-label="Mở phòng mẫu theo hạng mục">${live.map(c=>`<button class="sm-strip-b" type="button" data-sm-open="${c.id}">${esc(c.name)}<sup>${pad(items(c.id).length)}</sup></button>`).join('')}</div>`}
   $$('a[data-sm-open][hidden]').forEach(a=>{a.hidden=!live.length});
-  document.addEventListener('error',e=>{const im=e.target;if(im&&im.tagName==='IMG'&&im.closest('.sm-open-th'))im.classList.add('sm-err')},true);
+  document.addEventListener('error',e=>{const im=e.target;if(im&&im.tagName==='IMG'&&im.closest('.sm-open-th,.sm-mini-img'))im.classList.add('sm-err')},true);
   D.refresh&&D.refresh();
 }
 /* bắt click sớm (capture) để đi trước xử lý anchor của core.js / kit.js */
