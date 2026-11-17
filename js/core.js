@@ -82,7 +82,7 @@ safe('render-pricing',()=>{
      ${t.hot?'<span class="badge">Phổ biến nhất</span>':''}<span class="tn">${t.n}</span>
      <div class="tprice"><span data-count="${t.p}" data-format="vnd">${vnd(t.p)}</span>${t.plus?'<small>trở lên</small>':''}${t.u?`<small>${t.u}</small>`:''}</div>
      <div class="sub"><span>${CLOCK}${t.t}</span><span>${LOOP}${t.r}</span></div>
-     <ul>${t.f.map(f=>typeof f==='string'?`<li>${f}</li>`:`<li class="no">${f.x}</li>`).join('')}</ul>
+     ${t.g?`<p class="tgain"><b>Doanh nghiệp được gì</b>${t.g}</p>`:''}<ul>${t.f.map(f=>typeof f==='string'?`<li>${f}</li>`:`<li class="no">${f.x}</li>`).join('')}</ul>
      <a class="btn${t.hot?' primary':''}" href="#lien-he" data-pick="${c.name} — ${t.n}">Chọn gói này</a></article>`).join('')}</div>
    <div class="tier-dots" aria-hidden="true">${c.tiers.map(()=>'<i></i>').join('')}</div>
    <div class="sm-slot" data-sm-slot="${c.id}"></div>
@@ -160,6 +160,18 @@ safe('menu',()=>{
   menu.addEventListener('click',e=>{if(e.target.closest('a,[data-sm-open]'))setMenu(false)});
   addEventListener('keydown',e=>{if(e.key==='Escape'){setMenu(false);setFab(false)}});
   matchMedia('(min-width:861px)').addEventListener('change',e=>{if(e.matches)setMenu(false)});
+});
+
+/* menu "Dịch vụ" ở đầu trang: rê chuột hoặc bấm để mở, Esc / bấm ra ngoài để đóng */
+safe('navdd',()=>{
+  const dd=$('.nav-dd'),b=dd&&$('.nav-dd-b',dd);if(!b)return;
+  const set=o=>{dd.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))};
+  b.addEventListener('click',()=>set(!dd.classList.contains('open')));
+  dd.addEventListener('mouseenter',()=>b.setAttribute('aria-expanded','true'));
+  dd.addEventListener('mouseleave',()=>{if(!dd.classList.contains('open'))b.setAttribute('aria-expanded','false')});
+  document.addEventListener('click',e=>{if(!dd.contains(e.target))set(false)});
+  dd.addEventListener('keydown',e=>{if(e.key==='Escape'){set(false);b.focus()}});
+  dd.addEventListener('focusout',e=>{if(!dd.contains(e.relatedTarget))set(false)});
 });
 
 /* ═════════ SAO CHÉP: nút [data-copy="chuỗi"] hoặc [data-copy-from="#id"]; không chép được thì bôi chọn sẵn để khách tự chép ═════════ */

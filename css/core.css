@@ -547,3 +547,28 @@ form.cf>.btn{grid-column:1/-1;justify-content:center;min-height:var(--t3h)}
 .bpost small{font-size:var(--t0);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .bpost b{font-family:var(--f-display);font-weight:400;font-size:var(--t1);line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
 @media (max-width:1023px){.bposts{grid-template-columns:minmax(0,1fr)}}
+.tier .tgain{margin:0;padding:var(--s2) var(--s3);border-radius:var(--r1);background:color-mix(in oklab,var(--lav) 16%,transparent);font-size:var(--t0h);line-height:1.5}
+.tier .tgain b{display:block;font-size:var(--t0);letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--accent);margin-bottom:var(--s0)}
+
+/* ───────── menu "Dịch vụ" (đầu trang) + trang dịch vụ trong menu điện thoại ───────── */
+.nav-dd{position:relative;display:flex}
+.nav-dd-b{display:inline-flex;align-items:center;gap:var(--s0);padding:var(--s2) 0;border:0;background:none;font:inherit;letter-spacing:inherit;color:var(--muted);cursor:pointer;transition:color var(--d1)}
+.nav-dd-b svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--d3) var(--ease)}
+.nav-dd:hover .nav-dd-b,.nav-dd.open .nav-dd-b,.nav-dd:focus-within .nav-dd-b{color:var(--ink)}
+.nav-dd.open .nav-dd-b svg,.nav-dd:hover .nav-dd-b svg{transform:rotate(180deg)}
+.nav-dd-m{position:absolute;top:100%;left:50%;width:300px;display:grid;padding:var(--s1);border:1px solid var(--line);border-radius:var(--r2);background:var(--bg);box-shadow:0 var(--s3) var(--s5) calc(var(--s3)*-1) var(--shadow);
+  opacity:0;visibility:hidden;transform:translate(-50%,var(--s1));transition:opacity var(--d2,.2s) var(--ease),transform var(--d3) var(--ease),visibility 0s var(--d3)}
+.nav-dd-m::before{content:"";position:absolute;inset:calc(var(--s2)*-1) 0 auto;height:var(--s2)}
+.nav-dd:hover .nav-dd-m,.nav-dd.open .nav-dd-m,.nav-dd:focus-within .nav-dd-m{opacity:1;visibility:visible;transform:translate(-50%,0);transition-delay:0s}
+.nav .nav-dd-m a{display:grid;gap:2px;padding:var(--s2) var(--s3);border-radius:var(--r1);letter-spacing:0;color:var(--ink)}
+.nav .nav-dd-m a::after{display:none}
+.nav .nav-dd-m a:hover,.nav .nav-dd-m a:focus-visible{background:color-mix(in oklab,var(--lav) 18%,transparent)}
+.nav-dd-m b{font-weight:500}
+.nav-dd-m small{font-size:var(--t0);color:var(--muted);font-weight:400}
+.menu-svc{position:relative;display:flex;flex-wrap:wrap;gap:var(--s1);opacity:0;transition:opacity var(--d3) var(--ease)}
+.menu.open .menu-svc{opacity:1;transition-delay:var(--d3)}
+.menu-svc small{flex:1 1 100%;font-size:var(--t0);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.menu-svc a{display:inline-flex;align-items:center;min-height:40px;padding:0 var(--s3);border:1px solid var(--line);border-radius:999px;background:var(--glass);text-decoration:none;font-size:var(--t0h)}
+.nav>a,.nav-dd-b{white-space:nowrap}
+@media (max-width:1100px){.nav{gap:var(--s3)}}
+@media (max-width:980px){.nav{gap:var(--s2)}.nav>a[href="#lab"]{display:none}}

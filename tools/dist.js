@@ -46,7 +46,7 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
     const out=await htmlmin(rd('demos/'+f).replace(/(?<![\w-])--phi(?![\w-])/g,'--k9').replace(/\bPHI\b/g,'Q9'),{collapseWhitespace:true,conservativeCollapse:true,removeComments:true,minifyCSS:true,minifyJS:{mangle:true,format:{comments:false}}});
     fs.mkdirSync(path.join(OUT,'demos'),{recursive:true});fs.writeFileSync(path.join(OUT,'demos',f),out);
   }
-  /* bài viết: gộp CSS blog thành b.css (gốc), nén từng trang blog/.../index.html, giữ nguyên đường dẫn */
+  /* bài viết + trang dịch vụ: gộp CSS blog thành b.css (gốc), nén từng trang blog/.../index.html và <slug>/index.html, giữ nguyên đường dẫn */
   let blogPages=0,bcssLen=0;
   if(ex('blog')){
     const bFiles=['css/fonts.css','css/tokens.css','css/base.css','css/blog.css'].filter(ex);
@@ -58,6 +58,8 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
     fs.writeFileSync(path.join(OUT,'b.css'),bc.code);bcssLen=bc.code.length;
     const walk=dir=>{for(const f of fs.readdirSync(path.join(R,dir),{withFileTypes:true})){const p=dir+'/'+f.name;if(f.isDirectory())walk(p);else if(f.name.endsWith('.html'))(blogQueue.push(p))}};
     const blogQueue=[];walk('blog');
+    /* trang dịch vụ (src/pages → <slug>/index.html) dùng chung khung và b.css với blog */
+    for(const p of require('./site.js').PAGES)if(ex(p.slug))walk(p.slug);
     for(const p of blogQueue){
       let h=rd(p);let first=true;
       h=h.replace(/<link rel="stylesheet" href="((?:\.\.\/)+)css\/[^"]+">\n?/g,(m,up)=>first?(first=false,`<link rel="stylesheet" href="${up}b.css">\n`):'');
@@ -73,5 +75,5 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
   /* CSS phông chữ được nạp từ a.css nên đường dẫn ../fonts phải đổi thành fonts/ */
   const a=path.join(OUT,'a.css');fs.writeFileSync(a,fs.readFileSync(a,'utf8').replaceAll('../fonts/','fonts/'));
   const size=d=>fs.readdirSync(d,{withFileTypes:true}).reduce((s,f)=>s+(f.isDirectory()?size(path.join(d,f.name)):fs.statSync(path.join(d,f.name)).size),0);
-  console.log('dist:',OUT,(size(OUT)/1048576).toFixed(1)+'MB','· css',(c.code.length/1024).toFixed(0)+'KB · js',(t.code.length/1024).toFixed(0)+'KB · biến CSS',map.size,'· vendor',[...vendorUsed].join(','),'· blog',blogPages,'trang, b.css',(bcssLen/1024).toFixed(0)+'KB');
+  console.log('dist:',OUT,(size(OUT)/1048576).toFixed(1)+'MB','· css',(c.code.length/1024).toFixed(0)+'KB · js',(t.code.length/1024).toFixed(0)+'KB · biến CSS',map.size,'· vendor',[...vendorUsed].join(','),'· blog + dịch vụ',blogPages,'trang, b.css',(bcssLen/1024).toFixed(0)+'KB');
 })().catch(e=>{console.error(e);process.exit(1)});
