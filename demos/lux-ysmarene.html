@@ -41,14 +41,6 @@ input,select,textarea{font:inherit;color:inherit;border-radius:0}
 .qv-x{position:absolute;z-index:3;width:42px;height:42px;display:grid;place-items:center;font-size:26px;line-height:1}
 .toast{position:fixed;left:50%;bottom:26px;z-index:130;transform:translate(-50%,26px);opacity:0;pointer-events:none;transition:opacity 424ms var(--ease),transform 424ms var(--ease);max-width:calc(100vw - 32px);padding:10px 26px;font-size:13px;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-.ph{position:relative;overflow:hidden;margin:0;background:var(--bg2)}
-.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1796ms var(--ease),filter 1110ms var(--ease)}
-.pe{position:relative;overflow:hidden}.pe>.ph{position:absolute;inset:0}.pe>.ph img{position:absolute;left:0;top:-9%;height:118%}
-.pg-g{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,19vw,300px);gap:10px}
-.pg-g .ph:first-child{grid-column:span 2;grid-row:span 2}.pg-4 .ph:nth-child(2){grid-column:span 2}
-.pg-g .ph:hover img{transform:scale(1.05)}
-.pg-g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;font-size:13px;line-height:1.38;pointer-events:none}
-@media(max-width:700px){.pg-g{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,52vw,260px);gap:6px}.pg-g .ph:first-child{grid-row:span 1}.pg-4 .ph:nth-child(2){grid-column:span 1}.pg-4 .ph:last-child{grid-column:span 2}}
 .back{position:fixed;left:16px;bottom:16px;z-index:60;min-height:42px;padding:0 16px;display:flex;align-items:center;font-size:13px;letter-spacing:.04em}
 .fm{min-height:26px;font-size:13px}
 @media (prefers-reduced-motion:reduce){.js [data-r],.js [data-r=lines] .ln>span{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}}
@@ -84,25 +76,41 @@ h1,h2{font-family:var(--fd);line-height:1.2}h2{font-size:clamp(33px,4.6vw,68px)}
 @media(max-width:900px){.hd nav,.hd .bt{display:none}.mb{display:inline-flex}.lg{font-size:16px}}
 /* đá */
 .tw{animation:tw 4.2s ease-in-out infinite alternate}@keyframes tw{0%,62%{opacity:1}100%{opacity:.42}}
-.off .tw,.off .spin{animation-play-state:paused}
+.off .tw,.off .spin,.off .hk,.off .hs{animation-play-state:paused}
 /* hero */
-.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:94px 0 42px;text-align:center}
-.hero canvas{position:absolute;inset:0;width:100%;height:100%}
-.hc{position:relative;display:grid;justify-items:center;width:100%}
-.hero .h1{font-family:var(--fd);font-size:clamp(42px,8vw,128px);line-height:1.14;position:relative;z-index:2;width:100%;animation:up 2s .3s var(--ease) both;pointer-events:none;padding:0 max(16px,7vw)}
-.hero .h1.a{text-align:left}.hero .h1.b{text-align:right;animation-delay:.6s}.h1 i{font-style:normal;background:linear-gradient(100deg,#fff 0,var(--acc) 38%,#fff 62%,var(--acc) 100%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shm 6.8s linear infinite}
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;padding:94px 0 68px}
+.hb{position:absolute;inset:-3% auto -3% -24%;width:100%;will-change:transform}
+.hb>div,.hk{position:absolute;inset:0}
+.hk{transform-origin:50% 52%;animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.07)}to{transform:scale(1)}}
+.hk img{width:100%;height:100%;object-fit:cover}
+.hk canvas{position:absolute;inset:0;width:100%;height:100%}
+.hs{position:absolute;inset:0 -60%;background:linear-gradient(105deg,transparent 43%,rgba(190,225,255,.22) 50%,transparent 57%);mix-blend-mode:screen;animation:cs 11s ease-in-out infinite;pointer-events:none}
+@keyframes cs{0%{transform:translateX(-45%)}62%,100%{transform:translateX(45%)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 40%,rgba(8,13,28,.92) 68%,var(--bg) 76%),linear-gradient(180deg,rgba(8,13,28,.72),transparent 24%,transparent 70%,var(--bg));pointer-events:none}
+.hc{position:relative;z-index:2;display:grid;grid-template-columns:1fr min(42%,560px);justify-items:start;text-align:left}
+.hc>*{grid-column:2}
+.hero .h1{font-family:var(--fd);font-size:clamp(42px,5.2vw,88px);line-height:1.14;white-space:nowrap;pointer-events:none}
+.h1 i{font-style:normal;background:linear-gradient(100deg,#fff 0,var(--acc) 38%,#fff 62%,var(--acc) 100%) 0 0/200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shm 6.8s linear infinite}
+.h1 .c{display:inline-block;animation:ch 1.5s calc(.5s + var(--c)*52ms) var(--ease) both}
+.h1.sp i{background:none;animation:none}.h1 i .c{background:linear-gradient(120deg,#fff,var(--acc));-webkit-background-clip:text;background-clip:text}
+@keyframes ch{from{opacity:0;transform:translateY(.46em) rotate(5deg)}to{opacity:1;transform:none}}
 @keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-.hgem{width:min(46vh,424px,72vw);aspect-ratio:1;margin:-10vh 0;animation:gi 2.9s var(--ease) both;filter:drop-shadow(0 0 68px rgba(134,169,220,.5))}
+.hgem{width:94px;aspect-ratio:1;margin:0 0 26px -6px;animation:gi 2.9s var(--ease) both;filter:drop-shadow(0 0 26px rgba(134,169,220,.6))}
 @keyframes gi{from{opacity:0;transform:scale(.62) rotate(-42deg)}to{opacity:1;transform:none}}
 .hgem svg{width:100%;height:100%;overflow:visible;animation:fl 6.8s ease-in-out infinite alternate}
-@keyframes fl{to{transform:translateY(-16px)}}
+@keyframes fl{to{transform:translateY(-10px)}}
 .spin{transform-box:fill-box;transform-origin:center;animation:sp 110s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
-.hf{display:grid;gap:26px;justify-items:center;margin-top:42px;animation:up 2s .9s var(--ease) both;padding:0 16px}
-.hf p{color:var(--mut);max-width:30em}
-@media(max-width:700px){.hgem{margin:-26px 0}}
+.hero .k{margin-bottom:16px;animation:up 2s .3s var(--ease) both}
+.hf{display:grid;gap:26px;justify-items:start;margin-top:26px;animation:up 2s 1.5s var(--ease) both}
+.hf p{color:var(--ink);max-width:26em}
+@media(max-width:900px){.hero{align-items:end;padding-bottom:94px}.hb{inset:0 auto auto -3%;width:106%;height:66svh}
+.hero::after{background:linear-gradient(180deg,rgba(8,13,28,.6),transparent 16%,transparent 34%,rgba(8,13,28,.86) 56%,var(--bg) 66%)}
+.hc{grid-template-columns:1fr;justify-items:center;text-align:center}.hc>*{grid-column:1}.hgem{width:56px;margin:0 0 10px}.hf{justify-items:center}}
 /* câu chuyện */
 .st3{display:grid;gap:42px;position:relative}
 @media(min-width:900px){.st3{grid-template-columns:repeat(3,1fr);gap:68px}.st3::before{content:"";position:absolute;left:16.6%;right:16.6%;top:34px;height:1px;background:linear-gradient(90deg,transparent,var(--acc),transparent)}}
+.js .st3[data-r]{opacity:1;transform:none}.js .st3::before{transform:scaleX(0);transition:transform 2.2s .2s var(--ease)}.js .st3.in::before{transform:none}
 .st3 li{text-align:center;display:grid;gap:10px;justify-items:center;align-content:start}
 .st3 b{width:68px;height:68px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font:400 20px var(--fd);color:var(--acc);background:var(--bg);position:relative;margin-bottom:16px;box-shadow:0 0 26px rgba(169,200,240,.16)}
 .st3 h3{font:400 26px var(--fd)}.st3 p{color:var(--mut);max-width:20em}
@@ -173,22 +181,45 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line);o
 .toast{background:var(--ink);color:var(--bg);border-radius:99px}
 .back{border-radius:99px;border:1px solid var(--line);background:rgba(8,13,28,.72);backdrop-filter:blur(10px);color:var(--acc)}
 /*PH-CSS*/
-.pe{height:clamp(520px,100svh,960px);display:grid;align-items:center;text-align:center}
-.pe>.ph{background:var(--bg)}
-.pe>.ph img{object-position:50% 50%;filter:saturate(.8) hue-rotate(6deg) brightness(.82) contrast(1.08)}
-.pe::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 62% 54% at 50% 50%,rgba(8,13,28,.62),transparent 80%),linear-gradient(180deg,var(--bg) 0,transparent 26%,transparent 74%,var(--bg) 100%);pointer-events:none}
-.pe-t{position:relative;z-index:2;display:grid;justify-items:center}
-.pe-t h2{font-size:clamp(42px,6.6vw,96px);text-shadow:0 0 42px rgba(8,13,28,.8)}
-.pe-c{color:var(--ink);max-width:28em;margin-top:26px;text-shadow:0 0 16px rgba(8,13,28,.9)}
-.pg-g{gap:16px}
-.pg-g .ph{border-radius:26px;border:1px solid var(--line);transition:box-shadow 1110ms var(--ease)}
-.pg-g .ph:first-child{border-radius:999px 999px 26px 26px}
-.pg-g img{filter:saturate(.84) brightness(.9) contrast(1.04)}
-.pg-g .ph:hover{box-shadow:0 0 68px rgba(134,169,220,.3)}
-.pg-g .ph:hover img{filter:none}
-.pg-g .ph:nth-child(3) img{object-position:50% 30%}.pg-g .ph:nth-child(5) img{object-position:50% 46%}
-.pg-g figcaption{text-align:center;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:linear-gradient(0deg,rgba(8,13,28,.86),transparent)}
-@media(max-width:700px){.pg-g figcaption{font-size:10px;letter-spacing:.12em;padding:26px 10px 10px}.pe::after{background:linear-gradient(180deg,var(--bg) 0,rgba(8,13,28,.5) 26%,rgba(8,13,28,.72) 50%,rgba(8,13,28,.5) 74%,var(--bg) 100%)}}
+.gx-c{position:relative;min-height:68svh;display:grid;align-items:end;overflow:hidden}
+.gx-c figure{position:absolute;inset:0;margin:0;overflow:hidden}
+.gx-c img{width:100%;height:100%;object-fit:cover;object-position:var(--o,50% 50%)}
+.gx-c figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,28,.9),rgba(8,13,28,.5) 34%,transparent 62%),linear-gradient(180deg,var(--bg),transparent 20%,transparent 72%,var(--bg))}
+.gx-t{position:relative;z-index:2;padding-top:110px;padding-bottom:68px}
+.gx-t h2{font-size:clamp(33px,4.2vw,66px);margin:16px 0 26px}
+.gx-t>p:not(.k){max-width:25em}
+.gx-n{display:flex;align-items:baseline;gap:16px;margin-top:26px;padding-top:16px;position:relative;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);max-width:30em!important}
+.gx-n::before{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:linear-gradient(90deg,var(--acc),transparent);transform-origin:0 0}
+.gx-n b{font:400 53px/1 var(--fd);color:var(--ink);letter-spacing:0;min-width:1.2em}
+.gx-e,.gx-k{display:none}
+.mo .gx{height:260svh}
+.mo .gx-s{position:sticky;top:0;height:100svh;overflow:hidden}
+.mo .gx-c{position:absolute;inset:0;min-height:0}
+.mo .gx-c figure,.mo .gx-c img{will-change:transform,clip-path}
+.mo .gx-c+.gx-c figure{clip-path:polygon(50% 50%,50% 50%,50% 50%,50% 50%)}
+.mo .gx-t{opacity:0;transform:translateY(26px);pointer-events:none;transition:opacity .7s var(--ease),transform .9s var(--ease)}
+.mo .on .gx-t{opacity:1;transform:none;pointer-events:auto;transition:opacity 1.2s .3s var(--ease),transform 1.4s .3s var(--ease)}
+.mo .gx-n::before{transform:scaleX(0);transition:transform 1.8s .5s var(--ease)}.mo .on .gx-n::before{transform:none}
+.mo .gx-e{display:block;position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0;pointer-events:none;overflow:visible}
+.mo .gx-k{display:block;position:absolute;z-index:2;right:max(16px,4.2vw);bottom:26px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);min-height:1.6em}
+.mo .gx-k::after{content:"";display:inline-block;width:1px;height:1em;margin-left:6px;vertical-align:-2px;background:var(--acc);animation:tw .6s steps(2) infinite alternate}
+.lb{overflow:hidden}
+.lb-t{position:relative;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(16px,4.2vw) 16px;scrollbar-width:none}
+.lb-t::-webkit-scrollbar{display:none}
+.lc{position:relative;flex:0 0 74vw;aspect-ratio:3/4;margin:0;border-radius:26px;overflow:hidden;border:1px solid var(--line);scroll-snap-align:center;background:var(--bg2)}
+.lc:first-child{border-radius:999px 999px 26px 26px}
+.lc img{width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;transform:scale(1.02);transition:transform 1.8s var(--ease)}
+.lc::before{content:"";position:absolute;inset:0;z-index:1;background:rgba(8,13,28,.4);transition:opacity 1.1s var(--ease)}
+.lc::after{content:"";position:absolute;inset:-20% -70%;z-index:1;background:linear-gradient(105deg,transparent 45%,rgba(255,255,255,.3) 50%,transparent 55%);transform:translateX(-62%);transition:transform 1.5s var(--ease);pointer-events:none}
+.lc:hover::before,.lc.on::before{opacity:0}.lc:hover::after,.lc.on::after{transform:translateX(62%)}.lc:hover img,.lc.on img{transform:scale(1.08)}
+.lc figcaption{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:42px 10px 16px;text-align:center;font-size:13px;letter-spacing:.2em;text-transform:uppercase;background:linear-gradient(0deg,rgba(8,13,28,.86),transparent);pointer-events:none}
+.lb-h{display:none}
+@media(min-width:900px){.lb-t{display:grid;grid-template-columns:repeat(5,1fr);overflow:visible}}
+@media(max-width:899px){.lb-h{display:block;text-align:center;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);margin-top:10px}}
+@media(max-width:899px){.gx-c figure{bottom:38%}.gx-c figure::after{background:linear-gradient(180deg,var(--bg),transparent 18%,transparent 52%,var(--bg) 97%)}.gx-e{height:62%!important}html:not(.mo) .gx-c{display:block;min-height:0}html:not(.mo) .gx-c figure{position:relative;inset:auto;height:52svh}html:not(.mo) .gx-t{padding-top:16px;padding-bottom:42px}.gx-t{padding-bottom:78px}.gx-t h2{margin:10px 0 16px}.gx-n{margin-top:16px}.mo .gx-k{top:78px;bottom:auto;left:16px;right:auto;letter-spacing:.1em;white-space:nowrap}}
+@media(min-width:900px){.gx-c:first-child figure{transform-origin:0 34%;transform:scale(1.26)}}
+.dg .lb-t{display:flex;width:max-content;gap:3vw;align-items:center;padding-block:42px 68px;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;will-change:transform}
+.dg .lc{flex:0 0 calc(var(--w)*1vw);aspect-ratio:var(--a);will-change:transform}
 /*/PH-CSS*/
 </style>
 </head>
@@ -205,11 +236,13 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line);o
 
 <main>
 <section class="hero" id="top">
- <canvas id="sky" aria-hidden="true"></canvas>
- <div class="hc">
+ <div class="hb" id="hb"><div data-px=".16"><div class="hk"><img src="../img/photo/trang-suc-30852409-xl.webp" width="2400" height="1600" alt="Chiếc nhẫn eternity nạm đá baguette đứng trên mặt nước gợn sóng dưới ánh sáng xanh lam" decoding="async" fetchpriority="high"><canvas id="sky" aria-hidden="true"></canvas></div></div></div>
+ <i class="hs" aria-hidden="true"></i>
+ <div class="hc w">
+  <div class="hgem" id="hgem"></div>
+  <p class="k">Nhà kim hoàn · Chế tác riêng</p>
   <h1 class="vh">Ánh sáng, cắt bằng tay.</h1>
   <p class="h1 a" aria-hidden="true">Ánh sáng,</p>
-  <div class="hgem" id="hgem" data-px=".06"></div>
   <p class="h1 b" aria-hidden="true"><i>cắt bằng tay.</i></p>
   <div class="hf"><p>Nhà kim hoàn chế tác riêng: kim cương tự nhiên có chứng thư độc lập, nạm tay trên bạch kim và vàng 18K.</p><a class="bt" href="#bo-suu-tap">Khám phá bộ sưu tập</a></div>
  </div>
@@ -217,12 +250,17 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line);o
 
 
 <!--PH-ED-->
-<section class="pe" aria-label="Ảnh không khí của nhà Ysmarène"><figure class="ph" data-r="mask"><img src="../img/photo/trang-suc-30852409.webp" width="1600" height="1067" alt="Chiếc nhẫn eternity nạm đá baguette đứng trên mặt nước gợn sóng dưới ánh sáng xanh lam" decoding="async" loading="lazy" data-px=".12"></figure><div class="pe-t w"><p class="k" data-r>Ánh sáng · Nước</p><h2 data-r style="margin-top:16px">Mỗi viên đá<br><i>giữ một tia sáng.</i></h2><p class="pe-c" data-r>Ánh sáng đi vào, dội qua năm mươi bảy giác cắt, rồi quay về mắt người nhìn.</p></div></section>
+<section class="gx" id="giac" aria-label="Ánh sáng và giác cắt"><div class="gx-s">
+<article class="gx-c" data-cap="01 / 03 · Solitaire trên nền nhung đêm"><figure><img src="../img/photo/trang-suc-9953654.webp" width="1280" height="1600" alt="Nhẫn solitaire kim cương bốn chấu cài trên nếp da đen, nền tối" decoding="async" loading="lazy" style="--o:50% 36%"></figure><div class="gx-t w"><p class="k">Giác cắt</p><h2>Mỗi viên đá<br><i>giữ một tia sáng.</i></h2><p>Ánh sáng đi vào, dội qua năm mươi bảy giác cắt, rồi quay về mắt người nhìn.</p><p class="gx-n"><b data-n="57">57</b>giác trên một viên tròn</p></div></article>
+<article class="gx-c" data-cap="02 / 03 · Nhẫn xoắn giữa pha lê hổ phách"><figure><img src="../img/photo/trang-suc-9420694.webp" width="1600" height="1067" alt="Nhẫn kim cương thân xoắn nằm giữa những hạt pha lê màu hổ phách" decoding="async" loading="lazy" style="--o:42% 50%"></figure><div class="gx-t w"><p class="k">Màu</p><h2>Nước đá<br><i>từ D đến H.</i></h2><p>Càng gần D, viên đá càng trong. Sắc ấm chỉ lộ ra khi đặt hai viên cạnh nhau dưới cùng một nguồn sáng.</p><p class="gx-n"><b data-n="5">5</b>cấp màu để thử ở phần Chọn đá</p></div></article>
+<article class="gx-c" data-cap="03 / 03 · Ba viên giác bậc thang trên tay"><figure><img src="../img/photo/trang-suc-32652451.webp" width="1600" height="1600" alt="Bàn tay đeo nhẫn kim cương giác baguette trên nền tối" decoding="async" loading="lazy" style="--o:60% 30%"></figure><div class="gx-t w"><p class="k">Độ tinh khiết</p><h2>Một trăm viên,<br><i>giữ lại ba.</i></h2><p>Chỉ nhận đá từ VS1 trở lên: tạp chất nhỏ đến mức mắt thường không thể thấy.</p><p class="gx-n"><b data-n="3">3</b>viên được giữ trong mỗi trăm viên</p></div></article>
+<svg class="gx-e" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M50 0L100 50 50 100 0 50z" fill="none" stroke="#cfe1fb" vector-effect="non-scaling-stroke"/></svg><p class="gx-k" id="fcc" aria-hidden="true"></p>
+</div></section>
 <!--/PH-ED-->
 
 <section class="sec" id="che-tac"><div class="w">
  <div class="hdg"><p class="k" data-r>Chế tác</p><h2 data-r>Từ viên đá thô<br>đến <i>ánh lửa</i></h2></div>
- <ol class="st3">
+ <ol class="st3" data-r>
   <li data-r><b>I</b><h3>Tuyển đá</h3><p>Trong một trăm viên được gửi đến, chúng tôi giữ lại ba. Chỉ nhận đá nước D đến H, độ tinh khiết từ VS1.</p></li>
   <li data-r style="--i:1"><b>II</b><h3>Cắt 57 giác</h3><p>Người thợ cắt đọc thớ đá nhiều ngày trước khi chạm đĩa mài. Một góc lệch nửa độ là mất lửa.</p></li>
   <li data-r style="--i:2"><b>III</b><h3>Nạm tay</h3><p>Mỗi chấu được uốn dưới kính hiển vi. Ổ nạm mở đáy để ánh sáng đi xuyên qua viên đá.</p></li>
@@ -248,7 +286,7 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line);o
 
 
 <!--PH-LB-->
-<section class="sec pg" id="tren-tay"><div class="w"><div class="hdg"><p class="k" data-r>Trên tay</p><h2 data-r>Đeo hằng ngày, <i>giữ trọn đời</i></h2><p class="t" data-r>Những khoảnh khắc trang sức gắn với người đeo. Ảnh minh họa không khí, không phải ảnh sản phẩm của nhà.</p></div><div class="pg-g pg-5"><figure class="ph" data-r="mask" style="--i:0"><img src="../img/photo/trang-suc-9953654.webp" width="1280" height="1600" alt="Nhẫn solitaire kim cương bốn chấu cài trên nếp da đen, nền tối" decoding="async" loading="lazy"><figcaption>Solitaire · Nền nhung đêm</figcaption></figure><figure class="ph" data-r="mask" style="--i:1"><img src="../img/photo/trang-suc-32652451.webp" width="1600" height="1600" alt="Bàn tay đeo nhẫn kim cương giác baguette trên nền tối" decoding="async" loading="lazy"><figcaption>Ba viên · Giác bậc thang</figcaption></figure><figure class="ph" data-r="mask" style="--i:2"><img src="../img/photo/trang-suc-19646999.webp" width="1067" height="1600" alt="Người mẫu đeo vòng cổ kim cương có mặt đá xanh lục và nhẫn xoắn" decoding="async" loading="lazy"><figcaption>Vòng cổ · Lục bảo</figcaption></figure><figure class="ph" data-r="mask" style="--i:3"><img src="../img/photo/trang-suc-16438530.webp" width="1600" height="1600" alt="Nhẫn kim cương giọt nước viền đá tấm hình chữ V đặt trên khối trắng" decoding="async" loading="lazy"><figcaption>Giọt nước · Viền sương</figcaption></figure><figure class="ph" data-r="mask" style="--i:4"><img src="../img/photo/trang-suc-36119440.webp" width="900" height="1600" alt="Bàn tay đeo chiếc nhẫn vàng hồng mảnh với một viên kim cương nhỏ" decoding="async" loading="lazy"><figcaption>Nhẫn mảnh · Vàng hồng</figcaption></figure></div></div></section>
+<section class="sec lb" id="tren-tay"><div class="w"><div class="hdg"><p class="k" data-r>Trên tay</p><h2 data-r>Đeo hằng ngày, <i>giữ trọn đời</i></h2><p class="t" data-r>Những khoảnh khắc trang sức gắn với người đeo. Ảnh minh họa không khí, không phải ảnh sản phẩm của nhà.</p></div></div><div class="lb-t" data-c="Kéo"><figure class="lc" style="--w:25;--a:4/5"><img src="../img/photo/trang-suc-9953654.webp" width="1280" height="1600" alt="Nhẫn solitaire kim cương bốn chấu cài trên nếp da đen, nền tối" decoding="async" loading="lazy" draggable="false"><figcaption>Solitaire · Nền nhung đêm</figcaption></figure><figure class="lc" style="--w:35;--a:3/2"><img src="../img/photo/trang-suc-30852409.webp" width="1600" height="1067" alt="Chiếc nhẫn eternity nạm đá baguette đứng trên mặt nước xanh" decoding="async" loading="lazy" draggable="false"><figcaption>Eternity · Mặt nước</figcaption></figure><figure class="lc" style="--w:22;--a:2/3"><img src="../img/photo/trang-suc-19646999.webp" width="1067" height="1600" alt="Người mẫu đeo vòng cổ kim cương có mặt đá xanh lục và nhẫn xoắn" decoding="async" loading="lazy" draggable="false"><figcaption>Vòng cổ · Lục bảo</figcaption></figure><figure class="lc" style="--w:26;--a:1"><img src="../img/photo/trang-suc-16438530.webp" width="1600" height="1600" alt="Nhẫn kim cương giọt nước viền đá tấm hình chữ V đặt trên khối trắng" decoding="async" loading="lazy" draggable="false"><figcaption>Giọt nước · Viền sương</figcaption></figure><figure class="lc" style="--w:19;--a:9/16"><img src="../img/photo/trang-suc-36119440.webp" width="900" height="1600" alt="Bàn tay đeo chiếc nhẫn vàng hồng mảnh với một viên kim cương nhỏ" decoding="async" loading="lazy" draggable="false"><figcaption>Nhẫn mảnh · Vàng hồng</figcaption></figure></div><p class="lb-h" aria-hidden="true">Vuốt ngang để xem</p></section>
 <!--/PH-LB-->
 
 <section class="sec c4" id="hen"><div class="w bk">
@@ -351,11 +389,40 @@ const J=[
  {n:'Sao Băng',t:'Trâm cài',g:'Vòng tay & trâm',p:42e7,c:['1,6 ct','Fancy yellow','VS1','Brilliant'],d:'Trâm cài tám tia quanh một viên kim cương vàng. Cài ve áo hoặc búi tóc.'}];
 /* hero */
 const hg=$('#hgem');hg.innerHTML=`<svg viewBox="-104 -104 208 208" role="img" aria-label="Viên kim cương giác tròn nhìn từ trên xuống"><g class="spin"><circle r="102" fill="none"/>${gem('br','d',100,1)}</g></svg>`;
-const sky=$('#sky'),hero=$('.hero');let sx,pts=[],run=0;
-const fit=()=>{const d=Math.min(devicePixelRatio||1,1.5);sky.width=hero.clientWidth*d;sky.height=hero.clientHeight*d;sx=sky.getContext('2d');sx.setTransform(d,0,0,d,0,0);pts=Array.from({length:Math.round(hero.clientWidth/22)},(_,i)=>({x:rnd(i,1)*hero.clientWidth,y:rnd(i,2)*hero.clientHeight,r:1+rnd(i,3)*4.2,p:rnd(i,4)*6.28,s:.4+rnd(i,5)*1.2}))};
-const draw=t=>{sx.clearRect(0,0,sky.width,sky.height);pts.forEach(p=>{const a=.5+.5*Math.sin(p.p+t*.001*p.s);sx.globalAlpha=a*.9;sx.strokeStyle='#cfe1fb';sx.lineWidth=.8;const r=p.r*(.6+a*.6);sx.beginPath();sx.moveTo(p.x-r,p.y);sx.lineTo(p.x+r,p.y);sx.moveTo(p.x,p.y-r);sx.lineTo(p.x,p.y+r);sx.stroke()});if(run)requestAnimationFrame(draw)};
-fit();draw(0);addEventListener('resize',()=>{fit();run||draw(0)});
+$$('.hero .h1').forEach((p,k)=>{let n=k*9;const w=e=>[...e.childNodes].forEach(c=>{if(c.nodeType===3){const f=D.createDocumentFragment();[...c.data].forEach(ch=>{if(ch===' ')return f.append(' ');const s=D.createElement('span');s.className='c';s.style.setProperty('--c',n++);s.textContent=ch;f.append(s)});c.replaceWith(f)}else w(c)});w(p);p.classList.add('sp')});
+const sky=$('#sky'),hero=$('.hero'),hb=$('#hb'),hc=$('.hc');let sx,W,Hc,pts=[],run=0,mx=0,my=0,ax=0,ay=0;
+const fit=()=>{const d=Math.min(devicePixelRatio||1,1.5);W=sky.clientWidth;Hc=sky.clientHeight;sky.width=W*d;sky.height=Hc*d;sx=sky.getContext('2d');sx.setTransform(d,0,0,d,0,0);
+ const s=Math.max(W/3,Hc/2),ox=(W-3*s)/2,oy=(Hc-2*s)/2,n=W<700?9:16;
+ pts=Array.from({length:n},(_,i)=>{const g=i<n*.6;return{x:ox+3*s*(g?.33+rnd(i,1)*.36:rnd(i,1)),y:oy+2*s*(g?.2+rnd(i,2)*.56:.5+rnd(i,2)*.42),r:(g?9:5)+rnd(i,3)*(g?17:8),p:rnd(i,4)*6.28,s:.5+rnd(i,5)*.9}})};
+const draw=t=>{sx.clearRect(0,0,W,Hc);sx.fillStyle='#eef5ff';pts.forEach(p=>{const a=Math.pow(.5+.5*Math.sin(p.p+t*.0011*p.s),6);if(a<.02)return;const r=p.r*(.5+a*.5),k=r*.08,x=p.x,y=p.y;sx.globalAlpha=a;sx.beginPath();sx.moveTo(x-r,y);sx.quadraticCurveTo(x-k,y-k,x,y-r);sx.quadraticCurveTo(x+k,y-k,x+r,y);sx.quadraticCurveTo(x+k,y+k,x,y+r);sx.quadraticCurveTo(x-k,y+k,x-r,y);sx.fill();sx.globalAlpha=a*.3;sx.beginPath();sx.arc(x,y,r*.3,0,7);sx.fill()});
+ if(run){ax+=(mx-ax)*.05;ay+=(my-ay)*.05;hb.style.transform=`translate3d(${(-ax*20).toFixed(1)}px,${(-ay*12).toFixed(1)}px,0)`;hc.style.transform=`translate3d(${(ax*9).toFixed(1)}px,${(ay*6).toFixed(1)}px,0)`;requestAnimationFrame(draw)}};
+fit();draw(900);addEventListener('resize',()=>{fit();run||draw(900)});
+FINE&&hero.addEventListener('mousemove',e=>{mx=e.clientX/innerWidth*2-1;my=e.clientY/innerHeight*2-1},{passive:true});
 if('IntersectionObserver' in window)new IntersectionObserver(e=>{const v=e[0].isIntersecting;hero.classList.toggle('off',!v);if(v&&!run&&!RM){run=1;requestAnimationFrame(draw)}else if(!v)run=0}).observe(hero);
+/* cảnh ghim giác cắt */
+const fc=$('#giac'),IO=(el,f)=>new IntersectionObserver(e=>f(e[0].isIntersecting)).observe(el),cl=v=>Math.max(0,Math.min(1,v));
+if(fc&&!RM&&'IntersectionObserver' in window){H.classList.add('mo');const cs=$$('.gx-c',fc),fg=cs.map(c=>$('figure',c)),im=cs.map(c=>$('img',c)),ed=$('.gx-e',fc),cap=$('#fcc');let ci=-1,vis=0,pp=-1,ty;
+ const set=i=>{if(i===ci)return;ci=i;cs.forEach((c,k)=>c.classList.toggle('on',k===i));if(i<0)return;
+  const b=$('[data-n]',cs[i]);if(!b.d){b.d=1;const n=+b.dataset.n,t0=performance.now();(function f(t){const q=cl((t-t0)/1600);b.textContent=Math.round(n*(1-Math.pow(1-q,3)));q<1&&requestAnimationFrame(f)})(t0)}
+  const s=cs[i].dataset.cap;let k=0;clearInterval(ty);ty=setInterval(()=>{cap.textContent=s.slice(0,++k);k>=s.length&&clearInterval(ty)},38)};
+ const tick=()=>{if(!vis)return;const r=fc.getBoundingClientRect(),vh=innerHeight,t=cl(-r.top/(r.height-vh));pp+=(t-pp)*(pp<0?1:.16);let qe=0;
+  [1,2].forEach(i=>{let q=cl((pp-i*.4+.26)/.32);q=q*q*(3-2*q);if(q>0&&q<1)qe=q;const a=(50-q*100).toFixed(2),b=(50+q*100).toFixed(2);fg[i].style.clipPath=`polygon(50% ${a}%,${b}% 50%,50% ${b}%,${a}% 50%)`;im[i].style.transform=`scale(${(1.22-.22*q).toFixed(3)})`});
+  im[0].style.transform=`scale(${(1.1-.1*pp).toFixed(3)})`;ed.style.transform=`scale(${(2*qe).toFixed(3)})`;ed.style.opacity=cl(16*qe*(.5-qe)).toFixed(2);
+  set(r.top>vh*.5?-1:pp<.3?0:pp<.7?1:2);requestAnimationFrame(tick)};
+ IO(fc,v=>{const w=vis;vis=v;v&&!w&&requestAnimationFrame(tick)})}
+/* lookbook trôi */
+const lb=$('#tren-tay'),lt=$('.lb-t'),lcs=$$('.lc');
+if(FINE&&!RM&&'IntersectionObserver' in window){lb.classList.add('dg');let x=0,v=0,dn=0,lx=0,lm=0,vis=0,trv=0,fst=1;
+ const ms=()=>{trv=Math.max(0,lt.scrollWidth-lb.clientWidth)};ms();addEventListener('resize',ms);
+ lt.addEventListener('pointerdown',e=>{dn=1;lx=e.clientX;v=0;lt.setPointerCapture(e.pointerId);lt.style.cursor='grabbing'});
+ lt.addEventListener('pointermove',e=>{if(!dn)return;const d=e.clientX-lx;lx=e.clientX;lm=performance.now();x+=d*(x>0||x<-trv?.36:1);v=d});
+ const up=()=>{if(!dn)return;dn=0;lt.style.cursor='';if(performance.now()-lm>90)v=0};lt.addEventListener('pointerup',up);lt.addEventListener('pointercancel',up);
+ const tick=t=>{if(!vis)return;if(!dn){x+=v;v*=.955;if(x>0){x*=.86;v*=.5}else if(x<-trv){x+=(-trv-x)*.14;v*=.5}}
+  lt.style.transform=`translate3d(${x.toFixed(1)}px,0,0)`;const u=cl(Math.abs(v)/60)*Math.sign(v);
+  lcs.forEach((c,i)=>{const o=i%2?-1:1;c.style.transform=`translate3d(${(u*o*14).toFixed(1)}px,${(o*34+Math.sin(t*.0007*(1+i*.23)+i*2.1)*11).toFixed(1)}px,0) rotate(${(u*o*1.4).toFixed(2)}deg)`});
+  requestAnimationFrame(tick)};
+ IO(lb,s=>{const w=vis;vis=s;if(s&&!w){ms();if(fst){fst=0;v=-trv*.022;lcs.forEach(c=>$('img',c).loading='eager')}requestAnimationFrame(tick)}})}
+else if(!FINE){const ct=()=>{const m=lt.scrollLeft+lt.clientWidth/2;lcs.forEach(c=>c.classList.toggle('on',Math.abs(c.offsetLeft+c.offsetWidth/2-m)<c.offsetWidth/2))};lt.addEventListener('scroll',ct,{passive:true});ct()}
 /* 4C */
 const GD=[['D','không màu',['#16264f','#86a9dc','#ffffff'],1],['F','không màu',['#1a2a50','#92acd4','#ffffff'],.86],['H','gần không màu',['#262c48','#a3aec4','#fffdf6'],.68],['J','gần không màu',['#34321f','#b9b596','#fffbe6'],.52],['L','phớt vàng',['#42380f','#cdbf7c','#fff6cc'],.38]];
 let gi=0;const c4=$('#c4g'),ct=$('#ct'),gd=$('#gd'),vn=n=>n.toFixed(1).replace('.',',');
@@ -363,7 +430,8 @@ gd.innerHTML=GD.map((g,i)=>`<button data-g="${i}" class="${i?'':'on'}" aria-pres
 const c4u=re=>{const v=+ct.value,k=Math.cbrt(v/5);if(re)c4.innerHTML=gem('br',GD[gi][2],100,0);$('#c4s').style.setProperty('--k',(.42+.58*k).toFixed(3));
  $('#ctv').textContent=vn(v)+' ct';ct.setAttribute('aria-valuetext',vn(v)+' carat');$('#c4o').innerHTML=`<b>${vn(v)} carat</b>đường kính ≈ ${vn(6.5*Math.cbrt(v))} mm`;$('#gdv').textContent=GD[gi][0]+' · '+GD[gi][1];
  $('#est').textContent='Từ '+vnd(Math.round(21e7*Math.pow(v,1.9)*GD[gi][3]/1e7)*1e7)};
-c4u(1);ct.addEventListener('input',()=>c4u());
+c4u(1);let cu=0;ct.addEventListener('input',()=>{cu=1;c4u()});
+if(!RM&&'IntersectionObserver' in window){const o=new IntersectionObserver(e=>{if(!e[0].isIntersecting)return;o.disconnect();const t0=performance.now();(function f(t){if(cu)return;const q=cl((t-t0)/1800);ct.value=(.5+1.5*(1-Math.pow(1-q,4))).toFixed(1);c4u();q<1&&requestAnimationFrame(f)})(t0)},{threshold:.5});o.observe($('#c4s'))}
 gd.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;gi=+b.dataset.g;$$('button',gd).forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});c4u(1)});
 /* bộ sưu tập */
 const gr=$('#gr'),fl=$('#fl'),mt=$('#mt'),F=['Tất cả',...new Set(J.map(j=>j.g))];
