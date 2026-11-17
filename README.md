@@ -6,11 +6,14 @@ Trang tĩnh thuần HTML/CSS/JS, không cần máy chủ hay bước cài đặt
 
 ## Đưa lên mạng
 
-**GitHub Pages (đang dùng):** repo phải ở chế độ công khai. Settings → Pages → Deploy from a branch → `main` / `/ (root)`. File `CNAME` giữ tên miền `dreamlabs.vn`, file `.nojekyll` để GitHub phục vụ nguyên các file tĩnh. DNS ở Mắt Bão: 4 bản ghi A `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; CNAME `www` → `harryle1001.github.io`.
+Repo này (riêng tư) chứa mã nguồn. Mỗi lần đẩy code lên `main`, GitHub Actions (`.github/workflows/deploy.yml`) tự đóng gói bản nén bằng `npm run dist` rồi đẩy sang repo công khai `dreamlabs-web`, nơi GitHub Pages phục vụ https://dreamlabs.vn sau khoảng 1–2 phút.
 
-**Cloudflare Pages / Vercel / Netlify:** nối repo này, để trống lệnh build, thư mục xuất bản là thư mục gốc (`/`). Trang chủ là `index.html`.
+Cần cài một lần:
+1. Repo công khai `dreamlabs-web` (trống). Đổi tên khác thì khai báo biến `SITE_REPO` trong Settings → Secrets and variables → Actions → Variables.
+2. Secret `DEPLOY_TOKEN` trong repo này: fine-grained token chỉ cho repo `dreamlabs-web`, quyền Contents: Read and write.
+3. Trong `dreamlabs-web`: Settings → Pages → Deploy from a branch → `main` / `/ (root)`, Custom domain `dreamlabs.vn`.
 
-**Hosting thường:** tải toàn bộ thư mục lên `public_html`.
+Đóng gói thử trên máy: `npm install` rồi `npm run dist`, kết quả nằm ở thư mục `dist/`.
 
 ## Sửa nội dung
 

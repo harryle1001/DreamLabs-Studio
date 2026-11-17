@@ -1,0 +1,15 @@
+{
+  "name": "dreamlabs-studio",
+  "private": true,
+  "description": "Mã nguồn website Dream Labs. Đóng gói bản phát hành bằng: npm run dist",
+  "scripts": {
+    "build": "node build.js",
+    "dist": "node tools/dist.js dist",
+    "serve": "node serve.js 4100"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "7.2.0",
+    "lightningcss": "1.30.1",
+    "terser": "5.39.0"
+  }
+}
