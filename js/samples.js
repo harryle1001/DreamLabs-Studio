@@ -215,7 +215,7 @@ function stageProduct(it){
   const sbox=$('.sm-spinbox',node),sth=$('.sm-th-spin',node);
   const mode=on=>{if(!sp)return;sbox.hidden=!on;box.hidden=on;sth.setAttribute('aria-pressed',String(on));
     if(on){$$('.sm-th[data-at]',node).forEach(b=>b.setAttribute('aria-pressed','false'));
-      if(!spin)spin=D.spin(sbox,{dir:sp.dir,frames:sp.frames,loop:sp.loop!==false,arc:sp.arc,rev:sp.rev,tone:sp.tone,hotspots:sp.hotspots,title:it.title,kicker:it.industry});
+      if(!spin)spin=D.spin(sbox,{dir:sp.dir,frames:sp.frames,loop:sp.loop!==false,arc:sp.arc,rev:sp.rev,tone:sp.tone,hotspots:sp.hotspots,title:it.title,kicker:it.industry==='Khác'?'':it.industry});
       if(picker){const vi=Math.min(it.vars.length-1,Math.max(0,sp.variant|0));$$('.sm-sw',picker).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===vi)));$('.sm-var-l b',picker).textContent=it.vars[vi].name}}
     else spin&&spin.pause()};
   const show=i=>{const a=all[i];if(!a)return;mode(false);at=i;const t=++tok;
@@ -411,7 +411,7 @@ function wire(){
       const v=$('.sm-spinfeat-v',f),cta=$('[data-sm-open]',f);let cur=null;
       const set=i=>{const it=pick[i],q=it.spin;cur&&cur.destroy();cta.dataset.smId=it.id;
         $$('[data-sf]',f).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.sf===i)));
-        cur=D.spin(v,{dir:q.dir,frames:q.frames,loop:q.loop!==false,arc:q.arc,rev:q.rev,tone:q.tone,hotspots:q.hotspots,title:it.title,kicker:it.industry})};
+        cur=D.spin(v,{dir:q.dir,frames:q.frames,loop:q.loop!==false,arc:q.arc,rev:q.rev,tone:q.tone,hotspots:q.hotspots,title:it.title,kicker:it.industry==='Khác'?'':it.industry})};
       f.addEventListener('click',e=>{const b=e.target.closest('[data-sf]');if(b&&b.getAttribute('aria-pressed')!=='true')set(+b.dataset.sf)});
       s.prepend(f);set(0)}});
   const strip=$('#phong-mau');

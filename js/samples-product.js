@@ -138,6 +138,11 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-watch-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/watch/', frames: 48, loop: true, tone: 'dark', hotspots: [
+   {a: 0, w: .07, x: 53, y: 53, side: 'r', t: 'Kim giây nhỏ ở 6 giờ', d: 'Mặt số tia mặt trời, cọc số nổi'},
+   {a: .27, w: .08, x: 66, y: 45, side: 'l', t: 'Vỏ tròn 40 mm'},
+   {a: .5, w: .09, x: 57, y: 27, side: 'r', t: 'Dây da khâu tay'}
+  ]},
   variants: [
    {
     name: 'Xanh đêm · thép',
@@ -179,6 +184,11 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-jewel-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/jewel/', frames: 48, loop: true, tone: 'dark', hotspots: [
+   {a: 0, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ bốn chấu'},
+   {a: .25, w: .08, x: 52, y: 60, side: 'r', t: 'Đai nhẫn vàng 18K'},
+   {a: .5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá lục bảo', d: 'Giác cắt bậc, soi được từ mọi phía'}
+  ]},
   variants: [
    {
     name: 'Lục bảo · vàng 18K',
@@ -256,6 +266,10 @@
   pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
   cover: 'img/sm-product-candle-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/candle/', frames: 48, loop: true, tone: 'light', hotspots: [
+   {a: 0, w: .08, x: 46, y: 56, side: 'r', t: 'Nhãn chữ nhũ'},
+   {a: .5, w: .12, x: 50, y: 33, side: 'r', t: 'Cốc sứ đen bóng'}
+  ]},
   variants: [
    {
     name: 'Trầm hương · sứ đen',
@@ -292,6 +306,11 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-skin-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/skin/', frames: 48, loop: true, tone: 'light', hotspots: [
+   {a: 0, w: .08, x: 35, y: 37, side: 'r', t: 'Vòi nhấn kim loại'},
+   {a: .25, w: .08, x: 59, y: 44, side: 'r', t: 'Ống nhỏ giọt', d: 'Chai tinh chất thủy tinh mờ'},
+   {a: .5, w: .09, x: 36, y: 53, side: 'r', t: 'Hũ kem nắp kim loại'}
+  ]},
   variants: [
    {
     name: 'Ngọc trai · vàng',

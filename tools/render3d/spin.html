@@ -27,7 +27,7 @@ const CFG={
  perfume:{shot:'amber',keep:[0],pivot:0,fill:.66},
  whisky:{shot:'y12',keep:[0],pivot:0,fill:.66},
  bag:{shot:'noir',keep:null,pivot:'box',fill:.7},
- watch:{shot:'blue',keep:null,pivot:'box',fill:.7},
+ watch:{shot:'blue',keep:null,pivot:'box',fill:.7,double:true},
  jewel:{shot:'detail',keep:[0],pivot:0,fill:.56},
  shoe:{shot:'detail',keep:[0],pivot:'box',fill:.72},
  candle:{shot:'tram',keep:null,drop:[2,3],pivot:1,fill:.74,scale:{0:[.36,1,.6]},center:[1]},
@@ -54,6 +54,8 @@ try{
  const camera=new T.PerspectiveCamera(cam0.fov,L.W/L.H,.1,100),half=Math.max(rad,top/2)/(+q.get('fill')||CFG.fill),dist=half/Math.tan(cam0.fov*Math.PI/360)+rad;
  const focus=V3(0,top*(+q.get('fy')||.5),0);camera.position.copy(focus).addScaledVector(dir,dist);camera.lookAt(focus);camera.updateMatrixWorld();
  st.scene.traverse(n=>{const ms=n.material?(Array.isArray(n.material)?n.material:[n.material]):[];ms.forEach(m=>{if(m.envMapIntensity!==undefined&&m.envMapIntensity!==1&&!m.envMap){m.envMap=st.scene.environment;m.envMapIntensity*=st.scene.environmentIntensity??1}})});
+ /* double: dây đồng hồ là mặt đơn, nhìn từ phía sau sẽ thủng nếu không dựng hai mặt */
+ if(CFG.double)G.traverse(n=>{const ms=n.material?(Array.isArray(n.material)?n.material:[n.material]):[];ms.forEach(m=>{if(!m.transparent&&!m.transmission&&m.side===T.FrontSide){m.side=T.DoubleSide;m.shadowSide=T.FrontSide}})});
  const proj=(x,y,z)=>{const v=V3(x,y,z).project(camera);return[+((v.x+1)*50).toFixed(1),+((1-v.y)*50).toFixed(1)]};
  window.__info={rad:+rad.toFixed(3),top:+top.toFixed(3),dist:+dist.toFixed(2),axis:[0,.25,.5,.75,1].map(t=>proj(0,top*t,0)),front:[0,.25,.5,.75,1].map(t=>proj(0,top*t,rad)),side:proj(rad,top/2,0)};
  const bg0=st.bgC,ns=+(q.get('n')||8),base=G.rotation.y;let rf=S.reflect;
