@@ -32,6 +32,7 @@ summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:n
 .js [data-r=wipe]{opacity:1;transform:none;clip-path:inset(0 100% 0 0);transition:clip-path var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
 .js [data-r].in{opacity:1;transform:none}
 .js [data-r=clip].in,.js [data-r=wipe].in{clip-path:inset(0)}
+.js [data-r=ln]{opacity:1;transform:none}
 .stk{position:fixed;left:0;right:0;bottom:0;z-index:30;display:none;gap:var(--s2);padding:var(--s2) var(--s3) calc(var(--s2) + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform var(--d4) var(--ease)}
 .stk.on{transform:none}
 .stk input{flex:1.618;min-width:0;min-height:48px}.stk button{flex:1;min-height:48px;white-space:nowrap}
@@ -39,7 +40,7 @@ summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:n
 @media(max-width:760px){.stk{display:flex}body{padding-bottom:0}}
 .emb .bk{display:none!important}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none;clip-path:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none;clip-path:none}.js .tl::before{transform:none}}
 :root{--nt:#0D1017;--sl:#151A23;--pl:#D7DBE0;--ch:#D9BE8F;--mu:rgba(215,219,224,.68);--ln:rgba(215,219,224,.16);--ac:var(--ch);--fd:Archivo,system-ui,sans-serif;--fm:"Space Mono",ui-monospace,monospace}
 body{background:var(--nt);color:var(--pl);font-family:var(--fd);font-weight:400}
 h1,h2,h3{font-weight:300;font-stretch:125%;text-transform:uppercase;letter-spacing:.02em;line-height:1.16}
@@ -81,6 +82,54 @@ h1{font-size:clamp(33px,4.2vw,58px);margin:var(--s4) 0}.h1 span{white-space:nowr
 .card .jt{width:33px;fill:var(--ch)}
 .card .hr{font-family:var(--fm);font-size:26px;color:var(--ch);line-height:1.2}
 .card small{font-family:var(--fm);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);display:block}
+/* hero: mây, đường bay, đồng hồ */
+.cl{position:absolute;left:0;top:var(--t);width:var(--w);height:calc(var(--w)*.05);border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,232,206,.26),transparent 68%);animation:cl var(--s) linear var(--dl) infinite;pointer-events:none}
+@keyframes cl{from{transform:translate3d(-100%,0,0)}to{transform:translate3d(100vw,0,0)}}
+.rt{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.rt path{fill:none;stroke:var(--ch);stroke-opacity:.5;stroke-width:1;stroke-dasharray:1;animation:rt 4.2s var(--ease) .6s both}
+@keyframes rt{from{stroke-dashoffset:-1}}
+.off *,.off *::after{animation-play-state:paused!important}
+.hud{display:flex;justify-content:flex-end;gap:var(--s5);max-width:440px;margin:var(--s4) 0 0 auto;padding-top:var(--s3);position:relative;font-family:var(--fm)}
+.hud::before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(270deg,var(--ch),transparent);transform-origin:100% 0;animation:ln var(--d6) var(--ease) .9s both}
+@keyframes ln{from{transform:scaleX(0)}}
+.hud dt{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}.hud dd{font-size:20px;color:#fff;font-variant-numeric:tabular-nums}
+/* khoang */
+.ks{position:relative;max-width:1280px;margin:0 auto;padding:var(--s7) max(20px,4.4vw) var(--s4)}
+.ki{display:grid;gap:var(--s3);margin-bottom:var(--s5)}.ki p:not(.cap){color:var(--mu);max-width:36ch}.kh{display:none}
+.kw{position:relative;aspect-ratio:16/9;overflow:hidden;container-type:size;background:#151A23}
+.kf{position:absolute;left:50%;top:50%;width:100%;height:100%;width:max(100cqw,177.78cqh);height:max(100cqh,56.25cqw);transform:translate(-50%,-50%);transform-origin:50.5% 38%}
+.kf img{display:block;width:100%;height:100%;object-fit:cover}
+.kd{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,16,23,.94),rgba(13,16,23,.6));opacity:.2;pointer-events:none}
+.kr{display:none}
+.kn{position:absolute;left:var(--x);top:var(--y);z-index:1}
+.kn::before{content:"";position:absolute;left:-5px;top:-5px;width:9px;height:9px;background:var(--ch);transform:rotate(45deg);box-shadow:0 0 0 5px rgba(217,190,143,.22)}
+.kn i{position:absolute;left:0;bottom:0;width:1px;height:var(--l);background:var(--ch);transform-origin:0 100%}
+.kn p{position:absolute;left:-1px;bottom:var(--l);padding:var(--s2) var(--s3);background:rgba(13,16,23,.84);border-left:1px solid var(--ch);white-space:nowrap;font-family:var(--fm);line-height:1.3}
+.kn small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ch)}.kn b{font-weight:400;font-size:20px;color:#fff;font-variant-numeric:tabular-nums}
+.kn.dn i{bottom:auto;top:0;transform-origin:0 0}.kn.dn p{bottom:auto;top:var(--l)}
+.kc{display:grid;grid-template-columns:1.618fr .8fr 1.2fr;gap:var(--s4);align-items:end;margin-top:var(--s5)}
+.kt{display:grid;gap:var(--s3);justify-items:start}.kt p:not(.cap){color:var(--mu);font-size:13px;max-width:40ch}
+.kc figure{position:relative;border:1px solid rgba(217,190,143,.5);overflow:hidden}.kc img{display:block;width:100%;height:100%;object-fit:cover}
+.ka{aspect-ratio:4/5}.kg{aspect-ratio:16/9}
+.kc figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--s5) var(--s3) var(--s2);background:linear-gradient(transparent,rgba(13,16,23,.86));font-family:var(--fm);font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.mo .kb{height:290vh;height:290svh}
+.mo .ks{position:sticky;top:0;height:100vh;height:100svh;max-width:none;padding:0;overflow:hidden;background:radial-gradient(ellipse 61.8% 61.8% at 50% 50%,#1C2230,#0D1017 76%)}
+.mo .kw{position:absolute;inset:0;aspect-ratio:auto;will-change:clip-path}.mo .kf{will-change:transform}
+.mo .kd{opacity:0}
+.mo .kr{display:block;position:absolute;left:50%;top:50%;border:1px solid rgba(217,190,143,.7);border-radius:50%;box-shadow:0 0 0 10px rgba(215,219,224,.05),0 0 0 11px var(--ln);pointer-events:none}
+.mo .ki{position:absolute;inset:0;z-index:2;margin:0;padding:0 max(20px,4.4vw);grid-template-columns:1fr 1fr;align-content:center;gap:var(--s3) min(46vw,560px);pointer-events:none}
+.mo .ki .cap,.mo .ki h2{grid-column:1}.mo .ki h2{max-width:9ch}
+.mo .ki p:not(.cap){grid-column:2;grid-row:1/3;align-self:center;justify-self:end;text-align:right;max-width:24ch}
+.mo .kh{display:block;position:absolute;left:0;right:0;bottom:var(--s5);text-align:center;font-family:var(--fm);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ch)}
+.mo .kn{opacity:0;transition:opacity var(--d3)}.mo .kn i{transform:scaleY(0);transition:transform var(--d4) var(--ease) .1s}
+.mo .kn p{opacity:0;transform:translateY(10px);transition:opacity var(--d4) var(--ease),transform var(--d4) var(--ease)}
+.mo .kn.dn p{transform:translateY(-10px)}
+.mo .kn.on{opacity:1}.mo .kn.on i{transform:none}.mo .kn.on p{opacity:1;transform:none;transition-delay:.5s}
+.mo .kc{position:absolute;inset:0;z-index:3;display:block;margin:0;visibility:hidden}
+.mo .kc>*{position:absolute;will-change:transform,opacity}
+.mo .kt{left:max(20px,4.4vw);bottom:14vh;max-width:min(40vw,520px)}
+.mo .ka{right:calc(4.4vw + 24vw);top:15vh;width:min(21vw,300px)}
+.mo .kg{right:max(20px,4.4vw);bottom:12vh;width:min(27vw,400px)}
 /* sections */
 .sec{padding:var(--s7) 0;position:relative}
 .sh{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s3) var(--s6);align-items:end;margin-bottom:var(--s6)}
@@ -128,6 +177,7 @@ h2{font-size:clamp(26px,3.6vw,46px)}
 .tb .on{color:var(--ch);background:rgba(217,190,143,.07)}
 .tl{display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--s7);position:relative}
 .tl::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:linear-gradient(90deg,var(--ch),rgba(217,190,143,.2))}
+.js .tl::before{transform:scaleX(0);transform-origin:0 0;transition:transform var(--d6) var(--ease) .2s}.js .tl.in::before{transform:none}
 .tl li{padding:var(--s4) var(--s4) 0 0;position:relative}
 .tl li::before{content:"";position:absolute;left:0;top:0;width:11px;height:11px;background:var(--ch);transform:rotate(45deg)}
 .tl .m{color:var(--ch)}.tl h3{font-size:16px;font-weight:500;font-stretch:112%;letter-spacing:.06em;margin:var(--s1) 0}.tl p{color:var(--mu);font-size:13px;line-height:1.618}
@@ -163,6 +213,14 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2
 .rd{aspect-ratio:auto;max-height:none;display:flex;flex-direction:column}.rd svg{aspect-ratio:1;height:auto;order:-1}.rd output,.rd small{position:static;padding:var(--s2) var(--s3);text-align:left}.rd output{border-top:1px solid var(--ln)}.rd small{padding-top:0}
 .hc .btn{width:100%}.kp{gap:var(--s4);margin-top:var(--s4)}.kp b{font-size:20px}
 .card{max-width:none;margin:var(--s3) 0 0}
+.hud{justify-content:flex-start;max-width:none;margin-top:var(--s3)}.hud::before{transform-origin:0 0;background:linear-gradient(90deg,var(--ch),transparent)}
+.ks{padding:var(--s6) 20px var(--s3)}.kw{aspect-ratio:4/5}.kc{grid-template-columns:1fr 1.4fr;gap:var(--s3)}.kt{grid-column:1/-1}
+.k1{--x:59.2%!important;--y:47%!important;--l:64px!important}.k2{--x:50.5%!important;--y:37%!important;--l:118px!important}.k3{--x:41%!important;--y:52%!important;--l:84px!important}.k1 p{left:auto;right:-1px;border-left:0;border-right:1px solid var(--ch);text-align:right}
+.kn p{padding:var(--s1) var(--s2)}.kn b{font-size:16px}
+.mo .ki{grid-template-columns:1fr;align-content:start;padding-top:94px;gap:var(--s2)}.mo .ki h2{max-width:none}.mo .ki p:not(.cap){grid-column:1;grid-row:auto;justify-self:start;text-align:left;max-width:30ch;font-size:13px}
+.mo .kh{bottom:104px}
+.mo .kt{top:88px;bottom:auto;max-width:none;right:20px}.mo .ka{left:20px;right:auto;top:auto;bottom:104px;width:38vw}.mo .kg{bottom:126px;width:46vw}
+.js .tl::before{transform:scaleY(0)}
 .sec{padding:var(--s6) 0}.sh{margin-bottom:var(--s5)}
 .fx{grid-template-columns:1fr 1fr}.fx div{padding:var(--s3)}.fx div:nth-child(3){border-left:0}.fx div:nth-child(n+3){border-top:1px solid var(--ln)}
 .rd{position:relative;top:0}.rd text{font-size:13px}
@@ -179,6 +237,8 @@ footer{padding-bottom:94px}
 <main id="top">
 <section class="hero">
  <svg class="sky" id="sky" aria-hidden="true"></svg>
+ <i class="cl" style="--t:57%;--w:54vw;--s:64s;--dl:-9s"></i><i class="cl" style="--t:71%;--w:78vw;--s:88s;--dl:-52s"></i><i class="cl" style="--t:83%;--w:42vw;--s:47s;--dl:-27s"></i>
+ <svg class="rt" aria-hidden="true"><path id="rt" pathLength="1"/></svg>
  <div class="fly" aria-hidden="true" data-p="-.12"><svg viewBox="0 0 200 520"><defs><linearGradient id="jg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8E96A2"/><stop offset=".5" stop-color="#F4F6F8"/><stop offset="1" stop-color="#9AA2AE"/></linearGradient><linearGradient id="tr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
   <g id="jet"><path d="M88 104L16 152l-2 10 74-20zM112 104l72 48 2 10-74-20zM92 204l-32 22v6l36-10zM108 204l32 22v6l-36-10z"/><rect x="68" y="158" width="14" height="34" rx="6"/><rect x="118" y="158" width="14" height="34" rx="6"/><path d="M100 8c8 0 12 22 12 52v130c0 15-6 32-12 42-6-10-12-27-12-42V60c0-30 4-52 12-52z"/></g></defs>
   <rect x="72" y="190" width="6" height="330" fill="url(#tr)"/><rect x="122" y="190" width="6" height="330" fill="url(#tr)"/>
@@ -194,9 +254,25 @@ footer{padding-bottom:94px}
   <div class="cw"><div class="card" id="c0">
    <div class="r"><span class="nm">SÉRAVAL</span><svg class="jt" viewBox="0 0 200 240" aria-hidden="true"><use href="#jet"/></svg></div>
    <div class="r" style="align-items:flex-end"><div><small>Jet Card</small><span class="hr" data-ch>50 giờ bay</span></div><div style="text-align:right"><small data-cc>Midsize</small><small>N° 0034</small></div></div>
-  </div></div>
+  </div><dl class="hud"><div><dt>Trần bay</dt><dd><span id="ha">13.700</span> m</dd></div><div><dt>Tốc độ</dt><dd><span id="hs">850</span> km/h</dd></div></dl></div>
  </div>
 </section>
+
+<section class="kb" id="khoang" aria-label="Nội thất khoang"><div class="ks">
+ <div class="ki"><p class="cap">Nội thất khoang</p><h2>Nhìn qua <em>ô cửa</em></h2><p>Trước khi xem giá, mời bạn bước vào khoang hạng Long range.</p><span class="kh" aria-hidden="true">Cuộn để mở ô cửa ↓</span></div>
+ <div class="kw"><div class="kf"><img src="../img/photo/phi-co-20562279-xl.webp" width="2400" height="1350" loading="lazy" decoding="async" alt="Khoang phi cơ riêng với ghế da màu kem, bàn gỗ bóng và dải đèn ấm chạy dọc trần">
+  <div class="kd"></div>
+  <div class="kn k1" style="--x:16.5%;--y:47%;--l:110px"><i></i><p><small>Trần bay</small><b><span data-k="15500">15.500</span> m</b></p></div>
+  <div class="kn k2" style="--x:50.5%;--y:37%;--l:78px"><i></i><p><small>Tầm bay thẳng</small><b><span data-k="11000">11.000</span> km</b></p></div>
+  <div class="kn k3 dn" style="--x:71%;--y:56%;--l:86px"><i></i><p><small>Số ghế</small><b><span data-k="13">13</span> ghế</b></p></div>
+ </div></div>
+ <i class="kr" aria-hidden="true"></i>
+ <div class="kc">
+  <div class="kt"><p class="cap">Chi tiết khoang</p><h2>Một khoang riêng, <em>chỉ có đoàn của bạn</em></h2><p>Ảnh minh họa không khí khoang hạng Long range. Thông số từng hạng nằm ở bảng bên dưới.</p><a class="btn sm" href="#chon">Chọn hạng máy bay <span aria-hidden="true">→</span></a></div>
+  <figure class="ka"><img src="../img/photo/lux-lp-seraval-ban-go.webp" width="760" height="950" loading="lazy" decoding="async" alt="Cận cảnh bàn gỗ bóng cạnh ô cửa sổ và ghế da màu kem"><figcaption>Bàn gỗ cạnh ô cửa</figcaption></figure>
+  <figure class="kg"><img src="../img/photo/lux-lp-seraval-tran-den.webp" width="900" height="506" loading="lazy" decoding="async" alt="Cận cảnh trần khoang với nẹp gỗ bóng và dải đèn hắt màu ấm"><figcaption>Trần khoang, đèn hắt ấm</figcaption></figure>
+ </div>
+</div></section>
 
 <section class="sec" id="cam-ket"><div class="w">
  <div class="sh"><p class="cap">Bốn điều cố định</p><h2 data-r>Bay riêng mà <em>không có bất ngờ</em> trên hoá đơn</h2><p data-r style="--i:1">Thuê chuyến lẻ thì mỗi lần một giá. Thẻ giờ bay khoá mọi con số ngay từ ngày ký.</p></div>
@@ -234,13 +310,13 @@ footer{padding-bottom:94px}
   <thead><tr><th>Thông số</th><th>Light</th><th>Midsize</th><th>Long range</th></tr></thead>
   <tbody>
    <tr><td>Số ghế</td><td>6</td><td>8</td><td>13</td></tr>
-   <tr><td>Tầm bay</td><td>2.400 km</td><td>5.200 km</td><td>11.000 km</td></tr>
-   <tr><td>Tốc độ</td><td>780 km/h</td><td>850 km/h</td><td>900 km/h</td></tr>
-   <tr><td>Trần bay</td><td>13.700 m</td><td>13.700 m</td><td>15.500 m</td></tr>
+   <tr><td>Tầm bay</td><td><span data-n="2400">2.400</span> km</td><td><span data-n="5200">5.200</span> km</td><td><span data-n="11000">11.000</span> km</td></tr>
+   <tr><td>Tốc độ</td><td><span data-n="780">780</span> km/h</td><td><span data-n="850">850</span> km/h</td><td><span data-n="900">900</span> km/h</td></tr>
+   <tr><td>Trần bay</td><td><span data-n="13700">13.700</span> m</td><td><span data-n="13700">13.700</span> m</td><td><span data-n="15500">15.500</span> m</td></tr>
    <tr><td>Hành lý</td><td>6 vali</td><td>9 vali</td><td>16 vali</td></tr>
   </tbody>
  </table>
- <ol class="tl">
+ <ol class="tl" data-r="ln">
   <li data-r><span class="m">T−8:00</span><h3>Bạn gọi</h3><p>Cho biết điểm đến, giờ bay và số khách. Một cuộc gọi là đủ.</p></li>
   <li data-r style="--i:1"><span class="m">T−6:00</span><h3>Xác nhận tàu bay</h3><p>Nhận số hiệu máy bay, tên cơ trưởng và thực đơn trên chuyến.</p></li>
   <li data-r style="--i:2"><span class="m">T−1:00</span><h3>Xe đón tại nhà</h3><p>Tới nhà ga riêng, làm thủ tục trong 13 phút, không xếp hàng.</p></li>
@@ -273,7 +349,7 @@ footer{padding-bottom:94px}
  </form>
 </div></section>
 </main>
-<footer><div class="w"><span>Séraval là thương hiệu concept, máy bay, tầm bay và giá chỉ để minh hoạ. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@seraval.example</span></div></footer>
+<footer><div class="w"><span>Séraval là thương hiệu concept, máy bay, tầm bay và giá chỉ để minh hoạ, ảnh chụp lấy từ thư viện Pexels để minh họa không khí. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@seraval.example</span></div></footer>
 <form class="stk" novalidate data-ok="Đã ghi số của bạn. Trang mẫu nên chưa gửi đi đâu."><p class="msg" role="status"></p><label class="vh" for="s1">Số điện thoại</label><input id="s1" type="tel" required placeholder="Số điện thoại"><button>Nhận bảng giá</button></form>
 <script>
 (()=>{
@@ -289,13 +365,36 @@ const onS=()=>{tk=0;const y=scrollY,vh=innerHeight;hd&&hd.classList.toggle('s',y
 addEventListener('scroll',()=>{tk||(tk=requestAnimationFrame(onS))},{passive:true});onS();
 $$('form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.msg',f),ok=$$('[required]',f).every(i=>i.value.trim());m.textContent=ok?(f.dataset.ok||'Cảm ơn bạn. Đây là trang mẫu của Dream Labs nên chưa có thông tin nào được gửi đi.'):'Bạn điền giúp các ô còn trống nhé.';m.classList.toggle('ok',ok)}));
 try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-seraval',smDemo:'lux-lp-seraval'},'*')}catch(e){}
-/* sao: rải theo góc vàng */
+/* sao */
 const sky=$('#sky'),sw=1440,shh=900;sky.setAttribute('viewBox',`0 0 ${sw} ${shh}`);sky.setAttribute('preserveAspectRatio','xMidYMin slice');
 sky.innerHTML=Array.from({length:89},(_,i)=>{const a=i*2.39996,r=Math.sqrt(i+1)*76;return`<circle cx="${(720+Math.cos(a)*r).toFixed(0)}" cy="${(120+Math.sin(a)*r*.5+i*3).toFixed(0)}" r="${(.6+i%3*.4).toFixed(1)}" style="animation-delay:-${(i%7)*.62}s"/>`}).join('');
 /* thẻ nghiêng theo chuột */
 const hero=$('.hero'),c0=$('#c0');if(!RM&&matchMedia('(pointer:fine)').matches)hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();c0.style.setProperty('--rx',((e.clientX-r.left)/r.width-.5).toFixed(3));c0.style.setProperty('--ry',((e.clientY-r.top)/r.height-.5).toFixed(3))});
+/* đường bay cong: từ chân trời lên đuôi máy bay */
+const fl=$('.fly'),rtp=$('#rt'),route=()=>{const tx=fl.offsetLeft+fl.offsetWidth/2,ty=fl.offsetTop+fl.offsetHeight/2-fl.offsetWidth*.14,h=hero.clientHeight,w=fl.offsetWidth;rtp.setAttribute('d',RM?`M-20 ${(h*.95).toFixed(0)}Q${(tx-w*1.4).toFixed(0)} ${(ty+w*1.15).toFixed(0)} ${(tx+w*.12).toFixed(0)} ${(ty+w*.06).toFixed(0)}`:`M-20 ${(h*.95).toFixed(0)}Q${tx.toFixed(0)} ${(h*.93).toFixed(0)} ${tx.toFixed(0)} ${ty.toFixed(0)}`)};route();
+/* vòng lặp chỉ chạy khi trong khung nhìn */
+if('IntersectionObserver' in window){const lo=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('off',!e.isIntersecting)));$$('.hero,.rd').forEach(e=>lo.observe(e))}
+/* khoang: ô cửa mở theo cuộn */
+const kb=$('.kb');let kRe=()=>{};if(kb&&!RM&&window.CSS&&CSS.supports('clip-path','ellipse(1px 1px at 50% 50%)')){H.classList.add('mo');
+ const kw=$('.kw'),kf=$('.kf'),kr=$('.kr'),ki=$('.ki'),kd=$('.kd'),kc=$('.kc'),ks=[$('.kt'),$('.ka'),$('.kg')],kn=$$('.kn'),cl=(v,a,b)=>Math.min(1,Math.max(0,(v-a)/(b-a))),io3=t=>t<.5?4*t*t*t:1-Math.pow(2-2*t,3)/2;
+ let cur=-1,tg=0,vis=0,raf=0,R0=0;
+ const draw=p=>{const vw=kw.clientWidth,vh=kw.clientHeight,r0=Math.max(92,Math.min(vw*.12,170)),r1=r0*1.36,e=io3(cl(p,0,.4)),rx=r0+(vw*.76-r0)*e,ry=r1+(vh*.76-r1)*e,a=cl(p,.02,.15),q=1-Math.pow(1-cl(p,.76,.95),4),mb=vw<861;
+  if(R0!==r0){R0=r0;kr.style.width=2*r0+16+'px';kr.style.height=2*r1+16+'px'}
+  kw.style.clipPath=e<1?`ellipse(${rx.toFixed(1)}px ${ry.toFixed(1)}px at 50% 50%)`:'none';
+  kf.style.transform=`translate(-50%,-50%) scale(${(1+.1*p).toFixed(4)})`;
+  kr.style.transform=`translate(-50%,-50%) scale(${(rx/r0).toFixed(3)},${(ry/r1).toFixed(3)})`;kr.style.opacity=(1-cl(e,0,.5)).toFixed(3);
+  ki.style.opacity=(1-a).toFixed(3);ki.style.transform=`translate3d(0,${(-42*a).toFixed(1)}px,0)`;
+  kd.style.opacity=(.34*cl(p,.34,.44)+.66*q).toFixed(3);
+  kn.forEach((n,i)=>{const on=p>.43+i*.08&&p<.75;if(on!==n._o){n._o=on;n.classList.toggle('on',on);if(on){const b=$('[data-k]',n);b._v=0;tween(b,+b.dataset.k,vnd,1110)}}});
+  kc.style.visibility=q>.01?'visible':'hidden';
+  ks.forEach((el,i)=>{el.style.opacity=q.toFixed(3);el.style.transform=i==2&&!mb?`translate3d(${((1-q)*46).toFixed(2)}vw,0,0)`:`translate3d(0,${((1-q)*(i?56:6)).toFixed(2)}vh,0)`})};
+ const tick=()=>{raf=0;const r=kb.getBoundingClientRect();tg=cl(-r.top,0,r.height-innerHeight);cur=cur<0?tg:cur+(tg-cur)*.16;if(Math.abs(tg-cur)<.0005)cur=tg;draw(cur);if(vis&&cur!==tg&&!D.hidden)raf=requestAnimationFrame(tick)};
+ kRe=()=>{raf||(raf=requestAnimationFrame(tick))};
+ new IntersectionObserver(es=>{vis=es[0].isIntersecting;vis&&kRe()},{rootMargin:'20% 0px'}).observe(kb);
+ addEventListener('scroll',()=>vis&&kRe(),{passive:true});tick()}
+addEventListener('resize',()=>{route();kRe()});
 const C=[['Light','6 ghế · 2.400 km',11e7,2400],['Midsize','8 ghế · 5.200 km',178e6,5200],['Long range','13 ghế · 11.000 km',288e6,11000]],HR=[[25,0],[50,.04],[100,.08]],
-CT=[['Đà Nẵng',610,15],['Hà Nội',1150,352],['Bangkok',740,296],['Singapore',1090,196],['Hồng Kông',1500,40],['Bali',2300,158],['Seoul',3600,24],['Tokyo',4300,54],['Dubai',5600,282],['Sydney',6900,138],['London',10200,322]],S={c:1,h:1},K=230/Math.sqrt(11000);
+CT=[['Đà Nẵng',610,15],['Hà Nội',1150,352],['Bangkok',740,296],['Singapore',1090,196],['Hồng Kông',1500,40],['Bali',2300,158],['Seoul',3600,24],['Tokyo',4300,54],['Dubai',5600,282],['Sydney',6900,138],['London',10200,322]],S={c:1,h:1},K=230/Math.sqrt(11000),AL=[13700,13700,15500],SP=[780,850,900];
 $('#oc').innerHTML=C.map((c,i)=>`<button class="op" type="button" data-g="c" data-v="${i}"><b>${c[0]}</b><span>${c[1]}</span><i>${c[2]/1e6} tr/giờ</i></button>`).join('');
 $('#oh').innerHTML=HR.map((h,i)=>`<button class="op" type="button" data-g="h" data-v="${i}"><b>${h[0]} giờ</b><i>${h[1]?'−'+h[1]*100+'%':'giá gốc'}</i></button>`).join('');
 $('#cts').innerHTML=CT.map(c=>{const r=Math.sqrt(c[1])*K,a=(c[2]-90)*Math.PI/180,x=Math.cos(a)*r,y=Math.sin(a)*r,l=x<-20;return`<g class="ct" data-d="${c[1]}"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.4"/><text x="${(x+(l?-8:8)).toFixed(1)}" y="${(y+3.5).toFixed(1)}" text-anchor="${l?'end':'start'}">${c[0]}</text></g>`}).join('');
@@ -305,7 +404,7 @@ const up=()=>{const c=C[S.c],h=HR[S.h],rate=c[2]*(1-h[1]);let n=0;
  $$('[data-g]').forEach(o=>o.setAttribute('aria-pressed',S[o.dataset.g]==o.dataset.v));
  $$('.tb tr').forEach(r=>[...r.children].forEach((d,i)=>d.classList.toggle('on',i===S.c+1)));
  $$('[data-ch]').forEach(e=>e.textContent=h[0]+' giờ bay');$$('[data-cc]').forEach(e=>e.textContent=c[0]);
- tween($('#pr'),rate,vnd,686);tween($('#pt'),rate*h[0],vnd,686)};
+ tween($('#ha'),AL[S.c],vnd,1796);tween($('#hs'),SP[S.c],vnd,1796);tween($('#pr'),rate,vnd,686);tween($('#pt'),rate*h[0],vnd,686)};
 $('#chon').addEventListener('click',e=>{const o=e.target.closest('[data-g]');if(o){S[o.dataset.g]=+o.dataset.v;up()}});
 $('#f1').addEventListener('input',e=>$('#cn').textContent=e.target.value.trim().slice(0,21)||'Tên của bạn');
 $('#pr')._v=17088e4;$('#pt')._v=8544e6;up();
