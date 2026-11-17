@@ -115,5 +115,28 @@ ${related.length?`<section class="bl-wrap bl-more sv-posts" aria-labelledby="sv-
     jsonld:ld({'@context':'https://schema.org','@graph':graph}),main,extraHead:m.keywords?`<meta name="keywords" content="${esc(m.keywords.join(', '))}">\n`:''}));
   built.push(`${m.slug} (${words} chữ)`);
 }
+/* khối "Giải pháp theo ngành" trên trang chủ (src/partials/75-nganh.html): mỗi ngành một thẻ, liên kết tới các dịch vụ của ngành đó */
+{
+  const order=['spa','nha-khoa','nha-hang','bat-dong-san','my-pham','noi-that','khach-san','giao-duc','thuy-san','ban-hang-online','phong-kham','thoi-trang'];
+  const SV={ai:'Tự động hóa AI',web:'Website',landing:'Landing page',video:'Edit video',product:'Bao bì',motion:'Motion graphic'};
+  const ids=[...new Set(INDUSTRY.map(p=>p.industry_id))].sort((a,b)=>((order.indexOf(a)+1)||99)-((order.indexOf(b)+1)||99));
+  const cards=ids.map(id=>{const ps=INDUSTRY.filter(p=>p.industry_id===id).sort((a,b)=>CATS.findIndex(c=>c.id===a.cat_id)-CATS.findIndex(c=>c.id===b.cat_id));
+    return `      <div class="ind"><h3>${esc(ps[0].industry)}</h3><p>${ps.map(p=>`<a href="${p.slug}/">${SV[p.cat_id]}</a>`).join('')}</p></div>`});
+  const top=cards.slice(0,8),rest=cards.slice(8);
+  fs.writeFileSync(path.join(R,'src/partials/75-nganh.html'),`<!-- Sinh tự động bởi tools/pages.js: đừng sửa tay -->
+<section class="band ind-sec" id="theo-nganh" aria-labelledby="ind-h">
+  <div class="wrap">
+    <div class="bposts-head"><div><p class="eyebrow">Giải pháp theo ngành</p><h2 id="ind-h">Làm đúng cho <em>ngành của bạn.</em></h2></div>
+      <a class="btn sm" href="bang-gia/">Bảng giá dịch vụ <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a></div>
+    <p class="ind-lead">Mỗi ngành có cách bán, cách chăm khách và quy định riêng. Chọn ngành của bạn để xem doanh nghiệp được gì từ từng dịch vụ.</p>
+    <div class="inds">
+${top.join('\n')}
+    </div>
+${rest.length?`    <details class="ind-more"><summary>Xem thêm ${rest.length} ngành</summary><div class="inds">
+${rest.join('\n')}
+    </div></details>\n`:''}  </div>
+</section>
+`);
+}
 if(require.main===module)console.log('trang dịch vụ:',built.length,'trang ·',built.join(' · '),bad?`\n⚠ ${bad} cảnh báo`:'\n✓ không có cảnh báo');
 module.exports={pages:PAGES.map(p=>p.slug)};

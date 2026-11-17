@@ -572,3 +572,16 @@ form.cf>.btn{grid-column:1/-1;justify-content:center;min-height:var(--t3h)}
 .nav>a,.nav-dd-b{white-space:nowrap}
 @media (max-width:1100px){.nav{gap:var(--s3)}}
 @media (max-width:980px){.nav{gap:var(--s2)}.nav>a[href="#lab"]{display:none}}
+
+/* ───────── Giải pháp theo ngành (src/partials/75-nganh.html, sinh bởi tools/pages.js) ───────── */
+.ind-sec{padding-block:var(--s6) 0}
+.ind-lead{color:var(--muted);max-width:62ch;margin:calc(var(--s2)*-1) 0 var(--s4)}
+.inds{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:var(--s3)}
+.ind{padding:var(--s3) var(--s3) var(--s2);border:1px solid var(--line);border-radius:var(--r2);background:var(--glass)}
+.ind h3{font-size:var(--t1h);font-weight:400;line-height:1.25;margin:0 0 var(--s2)}
+.ind p{display:flex;flex-wrap:wrap;gap:var(--s1);margin:0}
+.ind a{display:inline-flex;align-items:center;min-height:34px;padding:0 var(--s2);border:1px solid var(--line);border-radius:999px;font-size:var(--t0h);text-decoration:none;color:var(--muted);transition:color var(--d1),border-color var(--d1)}
+.ind a:hover{color:var(--ink);border-color:color-mix(in oklab,var(--accent) 55%,var(--line))}
+.ind-more{margin-top:var(--s3)}
+.ind-more summary{display:inline-flex;align-items:center;min-height:var(--hit);cursor:pointer;color:var(--accent);font-weight:500}
+.ind-more .inds{margin-top:var(--s2)}
