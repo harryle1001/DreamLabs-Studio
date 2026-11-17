@@ -96,7 +96,7 @@
 .lab-range::-webkit-slider-thumb{-webkit-appearance:none;width:var(--s4);height:var(--s4);margin-top:calc((var(--s1) - var(--s4))/2);border-radius:50%;background:var(--paper);border:2px solid var(--accent);box-shadow:0 var(--s0) var(--s2) var(--shadow)}
 .lab-range::-moz-range-thumb{width:var(--s4);height:var(--s4);border-radius:50%;background:var(--paper);border:2px solid var(--accent);box-shadow:0 var(--s0) var(--s2) var(--shadow)}
 
-/* ================= 1. Chatbot ================= */
+/* ================= 1. Trợ lý AI bán hàng ================= */
 .lab-chatwrap{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s3);align-items:stretch}
 .lab-chatwrap>*{min-width:0}
 .lab-chat{display:flex;flex-direction:column;height:calc(var(--s8)*3);border-radius:var(--r3);border:1px solid var(--line);background:var(--bg);overflow:hidden;box-shadow:0 var(--s4) var(--s5) calc(var(--s4)*-1) var(--shadow)}

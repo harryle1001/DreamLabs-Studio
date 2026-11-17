@@ -510,3 +510,23 @@ form.cf>.btn{grid-column:1/-1;justify-content:center;min-height:var(--t3h)}
 /* iOS: vùng chạm tối thiểu 42px cho liên kết chân trang */
 @media (max-width:860px){.foot-cols a{min-height:var(--hit)}}
 @media (pointer:coarse){.fab-card .btn,.fab-card a{min-height:var(--hit)}}
+/* ===== Tự động hóa quy trình doanh nghiệp (#tu-dong-hoa) ===== */
+.hero-title{max-width:14ch;font-size:clamp(var(--t3),5.4vw,var(--t4))}
+@media (max-width:860px){.hero-title{font-size:clamp(var(--t2h),10.6vw,var(--t3h))}}
+.auto-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s3)}
+.auto-card{position:relative;padding:var(--s5) var(--s4) var(--s4);border-radius:var(--r3);background:var(--paper);border:1px solid var(--line);display:flex;flex-direction:column;gap:var(--s2);min-width:0;transition:border-color var(--d3) var(--ease),transform var(--d3) var(--ease)}
+.auto-card:hover{border-color:color-mix(in oklab,var(--accent) 38.2%,transparent);transform:translateY(calc(var(--s1)*-1))}
+.auto-card:first-child{background:linear-gradient(160deg,color-mix(in oklab,var(--lav) 38.2%,var(--paper)),var(--paper) 61.8%)}
+.auto-n{font-family:var(--f-display);font-style:italic;font-weight:300;font-size:var(--t2h);line-height:1;color:var(--accent)}
+.auto-card h3{font-size:var(--t1h);line-height:1.3}
+.auto-card p{color:var(--muted);font-size:15px;line-height:var(--lh)}
+.auto-foot{margin-top:var(--s5);align-items:start}
+.auto-int .chips{list-style:none;margin:var(--s3) 0 0;padding:0}
+.auto-gain{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.auto-gain li{display:flex;flex-direction:column;gap:var(--s0);padding-top:var(--s2);border-top:1px solid var(--line)}
+.auto-gain b{font-family:var(--f-display);font-weight:400;font-size:var(--t2)}
+.auto-gain span{color:var(--muted);font-size:14px}
+.auto-cta{margin-top:var(--s5);display:flex;flex-wrap:wrap;gap:var(--s2)}
+@media (max-width:1023px){.auto-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.auto-grid{grid-template-columns:1fr}.auto-card{padding:var(--s4)}.auto-cta .btn{flex:1 1 100%;justify-content:center}}
+@media (max-width:1199px){.hero-note{display:none}}

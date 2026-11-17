@@ -9,11 +9,16 @@ const ICONS={
  ai:'<rect x="6" y="6" width="14" height="14" rx="3"/><path d="M10 10h6v6h-6zM10 2.5V6M16 2.5V6M10 20v3.5M16 20v3.5M2.5 10H6M2.5 16H6M20 10h3.5M20 16h3.5"/>'
 };
 const CATS=[
+ {id:'ai',name:'Tự động hóa quy trình doanh nghiệp',desc:'Tự động hóa bán hàng, chăm sóc khách hàng, kế toán và báo cáo bằng AI: doanh nghiệp vận hành nhanh hơn, ít sai sót, tiết kiệm nhân sự.',tag:'AI agent · n8n · CRM',
+  tiers:[
+   {n:'Khởi động',p:5000000,t:'5–7 ngày',r:'Hỗ trợ 1 tháng',f:['1 quy trình tự động: tiếp nhận và phân loại khách hàng','Trợ lý AI trả lời khách trên Zalo OA / Messenger 24/7','Đồng bộ dữ liệu về Google Sheets',{x:'Kết nối CRM / phần mềm bán hàng'}]},
+   {n:'Tăng trưởng',p:15000000,t:'14 ngày',r:'Hỗ trợ 3 tháng',hot:1,f:['3 quy trình tự động: đơn hàng, chăm sóc khách hàng, báo cáo','Kết nối CRM, phần mềm bán hàng, kế toán','Trợ lý AI đa kênh, chuyển nhân viên khi cần','Đào tạo đội ngũ vận hành']},
+   {n:'Doanh nghiệp',p:40000000,plus:1,t:'30+ ngày',r:'Hỗ trợ 12 tháng',f:['AI agent riêng theo nghiệp vụ','Không giới hạn quy trình','Dashboard điều hành thời gian thực','Bảo mật dữ liệu nội bộ']}]},
  {id:'web',name:'Website',desc:'Website thương hiệu cao cấp, tải nhanh, chuẩn SEO, tự quản trị nội dung.',tag:'Next.js · CMS · SEO',
   tiers:[
    {n:'Cơ bản',p:8000000,t:'7–10 ngày',r:'2 vòng sửa',f:['5 trang, giao diện theo mẫu tinh chỉnh','Responsive mọi thiết bị','Form liên hệ + nút Zalo','SEO cơ bản, Google Analytics',{x:'Hiệu ứng motion tùy biến'}]},
    {n:'Chuyên nghiệp',p:18000000,t:'14–21 ngày',r:'3 vòng sửa',hot:1,f:['Đến 10 trang, thiết kế riêng 100%','Motion & chuyển cảnh mượt','CMS tự sửa nội dung, blog','Viết nội dung chuẩn SEO','Tốc độ Lighthouse ≥ 90']},
-   {n:'Cao cấp',p:35000000,plus:1,t:'30–45 ngày',r:'Không giới hạn trong phạm vi',f:['Không giới hạn trang, đa ngôn ngữ','3D / WebGL, nhận diện thương hiệu số','Tích hợp thanh toán, CRM','Chatbot AI trên website','Bảo trì 12 tháng']}]},
+   {n:'Cao cấp',p:35000000,plus:1,t:'30–45 ngày',r:'Không giới hạn trong phạm vi',f:['Không giới hạn trang, đa ngôn ngữ','3D / WebGL, nhận diện thương hiệu số','Tích hợp thanh toán, CRM','Trợ lý AI tiếp khách trên website','Bảo trì 12 tháng']}]},
  {id:'landing',name:'Landing Page',desc:'Một trang duy nhất, tối ưu chuyển đổi cho chiến dịch quảng cáo.',tag:'Ads · A/B test · Pixel',
   tiers:[
    {n:'Cơ bản',p:3000000,t:'3–5 ngày',r:'2 vòng sửa',f:['1 trang, 6–8 khối nội dung','Form thu lead về Google Sheets','Gắn Facebook Pixel, GA4',{x:'Viết nội dung bán hàng'}]},
@@ -32,15 +37,10 @@ const CATS=[
   tiers:[
    {n:'Cơ bản',p:3000000,u:'/video',t:'4–5 ngày',r:'2 vòng sửa',f:['Logo animation hoặc video ≤ 15 giây','Nhạc nền bản quyền','Xuất 2 tỷ lệ',{x:'Lồng tiếng'}]},
    {n:'Chuyên nghiệp',p:7000000,u:'/video',t:'7–10 ngày',r:'3 vòng sửa',hot:1,f:['Video ≤ 60 giây','Kịch bản + storyboard','Minh họa nhân vật 2D','Lồng tiếng AI hoặc giọng thật']},
-   {n:'Cao cấp',p:15000000,u:'/video',t:'14–21 ngày',r:'4 vòng sửa',f:['Video ≤ 2 phút, 2D + 3D','Art direction riêng','Sound design đầy đủ','Bộ cắt ngắn cho mạng xã hội']}]},
- {id:'ai',name:'Tự động hóa AI',desc:'Chatbot, quy trình tự động và AI agent giúp doanh nghiệp làm ít hơn, bán nhiều hơn.',tag:'Chatbot · n8n · AI agent',
-  tiers:[
-   {n:'Khởi động',p:5000000,t:'5–7 ngày',r:'Hỗ trợ 1 tháng',f:['1 chatbot AI trả lời Zalo/Messenger','Huấn luyện theo dữ liệu sản phẩm','Đẩy lead về Google Sheets',{x:'Tích hợp CRM'}]},
-   {n:'Tăng trưởng',p:15000000,t:'14 ngày',r:'Hỗ trợ 3 tháng',hot:1,f:['Chatbot đa kênh + chuyển người thật','3 quy trình tự động (đơn hàng, CSKH, báo cáo)','Tích hợp CRM / phần mềm bán hàng','Đào tạo đội ngũ sử dụng']},
-   {n:'Doanh nghiệp',p:40000000,plus:1,t:'30+ ngày',r:'Hỗ trợ 12 tháng',f:['AI agent riêng theo nghiệp vụ','Không giới hạn quy trình','Dashboard số liệu thời gian thực','Bảo mật dữ liệu nội bộ']}]}
+   {n:'Cao cấp',p:15000000,u:'/video',t:'14–21 ngày',r:'4 vòng sửa',f:['Video ≤ 2 phút, 2D + 3D','Art direction riêng','Sound design đầy đủ','Bộ cắt ngắn cho mạng xã hội']}]}
 ];
 // gói Cao cấp cho Thiết kế sản phẩm
-CATS[3].tiers.push({n:'Cao cấp',p:12000000,t:'14 ngày',r:'5 vòng sửa',f:['Nhận diện thương hiệu đầy đủ + logo','Bộ bao bì cả dòng sản phẩm','Render 3D quảng cáo chất lượng cao','Brand guideline PDF']});
+CATS.find(c=>c.id==='product').tiers.push({n:'Cao cấp',p:12000000,t:'14 ngày',r:'5 vòng sửa',f:['Nhận diện thương hiệu đầy đủ + logo','Bộ bao bì cả dòng sản phẩm','Render 3D quảng cáo chất lượng cao','Brand guideline PDF']});
 const STEPS=[
  ['Khám phá','Gọi 30 phút để hiểu thương hiệu, khách hàng và mục tiêu. Bạn nhận bản brief tóm tắt.','1–2 ngày'],
  ['Ý tưởng & moodboard','Hai đến ba hướng thẩm mỹ để bạn chọn trước khi bắt tay thiết kế chi tiết.','2–4 ngày'],
@@ -53,11 +53,11 @@ window.DL_DATA={ICONS,CATS,STEPS};
 /* Bảng so sánh chi tiết từng hạng mục (Session A thêm; dùng ở phần Báo giá). Mỗi dòng: [nhãn, gói 1, gói 2, gói 3]; 1 = có, 0 = không, chuỗi = ghi chú. */
 (()=>{
 window.DL_DATA.CMP={
- web:[['Số trang','5 trang','Đến 10 trang','Không giới hạn'],['Thiết kế giao diện','Theo mẫu tinh chỉnh','Riêng 100%','Riêng 100% + nhận diện số'],['Responsive mọi thiết bị',1,1,1],['SEO cơ bản, Google Analytics',1,1,1],['Motion & chuyển cảnh',0,1,'3D / WebGL'],['CMS tự sửa nội dung, blog',0,1,1],['Viết nội dung chuẩn SEO',0,1,1],['Tốc độ Lighthouse ≥ 90',0,1,1],['Đa ngôn ngữ',0,0,1],['Thanh toán online, CRM',0,0,1],['Chatbot AI trên website',0,0,1],['Bảo hành / bảo trì','6 tháng','6 tháng','12 tháng']],
+ web:[['Số trang','5 trang','Đến 10 trang','Không giới hạn'],['Thiết kế giao diện','Theo mẫu tinh chỉnh','Riêng 100%','Riêng 100% + nhận diện số'],['Responsive mọi thiết bị',1,1,1],['SEO cơ bản, Google Analytics',1,1,1],['Motion & chuyển cảnh',0,1,'3D / WebGL'],['CMS tự sửa nội dung, blog',0,1,1],['Viết nội dung chuẩn SEO',0,1,1],['Tốc độ Lighthouse ≥ 90',0,1,1],['Đa ngôn ngữ',0,0,1],['Thanh toán online, CRM',0,0,1],['Trợ lý AI tiếp khách trên website',0,0,1],['Bảo hành / bảo trì','6 tháng','6 tháng','12 tháng']],
  landing:[['Số khối nội dung','6–8 khối','10–12 khối','Theo chiến dịch'],['Thiết kế','Theo mẫu tinh chỉnh','Riêng 100%','Riêng 100%, 2 phiên bản'],['Form thu lead về Google Sheets',1,1,1],['Facebook Pixel, GA4',1,1,1],['Viết nội dung bán hàng',0,1,1],['Hiệu ứng cuộn, đếm ngược ưu đãi',0,1,1],['Thông báo lead qua Zalo / Email',0,1,1],['A/B test',0,0,1],['Motion graphic trên trang',0,0,1],['Báo cáo chuyển đổi hằng tuần',0,0,1],['Tối ưu lại sau 30 ngày',0,0,1]],
  video:[['Độ dài video','≤ 60 giây','≤ 3 phút','≤ 10 phút hoặc TVC'],['Cắt ghép, nhạc nền, phụ đề',1,1,1],['Chỉnh màu','Cơ bản','Color grading điện ảnh','Color grading điện ảnh'],['Phụ đề động, motion text',0,1,1],['Xuất nhiều tỷ lệ','1 tỷ lệ','9:16, 1:1, 16:9','9:16, 1:1, 16:9'],['Kịch bản dựng',0,0,1],['Sound design',0,0,1],['VFX, đồ họa 3D',0,0,1],['Clip cắt ngắn đi kèm',0,0,'5 clip']],
  product:[['Phạm vi','1 mẫu nhãn hoặc bao bì','Bộ bao bì đến 3 kích thước','Cả dòng sản phẩm'],['Phương án ý tưởng','2 phương án','3 phương án','3 phương án'],['File in ấn chuẩn CMYK',1,1,1],['Mockup 3D',0,'Cho quảng cáo','Render chất lượng cao'],['Hỗ trợ làm việc với nhà in',0,1,1],['Logo + nhận diện thương hiệu',0,0,1],['Brand guideline PDF',0,0,1]],
  motion:[['Độ dài','Logo animation hoặc ≤ 15 giây','≤ 60 giây','≤ 2 phút'],['Phong cách','2D','2D, minh họa nhân vật','2D + 3D, art direction riêng'],['Nhạc nền bản quyền',1,1,1],['Kịch bản + storyboard',0,1,1],['Lồng tiếng',0,'AI hoặc giọng thật','AI hoặc giọng thật'],['Sound design đầy đủ',0,0,1],['Xuất nhiều tỷ lệ','2 tỷ lệ','2 tỷ lệ','Bộ cắt ngắn cho mạng xã hội']],
- ai:[['Chatbot AI','1 kênh Zalo / Messenger','Đa kênh + chuyển người thật','AI agent riêng theo nghiệp vụ'],['Huấn luyện theo dữ liệu sản phẩm',1,1,1],['Đẩy lead về Google Sheets',1,1,1],['Quy trình tự động',0,'3 quy trình','Không giới hạn'],['Tích hợp CRM / phần mềm bán hàng',0,1,1],['Đào tạo đội ngũ sử dụng',0,1,1],['Dashboard số liệu thời gian thực',0,0,1],['Bảo mật dữ liệu nội bộ',0,0,1]]
+ ai:[['Trợ lý AI tiếp nhận khách','1 kênh Zalo / Messenger','Đa kênh + chuyển nhân viên','AI agent riêng theo nghiệp vụ'],['Huấn luyện theo dữ liệu sản phẩm',1,1,1],['Đẩy lead về Google Sheets',1,1,1],['Quy trình tự động',0,'3 quy trình','Không giới hạn'],['Tích hợp CRM / phần mềm bán hàng',0,1,1],['Đào tạo đội ngũ sử dụng',0,1,1],['Dashboard số liệu thời gian thực',0,0,1],['Bảo mật dữ liệu nội bộ',0,0,1]]
 };
 })();

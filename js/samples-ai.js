@@ -1,4 +1,4 @@
-/* Dream Labs — Phòng mẫu · Tự động hóa AI. Session F (v3).
+/* Dream Labs — Phòng mẫu · Tự động hóa quy trình doanh nghiệp. Session F (v3).
    6 kịch bản AI cho 6 thương hiệu xa xỉ concept (tên tự nghĩ, không trùng hãng thật). Tất cả là DEMO MÔ PHỎNG: hội thoại theo kịch bản,
    số liệu minh họa, không gọi API. mount(el, {snap:true}) dựng thẳng trạng thái cuối (dùng để chụp ảnh cover). CSS: css/samples.css, tiền tố smai-. */
 (()=>{
@@ -336,11 +336,11 @@ function ngocYen(el,o){
 }
 
 (window.DL_SAMPLES=window.DL_SAMPLES||{}).ai=[
- {id:'ai-suong-tram',title:'Maison Sương Trầm',industry:'Nước hoa',desc:'Trợ lý concierge hỏi ba câu về sở thích, gợi ý đúng mùi hương của nhà rồi đặt lịch thử tại salon riêng.',tags:['Chatbot tư vấn','Đặt lịch','CRM'],pkg:'Tự động hóa AI — Khởi động',cover:'img/sm-ai-suong-tram.webp',kind:'interactive',mount:suongTram},
- {id:'ai-lam-khue',title:'Atelier Lam Khuê',industry:'Túi xách',desc:'Mỗi sáng AI rà sổ khách thân thiết: nhắc bảo dưỡng túi, mời xem bộ sưu tập riêng, việc nhạy cảm thì chuyển người thật.',tags:['Chăm sóc VIP','Zalo','Quy trình tự động'],pkg:'Tự động hóa AI — Tăng trưởng',cover:'img/sm-ai-lam-khue.webp',kind:'interactive',mount:lamKhue},
- {id:'ai-thien-do',title:'Thiên Độ Horlogerie',industry:'Đồng hồ',desc:'Lễ tân AI nhận lịch xem đồng hồ tại boutique: chọn mẫu, chọn khung giờ riêng, giữ sẵn mẫu trong khay.',tags:['Đặt lịch','Lịch chuyên viên','Nhắc hẹn'],pkg:'Tự động hóa AI — Tăng trưởng',cover:'img/sm-ai-thien-do.webp',kind:'interactive',mount:thienDo},
- {id:'ai-hai-mien',title:'Hải Miên Yachts',industry:'Du thuyền',desc:'AI đọc tin nhắn thuê du thuyền, tự điền yêu cầu, chọn tàu phù hợp và lập báo giá sơ bộ trong vài giây.',tags:['Tiếp nhận yêu cầu','Báo giá tự động','CRM'],pkg:'Tự động hóa AI — Tăng trưởng',cover:'img/sm-ai-hai-mien.webp',kind:'interactive',mount:haiMien},
- {id:'ai-vong-nguyet',title:'Vọng Nguyệt Residences',industry:'Bất động sản',desc:'Khách hỏi mua penthouse từ website, Zalo, hotline được AI chấm điểm, xếp hạng nóng ấm lạnh và đẩy thẳng vào CRM.',tags:['Chấm điểm lead','Luồng tự động','CRM'],pkg:'Tự động hóa AI — Doanh nghiệp',cover:'img/sm-ai-vong-nguyet.webp',kind:'interactive',mount:vongNguyet},
- {id:'ai-ngoc-yen',title:'Ngọc Yên Joaillerie',industry:'Trang sức',desc:'Bảng điều khiển gom doanh số ba boutique, AI tự viết bản tin mỗi sáng và đề xuất việc cần làm cho chủ thương hiệu.',tags:['Dashboard','Báo cáo tự động','AI agent'],pkg:'Tự động hóa AI — Doanh nghiệp',cover:'img/sm-ai-ngoc-yen.webp',kind:'interactive',mount:ngocYen}
+ {id:'ai-suong-tram',title:'Maison Sương Trầm',industry:'Nước hoa',desc:'Trợ lý concierge hỏi ba câu về sở thích, gợi ý đúng mùi hương của nhà rồi đặt lịch thử tại salon riêng.',tags:['Tư vấn tự động','Đặt lịch','CRM'],pkg:'Tự động hóa quy trình doanh nghiệp — Khởi động',cover:'img/sm-ai-suong-tram.webp',kind:'interactive',mount:suongTram},
+ {id:'ai-lam-khue',title:'Atelier Lam Khuê',industry:'Túi xách',desc:'Mỗi sáng AI rà sổ khách thân thiết: nhắc bảo dưỡng túi, mời xem bộ sưu tập riêng, việc nhạy cảm thì chuyển người thật.',tags:['Chăm sóc VIP','Zalo','Quy trình tự động'],pkg:'Tự động hóa quy trình doanh nghiệp — Tăng trưởng',cover:'img/sm-ai-lam-khue.webp',kind:'interactive',mount:lamKhue},
+ {id:'ai-thien-do',title:'Thiên Độ Horlogerie',industry:'Đồng hồ',desc:'Lễ tân AI nhận lịch xem đồng hồ tại boutique: chọn mẫu, chọn khung giờ riêng, giữ sẵn mẫu trong khay.',tags:['Đặt lịch','Lịch chuyên viên','Nhắc hẹn'],pkg:'Tự động hóa quy trình doanh nghiệp — Tăng trưởng',cover:'img/sm-ai-thien-do.webp',kind:'interactive',mount:thienDo},
+ {id:'ai-hai-mien',title:'Hải Miên Yachts',industry:'Du thuyền',desc:'AI đọc tin nhắn thuê du thuyền, tự điền yêu cầu, chọn tàu phù hợp và lập báo giá sơ bộ trong vài giây.',tags:['Tiếp nhận yêu cầu','Báo giá tự động','CRM'],pkg:'Tự động hóa quy trình doanh nghiệp — Tăng trưởng',cover:'img/sm-ai-hai-mien.webp',kind:'interactive',mount:haiMien},
+ {id:'ai-vong-nguyet',title:'Vọng Nguyệt Residences',industry:'Bất động sản',desc:'Khách hỏi mua penthouse từ website, Zalo, hotline được AI chấm điểm, xếp hạng nóng ấm lạnh và đẩy thẳng vào CRM.',tags:['Chấm điểm lead','Luồng tự động','CRM'],pkg:'Tự động hóa quy trình doanh nghiệp — Doanh nghiệp',cover:'img/sm-ai-vong-nguyet.webp',kind:'interactive',mount:vongNguyet},
+ {id:'ai-ngoc-yen',title:'Ngọc Yên Joaillerie',industry:'Trang sức',desc:'Bảng điều khiển gom doanh số ba boutique, AI tự viết bản tin mỗi sáng và đề xuất việc cần làm cho chủ thương hiệu.',tags:['Dashboard','Báo cáo tự động','AI agent'],pkg:'Tự động hóa quy trình doanh nghiệp — Doanh nghiệp',cover:'img/sm-ai-ngoc-yen.webp',kind:'interactive',mount:ngocYen}
 ];
 })();

@@ -478,7 +478,7 @@ safe('pricing',()=>{
   };
   const choose=(c,i)=>{est[c]=i;const s=$(`.seg[data-c="${c}"]`,list);if(s)$$('button',s).forEach(x=>{const on=+x.dataset.i===i;x.classList.toggle('on',on);x.setAttribute('aria-pressed',String(on))})};
   list.addEventListener('click',e=>{const b=e.target.closest('.seg button');if(!b)return;choose(b.parentElement.dataset.c,+b.dataset.i);render()});
-  [['web',1],['motion',0]].forEach(([c,i])=>{if(CATS.find(x=>x.id===c))choose(c,i)});render();
+  [['ai',1],['web',1]].forEach(([c,i])=>{if(CATS.find(x=>x.id===c))choose(c,i)});render();
 });
 
 /* ═════════ FAQ ═════════ */

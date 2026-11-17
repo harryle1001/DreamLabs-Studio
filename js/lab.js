@@ -63,7 +63,7 @@ function initLab(){
   document.addEventListener('visibilitychange',()=>{const was=vis;if(document.hidden){vis=false;apply();vis=was}else apply()});
 }
 
-/* ============================== 1. Chatbot bán hàng (kịch bản soạn sẵn) ============================== */
+/* ============================== 1. Trợ lý AI bán hàng (kịch bản soạn sẵn) ============================== */
 function chatDemo(root){
   const box=$('.lab-msgs',root),quick=$('.lab-quick',root),form=$('.lab-input',root),input=$('input',form),read=$('.lab-read-out',root),list=$('.lab-order-list',root),empty=$('.lab-orders-empty',root);
   const P={ol:{n:'Ô long sen',d:'hộp 100g',p:185000,k:/o ?long|\bsen\b/},cuc:{n:'Hoa cúc mật ong',d:'hộp 80g',p:145000,k:/cuc|mat ong/},qua:{n:'Hộp quà Lá Lửng',d:'3 vị trà',p:420000,k:/hop qua|\bqua\b|\bset\b|tang|bieu/}};
@@ -128,7 +128,7 @@ function flowDemo(root){
   const map=$('.lab-flow-map',root),svg=$('.lab-flow-svg',root),nodes=$$('.lab-node',root),token=$('.lab-token',root),run=$('.lab-run',root),msg=$('.lab-flow-msg',root),tbody=$('.lab-sheet tbody',root);
   const C=[{n:'Chị Hạnh',m:'Mình cần làm website cho spa, gửi báo giá giúp nhé.',need:'Website',heat:'Cao',own:'Minh'},
     {n:'Anh Quân',m:'Dựng video TikTok bên bạn tính sao một clip?',need:'Edit Video',heat:'Vừa',own:'Thảo'},
-    {n:'Chị Vy',m:'Shop mình muốn có chatbot trả lời Zalo tự động.',need:'Tự động hóa AI',heat:'Cao',own:'Minh'},
+    {n:'Chị Vy',m:'Shop mình muốn tự động hóa khâu trả lời và chốt đơn trên Zalo.',need:'Tự động hóa quy trình doanh nghiệp',heat:'Cao',own:'Minh'},
     {n:'Anh Tín',m:'Cho mình xin bảng giá thiết kế bao bì.',need:'Thiết kế sản phẩm',heat:'Vừa',own:'Khoa'}];
   let pts=[],tok=[],wires=[],dots=[],amb=[],tl=null,idx=0,done=0,ready=false,active=false,mp=null;
   const say=h=>{msg.innerHTML=h;if(g&&!RM)g.fromTo(msg,{opacity:.382,y:6},{opacity:1,y:0,duration:.424,ease:'power2.out'})};
