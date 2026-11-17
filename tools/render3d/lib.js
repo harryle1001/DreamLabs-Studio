@@ -2,7 +2,8 @@
 import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 export {T,RoundedBoxGeometry};
-export const PHI=1.61803398875,W=1440,H=890;
+const _q=new URLSearchParams(globalThis.location?globalThis.location.search:'');
+export const PHI=1.61803398875,W=+_q.get('w')||1440,H=+_q.get('h')||890;   // ?w=&h= đổi khung dựng (spin.html dùng khung vuông)
 export const cv=(w,h=w)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
 export function rng(seed=1){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
 export const tex=(c,o={})=>{const t=new T.CanvasTexture(c);if(o.srgb!==false)t.colorSpace=T.SRGBColorSpace;t.anisotropy=16;if(o.repeat){t.wrapS=t.wrapT=T.RepeatWrapping;t.repeat.set(o.repeat[0],o.repeat[1])}if(o.flipY===false)t.flipY=false;return t};

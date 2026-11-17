@@ -40,7 +40,8 @@ function norm(r,cat,i){
   const ok={site:!!(str(r.demo)||str(r.long)||str(r.longM)),product:!!(vars.length||gal.length),video:!!str(r.src),interactive:typeof r.mount==='function'};
   if(!ok[kind])kind=ok.interactive?'interactive':ok.video?'video':ok.product?'product':ok.site?'site':'image';
   if(kind==='product'&&!vars.length)gal.forEach((s,j)=>vars.push({name:'Ảnh '+pad(j+1),swatch:'',img:s})),gal.length=0;
-  return{raw:r,cat,i,kind,vars,gal,id:str(r.id)||cat+'-'+(i+1),title:str(r.title)||'Mẫu chưa đặt tên',industry:str(r.industry)||'Khác',desc:str(r.desc),
+  const sp=r.spin&&typeof r.spin==='object'&&str(r.spin.dir)&&+r.spin.frames>1&&window.DL.spin?r.spin:null;
+  return{raw:r,cat,i,kind,vars,gal,spin:kind==='product'?sp:null,id:str(r.id)||cat+'-'+(i+1),title:str(r.title)||'Mẫu chưa đặt tên',industry:str(r.industry)||'Khác',desc:str(r.desc),
     tags:(Array.isArray(r.tags)?r.tags:[]).map(str).filter(Boolean).slice(0,3),cover:str(r.cover)||str(r.poster)||(vars[0]?vars[0].img:''),tier:tierOf(str(r.pkg),cat)};
 }
 const cache={};
@@ -50,7 +51,7 @@ const total=()=>CATS.reduce((a,c)=>a+items(c.id).length,0);
 const catOf=id=>CATS.find(c=>c.id===id);
 const kindBadge=it=>{const r=it.raw;
   if(it.kind==='site')return str(r.demo)?'<i class="sm-dot"></i>Chạy thật':'Ảnh toàn trang';
-  if(it.kind==='product')return it.vars.length+' mẫu mã';
+  if(it.kind==='product')return it.spin?'<i class="sm-dot"></i>Xoay '+(it.spin.loop===false?'đa góc':'360°'):it.vars.length+' mẫu mã';
   if(it.kind==='video')return'<i class="sm-tri"></i>'+(+r.duration?dur(r.duration):'Phim')+(RATIO[str(r.ratio)]?' · '+str(r.ratio):'');
   if(it.kind==='interactive')return'<i class="sm-dot"></i>Tự tay thử';
   return''};
@@ -205,13 +206,19 @@ function stageSite(it){
 /* product: ảnh lớn đổi mẫu mã có crossfade + dải ảnh bấm xem lớn */
 function stageProduct(it){
   const all=[...it.vars.map((v,i)=>({src:v.img,cap:v.name,vi:i})),...it.gal.map((s,i)=>({src:s,cap:'Ảnh bộ sưu tập '+pad(i+1),vi:-1}))];
-  let at=0,tok=0;
-  const node=el('div','sm-prod',`<div class="sm-pstage" data-imgbox style="--a:${((it.i*137.5)%360).toFixed(1)}deg"><span class="sm-mono" aria-hidden="true">${mono(it.title)}</span><img class="sm-pi" alt="" decoding="async"><img class="sm-pi" alt="" decoding="async">
+  let at=0,tok=0,spin=null;const sp=it.spin;
+  const node=el('div','sm-prod',`${sp?'<div class="sm-spinbox"></div>':''}<div class="sm-pstage" data-imgbox style="--a:${((it.i*137.5)%360).toFixed(1)}deg"><span class="sm-mono" aria-hidden="true">${mono(it.title)}</span><img class="sm-pi" alt="" decoding="async"><img class="sm-pi" alt="" decoding="async">
      <span class="sm-pcap" aria-live="polite"></span><button class="sm-ib sm-zoomb" type="button" data-zoom aria-label="Phóng to ảnh" data-cursor="Phóng to"><svg class="sm-ar" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5L9 7M6.5 13.5h-4v-4M2.5 13.5L7 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
-   ${all.length>1?`<div class="sm-gal" role="group" aria-label="Ảnh của mẫu này">${all.map((a,i)=>`<button class="sm-th" type="button" data-at="${i}" data-imgbox aria-pressed="false" aria-label="${esc(a.cap)}"><img src="${esc(a.src)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:''}`);
+   ${all.length>1||sp?`<div class="sm-gal" role="group" aria-label="Ảnh của mẫu này">${sp?`<button class="sm-th sm-th-spin" type="button" data-spin aria-pressed="false" aria-label="Xem xoay ${sp.loop===false?'nhiều góc':'360 độ'}"><b>${sp.loop===false?'Xoay':'360°'}</b></button>`:''}${all.map((a,i)=>`<button class="sm-th" type="button" data-at="${i}" data-imgbox aria-pressed="false" aria-label="${esc(a.cap)}"><img src="${esc(a.src)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:''}`);
   const box=$('.sm-pstage',node),layers=$$('.sm-pi',node),cap=$('.sm-pcap',node);
   const picker=it.vars.length>1?el('div','sm-var',`<p class="sm-var-l">Mẫu mã <b></b><small>${pad(it.vars.length)} lựa chọn</small></p><div class="sm-sws" role="group" aria-label="Chọn mẫu mã">${it.vars.map((v,i)=>`<button class="sm-sw" type="button" data-v="${i}" aria-pressed="false"><i${v.swatch?` style="background:${esc(v.swatch)}"`:''}></i><span>${esc(v.name)}</span></button>`).join('')}</div>`):null;
-  const show=i=>{const a=all[i];if(!a)return;at=i;const t=++tok;
+  const sbox=$('.sm-spinbox',node),sth=$('.sm-th-spin',node);
+  const mode=on=>{if(!sp)return;sbox.hidden=!on;box.hidden=on;sth.setAttribute('aria-pressed',String(on));
+    if(on){$$('.sm-th[data-at]',node).forEach(b=>b.setAttribute('aria-pressed','false'));
+      if(!spin)spin=D.spin(sbox,{dir:sp.dir,frames:sp.frames,loop:sp.loop!==false,arc:sp.arc,rev:sp.rev,tone:sp.tone,hotspots:sp.hotspots,title:it.title,kicker:it.industry});
+      if(picker){const vi=Math.min(it.vars.length-1,Math.max(0,sp.variant|0));$$('.sm-sw',picker).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===vi)));$('.sm-var-l b',picker).textContent=it.vars[vi].name}}
+    else spin&&spin.pause()};
+  const show=i=>{const a=all[i];if(!a)return;mode(false);at=i;const t=++tok;
     $$('.sm-th',node).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.at===i)));
     if(picker){$$('.sm-sw',picker).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===a.vi)));if(a.vi>=0)$('.sm-var-l b',picker).textContent=a.cap}
     cap.textContent=a.cap;
@@ -221,10 +228,10 @@ function stageProduct(it){
       nx.classList.add('is-on');on&&on.classList.remove('is-on')};
     if(on&&on.getAttribute('src')===a.src)return;
     nx.onload=()=>done(false);nx.onerror=()=>done(true);nx.removeAttribute('src');nx.src=a.src};
-  node.addEventListener('click',e=>{const b=e.target.closest('[data-at]');if(b){show(+b.dataset.at);return}
+  node.addEventListener('click',e=>{if(e.target.closest('[data-spin]')){mode(true);return}const b=e.target.closest('[data-at]');if(b){show(+b.dataset.at);return}
     if(e.target.closest('.sm-pstage')&&all[at]&&!box.classList.contains('is-noimg'))zoom(all[at].src,it.title+', '+all[at].cap)});
   if(picker)picker.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b)show(+b.dataset.v)});
-  return{node,picker,start(){show(0)},destroy(){tok++}};
+  return{node,picker,start(){sp?mode(true):show(0)},destroy(){tok++;spin&&spin.destroy();spin=null}};
 }
 
 /* video: trình phát đúng tỷ lệ, preload none, dừng khi rời; có before thì thêm thanh so sánh trước/sau trên khung hình */
@@ -266,7 +273,7 @@ const STAGE={site:stageSite,product:stageProduct,video:stageVideo,interactive:st
 /* ───────── trang chi tiết ───────── */
 function facts(it){const r=it.raw,f=[['Loại',KIND_LABEL[it.kind]]];
   if(it.kind==='site')f.push(['Xem trên',[str(r.long)&&'Máy tính',str(r.longM)&&'Điện thoại'].filter(Boolean).join(' · ')||'Demo trực tiếp']);
-  if(it.kind==='product'){f.push(['Mẫu mã',it.vars.length+' lựa chọn']);it.gal.length&&f.push(['Ảnh bổ sung',it.gal.length+' ảnh'])}
+  if(it.kind==='product'){it.spin&&f.push(['Trình xem',(it.spin.loop===false?'Xoay qua lại, ':'Xoay 360°, ')+it.spin.frames+' khung']);f.push(['Mẫu mã',it.vars.length+' lựa chọn']);it.gal.length&&f.push(['Ảnh bổ sung',it.gal.length+' ảnh'])}
   if(it.kind==='video'){+r.duration&&f.push(['Thời lượng',dur(r.duration)]);RATIO[str(r.ratio)]&&f.push(['Tỷ lệ',str(r.ratio)]);str(r.before)&&f.push(['So sánh','Trước / sau khi chỉnh'])}
   if(it.kind==='interactive')f.push(['Cách xem','Tự thao tác, không cần cài đặt']);
   f.push(['Ngành',it.industry]);return f}
@@ -392,7 +399,21 @@ function wire(){
     s.innerHTML=`<div class="sm-shelf-h"><b>Mẫu ${esc(c.name)} đã làm</b><button class="sm-shelf-all" type="button" data-sm-open="${c.id}">Xem tất cả ${its.length} mẫu ${ARROW}</button></div>
       <div class="sm-shelf" role="list">${top.map(it=>`<button class="sm-card-mini" type="button" role="listitem" data-sm-open="${c.id}" data-sm-id="${esc(it.id)}" data-cursor="Xem">
         <span class="sm-mini-img" data-imgbox>${it.cover?`<img src="${esc(it.cover)}" width="1280" height="791" alt="${esc(it.title)}" loading="lazy" decoding="async">`:''}</span>
-        <span class="sm-mini-t">${esc(it.title)}</span><span class="sm-mini-i">${esc(it.industry||'')}</span></button>`).join('')}</div>`});
+        <span class="sm-mini-t">${esc(it.title)}</span><span class="sm-mini-i">${esc(it.industry||'')}</span></button>`).join('')}</div>`;
+    /* khối xoay 360: một trình xem chạy sẵn (chỉ tải khung khi cuộn tới), đổi được sản phẩm, nút mở Phòng mẫu */
+    const sp=its.filter(it=>it.spin);
+    if(sp.length){const pick=sp.slice(0,5),short=it=>it.title.split(/\s[—–-]\s/)[0];
+      const f=el('div','sm-spinfeat',`<div class="sm-spinfeat-v"></div><div class="sm-spinfeat-c"><span class="sm-spinfeat-k">Xoay 360° ngay trên web</span>
+        <h4>Khách tự tay xoay sản phẩm, <em>soi từng góc.</em></h4>
+        <p>Dream Labs dựng trình xem 360 độ từ ảnh quay bàn xoay hoặc mô hình 3D của sản phẩm: kéo để xoay, điểm chú thích hiện theo góc, chạy mượt trên điện thoại.</p>
+        ${pick.length>1?`<div class="sm-spinfeat-p" role="group" aria-label="Chọn sản phẩm để xoay thử">${pick.map((it,i)=>`<button type="button" data-sf="${i}" aria-pressed="${!i}">${esc(short(it))}</button>`).join('')}</div>`:''}
+        <button class="btn primary" type="button" data-sm-open="${c.id}" data-sm-id="${esc(pick[0].id)}">Mở Phòng mẫu sản phẩm ${ARROW}</button></div>`);
+      const v=$('.sm-spinfeat-v',f),cta=$('[data-sm-open]',f);let cur=null;
+      const set=i=>{const it=pick[i],q=it.spin;cur&&cur.destroy();cta.dataset.smId=it.id;
+        $$('[data-sf]',f).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.sf===i)));
+        cur=D.spin(v,{dir:q.dir,frames:q.frames,loop:q.loop!==false,arc:q.arc,rev:q.rev,tone:q.tone,hotspots:q.hotspots,title:it.title,kicker:it.industry})};
+      f.addEventListener('click',e=>{const b=e.target.closest('[data-sf]');if(b&&b.getAttribute('aria-pressed')!=='true')set(+b.dataset.sf)});
+      s.prepend(f);set(0)}});
   const strip=$('#phong-mau');
   if(strip&&live.length){strip.hidden=false;
     strip.innerHTML=`<div class="sm-strip-l"><svg viewBox="-1 -1 57 36" aria-hidden="true"><path d="${SPIRAL}"/></svg><p><b>Phòng mẫu</b><span>${sum} mẫu concept xa xỉ để bạn xem, thử và chọn</span></p></div>

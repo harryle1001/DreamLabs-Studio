@@ -4,7 +4,7 @@
    node build.js A      -> _A.html (bản đầy đủ, để từng session test riêng, không ghi đè của nhau) */
 const fs=require('fs'),path=require('path'),R=__dirname,ex=f=>fs.existsSync(path.join(R,f));
 const css=['css/fonts.css','css/tokens.css','css/base.css','css/core.css','css/work.css','css/lab.css','css/samples.css'].filter(ex);
-const js=['vendor/gsap.min.js','vendor/ScrollTrigger.min.js','vendor/SplitText.min.js','vendor/lenis.min.js','js/data.js','js/kit.js','js/core.js','js/work.js','js/lab.js'].filter(ex).concat(fs.readdirSync(path.join(R,'js')).filter(f=>/^samples-.+\.js$/.test(f)).sort().map(f=>'js/'+f),['js/samples.js'].filter(ex));
+const js=['vendor/gsap.min.js','vendor/ScrollTrigger.min.js','vendor/SplitText.min.js','vendor/lenis.min.js','js/data.js','js/kit.js','js/core.js','js/work.js','js/lab.js'].filter(ex).concat(fs.readdirSync(path.join(R,'js')).filter(f=>/^samples-.+\.js$/.test(f)).sort().map(f=>'js/'+f),['js/spin.js','js/samples.js'].filter(ex));
 /* mục Bài viết: dựng blog/, khối "Bài viết mới" (src/partials/70-blog.html) và sitemap.xml trước khi ghép trang */
 try{require('./tools/blog.js')}catch(e){console.warn('Blog lỗi:',e.message)}
 /* trang dịch vụ: <slug>/index.html từ src/pages/ (tools/pages.js) */

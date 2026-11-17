@@ -14,6 +14,11 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-perfume-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/perfume/', frames: 48, loop: true, tone: 'dark', hotspots: [
+   {a: .97, w: .1, x: 50, y: 61, t: 'Chữ in trên kính', d: 'Tên dòng và số mùi in thẳng lên mặt chai'},
+   {a: .27, w: .1, x: 50, y: 27, t: 'Nắp đá mài', d: 'Đá vân mài bóng trên đai kim loại'},
+   {a: .55, w: .11, x: 50, y: 58, t: 'Khối thủy tinh dày', d: 'Khoang chứa bo tròn nằm giữa lòng kính'}
+  ]},
   variants: [
    {
     name: 'Hổ Phách',
@@ -91,6 +96,12 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-shoe-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/shoe/', frames: 48, loop: true, tone: 'light', hotspots: [
+   {a: 0, w: .08, x: 34, y: 68, side: 'r', t: 'Mũi nhọn', d: 'Phom mũi thon, miệng giày khoét thấp'},
+   {a: .25, w: .08, x: 29, y: 55, side: 'r', t: 'Gót 9,5 cm', d: 'Gót mảnh bọc cùng chất liệu thân giày'},
+   {a: .5, w: .08, x: 33, y: 71, side: 'r', t: 'Khâu gót mạ vàng'},
+   {a: .75, w: .08, x: 56, y: 59, side: 'r', t: 'Đế da viền mảnh'}
+  ]},
   variants: [
    {
     name: 'Da bóng đen',
@@ -302,6 +313,30 @@
    'img/sm-product-skin-set.webp',
    'img/sm-product-skin-detail.webp',
    'img/sm-product-skin-box.webp'
+  ]
+ },
+ {
+  id: 'product-nhan-quay-that',
+  title: 'Nhẫn đính hôn — Ảnh quay thật',
+  industry: 'Trang sức',
+  desc: 'Sản phẩm thật quay trên bàn xoay: nhẫn kim loại trắng, viên chủ tròn giữ bằng bốn chấu, hai vai nhẫn đính hàng đá tấm. Ảnh quay minh họa từ thư viện Pexels, trình xem 360 do Dream Labs dựng. Video gốc chỉ quay được khoảng 150 độ nên mẫu này xoay qua lại.',
+  tags: [
+   'Xoay đa góc',
+   'Ảnh quay thật',
+   'Điểm chú thích'
+  ],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/sm-product-spin-real-ring.webp',
+  kind: 'product',
+  spin: {dir: 'img/spin/real-ring/', frames: 60, loop: false, arc: 150, tone: 'dark', hotspots: [
+   {a: .5, w: .22, p: [[0, 26, 42], [.32, 32, 62], [.66, 52, 62], [1, 70, 50]], side: 'r', t: 'Viên chủ bốn chấu'},
+   {a: .05, w: .08, x: 86, y: 61, side: 'l', t: 'Đai trơn bóng'},
+   {a: .94, w: .1, x: 30, y: 23, side: 'r', t: 'Mặt trong đai'}
+  ]},
+  variants: [
+   {name: 'Chính diện', swatch: '#e9e9ee', img: 'img/spin/real-ring/040.webp'},
+   {name: 'Nghiêng trái', swatch: '#b9bac4', img: 'img/spin/real-ring/012.webp'},
+   {name: 'Nghiêng phải', swatch: '#8b8c98', img: 'img/spin/real-ring/058.webp'}
   ]
  }
 ];
