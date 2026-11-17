@@ -20,7 +20,7 @@ Trang tĩnh thuần HTML/CSS/JS, không cần máy chủ hay bước cài đặt
 | Số điện thoại, Zalo, email | `src/partials/00-chrome.html`, `90-contact.html`, `95-footer.html` |
 | Mẫu trong Phòng mẫu | `js/samples-<hạng mục>.js` |
 | Nội dung từng phần của trang | `src/partials/*.html` |
-| Màu, cỡ chữ, khoảng cách (thang tỷ lệ vàng φ) | `css/tokens.css` |
+| Màu, cỡ chữ, khoảng cách | `css/tokens.css` |
 
 Sau khi sửa file trong `src/`, ghép lại trang:
 
@@ -44,7 +44,6 @@ rồi mở http://127.0.0.1:4100
 - `demos/`: các website và landing page mẫu chạy thật
 - `img/`, `media/`, `fonts/`, `vendor/`: ảnh, video, phông, thư viện
 - `tools/`: công cụ kiểm tra và nguồn dựng phim
-- `BRIEF.md`: bản mô tả thiết kế và quy ước
 
 ## Lưu ý
 

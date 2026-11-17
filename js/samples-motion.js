@@ -3,8 +3,8 @@
 (window.DL_SAMPLES = window.DL_SAMPLES || {}).motion = [
   {
     id: 'motion-orvele', title: 'Maison Orvèle — Ambre Minuit', industry: 'Nước hoa',
-    desc: 'Quảng cáo nước hoa 8 giây: chai thủy tinh dạng vòm vẽ bằng SVG, ánh sáng lướt qua thân chai, 377 hạt hương bung theo phyllotaxis (góc vàng 137,5°), chữ serif hiện từng ký tự. Lặp mượt về đen.',
-    tags: ['Quảng cáo sản phẩm', 'Phyllotaxis', 'Loop'],
+    desc: 'Quảng cáo nước hoa 8 giây: chai thủy tinh dạng vòm vẽ bằng SVG, ánh sáng lướt qua thân chai, 377 hạt hương bung thành vòng xoáy, chữ serif hiện từng ký tự. Lặp mượt về đen.',
+    tags: ['Quảng cáo sản phẩm', 'Hạt chuyển động', 'Loop'],
     pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-orvele.webp', kind: 'video',
     src: 'media/sm-motion-orvele.mp4', poster: 'media/sm-motion-orvele.webp', ratio: '16:9', duration: 8
@@ -43,7 +43,7 @@
   },
   {
     id: 'motion-navelia', title: 'Navélia 62 — Lễ hạ thủy', industry: 'Du thuyền',
-    desc: 'Teaser sự kiện 8 giây: hoàng hôn trên vịnh, du thuyền lướt ngang, mặt nước lấp lánh theo phối cảnh, la bàn quay về góc 137,5°, thông số đếm lên rồi nhường chỗ cho tiêu đề và thư mời.',
+    desc: 'Teaser sự kiện 8 giây: hoàng hôn trên vịnh, du thuyền lướt ngang, mặt nước lấp lánh theo phối cảnh, la bàn quay về hướng đích, thông số đếm lên rồi nhường chỗ cho tiêu đề và thư mời.',
     tags: ['Teaser sự kiện', 'Thông số động', 'Loop'],
     pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-navelia.webp', kind: 'video',
