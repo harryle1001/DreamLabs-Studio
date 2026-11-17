@@ -42,28 +42,88 @@ header .btn{min-height:42px;padding:0 16px;font-size:11px}
 @media(max-width:940px){nav{display:none}}
 /* hero */
 .hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;overflow:hidden;padding:var(--s8) 0 0}
+.hb{position:absolute;inset:-130px -24px -24px;will-change:transform}
+.hb img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;transform-origin:62% 40%;animation:kb 38s ease-in-out infinite alternate;will-change:transform}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.15) translate(-1.6%,1.2%)}}
+.fog{position:absolute;left:-6%;right:-6%;top:22%;height:30%;pointer-events:none;overflow:hidden}
+.fog i{display:block;width:200%;height:100%;background:radial-gradient(ellipse 22% 46% at 18% 52%,rgba(244,239,228,.5),transparent 72%),radial-gradient(ellipse 30% 38% at 60% 40%,rgba(244,239,228,.34),transparent 70%),radial-gradient(ellipse 15% 30% at 87% 64%,rgba(244,239,228,.3),transparent 70%);background-size:50% 100%;animation:fg 96s linear infinite;will-change:transform}
+.fog.f2{top:36%;height:28%;opacity:.8}.fog.f2 i{animation-duration:64s;animation-direction:reverse}
+.fog.f3{top:50%;height:34%;opacity:.55}.fog.f3 i{animation-duration:46s}
+@keyframes fg{to{transform:translateX(-50%)}}
+[data-on]:not(.on) *{animation-play-state:paused!important}
 .scene{position:absolute;inset:0;width:100%;height:100%}
 .scene .p{will-change:transform}
 .win{animation:tw 4.24s ease-in-out infinite alternate}.win:nth-child(3n){animation-delay:-1.6s}.win:nth-child(2n){animation-delay:-2.6s}
 @keyframes tw{from{opacity:.45}to{opacity:1}}
 .shim line{stroke:#F6DDB0;stroke-linecap:round;animation:sh 2.62s ease-in-out infinite alternate}
 @keyframes sh{from{opacity:.1;transform:translateX(-10px)}to{opacity:.7;transform:translateX(10px)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,27,34,.8) 0,rgba(12,27,34,.25) 46%,transparent 61.8%),linear-gradient(0deg,rgba(12,27,34,.92) 0,rgba(12,27,34,.5) 16%,transparent 34%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,27,34,.6) 0,transparent 20%),linear-gradient(90deg,rgba(12,27,34,.86) 0,rgba(12,27,34,.5) 44%,transparent 72%),linear-gradient(0deg,rgba(12,27,34,.94) 0,rgba(12,27,34,.56) 22%,transparent 46%);pointer-events:none}
 .hero .c{position:relative;z-index:2;width:100%}
 .hero h1{font-size:clamp(46px,7.2vw,110px);max-width:11ch;margin:var(--s4) 0}
-.hero h1 span{display:block;overflow:hidden;padding-bottom:.08em}.hero h1 i{display:block;font-style:normal;animation:up var(--d6) var(--ease) both}
-.hero h1 span:nth-child(2) i{animation-delay:.162s}.hero h1 span:nth-child(3) i{animation-delay:.324s}
-@keyframes up{from{transform:translateY(110%)}}
+.hero h1>span{display:block;padding-bottom:.08em}
+.hero h1 .wd{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;font-weight:inherit;animation:mist 2.8s var(--ease) both;animation-delay:calc(.3s + var(--c)*68ms)}
+@keyframes mist{from{opacity:0;transform:translate3d(.5em,.14em,0) scale(1.14)}}
+.js .hero .cap,.js .hero .l,.js .hero .cta,.js .facts{animation:rise 2.4s var(--ease) 1.5s both}.js .hero .cap{animation-delay:.1s}.js .facts{animation-delay:2s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
 .hero .l{max-width:44ch;color:rgba(244,239,228,.82);font-size:17px}
 .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:var(--s5)}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--s6);border-top:1px solid var(--line)}
 .facts div{padding:var(--s4) var(--s4) var(--s4) 0;border-right:1px solid var(--line);padding-left:var(--s4)}.facts div:first-child{padding-left:0}.facts div:last-child{border-right:0}
 .facts b{font-family:var(--fd);font-weight:400;font-size:clamp(33px,4vw,53px);line-height:1;display:block;color:var(--sand)}.facts span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-@media(max-width:760px){.hero{padding-top:var(--s7)}.hero::after{background:linear-gradient(0deg,rgba(12,27,34,.96) 0,rgba(12,27,34,.6) 55%,rgba(12,27,34,.1) 80%)}.facts{grid-template-columns:1fr 1fr;margin-top:var(--s5)}.facts div{padding:var(--s3) var(--s3) var(--s3) 0}.facts div:nth-child(2){border-right:0}.facts div:nth-child(odd){padding-left:0}.facts div:nth-child(even){padding-left:var(--s3)}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:760px){.hero{padding-top:var(--s7)}.hero::after{background:linear-gradient(180deg,rgba(12,27,34,.6) 0,transparent 18%),linear-gradient(0deg,rgba(12,27,34,.97) 0,rgba(12,27,34,.78) 50%,rgba(12,27,34,.42) 82%,rgba(12,27,34,.2) 100%)}.fog.f3{display:none}.hb img{object-position:42% 50%}.facts{grid-template-columns:1fr 1fr;margin-top:var(--s5)}.facts div{padding:var(--s3) var(--s3) var(--s3) 0}.facts div:nth-child(2){border-right:0}.facts div:nth-child(odd){padding-left:0}.facts div:nth-child(even){padding-left:var(--s3)}.facts div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
 .sec{padding:var(--s7) 0;position:relative}
 .sh{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s6);align-items:end;margin-bottom:var(--s6)}
 .sh h2{font-size:clamp(33px,5vw,68px);margin-top:var(--s4)}.sh p{color:var(--muted)}
 @media(max-width:860px){.sec{padding:var(--s6) 0}.sh{grid-template-columns:1fr;gap:var(--s3);margin-bottom:var(--s5)}}
+/* một ngày */
+.day{position:relative}
+.dpin{position:relative;overflow:hidden;padding:var(--s7) 0}
+.ct{position:absolute;width:min(92vw,760px);height:auto;left:-14%;top:50%;transform:translateY(-50%);pointer-events:none;overflow:visible}
+.ct path{fill:none;stroke:var(--gold);stroke-width:1;opacity:.3;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 3.2s var(--ease);transition-delay:calc(var(--k)*.2s)}
+.ct.in path{stroke-dashoffset:0}
+.dh{position:relative;z-index:1;margin-bottom:var(--s6)}
+.dh h2{font-size:clamp(33px,5vw,68px);margin:var(--s4) 0 var(--s3)}.dh .l{color:var(--muted);max-width:42ch}
+.alt{display:flex;gap:var(--s5);margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid var(--line);max-width:420px}
+.alt b{font-family:var(--fd);font-weight:400;font-size:42px;line-height:1;display:block;color:var(--sand)}.alt span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dst{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);max-width:1280px;margin:0 auto;padding:0 max(20px,4.4vw)}
+.dp{margin:0;position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:16px}
+.dp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dp::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,27,34,.94),rgba(12,27,34,.66) 34%,transparent 68%)}
+.dp figcaption{position:absolute;z-index:1;left:var(--s4);right:var(--s4);bottom:var(--s4)}
+.tm{font-size:11px;letter-spacing:.3em;font-weight:500;color:var(--gold);display:flex;align-items:center;gap:12px}.tm::after{content:"";width:42px;height:1px;background:var(--gold)}
+.dp h3{font-size:clamp(26px,3vw,42px);margin:10px 0 6px}.dp p{font-size:15px;color:rgba(244,239,228,.84);max-width:36ch}
+.dtk,.day .fog{display:none}
+@media(max-width:860px){.dpin{padding:var(--s6) 0}.dst{grid-template-columns:1fr}.dp{aspect-ratio:4/5}.dp:nth-child(3) img{object-position:72% 50%}}
+.mo .day{height:300svh}
+.mo .dpin{position:sticky;top:0;height:100svh;padding:0}
+.mo .dh{position:absolute;inset:0;margin:0 auto;display:flex;flex-direction:column;justify-content:center}
+.mo .dh>*{max-width:min(44%,540px)}
+.mo .dst{position:absolute;inset:0;display:block;max-width:none;padding:0;will-change:clip-path}
+.mo .dp{position:absolute;inset:0;aspect-ratio:auto;border-radius:0}.mo .dp img{will-change:transform}
+.mo .dp figcaption{left:max(20px,4.4vw);right:max(20px,4.4vw);bottom:var(--s6)}
+.mo .dp h3{font-size:clamp(46px,7.2vw,110px);margin:var(--s3) 0}.mo .dp p{font-size:17px}
+.mo .day .fog{display:block;top:20%;height:32%;opacity:.5}
+.mo .dtk{display:block;position:absolute;z-index:3;right:max(20px,4.4vw);top:32%;bottom:32%;width:1px;background:rgba(244,239,228,.28)}
+.dtk i{position:absolute;inset:0;background:var(--gold);transform-origin:top;transform:scaleY(0)}
+@media(max-width:860px){.mo .dh{justify-content:flex-start;padding-top:92px}.mo .dh>*{max-width:none}.mo .dh .l{display:none}.mo .dp figcaption{bottom:var(--s5)}.mo .dp p{font-size:15px}.mo .dtk{top:20%;bottom:auto;height:22%}}
+/* lookbook */
+.look{overflow:hidden}.look .ct{left:auto;right:-16%;top:0;transform:none;width:min(70vw,560px)}
+.hint{font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:500;color:var(--gold);margin-top:var(--s3);display:block}
+.lb{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;position:relative}.lb::-webkit-scrollbar{display:none}
+.lt{display:flex;align-items:flex-start;gap:var(--s4);width:max-content;padding:0 max(20px,4.4vw) var(--s3)}
+.lf{margin:0;flex:0 0 auto;width:clamp(280px,35vw,540px);aspect-ratio:4/3;position:relative;overflow:hidden;scroll-snap-align:center}
+.lf.t{width:clamp(220px,24vw,370px);aspect-ratio:3/4}.lf:nth-child(2n){margin-top:var(--s6)}.lf:nth-child(3n){margin-top:var(--s4)}
+.lf img{width:100%;height:100%;object-fit:cover;transition:transform 1.8s var(--ease);-webkit-user-drag:none;user-select:none}
+.lf figcaption{position:absolute;inset:auto 0 0;padding:var(--s6) var(--s3) var(--s3);background:linear-gradient(0deg,rgba(12,27,34,.9),transparent);display:flex;align-items:baseline;gap:12px;font-family:var(--fd);font-size:20px;transition:transform var(--d4) var(--ease),opacity var(--d4) var(--ease)}
+.lf figcaption small{font-family:var(--fb);font-size:11px;letter-spacing:.2em;color:var(--gold);font-weight:500}
+@media(hover:hover){.lf figcaption{transform:translateY(40%);opacity:0}.lf:hover figcaption{transform:none;opacity:1}.lf:hover img{transform:scale(1.07)}}
+.dg .lb{overflow:hidden;cursor:grab;touch-action:pan-y}.dg .lb.gr{cursor:grabbing}.dg .lt{will-change:transform}
+.lpb{height:1px;background:var(--line);margin:var(--s4) max(20px,4.4vw) 0;position:relative}.lpb i{position:absolute;inset:-1px 0 0;background:var(--gold);transform-origin:left;transform:scaleX(.12)}
+@media(max-width:860px){.lt{gap:var(--s3)}.lf{width:78vw}.lf.t{width:62vw}.lf:nth-child(2n){margin-top:var(--s4)}.lf:nth-child(3n){margin-top:var(--s3)}.lf figcaption{font-size:17px}}
+/* chiều muộn */
+.dusk{position:relative;height:min(60vh,540px);overflow:hidden;margin-bottom:var(--s6)}
+.dusk::after{content:"";position:absolute;inset:auto 0 0;height:34%;background:linear-gradient(0deg,var(--night),transparent)}
 /* vị trí */
 .loc{background:var(--deep)}
 .lg{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:center}
@@ -122,7 +182,7 @@ header .btn{min-height:42px;padding:0 16px;font-size:11px}
 .note{font-size:13px;color:var(--muted);margin-top:var(--s3)}
 @media(max-width:860px){.pay .bar{display:none}.pg{grid-template-columns:1fr 1fr;gap:0;margin-top:var(--s4);border-top:1px solid var(--line)}.ps{border-left:0;border-bottom:1px solid var(--line);padding:var(--s3) 0}.tbl th:nth-child(2),.tbl td:nth-child(2),.tbl th:nth-child(3),.tbl td:nth-child(3){display:none}.tbl td:first-child,.tbl td:last-child{font-size:20px}}
 /* form */
-.lead{background:linear-gradient(180deg,var(--deep),var(--night))}
+.lead{background:linear-gradient(180deg,var(--night),var(--deep));padding-top:0}
 .fgd{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s6);align-items:center}
 .fgd h2{font-size:clamp(33px,5vw,68px);margin:var(--s4) 0}
 form{border:1px solid var(--line);padding:var(--s5);background:rgba(12,27,34,.5);display:grid;gap:var(--s3)}
@@ -136,7 +196,7 @@ footer{border-top:1px solid var(--line);padding:var(--s5) 0 var(--s7);font-size:
 footer .w{display:flex;flex-wrap:wrap;gap:16px 42px;justify-content:space-between}
 .back{position:fixed;left:16px;bottom:16px;z-index:40;background:rgba(12,27,34,.86);border:1px solid var(--line);padding:0 16px;min-height:42px;display:flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.1em;backdrop-filter:blur(10px)}
 .emb .back{display:none}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}.rt{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}.rt,.ct path{stroke-dashoffset:0}}
 </style>
 </head>
 <body>
@@ -147,34 +207,30 @@ footer .w{display:flex;flex-wrap:wrap;gap:16px 42px;justify-content:space-betwee
 </div></header>
 
 <main id="top">
-<section class="hero">
- <svg class="scene" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-  <defs>
-   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0C1B22"/><stop offset=".42" stop-color="#1E4A54"/><stop offset=".6" stop-color="#8F7C78"/><stop offset=".68" stop-color="#DE8E6E"/><stop offset=".72" stop-color="#F0C493"/></linearGradient>
-   <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98F73"/><stop offset=".12" stop-color="#3E6C73"/><stop offset=".5" stop-color="#1E5560"/><stop offset="1" stop-color="#0C1B22"/></linearGradient>
-   <radialGradient id="glow"><stop offset="0" stop-color="#F6DDB0" stop-opacity=".7"/><stop offset="1" stop-color="#F6DDB0" stop-opacity="0"/></radialGradient>
-  </defs>
-  <rect width="1440" height="900" fill="url(#sky)"/>
-  <g id="stars" fill="#F4EFE4"></g>
-  <g class="p" data-d=".04"><circle cx="890" cy="610" r="233" fill="url(#glow)"/><circle cx="890" cy="612" r="68" fill="#F6DDB0"/></g>
-  <path class="p" data-d=".07" d="M0 610C140 560 250 540 380 574S560 600 660 566 860 520 980 566s220 30 300 6 110-20 160-10v70H0z" fill="#3B6268" opacity=".75"/>
-  <rect y="630" width="1440" height="270" fill="url(#sea)"/>
-  <g class="shim" id="shim"></g>
-  <g class="p" data-d=".12"><g transform="translate(1440 0) scale(-1 1)">
-   <path d="M0 520C120 470 260 474 380 530c90 42 150 96 260 112 60 9 110 4 150 0L760 900H0z" fill="#12303A"/>
-   <g id="pines" fill="#0C1B22"></g>
-   <g id="villas"></g>
-  </g></g>
-  <g class="p" data-d=".2"><g transform="translate(1440 0) scale(-1 1)"><path d="M880 900c70-110 200-176 360-196 80-10 150-12 200-10v206z" fill="#081319"/><g id="pines2" fill="#081319"></g></g></g>
- </svg>
- <div class="c"><div class="w">
+<section class="hero" data-on>
+ <div class="hb" data-m="-22" data-s=".14"><img src="../img/photo/resort-6129987-xl.webp" width="2400" height="1600" alt="Hồ bơi tràn bờ lúc bình minh, phía xa là những lớp núi mờ trong sương" fetchpriority="high" decoding="async"></div>
+ <div class="fog" data-m="26"><i></i></div><div class="fog f2" data-m="48"><i></i></div><div class="fog f3" data-m="76"><i></i></div>
+ <div class="c" data-m="7"><div class="w">
   <p class="cap">Biệt thự nghỉ dưỡng · Vịnh Lặng</p>
-  <h1><span><i>Nơi biển lặng</i></span><span><i>gặp <em>đồi thông.</em></i></span></h1>
+  <h1 aria-label="Nơi biển lặng gặp đồi thông."><span>Nơi biển lặng</span><span>gặp <em>đồi thông.</em></span></h1>
   <p class="l">34 căn biệt thự tựa lưng vào đồi, mở mặt ra vịnh. Mỗi căn một hướng nhìn riêng, không căn nào che căn nào.</p>
   <div class="cta"><a class="btn" href="#dang-ky">Nhận bảng giá &amp; mặt bằng</a><a class="btn o" href="#biet-thu">Xem các loại biệt thự</a></div>
   <div class="facts"><div><b data-n="34">34</b><span>Căn biệt thự</span></div><div><b data-n="13">13</b><span>Hecta đồi thông</span></div><div><b data-n="21" data-s="%">21%</b><span>Mật độ xây dựng</span></div><div><b data-n="610" data-s="m">610m</b><span>Bãi biển riêng</span></div></div>
  </div></div>
 </section>
+
+<section class="day" id="mot-ngay"><div class="dpin" data-on>
+ <svg class="ct" viewBox="0 0 600 600" aria-hidden="true"></svg>
+ <div class="dh w"><p class="cap">Một ngày trên đồi</p><h2>Nhịp thở chậm,<br><em>từ sương sớm tới&nbsp;chiều&nbsp;tà.</em></h2><p class="l">Trên đồi không ai vội. Ánh sáng đổi màu ba lần mỗi ngày, và mỗi lần là một lý do để ngồi lại lâu hơn.</p>
+  <div class="alt"><div><b data-n="89" data-s=" m">89 m</b><span>Trên mặt vịnh</span></div><div><b data-n="34">34</b><span>Hướng nhìn riêng</span></div></div></div>
+ <div class="dst" id="dst">
+  <figure class="dp"><img src="../img/photo/doi-lang-som.webp" width="1800" height="1350" alt="Mặt hồ phẳng lặng lúc sáng sớm, núi xa chìm trong sương và một góc hiên nhà gỗ" loading="lazy" decoding="async"><figcaption><span class="tm">05:40</span><h3>Sương <em>sớm</em></h3><p>Sương còn nằm dưới thung, mặt hồ phẳng như gương. Cà phê pha xong thì nắng vừa lên.</p></figcaption></figure>
+  <figure class="dp"><img src="../img/photo/resort-30615183.webp" width="1600" height="1068" alt="Hồ ngâm lát đá cạnh sàn gỗ, nhìn thẳng ra mặt biển giữa trưa" loading="lazy" decoding="async"><figcaption><span class="tm">12:00</span><h3>Giữa <em>trưa</em></h3><p>Nắng đứng bóng, sàn gỗ ấm dưới chân. Gió từ vịnh thổi lên đủ để ngủ một giấc ngắn ngoài hiên.</p></figcaption></figure>
+  <figure class="dp"><img src="../img/photo/resort-221457.webp" width="1600" height="1067" alt="Hồ bơi tràn bờ trên sườn đồi lúc hoàng hôn, bầu trời chuyển màu hồng cam" loading="lazy" decoding="async"><figcaption><span class="tm">17:50</span><h3>Chiều <em>tà</em></h3><p>Trời ngả màu san hô, hồ bơi soi lại cả bầu trời. Bữa tối bắt đầu khi đèn hiên vừa sáng.</p></figcaption></figure>
+  <div class="fog"><i></i></div>
+ </div>
+ <div class="dtk"><i></i></div>
+</div></section>
 
 <section class="sec loc" id="vi-tri"><div class="w">
  <div class="sh"><div><p class="cap">Vị trí</p><h2 data-r>Đủ xa để yên tĩnh,<br><em>đủ gần để tiện.</em></h2></div><p data-r>Dự án nằm trên sườn đồi phía nam Vịnh Lặng, nối thẳng ra đường ven biển. Thời gian di chuyển tính theo tốc độ lái xe thông thường.</p></div>
@@ -211,6 +267,12 @@ footer .w{display:flex;flex-wrap:wrap;gap:16px 42px;justify-content:space-betwee
  </div>
 </div></section>
 
+<section class="sec look" id="khong-gian">
+ <div class="w"><svg class="ct" viewBox="0 0 600 600" aria-hidden="true"></svg><div class="sh"><div><p class="cap">Không gian</p><h2 data-r>Mỗi góc nhìn,<br><em>một khoảng lặng.</em></h2></div><p data-r>Hiên gỗ, mặt nước, tán lá. Ảnh minh họa không khí nghỉ dưỡng mà Đồi Lặng hướng tới.<span class="hint">Kéo ngang để dạo quanh</span></p></div></div>
+ <div class="lb" id="lb"><div class="lt" id="lt"></div></div>
+ <div class="lpb"><i id="lp"></i></div>
+</section>
+
 <section class="sec am" id="tien-ich"><div class="w">
  <div class="sh"><div><p class="cap">Tiện ích nội khu</p><h2 data-r>Mọi thứ trong<br><em>năm phút đi bộ.</em></h2></div><p data-r>Tiện ích do đơn vị vận hành quản lý quanh năm, chủ nhà không cần lo bảo trì.</p></div>
  <div class="ag" id="ag"></div>
@@ -225,7 +287,27 @@ footer .w{display:flex;flex-wrap:wrap;gap:16px 42px;justify-content:space-betwee
  <p class="note">Giá minh họa cho trang mẫu, chưa gồm thuế và phí bảo trì.</p>
 </div></section>
 
-<section class="sec lead" id="dang-ky"><div class="w">
+<section class="sec lead" id="dang-ky"><div class="dusk" data-on aria-hidden="true">
+ <svg class="scene" viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMax slice">
+  <defs>
+   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0C1B22"/><stop offset=".42" stop-color="#1E4A54"/><stop offset=".6" stop-color="#8F7C78"/><stop offset=".68" stop-color="#DE8E6E"/><stop offset=".72" stop-color="#F0C493"/></linearGradient>
+   <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C98F73"/><stop offset=".12" stop-color="#3E6C73"/><stop offset=".5" stop-color="#1E5560"/><stop offset="1" stop-color="#0C1B22"/></linearGradient>
+   <radialGradient id="glow"><stop offset="0" stop-color="#F6DDB0" stop-opacity=".7"/><stop offset="1" stop-color="#F6DDB0" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <g id="stars" fill="#F4EFE4"></g>
+  <g class="p" data-d=".04"><circle cx="890" cy="610" r="233" fill="url(#glow)"/><circle cx="890" cy="612" r="68" fill="#F6DDB0"/></g>
+  <path class="p" data-d=".07" d="M0 610C140 560 250 540 380 574S560 600 660 566 860 520 980 566s220 30 300 6 110-20 160-10v70H0z" fill="#3B6268" opacity=".75"/>
+  <rect y="630" width="1440" height="270" fill="url(#sea)"/>
+  <g class="shim" id="shim"></g>
+  <g class="p" data-d=".12"><g transform="translate(1440 0) scale(-1 1)">
+   <path d="M0 520C120 470 260 474 380 530c90 42 150 96 260 112 60 9 110 4 150 0L760 900H0z" fill="#12303A"/>
+   <g id="pines" fill="#0C1B22"></g>
+   <g id="villas"></g>
+  </g></g>
+  <g class="p" data-d=".2"><g transform="translate(1440 0) scale(-1 1)"><path d="M880 900c70-110 200-176 360-196 80-10 150-12 200-10v206z" fill="#081319"/><g id="pines2" fill="#081319"></g></g></g>
+ </svg>
+ </div><div class="w">
  <div class="fgd">
   <div data-r><p class="cap">Đăng ký tham quan</p><h2>Xem tận mắt<br><em>trước khi quyết định.</em></h2><p style="color:var(--muted);max-width:44ch">Để lại thông tin, chuyên viên sẽ gửi bảng giá, mặt bằng và sắp xếp xe đưa bạn tới thăm nhà mẫu vào cuối tuần.</p></div>
   <form id="lf" data-r style="--i:1" novalidate>
@@ -238,14 +320,15 @@ footer .w{display:flex;flex-wrap:wrap;gap:16px 42px;justify-content:space-betwee
  </div>
 </div></section>
 </main>
-<footer><div class="w"><span>Đồi Lặng Villas là dự án concept, địa danh và số liệu chỉ để minh họa. Landing page mẫu do <a href="../index.html" target="_top" style="text-decoration:underline;color:var(--sand)">Dream Labs</a> thiết kế.</span><span>hello@doilang.example · 0900 000 000</span></div></footer>
+<footer><div class="w"><span>Đồi Lặng Villas là dự án concept, địa danh và số liệu chỉ để minh họa, ảnh chụp lấy từ thư viện Pexels để minh họa không khí. Landing page mẫu do <a href="../index.html" target="_top" style="text-decoration:underline;color:var(--sand)">Dream Labs</a> thiết kế.</span><span>hello@doilang.example · 0900 000 000</span></div></footer>
 <a class="back" href="../index.html">← DREAM LABS</a>
+<script src="../vendor/gsap.min.js"></script><script src="../vendor/ScrollTrigger.min.js"></script>
 
 <script>
 (()=>{
 document.documentElement.classList.add('js');if(parent!==window)document.documentElement.classList.add('emb');
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,GA=137.508*Math.PI/180;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,GA=137.508*Math.PI/180,D=document.documentElement,G=window.gsap,MO=!RM&&G&&window.ScrollTrigger;
 /* cảnh hero sinh bằng code */
 $('#stars').innerHTML=Array.from({length:144},(_,i)=>{const r=42*Math.sqrt(i+1),t=(i+1)*GA,x=420+r*Math.cos(t)*1.618,y=120+r*Math.sin(t)*.7;return y<420&&y>0?`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(.5+(i%5)*.22).toFixed(1)}" opacity="${(.25+(i%8)*.09).toFixed(2)}"/>`:''}).join('');
 $('#shim').innerHTML=Array.from({length:21},(_,i)=>{const y=640+i*i*.56+i*3,w=30+i*8;return `<line x1="${890-w}" x2="${890+w}" y1="${y.toFixed(0)}" y2="${y.toFixed(0)}" stroke-width="${(1+i*.12).toFixed(1)}" style="animation-delay:${-i*.262}s"/>`}).join('');
@@ -254,9 +337,49 @@ const hill=x=>{const u=x/640;return 520-Math.sin(u*Math.PI*.9)*48+Math.pow(Math.
 $('#pines').innerHTML=Array.from({length:34},(_,i)=>{const x=10+i*17.5+(i%3)*5;return pine(x,hill(x)+10,34+(i*37%29))}).join('');
 $('#pines2').innerHTML=Array.from({length:13},(_,i)=>{const x=960+i*38;return pine(x,880-(x-900)*.34+(i%2)*10,89+(i*53%42))}).join('');
 $('#villas').innerHTML=[[96,560,1],[206,548,1.2],[330,588,1],[452,650,1.1],[560,700,.9]].map(([x,y,s],i)=>`<g transform="translate(${x} ${y}) scale(${s})"><path d="M0 0h68v26H0zM10 -16h42v16H10z" fill="#E8D9BC"/><path d="M-6 0h80v-3H-6zM6 -16h50v-3H6z" fill="#0C1B22"/><g fill="#F6B25E"><rect class="win" x="6" y="7" width="16" height="12"/><rect class="win" x="28" y="7" width="34" height="12"/><rect class="win" x="16" y="-11" width="30" height="7"/></g></g>`).join('');
-/* header + parallax */
-const hd=$('#hd'),ps=$$('.scene .p');let tk=false;
-addEventListener('scroll',()=>{if(tk)return;tk=true;requestAnimationFrame(()=>{tk=false;const y=scrollY;hd.classList.toggle('s',y>42);if(!RM&&y<1000)ps.forEach(p=>p.style.transform=`translateY(${(y*+p.dataset.d).toFixed(1)}px)`)})},{passive:true});
+/* header + parallax: chuột, cuộn */
+const hd=$('#hd'),hero=$('.hero'),ml=$$('[data-m]'),dk=$('.dusk'),ps=$$('.scene .p');let tk=0,mx=0,my=0,cx=0,cy=0,rf=0;
+const paint=()=>{const y=Math.min(scrollY,1100);ml.forEach(l=>{const d=+l.dataset.m;l.style.transform=`translate3d(${(cx*d).toFixed(1)}px,${(cy*d*.6+y*(+l.dataset.s||0)).toFixed(1)}px,0)`})};
+const loop=()=>{cx+=(mx-cx)*.045;cy+=(my-cy)*.045;paint();rf=hero.classList.contains('on')&&Math.abs(mx-cx)+Math.abs(my-cy)>.001?requestAnimationFrame(loop):0};
+RM||hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;rf||(rf=requestAnimationFrame(loop))});
+addEventListener('scroll',()=>{if(tk)return;tk=1;requestAnimationFrame(()=>{tk=0;const y=scrollY;hd.classList.toggle('s',y>42);if(RM)return;y<1100&&paint();if(dk.classList.contains('on')){const o=innerHeight-dk.getBoundingClientRect().top;ps.forEach(p=>p.style.transform=`translateY(${((o-600)*+p.dataset.d*.4).toFixed(1)}px)`)}})},{passive:true});
+/* tiêu đề tan sương */
+let cn=0;const sp=n=>[...n.childNodes].forEach(k=>{if(k.nodeType!==3)return sp(k);const f=document.createDocumentFragment();k.textContent.split(/(\s+)/).forEach(w=>{if(!w.trim())return w&&f.append(' ');const e=document.createElement('span');e.className='wd';e.setAttribute('aria-hidden','true');e.innerHTML=[...w].map(c=>`<b class="ch" style="--c:${cn++}">${c}</b>`).join('');f.append(e)});k.replaceWith(f)});
+RM||sp($('.hero h1'));
+/* đường đồng mức */
+$$('.ct').forEach((c,q)=>c.innerHTML=Array.from({length:8},(_,k)=>{const r=42+k*34;let d='';for(let i=0;i<=72;i++){const a=i/72*Math.PI*2,m=r*(1+.2*Math.sin(3*a+k*.55+q*2)+.11*Math.cos(5*a-k*.8)+.05*Math.sin(2*a+k*GA));d+=(i?'L':'M')+(300+m*Math.cos(a)*1.15).toFixed(1)+' '+(300+m*Math.sin(a)*.86).toFixed(1)}return `<path pathLength="1" style="--k:${k}" d="${d}z"/>`}).join(''));
+/* lookbook kéo có quán tính */
+const L=[[12431670,1600,1065,'Phòng khách lát gỗ mở thẳng ra mặt nước xanh ngọc','Phòng khách mở ra mặt nước'],[34732331,1200,1600,'Hàng dừa in bóng xuống hồ bơi trong vắt','Hàng dừa bên mép hồ'],[36681530,1600,1067,'Căn nhà mái ngói thấp nằm cạnh hồ bơi, sau lưng là đồi xanh','Mái ngói tựa lưng vào đồi'],[14024043,1600,1066,'Hồ bơi giữa vườn dừa nhìn từ trên cao','Hồ bơi giữa vườn'],[37657485,1200,1600,'Hồ bơi nhỏ dưới tán lá dừa','Buổi trưa dưới tán lá'],[261181,1600,1068,'Hồ bơi tràn bờ lát gạch xanh soi bóng mây, hai bên là chòi nghỉ','Hồ tràn bờ soi bóng mây']];
+const lb=$('#lb'),lt=$('#lt'),lp=$('#lp');
+lt.innerHTML=L.map((a,i)=>`<figure class="lf${a[1]<a[2]?' t':''}" data-r style="--i:${i%4}"><img src="../img/photo/resort-${a[0]}.webp" width="${a[1]}" height="${a[2]}" alt="${a[3]}" loading="lazy" decoding="async" draggable="false"><figcaption><small>0${i+1}</small>${a[4]}</figcaption></figure>`).join('');
+if(!RM&&matchMedia('(hover:hover) and (pointer:fine)').matches){D.classList.add('dg');let x=0,v=0,dn=0,px=0,id=0;const mn=()=>Math.min(0,lb.clientWidth-lt.scrollWidth),
+ put=()=>{const m=mn();if(x>0||x<m){x=Math.max(m,Math.min(0,x));v=0}lt.style.transform=`translate3d(${x.toFixed(1)}px,0,0) skewX(${Math.max(-3,Math.min(3,-v*.09)).toFixed(2)}deg)`;lp.style.transform=`scaleX(${m?.12+.88*x/m:1})`},
+ glide=()=>{if(dn)return id=0;v*=.945;x+=v;if(Math.abs(v)<.15)v=0;put();id=v?requestAnimationFrame(glide):0},
+ up=()=>{if(!dn)return;dn=0;lb.classList.remove('gr');id||(id=requestAnimationFrame(glide))};
+ lb.addEventListener('pointerdown',e=>{dn=1;px=e.clientX;v=0;lb.setPointerCapture(e.pointerId);lb.classList.add('gr')});
+ lb.addEventListener('pointermove',e=>{if(!dn)return;const d=e.clientX-px;px=e.clientX;x+=d;v=d;put()});
+ lb.addEventListener('pointerup',up);lb.addEventListener('pointercancel',up);
+ lb.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){e.preventDefault();x-=e.deltaX;v=0;put()}},{passive:false});
+ addEventListener('resize',put)}
+else lb.addEventListener('scroll',()=>{const m=lb.scrollWidth-lb.clientWidth;lp.style.transform=`scaleX(${m?.12+.88*lb.scrollLeft/m:1})`},{passive:true});
+/* một ngày trên đồi: ảnh nhỏ phóng lớn, đổi cảnh bằng wipe chéo */
+if(MO){D.classList.add('mo');G.registerPlugin(ScrollTrigger);
+ const f=$$('.dp'),im=f.map(x=>$('img',x)),cp=f.map(x=>$('figcaption',x)),sm=()=>innerWidth<860,
+ tl=G.timeline({defaults:{ease:'power2.inOut'},scrollTrigger:{trigger:'.day',start:'top top',end:'bottom bottom',scrub:.9,invalidateOnRefresh:true}});
+ G.set(cp,{autoAlpha:0,y:42});G.set(f.slice(1),{autoAlpha:0});
+ tl.fromTo('#dst',{clipPath:()=>sm()?'inset(47% 5% 6% 5% round 16px)':'inset(17% 4.4% 17% 54% round 20px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',duration:3},0)
+  .fromTo(im[0],{scale:1.3,xPercent:()=>sm()?0:11,yPercent:()=>sm()?9:0},{scale:1,xPercent:0,yPercent:0,duration:3},0)
+  .to('.dh,.day .ct',{autoAlpha:0,y:-42,duration:1.3,ease:'power2.in'},.2)
+  .fromTo('.dtk',{autoAlpha:0},{autoAlpha:1,duration:.6},2.6).fromTo('.dtk i',{scaleY:0},{scaleY:1,duration:7,ease:'none'},3)
+  .to(cp[0],{autoAlpha:1,y:0,duration:.9,ease:'power3.out'},2.4);
+ [1,2].forEach(k=>{const t=4+(k-1)*3;
+  tl.to(cp[k-1],{autoAlpha:0,y:-26,duration:.6,ease:'power2.in'},t-.1)
+   .fromTo(f[k],{clipPath:'polygon(128% 0%,128% 0%,100% 100%,100% 100%)'},{clipPath:'polygon(0% 0%,128% 0%,100% 100%,-28% 100%)',duration:1.7},t)
+   .to(f[k],{autoAlpha:1,duration:.7,ease:'none'},t)
+   .fromTo(im[k],{scale:1.18,xPercent:5},{scale:1,xPercent:0,duration:2.2,ease:'power2.out'},t)
+   .to(im[k-1],{xPercent:-5,duration:1.7},t)
+   .to(cp[k],{autoAlpha:1,y:0,duration:.9,ease:'power3.out'},t+1.1)});
+ addEventListener('load',()=>ScrollTrigger.refresh())}
 /* mặt bằng */
 const V=[{n:'Biệt thự <em>Thông</em>',d:'Căn nhỏ gọn cho gia đình trẻ hoặc cặp đôi. Phòng khách liền bếp mở ra hiên gỗ nhìn xuống vịnh.',s:['233 m²','144 m²','21 m²','13 căn'],p:'8,9',r:[[0,0,377,377,'Khách + bếp','55 m²'],[377,0,233,233,'Ngủ chính','34 m²'],[466,233,144,144,'Ngủ 2','21 m²'],[377,233,89,89,'Tắm',''],[377,322,89,55,'Hiên','']]},
  {n:'Biệt thự <em>Sóng</em>',d:'Ba phòng ngủ đều có cửa kính lớn hướng biển. Bếp và phòng ăn tách riêng để đón khách.',s:['377 m²','233 m²','34 m²','13 căn'],p:'13,8',r:[[0,0,377,233,'Phòng khách','55 m²'],[0,233,233,144,'Bếp + ăn','34 m²'],[233,233,144,144,'Ngủ 3','21 m²'],[377,0,233,233,'Ngủ chính','55 m²'],[466,233,144,144,'Ngủ 2','21 m²'],[377,233,89,144,'Tắm','']]},
@@ -276,10 +399,10 @@ $('#ag').innerHTML=A.map((a,i)=>`<div class="ai" data-r style="--i:${i%3}"><smal
 /* form */
 $('#lf').addEventListener('submit',e=>{e.preventDefault();const ok=$$('#lf input').every(f=>f.value.trim());$('#lm').textContent=ok?'Cảm ơn bạn. Đây là trang mẫu nên chưa có đăng ký nào được ghi nhận.':'Bạn điền giúp họ tên và số điện thoại nhé.'});
 /* reveal + đếm số */
-const count=el=>{const n=+el.dataset.n,s=el.dataset.s||'';if(RM){return}const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/1796),e=1-Math.pow(1-u,3);el.textContent=Math.round(n*(.382+.618*e))+s;u<1&&requestAnimationFrame(run)};requestAnimationFrame(run)};
-$$('.facts b').forEach(count);
-const els=$$('[data-r]');
-if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>io.observe(el))}else els.forEach(el=>el.classList.add('in'));
+const count=el=>{const n=+el.dataset.n,s=el.dataset.s||'',t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/2400),e=1-Math.pow(1-u,4);el.textContent=Math.round(n*(.382+.618*e))+s;u<1&&requestAnimationFrame(run)};requestAnimationFrame(run)};
+const els=$$('[data-r],.ct,[data-n]');
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');RM||e.target.dataset.n&&count(e.target);io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>io.observe(el));
+ const on=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting)));$$('[data-on]').forEach(el=>on.observe(el))}else{els.forEach(el=>el.classList.add('in'));$$('[data-on]').forEach(el=>el.classList.add('on'))}
 try{parent!==window&&parent.postMessage({wkDemo:'doi-lang'},'*')}catch(e){}
 })();
 </script>
