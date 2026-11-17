@@ -59,20 +59,40 @@ header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;hei
 .lg{font-family:var(--fd);font-weight:300;font-size:16px;letter-spacing:.5em;padding:2px 0 0 .5em;min-height:42px;display:flex;align-items:center}
 header .btn{justify-self:end}
 /* hero */
-.hero{position:relative;min-height:min(100svh,960px);padding:110px 0 var(--s6);display:grid;overflow:hidden;background:radial-gradient(ellipse at 50% 61.8%,#5C1A28 0,var(--bx) 46%,var(--bd) 100%)}
-.hero::before{content:"";position:absolute;inset:var(--s3);border:1px solid var(--ln);pointer-events:none;animation:fade var(--d6) var(--ease) .4s both}
-.hero .w{display:grid;grid-template-rows:auto 1fr auto;position:relative}
-.hero .cap{justify-content:center}
-.gw{position:absolute;left:0;right:0;top:6%;text-align:center;font-family:var(--fd);font-weight:100;font-size:clamp(89px,23vw,330px);line-height:1;letter-spacing:.04em;text-transform:uppercase;color:var(--br);opacity:.9;white-space:nowrap;margin:0}
+.hero{position:relative;min-height:max(640px,min(100svh,960px));padding:110px 0 var(--s6);display:grid;overflow:hidden;background:var(--bd);--o:.6;--pd:max(34px,3.4vw);--wi:calc(30vw - var(--pd) - 30px)}
+.hero::before{content:"";position:absolute;inset:var(--s3);border:1px solid var(--ln);pointer-events:none;z-index:3;animation:fade var(--d6) var(--ease) 1.8s both}
+.js .hero:not(.go) *,.hero.off *{animation-play-state:paused!important}
+.st{position:absolute;top:0;bottom:0;left:30vw;right:30vw;overflow:hidden}
+.st div{position:absolute;inset:50px -14px -56px}
+.st img{width:100%;height:100%;object-fit:cover;object-position:50% 72%;animation:kb 9s var(--ease) .4s both}
+.st::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--bd) 5%,rgba(39,9,14,.8) 15%,rgba(58,15,23,.5) 34%,rgba(58,15,23,0) 56%,rgba(39,9,14,0) 89%,var(--bd))}
+@keyframes kb{from{transform:scale(1.16)}}
+.cu{position:absolute;top:0;bottom:0;width:50%;z-index:1;transform:scaleX(var(--o));animation:cu 2.4s cubic-bezier(.76,0,.18,1) .4s both;background:linear-gradient(rgba(18,3,10,.5),rgba(18,3,10,0) 26%,rgba(18,3,10,0) 62%,rgba(18,3,10,.66)),repeating-linear-gradient(90deg,#27090E 0,#4B1523 8%,#30101A 13%,#5C1A28 19%,#27090E 26%)}
+.cu.l{left:0;transform-origin:0 0}.cu.r{right:0;transform-origin:100% 0}
+.cu::after{content:"";position:absolute;top:0;bottom:0;left:100%;width:42px;background:linear-gradient(90deg,rgba(18,3,10,.6),transparent)}
+.cu.r::after{left:auto;right:100%;transform:scaleX(-1)}
+.cu::before{content:"";position:absolute;top:0;bottom:0;right:6px;width:1px;background:repeating-linear-gradient(var(--br) 0 6px,transparent 6px 11px);opacity:.7}
+.cu.r::before{right:auto;left:6px}
+@keyframes cu{from{transform:none}}
+.sl{position:absolute;left:50%;top:60%;width:1100px;height:1100px;margin:-550px;border-radius:50%;z-index:1;pointer-events:none;background:radial-gradient(closest-side,rgba(255,226,176,.24),rgba(255,226,176,.07) 52%,transparent);animation:fade 2.4s ease 1.2s both}
+@media(hover:none){.sl{animation:fade 2.4s ease 1.2s both,sw 11s ease-in-out infinite alternate}}
+@keyframes sw{from{transform:translate3d(-9%,3%,0)}to{transform:translate3d(9%,-4%,0)}}
+.hero .w{max-width:none;padding:0 var(--pd);display:grid;grid-template-rows:auto 1fr auto;position:relative;z-index:2}
+.hero .cap{justify-content:center;animation:fade var(--d6) var(--ease) 1.8s both}
+.gw{position:absolute;left:0;right:0;top:6%;text-align:center;font-family:var(--fd);font-weight:100;font-size:clamp(89px,min(23vw,36vh),330px);line-height:1;letter-spacing:.04em;text-transform:uppercase;color:var(--br);opacity:.9;white-space:nowrap;margin:0}
 .gw span{padding:.14em 0 .2em;margin:-.14em 0 -.2em}
-.bw{grid-row:2;display:grid;place-items:center;min-height:0;padding:var(--s4) 0}
-.bag{width:min(46vw,440px);overflow:visible;--l1:#FBF3E2;--l2:#E6D7BC;--l3:#B19C78;--st:#A8875A;--h1:#8A6A2C;--h2:#F3E2B0;--h3:#A07C3A;animation:rise var(--d6) var(--ease) .262s both,fl 6.86s ease-in-out 2s infinite alternate}
+@keyframes u2{from{transform:translateY(140%)}}
+.gw i{display:inline-block;animation:u2 1.7s var(--ease) calc(1.5s + var(--k,0)*.11s) both}.gw i:nth-child(3){margin-left:.3em}
+.bw{grid-row:2;align-self:end;width:var(--wi);margin-bottom:var(--s4);display:grid;justify-items:center;gap:var(--s3)}
+.bw .cap{justify-content:center}
+.bag{width:min(70%,25vh);overflow:visible;--l1:#FBF3E2;--l2:#E6D7BC;--l3:#B19C78;--st:#A8875A;--h1:#8A6A2C;--h2:#F3E2B0;--h3:#A07C3A;animation:rise var(--d6) var(--ease) 1.9s both,fl 6.86s ease-in-out 3.8s infinite alternate}
 @keyframes rise{from{opacity:0;transform:translateY(68px)}}
 @keyframes fl{to{transform:translateY(-10px) rotate(-.618deg)}}
 .bag .gl{transform-origin:260px 292px;animation:spin 6.86s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.hb{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:end;animation:fade var(--d6) var(--ease) .6s both}
-.hb h1{font-size:clamp(20px,2.6vw,33px);max-width:20ch}
+.hb{grid-row:3;display:grid;grid-template-columns:var(--wi) 1fr var(--wi);align-items:end;animation:fade var(--d6) var(--ease) 2.1s both}
+.hb div:last-child{grid-column:3}
+.hb h1{font-size:clamp(20px,2vw,33px);max-width:20ch}
 .hb h1 em{display:block}
 .hb div:last-child{justify-self:end;text-align:right;display:grid;gap:var(--s3);justify-items:end}
 .hb p{color:var(--mu);max-width:30ch}
@@ -91,6 +111,21 @@ h2{font-size:clamp(26px,3.6vw,42px);max-width:22ch}
 .nb div{padding:var(--s4) var(--s3) 0;text-align:center}.nb div+div{border-left:1px solid var(--ln)}
 .nb b{display:block;font-family:var(--fd);font-weight:100;font-size:clamp(68px,9vw,110px);line-height:1.1}
 .nb .u{display:block;margin-bottom:var(--s1)}.nb p{color:var(--mu);max-width:24ch;margin:0 auto}
+.stc{display:block;height:1px;width:min(178px,50%);margin:var(--s5) auto 0;background:repeating-linear-gradient(90deg,var(--br) 0 7px,transparent 7px 12px)}
+/* zoom */
+.zm{background:var(--bd);padding:var(--s6) 0}
+.zs{display:flex;flex-direction:column;gap:var(--s4)}
+.zt{font-family:var(--fd);font-weight:100;text-transform:uppercase;letter-spacing:.06em;color:var(--br);white-space:nowrap;overflow:hidden;font-size:clamp(26px,5vw,68px);line-height:1.1}
+.zt.b{order:2}
+.zf{order:1;position:relative;width:min(100% - 40px,1280px);margin:0 auto;aspect-ratio:1.537;overflow:hidden}
+.zf img{width:100%;height:100%;object-fit:cover}
+.zf figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--s7) max(20px,4.4vw) var(--s4);display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);align-items:baseline;justify-content:space-between;background:linear-gradient(transparent,rgba(39,9,14,.8));font-style:italic}
+.zf .u{font-style:normal;color:var(--br)}
+.mo .zm{padding:0;height:240vh;height:240svh}
+.mo .zs{display:block;position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.mo .zt{position:absolute;left:0;top:50%;overflow:visible;font-size:clamp(68px,15vw,230px);line-height:1;will-change:transform}
+.mo .zf{position:absolute;inset:0;width:auto;aspect-ratio:auto;will-change:transform,clip-path}
+.mo .zf img{will-change:transform}
 /* details */
 .dt{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);--l1:#9A3347;--l2:#6E1B2D;--l3:#3F0C18;--st:#E3C9A0;--h1:#8A6A2C;--h2:#F3E2B0;--h3:#A07C3A}
 .dt figure:nth-child(2){margin-top:var(--s6)}.dt figure:nth-child(3){margin-top:var(--s4)}
@@ -117,10 +152,17 @@ h2{font-size:clamp(26px,3.6vw,42px);max-width:22ch}
 .tot{padding-top:var(--s4);border-top:1px solid var(--bx);display:grid;gap:var(--s3)}
 .tot strong{display:block;font-style:normal;color:var(--bx);font-family:var(--fd);font-weight:200;font-size:clamp(33px,3.8vw,53px);line-height:1.2;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .tot p{color:var(--mu);font-style:italic}
+.s2{margin:var(--s7) 0 var(--s5)}
+.ap{display:grid;grid-template-columns:1.618fr 1fr 1fr;gap:var(--s4);align-items:start}
+.ap figure:nth-child(2){margin-top:var(--s6)}.ap figure:nth-child(3){margin-top:var(--s4)}
+.ap .fr{position:relative;overflow:hidden;aspect-ratio:1/1.236}.ap figure:first-child .fr{aspect-ratio:1.236/1}
+.ap img{position:absolute;left:0;top:-9%;width:100%;height:118%;object-fit:cover}
+.ap figcaption{padding-top:var(--s3)}.ap figcaption .u{color:var(--br);display:block;margin-bottom:var(--s1)}.ap figcaption p{color:var(--mu)}
 /* process */
 .pg{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s6);align-items:start}
 .pg .sh{text-align:left;justify-items:start;position:sticky;top:110px;margin:0}
-.tl{border-left:1px solid var(--ln);counter-reset:s}
+.tl{border-left:1px solid var(--ln);counter-reset:s;position:relative}
+.tl::before{content:"";position:absolute;left:-1px;top:0;bottom:0;width:1px;background:var(--br);transform-origin:0 0;transform:scaleY(var(--tp,1))}
 .tl li{counter-increment:s;position:relative;padding:0 0 var(--s5) var(--s5)}
 .tl li::before{content:counter(s);position:absolute;left:-21px;top:-6px;width:42px;height:42px;border-radius:50%;border:1px solid var(--br);background:var(--bx);display:grid;place-items:center;font-family:var(--fd);font-size:13px;padding-top:2px;color:var(--br)}
 .tl h3{font-size:16px;letter-spacing:.24em;font-weight:400;margin-bottom:var(--s1)}.tl p{color:var(--mu);max-width:42ch}
@@ -152,14 +194,24 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2
 .stk input{background:none;border:0;border-bottom:1px solid var(--br);color:var(--cr);padding:0 2px;outline:0;font-size:18px}.stk input::placeholder{color:var(--mu);font-style:italic}
 .stk button{font-family:var(--fd);background:var(--br);color:var(--bd);font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding-top:2px}
 .stk .msg{background:var(--br);color:var(--bd)}
+@media(max-width:1099px){
+.hero{--o:.4;--sh:min(128vw,70svh);--pd:max(26px,4.4vw);display:block;min-height:0;padding:0 0 var(--s5)}
+.st{left:20vw;right:20vw;bottom:auto;height:var(--sh)}.st div{inset:-14px}
+.hero .w{display:block;padding-top:calc(var(--sh) + 78px)}
+.hero .w>.cap{position:absolute;left:0;right:0;top:84px}.gw{top:136px}
+.bw{position:absolute;left:50%;top:calc(var(--sh) - 56px);width:112px;height:112px;margin:0 0 0 -56px;border-radius:50%;background:var(--bx);border:1px solid var(--br);align-content:center}.bw .cap{display:none}.bag{width:70px}
+.hb{grid-template-columns:1fr;gap:var(--s3);text-align:center;justify-items:center}.hb div:last-child{grid-column:1;justify-self:center;text-align:center;justify-items:center;width:100%}.hb .btn{width:100%;max-width:420px}
+}
+@media(min-width:700px) and (max-width:1099px) and (orientation:landscape){.hero{--o:.54}.st{left:27vw;right:27vw}.st img{object-position:50% 50%}}
+@media(max-width:699px){.hero{--o:.07}.st{left:0;right:0}.st img{object-position:50% 100%}.st div{inset:-14px -14px -44px}}
 @media(max-width:860px){
 body{font-size:18px}.btn{padding:2px var(--s3) 0;letter-spacing:.24em}.hero::before{inset:var(--s2)}
-.hero{padding:94px 0 var(--s5);min-height:0}.gw{top:9%}.bag{width:68vw}.bw{padding:var(--s6) 0 var(--s4)}
-.hb{grid-template-columns:1fr;gap:var(--s3);text-align:center;justify-items:center}.hb div:last-child{justify-self:center;text-align:center;justify-items:center;width:100%}.hb .btn{width:100%}.hb h1{font-size:20px}
+.hb h1{font-size:20px}.mo .zm{height:200vh;height:200svh}.s2{margin-top:var(--s6)}
 .sec{padding:var(--s6) 0}.sh{margin-bottom:var(--s5)}
 .nb{grid-template-columns:1fr}.nb div{padding:var(--s4) 0}.nb div+div{border-left:0;border-top:1px solid var(--ln)}
-.dt{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1*max(20px,4.4vw));padding:0 max(20px,4.4vw) var(--s3);gap:var(--s3);scrollbar-width:none}.dt::-webkit-scrollbar{display:none}
-.dt figure{flex:0 0 76%;scroll-snap-align:center;margin-top:0!important;opacity:1!important;transform:none!important}
+.dt,.ap{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(-1*max(20px,4.4vw));padding:0 max(20px,4.4vw) var(--s3);gap:var(--s3);scrollbar-width:none}.dt::-webkit-scrollbar,.ap::-webkit-scrollbar{display:none}
+.dt figure,.ap figure{flex:0 0 76%;scroll-snap-align:center;margin-top:0!important;opacity:1!important;transform:none!important}
+.ap .fr{aspect-ratio:1/1.236!important;clip-path:none!important}.ap img{transform:none!important}
 .ch,.pg{grid-template-columns:1fr;gap:var(--s4)}.pg .sh{position:static;text-align:center;justify-items:center}
 .stg{aspect-ratio:1/1}.tl{margin-left:21px}.sp{grid-template-columns:1fr}
 .card{padding:var(--s5) var(--s4)}.card form{grid-template-columns:1fr}
@@ -171,9 +223,9 @@ footer{padding-bottom:94px}
 <body>
 <header><div class="w"><a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a><a class="lg" href="#top">VAUQUELLE</a><a class="btn o" href="#dk">Xin lời mời</a></div></header>
 <main id="top">
-<section class="hero"><div class="w">
+<section class="hero"><div class="st"><div><img src="../img/sm-web-ph-tui-xach-7953286.webp" width="1067" height="1600" fetchpriority="high" decoding="async" alt="Ba chiếc túi da màu đỏ rượu, đen và xanh chàm đặt trên bục trước phông xám hình học"></div></div><i class="cu l"></i><i class="cu r"></i><i class="sl"></i><div class="w">
  <p class="cap">Bộ sưu tập Hạ Chí · mở theo lời mời <span class="tc">Concept</span></p>
- <p class="gw h1" aria-hidden="true" data-p="-.1"><span><i>Hạ Chí</i></span></p>
+ <p class="gw h1" aria-hidden="true" data-p="-.1"><span><i>H</i><i style="--k:1">ạ</i><i style="--k:2">C</i><i style="--k:3">h</i><i style="--k:4">í</i></span></p>
  <div class="bw">
   <svg class="bag" id="b0" viewBox="0 0 520 490" role="img" aria-label="Túi Nguyệt của Vauquelle, hình vẽ bằng SVG">
    <defs>
@@ -198,6 +250,7 @@ footer{padding-bottom:94px}
    <circle class="gl" cx="260" cy="304" r="24" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-dasharray="16 135" stroke-linecap="round"/>
    <circle cx="168" cy="204" r="9" fill="none" stroke="url(#gH)" stroke-width="4.5"/><circle cx="352" cy="204" r="9" fill="none" stroke="url(#gH)" stroke-width="4.5"/>
   </svg>
+  <p class="cap">Túi Nguyệt · bản vẽ</p>
  </div>
  <div class="hb">
   <h1>144 chiếc túi. <em>Chỉ mở cho người có lời mời.</em></h1>
@@ -207,11 +260,18 @@ footer{padding-bottom:94px}
 
 <section class="sec lt mf"><div class="w">
  <blockquote data-r>Chúng tôi không mở cửa hàng. <span>Chúng tôi viết thư mời.</span></blockquote>
+ <i class="stc" data-r="wipe"></i>
  <div class="nb">
   <div data-r><b data-n="144">144</b><span class="u">chiếc</span><p>Cả bộ sưu tập, chia cho ba kích thước. Hết là dừng.</p></div>
   <div data-r style="--i:1"><b data-n="21">21</b><span class="u">giờ làm</span><p>Cắt, khâu tay và sơn cạnh cho một chiếc túi.</p></div>
   <div data-r style="--i:2"><b data-n="1">1</b><span class="u">người thợ</span><p>Ký tên bên trong túi cùng số thứ tự của bạn.</p></div>
  </div>
+</div></section>
+
+<section class="zm" aria-label="Ảnh không khí bộ sưu tập Hạ Chí"><!--PH-zoom--><div class="zs">
+ <p class="zt a" aria-hidden="true">144 chiếc · Hết là dừng · 144 chiếc · Hết là dừng · 144 chiếc · Hết là dừng ·</p>
+ <p class="zt b" aria-hidden="true">Mở theo lời mời · Hạ Chí · Mở theo lời mời · Hạ Chí · Mở theo lời mời · Hạ Chí ·</p>
+ <figure class="zf"><img src="../img/photo/tui-xach-23223837-xl.webp" width="2400" height="1561" loading="lazy" decoding="async" alt="Cận cảnh hai chiếc túi da màu ô liu và xanh nhạt trên nền hồng đất"><figcaption><span class="u">Mùa Hạ Chí</span><span>Da, nắng muộn và một cành hoa khô.</span></figcaption></figure>
 </div></section>
 
 <section class="sec dp" id="chi-tiet"><div class="w">
@@ -233,6 +293,12 @@ footer{padding-bottom:94px}
    <div class="gp"><p class="u">Kích thước</p><div class="sz" id="ssz"></div></div>
    <div class="tot"><p>Giá tham khảo<strong><span id="pr">89.000.000</span> ₫</strong></p><a class="btn" href="#dk">Xin lời mời chiếc này</a></div>
   </div>
+ </div>
+ <div class="sh s2"><p class="cap">Trong buổi hẹn riêng</p><h2 data-r>Chạm vào <em>từng tấm da</em></h2></div>
+ <div class="ap"><!--PH-ap-->
+  <figure><div class="fr" data-r="clip"><img data-p=".05" src="../img/photo/tui-xach-27046146.webp" width="1600" height="1600" loading="lazy" decoding="async" alt="Hai chiếc túi da vân cá sấu màu đen và nâu nằm trên nền trắng, có bóng lá cọ"></div><figcaption><span class="u">Dưới nắng thật</span><p>Mỗi tấm da được xem dưới ánh sáng tự nhiên.</p></figcaption></figure>
+  <figure><div class="fr" data-r="clip" style="--i:1"><img data-p=".05" src="../img/photo/tui-xach-22434775.webp" width="1132" height="1600" loading="lazy" decoding="async" alt="Ba chiếc túi da vân nổi màu xám, nâu cam và be xếp chồng trên nền sáng"></div><figcaption><span class="u">Đặt cạnh nhau</span><p>So ba kích thước ngay trên bàn.</p></figcaption></figure>
+  <figure><div class="fr" data-r="clip" style="--i:2"><img data-p=".05" src="../img/sm-web-ph-tui-xach-27100522.webp" width="1600" height="1600" loading="lazy" decoding="async" alt="Túi da màu ô liu quai trắng đặt trên bục, nền tím nhạt"></div><figcaption><span class="u">Đeo thử</span><p>Chỉnh dây vừa vai trước khi chốt.</p></figcaption></figure>
  </div>
 </div></section>
 
@@ -270,7 +336,7 @@ footer{padding-bottom:94px}
  <p class="nt2">Đây là trang mẫu: thư của bạn không được gửi đi đâu.</p>
 </div></div></section>
 </main>
-<footer><div class="w"><span>Vauquelle là thương hiệu concept, sản phẩm và giá chỉ để minh hoạ. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@vauquelle.example</span></div></footer>
+<footer><div class="w"><span>Vauquelle là thương hiệu concept, sản phẩm và giá chỉ để minh hoạ, ảnh chụp lấy từ thư viện Pexels để minh họa không khí. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@vauquelle.example</span></div></footer>
 <form class="stk" novalidate data-ok="Đã ghi số của bạn. Trang mẫu nên chưa gửi đi đâu."><p class="msg" role="status"></p><label class="vh" for="s1">Số điện thoại</label><input id="s1" type="tel" required placeholder="Số điện thoại"><button>Xin lời mời</button></form>
 <script>
 (()=>{
@@ -303,6 +369,23 @@ const up=()=>{const l=L[S.l],h=HW[S.h],z=SZ[S.z];
 $('#chon').addEventListener('click',e=>{const o=e.target.closest('[data-g]');if(o){S[o.dataset.g]=+o.dataset.v;up()}});
 $('#pr')._v=89e6;up();
 watch(D);
+const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),IO=(el,fn)=>new IntersectionObserver(e=>fn(e[0].isIntersecting)).observe(el);
+const he=$('.hero'),hi=$('.st img'),go=()=>he.classList.add('go');hi.complete?go():(hi.onload=hi.onerror=go,setTimeout(go,2600));
+if(!RM&&'IntersectionObserver' in window){
+ const sl=$('.sl'),sd=$('.st div');let tx=0,ty=0,cx=0,cy=0,rf=0,vis=1,hh=he.offsetHeight;
+ const run=()=>{cx+=(tx-cx)*.05;cy+=(ty-cy)*.05;sl.style.transform=`translate3d(${(cx*innerWidth*.5).toFixed(1)}px,${(cy*hh*.5).toFixed(1)}px,0)`;sd.style.transform=`translate3d(${(-cx*12).toFixed(1)}px,${(-cy*8).toFixed(1)}px,0)`;rf=vis&&Math.abs(tx-cx)+Math.abs(ty-cy)>.002?requestAnimationFrame(run):0};
+ if(matchMedia('(hover:hover)').matches)he.addEventListener('pointermove',e=>{const r=he.getBoundingClientRect();hh=r.height;tx=(e.clientX-r.left)/r.width*2-1;ty=(e.clientY-r.top)/r.height*2-1.2;rf||(rf=requestAnimationFrame(run))});
+ IO(he,v=>{vis=v;he.classList.toggle('off',!v)});
+ const zm=$('.zm'),zs=$('.zs'),zf=$('.zf'),zi=$('img',zf),zc=$('figcaption',zf),za=$('.zt.a'),zb=$('.zt.b'),E=t=>t<.5?4*t*t*t:1-Math.pow(2-2*t,3)/2;let zp=0,zo=0,zr=0,zt=0;H.classList.add('mo');
+ const fr=n=>{const r=zm.getBoundingClientRect(),vh=zs.offsetHeight,t=cl(-r.top/(r.height-vh)),pre=cl(1-r.top/vh),m=innerWidth<861,s0=m?.56:.36;
+  zp+=(t-zp)*(1-Math.pow(.86,cl((n-zt)/16.7||1,1,12)));zt=n;if(Math.abs(t-zp)<5e-4)zp=t;const e=E(cl(zp/.74)),c=(1-e)*(m?9:27),x=(pre*.4+zp)*16;
+  zf.style.transform=`scale(${(s0+(1-s0)*e).toFixed(4)})`;zf.style.clipPath=m?`inset(${c.toFixed(2)}% 0)`:`inset(0 ${c.toFixed(2)}%)`;zi.style.transform=`scale(${(1.3-.3*e).toFixed(4)})`;
+  za.style.transform=`translate3d(${(-x).toFixed(2)}%,-104%,0)`;zb.style.transform=`translate3d(${(x-34).toFixed(2)}%,6%,0)`;zc.style.opacity=cl((zp-.8)/.16).toFixed(2);
+  zr=zo||zp!==t?requestAnimationFrame(fr):0};
+ fr();IO(zm,v=>{zo=v;v&&!zr&&(zr=requestAnimationFrame(fr))});
+ const tl=$('.tl');let tr=0;const tf=()=>{tr=0;const r=tl.getBoundingClientRect();tl.style.setProperty('--tp',cl((innerHeight*.72-r.top)/r.height).toFixed(3))};
+ tf();addEventListener('scroll',()=>{tr||(tr=requestAnimationFrame(tf))},{passive:true});
+}
 })();
 </script>
 </body>
