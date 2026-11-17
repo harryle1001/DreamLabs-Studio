@@ -46,14 +46,6 @@ input,select,textarea{font:inherit;color:inherit;border-radius:0}
 .qv-x{position:absolute;z-index:3;width:42px;height:42px;display:grid;place-items:center;font-size:26px;line-height:1}
 .toast{position:fixed;left:50%;bottom:26px;z-index:130;transform:translate(-50%,26px);opacity:0;pointer-events:none;transition:opacity 424ms var(--ease),transform 424ms var(--ease);max-width:calc(100vw - 32px);padding:10px 26px;font-size:13px;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-.ph{position:relative;overflow:hidden;margin:0;background:var(--bg2)}
-.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1796ms var(--ease),filter 1110ms var(--ease)}
-.pe{position:relative;overflow:hidden}.pe>.ph{position:absolute;inset:0}.pe>.ph img{position:absolute;left:0;top:-9%;height:118%}
-.pg-g{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,19vw,300px);gap:10px}
-.pg-g .ph:first-child{grid-column:span 2;grid-row:span 2}.pg-4 .ph:nth-child(2){grid-column:span 2}
-.pg-g .ph:hover img{transform:scale(1.05)}
-.pg-g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;font-size:13px;line-height:1.38;pointer-events:none}
-@media(max-width:700px){.pg-g{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,52vw,260px);gap:6px}.pg-g .ph:first-child{grid-row:span 1}.pg-4 .ph:nth-child(2){grid-column:span 1}.pg-4 .ph:last-child{grid-column:span 2}}
 .back{position:fixed;left:16px;bottom:16px;z-index:60;min-height:42px;padding:0 16px;display:flex;align-items:center;font-size:13px;letter-spacing:.04em}
 .fm{min-height:26px;font-size:13px}
 @media (prefers-reduced-motion:reduce){.js [data-r],.js [data-r=lines] .ln>span{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}}
@@ -232,20 +224,61 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
 .fc a{color:var(--acc);text-decoration:underline;text-underline-offset:4px;display:inline-block;padding:13px 0;margin:-13px 0}
 .toast{background:var(--acc);color:var(--bg)}
 .back{border:1px solid var(--line);background:rgba(11,10,8,.72);backdrop-filter:blur(10px);color:var(--acc)}
-/*PH-CSS*/
-.pe{height:clamp(480px,92svh,940px);display:grid;align-items:end;border-block:1px solid var(--line)}
-.pe>.ph img{filter:sepia(.22) saturate(.82) brightness(.78) contrast(1.06)}
-.pe::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,8,.94) 0,rgba(11,10,8,.42) 38.2%,rgba(11,10,8,0) 61.8%),radial-gradient(ellipse at 50% 38%,transparent 38%,rgba(11,10,8,.5));pointer-events:none}
-.pe-t{position:relative;z-index:2;padding-bottom:68px}
-.pe-t .h2{margin:16px 0 26px;max-width:12em}
-.pe-c{color:var(--mut);max-width:26em}
-.pg-h{margin-bottom:42px}
-.pg-g .ph{border:1px solid var(--line);background:var(--bg2)}
-.pg-g img{filter:sepia(.24) saturate(.7) brightness(.62) contrast(1.08)}
-.pg-g .ph:first-child img{object-position:50% 62%}
-.pg-g .ph:hover img{filter:sepia(.1) saturate(.92) brightness(.9) contrast(1.04)}
-.pg-g figcaption{font-family:var(--fd);letter-spacing:.16em;color:var(--acc);background:linear-gradient(0deg,rgba(11,10,8,.86),transparent)}
-/*/PH-CSS*/
+/*MOTION*/
+.hb{position:absolute;inset:-5%;opacity:.46;isolation:isolate;-webkit-mask:radial-gradient(ellipse 60% 66% at 50% 42%,#000 6%,transparent 76%);mask:radial-gradient(ellipse 60% 66% at 50% 42%,#000 6%,transparent 76%);pointer-events:none}
+.hb img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) contrast(1.16)}
+.hb::after{content:"";position:absolute;inset:0;background:var(--sc);mix-blend-mode:color}
+.hc{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hsw{position:absolute;inset:-20% auto -20% 0;width:34%;background:linear-gradient(100deg,transparent,rgba(243,230,196,.1) 50%,transparent);transform:translateX(-130%) skewX(-16deg);pointer-events:none}
+.mo .hb img{animation:kb 30s ease-in-out infinite alternate}
+.mo .hsw{animation:hsw 9.6s 2.6s var(--ease) infinite}
+@keyframes kb{from{transform:scale(1.03)}to{transform:scale(1.2) translate(-2.6%,1.6%)}}
+@keyframes hsw{0%,42%{transform:translateX(-130%) skewX(-16deg)}100%{transform:translateX(430%) skewX(-16deg)}}
+.mo .hl h1 .wd{display:inline-block;overflow:hidden;vertical-align:top;padding:.3em .04em .2em;margin:-.3em -.04em -.2em}
+.mo .hl h1 .wd i{display:inline-block;font-style:inherit;animation:chr 1.5s var(--ease) both;animation-delay:calc(.62s + var(--k)*30ms)}
+@keyframes chr{from{transform:translateY(125%) rotate(7deg);opacity:0}}
+.cp{position:relative;height:clamp(480px,92svh,940px);display:grid;align-items:end;overflow:hidden;border-bottom:1px solid var(--line)}
+.cf{position:absolute;inset:0;margin:0}
+.cf img{width:100%;height:100%;object-fit:cover;object-position:var(--o,50% 50%);filter:sepia(.2) saturate(.84) brightness(.8) contrast(1.06);transform-origin:var(--o,50% 50%)}
+.cp::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,8,.95) 0,rgba(11,10,8,.5) 34%,rgba(11,10,8,0) 62%),linear-gradient(90deg,rgba(11,10,8,.6),transparent 56%);pointer-events:none}
+.ct{position:relative;z-index:2;padding-bottom:84px}
+.ct .h2{margin:16px 0 26px;max-width:12em}
+.ct>p:last-child{color:#b8ad99;max-width:26em}
+.cn,.cb{display:none}
+.mo .ch3{height:340vh}
+.mo .ch3-s{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:var(--bg)}
+.mo .cp{position:absolute;inset:0;height:auto;border:0;will-change:clip-path}
+.mo .cf img{will-change:transform}
+.mo .cn{display:flex;align-items:baseline;gap:10px;position:absolute;z-index:3;right:max(16px,4.2vw);bottom:68px;font-family:var(--fd);color:var(--acc)}
+.cn div{height:1.1em;overflow:hidden;font-size:clamp(68px,11vw,178px);line-height:1.1}
+.cn b{display:block;font-weight:400;transition:transform 1110ms var(--ease)}.cn span{display:block;height:1.1em;text-align:right}
+.cn em{font-style:normal;font-size:13px;letter-spacing:.26em;opacity:.7}
+.mo .cb{display:block;position:absolute;z-index:3;left:max(16px,4.2vw);right:max(16px,4.2vw);bottom:42px;height:1px;background:var(--line)}
+.cb i{position:absolute;inset:0;background:var(--acc);transform:scaleX(0);transform-origin:left}
+@media(max-width:700px){.ct{padding-bottom:110px}.mo .cn{bottom:auto;top:84px}.cn div{font-size:68px}}
+.pg-h{margin-bottom:42px;display:flex;justify-content:space-between;align-items:end;gap:26px;flex-wrap:wrap}
+.pg-n{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--mut)}
+.pg{position:relative;overflow:hidden}
+.lb-bg{position:absolute;left:0;top:50%;margin-top:-.2em;font-family:var(--fd);font-size:19vw;line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(214,191,148,.2);pointer-events:none;will-change:transform}
+.lb{position:relative;padding:42px 0 52px;-webkit-user-select:none;user-select:none;touch-action:pan-y}
+.lb-t{position:relative;display:flex;gap:clamp(16px,2.6vw,42px);padding:0 max(16px,4.2vw);height:min(66vh,620px);width:max-content;will-change:transform}
+.lf{position:relative;flex:none;margin:0;width:var(--w);height:var(--h,100%);align-self:var(--a,flex-start)}
+.lf-i{position:absolute;inset:0;overflow:hidden;border:1px solid var(--line);background:var(--bg2);transition:transform 686ms var(--ease)}
+.lf-i img{position:absolute;left:-9%;top:0;width:118%;max-width:none;height:100%;object-fit:cover;object-position:var(--o,50% 50%);filter:sepia(.16) saturate(.86) contrast(1.05);-webkit-user-drag:none;pointer-events:none}
+.lf-i::after{content:"";position:absolute;inset:0;background:rgba(11,10,8,.56);transition:opacity 1110ms var(--ease)}
+.lf.on .lf-i::after{opacity:.16}.lf:hover .lf-i::after{opacity:0}
+.lf:active .lf-i{transform:scale(.985)}
+.lf figcaption{position:absolute;left:0;top:100%;padding-top:10px;white-space:nowrap;font-family:var(--fd);font-size:13px;letter-spacing:.16em;color:var(--acc)}
+.lf[style*=flex-end] figcaption{top:auto;bottom:100%;padding:0 0 10px}
+.lf figcaption span{color:var(--mut);margin-left:10px}.lf figcaption span::after{content:"";display:inline-block;width:1px;height:.9em;margin-left:3px;background:var(--acc);vertical-align:-1px;opacity:0}.lf.ty figcaption span::after{opacity:1}
+.lb-l{position:absolute;left:0;top:0;width:560px;height:560px;margin:-280px 0 0 -280px;border-radius:50%;background:radial-gradient(circle,rgba(243,222,170,.2),rgba(243,222,170,.06) 38%,transparent 66%);mix-blend-mode:screen;pointer-events:none;opacity:0;transition:opacity 686ms;will-change:transform}
+.lb:hover .lb-l{opacity:1}
+.lb.drag{cursor:grab}.lb.drag:active{cursor:grabbing}
+.lb.nat{overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:auto}.lb.nat::-webkit-scrollbar{display:none}
+.lb.nat .lf{scroll-snap-align:center}.lb.nat .lb-l{display:none}
+.lb-p{margin-top:16px}.lb-p div{position:relative;height:1px;background:var(--line)}.lb-p i{position:absolute;inset:0;background:var(--acc);transform:scaleX(.12);transform-origin:left}
+@media(max-width:700px){.lb-t{height:108vw;gap:12px}.lf{width:76vw!important;height:100%!important;align-self:flex-start!important}.lf[style*=flex-end] figcaption{top:100%;bottom:auto;padding:10px 0 0}.lb-bg{font-size:30vw}}
+/*/MOTION*/
 </style>
 </head>
 <body>
@@ -262,6 +295,8 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
 <main>
 <section class="hero" id="top">
  <div class="glow"></div>
+ <div class="hb" aria-hidden="true"><img src="../img/photo/nuoc-hoa-37127787-anh-sang.webp" width="1800" height="737" alt="" fetchpriority="high" decoding="async"></div>
+ <canvas class="hc" aria-hidden="true"></canvas><div class="hsw" aria-hidden="true"></div>
  <div class="wmw" aria-hidden="true"><span class="wm" data-px=".1">Ombrève</span></div>
  <div class="hi w">
   <div class="hl"><p class="e">Extrait de parfum · Sài Gòn</p>
@@ -275,7 +310,12 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
 
 
 <!--PH-ED-->
-<section class="pe" aria-label="Không khí của nhà Ombrève"><figure class="ph" data-r="mask"><img src="../img/sm-web-ph-nuoc-hoa-37127787.webp" width="1600" height="1067" alt="Chai nước hoa vuông nắp vàng đặt trên mặt gương, phía sau là ánh hổ phách vàng rực" decoding="async" loading="lazy" data-px=".12"></figure><div class="pe-t w"><p class="e" data-r>Chương I · Hổ phách</p><h2 class="h2" data-r="lines"><span class="ln"><span>Ánh sáng chiều muộn</span></span><span class="ln" style="--j:1"><span>rơi vào <em>giọt cuối cùng.</em></span></span></h2><p class="pe-c" data-r>Mỗi mẻ chiết đều được soi dưới đèn vàng trước khi niêm phong.</p></div></section>
+<section class="ch3" id="chuong" aria-label="Ba chương ánh sáng của nhà Ombrève"><div class="ch3-s">
+<article class="cp"><figure class="cf" style="--o:50% 64%"><img src="../img/sm-web-ph-nuoc-hoa-37127787.webp" width="1600" height="1067" alt="Chai nước hoa vuông nắp vàng đặt trên mặt gương, phía sau là ánh hổ phách vàng rực" decoding="async" loading="lazy"></figure><div class="ct w"><p class="e" data-r>Chương I · Hổ phách</p><h2 class="h2" data-r="lines"><span class="ln"><span>Ánh sáng chiều muộn</span></span><span class="ln" style="--j:1"><span>rơi vào <em>giọt cuối cùng.</em></span></span></h2><p data-r>Mỗi mẻ chiết đều được soi dưới đèn vàng trước khi niêm phong.</p></div></article>
+<article class="cp"><figure class="cf" style="--o:54% 56%"><img src="../img/sm-web-ph-nuoc-hoa-16239693.webp" width="1600" height="1200" alt="Chai nước hoa thủy tinh nằm nghiêng trên nền da đen, một vệt sáng rọi từ trên xuống" decoding="async" loading="lazy"></figure><div class="ct w"><p class="e">Chương II · Da thuộc</p><h2 class="h2">Một vệt sáng<br>trên <em>nền da tối.</em></h2><p>Hương cuối của Trầm Khuya là hổ phách và da thuộc: ấm, khô, rất gần da.</p></div></article>
+<article class="cp"><figure class="cf" style="--o:50% 46%"><img src="../img/photo/nuoc-hoa-34089129-xl.webp" width="2400" height="1526" alt="Lọ nước hoa thủy tinh mờ đặt trước nền đá chạm màu xám xanh" decoding="async" loading="lazy"></figure><div class="ct w"><p class="e">Chương III · Sương</p><h2 class="h2">Thủy tinh mờ<br>giữ lại <em>hơi sương.</em></h2><p>Sương Nhài mở bằng trà trắng và lê xanh, trong và mát như buổi sớm.</p></div></article>
+<div class="cn" aria-hidden="true"><div><b><span>I</span><span>II</span><span>III</span></b></div><em>/ III</em></div><div class="cb" aria-hidden="true"><i></i></div>
+</div></section>
 <!--/PH-ED-->
 
 <section class="sec man" id="triet-ly"><div class="w">
@@ -311,7 +351,10 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
 
 
 <!--PH-LB-->
-<section class="sec pg" id="anh-sang"><div class="w"><div class="pg-h"><p class="e" data-r>Nhật ký ánh sáng</p><h2 class="h2" data-r="lines" style="margin-top:16px"><span class="ln"><span>Mùi hương,</span></span><span class="ln" style="--j:1"><span><em>trong bóng tối.</em></span></span></h2></div><div class="pg-g pg-4"><figure class="ph" data-r="mask" style="--i:0"><img src="../img/sm-web-ph-nuoc-hoa-16239693.webp" width="1600" height="1200" alt="Chai nước hoa thủy tinh nằm nghiêng trên nền da đen, một vệt sáng rọi từ trên xuống" decoding="async" loading="lazy"><figcaption>N° 01 · Vệt sáng</figcaption></figure><figure class="ph" data-r="mask" style="--i:1"><img src="../img/photo/nuoc-hoa-34089129.webp" width="1600" height="1018" alt="Lọ nước hoa thủy tinh mờ đặt trước nền vải thô màu xám xanh" decoding="async" loading="lazy"><figcaption>N° 02 · Sương</figcaption></figure><figure class="ph" data-r="mask" style="--i:2"><img src="../img/photo/nuoc-hoa-8553210.webp" width="1067" height="1600" alt="Chai nước hoa nắp vàng nằm trên tấm lụa màu kem" decoding="async" loading="lazy"><figcaption>N° 03 · Lụa kem</figcaption></figure><figure class="ph" data-r="mask" style="--i:3"><img src="../img/photo/nuoc-hoa-36389336.webp" width="1226" height="1600" alt="Lọ nước hoa thủy tinh thổi tay viền vàng, nút hình giọt lửa" decoding="async" loading="lazy"><figcaption>N° 04 · Thủy tinh thổi</figcaption></figure></div></div></section>
+<section class="sec pg" id="anh-sang"><div class="w"><div class="pg-h"><div><p class="e" data-r>Nhật ký ánh sáng</p><h2 class="h2" data-r="lines" style="margin-top:16px"><span class="ln"><span>Mùi hương,</span></span><span class="ln" style="--j:1"><span><em>trong bóng tối.</em></span></span></h2></div><p class="pg-n" data-r>Kéo ngang để soi từng khung · 05 ảnh</p></div></div>
+<div class="lb-bg" aria-hidden="true">trong bóng tối · dưới đèn vàng · trong bóng tối</div>
+<div class="lb" id="lb" data-c="Kéo" tabindex="0" role="group" aria-label="Năm ảnh không khí, kéo hoặc vuốt ngang để xem"><div class="lb-t"><figure class="lf" style="--w:min(46vw,760px);--h:82%;--o:50% 62%"><div class="lf-i"><img src="../img/sm-web-ph-nuoc-hoa-16239693.webp" width="1600" height="1200" alt="Chai nước hoa thủy tinh nằm nghiêng trên nền da đen, một vệt sáng rọi từ trên xuống" decoding="async" loading="lazy" draggable="false"></div><figcaption>N° 01<span data-tw="Vệt sáng">Vệt sáng</span></figcaption></figure><figure class="lf" style="--w:min(25vw,400px);--h:88%;--a:flex-end"><div class="lf-i"><img src="../img/photo/nuoc-hoa-8553210.webp" width="1067" height="1600" alt="Chai nước hoa nắp vàng nằm trên tấm lụa màu kem" decoding="async" loading="lazy" draggable="false"></div><figcaption>N° 02<span data-tw="Lụa kem">Lụa kem</span></figcaption></figure><figure class="lf" style="--w:min(40vw,660px);--h:72%"><div class="lf-i"><img src="../img/photo/nuoc-hoa-34089129.webp" width="1600" height="1018" alt="Lọ nước hoa thủy tinh mờ đặt trước nền đá chạm màu xám xanh" decoding="async" loading="lazy" draggable="false"></div><figcaption>N° 03<span data-tw="Sương">Sương</span></figcaption></figure><figure class="lf" style="--w:min(24vw,380px);--h:92%;--a:flex-end"><div class="lf-i"><img style="filter:sepia(.3) saturate(.8) brightness(.74) contrast(1.06)" src="../img/photo/nuoc-hoa-36389336.webp" width="1226" height="1600" alt="Lọ nước hoa thủy tinh thổi tay viền vàng, nút hình giọt lửa" decoding="async" loading="lazy" draggable="false"></div><figcaption>N° 04<span data-tw="Thủy tinh thổi">Thủy tinh thổi</span></figcaption></figure><figure class="lf" style="--w:min(44vw,720px);--h:80%;--o:50% 70%"><div class="lf-i"><img src="../img/sm-web-ph-nuoc-hoa-37127787.webp" width="1600" height="1067" alt="Chai nước hoa vuông nắp vàng đặt trên mặt gương, phía sau là ánh hổ phách vàng rực" decoding="async" loading="lazy" draggable="false"></div><figcaption>N° 05<span data-tw="Hổ phách">Hổ phách</span></figcaption></figure></div><div class="lb-l" aria-hidden="true"></div></div>
+<div class="w lb-p" aria-hidden="true"><div><i></i></div></div></section>
 <!--/PH-LB-->
 
 <section class="sec bs" id="huong-rieng"><div class="w bsg">
@@ -459,6 +502,56 @@ gr.addEventListener('click',e=>{const c=e.target.closest('.cd');if(!c)return;con
  const sz=$('.sz',qvc);sz.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',sz).forEach(x=>{x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});$('#qp').textContent=vnd(Math.round(p.p*b.dataset.k/100000)*100000)});
  $('#qb').addEventListener('click',()=>{QV.close();pick('#fs',p.n)});$('#qw').addEventListener('click',()=>toast('Đã lưu '+p.n+'. Trang mẫu nên danh sách chưa được ghi lại.'))});
 $('#fs').insertAdjacentHTML('beforeend',P.map(p=>`<option>${p.n}</option>`).join(''));
+/* ===== motion ===== */
+const MO=!RM,cl=(v,a=0,b=1)=>v<a?a:v>b?b:v,sm=t=>t*t*(3-2*t),seg=(p,a,b)=>cl((p-a)/(b-a));MO&&H.classList.add('mo');
+const vis=(el,f)=>'IntersectionObserver' in window?new IntersectionObserver(e=>f(e[0].isIntersecting),{rootMargin:'80px'}).observe(el):f(1);
+/* tiêu đề tách ký tự */
+if(MO){const h1=$('.hl h1');let k=0;h1.setAttribute('aria-label',h1.textContent);
+ const wr=n=>[...n.childNodes].forEach(c=>{if(c.nodeType!==3)return wr(c);const f=D.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(!w.trim())return f.append(' ');const s=D.createElement('span');s.className='wd';s.setAttribute('aria-hidden','true');s.innerHTML=[...w].map(ch=>`<i style="--k:${k++}">${ch}</i>`).join('');f.append(s)});c.replaceWith(f)});wr(h1)}
+/* hero: bụi sáng + parallax theo chuột */
+const hcv=$('.hc');
+if(MO&&hcv){const c=hcv.getContext('2d'),N=FINE?52:22,ps=[],sp=D.createElement('canvas'),lay=[[$('.hb'),-18],[$('.wmw'),-30],[stage,16]];let w,h,dpr,on=0,raf=0,mx=0,my=0,tx=0,ty=0;
+ sp.width=sp.height=64;const g=sp.getContext('2d'),gr=g.createRadialGradient(32,32,0,32,32,32);gr.addColorStop(0,'rgba(246,226,176,1)');gr.addColorStop(.4,'rgba(240,206,140,.5)');gr.addColorStop(1,'rgba(240,206,140,0)');g.fillStyle=gr;g.fillRect(0,0,64,64);
+ const rs=()=>{dpr=Math.min(devicePixelRatio||1,1.5);w=hero.clientWidth;h=hero.clientHeight;hcv.width=w*dpr;hcv.height=h*dpr};rs();addEventListener('resize',rs);
+ for(let i=0;i<N;i++)ps.push({x:Math.random(),y:Math.random(),z:.3+Math.random()*.7,r:Math.random()<.24?14+Math.random()*30:1.2+Math.random()*2.4,v:.00016+Math.random()*.00042,ph:Math.random()*6.28});
+ const fr=t=>{raf=0;if(!on)return;mx+=(tx-mx)*.05;my+=(ty-my)*.05;c.setTransform(dpr,0,0,dpr,0,0);c.clearRect(0,0,w,h);c.globalCompositeOperation='lighter';
+  for(const p of ps){p.y-=p.v*p.z;if(p.y<-.06){p.y=1.06;p.x=Math.random()}const r=p.r*p.z,x=(p.x+Math.sin(t*.00028+p.ph)*.014)*w+mx*p.z*34,y=p.y*h+my*p.z*22;
+   c.globalAlpha=(.55+.45*Math.sin(t*.0011+p.ph))*(p.r>8?.1:.62)*cl(Math.min(1.06-p.y,p.y+.06)*5);c.drawImage(sp,x-r,y-r,r*2,r*2)}
+  lay.forEach(([el,k])=>{if(el)el.style.translate=(mx*k).toFixed(1)+'px '+(my*k*.6).toFixed(1)+'px'});raf=requestAnimationFrame(fr)};
+ const go2=v=>{on=v&&!D.hidden;on&&!raf&&(raf=requestAnimationFrame(fr))};let iv=0;vis(hero,v=>{iv=v;go2(v)});D.addEventListener('visibilitychange',()=>go2(iv));
+ FINE&&hero.addEventListener('mousemove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5},{passive:true})}
+/* ba chương: ghim, mở cảnh bằng iris */
+const ch3=$('.ch3');
+if(MO&&ch3){const cps=$$('.cp',ch3),im=cps.map(c=>$('img',c)),ct=cps.map(c=>$('.ct',c)),cn=$('.cn b',ch3),cb=$('.cb i',ch3),AT=[0,[54,56],[50,46]];let tk=0;
+ const up=()=>{tk=0;const r=ch3.getBoundingClientRect(),vh=innerHeight;if(r.bottom<-80||r.top>vh+80)return;
+  const e=cl(1-r.top/vh),p=cl(-r.top/(r.height-vh)),R=Math.hypot(innerWidth,vh)*1.02,k=1-sm(e),t=[1,sm(seg(p,.2,.44)),sm(seg(p,.58,.82))];
+  cps[0].style.clipPath=k>.001?`inset(${(k*18).toFixed(2)}% ${(k*26).toFixed(2)}%)`:'none';
+  for(let i=1;i<3;i++){const c=cps[i].style;c.visibility=t[i]>0?'visible':'hidden';c.clipPath=t[i]<1?`circle(${(t[i]*R).toFixed(1)}px at ${AT[i][0]}% ${AT[i][1]}%)`:'none';ct[i].style.transform=`translate3d(0,${((1-t[i])*52).toFixed(1)}px,0)`;ct[i].style.opacity=cl(t[i]*2-1).toFixed(3)}
+  [cl(e*.4+seg(p,0,.44)*.6),seg(p,.2,.82),seg(p,.58,1.16)].forEach((v,i)=>im[i].style.transform=`scale(${(1.22-.22*v).toFixed(4)})`);
+  cn.style.transform=`translate3d(0,${-(p<.32?0:p<.7?1:2)*100/3}%,0)`;cb.style.transform=`scaleX(${p.toFixed(4)})`};
+ addEventListener('scroll',()=>{tk||(tk=requestAnimationFrame(up))},{passive:true});addEventListener('resize',up);up()}
+/* lookbook: kéo có quán tính, đèn soi theo chuột */
+const lb=$('#lb');
+if(lb){const tr=$('.lb-t',lb),fs=$$('.lf',lb),bg=$('.lb-bg'),bar=$('.lb-p i'),lz=$('.lb-l',lb);
+ const tw=f=>{if(f.tw)return;f.tw=1;f.classList.add('on');const s=$('[data-tw]',f),t=s.dataset.tw;if(RM)return;let i=0;s.textContent='';f.classList.add('ty');const iv=setInterval(()=>{s.textContent=t.slice(0,++i);if(i>=t.length){clearInterval(iv);setTimeout(()=>f.classList.remove('ty'),900)}},68)};
+ if(MO&&FINE){lb.classList.add('drag');let x=0,tx=0,v=0,max=0,down=0,px=0,on=0,raf=0,lx=0,ly=0,cx=0,cy=0;
+  const fr=()=>{raf=0;if(!on)return;max=Math.max(0,tr.scrollWidth-lb.clientWidth);if(!down){tx+=v;v*=.94;Math.abs(v)<.05&&(v=0)}
+   const r=lb.getBoundingClientRect(),vw=innerWidth,sp=cl((innerHeight-r.top)/(innerHeight+r.height))*max*.34;
+   if(tx+sp<0){tx=-sp;v=0}if(tx+sp>max){tx=max-sp;v=0}x+=(tx+sp-x)*.11;
+   tr.style.transform=`translate3d(${(-x).toFixed(1)}px,0,0)`;bg.style.transform=`translate3d(${(x*.42-vw*.5).toFixed(1)}px,0,0)`;bar.style.transform=`scaleX(${max?(.12+.88*x/max).toFixed(4):1})`;
+   fs.forEach(f=>{const k=(f.offsetLeft+f.offsetWidth/2-x-vw/2)/vw;f.firstChild.firstChild.style.transform=`translate3d(${(cl(k,-1,1)*-7).toFixed(2)}%,0,0)`;Math.abs(k)<.3&&r.top<innerHeight*.8&&tw(f)});
+   cx+=(lx-cx)*.14;cy+=(ly-cy)*.14;lz.style.transform=`translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`;raf=requestAnimationFrame(fr)};
+  vis(lb,s=>{on=s;s&&!raf&&(raf=requestAnimationFrame(fr))});
+  lb.addEventListener('pointerdown',e=>{if(e.button)return;down=1;px=e.clientX;v=0;lb.setPointerCapture(e.pointerId)});
+  lb.addEventListener('pointermove',e=>{const r=lb.getBoundingClientRect();lx=e.clientX-r.left;ly=e.clientY-r.top;if(!down)return;const d=px-e.clientX;px=e.clientX;tx+=d;v=v*.5+d*.5});
+  const end=()=>{down=0};lb.addEventListener('pointerup',end);lb.addEventListener('pointercancel',end);
+  lb.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){e.preventDefault();tx+=e.deltaX}},{passive:false});
+  lb.addEventListener('keydown',e=>{const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();v+=d*26}})}
+ else{lb.classList.add('nat');let tk=0;const up=()=>{tk=0;const max=lb.scrollWidth-lb.clientWidth,x=lb.scrollLeft;bar.style.transform=`scaleX(${max>0?(.12+.88*x/max).toFixed(4):1})`;RM||(bg.style.transform=`translate3d(${(x*.3-innerWidth*.4).toFixed(1)}px,0,0)`)};
+  lb.addEventListener('scroll',()=>{tk||(tk=requestAnimationFrame(up))},{passive:true});up();
+  if('IntersectionObserver' in window){const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&tw(e.target)),{root:lb,threshold:.6,rootMargin:'9999px 0px'});fs.forEach(f=>o.observe(f))}else fs.forEach(tw)}}
+/* số đếm */
+MO&&'IntersectionObserver' in window&&$$('.sig b').forEach(b=>{const m=/^(\d+)(.*)$/.exec(b.textContent);if(!m)return;const n=+m[1];b.textContent='0'+m[2];new IntersectionObserver((e,o)=>{if(!e[0].isIntersecting)return;o.disconnect();const t0=performance.now(),f=t=>{const k=cl((t-t0)/1800);b.textContent=Math.round(n*(1-Math.pow(1-k,4)))+m[2];k<1&&requestAnimationFrame(f)};requestAnimationFrame(f)},{threshold:.6}).observe(b)});
 scan();
 })();
 </script>
