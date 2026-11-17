@@ -40,6 +40,14 @@ input,select,textarea{font:inherit;color:inherit;border-radius:0}
 .qv-x{position:absolute;z-index:3;width:42px;height:42px;display:grid;place-items:center;font-size:26px;line-height:1}
 .toast{position:fixed;left:50%;bottom:26px;z-index:130;transform:translate(-50%,26px);opacity:0;pointer-events:none;transition:opacity 424ms var(--ease),transform 424ms var(--ease);max-width:calc(100vw - 32px);padding:10px 26px;font-size:13px;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+.ph{position:relative;overflow:hidden;margin:0;background:var(--bg2)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1796ms var(--ease),filter 1110ms var(--ease)}
+.pe{position:relative;overflow:hidden}.pe>.ph{position:absolute;inset:0}.pe>.ph img{position:absolute;left:0;top:-9%;height:118%}
+.pg-g{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,19vw,300px);gap:10px}
+.pg-g .ph:first-child{grid-column:span 2;grid-row:span 2}.pg-4 .ph:nth-child(2){grid-column:span 2}
+.pg-g .ph:hover img{transform:scale(1.05)}
+.pg-g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;font-size:13px;line-height:1.38;pointer-events:none}
+@media(max-width:700px){.pg-g{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,52vw,260px);gap:6px}.pg-g .ph:first-child{grid-row:span 1}.pg-4 .ph:nth-child(2){grid-column:span 1}.pg-4 .ph:last-child{grid-column:span 2}}
 .back{position:fixed;left:16px;bottom:16px;z-index:60;min-height:42px;padding:0 16px;display:flex;align-items:center;font-size:13px;letter-spacing:.04em}
 .fm{min-height:26px;font-size:13px}
 @media (prefers-reduced-motion:reduce){.js [data-r],.js [data-r=lines] .ln>span{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}}
@@ -183,6 +191,24 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line)}
 .fc{font-size:16px;color:var(--mut);max-width:40em;margin:0 auto}.fc a{color:var(--acc);text-decoration:underline;text-underline-offset:4px;display:inline-block;padding:11px 0;margin:-11px 0}
 .toast{background:var(--acc);color:var(--bg2);font-size:16px}
 .back{left:26px;bottom:26px;border:1px solid var(--line);background:var(--bg2);color:var(--acc)}
+/*PH-CSS*/
+.pe{display:grid;justify-items:center;padding:42px 0 110px;text-align:center}
+.pe>.ph{position:relative;inset:auto;width:min(560px,78vw);aspect-ratio:1/1.38;border-radius:999px 999px 0 0;border:1px solid var(--acc);outline:1px solid var(--line);outline-offset:8px}
+.pe>.ph img{filter:sepia(.24) saturate(.74) brightness(.88) contrast(1.04)}
+.pe>.ph::after,.pg-g .ph::after{content:"";position:absolute;inset:0;background:#1c2a22;mix-blend-mode:multiply;opacity:.34;pointer-events:none}
+.pe-t{margin-top:42px}
+.pe-cap{display:grid;gap:16px;justify-items:center}
+.pe-q{font-size:clamp(26px,3.4vw,42px);line-height:1.38}.pe-q em{color:var(--acc)}
+.pg .hdg{margin-bottom:42px}
+.pg-g{gap:16px;grid-auto-rows:clamp(180px,21vw,320px)}
+.pg-g .ph{border:1px solid var(--line)}
+.pg-g .ph:nth-child(n+3){border-radius:999px 999px 0 0}
+@media(max-width:700px){.pg-g .ph:nth-child(2){border-radius:999px 999px 0 0}.pg-g .ph:nth-child(4){border-radius:0}}
+.pg-g img{filter:sepia(.22) saturate(.74) brightness(.86) contrast(1.04)}
+.pg-g .ph:hover img{filter:sepia(.1) saturate(.9) brightness(.95)}
+.pg-g .ph:nth-child(3) img{object-position:50% 72%}.pg-g .ph:nth-child(4) img{object-position:62% 50%}
+.pg-g figcaption{text-align:center;font-style:italic;font-size:16px;color:var(--ink);background:linear-gradient(0deg,rgba(20,31,25,.86),transparent);z-index:1}
+/*/PH-CSS*/
 </style>
 </head>
 <body>
@@ -207,6 +233,11 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line)}
  <div class="hs r"><span><b>I</b>phom gỗ giữ trọn đời</span><span><b>CCXL</b>mũi khâu welt tay</span></div>
  <a class="bt" href="#hen">Hẹn buổi đo chân</a>
 </section>
+
+
+<!--PH-ED-->
+<section class="pe" aria-label="Ảnh không khí của nhà Halvesse"><figure class="ph" data-r="mask"><img src="../img/photo/giay-38703033.webp" width="1067" height="1600" alt="Đôi sandal da ánh vàng đặt trên bậc gỗ cạnh ô cửa kính" decoding="async" loading="lazy" data-px=".12"></figure><div class="pe-t w"><div class="pe-cap"><div class="orn" data-r><i></i></div><p class="sc2" data-r>Planche hors-série</p><p class="pe-q" data-r>Da mạ vàng, gót mảnh,<br><em>đặt bên ô cửa buổi sáng.</em></p></div></div></section>
+<!--/PH-ED-->
 
 <section class="sec cr"><div class="w">
  <div class="orn" data-r><i></i></div>
@@ -244,6 +275,11 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line)}
  <div class="gr" id="gr"></div>
 </div></section>
 
+
+<!--PH-LB-->
+<section class="sec pg" id="dong-nu"><div class="w"><div class="hdg"><div class="orn" data-r><i></i></div><p class="sc2" data-r>Lookbook · Dòng nữ</p><h2 data-r>Giày nữ, <em>cũng đo theo phom riêng</em></h2><p class="t" data-r>Bên cạnh giày nam, xưởng nhận đóng giày nữ theo cùng quy trình mười hai tuần. Ảnh dưới đây là ảnh minh họa không khí.</p></div><div class="pg-g pg-4"><figure class="ph" data-r="mask" style="--i:0"><img src="../img/photo/giay-27113452.webp" width="1600" height="1600" alt="Một chiếc giày cao gót da bóng màu đen đặt trên gờ trắng, phía sau là ánh đèn thành phố nhòe" decoding="async" loading="lazy"><figcaption>Planche A · Đêm</figcaption></figure><figure class="ph" data-r="mask" style="--i:1"><img src="../img/photo/giay-34294446.webp" width="1600" height="1068" alt="Đôi giày cao gót màu xanh nhạt đứng trên nền sỏi trắng, nhìn từ phía sau" decoding="async" loading="lazy"><figcaption>Planche B · Sỏi trắng</figcaption></figure><figure class="ph" data-r="mask" style="--i:2"><img src="../img/photo/giay-36589772.webp" width="1067" height="1600" alt="Đôi giày da màu nâu bò quai mảnh xếp chéo nhau trên khối gỗ" decoding="async" loading="lazy"><figcaption>Planche C · Da bò</figcaption></figure><figure class="ph" data-r="mask" style="--i:3"><img src="../img/photo/giay-13229858.webp" width="1600" height="1067" alt="Đôi chân mang giày cao gót quai đen bóng đứng trên sàn đá phản chiếu ô cửa" decoding="async" loading="lazy"><figcaption>Planche D · Sàn đá</figcaption></figure></div></div></section>
+<!--/PH-LB-->
+
 <section class="sec ms" id="da"><div class="w">
  <div class="hdg"><div class="orn" data-r><i></i></div><p class="sc2" data-r>Chất liệu</p><h2 data-r>Năm loại da, <em>chọn bằng tay</em></h2></div>
  <ul class="lt">
@@ -274,7 +310,7 @@ footer{padding:68px 0 110px;text-align:center;border-top:1px solid var(--line)}
  <div class="orn" data-r><i></i></div>
  <div class="fw" aria-hidden="true" data-r>HALVESSE</div><p class="sc2" data-r>Bottier · Giày đo chân</p>
  <nav class="fn" aria-label="Chân trang"><a href="#bo-suu-tap">Bộ sưu tập</a><a href="#do-chan">Đo chân</a><a href="#da">Chất liệu</a><a href="#hen">Hẹn đo</a></nav>
- <p class="fc">Halvesse là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> tự nghĩ và thiết kế để làm mẫu website. Sản phẩm, giá, số liệu, lịch và địa chỉ đều là minh họa; trang không bán hàng thật.</p>
+ <p class="fc">Halvesse là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> tự nghĩ và thiết kế để làm mẫu website. Sản phẩm, giá, số liệu, lịch và địa chỉ đều là minh họa, ảnh chụp lấy từ thư viện Pexels để minh họa không khí; trang không bán hàng thật.</p>
 </div></footer>
 
 <div class="qv" id="qv" aria-hidden="true"><div class="qv-bg" data-x></div><div class="qv-p" role="dialog" aria-modal="true" aria-label="Chi tiết dáng giày"><button class="qv-x" data-x aria-label="Đóng">×</button><div id="qvc"></div></div></div>

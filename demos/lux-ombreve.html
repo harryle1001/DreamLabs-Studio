@@ -46,6 +46,14 @@ input,select,textarea{font:inherit;color:inherit;border-radius:0}
 .qv-x{position:absolute;z-index:3;width:42px;height:42px;display:grid;place-items:center;font-size:26px;line-height:1}
 .toast{position:fixed;left:50%;bottom:26px;z-index:130;transform:translate(-50%,26px);opacity:0;pointer-events:none;transition:opacity 424ms var(--ease),transform 424ms var(--ease);max-width:calc(100vw - 32px);padding:10px 26px;font-size:13px;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+.ph{position:relative;overflow:hidden;margin:0;background:var(--bg2)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1796ms var(--ease),filter 1110ms var(--ease)}
+.pe{position:relative;overflow:hidden}.pe>.ph{position:absolute;inset:0}.pe>.ph img{position:absolute;left:0;top:-9%;height:118%}
+.pg-g{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,19vw,300px);gap:10px}
+.pg-g .ph:first-child{grid-column:span 2;grid-row:span 2}.pg-4 .ph:nth-child(2){grid-column:span 2}
+.pg-g .ph:hover img{transform:scale(1.05)}
+.pg-g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;font-size:13px;line-height:1.38;pointer-events:none}
+@media(max-width:700px){.pg-g{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,52vw,260px);gap:6px}.pg-g .ph:first-child{grid-row:span 1}.pg-4 .ph:nth-child(2){grid-column:span 1}.pg-4 .ph:last-child{grid-column:span 2}}
 .back{position:fixed;left:16px;bottom:16px;z-index:60;min-height:42px;padding:0 16px;display:flex;align-items:center;font-size:13px;letter-spacing:.04em}
 .fm{min-height:26px;font-size:13px}
 @media (prefers-reduced-motion:reduce){.js [data-r],.js [data-r=lines] .ln>span{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}}
@@ -224,6 +232,20 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
 .fc a{color:var(--acc);text-decoration:underline;text-underline-offset:4px;display:inline-block;padding:13px 0;margin:-13px 0}
 .toast{background:var(--acc);color:var(--bg)}
 .back{border:1px solid var(--line);background:rgba(11,10,8,.72);backdrop-filter:blur(10px);color:var(--acc)}
+/*PH-CSS*/
+.pe{height:clamp(480px,92svh,940px);display:grid;align-items:end;border-block:1px solid var(--line)}
+.pe>.ph img{filter:sepia(.22) saturate(.82) brightness(.78) contrast(1.06)}
+.pe::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,8,.94) 0,rgba(11,10,8,.42) 38.2%,rgba(11,10,8,0) 61.8%),radial-gradient(ellipse at 50% 38%,transparent 38%,rgba(11,10,8,.5));pointer-events:none}
+.pe-t{position:relative;z-index:2;padding-bottom:68px}
+.pe-t .h2{margin:16px 0 26px;max-width:12em}
+.pe-c{color:var(--mut);max-width:26em}
+.pg-h{margin-bottom:42px}
+.pg-g .ph{border:1px solid var(--line);background:var(--bg2)}
+.pg-g img{filter:sepia(.24) saturate(.7) brightness(.62) contrast(1.08)}
+.pg-g .ph:first-child img{object-position:50% 62%}
+.pg-g .ph:hover img{filter:sepia(.1) saturate(.92) brightness(.9) contrast(1.04)}
+.pg-g figcaption{font-family:var(--fd);letter-spacing:.16em;color:var(--acc);background:linear-gradient(0deg,rgba(11,10,8,.86),transparent)}
+/*/PH-CSS*/
 </style>
 </head>
 <body>
@@ -250,6 +272,11 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
    <div class="pk" id="pk" role="group" aria-label="Chọn mùi hương"></div></div>
  </div>
 </section>
+
+
+<!--PH-ED-->
+<section class="pe" aria-label="Không khí của nhà Ombrève"><figure class="ph" data-r="mask"><img src="../img/sm-web-ph-nuoc-hoa-37127787.webp" width="1600" height="1067" alt="Chai nước hoa vuông nắp vàng đặt trên mặt gương, phía sau là ánh hổ phách vàng rực" decoding="async" loading="lazy" data-px=".12"></figure><div class="pe-t w"><p class="e" data-r>Chương I · Hổ phách</p><h2 class="h2" data-r="lines"><span class="ln"><span>Ánh sáng chiều muộn</span></span><span class="ln" style="--j:1"><span>rơi vào <em>giọt cuối cùng.</em></span></span></h2><p class="pe-c" data-r>Mỗi mẻ chiết đều được soi dưới đèn vàng trước khi niêm phong.</p></div></section>
+<!--/PH-ED-->
 
 <section class="sec man" id="triet-ly"><div class="w">
  <p class="e" data-r>Triết lý của nhà</p>
@@ -281,6 +308,11 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
   <div class="fl" id="fl" role="group" aria-label="Lọc theo nhóm hương" data-r></div></div>
  <div class="gr" id="gr"></div>
 </div></section>
+
+
+<!--PH-LB-->
+<section class="sec pg" id="anh-sang"><div class="w"><div class="pg-h"><p class="e" data-r>Nhật ký ánh sáng</p><h2 class="h2" data-r="lines" style="margin-top:16px"><span class="ln"><span>Mùi hương,</span></span><span class="ln" style="--j:1"><span><em>trong bóng tối.</em></span></span></h2></div><div class="pg-g pg-4"><figure class="ph" data-r="mask" style="--i:0"><img src="../img/sm-web-ph-nuoc-hoa-16239693.webp" width="1600" height="1200" alt="Chai nước hoa thủy tinh nằm nghiêng trên nền da đen, một vệt sáng rọi từ trên xuống" decoding="async" loading="lazy"><figcaption>N° 01 · Vệt sáng</figcaption></figure><figure class="ph" data-r="mask" style="--i:1"><img src="../img/photo/nuoc-hoa-34089129.webp" width="1600" height="1018" alt="Lọ nước hoa thủy tinh mờ đặt trước nền vải thô màu xám xanh" decoding="async" loading="lazy"><figcaption>N° 02 · Sương</figcaption></figure><figure class="ph" data-r="mask" style="--i:2"><img src="../img/photo/nuoc-hoa-8553210.webp" width="1067" height="1600" alt="Chai nước hoa nắp vàng nằm trên tấm lụa màu kem" decoding="async" loading="lazy"><figcaption>N° 03 · Lụa kem</figcaption></figure><figure class="ph" data-r="mask" style="--i:3"><img src="../img/photo/nuoc-hoa-36389336.webp" width="1226" height="1600" alt="Lọ nước hoa thủy tinh thổi tay viền vàng, nút hình giọt lửa" decoding="async" loading="lazy"><figcaption>N° 04 · Thủy tinh thổi</figcaption></figure></div></div></section>
+<!--/PH-LB-->
 
 <section class="sec bs" id="huong-rieng"><div class="w bsg">
  <div><p class="e" data-r>Hương riêng · Sur mesure</p>
@@ -317,7 +349,7 @@ footer{border-top:1px solid var(--line);padding:68px 0 110px;text-align:center;o
 <footer><div class="w">
  <div class="fw" aria-hidden="true" data-r="fade">OMBRÈVE</div>
  <nav class="fn" aria-label="Chân trang"><a class="lk" href="#mui-huong">Mùi hương</a><a class="lk" href="#che-tac">Chế tác</a><a class="lk" href="#huong-rieng">Hương riêng</a><a class="lk" href="#hen">Boutique</a></nav>
- <p class="fc">Ombrève là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> tự nghĩ và thiết kế để làm mẫu website. Sản phẩm, giá, số liệu và địa chỉ đều là minh họa; trang không bán hàng thật.</p>
+ <p class="fc">Ombrève là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> tự nghĩ và thiết kế để làm mẫu website. Sản phẩm, giá, số liệu và địa chỉ đều là minh họa, ảnh chụp lấy từ thư viện Pexels để minh họa không khí; trang không bán hàng thật.</p>
 </div></footer>
 
 <div class="qv" id="qv" aria-hidden="true"><div class="qv-bg" data-x></div><div class="qv-p" role="dialog" aria-modal="true" aria-label="Chi tiết mùi hương"><button class="qv-x" data-x aria-label="Đóng">×</button><div id="qvc"></div></div></div>
