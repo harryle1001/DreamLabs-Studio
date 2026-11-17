@@ -323,7 +323,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
       gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0)}};
   const draw=()=>{if(lost)return;size();
-    const narrow=cw<760,cxn=.618,cyn=(narrow?.3:.382)+sc*.9,R=(narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
+    const narrow=cw<760,cxn=.618+Math.sin(t*.13)*.012,cyn=(narrow?.3:.382)+Math.cos(t*.11)*.012,R=(narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
     const sm=clamp(sc/.3);const morph=Math.max(st.morph,sm*sm*(3-2*sm)),fade=1-clamp((sc-.618)/.382)*.618;
     gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.disable(gl.BLEND);gl.useProgram(pA);
     gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
@@ -338,10 +338,9 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
     gl.uniform3fv(uP.k0,col.k0);gl.uniform3fv(uP.k1,col.k1);gl.uniform3fv(uP.k2,col.k2);gl.drawArrays(gl.POINTS,0,N);
   };
   const loop=now=>{raf=0;if(!running)return;const dt=Math.min(.05,(now-last)/1000||.016);last=now;
-    t+=dt;rot+=dt*.05;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
+    t+=dt;rot+=dt*.06;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
   const setRun=()=>{const on=vis&&!covered&&!document.hidden&&!RM&&!lost;if(on===running)return;running=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
-  const onScroll=()=>{sc=clamp(scrollY/Math.max(1,sec.offsetHeight));if(RM)draw()};
-  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  /* Hình nền tự chuyển động, không phụ thuộc thao tác cuộn (tránh giật khi vuốt) */
   if(fine)addEventListener('pointermove',e=>{const r=sec.getBoundingClientRect();if(e.clientY>r.bottom){mpt=0;return}tx=clamp((e.clientX-r.left)/r.width);ty=clamp((e.clientY-r.top)/r.height);mpt=1},{passive:true});
   new IntersectionObserver(([en])=>{vis=en.isIntersecting;setRun()}).observe(sec);
   document.addEventListener('visibilitychange',setRun);

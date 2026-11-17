@@ -3,3 +3,4 @@ _*.html
 artifact.html
 .DS_Store
 BRIEF.md
+dist/
