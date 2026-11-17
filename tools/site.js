@@ -40,12 +40,14 @@ function tierCards(id,h='h3'){
 }
 
 /* nguồn trang: dòng đầu <!--meta {...} -->, còn lại là thân HTML. Trả về meta + thân thô. */
-function readSrc(dir){
-  const D=path.join(R,dir);if(!fs.existsSync(D))return[];
-  return fs.readdirSync(D).filter(f=>f.endsWith('.html')).sort().map(f=>{
-    const raw=fs.readFileSync(path.join(D,f),'utf8'),m=raw.match(/^<!--meta\s*([\s\S]*?)-->\s*/);
-    if(!m)throw new Error(dir+'/'+f+': thiếu khối <!--meta-->');
-    return{...JSON.parse(m[1]),slug:f.replace(/\.html$/,''),raw:raw.slice(m[0].length)};
+function readSrc(dir,sub=''){
+  const D=path.join(R,dir,sub);if(!fs.existsSync(D))return[];
+  return fs.readdirSync(D,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name)).flatMap(e=>{
+    if(e.isDirectory())return readSrc(dir,sub+e.name+'/');   /* thư mục con: src/pages/thiet-ke-website/spa.html -> /thiet-ke-website/spa/ */
+    if(!e.name.endsWith('.html'))return[];
+    const raw=fs.readFileSync(path.join(D,e.name),'utf8'),m=raw.match(/^<!--meta\s*([\s\S]*?)-->\s*/);
+    if(!m)throw new Error(dir+'/'+sub+e.name+': thiếu khối <!--meta-->');
+    return[{...JSON.parse(m[1]),slug:sub+e.name.replace(/\.html$/,''),raw:raw.slice(m[0].length)}];
   });
 }
 /* đánh id cho h2 (mục lục) và tách câu hỏi thường gặp (<h2 id="cau-hoi"> rồi các cặp h3 + đoạn) */
@@ -64,7 +66,10 @@ const checkLen=(slug,title,desc)=>{
 /* danh sách trang để dựng menu, chân trang, sitemap */
 const POSTS=readSrc('src/blog').sort((a,b)=>b.date.localeCompare(a.date)||(a.order||0)-(b.order||0));
 const PAGES=readSrc('src/pages').sort((a,b)=>(a.order||0)-(b.order||0));
-const pageFor=id=>PAGES.find(p=>p.cat_id===id);   /* trang dịch vụ riêng của một hạng mục (nếu có) */
+const HUBS=PAGES.filter(p=>!p.industry_id);              /* trang dịch vụ chính (không phải trang theo ngành) */
+const INDUSTRY=PAGES.filter(p=>p.industry_id);             /* trang dịch vụ theo ngành: meta industry_id + industry */
+const pageFor=id=>HUBS.find(p=>p.cat_id===id);   /* trang dịch vụ riêng của một hạng mục (nếu có) */
+const upOf=slug=>'../'.repeat(slug.split('/').length);
 const svcHref=(id,up)=>{const p=pageFor(id);return p?`${up}${p.slug}/`:`${up}#p-${id}`};
 
 const ICON={arrow:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
@@ -78,7 +83,7 @@ const faqLd=(url,faq)=>({'@type':'FAQPage','@id':url+'#cau-hoi',mainEntity:faq.m
 
 /* khung trang. up: đường dẫn về gốc ('../' hoặc '../../'); cur: khóa mục menu đang mở */
 function page({up,cur='',title,desc,canonical,ogType='website',image,imageAlt,jsonld,main,extraHead=''}){
-  const nav=[...PAGES.filter(p=>p.nav).map(p=>[p.slug,p.nav,up+p.slug+'/']),['blog','Bài viết',up+'blog/'],['lien-he','Liên hệ',up+'#lien-he']];
+  const nav=[...HUBS.filter(p=>p.nav).map(p=>[p.slug,p.nav,up+p.slug+'/']),['blog','Bài viết',up+'blog/'],['lien-he','Liên hệ',up+'#lien-he']];
   return `<!doctype html>
 <html lang="vi">
 <head>
@@ -127,7 +132,7 @@ ${main}
  <div class="bl-wrap bl-foot-in">
   <div class="bl-foot-brand"><a class="bl-logo" href="${up}">${ICON.logo}<span>Dream <i>Labs</i></span></a>
    <p>Tự động hóa quy trình doanh nghiệp bằng AI, thiết kế website, landing page, video, bao bì cho doanh nghiệp Việt Nam.</p></div>
-  <nav aria-label="Dịch vụ"><b>Dịch vụ</b>${CATS.map(c=>`<a href="${svcHref(c.id,up)}">${esc((pageFor(c.id)||{}).short||c.name)}</a>`).join('')}${PAGES.filter(p=>!p.cat_id).map(p=>`<a href="${up}${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
+  <nav aria-label="Dịch vụ"><b>Dịch vụ</b>${CATS.map(c=>`<a href="${svcHref(c.id,up)}">${esc((pageFor(c.id)||{}).short||c.name)}</a>`).join('')}${HUBS.filter(p=>!p.cat_id).map(p=>`<a href="${up}${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
   <nav aria-label="Bài viết"><b>Bài viết</b>${POSTS.map(p=>`<a href="${up}blog/${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
   <div><b>Liên hệ</b><span class="sel">${esc(PHONE)}</span>${EMAIL?`<span class="sel">${esc(EMAIL)}</span>`:''}<a href="${ZALO}" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
  </div>
@@ -140,4 +145,4 @@ document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttrib
 `;
 }
 
-module.exports={R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,pageFor,svcHref,ICON,org,crumbs,faqLd,page};
+module.exports={R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,HUBS,INDUSTRY,upOf,pageFor,svcHref,ICON,org,crumbs,faqLd,page};
