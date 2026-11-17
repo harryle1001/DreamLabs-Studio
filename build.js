@@ -5,6 +5,8 @@
 const fs=require('fs'),path=require('path'),R=__dirname,ex=f=>fs.existsSync(path.join(R,f));
 const css=['css/fonts.css','css/tokens.css','css/base.css','css/core.css','css/work.css','css/lab.css','css/samples.css'].filter(ex);
 const js=['vendor/gsap.min.js','vendor/ScrollTrigger.min.js','vendor/SplitText.min.js','vendor/lenis.min.js','js/data.js','js/kit.js','js/core.js','js/work.js','js/lab.js'].filter(ex).concat(fs.readdirSync(path.join(R,'js')).filter(f=>/^samples-.+\.js$/.test(f)).sort().map(f=>'js/'+f),['js/samples.js'].filter(ex));
+/* mục Bài viết: dựng blog/, khối "Bài viết mới" (src/partials/70-blog.html) và sitemap.xml trước khi ghép trang */
+try{require('./tools/blog.js')}catch(e){console.warn('Blog lỗi:',e.message)}
 const pdir=path.join(R,'src/partials');
 const parts=fs.readdirSync(pdir).filter(f=>f.endsWith('.html')).sort().map(f=>`<!-- ${f} -->\n`+fs.readFileSync(path.join(pdir,f),'utf8').trim());
 const head=fs.readFileSync(path.join(R,'src/head.html'),'utf8').trim();

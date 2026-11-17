@@ -530,3 +530,20 @@ form.cf>.btn{grid-column:1/-1;justify-content:center;min-height:var(--t3h)}
 @media (max-width:1023px){.auto-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.auto-grid{grid-template-columns:1fr}.auto-card{padding:var(--s4)}.auto-cta .btn{flex:1 1 100%;justify-content:center}}
 @media (max-width:1199px){.hero-note{display:none}}
+
+/* ───────── Bài viết mới (khối gọn trước FAQ, sinh từ tools/blog.js) ───────── */
+.bposts-sec{padding-block:var(--s6) 0}
+.bposts-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s4)}
+.bposts-head .eyebrow{margin-bottom:var(--s2)}
+.bposts-head h2{font-size:clamp(var(--t2),3.4vw,var(--t3))}
+.bposts-head .btn{min-height:var(--hit)}
+.bposts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s4)}
+.bpost{display:grid;grid-template-columns:var(--s7) minmax(0,1fr);gap:var(--s3);align-items:center;padding:var(--s2);border-radius:var(--r2);border:1px solid var(--line);background:var(--paper);text-decoration:none;
+  transition:border-color var(--d2) var(--ease),transform var(--d3) var(--ease)}
+.bpost:hover{border-color:color-mix(in oklab,var(--accent) 45%,transparent);transform:translateY(calc(var(--s0)*-1))}
+.bpost-img{display:block;aspect-ratio:1;border-radius:var(--r1);overflow:hidden;background:var(--grad-dream)}
+.bpost-img img{width:100%;height:100%;object-fit:cover}
+.bpost-t{display:grid;gap:var(--s1);min-width:0}
+.bpost small{font-size:var(--t0);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.bpost b{font-family:var(--f-display);font-weight:400;font-size:var(--t1);line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
+@media (max-width:1023px){.bposts{grid-template-columns:minmax(0,1fr)}}

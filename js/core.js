@@ -212,7 +212,7 @@ safe('header',()=>{
   const onS=()=>head.classList.toggle('solid',scrollY>26);addEventListener('scroll',onS,{passive:true});onS();
   if(!ST)return;
   ST.create({start:0,end:'max',onUpdate:s=>{if(bar)bar.style.transform=`scaleX(${s.progress.toFixed(4)})`}});
-  $$('.nav a').forEach(a=>{const el=$(a.getAttribute('href'));if(el)ST.create({trigger:el,start:'top 50%',end:'bottom 50%',onToggle:s=>a.classList.toggle('on',s.isActive)})});
+  $$('.nav a[href^="#"]').forEach(a=>{const el=$(a.getAttribute('href'));if(el)ST.create({trigger:el,start:'top 50%',end:'bottom 50%',onToggle:s=>a.classList.toggle('on',s.isActive)})});
 });
 
 /* ═════════ CON TRỎ ═════════ */

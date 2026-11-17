@@ -46,6 +46,25 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
     const out=await htmlmin(rd('demos/'+f).replace(/(?<![\w-])--phi(?![\w-])/g,'--k9').replace(/\bPHI\b/g,'Q9'),{collapseWhitespace:true,conservativeCollapse:true,removeComments:true,minifyCSS:true,minifyJS:{mangle:true,format:{comments:false}}});
     fs.mkdirSync(path.join(OUT,'demos'),{recursive:true});fs.writeFileSync(path.join(OUT,'demos',f),out);
   }
+  /* bài viết: gộp CSS blog thành b.css (gốc), nén từng trang blog/.../index.html, giữ nguyên đường dẫn */
+  let blogPages=0,bcssLen=0;
+  if(ex('blog')){
+    const bFiles=['css/fonts.css','css/tokens.css','css/base.css','css/blog.css'].filter(ex);
+    let bcss=bFiles.map(rd).join('\n');
+    const bNames=[...new Set([...bcss.matchAll(/(?<![\w-])--([a-z][a-z0-9-]*)(?=\s*:)/gi)].map(m=>m[1]))].sort((a,b)=>b.length-a.length);
+    const bMap=new Map(bNames.map((n,i)=>[n,'w'+i.toString(36)]));
+    const bRen=s=>s.replace(/(?<![\w-])--([a-z][a-z0-9-]*)(?![\w-])/gi,(m,n)=>bMap.has(n)?'--'+bMap.get(n):m);
+    const bc=lcss({filename:'b.css',code:Buffer.from(cls(bRen(bcss)).replaceAll('../fonts/','fonts/')),minify:true,errorRecovery:true});
+    fs.writeFileSync(path.join(OUT,'b.css'),bc.code);bcssLen=bc.code.length;
+    const walk=dir=>{for(const f of fs.readdirSync(path.join(R,dir),{withFileTypes:true})){const p=dir+'/'+f.name;if(f.isDirectory())walk(p);else if(f.name.endsWith('.html'))(blogQueue.push(p))}};
+    const blogQueue=[];walk('blog');
+    for(const p of blogQueue){
+      let h=rd(p);let first=true;
+      h=h.replace(/<link rel="stylesheet" href="((?:\.\.\/)+)css\/[^"]+">\n?/g,(m,up)=>first?(first=false,`<link rel="stylesheet" href="${up}b.css">\n`):'');
+      h=await htmlmin(bRen(h),{collapseWhitespace:true,conservativeCollapse:true,removeComments:true,minifyCSS:true,minifyJS:true});
+      fs.mkdirSync(path.dirname(path.join(OUT,p)),{recursive:true});fs.writeFileSync(path.join(OUT,p),h);blogPages++;
+    }
+  }
   cpDir('demos/fonts');cpDir('fonts');cpDir('img');cpDir('media');
   const vendorUsed=new Set();for(const s of [html,t.code,...fs.readdirSync(path.join(OUT,'demos')).filter(f=>f.endsWith('.html')).map(f=>fs.readFileSync(path.join(OUT,'demos',f),'utf8'))])for(const m of s.matchAll(/vendor\/([A-Za-z.]+\.js)/g))vendorUsed.add(m[1]);
   if(vendorUsed.has('three.module.js'))vendorUsed.add('three.core.js');
@@ -54,5 +73,5 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
   /* CSS phông chữ được nạp từ a.css nên đường dẫn ../fonts phải đổi thành fonts/ */
   const a=path.join(OUT,'a.css');fs.writeFileSync(a,fs.readFileSync(a,'utf8').replaceAll('../fonts/','fonts/'));
   const size=d=>fs.readdirSync(d,{withFileTypes:true}).reduce((s,f)=>s+(f.isDirectory()?size(path.join(d,f.name)):fs.statSync(path.join(d,f.name)).size),0);
-  console.log('dist:',OUT,(size(OUT)/1048576).toFixed(1)+'MB','· css',(c.code.length/1024).toFixed(0)+'KB · js',(t.code.length/1024).toFixed(0)+'KB · biến CSS',map.size,'· vendor',[...vendorUsed].join(','));
+  console.log('dist:',OUT,(size(OUT)/1048576).toFixed(1)+'MB','· css',(c.code.length/1024).toFixed(0)+'KB · js',(t.code.length/1024).toFixed(0)+'KB · biến CSS',map.size,'· vendor',[...vendorUsed].join(','),'· blog',blogPages,'trang, b.css',(bcssLen/1024).toFixed(0)+'KB');
 })().catch(e=>{console.error(e);process.exit(1)});
