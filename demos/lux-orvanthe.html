@@ -41,6 +41,14 @@ input,select,textarea{font:inherit;color:inherit;border-radius:0}
 .qv-x{position:absolute;z-index:3;width:42px;height:42px;display:grid;place-items:center;font-size:26px;line-height:1}
 .toast{position:fixed;left:50%;bottom:26px;z-index:130;transform:translate(-50%,26px);opacity:0;pointer-events:none;transition:opacity 424ms var(--ease),transform 424ms var(--ease);max-width:calc(100vw - 32px);padding:10px 26px;font-size:13px;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+.ph{position:relative;overflow:hidden;margin:0;background:var(--bg2)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1796ms var(--ease),filter 1110ms var(--ease)}
+.pe{position:relative;overflow:hidden}.pe>.ph{position:absolute;inset:0}.pe>.ph img{position:absolute;left:0;top:-9%;height:118%}
+.pg-g{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,19vw,300px);gap:10px}
+.pg-g .ph:first-child{grid-column:span 2;grid-row:span 2}.pg-4 .ph:nth-child(2){grid-column:span 2}
+.pg-g .ph:hover img{transform:scale(1.05)}
+.pg-g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;font-size:13px;line-height:1.38;pointer-events:none}
+@media(max-width:700px){.pg-g{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,52vw,260px);gap:6px}.pg-g .ph:first-child{grid-row:span 1}.pg-4 .ph:nth-child(2){grid-column:span 1}.pg-4 .ph:last-child{grid-column:span 2}}
 .back{position:fixed;left:16px;bottom:16px;z-index:60;min-height:42px;padding:0 16px;display:flex;align-items:center;font-size:13px;letter-spacing:.04em}
 .fm{min-height:26px;font-size:13px}
 @media (prefers-reduced-motion:reduce){.js [data-r],.js [data-r=lines] .ln>span{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}}
@@ -184,6 +192,23 @@ footer{padding:68px 0 110px;overflow:hidden}
 .fg p a{display:inline-block;color:var(--bg);text-decoration:underline;text-underline-offset:4px;padding:13px 0;margin:-13px 0}
 .toast{background:var(--acc);color:#fff;font-family:var(--fm)}
 .back{background:var(--ink);color:var(--bg);font-family:var(--fm);font-size:10px;text-transform:uppercase}
+/*PH-CSS*/
+.pe{height:clamp(520px,100svh,980px);display:grid;align-items:end;background:var(--ink);color:var(--bg)}
+.pe>.ph{background:var(--ink)}
+.pe>.ph img{object-position:50% 56%;filter:grayscale(1) contrast(1.12) brightness(.9)}
+.pe::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,11,.86),rgba(11,11,11,.2) 61.8%,transparent);pointer-events:none}
+.pe-t{position:relative;z-index:2;padding-bottom:68px}
+.pe-b{font-weight:500;letter-spacing:-.045em;line-height:1.1;font-size:clamp(53px,8.4vw,128px);margin:16px 0 26px}
+.pe-c{max-width:24em;color:#a9a9a3}
+@media(max-width:700px){.pe{align-items:start;height:clamp(560px,100svh,760px)}.pe-t{padding:68px 16px 0}.pe-b{font-size:42px}.pe::after{background:linear-gradient(180deg,rgba(11,11,11,.92),rgba(11,11,11,.3) 50%,transparent 70%)}.pe>.ph img{object-position:30% 60%}}
+.pg{border-top:1px solid var(--ink)}
+.pg-g.pg-2{grid-template-columns:61.8fr 38.2fr;grid-auto-rows:clamp(320px,46vw,640px);gap:6px}
+.pg-2 .ph:first-child{grid-column:auto;grid-row:auto}
+.pg-g img{filter:grayscale(1) contrast(1.08)}
+.pg-g .ph:hover img,.pg-g .ph:focus-within img,.pg-g .ph.c img{filter:none}
+.pg-g figcaption{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#fff;mix-blend-mode:difference}
+@media(max-width:700px){.pg-g.pg-2{grid-template-columns:1fr;grid-auto-rows:clamp(300px,110vw,460px)}}
+/*/PH-CSS*/
 </style>
 </head>
 <body>
@@ -204,6 +229,11 @@ footer{padding:68px 0 110px;overflow:hidden}
  <div class="hb"><p>Ba mươi tám chiếc mỗi năm. Bộ máy tự thiết kế, lắp ráp và hiệu chỉnh bởi một người thợ duy nhất, ký tên trên cầu máy.</p><a class="bt" href="#bo-suu-tap">Xem sáu tham chiếu <span>→</span></a></div>
  <dl class="sp m"><div><dt>Tham chiếu</dt><dd>OR-01</dd></div><div><dt>Đường kính</dt><dd>39,5 mm</dd></div><div><dt>Trữ cót</dt><dd>72 giờ</dd></div><div><dt>Sản lượng</dt><dd>38 / năm</dd></div><div><dt>Giờ hiện tại</dt><dd id="ck2">00:00:00</dd></div></dl>
 </div></section>
+
+
+<!--PH-ED-->
+<section class="pe" aria-label="Ảnh không khí của nhà Orvanthe"><figure class="ph" data-r="mask"><img src="../img/photo/dong-ho-31670047.webp" width="1067" height="1600" alt="Ảnh đen trắng một bàn tay nắm lại, cổ tay đeo đồng hồ dây kim loại, tay áo vest và măng sét trắng" decoding="async" loading="lazy" data-px=".12"></figure><div class="pe-t w"><p class="m" data-r>(00) Cổ tay</p><p class="pe-b" data-r="lines"><span class="ln"><span>Đeo hằng ngày.</span></span><span class="ln" style="--j:1"><span>Truyền ba đời.</span></span></p><p class="pe-c" data-r>Vỏ thép đánh xước tay, kính sapphire, bảo dưỡng trọn đời tại salon.</p></div></section>
+<!--/PH-ED-->
 
 <section class="sec"><div class="w">
  <div class="sh m"><span>(01) Con số</span><span>Không làm tròn</span></div>
@@ -239,6 +269,11 @@ footer{padding:68px 0 110px;overflow:hidden}
  <div class="th" id="gr"></div>
 </div></section>
 
+
+<!--PH-LB-->
+<section class="sec pg" id="tren-co-tay"><div class="w"><div class="sh m"><span>(03b) Trên cổ tay</span><span>Rê chuột hoặc chạm để xem màu</span></div><div class="pg-g pg-2"><figure class="ph" data-r="mask" style="--i:0"><img src="../img/photo/dong-ho-35472149.webp" width="1280" height="1600" alt="Hai bàn tay đan vào nhau trên nền áo sọc tối, một cổ tay đeo đồng hồ mặt xanh, cổ tay kia đeo vòng bạc" decoding="async" loading="lazy"><figcaption>(A) Mặt xanh, áo sọc</figcaption></figure><figure class="ph" data-r="mask" style="--i:1"><img src="../img/photo/dong-ho-38827919.webp" width="1084" height="1600" alt="Đồng hồ nữ mặt chữ nhật dây kim loại đặt trên mặt bàn trắng, in bóng phản chiếu" decoding="async" loading="lazy"><figcaption>(B) Mặt chữ nhật, bàn trắng</figcaption></figure></div></div></section>
+<!--/PH-LB-->
+
 <section class="sec" id="salon" style="border-top:1px solid var(--ink)"><div class="w">
  <div class="sh m"><span>(04) Salon</span><span>Chỉ đón khách theo hẹn</span></div>
  <div class="bk">
@@ -261,7 +296,7 @@ footer{padding:68px 0 110px;overflow:hidden}
 <footer class="dk"><div class="w">
  <div class="fw" aria-hidden="true" data-r="mask">ORVANTHE</div>
  <div class="fg"><div><a href="#bo-suu-tap">Bộ sưu tập</a><a href="#calibre">Calibre OR-01</a></div><div><a href="#salon">Salon &amp; lịch hẹn</a><a href="#salon">Bảo dưỡng trọn đời</a></div>
-  <p>Orvanthe là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> tự nghĩ và thiết kế để làm mẫu website. Sản phẩm, thông số, giá và địa chỉ đều là minh họa; trang không bán hàng thật.</p></div>
+  <p>Orvanthe là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> tự nghĩ và thiết kế để làm mẫu website. Sản phẩm, thông số, giá và địa chỉ đều là minh họa, ảnh chụp lấy từ thư viện Pexels để minh họa không khí; trang không bán hàng thật.</p></div>
 </div></footer>
 
 <div class="qv" id="qv" aria-hidden="true"><div class="qv-bg" data-x></div><div class="qv-p" role="dialog" aria-modal="true" aria-label="Thông số tham chiếu"><button class="qv-x" data-x aria-label="Đóng">×</button><div id="qvc"></div></div></div>
@@ -390,6 +425,7 @@ $('#qvo').addEventListener('click',()=>{const w=W[ci];
 $('#fs').insertAdjacentHTML('beforeend',W.map(w=>`<option>${w.r} ${w.n}</option>`).join(''));
 setLive();tick();
 if(RM)setInterval(tick,1000);else{let last=0;(function f(t){if(t-last>48&&!D.hidden){last=t;tick()}requestAnimationFrame(f)})(0)}
+$$('.pg-g .ph').forEach(f=>{f.tabIndex=0;f.addEventListener('click',()=>f.classList.toggle('c'))});
 scan();
 })();
 </script>
