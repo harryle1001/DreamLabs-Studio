@@ -201,3 +201,4 @@ body.bl{overflow-x:clip}
 .sv-tier-g b{display:block;font-size:var(--t0);letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--accent);margin-bottom:var(--s0)}
 .sv-value{display:grid;gap:var(--s2)}
 .bl-price .g{margin:0 0 var(--s2);padding:var(--s1) var(--s2);border-radius:var(--r0);background:color-mix(in oklab,var(--lav) 16%,transparent);color:var(--ink)}
+.bl-more:has(+ .bl-more){padding-bottom:0}
