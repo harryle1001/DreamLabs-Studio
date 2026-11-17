@@ -60,24 +60,29 @@ header .w{display:flex;align-items:center;gap:var(--s3);height:68px}
 .lg svg{width:26px;height:26px}
 nav{display:flex;gap:var(--s4);font-size:13px;font-weight:600}nav a{min-height:42px;display:flex;align-items:center;opacity:.74;transition:opacity var(--d2)}nav a:hover{opacity:1}
 /* hero */
-.hero{position:relative;min-height:min(100svh,940px);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:var(--s7) 0 0;background:#CFE6EA}
-.sc{position:absolute;inset:0;width:100%;height:100%}
-.yt{transform:translate(690px,474px) scale(1.14)}
+.hero{position:relative;min-height:min(100svh,940px);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:var(--s7) 0 0;background:#1C5F80;color:var(--wh)}
+.hb{position:absolute;inset:-9% 0}.hm{position:absolute;inset:-12px}
+.hi{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 84%;animation:kb 34s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.06) translate3d(-1.6%,0,0)}to{transform:scale(1.13) translate3d(1.6%,-.8%,0)}}
+.hb::after{content:"";position:absolute;inset:0;background:linear-gradient(98deg,rgba(12,43,62,.7),rgba(12,43,62,.24) 54%,rgba(12,43,62,0) 76%),linear-gradient(0deg,rgba(12,43,62,.66),rgba(12,43,62,0) 36%)}
+.hg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero em{color:var(--sd)}.hero .cap{color:#CFEDEA}
+.hero .btn,header:not(.s) .btn{background:var(--wh);color:var(--nv)}.hero .btn:hover,header:not(.s) .btn:hover{background:var(--tl);color:var(--wh)}
+header:not(.s){color:var(--wh)}header:not(.s) .bk{color:rgba(255,255,255,.82)}
 .yb{transform-origin:310px 150px;animation:bob 6.86s ease-in-out infinite alternate}
 @keyframes bob{from{transform:translateY(-3px) rotate(-.5deg)}to{transform:translateY(3px) rotate(.6deg)}}
 .wv{animation:wv 11s linear infinite}.wv.b{animation-duration:6.86s;animation-direction:reverse}
 @keyframes wv{to{transform:translateX(-120px)}}
-.gl ellipse{animation:gl 2.62s ease-in-out infinite alternate}.gl ellipse:nth-child(2n){animation-delay:-1s}.gl ellipse:nth-child(3n){animation-delay:-1.8s}
-@keyframes gl{from{opacity:.2;transform:scaleX(.7)}to{opacity:.9}}
-.gl ellipse{transform-box:fill-box;transform-origin:center}
-.brd{animation:brd 26s linear infinite}@keyframes brd{from{transform:translateX(-80px)}to{transform:translateX(1520px)}}
 .hero .w{position:relative;z-index:2}
 h1{font-size:clamp(42px,5.6vw,80px);margin:var(--s4) 0}.h1 span{white-space:nowrap}
 .ld{max-width:38ch;font-weight:500;margin-bottom:var(--s4);animation:fade var(--d6) var(--ease) .5s both}
 .hero .btn{animation:fade var(--d6) var(--ease) .68s both}
-.fc{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);color:var(--wh);border-top:1px solid rgba(255,255,255,.34);margin-top:var(--s6)}
+.fc{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);margin-top:var(--s6)}
+.fc::before{content:"";position:absolute;left:50%;top:0;width:100vw;margin-left:-50vw;height:1px;background:rgba(255,255,255,.62);transform-origin:0 50%;animation:hz 2.6s var(--ease) .5s both}
+@keyframes hz{from{transform:scaleX(0)}}
+.fc::after{content:"21°00′ B · 107°20′ Đ";position:absolute;right:0;bottom:100%;padding-bottom:var(--s1);font-size:10px;letter-spacing:.2em;font-weight:700;opacity:.8;animation:fade var(--d6) var(--ease) 1.8s both}
 .fc div{padding:var(--s3) var(--s3) var(--s4) 0}.fc div+div{padding-left:var(--s3);border-left:1px solid rgba(255,255,255,.34)}
-.fc b{display:block;font-family:var(--fd);font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.2}.fc span{font-size:13px;opacity:.86}
+.fc b{display:block;font-family:var(--fd);font-weight:300;font-size:clamp(26px,3.4vw,42px);line-height:1.2}.fc div>span{font-size:13px;opacity:.86}
 /* sections */
 .sec{padding:var(--s7) 0;position:relative}
 .sh{max-width:760px;margin-bottom:var(--s6)}
@@ -96,6 +101,48 @@ h2{font-size:clamp(33px,4.6vw,53px);margin:var(--s3) 0}
 .inc li{counter-increment:s;display:grid;grid-template-columns:42px 1fr;padding:var(--s3) 0;border-bottom:1px solid var(--ln)}
 .inc li::before{content:"0" counter(s);font-family:var(--fd);font-style:italic;color:var(--tl);font-size:20px;line-height:1.3}
 .inc h3{font-size:20px;font-family:var(--fb);font-weight:600;letter-spacing:0;line-height:1.3}.inc p{color:var(--mu);grid-column:2}
+/* hải trình */
+.vy{padding:0}.vs{padding:var(--s7) 0}
+.vg{display:grid;gap:var(--s4)}
+.vt h2{margin-bottom:0}.vt em{display:block}
+.vf{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.vf figure{position:relative;overflow:hidden;border-radius:26px;aspect-ratio:4/5;background:#08202F}
+.vf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vc,.vk{display:none;position:absolute;z-index:2}
+.vc{left:var(--s4);top:var(--s3);font-family:var(--fd);font-style:italic;font-size:20px;text-shadow:0 1px 10px rgba(12,43,62,.6)}.vc b{font-weight:300;font-size:33px}
+.vk{right:var(--s3);bottom:var(--s3);width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(12,43,62,.42)}
+.vk::before{content:"B";position:absolute;left:0;right:0;top:-18px;text-align:center;font-size:10px;font-weight:700;text-shadow:0 1px 6px rgba(12,43,62,.8)}
+.vk svg{width:100%;height:100%;will-change:transform}
+.vl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3) var(--s4)}
+.vl small{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#8FD6D3;font-weight:700}
+.vl h3{font-size:26px;margin:var(--s1) 0}.vl p{color:var(--mu);max-width:40ch}
+.rt{position:relative;height:60px;margin-top:var(--s4);font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+.rt svg{position:absolute;left:0;top:0;width:100%;height:28px;overflow:visible}
+.rt path{fill:none;stroke:var(--ln);stroke-width:1.4;stroke-dasharray:3 6;vector-effect:non-scaling-stroke}
+.rt .rp path{stroke:var(--co);stroke-width:2.2}
+.rt span{position:absolute;top:36px;white-space:nowrap;transition:color var(--d3)}.mo .rt span:not(.on){color:var(--mu)}
+.rt span::before{content:"";position:absolute;top:-29px;left:var(--x,0);width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--nv);border:2px solid #8FD6D3}
+.rb{position:absolute;left:-13px;top:1px;width:26px;height:26px;border-radius:50%;background:var(--co);will-change:transform}.rb svg{position:static;width:26px;height:26px}.rb path{stroke:#fff;stroke-width:1.2;stroke-dasharray:none}
+.vy .lk{display:inline-flex;align-items:center;min-height:42px;margin-top:var(--s2);font-size:13px;font-weight:600;border-bottom:1px solid var(--ln)}
+.mo .vy{height:270vh;height:270svh}
+.mo .vs{position:sticky;top:0;height:100vh;height:100svh;padding:94px 0 var(--s5);display:flex;align-items:center}
+.mo .vg{grid-template-columns:1fr min(44vw,560px);gap:var(--s4) var(--s7)}
+.mo .vt{align-self:end}.mo .vb{grid-column:1;align-self:start}
+.mo .vf::after{content:"";position:absolute;inset:0 0 auto;height:34%;background:linear-gradient(180deg,rgba(12,43,62,.5),rgba(12,43,62,0));pointer-events:none}
+.mo .vf{grid-column:2;grid-row:1/3;display:block;height:min(76vh,720px);border-radius:26px;overflow:hidden;background:#08202F}
+.mo .vf figure{position:absolute;inset:0;aspect-ratio:auto;border-radius:0}
+.mo .vf figure+figure{clip-path:inset(0 0 0 100%);will-change:clip-path}.mo .vf img{will-change:transform}
+.mo .vc,.mo .vk{display:block}
+.mo .vl{display:block;position:relative;min-height:176px}
+.mo .vl li{position:absolute;inset:0 0 auto;opacity:0;transform:translateY(26px);transition:opacity var(--d4) var(--ease),transform var(--d5) var(--ease)}
+.mo .vl li.on{opacity:1;transform:none}
+/* ảnh boong + hình tàu */
+.dp{position:relative;overflow:hidden;border-radius:26px;aspect-ratio:1.618/1;background:#0C2B3E}
+.dp img{position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;object-position:50% 60%}
+.dp figcaption{position:absolute;left:0;right:0;bottom:0;padding:var(--s5) var(--s3) var(--s2);font-size:13px;color:var(--wh);background:linear-gradient(0deg,rgba(12,43,62,.7),rgba(12,43,62,0))}
+.ph{display:grid;grid-template-columns:1fr 1.236fr;gap:var(--s6);align-items:end;margin-bottom:var(--s6)}.ph .sh{margin:0}
+.yf svg{width:100%;overflow:hidden}.yf text{font-family:var(--fb);font-size:11px;font-weight:700;letter-spacing:.16em;fill:#8FD6D3;text-anchor:middle}
+.ml{transform-box:fill-box;transform-origin:0 50%}.js .ml{transform:scaleX(0);transition:transform 2.4s var(--ease) .3s}.js .in .ml{transform:none}
 /* chooser */
 .cz{background:var(--wh)}
 .mp{position:sticky;top:94px;border-radius:26px;overflow:hidden;background:#DCEDEC;aspect-ratio:1.236/1}
@@ -146,7 +193,7 @@ h2{font-size:clamp(33px,4.6vw,53px);margin:var(--s3) 0}
 .fq details p{padding:0 0 var(--s4);color:var(--mu)}
 /* form */
 .fmw{background:linear-gradient(180deg,#CFE6EA,#F6E4CF)}
-.fm{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4) var(--s6);align-items:center}.fm>div{align-self:end}.fm form{grid-column:2;grid-row:1/3}.fm .dp{align-self:start;grid-column:1;grid-row:2}
 .fm .sum{font-family:var(--fd);font-style:italic;font-size:20px;margin-top:var(--s3)}
 .fm .nt2{font-size:13px;color:var(--mu);margin-top:var(--s2)}
 .fm form{background:var(--wh);border-radius:26px;padding:var(--s5);display:grid;gap:var(--s3);box-shadow:0 26px 68px -42px rgba(12,43,62,.5)}
@@ -162,11 +209,16 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2
 .stk .msg{background:var(--tl);color:var(--wh)}
 @media(max-width:860px){
 nav{display:none}.bk span{display:none}
-.hero{padding-top:94px;min-height:max(100svh,700px)}.yt{transform:translate(540px,578px) scale(.58)}
+.hero{padding-top:94px;min-height:max(100svh,700px)}.hi{object-position:76% 50%}.hb::after{background:linear-gradient(180deg,rgba(12,43,62,.72),rgba(12,43,62,.18) 62%,rgba(12,43,62,.6))}
 h1{margin:var(--s3) 0}.ld{margin-bottom:var(--s3)}
-.fc{grid-template-columns:repeat(4,auto);margin-top:0}.fc div{padding:var(--s2) var(--s2) var(--s3) 0}.fc div+div{padding-left:var(--s2)}.fc span{font-size:10px;display:block;line-height:1.4}.fc b{font-size:20px}
+.fc{grid-template-columns:repeat(4,auto);margin-top:0}.fc div{padding:var(--s2) var(--s2) var(--s3) 0}.fc div+div{padding-left:var(--s2)}.fc div>span{font-size:10px;display:block;line-height:1.4}.fc b{font-size:20px}
 .sec{padding:var(--s6) 0}.sh{margin-bottom:var(--s5)}
-.gd,.fm{grid-template-columns:1fr;gap:var(--s4)}
+.gd,.fm,.ph{grid-template-columns:1fr;gap:var(--s4)}.fm form,.fm .dp{grid-column:auto;grid-row:auto}.ph{margin-bottom:var(--s5)}
+.vs{padding:var(--s6) 0}.vf{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:76%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(-1*max(20px,4.4vw));padding:0 max(20px,4.4vw)}.vf::-webkit-scrollbar{display:none}.vf figure{scroll-snap-align:center;border-radius:16px}
+.vl{grid-template-columns:1fr}.vl h3{font-size:22px}.vl p{font-size:14px}
+.mo .vs{padding:74px 0 82px;align-items:stretch}.mo .vg{display:flex;flex-direction:column;gap:var(--s3);height:100%}.vt em{display:inline}.mo .vt h2{font-size:30px;margin-top:var(--s2)}.mo .vt,.mo .vb{align-self:stretch}
+.mo .vf{flex:1;min-height:0;height:auto;margin:0;padding:0;border-radius:16px}.mo .vl{min-height:138px}.rt{margin-top:var(--s2);height:54px}.vy .lk{display:none}
+.dp{border-radius:16px}
 .dk{padding:var(--s3);border-radius:16px}.dk text{font-size:14px}.mp .sp text,.mp text{font-size:18px}.mp{position:relative;top:0;border-radius:16px;aspect-ratio:1/1}
 .nm{grid-template-columns:1fr 1fr;gap:var(--s4) var(--s3);margin-bottom:var(--s6)}
 .ps{grid-template-columns:1fr}.ps::before{left:7px;right:auto;top:0;bottom:0;border-top:0;border-left:1px dashed var(--ln)}.ps li{padding:0 0 var(--s4) var(--s5)}
@@ -176,50 +228,18 @@ footer{padding-bottom:94px}
 </style>
 </head>
 <body>
-<header><div class="w"><a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a><a class="lg" href="#top"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 17q5.5-5 11 0t11 0M2 22q5.5-5 11 0t11 0M13 3v10M13 4l7 8h-7"/></svg>Ondinea</a><nav><a href="#tren-tau">Trên tàu</a><a href="#chon">Tuyến và giá</a><a href="#hoi-dap">Hỏi đáp</a></nav><a class="btn sm" href="#dk">Giữ lịch</a></div></header>
+<header><div class="w"><a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a><a class="lg" href="#top"><svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 17q5.5-5 11 0t11 0M2 22q5.5-5 11 0t11 0M13 3v10M13 4l7 8h-7"/></svg>Ondinea</a><nav><a href="#tren-tau">Trên tàu</a><a href="#hai-trinh">Hải trình</a><a href="#chon">Tuyến và giá</a><a href="#hoi-dap">Hỏi đáp</a></nav><a class="btn sm" href="#dk">Giữ lịch</a></div></header>
 <main id="top">
 <section class="hero">
- <svg class="sc" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
-  <defs>
-   <linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFDDE6"/><stop offset=".62" stop-color="#F3E7D3"/><stop offset="1" stop-color="#FBE3C2"/></linearGradient>
-   <linearGradient id="se" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FD2D2"/><stop offset=".3" stop-color="#3FA3A5"/><stop offset="1" stop-color="#0C3F56"/></linearGradient>
-   <radialGradient id="sn"><stop offset="0" stop-color="#FFF6DF"/><stop offset=".5" stop-color="#FDE4B4" stop-opacity=".8"/><stop offset="1" stop-color="#FDE4B4" stop-opacity="0"/></radialGradient>
-   <linearGradient id="yH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#D5E0E5"/></linearGradient>
-   <linearGradient id="yG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0C2B3E"/><stop offset=".5" stop-color="#2A6C82"/><stop offset=".56" stop-color="#103A52"/><stop offset="1" stop-color="#0C2B3E"/></linearGradient>
-   <pattern id="wp" width="120" height="16" patternUnits="userSpaceOnUse"><path d="M0 8q30-9 60 0t60 0" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.4"/></pattern>
-  </defs>
-  <rect width="1440" height="560" fill="url(#sk)"/>
-  <circle cx="1010" cy="486" r="178" fill="url(#sn)"/><circle cx="1010" cy="486" r="55" fill="#FFF8E6"/>
-  <g class="brd" fill="none" stroke="#0C2B3E" stroke-width="1.4" stroke-linecap="round" opacity=".5"><path d="M0 250q8-8 14 0q6-8 14 0M42 232q6-6 11 0q5-6 11 0M-30 270q5-5 9 0q4-5 9 0"/></g>
-  <g data-p=".04"><path d="M560 556q10-46 40-40 8-34 40-20 22-40 52-6 30-12 36 30 34-4 42 36zM1120 556q14-30 44-26 14-44 52-24 30-22 50 14 34-6 44 36zM880 556q8-20 30-18 12-22 34-6 18-8 26 24z" fill="#A9C6CF"/></g>
-  <g data-p=".07"><path d="M1240 556q6-62 46-54 10-50 54-30 30-40 62 8 28-6 38 76zM400 556q10-34 36-30 12-30 40-12 20-10 30 42z" fill="#7FA6B2"/></g>
-  <rect y="556" width="1440" height="344" fill="url(#se)"/>
-  <g class="gl" fill="#FFF3D6"><ellipse cx="1010" cy="566" rx="60" ry="2"/><ellipse cx="1010" cy="578" rx="46" ry="2"/><ellipse cx="1014" cy="592" rx="68" ry="2.4"/><ellipse cx="1006" cy="610" rx="40" ry="2.4"/><ellipse cx="1012" cy="634" rx="80" ry="3"/><ellipse cx="1008" cy="664" rx="52" ry="3"/><ellipse cx="1014" cy="700" rx="96" ry="3.6"/></g>
-  <rect class="wv" x="0" y="600" width="1680" height="16" fill="url(#wp)" opacity=".5"/>
-  <g class="yt"><g class="yb">
-   <path d="M40 154h530l-50 22H96z" fill="#fff" opacity=".12"/>
-   <path d="M14 108v-26" stroke="#0C2B3E" stroke-width="1.4"/><path d="M14 82h20l-6 5 6 5H14z" fill="#DD6E52"/>
-   <path d="M12 108l10 42q278 9 544 0l54-54q-60 10-150 12z" fill="url(#yH)"/>
-   <path d="M19 137l3 13q278 9 544 0l11-11q-280 8-558-2z" fill="#0C2B3E"/>
-   <path d="M12 108q560-2 608-12" fill="none" stroke="#0C2B3E" stroke-width="1" opacity=".5"/>
-   <g fill="#0C2B3E" opacity=".86"><rect x="110" y="118" width="28" height="8" rx="4"/><rect x="170" y="118" width="28" height="8" rx="4"/><rect x="230" y="118" width="28" height="8" rx="4"/><rect x="290" y="118" width="28" height="8" rx="4"/><rect x="350" y="118" width="28" height="8" rx="4"/><rect x="410" y="118" width="28" height="8" rx="4"/></g>
-   <path d="M26 80h66v3H26zM32 83h3v25h-3z" fill="#fff"/>
-   <path d="M78 108l6-28h322l58 28z" fill="url(#yH)"/><path d="M98 86h300l38 18H98z" fill="url(#yG)"/><path d="M152 86v18M212 86v18M272 86v18M332 86v18M386 86l10 18" stroke="#fff" stroke-width="2"/>
-   <path d="M130 80l8-24h194l50 24z" fill="url(#yH)"/><path d="M152 62h172l30 14H152z" fill="url(#yG)"/><path d="M200 62v14M254 62v14M306 62l8 14" stroke="#fff" stroke-width="2"/>
-   <path d="M150 56l6-12h146l22 12z" fill="#fff"/><path d="M146 41h170v3H146z" fill="#0C2B3E"/>
-   <path d="M232 41l10-26h8l12 26z" fill="#fff"/><circle cx="246" cy="11" r="6" fill="#fff"/><path d="M246 5v-18M238 24h16" stroke="#0C2B3E" stroke-width="1.2"/>
-   <path d="M466 104l136-10M466 98l140-10M500 95v6M540 92v6M580 89v6" stroke="#fff" stroke-width="1.4"/>
-  </g></g>
-  <rect class="wv b" x="0" y="636" width="1680" height="16" fill="url(#wp)"/>
-  <rect class="wv" x="0" y="700" width="1680" height="16" fill="url(#wp)" opacity=".4" transform="scale(1 1.6) translate(0 -260)"/>
- </svg>
+ <div class="hb" data-p="-.14"><div class="hm"><img class="hi" src="../img/photo/du-thuyen-5996373-xl.webp" width="1760" height="1495" fetchpriority="high" decoding="async" alt="Du thuyền thân sẫm lướt giữa mặt biển xanh thẫm phẳng lặng, nhìn từ trên cao"></div></div>
+ <canvas class="hg" aria-hidden="true"></canvas>
  <div class="w">
   <p class="cap">Thuê du thuyền riêng · Vịnh Bắc Bộ <span class="tc">Concept</span></p>
   <h1 class="h1"><span><i>Ba ngày,</i></span><span><i>một con tàu,</i></span><span><i><em>không ai khác.</em></i></span></h1>
   <p class="ld">Du thuyền 42 mét cùng thuỷ thủ đoàn 7 người, dành trọn cho gia đình bạn. Chọn tuyến, chọn số khách và xem giá ngay.</p>
   <a class="btn" href="#chon">Tính giá chuyến đi</a>
  </div>
- <div class="w"><div class="fc"><div><b>42 m</b><span>chiều dài tàu</span></div><div><b>5</b><span>cabin có ban công</span></div><div><b>10</b><span>khách tối đa</span></div><div><b>7</b><span>thuỷ thủ đoàn</span></div></div></div>
+ <div class="w"><div class="fc"><div><b><span data-n="42">42</span> m</b><span>chiều dài tàu</span></div><div><b data-n="5">5</b><span>cabin có ban công</span></div><div><b data-n="10">10</b><span>khách tối đa</span></div><div><b data-n="7">7</b><span>thuỷ thủ đoàn</span></div></div></div>
 </section>
 
 <section class="sec" id="tren-tau"><div class="w">
@@ -246,6 +266,28 @@ footer{padding-bottom:94px}
  </div>
 </div></section>
 
+<section class="vy pf" id="hai-trinh"><div class="vs"><div class="w vg">
+ <div class="vt"><p class="cap">Hải trình mẫu · 3 ngày 2 đêm</p><h2 data-r>Ba ngày <em>trôi theo mặt nước.</em></h2></div>
+ <div class="vf">
+  <figure><img src="../img/photo/du-thuyen-20829117.webp" width="1600" height="899" loading="lazy" decoding="async" alt="Du thuyền trắng rẽ sóng trên mặt biển xanh ngọc, nhìn từ phía mũi tàu"></figure>
+  <figure><img src="../img/photo/lux-lp-ondinea-hoang-hon.webp" width="720" height="1152" loading="lazy" decoding="async" alt="Du thuyền boong gỗ lướt êm trên mặt nước sẫm màu lúc chiều muộn, nhìn từ trên cao"></figure>
+  <figure><img src="../img/photo/lux-lp-ondinea-tha-neo.webp" width="860" height="1009" loading="lazy" decoding="async" alt="Du thuyền thả neo giữa vùng nước xanh ngọc phẳng lặng, nhìn thẳng từ trên xuống"></figure>
+  <p class="vc" aria-hidden="true"><b id="vn">01</b> / 03</p>
+  <div class="vk" aria-hidden="true"><svg viewBox="-29 -29 58 58"><path d="M0-22l5 22h-10z" fill="#DD6E52"/><path d="M0 22l5-22h-10z" fill="#fff" opacity=".5"/></svg></div>
+ </div>
+ <div class="vb">
+  <ol class="vl">
+   <li class="on"><small>Ngày 1 · Bến du thuyền</small><h3>Rời bến, rẽ sóng ra vịnh</h3><p>Xe đón tận nhà. Thuyền trưởng chờ sẵn ở bến, tàu nhổ neo khi cả nhà đã lên đủ.</p></li>
+   <li><small>Ngày 2 · Bái Tử Long</small><h3>Lướt êm giữa vùng đảo đá</h3><p>Chèo kayak, ghé làng chài chọn hải sản, ăn tối trên boong khi trời vừa tắt nắng.</p></li>
+   <li><small>Ngày 3 · Cô Tô</small><h3>Thả neo trên nước xanh ngọc</h3><p>Bơi từ bến tắm sau tàu, lặn ống thở, rồi thong thả quay về bến.</p></li>
+  </ol>
+  <div class="rt" aria-hidden="true"><svg viewBox="0 0 600 28" preserveAspectRatio="none"><path d="M0 14q50-12 100 0t100 0t100 0t100 0t100 0t100 0"/></svg><svg class="rp" viewBox="0 0 600 28" preserveAspectRatio="none"><path d="M0 14q50-12 100 0t100 0t100 0t100 0t100 0t100 0"/></svg>
+   <span class="on" style="left:0">Bến du thuyền</span><span style="left:50%;transform:translateX(-50%);--x:50%">Bái Tử Long</span><span style="right:0;--x:100%">Cô Tô</span>
+   <i class="rb"><svg viewBox="-13 -13 26 26"><path d="M-6 2h12l-3 4h-6zM0-7v8M0-6l5 6H0" fill="none"/></svg></i></div>
+  <a class="lk" href="#chon">Xem cả ba tuyến và giá&nbsp;→</a>
+ </div>
+</div></div></section>
+
 <section class="sec cz" id="chon"><div class="w">
  <div class="sh"><p class="cap">Tuyến và giá</p><h2 data-r>Chọn tuyến, số khách. <em>Giá hiện ngay.</em></h2><p data-r style="--i:1">Giá ước tính cho cả tàu, chưa gồm thuế. Giá chốt được gửi kèm lịch trình chi tiết.</p></div>
  <div class="gd" style="align-items:start">
@@ -270,7 +312,26 @@ footer{padding-bottom:94px}
 </div></section>
 
 <section class="sec pf" id="quy-trinh"><div class="w">
- <div class="sh"><p class="cap">Con tàu và quy trình</p><h2 data-r>Thông số thật. <em>Bốn bước là ra khơi.</em></h2></div>
+ <div class="ph"><div class="sh"><p class="cap">Con tàu và quy trình</p><h2 data-r>Thông số thật. <em>Bốn bước là ra khơi.</em></h2></div>
+  <figure class="yf" data-r><svg viewBox="0 0 640 236" role="img" aria-label="Hình vẽ mạn du thuyền dài 42 mét, vẽ bằng SVG">
+   <defs><linearGradient id="yH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#D5E0E5"/></linearGradient><linearGradient id="yG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0C2B3E"/><stop offset=".5" stop-color="#2A6C82"/><stop offset=".56" stop-color="#103A52"/><stop offset="1" stop-color="#0C2B3E"/></linearGradient><pattern id="wp" width="120" height="16" patternUnits="userSpaceOnUse"><path d="M0 8q30-9 60 0t60 0" fill="none" stroke="#8FD6D3" stroke-opacity=".6" stroke-width="1.4"/></pattern></defs>
+   <g transform="translate(4 30)"><g class="yb">
+   <path d="M40 154h530l-50 22H96z" fill="#fff" opacity=".12"/>
+   <path d="M14 108v-26" stroke="#8FD6D3" stroke-width="1.4"/><path d="M14 82h20l-6 5 6 5H14z" fill="#DD6E52"/>
+   <path d="M12 108l10 42q278 9 544 0l54-54q-60 10-150 12z" fill="url(#yH)"/>
+   <path d="M19 137l3 13q278 9 544 0l11-11q-280 8-558-2z" fill="#1F8A8C"/>
+   <path d="M12 108q560-2 608-12" fill="none" stroke="#8FD6D3" stroke-width="1" opacity=".5"/>
+   <g fill="#0C2B3E" opacity=".86"><rect x="110" y="118" width="28" height="8" rx="4"/><rect x="170" y="118" width="28" height="8" rx="4"/><rect x="230" y="118" width="28" height="8" rx="4"/><rect x="290" y="118" width="28" height="8" rx="4"/><rect x="350" y="118" width="28" height="8" rx="4"/><rect x="410" y="118" width="28" height="8" rx="4"/></g>
+   <path d="M26 80h66v3H26zM32 83h3v25h-3z" fill="#fff"/>
+   <path d="M78 108l6-28h322l58 28z" fill="url(#yH)"/><path d="M98 86h300l38 18H98z" fill="url(#yG)"/><path d="M152 86v18M212 86v18M272 86v18M332 86v18M386 86l10 18" stroke="#fff" stroke-width="2"/>
+   <path d="M130 80l8-24h194l50 24z" fill="url(#yH)"/><path d="M152 62h172l30 14H152z" fill="url(#yG)"/><path d="M200 62v14M254 62v14M306 62l8 14" stroke="#fff" stroke-width="2"/>
+   <path d="M150 56l6-12h146l22 12z" fill="#fff"/><path d="M146 41h170v3H146z" fill="#0C2B3E"/>
+   <path d="M232 41l10-26h8l12 26z" fill="#fff"/><circle cx="246" cy="11" r="6" fill="#fff"/><path d="M246 5v-18M238 24h16" stroke="#8FD6D3" stroke-width="1.2"/>
+   <path d="M466 104l136-10M466 98l140-10M500 95v6M540 92v6M580 89v6" stroke="#fff" stroke-width="1.4"/>
+   </g></g>
+   <rect class="wv b" x="0" y="178" width="880" height="16" fill="url(#wp)"/><rect class="wv" x="0" y="190" width="880" height="16" fill="url(#wp)" opacity=".5"/>
+   <g stroke="#8FD6D3" stroke-width="1.2"><path d="M16 212v14M624 212v14"/><path class="ml" d="M16 219h608"/></g><text x="320" y="234">42 m</text>
+  </svg></figure></div>
  <div class="nm">
   <div data-r><b><span data-n="42">42</span><small>m</small></b><span>Chiều dài toàn bộ</span></div>
   <div data-r style="--i:1"><b><span data-n="8.6" data-dc="1">8,6</span><small>m</small></b><span>Chiều rộng thân tàu</span></div>
@@ -303,9 +364,10 @@ footer{padding-bottom:94px}
   <label>Ngày muốn khởi hành<input class="fld" id="f3" type="date"></label>
   <button class="btn">Giữ lịch cho tôi</button><p class="msg" role="status"></p>
  </form>
+ <figure class="dp" data-r="clip"><img data-p="-.07" src="../img/photo/du-thuyen-34469584.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Boong mũi du thuyền nhìn từ trên cao: sàn gỗ, đệm tắm nắng và sóng trắng hai bên mạn"><figcaption>Boong mũi và đệm tắm nắng · ảnh minh hoạ</figcaption></figure>
 </div></section>
 </main>
-<footer><div class="w"><span>Ondinea là thương hiệu concept, con tàu, tuyến và giá chỉ để minh hoạ. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@ondinea.example</span></div></footer>
+<footer><div class="w"><span>Ondinea là thương hiệu concept, con tàu, tuyến và giá chỉ để minh hoạ, ảnh chụp lấy từ thư viện Pexels để minh hoạ không khí. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@ondinea.example</span></div></footer>
 <form class="stk" novalidate data-ok="Đã ghi số của bạn. Trang mẫu nên chưa gửi đi đâu."><p class="msg" role="status"></p><label class="vh" for="s1">Số điện thoại</label><input id="s1" type="tel" required placeholder="Số điện thoại"><button>Giữ lịch</button></form>
 <script>
 (()=>{
@@ -321,7 +383,7 @@ const onS=()=>{tk=0;const y=scrollY,vh=innerHeight;hd&&hd.classList.toggle('s',y
 addEventListener('scroll',()=>{tk||(tk=requestAnimationFrame(onS))},{passive:true});onS();
 $$('form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.msg',f),ok=$$('[required]',f).every(i=>i.value.trim());m.textContent=ok?(f.dataset.ok||'Cảm ơn bạn. Đây là trang mẫu của Dream Labs nên chưa có thông tin nào được gửi đi.'):'Bạn điền giúp các ô còn trống nhé.';m.classList.toggle('ok',ok)}));
 try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-ondinea',smDemo:'lux-lp-ondinea'},'*')}catch(e){}
-/* đảo: rải theo góc vàng 137,5° */
+/* đảo: rải theo đường xoắn ốc */
 $('#isl').innerHTML=Array.from({length:21},(_,i)=>{const a=i*2.39996,r=42+i*13.6,x=330+Math.cos(a)*r*1.1,y=270+Math.sin(a)*r*.82,s=6+(i*7%13);const t=`transform="rotate(${i*34} ${x.toFixed(0)} ${y.toFixed(0)})"`,c=`cx="${x.toFixed(0)}" cy="${y.toFixed(0)}"`;return x<70&&y<170?'':`<ellipse ${c} rx="${s+16}" ry="${s+9}" ${t} fill="#9FD2D2" fill-opacity=".42" stroke="none"/><ellipse ${c} rx="${s+6}" ry="${s}" ${t}/><ellipse ${c} rx="${s*.5+2}" ry="${s*.4}" ${t} fill="#A9C4A0" stroke="none"/>`}).join('');
 const R=[{n:'Lan Hạ – Ba Trái Đào',t:'2 ngày 1 đêm',d:2,p:233e6,pa:'M92 96C150 130 190 170 236 214S250 300 196 326S110 250 92 96',s:[[236,214,'Lan Hạ'],[196,326,'Ba Trái Đào']]},
  {n:'Bái Tử Long – Cô Tô',t:'3 ngày 2 đêm',d:3,p:377e6,pa:'M92 96C180 110 250 150 330 162S470 120 548 96',s:[[330,162,'Bái Tử Long'],[548,96,'Cô Tô']]},
@@ -342,6 +404,27 @@ $('#gm').addEventListener('click',()=>{S.g=Math.max(2,S.g-1);up()});$('#gpl').ad
 $$('.ex input').forEach(c=>c.addEventListener('change',()=>{S.x[+c.dataset.x]=+c.checked;up()}));
 $('#pr')._v=377e6;up(1);
 watch(D);
+/* mặt nước: lấp lánh ở hero, cảnh hải trình ghim */
+if(!RM&&'IntersectionObserver' in window){
+const cl=(v,a=0,b=1)=>v<a?a:v>b?b:v,sm=u=>u*u*(3-2*u),
+loop=(el,fn)=>{let v=0,r=0;const go=t=>{r=0;if(v&&!D.hidden){fn(t);r=requestAnimationFrame(go)}},k=()=>{r||(r=requestAnimationFrame(go))};new IntersectionObserver(e=>{v=e[0].isIntersecting;v&&k()}).observe(el);D.addEventListener('visibilitychange',k)};
+const cv=$('.hg'),hm=$('.hm'),c=cv.getContext('2d');let W=0,Hh=0,g=[],lt=0,mx=0,my=0,cx=0,cy=0;
+const sz=()=>{const d=Math.min(devicePixelRatio||1,1.5);W=cv.clientWidth;Hh=cv.clientHeight;cv.width=W*d;cv.height=Hh*d;c.setTransform(d,0,0,d,0,0);c.strokeStyle='#fff';c.lineCap='round';g=Array.from({length:W<760?14:46},()=>({s:.5+Math.random(),o:Math.random()*6.28,x:0}))};
+sz();addEventListener('resize',sz);
+if(matchMedia('(hover:hover)').matches)$('.hero').addEventListener('pointermove',e=>{mx=(.5-e.clientX/innerWidth)*18;my=(.5-e.clientY/innerHeight)*10});
+loop(cv,t=>{if(t-lt<33)return;lt=t;c.clearRect(0,0,W,Hh);
+ for(const p of g){const a=Math.sin(t/900*p.s+p.o);if(a<.1){p.x=0;continue}if(!p.x){const m=W<760;p.x=W*(m?Math.random():.44+Math.random()*.56);p.y=Hh*(m?.56+Math.random()*.3:.12+Math.random()*.7);p.l=2+Math.random()*6}
+  const k=(a-.1)/.9;c.globalAlpha=k*.85;c.lineWidth=.6+k*1.2;c.beginPath();c.moveTo(p.x-p.l*k,p.y);c.lineTo(p.x+p.l*k,p.y);c.stroke()}
+ cx+=(mx-cx)*.06;cy+=(my-cy)*.06;hm.style.transform=`translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`});
+const vy=$('.vy'),fg=$$('.vf figure'),li=$$('.vl li'),ls=$$('.rt span'),rp=$('.rp'),rb=$('.rb'),rt=$('.rt'),vk=$('.vk svg'),vn=$('#vn');let p=-1,ix=-1;
+H.classList.add('mo');
+const wave=f=>{const A=7,E=100+A-f*(100+2*A);let s='100% 0';for(let y=0;y<=100;y+=4)s+=`,${(E+A*Math.sin(y*.1+f*5)).toFixed(1)}% ${y}%`;return`polygon(${s},100% 100%)`};
+loop(vy,()=>{const r=vy.getBoundingClientRect(),tp=cl(-r.top/(r.height-innerHeight));if(p<0)p=tp;if(ix>=0&&Math.abs(tp-p)<4e-4)return;p+=(tp-p)*.14;
+ const t=sm(cl((p-.12)/.3))+sm(cl((p-.56)/.3)),i=Math.round(t);
+ fg.forEach((f,k)=>{const u=cl(t-k+1);if(k)f.style.clipPath=u<1?wave(u):'none';f.firstElementChild.style.transform=`translate3d(${(cl(t-k)*-5).toFixed(2)}%,0,0) scale(${(1.05+(1-u)*.12).toFixed(3)})`});
+ rp.style.clipPath=`inset(-9px ${(100-t*50).toFixed(2)}% -9px 0)`;rb.style.transform=`translate3d(${(t/2*rt.clientWidth).toFixed(1)}px,${(-6*Math.sin(t*3*Math.PI)).toFixed(1)}px,0)`;vk.style.transform=`rotate(${(p*300-40).toFixed(1)}deg)`;
+ if(i!==ix){ix=i;li.forEach((l,k)=>l.classList.toggle('on',k===i));ls.forEach((l,k)=>l.classList.toggle('on',k<=i));vn.textContent='0'+(i+1)}});
+}
 })();
 </script>
 </body>
