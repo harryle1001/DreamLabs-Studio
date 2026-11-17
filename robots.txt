@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /src/
+
+Sitemap: https://dreamlabs.vn/sitemap.xml
