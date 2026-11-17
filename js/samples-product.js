@@ -15,7 +15,7 @@
   cover: 'img/sm-product-perfume-set.webp',
   kind: 'product',
   spin: {dir: 'img/spin/perfume/', frames: 48, loop: true, tone: 'dark', hotspots: [
-   {a: .97, w: .1, x: 50, y: 61, t: 'Chữ in trên kính', d: 'Tên dòng và số mùi in thẳng lên mặt chai'},
+   {a: .97, w: .1, x: 58, y: 64, side: 'r', t: 'Chữ in trên kính', d: 'Tên dòng và số mùi in thẳng lên mặt chai'},
    {a: .27, w: .1, x: 50, y: 27, t: 'Nắp đá mài', d: 'Đá vân mài bóng trên đai kim loại'},
    {a: .55, w: .11, x: 50, y: 58, t: 'Khối thủy tinh dày', d: 'Khoang chứa bo tròn nằm giữa lòng kính'}
   ]},
@@ -55,6 +55,11 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-bag-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/bag/', frames: 48, loop: true, tone: 'light', hotspots: [
+   {a: .04, w: .08, x: 49, y: 56, side: 'r', t: 'Khóa đĩa tròn'},
+   {a: .3, w: .09, x: 50, y: 36, side: 'r', t: 'Quai cuộn khâu tay'},
+   {a: .58, w: .1, x: 50, y: 50, side: 'r', t: 'Dáng hộp vai vòm'}
+  ]},
   variants: [
    {
     name: 'Đen huyền',
@@ -230,6 +235,11 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-whisky-set.webp',
   kind: 'product',
+  spin: {dir: 'img/spin/whisky/', frames: 48, loop: true, tone: 'dark', hotspots: [
+   {a: .98, w: .09, x: 61, y: 62, side: 'r', t: 'Nhãn giấy in nổi', d: 'Dấu hiệu núi mây và số năm ủ'},
+   {a: .3, w: .1, x: 50, y: 27, side: 'r', t: 'Màng co cổ chai'},
+   {a: .6, w: .1, x: 50, y: 80, side: 'r', t: 'Đáy chai dày'}
+  ]},
   variants: [
    {
     name: '12 năm · Sồi Mỹ',

@@ -402,7 +402,7 @@ function wire(){
         <span class="sm-mini-t">${esc(it.title)}</span><span class="sm-mini-i">${esc(it.industry||'')}</span></button>`).join('')}</div>`;
     /* khối xoay 360: một trình xem chạy sẵn (chỉ tải khung khi cuộn tới), đổi được sản phẩm, nút mở Phòng mẫu */
     const sp=its.filter(it=>it.spin);
-    if(sp.length){const pick=sp.slice(0,5),short=it=>it.title.split(/\s[—–-]\s/)[0];
+    if(sp.length){const real=sp.filter(it=>/\/real-/.test(it.spin.dir)),pick=[...sp.filter(it=>!real.includes(it)).slice(0,4),...real.slice(0,1)],short=it=>it.title.split(/\s[—–-]\s/)[0];
       const f=el('div','sm-spinfeat',`<div class="sm-spinfeat-v"></div><div class="sm-spinfeat-c"><span class="sm-spinfeat-k">Xoay 360° ngay trên web</span>
         <h4>Khách tự tay xoay sản phẩm, <em>soi từng góc.</em></h4>
         <p>Dream Labs dựng trình xem 360 độ từ ảnh quay bàn xoay hoặc mô hình 3D của sản phẩm: kéo để xoay, điểm chú thích hiện theo góc, chạy mượt trên điện thoại.</p>
