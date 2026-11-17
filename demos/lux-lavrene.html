@@ -43,14 +43,6 @@ input,select,textarea{font:inherit;color:inherit;border-radius:0}
 .qv-x{position:absolute;z-index:3;width:42px;height:42px;display:grid;place-items:center;font-size:26px;line-height:1}
 .toast{position:fixed;left:50%;bottom:26px;z-index:130;transform:translate(-50%,26px);opacity:0;pointer-events:none;transition:opacity 424ms var(--ease),transform 424ms var(--ease);max-width:calc(100vw - 32px);padding:10px 26px;font-size:13px;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
-.ph{position:relative;overflow:hidden;margin:0;background:var(--bg2)}
-.ph img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1796ms var(--ease),filter 1110ms var(--ease)}
-.pe{position:relative;overflow:hidden}.pe>.ph{position:absolute;inset:0}.pe>.ph img{position:absolute;left:0;top:-9%;height:118%}
-.pg-g{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(160px,19vw,300px);gap:10px}
-.pg-g .ph:first-child{grid-column:span 2;grid-row:span 2}.pg-4 .ph:nth-child(2){grid-column:span 2}
-.pg-g .ph:hover img{transform:scale(1.05)}
-.pg-g figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 10px;font-size:13px;line-height:1.38;pointer-events:none}
-@media(max-width:700px){.pg-g{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,52vw,260px);gap:6px}.pg-g .ph:first-child{grid-row:span 1}.pg-4 .ph:nth-child(2){grid-column:span 1}.pg-4 .ph:last-child{grid-column:span 2}}
 .back{position:fixed;left:16px;bottom:16px;z-index:60;min-height:42px;padding:0 16px;display:flex;align-items:center;font-size:13px;letter-spacing:.04em}
 .fm{min-height:26px;font-size:13px}
 @media (prefers-reduced-motion:reduce){.js [data-r],.js [data-r=lines] .ln>span{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}}
@@ -90,14 +82,27 @@ h2{font-family:var(--fd);font-size:clamp(33px,5.4vw,68px);line-height:1.14;lette
 @keyframes ln{from{transform:translateY(112%)}to{transform:none}}
 .cvb{display:grid;gap:26px;max-width:26em;animation:fd 1.4s .5s var(--ease) both}
 @keyframes fd{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-.cvr{position:relative;background:var(--ink);color:var(--bg);aspect-ratio:1/1.2;overflow:hidden;animation:wp 1.8s var(--ease) both}
+.cvr{position:relative;aspect-ratio:1/1.2;margin:0}
+.cvk{position:absolute;inset:0;overflow:hidden;background:var(--bg2)}
+.kb{position:absolute;inset:-6% 0;display:block}
+.kb img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;animation:kb 3.2s cubic-bezier(.19,1,.22,1) both}
+@keyframes kb{from{transform:scale(1.18)}}
+.cvs{position:absolute;inset:0;display:flex}
+.cvs i{flex:1;margin-right:-1px;background:var(--bg);transform-origin:top;animation:cs 1.5s cubic-bezier(.77,0,.18,1) both;animation-delay:calc(var(--k)*.11s + .2s)}
+.cvs i:nth-child(2n){transform-origin:bottom}
+@keyframes cs{to{transform:scaleY(0)}}
+.cvr figcaption{position:absolute;left:0;right:0;bottom:0;padding:68px 16px 16px;color:#f3eee4;background:linear-gradient(transparent,rgba(23,19,15,.78));display:grid;gap:6px;animation:fd 1.4s 1.3s var(--ease) both}
+.cvr figcaption b{font:400 23px/1.2 var(--fd)}.cvr figcaption em{color:#e6b98d}
+.pe-n{display:none;font-size:13px;line-height:1.5;max-width:27em;opacity:.84}
+.cvc{position:absolute;z-index:2;right:10px;top:10px;width:34%}
+.cvi{position:relative;aspect-ratio:1/1.3;background:var(--ink);color:var(--bg);overflow:hidden;box-shadow:0 26px 42px -26px rgba(23,19,15,.7);animation:wp 1.5s 1.1s var(--ease) both}
 @keyframes wp{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(0)}}
-.cvp{position:absolute;inset:8% 6% 12%;display:grid;place-items:center}.cvp svg{width:100%;height:100%}
-.cvr figcaption{position:absolute;left:16px;bottom:16px;right:110px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;opacity:.62}
-.cvr .num{position:absolute;right:16px;bottom:0;font:italic 400 110px/1 var(--fd);color:var(--lc);opacity:.9}
-.cvr::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 46%,rgba(162,84,43,.34),transparent 62%)}
-@media(min-width:900px){.cv{padding-top:42px}.cvg{grid-template-columns:61.8fr 38.2fr;gap:0;align-items:end}.cvl{padding:0 42px 68px 0}.cvr{aspect-ratio:1/1.3;max-height:calc(100svh - 110px);width:100%;justify-self:end}}
-@media(max-width:899px){.cvr{order:2}.cvr figcaption{right:130px}.sw>span{flex-basis:100%}.cvl{display:contents}.cvl .cap{order:0}.cv h1{order:1;margin:0}.cvb{order:3;padding-bottom:42px}}
+.cvi::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(162,84,43,.4),transparent 62%)}
+.cvp{position:absolute;inset:20% 8% 26%}.cvp svg{width:100%;height:100%}
+.cvi span{position:absolute;left:10px;right:10px;bottom:8px;font-size:8px;line-height:1.4;letter-spacing:.14em;text-transform:uppercase;opacity:.66}
+.cvi .num{position:absolute;right:8px;top:2px;font:italic 400 33px/1 var(--fd);color:var(--lc)}
+@media(min-width:900px){.cv{padding-top:42px}.cvg{grid-template-columns:55fr 45fr;gap:0;align-items:end}.cvl{padding:0 42px 68px 0}.cvr{aspect-ratio:1/1.3;max-height:calc(100svh - 110px);width:100%;justify-self:end}.cvc{right:auto;top:auto;left:-25%;bottom:42px;width:33%}.cvi span{font-size:10px;left:16px;right:16px;bottom:12px}.cvi .num{font-size:68px;right:12px}.cvr figcaption{padding:110px 26px 26px calc(8% + 26px)}.cvr figcaption b{font-size:clamp(23px,2.1vw,33px)}.pe-n{display:block}}
+@media(max-width:899px){.cvr{order:2}.sw>span{flex-basis:100%}.cvl{display:contents}.cvl .cap{order:0}.cv h1{order:1;margin:0}.cvb{order:3;padding-bottom:42px}}
 .mq{border-block:1px solid var(--ink);overflow:hidden;white-space:nowrap;margin-top:0}
 .mq div{display:inline-block;padding:10px 0;font:italic 26px/1.618 var(--fd);animation:mq 68s linear infinite}
 .mq span{margin:0 26px}.mq span::after{content:"✕";font:400 10px var(--fb);margin-left:52px;vertical-align:middle;color:var(--acc)}
@@ -111,7 +116,6 @@ blockquote{margin:0;font:italic 26px/1.4 var(--fd);border-top:1px solid var(--in
 blockquote cite{display:block;margin-top:16px;font:500 10px var(--fb);letter-spacing:.2em;text-transform:uppercase}
 @media(min-width:900px){.stg{grid-template-columns:1fr 2.618fr 1.618fr;gap:68px}.stt{columns:2;column-gap:42px}.stt p{break-inside:avoid}blockquote{font-size:33px}}
 /* mục lục */
-.ix{border-top:1px solid var(--ink)}
 .ixh{display:flex;justify-content:space-between;align-items:end;gap:26px;flex-wrap:wrap;margin-bottom:42px}
 .ixg{display:grid;gap:26px}
 @media(min-width:900px){.ixg{grid-template-columns:38.2fr 61.8fr;gap:68px;align-items:start}}
@@ -145,18 +149,17 @@ blockquote cite{display:block;margin-top:16px;font:500 10px var(--fb);letter-spa
 /* xưởng */
 .cf{background:var(--ink);color:var(--bg)}
 .cf h2{max-width:11em}
-.stc{display:block;width:100%;height:26px;margin:42px 0;overflow:visible}
-.stc path{fill:none;stroke:#d9b98a;stroke-width:2;stroke-dasharray:10 8;stroke-linecap:round}
-.js .stc{clip-path:inset(0 100% 0 0);transition:clip-path 2.9s var(--ease)}.js .stc.in{clip-path:inset(0 -1% 0 0)}
+.cf .st{--sc:#d9b98a;margin:42px 0}
 .cfg{display:grid;gap:42px 26px;grid-template-columns:1fr 1fr}
 @media(min-width:900px){.cfg{grid-template-columns:repeat(4,1fr);gap:42px}}
 .cfi b{font:italic 400 68px/1 var(--fd);color:#d9b98a;display:block}
 .cfi h3{font:400 26px/1.14 var(--fd);margin:16px 0 10px}
 .cfi p{font-size:13px;opacity:.72}
+.cfi span i{font-style:normal;color:#d9b98a}
 .cfi span{display:block;margin-top:16px;padding-top:10px;border-top:1px solid rgba(243,238,228,.2);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
 @media(max-width:520px){.cfi b{font-size:53px}.cfi h3{font-size:20px}}
 /* hẹn riêng */
-.bk{display:grid;gap:42px}
+.bk{display:grid;gap:42px;position:relative}
 @media(min-width:900px){.bk{grid-template-columns:38.2fr 61.8fr;gap:110px}}
 .pm{margin-top:26px;border-top:1px solid var(--ink)}
 .pm li{display:grid;grid-template-columns:42px 1fr;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
@@ -197,22 +200,34 @@ footer{border-top:1px solid var(--ink);padding:42px 0 110px;overflow:hidden}
 .toast{background:var(--ink);color:var(--bg)}
 .back{background:var(--bg);box-shadow:inset 0 0 0 1px var(--ink)}
 /*PH-CSS*/
-.pe{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--ink)}
-.pe>.ph{position:relative;inset:auto;aspect-ratio:1/1.14;max-height:none}
-.pe>.ph img{filter:sepia(.1) saturate(.86) contrast(1.03)}
-.pe-t{padding:26px max(16px,4.2vw) 42px}
-.pe-cap{display:grid;gap:16px}
-.pe-cap b{font:400 clamp(33px,4.6vw,68px)/1.14 var(--fd);letter-spacing:-.01em}.pe-cap b em{font-style:italic;color:var(--acc)}
-.pe-n{max-width:24em}
-@media(min-width:900px){.pe{grid-template-columns:61.8fr 38.2fr;min-height:calc(100svh - 68px)}.pe>.ph{aspect-ratio:auto;border-right:1px solid var(--ink)}.pe-t{align-self:end;padding:68px 42px}}
-.pg{border-top:1px solid var(--ink)}
-.pg-h{display:flex;justify-content:space-between;align-items:end;gap:26px;flex-wrap:wrap;margin-bottom:42px}.pg-h>p{max-width:22em;font-size:13px;color:var(--mut)}
-.pg-g{gap:16px}
-.pg-g .ph{background:var(--bg2);overflow:visible;display:grid;grid-template-rows:1fr auto}
-.pg-g .ph img{min-height:0;filter:sepia(.08) saturate(.84) contrast(1.02)}
-.pg-g .ph:hover img{transform:none;filter:none}
-.pg-g figcaption{position:static;padding:6px 0 0;background:var(--bg);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
-.pg-g .ph:first-child img{object-position:50% 70%}
+.st{display:block;height:2px;background:repeating-linear-gradient(90deg,var(--sc,var(--acc)) 0 10px,transparent 10px 18px)}
+.st.v{display:none}
+.sec{position:relative}.sec>.st{position:absolute;top:0;left:max(16px,4.2vw);right:max(16px,4.2vw)}
+.pg{border-top:1px solid var(--ink);position:relative}
+.pgs{position:relative;overflow:hidden;padding:68px 0 42px}
+.pgw{position:absolute;left:0;top:50%;margin-top:-.62em;white-space:nowrap;font:italic 400 min(30vh,24vw)/1.2 var(--fd);color:var(--bg2);pointer-events:none;will-change:transform}
+.pgw span{margin-right:.5em}.pgw span:nth-child(2){color:transparent;-webkit-text-stroke:1px var(--acc)}
+.pgt{position:relative;display:flex;align-items:center;gap:7vw;padding:0 max(16px,4.2vw);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.pgt::-webkit-scrollbar{display:none}
+.pgt>*{flex:none;scroll-snap-align:center;margin:0}
+.pgx{position:relative}
+.pgi{display:grid;gap:16px;padding:0 max(16px,4.2vw) 42px}.pgt .pgi{width:min(80vw,36em);padding:0}.pgi>p:last-child{font-size:13px;color:var(--mut);max-width:24em}
+.pk{display:block;height:var(--h,104vw);aspect-ratio:5/8;overflow:hidden;background:var(--bg2)}
+.sq .pk{aspect-ratio:4/5;--h:90vw}
+.pk img{width:124%;max-width:none;margin-left:-12%;height:100%;object-fit:cover;filter:grayscale(1) sepia(.42) contrast(1.04);transition:filter 1110ms var(--ease),scale 1796ms var(--ease)}
+.ph.on img,.ph:hover img{filter:none}
+@media(hover:hover){.ph:hover img{scale:1.05!important}}
+.pgt figcaption{display:flex;gap:10px;align-items:baseline;padding-top:10px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
+.pgt figcaption b{font:italic 400 26px/1 var(--fd);color:var(--acc);letter-spacing:0}
+.pgc{position:relative;display:flex;align-items:center;gap:16px;padding:26px max(16px,4.2vw) 0;font-size:10px;letter-spacing:.2em;font-weight:500}
+.pgc b{font:italic 400 26px/1 var(--fd);color:var(--acc);letter-spacing:0;min-width:1.3em}
+.pgl{flex:1;clip-path:inset(0 96% 0 0)}
+@media(min-width:900px){.st.v{display:block;position:absolute;top:0;bottom:0;left:calc((100% - 110px)*.382 + 54px);width:2px;height:auto;background:repeating-linear-gradient(var(--acc) 0 10px,transparent 10px 18px)}
+.pk{--h:68svh}.sq .pk{--h:50svh}.pgt .ph:nth-of-type(2){align-self:flex-start}.pgt .ph:nth-of-type(3){align-self:flex-end}.pgt .ph:nth-of-type(3) .pk{--h:58svh}.pgt .ph:nth-of-type(4) .pk{--h:54svh}
+.hz .pgs{position:sticky;top:68px;height:calc(100svh - 68px);padding:42px 0 26px;display:flex;flex-direction:column}
+.hz .pgx{flex:1;min-height:0}.hz .pgt{height:100%;width:max-content;overflow:visible;padding-right:12vw;will-change:transform}.hz .pgc{padding-left:150px}}
+@media (prefers-reduced-motion:reduce){.pgw,.pgc{display:none}.pgt{display:grid;grid-template-columns:1fr 1fr;gap:26px 16px;overflow:visible;align-items:start}.pgt .ph{align-self:auto!important}.pgt .ph:last-child{grid-column:1/-1}.pk{height:auto!important;width:100%}.pk img{filter:none}}
+@media (prefers-reduced-motion:reduce) and (min-width:900px){.pgt{grid-template-columns:repeat(5,1fr)}.pgt .ph:last-child{grid-column:auto}}
 /*/PH-CSS*/
 </style>
 </head>
@@ -232,15 +247,14 @@ footer{border-top:1px solid var(--ink);padding:42px 0 110px;overflow:hidden}
  <div class="cvl"><p class="cap">Xưởng túi da thủ công · Sài Gòn</p>
   <h1><span class="ln"><span>Một chiếc túi,</span></span><span class="ln"><span><em>mười tám giờ,</em></span></span><span class="ln"><span>một đôi tay.</span></span></h1>
   <div class="cvb"><p>Lavrène làm túi theo cách chậm nhất còn lại: mỗi chiếc do một người thợ khâu từ mũi đầu đến mũi cuối, rồi ký tên ở mặt trong.</p><div><a class="bt" href="#muc-luc">Mở mục lục túi <i>→</i></a></div></div></div>
- <figure class="cvr"><div class="cvp" id="cvp" data-px=".05"></div><figcaption>Hình bìa — Túi Hiên, da bê màu Hổ phách</figcaption><b class="num" aria-hidden="true">07</b></figure>
+ <figure class="cvr"><div class="cvk"><span class="kb" data-px=".05"><img src="../img/photo/tui-xach-6650009.webp" width="1066" height="1600" alt="Đôi tay đặt một chiếc túi da màu nâu bò lên giá gỗ, phía sau là những chiếc cặp da" decoding="async" fetchpriority="high"></span><span class="cvs" aria-hidden="true"><i style="--k:0"></i><i style="--k:1"></i><i style="--k:2"></i><i style="--k:3"></i><i style="--k:4"></i></span></div>
+  <figcaption><span class="cap">Hình 2 · Tại xưởng</span><b>Lần kiểm cuối, <em>trước khi rời giá.</em></b><span class="pe-n">Mỗi chiếc được kiểm lần cuối bằng tay: khóa, đường khâu, cạnh da. Rồi mới vào hộp.</span></figcaption>
+  <div class="cvc" data-px="-.07"><div class="cvi"><div class="cvp" id="cvp"></div><span>Hình bìa · Túi Hiên, da bê màu Hổ phách</span><b class="num" aria-hidden="true">07</b></div></div></figure>
 </div>
 <div class="mq" aria-hidden="true" style="margin-top:42px"><div><span>Da bê thuộc thảo mộc</span><span>Khâu yên ngựa hai kim</span><span>Sơn cạnh bảy lớp</span><span>Đánh số từng chiếc</span><span>Da bê thuộc thảo mộc</span><span>Khâu yên ngựa hai kim</span><span>Sơn cạnh bảy lớp</span><span>Đánh số từng chiếc</span></div></div>
 </section>
 
 
-<!--PH-ED-->
-<section class="pe" aria-label="Ảnh tại xưởng Lavrène"><figure class="ph" data-r="mask"><img src="../img/photo/tui-xach-6650009.webp" width="1066" height="1600" alt="Đôi tay đặt một chiếc túi da màu nâu bò lên giá gỗ, phía sau là những chiếc cặp da" decoding="async" loading="lazy" data-px=".12"></figure><div class="pe-t w"><div class="pe-cap" data-r><span class="cap">Hình 2 — Tại xưởng</span><b>Lần kiểm cuối,<br><em>trước khi rời giá.</em></b><span class="pe-n">Mỗi chiếc được kiểm lần cuối bằng tay: khóa, đường khâu, cạnh da. Rồi mới vào hộp.</span></div></div></section>
-<!--/PH-ED-->
 
 <section class="sec" id="thu"><div class="w stg">
  <div class="stn" data-r><b>01</b><span class="cap">Thư từ xưởng</span></div>
@@ -250,7 +264,7 @@ footer{border-top:1px solid var(--ink);padding:42px 0 110px;overflow:hidden}
  <blockquote data-r="wipe" style="--i:2">“Đường khâu đẹp nhất là đường khâu không ai để ý, cho đến khi chiếc túi đã theo họ hai mươi năm.”<cite>— Sổ tay của xưởng</cite></blockquote>
 </div></section>
 
-<section class="sec ix" id="muc-luc"><div class="w">
+<section class="sec ix" id="muc-luc"><i class="st" data-st></i><div class="w">
  <div class="ixh"><div><p class="cap" data-r>02 — Mục lục túi</p><h2 data-r="lines" style="margin-top:10px"><span class="ln"><span>Tám dáng túi,</span></span><span class="ln" style="--j:1"><span><em>sáu màu da.</em></span></span></h2></div>
   <p data-r style="max-width:22em;font-size:13px;color:var(--mut)">Chọn màu da để xem cả bộ đổi theo. Bấm vào tên túi để mở chi tiết.</p></div>
  <div class="ixg">
@@ -264,22 +278,25 @@ footer{border-top:1px solid var(--ink);padding:42px 0 110px;overflow:hidden}
 
 
 <!--PH-LB-->
-<section class="sec pg" id="lookbook"><div class="w"><div class="pg-h"><div><p class="cap" data-r>02b — Phụ bản ảnh</p><h2 data-r="lines" style="margin-top:10px"><span class="ln"><span>Da, dưới</span></span><span class="ln" style="--j:1"><span><em>ánh sáng ban ngày.</em></span></span></h2></div><p data-r>Năm trang ảnh về chất liệu và dáng túi. Ảnh minh họa không khí, không phải ảnh sản phẩm của xưởng.</p></div><div class="pg-g pg-5"><figure class="ph" data-r="mask" style="--i:0"><img src="../img/photo/tui-xach-22434775.webp" width="1132" height="1600" alt="Ba chiếc túi tote da vân cá sấu màu xám, be và nâu đặt chồng lên nhau trên nền trắng" decoding="async" loading="lazy"><figcaption>Hình 3a — Ba sắc tote</figcaption></figure><figure class="ph" data-r="mask" style="--i:1"><img src="../img/photo/tui-xach-27046146.webp" width="1600" height="1600" alt="Hai chiếc túi da vân cá sấu màu đen và nâu đỏ nằm trên nền trắng cạnh lá cọ" decoding="async" loading="lazy"><figcaption>Hình 3b — Vân da</figcaption></figure><figure class="ph" data-r="mask" style="--i:2"><img src="../img/photo/tui-xach-23223837.webp" width="1132" height="1600" alt="Túi da xanh rêu và xanh da trời đặt trên bục tròn trước tường hồng" decoding="async" loading="lazy"><figcaption>Hình 3c — Hai sắc độ</figcaption></figure><figure class="ph" data-r="mask" style="--i:3"><img src="../img/sm-web-ph-tui-xach-27100522.webp" width="1600" height="1600" alt="Túi tote da hạt màu xanh rêu với quai và dây đeo màu kem" decoding="async" loading="lazy"><figcaption>Hình 3d — Quai kem</figcaption></figure><figure class="ph" data-r="mask" style="--i:4"><img src="../img/sm-web-ph-tui-xach-7953286.webp" width="1067" height="1600" alt="Ba chiếc túi đỏ rượu, đen và xanh navy bày trên khối trắng giữa nền xám" decoding="async" loading="lazy"><figcaption>Hình 3e — Bày mẫu</figcaption></figure></div></div></section>
+<section class="pg" id="lookbook" aria-label="Phụ bản ảnh"><div class="pgs"><div class="pgi"><p class="cap" data-r>02b · Phụ bản ảnh</p><h2 data-r="lines"><span class="ln"><span>Da, dưới</span></span><span class="ln" style="--j:1"><span><em>ánh sáng ban ngày.</em></span></span></h2><p data-r>Năm trang ảnh về chất liệu và dáng túi. Ảnh minh họa không khí, không phải ảnh sản phẩm của xưởng.</p></div>
+<div class="pgx"><div class="pgw" aria-hidden="true"><span>Lavrène</span><span>da thuộc thảo mộc</span><span>khâu tay hai kim</span></div>
+<div class="pgt" id="pgt"><figure class="ph"><span class="pk"><img src="../img/photo/tui-xach-22434775.webp" width="1132" height="1600" alt="Ba chiếc túi tote da vân cá sấu màu xám, be và nâu đặt chồng lên nhau trên nền trắng" decoding="async" loading="lazy"></span><figcaption><b>01</b>Hình 3a · Ba sắc tote</figcaption></figure><figure class="ph sq"><span class="pk"><img src="../img/photo/tui-xach-27046146.webp" width="1600" height="1600" alt="Hai chiếc túi da vân cá sấu màu đen và nâu đỏ nằm trên nền trắng cạnh lá cọ" decoding="async" loading="lazy"></span><figcaption><b>02</b>Hình 3b · Vân da</figcaption></figure><figure class="ph"><span class="pk"><img src="../img/photo/tui-xach-23223837.webp" width="1132" height="1600" alt="Túi da xanh rêu và xanh da trời đặt trên bục tròn trước tường hồng" decoding="async" loading="lazy"></span><figcaption><b>03</b>Hình 3c · Hai sắc độ</figcaption></figure><figure class="ph sq"><span class="pk"><img src="../img/sm-web-ph-tui-xach-27100522.webp" width="1600" height="1600" alt="Túi tote da hạt màu xanh rêu với quai và dây đeo màu kem" decoding="async" loading="lazy"></span><figcaption><b>04</b>Hình 3d · Quai kem</figcaption></figure><figure class="ph"><span class="pk"><img src="../img/sm-web-ph-tui-xach-7953286.webp" width="1067" height="1600" alt="Ba chiếc túi đỏ rượu, đen và xanh navy bày trên khối trắng giữa nền xám" decoding="async" loading="lazy"></span><figcaption><b>05</b>Hình 3e · Bày mẫu</figcaption></figure></div></div>
+<p class="pgc" aria-hidden="true"><b id="pgn">01</b>/ 05<i class="st pgl"></i>Lật trang</p></div></section>
 <!--/PH-LB-->
 
 <section class="sec cf" id="xuong"><div class="w">
  <p class="cap" data-r>03 — Xưởng</p>
  <h2 data-r="lines" style="margin-top:10px"><span class="ln"><span>Bốn việc,</span></span><span class="ln" style="--j:1"><span><em>không việc nào vội.</em></span></span></h2>
- <svg class="stc" data-r="clip" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true"><path d="M4 13H1196" vector-effect="non-scaling-stroke"/></svg>
+ <i class="st" data-st></i>
  <div class="cfg">
   <div class="cfi" data-r><b>i</b><h3>Chọn da</h3><p>Da bê nguyên tấm, thuộc bằng vỏ cây trong sáu tuần. Chỉ dùng phần lưng, nơi thớ da đều nhất.</p><span>1 tấm da · 2 chiếc túi</span></div>
-  <div class="cfi" data-r style="--i:1"><b>ii</b><h3>Cắt tay</h3><p>Rập giấy đặt theo chiều thớ. Người thợ cắt bằng dao lưỡi cong, không dùng máy dập.</p><span>26 mảnh rời</span></div>
-  <div class="cfi" data-r style="--i:2"><b>iii</b><h3>Khâu yên ngựa</h3><p>Hai kim, một sợi chỉ lanh sáp ong. Mũi khâu khóa chéo, đứt một mũi cũng không bung đường.</p><span>2.340 mũi · 18 giờ</span></div>
-  <div class="cfi" data-r style="--i:3"><b>iv</b><h3>Sơn cạnh, ký tên</h3><p>Cạnh da được mài và sơn bảy lớp. Cuối cùng, người thợ dập số và ký tên mình vào mặt trong.</p><span>7 lớp sơn · 1 chữ ký</span></div>
+  <div class="cfi" data-r style="--i:1"><b>ii</b><h3>Cắt tay</h3><p>Rập giấy đặt theo chiều thớ. Người thợ cắt bằng dao lưỡi cong, không dùng máy dập.</p><span><i data-ct="26">26</i> mảnh rời</span></div>
+  <div class="cfi" data-r style="--i:2"><b>iii</b><h3>Khâu yên ngựa</h3><p>Hai kim, một sợi chỉ lanh sáp ong. Mũi khâu khóa chéo, đứt một mũi cũng không bung đường.</p><span><i data-ct="2340">2.340</i> mũi · <i data-ct="18">18</i> giờ</span></div>
+  <div class="cfi" data-r style="--i:3"><b>iv</b><h3>Sơn cạnh, ký tên</h3><p>Cạnh da được mài và sơn bảy lớp. Cuối cùng, người thợ dập số và ký tên mình vào mặt trong.</p><span><i data-ct="7">7</i> lớp sơn · 1 chữ ký</span></div>
  </div>
 </div></section>
 
-<section class="sec" id="hen"><div class="w bk">
+<section class="sec" id="hen"><i class="st" data-st></i><div class="w bk"><i class="st v" data-st="v"></i>
  <div><p class="cap" data-r>04 — Hẹn riêng</p>
   <h2 data-r="lines" style="margin-top:10px"><span class="ln"><span>Mời bạn</span></span><span class="ln" style="--j:1"><span><em>ghé xưởng.</em></span></span></h2>
   <ul class="pm" data-r><li><b>a</b>Xem da thật, chạm vào từng màu trước khi chọn</li><li><b>b</b>Dập tên bằng lá vàng, miễn phí cho mọi đơn</li><li><b>c</b>Bảo dưỡng và sửa chữa trọn đời tại xưởng</li></ul>
@@ -307,6 +324,8 @@ footer{border-top:1px solid var(--ink);padding:42px 0 110px;overflow:hidden}
 <a class="back" href="../index.html" target="_top">← Dream Labs</a>
 
 <script src="../vendor/lenis.min.js"></script>
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
 <script>
 (()=>{
 const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)];
@@ -406,6 +425,27 @@ gr.addEventListener('click',e=>{const r=e.target.closest('.rw');r&&open(+r.datas
 $('#pvb').addEventListener('click',()=>open(ci));
 $('#fs').insertAdjacentHTML('beforeend',B.map(b=>`<option>${b.n}</option>`).join(''));
 scan();
+/* số đếm */
+if(!RM&&io){const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,n=+el.dataset.ct,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1800);el.textContent=(p<1?Math.round(n*(1-Math.pow(2,-10*p))):n).toString().replace(/\B(?=(\d{3})+$)/g,'.');p<1&&requestAnimationFrame(f)})(t0)}),{threshold:.6});$$('[data-ct]').forEach(e=>co.observe(e))}
+/* phụ bản ảnh: lật ngang */
+const lb=$('#lookbook'),tr=$('#pgt'),figs=$$('.ph',tr),pgw=$('.pgw'),pgi=$('.pgi'),pgl=$('.pgl');let hz=0,pc=-1,CX=[];
+const meas=()=>{CX=figs.map(f=>f.offsetLeft+f.offsetWidth/2)};
+const upd=(x,d)=>{const c=x+innerWidth*(.3+.4*Math.min(1,x/d));let b=0,m=1e9;CX.forEach((v,i)=>{const q=Math.abs(v-c);if(q<m){m=q;b=i}});if(b!==pc){pc=b;$('#pgn').textContent=no(b);figs.forEach((f,j)=>f.classList.toggle('on',j===b))}
+ pgl.style.clipPath='inset(0 '+(96-Math.min(1,x/d)*96).toFixed(1)+'% 0 0)'};
+const nat=()=>{if(hz||RM)return;const d=tr.scrollWidth-tr.clientWidth||1,x=tr.scrollLeft;upd(x,d);pgw.style.transform='translate3d('+((pgw.offsetWidth-innerWidth)*(x/d-1)).toFixed(1)+'px,0,0)'};
+tr.addEventListener('scroll',nat,{passive:true});addEventListener('resize',()=>{meas();nat()});meas();nat();
+/* GSAP: đường khâu tự vẽ, cảnh ghim cuộn ngang */
+const G=window.gsap,ST=window.ScrollTrigger;
+if(G&&ST&&!RM){G.registerPlugin(ST);lenis&&lenis.on('scroll',ST.update);
+ $$('[data-st]').forEach(el=>{const v=el.dataset.st;G.fromTo(el,{clipPath:v?'inset(0 0 100% 0)':'inset(0 100% 0 0)'},{clipPath:'inset(0 0 0% 0)',ease:'none',scrollTrigger:{trigger:el,start:v?'top 80%':'top 94%',end:v?'bottom 70%':'top 50%',scrub:1}})});
+ if(FINE){const c=$('.cvi'),qx=G.quickTo(c,'x',{duration:1.2,ease:'power3'}),qy=G.quickTo(c,'y',{duration:1.2,ease:'power3'});$('.cv').addEventListener('mousemove',e=>{qx((e.clientX/innerWidth-.5)*-26);qy((e.clientY/innerHeight-.5)*-16)},{passive:true})}
+ G.matchMedia().add('(min-width:900px)',()=>{hz=1;lb.classList.add('hz');tr.prepend(pgi);tr.scrollLeft=0;pgw.style.transform='';let d=1,wd=0;
+  const set=()=>{d=tr.offsetWidth-innerWidth;wd=pgw.offsetWidth-innerWidth;lb.style.height=$('.pgs').offsetHeight+Math.min(d,innerHeight*2.2)+'px';meas()};
+  set();ST.addEventListener('refreshInit',set);
+  G.timeline({defaults:{ease:'none'},onUpdate:()=>upd(-G.getProperty(tr,'x'),d),scrollTrigger:{trigger:lb,start:'top 68',end:'bottom bottom',scrub:.9,invalidateOnRefresh:true}})
+   .to(tr,{x:()=>-d},0).fromTo(pgw,{x:()=>-wd},{x:0},0).fromTo($$('img',tr),{xPercent:-8},{xPercent:8},0);
+  return()=>{hz=0;lb.classList.remove('hz');tr.parentNode.before(pgi);lb.style.height='';ST.removeEventListener('refreshInit',set);meas();nat()}});
+ addEventListener('load',()=>ST.refresh());D.fonts&&D.fonts.ready.then(()=>ST.refresh())}
 })();
 </script>
 </body>
