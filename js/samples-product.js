@@ -14,7 +14,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-perfume-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/perfume/', dirs: ['img/spin/perfume/', 'img/spin/perfume-noir/', ''], frames: 48, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/perfume/', dirs: ['img/spin/perfume/', 'img/spin/perfume-noir/', 'img/spin/perfume-rose/'], frames: 48, loop: true, tone: 'dark', hotspots: [
    {a: .97, w: .1, x: 58, y: 64, side: 'r', t: 'Chữ in trên kính', d: 'Tên dòng và số mùi in thẳng lên mặt chai'},
    {a: .27, w: .1, x: 50, y: 27, t: 'Nắp đá mài', d: 'Đá vân mài bóng trên đai kim loại'},
    {a: .55, w: .11, x: 50, y: 58, t: 'Khối thủy tinh dày', d: 'Khoang chứa bo tròn nằm giữa lòng kính'}
@@ -101,7 +101,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-shoe-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/shoe/', frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/shoe/', dirs: ['img/spin/shoe/', 'img/spin/shoe-nude/', ''], frames: 48, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 34, y: 68, side: 'r', t: 'Mũi nhọn', d: 'Phom mũi thon, miệng giày khoét thấp'},
    {a: .25, w: .08, x: 29, y: 55, side: 'r', t: 'Gót 9,5 cm', d: 'Gót mảnh bọc cùng chất liệu thân giày'},
    {a: .5, w: .08, x: 33, y: 71, side: 'r', t: 'Khâu gót mạ vàng'},
@@ -189,7 +189,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-jewel-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/jewel/', dirs: ['img/spin/jewel/', 'img/spin/jewel-sapphire/', '', ''], frames: 48, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/jewel/', dirs: ['img/spin/jewel/', 'img/spin/jewel-sapphire/', 'img/spin/jewel-diamond/', 'img/spin/jewel-ruby/'], frames: 48, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ bốn chấu'},
    {a: .25, w: .08, x: 52, y: 60, side: 'r', t: 'Đai nhẫn vàng 18K'},
    {a: .5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá lục bảo', d: 'Giác cắt bậc, soi được từ mọi phía'}
