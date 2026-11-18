@@ -57,7 +57,7 @@ export default async function(shot,renderer,L){
  }else if(shot==='set'){st=L.makeStage(renderer,{bg:bg(null,.5,.5),env,tone:'aces',exp:1.1,shadow:.5,lights});
   [['sapphire',-1.3,-.3,.5],['emerald',0,.35,.0],['diamond',1.3,-.3,-.5]].forEach(([k,x,z,ry])=>{const r=ring(VAR[k]);r.position.set(x,.5+.04,z);r.rotation.y=ry;st.stage.add(r)});
   camera=L.cam(18,[0,1.2,8.6]);focus=V3(0,.7,.35);aperture=.02;reflect={y0:.72,y1:1,k:.42,blur:2};
- }else if(shot==='detail'){const v=VAR.emerald;st=L.makeStage(renderer,{bg:bg(v,.5,.5),env,tone:'aces',exp:1.1,shadow:.5,lights});
+ }else if(shot==='detail'){const v=VAR[globalThis.__spinVar]||VAR.emerald;st=L.makeStage(renderer,{bg:bg(v,.5,.5),env,tone:'aces',exp:1.1,shadow:.5,lights});
   const r=ring(v);r.position.set(0,.54,0);r.rotation.y=.45;st.stage.add(r);
   camera=L.cam(15,[.4,1.75,4.0]);focus=V3(0,1.08,.05);aperture=.016;reflect={y0:.8,y1:1,k:.4,blur:2};
  }else if(shot==='box'){st=L.makeStage(renderer,{bg:bg(null,.5,.5),env,tone:'aces',exp:1.1,shadow:.5,lights:lights.map(l=>({...l,ext:7}))});

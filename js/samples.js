@@ -213,10 +213,13 @@ function stageProduct(it){
   const box=$('.sm-pstage',node),layers=$$('.sm-pi',node),cap=$('.sm-pcap',node);
   const picker=it.vars.length>1?el('div','sm-var',`<p class="sm-var-l">Mẫu mã <b></b><small>${pad(it.vars.length)} lựa chọn</small></p><div class="sm-sws" role="group" aria-label="Chọn mẫu mã">${it.vars.map((v,i)=>`<button class="sm-sw" type="button" data-v="${i}" aria-pressed="false"><i${v.swatch?` style="background:${esc(v.swatch)}"`:''}></i><span>${esc(v.name)}</span></button>`).join('')}</div>`):null;
   const sbox=$('.sm-spinbox',node),sth=$('.sm-th-spin',node);
-  const mode=on=>{if(!sp)return;sbox.hidden=!on;box.hidden=on;sth.setAttribute('aria-pressed',String(on));
+  let sv=sp?Math.max(0,sp.variant|0):0;const dirs=sp&&Array.isArray(sp.dirs)?sp.dirs:[],dirOf=v=>str(dirs[v])||(v===Math.max(0,sp.variant|0)?sp.dir:'');
+  const mode=(on,v)=>{if(!sp)return;sbox.hidden=!on;box.hidden=on;sth.setAttribute('aria-pressed',String(on));
     if(on){$$('.sm-th[data-at]',node).forEach(b=>b.setAttribute('aria-pressed','false'));
-      if(!spin)spin=D.spin(sbox,{dir:sp.dir,frames:sp.frames,loop:sp.loop!==false,arc:sp.arc,rev:sp.rev,tone:sp.tone,hotspots:sp.hotspots,title:it.title,kicker:it.industry==='Khác'?'':it.industry});
-      if(picker){const vi=Math.min(it.vars.length-1,Math.max(0,sp.variant|0));$$('.sm-sw',picker).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===vi)));$('.sm-var-l b',picker).textContent=it.vars[vi].name}}
+      /* đổi mẫu mã: dựng lại trình xem với bộ khung của mẫu đó, giữ nguyên góc đang xem */
+      let keep=null;if(v!=null&&v!==sv&&dirOf(v)){if(spin){keep={start:spin.frame(),intro:false,auto:spin.playing()};spin.destroy();spin=null}sv=v}
+      if(!spin)spin=D.spin(sbox,{...keep,dir:dirOf(sv)||sp.dir,frames:sp.frames,loop:sp.loop!==false,arc:sp.arc,rev:sp.rev,tone:sp.tone,hotspots:sp.hotspots,title:it.title,kicker:it.industry==='Khác'?'':it.industry});
+      if(picker){const vi=Math.min(it.vars.length-1,sv);$$('.sm-sw',picker).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===vi)));$('.sm-var-l b',picker).textContent=it.vars[vi].name}}
     else spin&&spin.pause()};
   const show=i=>{const a=all[i];if(!a)return;mode(false);at=i;const t=++tok;
     $$('.sm-th',node).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.at===i)));
@@ -230,7 +233,7 @@ function stageProduct(it){
     nx.onload=()=>done(false);nx.onerror=()=>done(true);nx.removeAttribute('src');nx.src=a.src};
   node.addEventListener('click',e=>{if(e.target.closest('[data-spin]')){mode(true);return}const b=e.target.closest('[data-at]');if(b){show(+b.dataset.at);return}
     if(e.target.closest('.sm-pstage')&&all[at]&&!box.classList.contains('is-noimg'))zoom(all[at].src,it.title+', '+all[at].cap)});
-  if(picker)picker.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b)show(+b.dataset.v)});
+  if(picker)picker.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;const v=+b.dataset.v;sp&&dirOf(v)?mode(true,v):show(v)});
   return{node,picker,start(){sp?mode(true):show(0)},destroy(){tok++;spin&&spin.destroy();spin=null}};
 }
 

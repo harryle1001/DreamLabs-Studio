@@ -37,7 +37,9 @@ try{
  await L.loadFonts();
  const r=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});r.setPixelRatio(1);r.setSize(L.W,L.H);r.shadowMap.enabled=true;r.shadowMap.type=T.PCFShadowMap;
  const mod=await import(`/__p/lines/${line}.js?v=${Date.now()}`);
- const S=await mod.default(q.get('shot')||CFG.shot,r,L),st=S.st,kids=[...st.stage.children];
+ /* ?shot=<mẫu mã>: dựng mẫu mã khác của cùng dòng; cảnh 'detail' (giày, nhẫn) nhận mẫu mã qua __spinVar */
+ const sv=q.get('shot');if(sv&&CFG.shot==='detail')globalThis.__spinVar=sv;
+ const S=await mod.default(CFG.shot==='detail'?'detail':sv||CFG.shot,r,L),st=S.st,kids=[...st.stage.children];
  window.__kids=kids.map((k,i)=>{const b=new T.Box3().setFromObject(k);return i+': '+k.type+' '+[b.min,b.max].map(v=>v.toArray().map(n=>n.toFixed(2))).join(' → ')});
  for(const k in CFG.scale||{})kids[k].scale.set(...CFG.scale[k]);
  for(const k of CFG.center||[]){kids[k].position.x=0;kids[k].position.z=0}

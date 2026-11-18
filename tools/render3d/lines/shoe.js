@@ -55,7 +55,7 @@ export default async function(shot,renderer,L){
   const h=.22;mesh(L.rbox(6.8,h,2.9,.012,2),plaster,{p:[.35,h/2,.1],to:st.stage});
   [['nude',-.6],['noir',1.2],['mulberry',3.0]].forEach(([k,x])=>{const a=shoe(VAR[k]);a.position.set(x,h,-.75);a.rotation.y=Math.PI+.95;st.stage.add(a)});
   camera=L.cam(23,[.35,2.0,10.6]);focus=V3(.35,.62,.3);aperture=.02;
- }else if(shot==='detail'){const v=VAR.noir;st=L.makeStage(renderer,{bg:bg(),env,tone:'neutral',exp:1,envI:.85,shadow:.4,shadowColor:'#33241f',lights});
+ }else if(shot==='detail'){const v=VAR[globalThis.__spinVar]||VAR.noir;st=L.makeStage(renderer,{bg:bg(),env,tone:'neutral',exp:1,envI:.85,shadow:.4,shadowColor:'#33241f',lights});
   const a=shoe(v);a.position.set(.86,0,-.9);a.rotation.y=Math.PI+.95;st.stage.add(a);
   camera=L.cam(16,[0,1.75,7.6]);focus=V3(0,.52,0);aperture=.02;
  }else if(shot==='box'){const v=VAR.noir;st=L.makeStage(renderer,{bg:bg(),env,tone:'neutral',exp:1,envI:.85,shadow:.4,shadowColor:'#33241f',lights:lights.map(l=>({...l,ext:6}))});

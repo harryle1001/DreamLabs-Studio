@@ -1,5 +1,5 @@
 /* Dream Labs — trình xem 360 độ dùng chung (bộ khung ảnh img/spin/<slug>/001.webp…).
-   DL.spin(host,{dir,frames,loop,arc,rev,title,kicker,tone,hotspots,auto,intro}) → {node,destroy,play,pause,go}
+   DL.spin(host,{dir,frames,loop,arc,rev,title,kicker,tone,hotspots,auto,intro,start}) → {node,destroy,play,pause,go,frame,playing}
    - dir: thư mục khung (kết thúc bằng /) · frames: số khung · loop: vòng kín (false = xoay qua lại, arc = số độ quét được)
    - rev: true nếu khung tăng dần làm mặt trước trôi sang trái · tone: 'dark' | 'light' (màu chữ phủ trên ảnh)
    - hotspots: [{a: góc 0..1, w: nửa bề rộng 0..1 (mặc định .1), x, y: vị trí %, p: [[góc,x,y]…] nếu điểm trôi theo góc, t: nhãn, d: mô tả ngắn, side: 'l' | 'r'}]
@@ -34,18 +34,19 @@ D.spin=function(host,o){
   host.append(node);
   const q=s=>node.querySelector(s),cv=q('.spin-cv'),ctx=cv.getContext('2d'),tape=q('.spin-tape span'),sheen=q('.spin-sheen'),pp=q('.spin-pp'),track=q('.spin-track'),thumb=q('.spin-thumb'),deg=q('.spin-deg'),prog=q('.spin-prog i'),hsEl=[...node.querySelectorAll('.spin-h')];
   const imgs=new Array(N),MAXI=loop?N:N-1;
-  let pos=0,vel=0,shown=-1,count=0,fail=0,started=false,visible=false,dead=false,raf=0,last=0,playing=false,touched=false,intro=null,drag=null,swing=1,dirty=true,hinted=false;
+  const F0=Math.max(0,Math.min(N-1,Math.round(+o.start||0)));
+  let pos=F0,vel=0,shown=-1,count=0,fail=0,started=false,visible=false,dead=false,raf=0,last=0,playing=false,touched=false,intro=null,drag=null,swing=1,dirty=true,hinted=false;
   const AUTO=N/(loop?16000:9000);                                            /* khung mỗi ms: một vòng 16 giây */
 
   /* ── tải khung: khung đầu trước, rồi thưa tới dày để kéo sớm vẫn có khung gần nhất ── */
-  const order=()=>{const out=[0],seen=new Set([0]);for(let s=8;s>=1;s>>=1)for(let i=0;i<N;i+=s)if(!seen.has(i)){seen.add(i);out.push(i)}return out};
+  const order=()=>{const out=[F0],seen=new Set([F0]);for(let s=8;s>=1;s>>=1)for(let i=0;i<N;i+=s)if(!seen.has(i)){seen.add(i);out.push(i)}return out};
   const src=i=>dir+String(i+1).padStart(3,'0')+'.webp';
   function load(){
     if(started)return;started=true;const queue=order();let active=0;
     const next=()=>{if(dead)return;while(active<5&&queue.length){const i=queue.shift(),im=new Image();active++;im.decoding='async';
-      const done=ok=>{active--;if(dead)return;if(ok){imgs[i]=im;count++}else{fail++;if(i===0){node.classList.add('is-bad');q('.spin-msg').hidden=false}}
+      const done=ok=>{active--;if(dead)return;if(ok){imgs[i]=im;count++}else{fail++;if(i===F0){node.classList.add('is-bad');q('.spin-msg').hidden=false}}
         prog.style.transform=`scaleX(${(count+fail)/N})`;
-        if(i===0&&ok)node.classList.add('is-first');
+        if(i===F0&&ok)node.classList.add('is-first');
         if(count+fail===N){node.classList.remove('is-load');node.classList.add('is-ready');ready()}
         dirty=true;kick();next()};
       im.onload=()=>{im.decode&&!coarse?im.decode().then(()=>done(true),()=>done(true)):done(true)};im.onerror=()=>done(false);im.src=src(i)}};
@@ -138,10 +139,11 @@ D.spin=function(host,o){
   if(io)io.observe(node);else{visible=true;load()}
   const ro=window.ResizeObserver?new ResizeObserver(size):null;ro&&ro.observe(cv);size();
   if(RM)node.classList.add('is-rm');
+  if(o.start!=null&&o.intro===false){hinted=true;node.classList.add('is-used')}   /* dựng lại khi đổi mẫu mã: không nhắc kéo lần nữa */
 
   return{node,
     play(){setPlay(true)},pause(){setPlay(false)},
-    go(i){pos=wrap(+i||0);vel=0;dirty=true;kick()},
+    go(i){pos=wrap(+i||0);vel=0;dirty=true;kick()},frame(){return Math.round(wrap(pos))%N},playing(){return playing},
     destroy(){dead=true;cancelAnimationFrame(raf);io&&io.disconnect();ro&&ro.disconnect();for(const im of imgs)if(im)im.onload=im.onerror=null;imgs.length=0;node.remove()}};
 };
 })();
