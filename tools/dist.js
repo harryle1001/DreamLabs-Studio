@@ -66,7 +66,7 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
     /* trang dịch vụ (src/pages → <slug>/index.html) dùng chung khung và b.css với blog */
     for(const p of require('./site.js').HUBS)if(ex(p.slug))walk(p.slug);   /* trang theo ngành nằm trong thư mục trang dịch vụ */
     if(ex('giai-phap-theo-nganh'))walk('giai-phap-theo-nganh');
-    for(const p of require('./site.js').INDUSTRY)if(!blogQueue.includes(p.slug+'/index.html')&&ex(p.slug))walk(p.slug);
+    for(const p of [...require('./site.js').INDUSTRY,...require('./site.js').TOPICS])if(!blogQueue.includes(p.slug+'/index.html')&&ex(p.slug))walk(p.slug);
     for(const p of blogQueue){
       let h=rd(p);let first=true;
       h=h.replace(/<link rel="stylesheet" href="((?:\.\.\/)+)css\/[^"]+">\n?/g,(m,up)=>first?(first=false,`<link rel="stylesheet" href="${up}b.css">\n`):'');

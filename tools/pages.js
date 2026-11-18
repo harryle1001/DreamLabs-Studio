@@ -3,6 +3,8 @@
    Nguồn: src/pages/<slug>.html — dòng đầu <!--meta {...} --> (JSON), còn lại là thân trang HTML. Kết quả: <slug>/index.html.
    Trang theo ngành: src/pages/<trang dịch vụ>/<ngành>.html -> /<trang dịch vụ>/<ngành>/, meta thêm industry_id (khóa ngành, dùng nối các dịch vụ
      cùng ngành) và industry (tên ngành hiển thị). Mỗi lần dựng tự kiểm tra số chữ, chữ cấm, ảnh, liên kết nội bộ.
+   Trang theo nhu cầu: src/pages/<trang dịch vụ>/<nhu-cau>.html, meta thêm topic (tên nhu cầu, vd "Website bán hàng"); tự liên kết với trang dịch vụ
+     và các trang nhu cầu khác cùng dịch vụ.
    Meta: title, h1 (h1html tùy chọn), description, lead, eyebrow, cat_id (hạng mục trong js/data.js; bỏ trống = trang tổng hợp),
          cats (danh sách hạng mục cho JSON-LD trang tổng hợp), nav (nhãn trên menu), short (nhãn ở chân trang), order,
          image, imageAlt, imageCaption, keywords, related (slug bài viết), date, updated, ctaTitle, ctaText.
@@ -16,11 +18,12 @@
    Khung trang, menu, chân trang dùng chung với blog: tools/site.js. */
 const fs=require('fs'),path=require('path');
 const S=require('./site.js');
-const {R,SITE,esc,strip,ld,countWords,CATS,cat,vnd,priceText,ZALO,PHONE,priceTable,tierCards,outline,checkLen,org,crumbs,faqLd,page,POSTS,PAGES,HUBS,INDUSTRY,upOf,svcHref,ICON}=S;
+const {R,SITE,esc,strip,ld,countWords,CATS,cat,vnd,priceText,ZALO,PHONE,priceTable,tierCards,outline,checkLen,org,crumbs,faqLd,page,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,upOf,svcHref,ICON}=S;
 const fromPrice=id=>vnd(Math.min(...cat(id).tiers.map(t=>t.p)));
 /* ô liên kết: [href, tiêu đề, dòng phụ] */
 const links=(up,list)=>`<ul class="sv-links">${list.map(([h,b,t])=>`<li><a href="${h.startsWith('#')?up+h:h.startsWith('http')?h:up+h}"><b>${esc(b)}</b><span>${esc(t)}</span>${ICON.arrow}</a></li>`).join('')}</ul>`;
-const hubOf=m=>m.industry_id?S.pageFor(m.cat_id):null;
+const sub=m=>!!(m.industry_id||m.topic);   /* trang con nằm dưới trang dịch vụ */
+const hubOf=m=>sub(m)?S.pageFor(m.cat_id):null;
 const hubLink=id=>{const h=S.pageFor(id);return h?[h.slug+'/',h.short||h.h1]:['#p-'+id,cat(id).name]};
 
 function compare(id){
@@ -60,7 +63,7 @@ const BAN=/tỷ lệ vàng|tỉ lệ vàng|góc vàng|xoắn ốc vàng|φ|1[.,]
 const known=new Set(['','lab','giai-phap-theo-nganh',...PAGES.map(p=>p.slug),'blog',...POSTS.map(p=>'blog/'+p.slug)]);
 function lint(m,words){
   const w=[];
-  if(m.industry_id&&(words<800||words>1300))w.push(`số chữ ${words} (cần 800–1300)`);
+  if(sub(m)&&(words<800||words>1300))w.push(`số chữ ${words} (cần 800–1300)`);
   if(BAN.test(m.raw)||BAN.test(JSON.stringify({...m,raw:''})))w.push('có chữ cấm (tỷ lệ vàng / φ / 1.618)');
   if(!fs.existsSync(path.join(R,m.image)))w.push('không có ảnh '+m.image);
   for(const [,h] of m.raw.matchAll(/href="([^"]+)"/g)){
@@ -89,15 +92,17 @@ for(const m of PAGES){
     {'@type':'WebPage','@id':url+'#trang',url,name:m.title,description:m.description,inLanguage:'vi',isPartOf:{'@type':'WebSite','@id':SITE+'#web'},
      primaryImageOfPage:SITE+m.image,dateModified:m.updated||m.date},
     ...(c?[service(c,url)]:(m.cats||CATS.map(x=>x.id)).map(id=>service(cat(id),url))),
-    crumbs([['Trang chủ',SITE],...(m.industry_id?[[hubLink(m.cat_id)[1],SITE+hubLink(m.cat_id)[0]]]:[]),[m.short||m.h1,url]])];
+    crumbs([['Trang chủ',SITE],...(sub(m)?[[hubLink(m.cat_id)[1],SITE+hubLink(m.cat_id)[0]]]:[]),[m.short||m.h1,url]])];
   if(faq.length)graph.push(faqLd(url,faq));
   const related=(m.related||[]).map(s=>POSTS.find(p=>p.slug===s)).filter(Boolean);
-  const children=INDUSTRY.filter(p=>!m.industry_id&&m.cat_id&&p.cat_id===m.cat_id);
+  const children=INDUSTRY.filter(p=>!sub(m)&&m.cat_id&&p.cat_id===m.cat_id);
+  const needs=TOPICS.filter(p=>p!==m&&m.cat_id&&p.cat_id===m.cat_id&&(!m.industry_id));   /* trang theo nhu cầu cùng dịch vụ */
+  const indOfTopic=m.topic?INDUSTRY.filter(p=>p.cat_id===m.cat_id):[];
   const sameInd=m.industry_id?INDUSTRY.filter(p=>p.industry_id===m.industry_id&&p!==m):[];
   const siblings=m.industry_id?INDUSTRY.filter(p=>p.cat_id===m.cat_id&&p!==m):[];
   const from=c?Math.min(...c.tiers.map(t=>t.p)):0,fast=c?c.tiers[0].t:'';
   const act=`<a class="btn primary" href="${ZALO}" target="_blank" rel="noopener">${ICON.zalo} Nhắn Zalo ${esc(PHONE)}</a><a class="btn" href="${up}#lien-he">Gửi yêu cầu tư vấn</a><a class="btn" href="${up}#mau-gia">Xem mẫu và giá ${ICON.arrow}</a>`;
-  const main=`<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="${up}">Trang chủ</a><span aria-hidden="true">/</span>${m.industry_id?`<a href="${up}${hubLink(m.cat_id)[0]}">${esc(hubLink(m.cat_id)[1])}</a><span aria-hidden="true">/</span>`:''}<span aria-current="page">${esc(m.short||m.h1)}</span></nav>
+  const main=`<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="${up}">Trang chủ</a><span aria-hidden="true">/</span>${sub(m)?`<a href="${up}${hubLink(m.cat_id)[0]}">${esc(hubLink(m.cat_id)[1])}</a><span aria-hidden="true">/</span>`:''}<span aria-current="page">${esc(m.short||m.h1)}</span></nav>
 <article class="bl-post sv">
  <header class="bl-wrap bl-post-h sv-h">
   <p class="eyebrow">${esc(m.eyebrow||'Dịch vụ')}</p>
@@ -120,8 +125,8 @@ ${body.trim()}
   </div>
  </div>
 </article>
-${children.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-ind-h"><h2 id="sv-ind-h">${esc(c.name)} theo ngành</h2>${links(up,children.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}${sameInd.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-same-h"><h2 id="sv-same-h">Dịch vụ khác cho ngành ${esc(m.industry.toLowerCase())}</h2>${links(up,sameInd.map(p=>[p.slug+'/',p.short||p.h1,'Giá từ '+fromPrice(p.cat_id)]))}</section>\n`:''}${siblings.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-sib-h"><h2 id="sv-sib-h">${esc(c.name)} cho ngành khác</h2>${links(up,siblings.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}<section class="bl-wrap bl-more" aria-labelledby="sv-more-h"><h2 id="sv-more-h">${m.industry_id?'Các dịch vụ của Dream Labs':'Dịch vụ khác của Dream Labs'}</h2>
- ${links(up,[...CATS.filter(x=>x.id!==m.cat_id||m.industry_id).map(x=>[hubLink(x.id)[0],hubLink(x.id)[1],'Giá từ '+fromPrice(x.id)]),...HUBS.filter(p=>!p.cat_id&&p!==m).map(p=>[p.slug+'/',p.short||p.h1,'Giá của cả 6 dịch vụ'])])}
+${needs.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-need-h"><h2 id="sv-need-h">${esc(c.name)} ${m.topic?'cho nhu cầu khác':'theo nhu cầu'}</h2>${links(up,needs.map(p=>[p.slug+'/',p.topic,p.short||p.h1]))}</section>\n`:''}${indOfTopic.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-ind-h"><h2 id="sv-ind-h">${esc(c.name)} theo ngành</h2>${links(up,indOfTopic.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}${children.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-ind-h"><h2 id="sv-ind-h">${esc(c.name)} theo ngành</h2>${links(up,children.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}${sameInd.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-same-h"><h2 id="sv-same-h">Dịch vụ khác cho ngành ${esc(m.industry.toLowerCase())}</h2>${links(up,sameInd.map(p=>[p.slug+'/',p.short||p.h1,'Giá từ '+fromPrice(p.cat_id)]))}</section>\n`:''}${siblings.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-sib-h"><h2 id="sv-sib-h">${esc(c.name)} cho ngành khác</h2>${links(up,siblings.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}<section class="bl-wrap bl-more" aria-labelledby="sv-more-h"><h2 id="sv-more-h">${m.industry_id?'Các dịch vụ của Dream Labs':'Dịch vụ khác của Dream Labs'}</h2>
+ ${links(up,[...CATS.filter(x=>x.id!==m.cat_id||sub(m)).map(x=>[hubLink(x.id)[0],hubLink(x.id)[1],'Giá từ '+fromPrice(x.id)]),...HUBS.filter(p=>!p.cat_id&&p!==m).map(p=>[p.slug+'/',p.short||p.h1,'Giá của cả 6 dịch vụ'])])}
 </section>
 ${related.length?`<section class="bl-wrap bl-more sv-posts" aria-labelledby="sv-posts-h"><h2 id="sv-posts-h">Bài viết nên đọc</h2><div class="bl-cards">${related.map(p=>`<article class="bl-card"><a href="${up}blog/${p.slug}/"><span class="bl-card-img"><img src="${up}${p.image}" width="1280" height="791" alt="${esc(p.imageAlt)}" loading="lazy" decoding="async"></span>
  <span class="bl-card-t"><small>${esc(p.cat)}</small><h3>${esc(p.h1)}</h3><span class="bl-card-d">${esc(p.description)}</span></span></a></article>`).join('')}</div></section>`:''}`;

@@ -84,7 +84,7 @@ fs.writeFileSync(path.join(R,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8
   <url><loc>${SITE}lab/</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>${SITE}giai-phap-theo-nganh/</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>${SITE}blog/</loc><lastmod>${posts.map(p=>p.updated||p.date).sort().pop()}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-${S.PAGES.map(p=>`  <url><loc>${SITE}${p.slug}/</loc><lastmod>${p.updated||p.date}</lastmod><changefreq>monthly</changefreq><priority>${p.industry_id?'0.7':'0.9'}</priority></url>`).join('\n')}
+${S.PAGES.map(p=>`  <url><loc>${SITE}${p.slug}/</loc><lastmod>${p.updated||p.date}</lastmod><changefreq>monthly</changefreq><priority>${p.industry_id?'0.7':p.topic?'0.8':'0.9'}</priority></url>`).join('\n')}
 ${posts.map(p=>`  <url><loc>${p.url}</loc><lastmod>${p.updated||p.date}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join('\n')}
 </urlset>
 `);

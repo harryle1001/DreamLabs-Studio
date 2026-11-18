@@ -66,8 +66,9 @@ const checkLen=(slug,title,desc)=>{
 /* danh sách trang để dựng menu, chân trang, sitemap */
 const POSTS=readSrc('src/blog').sort((a,b)=>b.date.localeCompare(a.date)||(a.order||0)-(b.order||0));
 const PAGES=readSrc('src/pages').sort((a,b)=>(a.order||0)-(b.order||0));
-const HUBS=PAGES.filter(p=>!p.industry_id);              /* trang dịch vụ chính (không phải trang theo ngành) */
+const HUBS=PAGES.filter(p=>!p.industry_id&&!p.topic);              /* trang dịch vụ chính (không phải trang theo ngành) */
 const INDUSTRY=PAGES.filter(p=>p.industry_id);             /* trang dịch vụ theo ngành: meta industry_id + industry */
+const TOPICS=PAGES.filter(p=>p.topic);                     /* trang dịch vụ theo nhu cầu (vd website bán hàng): meta topic */
 const pageFor=id=>HUBS.find(p=>p.cat_id===id);   /* trang dịch vụ riêng của một hạng mục (nếu có) */
 const upOf=slug=>'../'.repeat(slug.split('/').length);
 const svcHref=(id,up)=>{const p=pageFor(id);return p?`${up}${p.slug}/`:`${up}#p-${id}`};
@@ -148,4 +149,4 @@ document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttrib
 `;
 }
 
-module.exports={R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,HUBS,INDUSTRY,upOf,pageFor,svcHref,ICON,org,crumbs,faqLd,page};
+module.exports={R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,upOf,pageFor,svcHref,ICON,org,crumbs,faqLd,page};
