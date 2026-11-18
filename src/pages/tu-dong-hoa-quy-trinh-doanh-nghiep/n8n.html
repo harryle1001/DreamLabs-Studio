@@ -1,0 +1,89 @@
+<!--meta {
+ "date": "2026-11-18",
+ "cat_id": "ai",
+ "topic": "Tự động hóa với n8n",
+ "short": "Dịch vụ tự động hóa n8n",
+ "eyebrow": "Tự động hóa AI · Workflow n8n",
+ "title": "Dịch vụ n8n: thuê làm workflow tự động hóa | Dream Labs",
+ "h1": "Dịch vụ n8n: thiết kế và triển khai workflow tự động hóa",
+ "h1html": "Dịch vụ n8n: thiết kế và triển khai <em>workflow tự động hóa</em>",
+ "description": "Dịch vụ n8n cho doanh nghiệp: thiết kế workflow nối Zalo OA, Google Sheets, CRM, kế toán, có AI xử lý. Tự chạy máy chủ riêng hoặc cloud. Giá từ 5 triệu.",
+ "lead": "n8n là công cụ nối các phần mềm của doanh nghiệp lại với nhau để dữ liệu tự chạy từ chỗ này sang chỗ khác, không cần người chép tay. Dream Labs thiết kế, dựng và bàn giao workflow n8n theo đúng quy trình bạn đang làm, kèm tài liệu để đội ngũ tự vận hành.",
+ "keywords": ["dịch vụ n8n", "tự động hóa n8n", "thuê làm workflow n8n", "n8n là gì", "n8n tự host", "n8n và Make"],
+ "image": "img/svc-ai.webp",
+ "imageAlt": "Sơ đồ minh họa: tin nhắn Zalo và form đăng ký đi vào một nút AI ở giữa, từ đó tỏa ra Google Sheets, CRM phân loại nóng ấm và thông báo đơn mới",
+ "imageCaption": "Minh họa một workflow tự động do Dream Labs dựng: dữ liệu vào từ Zalo và form, AI phân loại, kết quả tự về các phần mềm.",
+ "related": ["tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai"],
+ "ctaTitle": "Kể một việc đang chép tay, nhận sơ đồ workflow n8n",
+ "ctaText": "Mô tả cho Dream Labs dữ liệu đi từ đâu tới đâu và các phần mềm đang dùng. Bạn nhận sơ đồ workflow đề xuất, khuyến nghị nên chạy n8n ở đâu và báo giá trong 24 giờ."
+} -->
+<p>Nếu bạn gõ “<strong>dịch vụ n8n</strong>” thì có lẽ bạn đã nghe về công cụ này nhưng chưa có thời gian hoặc người để dựng. Trả lời nhanh: Dream Labs nhận thiết kế và triển khai workflow trên n8n, Make hoặc lập trình riêng tùy bài toán; bắt đầu từ {{tu:ai}} cho một quy trình, làm trong 5–7 ngày, bàn giao đầy đủ quyền quản trị cho doanh nghiệp. Dream Labs không phải đối tác chính thức của n8n; chúng tôi là đơn vị dùng n8n để làm việc cho khách.</p>
+
+<h2 id="n8n-la-gi">n8n là gì, nói cho dễ hiểu</h2>
+<p>Hình dung n8n như một người trợ lý đứng giữa các phần mềm của bạn, làm theo một tờ hướng dẫn: “khi có chuyện A xảy ra ở chỗ này, lấy thông tin rồi làm B ở chỗ kia”. Tờ hướng dẫn đó gọi là workflow. Mỗi bước là một ô trên màn hình, nối với nhau bằng đường kẻ, nên người không biết lập trình vẫn nhìn ra dữ liệu đang đi đâu.</p>
+<p>n8n kết nối được với Google Sheets, Gmail, Google Drive, Zalo OA, Facebook, nhiều CRM và bất kỳ phần mềm nào có API. Điểm mạnh là có thể chèn bước AI vào giữa: đọc tin nhắn để phân loại, tóm tắt email, trích thông tin từ hóa đơn, viết nháp câu trả lời.</p>
+
+<h2 id="vi-du">Ví dụ workflow minh họa</h2>
+<p>Ví dụ minh họa cho một công ty nhận yêu cầu báo giá qua form website và Zalo OA:</p>
+<ol class="bl-steps">
+ <li><strong>Kích hoạt:</strong> khách gửi form hoặc nhắn Zalo OA, n8n nhận dữ liệu ngay lập tức.</li>
+ <li><strong>AI đọc và phân loại:</strong> nhận ra khách cần sản phẩm gì, số lượng, mức độ gấp; gắn nhãn nóng, ấm, cần gọi lại.</li>
+ <li><strong>Ghi dữ liệu:</strong> thêm một dòng vào Google Sheets hoặc tạo khách trong CRM, không trùng nếu khách đã có.</li>
+ <li><strong>Giao việc:</strong> khách nóng được báo ngay cho sale phụ trách khu vực, kèm tóm tắt yêu cầu.</li>
+ <li><strong>Nhắc việc:</strong> sau 24 giờ chưa thấy cập nhật trạng thái, n8n nhắc lại sale và báo cho trưởng nhóm.</li>
+ <li><strong>Báo cáo:</strong> mỗi sáng thứ Hai, tổng hợp số yêu cầu tuần trước theo kênh và theo nhân viên gửi qua email.</li>
+</ol>
+<p>Các workflow phổ biến khác: đơn website tự vào phần mềm bán hàng, hóa đơn trong email tự lưu Drive và ghi sổ, nhắc công nợ đến hạn, sao lưu dữ liệu định kỳ.</p>
+
+<h2 id="chay-o-dau">Tự chạy máy chủ riêng, bản cloud hay Make</h2>
+<p>n8n có thể chạy trên máy chủ do doanh nghiệp thuê (tự host) hoặc dùng bản cloud do chính n8n vận hành. Make là một công cụ cùng loại, chỉ chạy trên cloud. Không có lựa chọn đúng cho mọi trường hợp:</p>
+<ul>
+ <li><strong>Tự chạy n8n trên máy chủ riêng</strong> hợp khi dữ liệu nhạy cảm cần nằm trong hệ thống của doanh nghiệp, khi số lần chạy workflow lớn, hoặc khi cần kết nối phần mềm nội bộ. Đổi lại phải có người theo dõi máy chủ, cập nhật phiên bản, sao lưu.</li>
+ <li><strong>n8n bản cloud</strong> hợp khi muốn bắt đầu nhanh, ít workflow, không muốn lo phần máy chủ. Chi phí tính theo gói của n8n.</li>
+ <li><strong>Make</strong> hợp với workflow vừa và nhỏ, đội ngũ muốn tự sửa trên giao diện kéo thả quen thuộc; với workflow chạy rất nhiều lần, chi phí có thể tăng nhanh.</li>
+ <li><strong>Lập trình riêng</strong> hợp khi logic phức tạp, cần tốc độ cao hoặc tích hợp sâu mà công cụ có sẵn làm vướng.</li>
+</ul>
+<p>Dream Labs khuyến nghị sau khi xem quy trình và số lượng dữ liệu thực tế. Phí máy chủ, phí gói cloud hay phí AI do doanh nghiệp thanh toán trực tiếp cho nhà cung cấp, tài khoản đứng tên doanh nghiệp.</p>
+
+<h2 id="duoc-gi">Doanh nghiệp được gì khi thuê làm workflow n8n</h2>
+<ul>
+ <li><strong>Dữ liệu chỉ nhập một lần</strong>, các phần mềm còn lại tự cập nhật theo, bớt sai sót do chép tay.</li>
+ <li><strong>Workflow chạy được ngay</strong> thay vì mất nhiều tuần tự học, thử, sửa lỗi.</li>
+ <li><strong>Có tài liệu và sơ đồ</strong> để đội ngũ hiểu hệ thống, không phụ thuộc vào một người.</li>
+ <li><strong>Xử lý được trường hợp lỗi</strong>: khi một phần mềm không phản hồi, workflow báo cho người phụ trách thay vì âm thầm bỏ qua.</li>
+ <li><strong>Mở rộng dần</strong>: bắt đầu một quy trình, thêm quy trình khác trên cùng nền tảng khi thấy hiệu quả.</li>
+</ul>
+
+<h2 id="quy-trinh">Quy trình triển khai</h2>
+<ol class="bl-steps">
+ <li><strong>Vẽ lại quy trình hiện tại</strong> qua một buổi trao đổi bằng Zalo hoặc gọi video.</li>
+ <li><strong>Đề xuất sơ đồ workflow</strong> và nơi chạy (n8n tự host, cloud, Make hoặc lập trình riêng). Bạn duyệt rồi mới dựng.</li>
+ <li><strong>Dựng, kết nối, chạy thử</strong> với dữ liệu thật, xử lý các trường hợp ngoại lệ.</li>
+ <li><strong>Bàn giao</strong> quyền quản trị, tài liệu, hướng dẫn đọc nhật ký chạy và hỗ trợ trong thời gian của gói.</li>
+</ol>
+
+<h2 id="bang-gia">Bảng giá dịch vụ n8n</h2>
+{{goi:ai}}
+<p>Một workflow tiếp nhận và phân loại khách, dữ liệu về Google Sheets: gói Khởi động {{p:ai:0}}. Ba quy trình như đơn hàng, chăm sóc khách, sổ sách và báo cáo, có kết nối CRM, phần mềm bán hàng, kế toán: gói Tăng trưởng {{p:ai:1}}. Cần nhiều workflow, chạy trên máy chủ riêng có phân quyền, dashboard điều hành: gói Doanh nghiệp từ {{p:ai:2}}. Sửa một workflow có sẵn do người khác làm được báo giá theo phạm vi sau khi xem. Xem <a href="../../bang-gia/">bảng giá đầy đủ</a>.</p>
+
+<h2 id="luu-y">Lưu ý khi thuê người làm n8n</h2>
+<ul>
+ <li>Yêu cầu workflow chạy trên tài khoản hoặc máy chủ đứng tên doanh nghiệp, không phải tài khoản cá nhân của người làm.</li>
+ <li>Hỏi về xử lý lỗi và thông báo khi lỗi. Workflow không có phần này giống một nhân viên im lặng khi gặp sự cố.</li>
+ <li>Đòi tài liệu bàn giao: sơ đồ, danh sách tài khoản kết nối, cách tắt mở từng workflow.</li>
+ <li>Với dữ liệu khách hàng, hỏi rõ dữ liệu đi qua những dịch vụ nào, đặc biệt các bước AI.</li>
+</ul>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>n8n có miễn phí không?</h3>
+<p>Phần mềm n8n có phiên bản tự cài đặt, nhưng doanh nghiệp vẫn trả phí máy chủ và công vận hành; bản cloud tính phí theo gói của n8n. Phí dịch vụ của Dream Labs là phí thiết kế và dựng workflow, tách riêng với các khoản này.</p>
+<h3>Nên chọn n8n hay Make?</h3>
+<p>n8n linh hoạt hơn, tự host được, hợp khi workflow nhiều và dữ liệu cần giữ trong nhà. Make dễ làm quen, hợp workflow ít và vừa. Dream Labs làm được cả hai và chọn theo bài toán, không theo sở thích công cụ.</p>
+<h3>Không biết kỹ thuật thì có tự sửa workflow được không?</h3>
+<p>Những thay đổi nhỏ như sửa nội dung tin nhắn, đổi người nhận thông báo, thêm cột dữ liệu được hướng dẫn khi bàn giao. Thay đổi logic lớn nên để người có kinh nghiệm làm để tránh hỏng luồng.</p>
+<h3>Zalo OA có kết nối với n8n được không?</h3>
+<p>Được, qua API của Zalo OA. Zalo cá nhân thì không nên kết nối tự động vì dễ bị khóa tài khoản.</p>
+<h3>Máy chủ n8n bị lỗi thì sao?</h3>
+<p>Trong thời gian hỗ trợ của gói, Dream Labs xử lý sự cố của workflow đã bàn giao. Với n8n tự host, nên thiết lập sao lưu định kỳ và cảnh báo khi máy chủ ngừng ngay từ lúc triển khai; Dream Labs đưa hai việc này vào sơ đồ đề xuất để bạn quyết định.</p>
+
+<p>Workflow thường bắt đầu từ tin nhắn khách, xem thêm <a href="../chatbot-zalo-oa/">chatbot Zalo OA</a> và <a href="../chatbot-ai-ban-hang/">chatbot AI bán hàng</a>. Ví dụ theo ngành: <a href="../khach-san/">khách sạn</a>, <a href="../phong-kham/">phòng khám</a>, <a href="../thuy-san/">thủy sản</a>. Tổng quan ở <a href="../">tự động hóa quy trình doanh nghiệp</a>; đọc thêm bài <a href="../../blog/tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai/">tự động hóa quy trình bằng AI</a>.</p>
