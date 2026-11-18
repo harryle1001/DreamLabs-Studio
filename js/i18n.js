@@ -6,6 +6,8 @@
 (()=>{
 const D=window.DL;if(!D)return;
 const L=window.DL_I18N,fill=(s,v)=>v?String(s).replace(/\{(\w+)\}/g,(m,k)=>v[k]!=null?v[k]:m):String(s);
+/* nhớ ngôn ngữ khách tự chọn (trang chủ tiếng Việt đọc dl-lang để không tự chuyển sang /en/) */
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[hreflang]');if(a)try{localStorage.setItem('dl-lang',a.getAttribute('hreflang'))}catch(_){}},true);
 D.lang='vi';D.t=(s,v)=>fill(s,v);D.fx=()=>'';D.vndx=n=>D.vnd(n);D.i18nSamples=()=>{};
 if(!L||!L.lang)return;
 const M=L.t||{},tr=s=>typeof s==='string'&&M[s]!=null?M[s]:s;
