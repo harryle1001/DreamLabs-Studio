@@ -39,12 +39,19 @@ header .btn{min-height:42px;padding:0 16px;font-size:10px}
 .hero{position:relative;padding:var(--s6) 0 var(--s6);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:68px 68px;mask-image:radial-gradient(80% 80% at 70% 30%,#000 0,transparent 72%);-webkit-mask-image:radial-gradient(80% 80% at 70% 30%,#000 0,transparent 72%);opacity:.6}
 .hero .w{position:relative}
+.hbg{position:absolute;inset:0;overflow:hidden}
+.hbg div{position:absolute;inset:-4%}
+.hbg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;animation:kb 21s cubic-bezier(.16,1,.3,1) both}
+@keyframes kb{from{transform:scale(1.16)}}
+.hbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.66),rgba(10,10,11,.14) 36%,rgba(10,10,11,.3) 56%,var(--bk) 97%),linear-gradient(90deg,rgba(10,10,11,.55),transparent 62%)}
+.sl{position:absolute;z-index:1;inset:-20% auto -20% 0;width:21%;background:var(--lime);transform:translateX(-160%) skewX(-21deg);animation:sl var(--d5) .16s cubic-bezier(.7,0,.2,1) both}
+@keyframes sl{to{transform:translateX(640%) skewX(-21deg)}}
 .hero h1{font-weight:900;font-size:clamp(40px,11.6vw,150px);line-height:1.08;letter-spacing:-.04em}
 .hero h1 span{display:block;overflow:hidden;padding-top:.14em;margin-top:-.14em}
-.hero h1 i{display:block;font-style:normal;animation:up var(--d5) var(--ease) both}
-.hero h1 span:nth-child(2) i{animation-delay:.1s;color:var(--bk);-webkit-text-stroke:4px var(--lime);paint-order:stroke fill}
-@keyframes up{from{transform:translateY(110%)}}
-.pulse{width:100%;height:68px;margin:var(--s3) 0}
+.hero h1 i{display:block;font-style:normal;transform-origin:0 100%;animation:up var(--d4) .26s var(--ease) both}
+.hero h1 span:nth-child(2) i{animation-delay:.47s;color:var(--bk);-webkit-text-stroke:4px var(--lime);paint-order:stroke fill}
+@keyframes up{from{transform:translateY(112%) scale(1.2)}}
+.pulse{width:100%;height:68px;margin:clamp(26px,5vh,60px) 0}
 .pulse path{fill:none;stroke:var(--lime);stroke-width:2.5;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:pl 2.62s linear infinite}
 @keyframes pl{0%{stroke-dashoffset:1}61.8%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
 .hg{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:end}
@@ -53,7 +60,7 @@ header .btn{min-height:42px;padding:0 16px;font-size:10px}
 .stats{display:flex;gap:var(--s5);margin-top:var(--s5);flex-wrap:wrap}
 .stats b{font-family:var(--fd);font-weight:800;font-size:33px;line-height:1.1;display:block}.stats span{font-size:13px;color:var(--mid)}
 /* timer */
-.timer{background:var(--g1);border:1px solid var(--line);border-radius:var(--s4);padding:var(--s4);position:relative}
+.timer{background:rgba(21,21,23,.9);border:1px solid var(--line);border-radius:var(--s4);padding:var(--s4);position:relative}
 .timer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s3)}
 .ph{padding:4px 12px;border-radius:99px;background:var(--lime);color:var(--bk);transition:background var(--d2)}
 .timer.rest .ph{background:var(--hot)}
@@ -71,13 +78,65 @@ header .btn{min-height:42px;padding:0 16px;font-size:10px}
 .badge{position:absolute;right:-16px;top:-42px;width:110px;height:110px;border-radius:50%;background:var(--hot);color:var(--bk);display:grid;place-content:center;text-align:center;font-family:var(--fd);font-weight:900;font-size:13px;line-height:1.15;transform:rotate(12deg);animation:wob 2.62s ease-in-out infinite alternate}
 .badge b{font-size:33px;display:block;line-height:1}
 @keyframes wob{to{transform:rotate(-6deg) scale(1.06)}}
-@media(max-width:900px){.hero{padding-top:var(--s5)}.hg{grid-template-columns:1fr}.badge{right:16px;top:-68px;width:89px;height:89px;font-size:10px}.badge b{font-size:26px}.timer{margin-top:var(--s6)}.stats{gap:var(--s4)}}
+@media(max-width:900px){.hero{padding-top:var(--s5)}.hg{grid-template-columns:1fr}.badge{right:16px;top:-68px;width:89px;height:89px;font-size:10px}.badge b{font-size:26px}.timer{margin-top:var(--s6)}.stats{gap:var(--s4)}.hbg{bottom:auto;height:min(100%,96vh)}.hbg div{top:-34%}.hbg img{object-position:34% 30%}}
 /* băng chạy */
 .bw{overflow:hidden;padding:var(--s4) 0}
 .band{background:var(--lime);color:var(--bk);overflow:hidden;white-space:nowrap;transform:rotate(-1.6deg) scale(1.03);padding:14px 0}
 .band div{display:inline-block;font-family:var(--fd);font-weight:900;font-size:clamp(20px,3vw,42px);text-transform:uppercase;animation:mq 26s linear infinite}
 .band span{margin:0 16px}
 @keyframes mq{to{transform:translateX(-50%)}}
+/* 7 ngày */
+.d7{padding:var(--s7) 0}
+.d7 .k{color:var(--lime)}
+.dg{display:grid;gap:var(--s5)}
+.dn{display:flex;align-items:baseline;gap:12px;font-family:var(--fd);margin:var(--s3) 0 var(--s2)}
+.dn span{font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
+.dn b{display:inline-block;font-weight:900;font-size:clamp(89px,13vw,178px);line-height:.92;letter-spacing:-.05em;color:var(--lime);font-variant-numeric:tabular-nums;transform-origin:0 100%}
+.dn i{font-style:normal;font-weight:500;font-size:clamp(16px,2vw,26px);color:var(--mid)}
+.bt{animation:bt var(--d3) var(--ease)}
+@keyframes bt{from{transform:scale(1.24) skewX(-9deg)}}
+.d7 h2{font-size:clamp(24px,3.4vw,46px)}.d7 h2 em{font-style:normal;color:var(--lime)}
+.dp{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;max-width:424px;margin:var(--s4) 0 var(--s3)}
+.dp i{height:6px;border-radius:6px;background:var(--g2);overflow:hidden}
+.dp b{display:block;height:100%;background:var(--lime);transform-origin:0 50%}
+.nt{color:var(--mid);font-size:14px;max-width:40ch;margin-bottom:var(--s4)}
+.df{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
+.df figure,.rl figure{margin:0;position:relative;overflow:hidden;border-radius:var(--s3);background:var(--g1)}
+.df figure{aspect-ratio:3/4}
+.df img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.df figcaption{position:absolute;inset:auto 0 0;padding:var(--s6) var(--s3) var(--s3);background:linear-gradient(transparent,rgba(10,10,11,.9));display:grid;gap:4px}
+.df figcaption b{font-family:var(--fd);font-weight:800;font-size:18px;line-height:1.1;text-transform:uppercase}
+.df small{font-size:13px;color:#d0d0c8;line-height:1.45}
+.ws{display:none}
+.mo .d7{height:330vh;height:330svh;padding:0}
+.mo .st{position:sticky;top:68px;height:calc(100vh - 68px);height:calc(100svh - 68px);overflow:hidden;display:flex;align-items:center}
+.mo .dg{grid-template-columns:1fr 1.272fr;gap:var(--s6);align-items:center}
+.mo .df{display:block;position:relative;height:min(76vh,720px);border-radius:var(--s4);overflow:hidden}
+.mo .df figure{position:absolute;inset:0;aspect-ratio:auto;border-radius:0}
+.mo .df img{will-change:transform}
+.mo .df figcaption{padding:var(--s7) var(--s4) var(--s4)}
+.mo .df figcaption b{font-size:clamp(24px,3.2vw,44px)}.mo .df small{font-size:15px}
+.mo .ws{display:block;position:absolute;inset:0;background:var(--lime);opacity:0;pointer-events:none}
+@media(max-width:860px){.d7{padding:var(--s6) 0}.df{grid-template-columns:1fr 1fr}.df figure{aspect-ratio:2/3}
+ .mo .st{align-items:flex-start;padding:var(--s3) 0 0}.mo .dg{grid-template-columns:1fr;gap:var(--s3)}.mo .df{order:-1;height:40vh;height:40svh}
+ .mo .dn{margin:0}.mo .dn b{font-size:76px}.mo .dp{margin:var(--s3) 0 var(--s2)}.mo .nt{margin-bottom:var(--s3)}.mo .d7 .btn{min-height:46px}}
+@media(max-width:860px) and (max-height:660px){.mo .nt{display:none}.mo .df{height:36vh}}
+/* khu tập */
+.rl{display:flex;gap:var(--s3);overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(16px,4vw);scroll-padding:0 max(16px,4vw);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rl::-webkit-scrollbar{display:none}
+.rl.dr{scroll-snap-type:none;cursor:grabbing}
+.rl figure{flex:none;height:clamp(300px,56vh,520px);aspect-ratio:2/3;scroll-snap-align:start}
+.rl figure.l{aspect-ratio:3/2;max-width:86vw}
+.rl img{position:absolute;top:0;left:-8%;width:116%;max-width:none;height:100%;object-fit:cover;-webkit-user-drag:none;user-select:none}
+.rl figcaption{position:absolute;inset:auto 0 0;padding:var(--s6) var(--s3) var(--s3);background:linear-gradient(transparent,rgba(10,10,11,.86));display:flex;align-items:baseline;gap:10px;font-family:var(--fd);font-weight:700;font-size:15px;text-transform:uppercase}
+.rl figcaption span{color:var(--lime);font-weight:500;font-size:11px}
+.mo .rl figure{clip-path:polygon(0 0,0 0,-34% 100%,0 100%);transition:clip-path var(--d5) var(--ease);transition-delay:calc(var(--i)*110ms)}
+.mo .rl.in figure{clip-path:polygon(0 0,134% 0,100% 100%,0 100%)}
+.rc{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s4)}
+.rp{flex:1;height:2px;background:var(--line);overflow:hidden}.rp i{display:block;height:100%;background:var(--lime);transform:scaleX(.2);transform-origin:0 50%}
+.rc .k{color:var(--mid);font-variant-numeric:tabular-nums}
+.rc button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:none;font-size:18px;transition:background var(--d2),color var(--d2),border-color var(--d2)}
+.rc button:hover{background:var(--lime);color:var(--bk);border-color:var(--lime)}
 .sec{padding:var(--s7) 0}
 .sh{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:end;margin-bottom:var(--s6)}
 .sh h2{font-size:clamp(28px,5.2vw,68px)}.sh h2 em{font-style:normal;color:var(--lime)}.sh p{color:var(--mid)}
@@ -157,7 +216,7 @@ footer{padding:var(--s6) 0 var(--s7);overflow:hidden}
 .fr{display:flex;flex-wrap:wrap;gap:16px 42px;justify-content:space-between;font-size:13px;color:var(--mid);border-top:1px solid var(--line);padding-top:16px}
 .back{position:fixed;left:16px;bottom:16px;z-index:40;background:var(--ink);color:var(--bk);border-radius:99px;padding:0 16px;min-height:42px;display:flex;align-items:center;gap:8px;font-family:var(--fd);font-weight:600;font-size:10px;letter-spacing:.04em}
 .emb .back{display:none}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}.pulse path{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}.pulse path{stroke-dashoffset:0}.sl{display:none}}
 </style>
 </head>
 <body>
@@ -168,7 +227,7 @@ footer{padding:var(--s6) 0 var(--s7);overflow:hidden}
 </div></header>
 
 <main id="top">
-<section class="hero"><div class="w">
+<section class="hero"><div class="hbg"><div id="hp"><img src="../img/photo/phong-tap-6389516.webp" width="2400" height="1600" alt="Thanh tạ đòn nằm trên sàn phòng tập mờ sương, sau lưng là dãy cửa sổ lớn" fetchpriority="high" decoding="async"></div><i class="sl"></i></div><div class="w">
  <p class="k" style="color:var(--lime);margin-bottom:16px">Phòng tập nhóm nhỏ · Quận 3</p>
  <h1><span><i>Vươn lên</i></span><span><i>mỗi ngày.</i></span></h1>
  <svg class="pulse" viewBox="0 0 1280 68" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M0 34h300l16-20 18 44 22-58 20 68 16-34h180l14-16 16 36 20-52 18 60 14-28h260l16-20 18 44 22-58 20 68 16-34h258"/></svg>
@@ -176,7 +235,7 @@ footer{padding:var(--s6) 0 var(--s7);overflow:hidden}
   <div>
    <p class="l">Mỗi lớp tối đa 13 người, luôn có huấn luyện viên kèm sát. Bạn chỉ cần đến đúng giờ, phần còn lại chúng tôi lo.</p>
    <div class="cta"><a class="btn" href="#tap-thu">Tập thử 7 ngày →</a><a class="btn o" href="#lich">Xem lịch lớp</a></div>
-   <div class="stats"><div><b>34</b><span>lớp mỗi tuần</span></div><div><b>13</b><span>người tối đa / lớp</span></div><div><b>06–22h</b><span>mở cửa cả tuần</span></div></div>
+   <div class="stats"><div><b data-n>34</b><span>lớp mỗi tuần</span></div><div><b data-n>13</b><span>người tối đa / lớp</span></div><div><b>06–22h</b><span>mở cửa cả tuần</span></div></div>
   </div>
   <div class="timer" id="tm" aria-label="Đồng hồ tập ngắt quãng">
    <div class="badge"><b>0đ</b>7 ngày<br>tập thử</div>
@@ -189,10 +248,40 @@ footer{padding:var(--s6) 0 var(--s7);overflow:hidden}
 
 <div class="bw"><div class="band" aria-hidden="true"><div><span>HIIT 45</span><span>✕</span><span>Sức mạnh</span><span>✕</span><span>Yoga Flow</span><span>✕</span><span>Boxing</span><span>✕</span><span>Không hợp đồng dài</span><span>✕</span><span>HIIT 45</span><span>✕</span><span>Sức mạnh</span><span>✕</span><span>Yoga Flow</span><span>✕</span><span>Boxing</span><span>✕</span><span>Không hợp đồng dài</span><span>✕</span></div></div></div>
 
+<section class="d7" id="bay-ngay" aria-label="Bảy ngày tập thử"><div class="st"><div class="w dg">
+ <div class="dl">
+  <p class="k">Tập thử 0đ · thử đủ bốn kiểu lớp</p>
+  <div class="dn" aria-hidden="true"><span>Ngày</span><b id="dn">07</b><i>/ 07</i></div>
+  <h2>7 ngày để<br><em>bắt đúng nhịp.</em></h2>
+  <div class="dp" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+  <p class="nt">Thứ tự chỉ là gợi ý. Trong 7 ngày tập thử, bạn vào lớp nào cũng được.</p>
+  <a class="btn" href="#tap-thu">Giữ chỗ tập thử →</a>
+ </div>
+ <div class="df" id="df">
+  <figure><img src="../img/photo/phong-tap-6389503.webp" width="1400" height="2100" alt="Người tập đạp xe sức bền giữa phòng tập khung thép, ánh sáng mờ sương" loading="lazy" decoding="async"><figcaption><span class="k">Ngày 1–2</span><b>HIIT 45</b><small>Chạy, nhảy, tạ nhẹ theo hiệp ngắn.</small></figcaption></figure>
+  <figure><img src="../img/photo/phong-tap-6389892.webp" width="1400" height="2100" alt="Kệ bóng tạ, tạ tay và bánh tạ xếp sát tường gạch cạnh cửa sổ" loading="lazy" decoding="async"><figcaption><span class="k">Ngày 3–4</span><b>Sức mạnh</b><small>Squat, deadlift, đẩy ngực với tạ đòn.</small></figcaption></figure>
+  <figure><img src="../img/photo/phong-tap-6958065.webp" width="1400" height="2100" alt="Người tập nằm chống tay trên thảm yoga, chụp từ phía sau" loading="lazy" decoding="async"><figcaption><span class="k">Ngày 5</span><b>Yoga Flow</b><small>Giãn cơ, hồi phục sau ngày dài.</small></figcaption></figure>
+  <figure><img src="../img/photo/phong-tap-4753999.webp" width="1400" height="1844" alt="Bao cát treo bằng xích dưới ánh đèn tuýp trong góc boxing" loading="lazy" decoding="async"><figcaption><span class="k">Ngày 6–7</span><b>Boxing</b><small>Đấm bao, di chuyển, phản xạ theo cặp.</small></figcaption></figure>
+  <i class="ws"></i>
+ </div>
+</div></div></section>
+
 <section class="sec" id="lop"><div class="w">
  <div class="sh"><div><p class="k">Bốn kiểu lớp</p><h2 data-r>Chọn lớp theo<br><em>mức năng lượng.</em></h2></div><p data-r>Mới bắt đầu hay tập lâu năm đều có chỗ. Huấn luyện viên chỉnh bài theo thể lực từng người.</p></div>
  <div class="cl" id="cl"></div>
 </div></section>
+
+<section class="sec" id="khu-tap" style="padding-top:0">
+ <div class="w"><div class="sh"><div><p class="k">Không gian tập</p><h2 data-r>Xem trước<br><em>chỗ bạn tập.</em></h2></div><p data-r>Vuốt ngang để xem từng khu. Hai phòng tập nhóm, khu tạ và phòng thay đồ nằm chung một tầng.</p></div></div>
+ <div class="rl" id="rl" tabindex="0" aria-label="Ảnh các khu tập, vuốt ngang để xem thêm">
+  <figure class="l" style="--i:0"><img src="../img/photo/phong-tap-6390225.webp" width="1000" height="667" alt="Phòng tập nhóm rộng với xà treo, vòng treo và bóng tập trước cửa sổ lớn" loading="lazy" decoding="async" draggable="false"><figcaption><span>01</span>Sàn tập nhóm</figcaption></figure>
+  <figure style="--i:1"><img src="../img/photo/phong-tap-6389891.webp" width="760" height="1140" alt="Bánh tạ đòn trên sàn cao su trong làn sương mờ" loading="lazy" decoding="async" draggable="false"><figcaption><span>02</span>Khu tạ đòn</figcaption></figure>
+  <figure style="--i:2"><img src="../img/photo/phong-tap-6389856.webp" width="760" height="1140" alt="Bó thanh đòn dựng đứng trong giá cạnh khung tập" loading="lazy" decoding="async" draggable="false"><figcaption><span>03</span>Giá thanh đòn</figcaption></figure>
+  <figure class="l" style="--i:3"><img src="../img/photo/phong-tap-6389893.webp" width="1000" height="667" alt="Hai quả tạ tay lục giác đặt trên sàn trước mũi giày người tập" loading="lazy" decoding="async" draggable="false"><figcaption><span>04</span>Góc tạ tay</figcaption></figure>
+  <figure class="l" style="--i:4"><img src="../img/photo/phong-tap-6390241.webp" width="1000" height="667" alt="Người tập đi giữa hai dãy tủ đồ trong phòng thay đồ, chụp từ phía sau" loading="lazy" decoding="async" draggable="false"><figcaption><span>05</span>Phòng thay đồ</figcaption></figure>
+ </div>
+ <div class="w"><div class="rc"><div class="rp"><i id="rpi"></i></div><span class="k" id="rn">01 / 05</span><button id="rpv" aria-label="Ảnh trước">←</button><button id="rnx" aria-label="Ảnh sau">→</button></div></div>
+</section>
 
 <section class="sec sch" id="lich"><div class="w">
  <div class="sh"><div><p class="k">Lịch tuần này</p><h2 data-r>Giờ nào cũng<br><em>có lớp.</em></h2></div><p data-r>Lọc theo kiểu lớp để tìm khung giờ hợp với bạn. Đặt chỗ trước 2 tiếng.</p></div>
@@ -221,14 +310,15 @@ footer{padding:var(--s6) 0 var(--s7);overflow:hidden}
  </div>
 </div></section>
 </main>
-<footer><div class="big" aria-hidden="true">VƯƠN</div><div class="w"><div class="fr"><span>VƯƠN Club là thương hiệu concept. Landing page mẫu do <a href="../index.html" target="_top" style="text-decoration:underline;color:var(--ink)">Dream Labs</a> thiết kế, mọi thông tin chỉ để minh họa.</span><span>hello@vuonclub.example · 0900 000 000</span></div></div></footer>
+<footer><div class="big" aria-hidden="true">VƯƠN</div><div class="w"><div class="fr"><span>VƯƠN Club là thương hiệu concept. Landing page mẫu do <a href="../index.html" target="_top" style="text-decoration:underline;color:var(--ink)">Dream Labs</a> thiết kế, mọi thông tin chỉ để minh họa, ảnh chụp lấy từ thư viện Pexels để minh họa không khí.</span><span>hello@vuonclub.example · 0900 000 000</span></div></div></footer>
 <a class="back" href="../index.html">← DREAM LABS</a>
 
 <script>
 (()=>{
 document.documentElement.classList.add('js');if(parent!==window)document.documentElement.classList.add('emb');
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,MO=!RM&&'IntersectionObserver' in window,cl=(v,a=0,b=1)=>v<a?a:v>b?b:v;
+if(MO)document.documentElement.classList.add('mo');
 /* đồng hồ ngắt quãng: 21 giây tập / 13 giây nghỉ × 8 hiệp */
 const T={w:21,r:13,n:8};let ph=0,rd=1,left=T.w,run=false,iv=null,last=0;
 const tm=$('#tm'),draw=()=>{const tot=ph?T.r:T.w;$('#tt').textContent='00:'+String(Math.ceil(left)).padStart(2,'0');$('#tr').style.strokeDashoffset=(1-left/tot).toFixed(3);$('#tp').textContent=ph?'Nghỉ':'Tập';$('#ts').textContent='Hiệp '+rd+' / '+T.n;tm.classList.toggle('rest',!!ph)};
@@ -263,6 +353,41 @@ $('#tg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
 $('#jf').addEventListener('submit',e=>{e.preventDefault();const ok=$$('#jf .fld').every(f=>f.value.trim());$('#jm').textContent=ok?'Cảm ơn bạn. Đây là trang mẫu nên chưa có chỗ nào được giữ.':'Bạn điền giúp tên và số điện thoại nhé.'});
 const els=$$('[data-r]');
 if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>io.observe(el))}else els.forEach(el=>el.classList.add('in'));
+/* khu tập: vuốt snap, kéo chuột, ảnh trượt lệch nhịp */
+const rl=$('#rl'),rf=$$('#rl figure');let rq=0;
+const rlU=()=>{rq=0;const mx=rl.scrollWidth-rl.clientWidth,c=rl.clientWidth/2,x0=rl.getBoundingClientRect().left;let n=0,bd=1e9;
+ rf.forEach((g,i)=>{const r=g.getBoundingClientRect(),d=Math.abs(r.left-x0-parseFloat(getComputedStyle(rl).paddingLeft));if(d<bd){bd=d;n=i}
+  if(MO)g.firstChild.style.transform=`translateX(${(cl((r.left+r.width/2-x0-c)/rl.clientWidth,-1,1)*-6.5).toFixed(2)}%)`});
+ if(mx>0&&rl.scrollLeft>mx-4)n=rf.length-1;
+ $('#rpi').style.transform=`scaleX(${(.2+.8*(mx>0?rl.scrollLeft/mx:1)).toFixed(3)})`;$('#rn').textContent='0'+(n+1)+' / 0'+rf.length;rl._n=n};
+const rlK=()=>{rq=rq||requestAnimationFrame(rlU)};rl.addEventListener('scroll',rlK,{passive:true});addEventListener('resize',rlK);rlU();
+const rlG=d=>{const g=rf[cl(rl._n+d,0,rf.length-1)];rl.scrollTo({left:g.offsetLeft-rf[0].offsetLeft,behavior:RM?'auto':'smooth'})};
+$('#rpv').onclick=()=>rlG(-1);$('#rnx').onclick=()=>rlG(1);
+let dx=null;rl.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'&&!e.button){dx=e.clientX;rl.classList.add('dr')}});
+addEventListener('pointermove',e=>{if(dx!==null){rl.scrollLeft-=e.clientX-dx;dx=e.clientX}});
+addEventListener('pointerup',()=>{if(dx!==null){dx=null;rl.classList.remove('dr');rlG(0)}});
+if(MO){
+ new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){rl.classList.add('in');o.disconnect()}}),{threshold:.25}).observe(rl);
+ /* số đếm hero */
+ $$('[data-n]').forEach(b=>{const to=+b.textContent,t0=performance.now()+500,f=t=>{const u=cl((t-t0)/1110),e=1-Math.pow(1-u,4);b.textContent=Math.round(to*e);u<1&&requestAnimationFrame(f)};b.textContent=0;requestAnimationFrame(f)});
+ /* 7 ngày: ghim, đổi ảnh bằng vát chéo, đếm ngày theo cuộn */
+ const d7=$('#bay-ngay'),st=$('.st'),fg=$$('#df figure'),ws=$('.ws'),dn=$('#dn'),sg=$$('.dp b'),CUT=[2/7,4/7,5/7],W=.085;let tp=0,cp=-1,day=-1,rf7=0,on=false;
+ const ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+ const draw7=()=>{rf7=0;cp=cp<0?tp:cp+(tp-cp)*.16;if(Math.abs(tp-cp)<.0004)cp=tp;const q=cl(cp*1.09),d=Math.min(6,Math.floor(q*7));let sl=0;
+  CUT.forEach((c,k)=>{const r=cl((q-c+W)/W),t=ez(r),a=100-t*134,b=a+34;fg[k+1].style.clipPath=`polygon(${a}% 0,100% 0,100% 100%,${b}% 100%)`;
+   if(r>0&&r<1){sl=1;ws.style.clipPath=`polygon(${a-5}% 0,${a+.4}% 0,${b+.4}% 100%,${b-5}% 100%)`}});
+  ws.style.opacity=sl;fg.forEach((g,i)=>{g.firstChild.style.transform=`scale(${(1.14-.12*cl(q*1.6-i*.3)).toFixed(4)})`});
+  sg.forEach((s,i)=>{s.style.transform=`scaleX(${cl(q*7-i).toFixed(3)})`});
+  if(d!==day){day=d;dn.textContent='0'+(d+1);dn.classList.remove('bt');void dn.offsetWidth;dn.classList.add('bt')}
+  if(cp!==tp&&on)rf7=requestAnimationFrame(draw7)};
+ const sc7=()=>{const r=d7.getBoundingClientRect();tp=cl((68-r.top)/(r.height-st.offsetHeight));if(on&&!rf7)rf7=requestAnimationFrame(draw7)};
+ new IntersectionObserver(es=>{on=es[0].isIntersecting;on&&sc7()}).observe(d7);addEventListener('scroll',sc7,{passive:true});addEventListener('resize',sc7);sc7();draw7();
+ /* hero: ảnh trôi nhẹ theo chuột */
+ if(matchMedia('(hover:hover) and (pointer:fine)').matches){const hp=$('#hp'),he=$('.hero');let mx=0,my=0,cx=0,cy=0,hr=0,hv=true;
+  const hf=()=>{cx+=(mx-cx)*.07;cy+=(my-cy)*.07;hp.style.transform=`translate3d(${(cx*-18).toFixed(2)}px,${(cy*-12).toFixed(2)}px,0)`;hr=Math.abs(mx-cx)+Math.abs(my-cy)>.002&&hv?requestAnimationFrame(hf):0};
+  he.addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;hr=hr||requestAnimationFrame(hf)});
+  new IntersectionObserver(es=>{hv=es[0].isIntersecting}).observe(he)}
+}
 try{parent!==window&&parent.postMessage({wkDemo:'vuon-club'},'*')}catch(e){}
 })();
 </script>
