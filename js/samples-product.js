@@ -55,7 +55,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-bag-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/bag/', frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/bag/', dirs: ['img/spin/bag/', '', '', 'img/spin/bag-ivory/'], frames: 48, loop: true, tone: 'light', hotspots: [
    {a: .04, w: .08, x: 49, y: 56, side: 'r', t: 'Khóa đĩa tròn'},
    {a: .3, w: .09, x: 50, y: 36, side: 'r', t: 'Quai cuộn khâu tay'},
    {a: .58, w: .1, x: 50, y: 50, side: 'r', t: 'Dáng hộp vai vòm'}
@@ -101,7 +101,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-shoe-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/shoe/', dirs: ['img/spin/shoe/', 'img/spin/shoe-nude/', ''], frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/shoe/', dirs: ['img/spin/shoe/', 'img/spin/shoe-nude/', 'img/spin/shoe-mulberry/'], frames: 48, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 34, y: 68, side: 'r', t: 'Mũi nhọn', d: 'Phom mũi thon, miệng giày khoét thấp'},
    {a: .25, w: .08, x: 29, y: 55, side: 'r', t: 'Gót 9,5 cm', d: 'Gót mảnh bọc cùng chất liệu thân giày'},
    {a: .5, w: .08, x: 33, y: 71, side: 'r', t: 'Khâu gót mạ vàng'},
@@ -235,7 +235,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-whisky-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/whisky/', frames: 48, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/whisky/', dirs: ['img/spin/whisky/', 'img/spin/whisky-y18/', 'img/spin/whisky-y25/'], frames: 48, loop: true, tone: 'dark', hotspots: [
    {a: .98, w: .09, x: 61, y: 62, side: 'r', t: 'Nhãn giấy in nổi', d: 'Dấu hiệu núi mây và số năm ủ'},
    {a: .3, w: .1, x: 50, y: 27, side: 'r', t: 'Màng co cổ chai'},
    {a: .6, w: .1, x: 50, y: 80, side: 'r', t: 'Đáy chai dày'}
@@ -276,7 +276,7 @@
   pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
   cover: 'img/sm-product-candle-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/candle/', frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/candle/', dirs: ['img/spin/candle/', 'img/spin/candle-tra/', 'img/spin/candle-que/'], frames: 48, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 46, y: 56, side: 'r', t: 'Nhãn chữ nhũ'},
    {a: .5, w: .12, x: 50, y: 33, side: 'r', t: 'Cốc sứ đen bóng'}
   ]},
