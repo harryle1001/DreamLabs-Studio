@@ -4,3 +4,5 @@ artifact.html
 .DS_Store
 BRIEF.md
 dist/
+tools/scan3d/models/
+tools/scan3d/out/

@@ -1,0 +1,8 @@
+[
+ {"id":"brass_vase_03","slug":"kim-lu","name":"Bình đồng Kim Lư","mat":"Đồng đúc, chạm vân sóng","ind":"Nội thất","tone":"warm","yaw":0.6,"tilt":0.16},
+ {"id":"brass_goblets","slug":"hoang-yen","name":"Cặp ly Hoàng Yến","mat":"Đồng thau, lòng ly bóng gương","ind":"Rượu & ẩm thực","tone":"warm","yaw":0.3,"tilt":0.14},
+ {"id":"antique_ceramic_vase_01","slug":"lam-hoa","name":"Bình gốm Lam Hoa","mat":"Men trắng, vẽ lam thủ công","ind":"Nội thất","tone":"cool","yaw":0,"tilt":0.18},
+ {"id":"horse_statue_01","slug":"bach-ma","name":"Tượng sứ Bạch Mã","mat":"Sứ trắng men bóng, đế gỗ","ind":"Nội thất","tone":"cool","yaw":1.2,"tilt":0.14},
+ {"id":"mantel_clock_01","slug":"thu-phong","name":"Đồng hồ Thư Phòng","mat":"Gỗ sẫm, mặt số La Mã","ind":"Đồng hồ","tone":"warm","yaw":-0.35,"tilt":0.12},
+ {"id":"seadogs_compass","slug":"hai-trinh","name":"La bàn Hải Trình","mat":"Đồng thau, mặt kính","ind":"Quà tặng","tone":"warm","yaw":0.4,"tilt":0.5}
+]

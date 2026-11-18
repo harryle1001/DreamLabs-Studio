@@ -1,0 +1,100 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="/css/fonts.css">
+<style>
+html,body{margin:0;background:#0b090c;overflow:hidden;width:100vw;height:100vh}
+canvas{display:block;position:absolute;inset:0}
+.ov{position:absolute;inset:0;pointer-events:none;color:#f3ece2;font-family:"Be Vietnam Pro",sans-serif}
+.dip{position:absolute;inset:0;background:#07060a;opacity:0}
+.cap{position:absolute;left:7.5vw;bottom:10vh;opacity:0}
+.cap .k{font-size:1.25vw;letter-spacing:.32em;text-transform:uppercase;color:#c9a96a;display:flex;align-items:center;gap:1.1vw}
+.cap .k i{display:block;height:1px;width:4vw;background:#c9a96a;transform-origin:left}
+.cap h2{font-family:Fraunces,serif;font-weight:300;font-size:4.6vw;line-height:1.05;margin:1.4vh 0 1.2vh;letter-spacing:-.01em}
+.cap p{margin:0;font-size:1.35vw;color:#cbbfb0;letter-spacing:.02em}
+.brand{position:absolute;right:6vw;top:7vh;font-family:Fraunces,serif;font-size:1.5vw;color:#e9dccb;opacity:.85}
+.brand i{font-style:italic;color:#c9a96a}
+.title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0}
+.title small{font-size:1.2vw;letter-spacing:.42em;text-transform:uppercase;color:#c9a96a}
+.title h1{font-family:Fraunces,serif;font-weight:300;font-size:5.4vw;line-height:1.08;margin:2.2vh 0 0}
+.title h1 em{color:#d9bb82}
+.title .ln{width:22vw;height:1px;background:linear-gradient(90deg,transparent,#c9a96a,transparent);margin-top:3vh;transform-origin:center}
+.title p{font-size:1.3vw;color:#cbbfb0;margin:2.4vh 0 0;letter-spacing:.06em}
+</style>
+<script type="importmap">{"imports":{"three":"/vendor/three.module.js","three/addons/":"/__p/jsm/"}}</script>
+</head><body>
+<div class="ov" id="ov">
+ <div class="brand">Dream <i>Labs</i> · 3D Studio</div>
+ <div class="cap" id="cap"><div class="k"><span id="cn">01 / 06</span><i id="cl"></i></div><h2 id="ch"></h2><p id="cm"></p></div>
+ <div class="title" id="intro"><small>Dream Labs · 3D Studio</small><h1>Vật thật, <em>dựng lại</em><br>bằng ánh sáng.</h1><div class="ln" id="il"></div></div>
+ <div class="title" id="outro"><small>Dream Labs</small><h1>Dựng 3D · Xoay 360<br><em>Phim sản phẩm</em></h1><div class="ln" id="ol"></div><p>dreamlabs.vn · Zalo 0934 246 420</p></div>
+ <div class="dip" id="dip"></div>
+</div>
+<script type="module">
+/* Studio 3D cho mô hình quét từ vật thật (tools/scan3d/models, Poly Haven CC0).
+   studio.html?w=1200&h=1200&mode=spin&id=<id>  → window.__spin(i,N) trả PNG dataURL (nền + bệ + sản phẩm, không chữ)
+   studio.html?w=1280&h=791&mode=still&id=<id>  → window.__still() (ảnh bìa)
+   studio.html?w=1920&h=1080&mode=film          → window.__film(f) dựng khung f (chụp cả trang để có chữ), window.__FR = tổng số khung */
+import * as T from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const q=new URLSearchParams(location.search),W=+q.get('w')||1200,H=+q.get('h')||1200,MODE=q.get('mode')||'spin';
+const $=s=>document.querySelector(s);if(MODE!=='film')$('#ov').style.display='none';
+try{
+const P=await (await fetch('/__p/products.json')).json();
+const r=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setPixelRatio(1);r.setSize(W,H);
+r.toneMapping=T.ACESFilmicToneMapping;r.toneMappingExposure=1.05;r.outputColorSpace=T.SRGBColorSpace;r.shadowMap.enabled=true;r.shadowMap.type=T.PCFSoftShadowMap;
+document.body.prepend(r.domElement);
+const S=new T.Scene(),pm=new T.PMREMGenerator(r);S.environment=pm.fromScene(new RoomEnvironment(),.04).texture;S.environmentIntensity=.5;
+/* nền: vầng sáng mềm ở giữa, tối dần ra mép; sàn hòa vào nền bằng sương */
+const TONE={warm:['#3b2d32','#0b090c'],cool:['#2b2e37','#0a0b0f']};
+const bgTex=tone=>{const c=document.createElement('canvas');c.width=c.height=1024;const x=c.getContext('2d'),[a,b]=TONE[tone]||TONE.warm,g=x.createRadialGradient(512,430,0,512,512,760);g.addColorStop(0,a);g.addColorStop(1,b);x.fillStyle=g;x.fillRect(0,0,1024,1024);
+ const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;return t};
+const BG={warm:bgTex('warm'),cool:bgTex('cool')};
+const setTone=t=>{S.background=BG[t]||BG.warm};
+/* sàn chỉ nhận bóng (trong suốt) để nền liền một dải, không có đường chân trời */
+const floor=new T.Mesh(new T.CircleGeometry(6,96),new T.ShadowMaterial({opacity:.6}));floor.rotation.x=-Math.PI/2;floor.receiveShadow=true;S.add(floor);
+/* bệ trưng bày: đá sẫm + viền đồng mảnh */
+const PR=.62,PH=.07,ped=new T.Group();
+const stone=new T.Mesh(new T.CylinderGeometry(PR,PR*1.02,PH,128),new T.MeshStandardMaterial({color:'#070506',roughness:.85,metalness:0,envMapIntensity:.12}));stone.position.y=PH/2;stone.castShadow=stone.receiveShadow=true;ped.add(stone);
+const rim=new T.Mesh(new T.TorusGeometry(PR,.004,8,160),new T.MeshStandardMaterial({color:'#c4a065',roughness:.25,metalness:1}));rim.rotation.x=Math.PI/2;rim.position.y=PH;ped.add(rim);S.add(ped);
+/* ánh sáng: chính ấm, viền lạnh phía sau, phủ thấp */
+const key=new T.DirectionalLight('#ffe7cc',2.6);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-1.4,right:1.4,top:1.4,bottom:-1.4,near:.5,far:12});key.shadow.bias=-.0004;key.shadow.radius=5;S.add(key,key.target);
+const rimL=new T.DirectionalLight('#c8d4ff',2.2);S.add(rimL);const hemi=new T.HemisphereLight('#fff2e4','#1a1216',.35);S.add(hemi);
+const spot=new T.SpotLight('#fff1dd',9,6,.42,.8,1.2);spot.position.set(0,3.4,.6);spot.target.position.set(0,.4,0);S.add(spot,spot.target);
+const setKey=(az,el=.95)=>{const d=4.2;key.position.set(Math.sin(az)*d*Math.cos(el),Math.sin(el)*d,Math.cos(az)*d*Math.cos(el));rimL.position.set(-Math.sin(az)*3.5,2.2,-Math.cos(az)*3.5-1)};
+/* mô hình: đặt đáy lên mặt bệ, cao tối đa ~1, đặt trong nhóm xoay quanh trục đứng */
+const loader=new GLTFLoader(),M={};
+async function load(id){const dir=`/__p/models/${id}/`,f=(await (await fetch(dir+'__list')).json()).find(x=>x.endsWith('.gltf'));
+ const g=(await loader.loadAsync(dir+f)).scene;g.traverse(n=>{if(n.isMesh){n.castShadow=n.receiveShadow=true;const ms=Array.isArray(n.material)?n.material:[n.material];ms.forEach(m=>{if(m.map)m.map.anisotropy=8})}});
+ const b=new T.Box3().setFromObject(g),sz=b.getSize(new T.Vector3()),s=Math.min(1/sz.y,1.15/Math.max(sz.x,sz.z));g.scale.setScalar(s);
+ const b2=new T.Box3().setFromObject(g),c=b2.getCenter(new T.Vector3());g.position.set(-c.x,PH-b2.min.y,-c.z);
+ const piv=new T.Group();piv.add(g);piv.visible=false;S.add(piv);const sz2=b2.getSize(new T.Vector3());
+ return M[id]={piv,h:sz2.y,rad:Math.hypot(sz2.x,sz2.z)/2}}
+const cam=new T.PerspectiveCamera(26,W/H,.05,40);
+/* khung hình: nhìn vào giữa sản phẩm, lùi đủ để thấy cả bệ */
+function frame(m,yaw,tilt,zoom=1,lift=0){const ty=PH+m.h*.48+lift,R=Math.max(m.h*.6,m.rad*1.05,PR*.72*(ped.userData.k||1))*1.08,v=cam.fov*Math.PI/360,
+  d=R/Math.sin(Math.min(v,v*cam.aspect))*zoom;cam.position.set(Math.sin(yaw)*Math.cos(tilt)*d,ty+Math.sin(tilt)*d,Math.cos(yaw)*Math.cos(tilt)*d);cam.lookAt(0,ty,0);spot.target.position.set(0,ty,0)}
+const show=id=>{for(const k in M)M[k].piv.visible=k===id;const m=M[id],k=m?Math.max(.8,m.rad*1.22/PR):1;ped.scale.set(k,1,k);ped.userData.k=k};
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2,cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),seg=(u,a,b)=>cl((u-a)/(b-a));
+if(MODE==='film'){
+ for(const p of P)await load(p.id);
+ const IN=54,SH=66,OUT=72,N=P.length;window.__FR=IN+SH*N+OUT;
+ window.__film=f=>{const ov=$('#ov');let dip=0;$('#cap').style.opacity=0;$('#intro').style.opacity=0;$('#outro').style.opacity=0;
+  if(f<IN||f>=IN+SH*N){const intro=f<IN,u=intro?f/IN:(f-IN-SH*N)/OUT,el=intro?'#intro':'#outro';show(null);setTone('warm');
+   const a=intro?seg(u,.05,.35)*(1-seg(u,.85,1)):seg(u,.1,.4);$(el).style.opacity=a;$(el).style.transform=`translateY(${(1-ease(seg(u,0,.5)))*2}vh)`;
+   $(intro?'#il':'#ol').style.transform=`scaleX(${ease(seg(u,.2,.7))})`;setKey(-1+u*1.2);ped.rotation.y=u*.6;
+   frame({h:.8,rad:.4},.2+u*.15,.18+(intro?0:.05),1.25-u*.08,-.25);dip=intro?1-seg(u,0,.18):seg(u,.86,1)}
+  else{const i=Math.floor((f-IN)/SH),u=(f-IN-i*SH)/SH,p=P[i],m=M[p.id];show(p.id);setTone(p.tone);
+   m.piv.rotation.y=p.yaw+u*.95;ped.rotation.y=u*.95;setKey(-.9+u*1.4);
+   frame(m,-.38+ease(u)*.6,p.tilt+.1-u*.1,1.32-ease(u)*.3);
+   const a=seg(u,.12,.3)*(1-seg(u,.84,.95));$('#cap').style.opacity=a;$('#cap').style.transform=`translateY(${(1-ease(seg(u,.1,.36)))*3}vh)`;
+   $('#cl').style.transform=`scaleX(${ease(seg(u,.15,.45))})`;$('#cn').textContent=String(i+1).padStart(2,'0')+' / '+String(N).padStart(2,'0');$('#ch').textContent=p.name;$('#cm').textContent=p.mat;
+   dip=Math.max(1-seg(u,0,.1),seg(u,.93,1))}
+  $('#dip').style.opacity=dip;r.render(S,cam)};
+}else{
+ const p=P.find(x=>x.id===q.get('id'));const m=await load(p.id);show(p.id);setTone(p.tone);setKey(-.75);
+ window.__spin=(i,N)=>{m.piv.rotation.y=p.yaw+i/N*Math.PI*2;frame(m,0,p.tilt,1.08);r.render(S,cam);return r.domElement.toDataURL('image/png')};
+ window.__still=()=>{m.piv.rotation.y=p.yaw-.35;frame(m,-.25,p.tilt+.04,1.02);r.render(S,cam);return r.domElement.toDataURL('image/png')};
+}
+await document.fonts.ready;window.__done=true;
+}catch(e){window.__err=String(e.stack||e);window.__done=true}
+</script></body></html>
