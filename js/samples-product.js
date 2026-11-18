@@ -367,5 +367,101 @@
    {name: 'Nghiêng trái', swatch: '#b9bac4', img: 'img/spin/real-ring/012.webp'},
    {name: 'Nghiêng phải', swatch: '#8b8c98', img: 'img/spin/real-ring/058.webp'}
   ]
+ },
+ {
+  id: 'product-scan-kim-lu',
+  title: 'Bình đồng Kim Lư — Quét 3D vật thật',
+  industry: 'Nội thất',
+  desc: 'Bình đồng đúc chạm vân sóng ở cổ và chân. Mô hình quét 3D từ vật thật (thư viện Poly Haven, giấy phép CC0); bệ trưng bày, ánh sáng studio và trình xem 360 do Dream Labs dựng. Kéo để xoay quanh sản phẩm, xem từng góc như cầm trên tay.',
+  tags: ['Quét 3D vật thật', 'Xoay 360°', 'Ánh sáng studio'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/sm-product-scan-kim-lu.webp',
+  kind: 'product',
+  spin: {dir: 'img/spin/scan-kim-lu/', frames: 48, loop: true, tone: 'dark'},
+  variants: [
+   {name: 'Chính diện', swatch: '#c9a96a', img: 'img/spin/scan-kim-lu/001.webp'},
+   {name: 'Nghiêng phải', swatch: '#8a6f45', img: 'img/spin/scan-kim-lu/007.webp'},
+   {name: 'Phía sau', swatch: '#3b2d32', img: 'img/spin/scan-kim-lu/025.webp'}
+  ]
+ },
+ {
+  id: 'product-scan-hoang-yen',
+  title: 'Cặp ly Hoàng Yến — Quét 3D vật thật',
+  industry: 'Rượu & ẩm thực',
+  desc: 'Ba ly đồng thau chân cao, viền chạm hoa văn, lòng ly bóng gương. Mô hình quét 3D từ vật thật (thư viện Poly Haven, giấy phép CC0); bệ trưng bày, ánh sáng studio và trình xem 360 do Dream Labs dựng. Kéo để xoay quanh sản phẩm, xem từng góc như cầm trên tay.',
+  tags: ['Quét 3D vật thật', 'Xoay 360°', 'Ánh sáng studio'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/sm-product-scan-hoang-yen.webp',
+  kind: 'product',
+  spin: {dir: 'img/spin/scan-hoang-yen/', frames: 48, loop: true, tone: 'dark'},
+  variants: [
+   {name: 'Chính diện', swatch: '#c9a96a', img: 'img/spin/scan-hoang-yen/001.webp'},
+   {name: 'Nghiêng phải', swatch: '#8a6f45', img: 'img/spin/scan-hoang-yen/007.webp'},
+   {name: 'Phía sau', swatch: '#3b2d32', img: 'img/spin/scan-hoang-yen/025.webp'}
+  ]
+ },
+ {
+  id: 'product-scan-lam-hoa',
+  title: 'Bình gốm Lam Hoa — Quét 3D vật thật',
+  industry: 'Nội thất',
+  desc: 'Bình gốm men trắng vẽ lam kín thân, đế viền xanh. Mô hình quét 3D từ vật thật (thư viện Poly Haven, giấy phép CC0); bệ trưng bày, ánh sáng studio và trình xem 360 do Dream Labs dựng. Kéo để xoay quanh sản phẩm, xem từng góc như cầm trên tay.',
+  tags: ['Quét 3D vật thật', 'Xoay 360°', 'Ánh sáng studio'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/sm-product-scan-lam-hoa.webp',
+  kind: 'product',
+  spin: {dir: 'img/spin/scan-lam-hoa/', frames: 48, loop: true, tone: 'dark'},
+  variants: [
+   {name: 'Chính diện', swatch: '#c9a96a', img: 'img/spin/scan-lam-hoa/001.webp'},
+   {name: 'Nghiêng phải', swatch: '#8a6f45', img: 'img/spin/scan-lam-hoa/007.webp'},
+   {name: 'Phía sau', swatch: '#3b2d32', img: 'img/spin/scan-lam-hoa/025.webp'}
+  ]
+ },
+ {
+  id: 'product-scan-bach-ma',
+  title: 'Tượng sứ Bạch Mã — Quét 3D vật thật',
+  industry: 'Nội thất',
+  desc: 'Tượng ngựa sứ trắng men bóng tung vó trên đế gỗ. Mô hình quét 3D từ vật thật (thư viện Poly Haven, giấy phép CC0); bệ trưng bày, ánh sáng studio và trình xem 360 do Dream Labs dựng. Kéo để xoay quanh sản phẩm, xem từng góc như cầm trên tay.',
+  tags: ['Quét 3D vật thật', 'Xoay 360°', 'Ánh sáng studio'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/sm-product-scan-bach-ma.webp',
+  kind: 'product',
+  spin: {dir: 'img/spin/scan-bach-ma/', frames: 48, loop: true, tone: 'dark'},
+  variants: [
+   {name: 'Chính diện', swatch: '#c9a96a', img: 'img/spin/scan-bach-ma/001.webp'},
+   {name: 'Nghiêng phải', swatch: '#8a6f45', img: 'img/spin/scan-bach-ma/007.webp'},
+   {name: 'Phía sau', swatch: '#3b2d32', img: 'img/spin/scan-bach-ma/025.webp'}
+  ]
+ },
+ {
+  id: 'product-scan-thu-phong',
+  title: 'Đồng hồ Thư Phòng — Quét 3D vật thật',
+  industry: 'Đồng hồ',
+  desc: 'Đồng hồ để bàn vỏ gỗ sẫm, mặt số La Mã viền đồng. Mô hình quét 3D từ vật thật (thư viện Poly Haven, giấy phép CC0); bệ trưng bày, ánh sáng studio và trình xem 360 do Dream Labs dựng. Kéo để xoay quanh sản phẩm, xem từng góc như cầm trên tay.',
+  tags: ['Quét 3D vật thật', 'Xoay 360°', 'Ánh sáng studio'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/sm-product-scan-thu-phong.webp',
+  kind: 'product',
+  spin: {dir: 'img/spin/scan-thu-phong/', frames: 48, loop: true, tone: 'dark'},
+  variants: [
+   {name: 'Chính diện', swatch: '#c9a96a', img: 'img/spin/scan-thu-phong/001.webp'},
+   {name: 'Nghiêng phải', swatch: '#8a6f45', img: 'img/spin/scan-thu-phong/007.webp'},
+   {name: 'Phía sau', swatch: '#3b2d32', img: 'img/spin/scan-thu-phong/025.webp'}
+  ]
+ },
+ {
+  id: 'product-scan-hai-trinh',
+  title: 'La bàn Hải Trình — Quét 3D vật thật',
+  industry: 'Quà tặng',
+  desc: 'La bàn đồng thau nắp lật, mặt kính, kim từ. Mô hình quét 3D từ vật thật (thư viện Poly Haven, giấy phép CC0); bệ trưng bày, ánh sáng studio và trình xem 360 do Dream Labs dựng. Kéo để xoay quanh sản phẩm, xem từng góc như cầm trên tay.',
+  tags: ['Quét 3D vật thật', 'Xoay 360°', 'Ánh sáng studio'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/sm-product-scan-hai-trinh.webp',
+  kind: 'product',
+  spin: {dir: 'img/spin/scan-hai-trinh/', frames: 48, loop: true, tone: 'dark'},
+  variants: [
+   {name: 'Chính diện', swatch: '#c9a96a', img: 'img/spin/scan-hai-trinh/001.webp'},
+   {name: 'Nghiêng phải', swatch: '#8a6f45', img: 'img/spin/scan-hai-trinh/007.webp'},
+   {name: 'Phía sau', swatch: '#3b2d32', img: 'img/spin/scan-hai-trinh/025.webp'}
+  ]
  }
 ];
