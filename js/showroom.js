@@ -7,8 +7,9 @@ const D=window.DL;if(!D)return;
 D.ready(()=>{
 const box=document.getElementById('showRows');if(!box)return;
 const CATS=((window.DL_DATA||{}).CATS||[]),S=window.DL_SAMPLES||{},RM=D.RM;
+const T=D.t||(s=>s),VI=!D.lang||D.lang==='vi',FX=p=>{const f=D.fx?D.fx(p):'';return f?'<small class="fx">'+f+'</small>':''};
 const ORDER=['ai','web','landing','product','motion','video'];
-const SHORT={ai:'Tự động hóa AI',web:'Website',landing:'Landing Page',product:'Thiết kế sản phẩm',motion:'Motion Graphic',video:'Edit Video'};
+const SHORT={ai:T('Tự động hóa AI'),web:T('Website'),landing:T('Landing Page'),product:T('Thiết kế sản phẩm'),motion:T('Motion Graphic'),video:T('Edit Video')};
 const PAGE={ai:'tu-dong-hoa-quy-trinh-doanh-nghiep/',web:'thiet-ke-website/',landing:'thiet-ke-landing-page/',product:'thiet-ke-bao-bi/',motion:'video-motion-graphic/',video:'edit-video/'};
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const nk=s=>String(s||'').normalize('NFC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();
@@ -17,28 +18,28 @@ const vnd=D.vnd;
 const AR='<svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg>';
 const CH=d=>`<svg viewBox="0 0 16 16" aria-hidden="true"><path d="${d<0?'M10 3.5L5.5 8l4.5 4.5':'M6 3.5L10.5 8 6 12.5'}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const tierOf=(pkg,c)=>{const k=nk(pkg);return c.tiers.find(t=>nk(c.name+' '+t.n)===k)||c.tiers.find(t=>t.hot)||c.tiers[0]};
-const badge=r=>r.spin?'Xoay 360':r.kind==='video'?'Phim':r.kind==='interactive'?'Bấm thử':r.kind==='site'&&r.demo?'Chạy thật':'';
+const badge=r=>T(r.spin?'Xoay 360':r.kind==='video'?'Phim':r.kind==='interactive'?'Bấm thử':r.kind==='site'&&r.demo?'Chạy thật':'');
 
 const rows=ORDER.map(id=>CATS.find(c=>c.id===id)).filter(Boolean).map(c=>({c,items:(Array.isArray(S[c.id])?S[c.id]:[]).filter(r=>r&&r.id)})).filter(r=>r.items.length);
 if(!rows.length)return;
 const total=rows.reduce((a,r)=>a+r.items.length,0);
-const hc=document.getElementById('heroCount');if(hc)hc.textContent=total+' mẫu · '+rows.length+' dịch vụ';
+const hc=document.getElementById('heroCount');if(hc)hc.textContent=T('{n} mẫu · {m} dịch vụ',{n:total,m:rows.length});
 
 box.innerHTML=rows.map(({c,items},ri)=>{
   const min=c.tiers.reduce((a,t)=>t.p<a.p?t:a,c.tiers[0]),sh=SHORT[c.id]||c.name;
-  return `<div class="srow" id="p-${c.id}" data-cat="${c.id}">
+  return `<div class="srow" id="${VI?'p-':'sr-'}${c.id}" data-cat="${c.id}">
   <div class="wrap srow-h">
-    <div class="srow-t"><span class="srow-n">${pad(ri+1)}</span><h3>${esc(sh)}</h3><span class="srow-c">${items.length} mẫu</span></div>
-    <p class="srow-from">Từ <b>${vnd(min.p)}</b>${min.u?`<small>${esc(min.u)}</small>`:''}</p>
-    <a class="btn sm srow-go" href="${PAGE[c.id]||'bang-gia/'}">Xem bảng giá ${AR}</a>
-    <div class="srow-nav"><button class="sn" type="button" data-d="-1" aria-label="Mẫu ${esc(sh)} trước">${CH(-1)}</button><button class="sn" type="button" data-d="1" aria-label="Mẫu ${esc(sh)} tiếp theo">${CH(1)}</button></div>
+    <div class="srow-t"><span class="srow-n">${pad(ri+1)}</span><h3>${esc(sh)}</h3><span class="srow-c">${T('{n} mẫu',{n:items.length})}</span></div>
+    <p class="srow-from">${T('Từ')} <b>${vnd(min.p)}</b>${min.u?`<small>${esc(min.u)}</small>`:''}${FX(min.p)}</p>
+    <a class="btn sm srow-go" href="${VI?PAGE[c.id]||'bang-gia/':'#p-'+c.id}">${T('Xem bảng giá')} ${AR}</a>
+    <div class="srow-nav"><button class="sn" type="button" data-d="-1" aria-label="${esc(T('Mẫu {c} trước',{c:sh}))}">${CH(-1)}</button><button class="sn" type="button" data-d="1" aria-label="${esc(T('Mẫu {c} tiếp theo',{c:sh}))}">${CH(1)}</button></div>
   </div>
-  <div class="srail" tabindex="0" role="region" aria-label="Mẫu ${esc(sh)}: vuốt ngang hoặc dùng phím mũi tên">
-    <ul class="strack">${items.map((r,i)=>{const t=tierOf(r.pkg,c),b=badge(r),price=vnd(t.p)+(t.u||'');
-      return `<li class="sc" style="--i:${Math.min(i,5)}"><button class="sc-b" type="button" data-sm-open="${c.id}" data-sm-id="${esc(r.id)}" data-cursor="Xem" aria-label="${esc(r.title)}, ${esc(r.industry||'')}: ${esc(sh)} gói ${esc(t.n)}, ${price}. Xem chi tiết">
-        <span class="sc-img"><span class="sc-par"><img src="${esc(r.cover||'')}" width="1280" height="791" alt="" loading="${ri<2&&i<3?'eager':'lazy'}" decoding="async" draggable="false"></span>${b?`<span class="sc-tag${r.spin?' s360':''}">${b}</span>`:''}<span class="sc-view" aria-hidden="true">Xem chi tiết ${AR}</span></span>
-        <span class="sc-cap"><span class="sc-i">${esc(r.industry&&r.industry!=='Khác'?r.industry:'Concept')}</span><span class="sc-t">${esc(r.title)}</span>
-        <span class="sc-p"><span>${esc(sh)} · ${esc(t.n)}</span><b>${price}</b></span></span></button></li>`}).join('')}</ul>
+  <div class="srail" tabindex="0" role="region" aria-label="${esc(T('Mẫu {c}: vuốt ngang hoặc dùng phím mũi tên',{c:sh}))}">
+    <ul class="strack">${items.map((r,i)=>{const t=tierOf(r.pkg,c),b=badge(r),price=vnd(t.p)+(t.u||''),pfx=D.fx?D.fx(t.p):'';
+      return `<li class="sc" style="--i:${Math.min(i,5)}"><button class="sc-b" type="button" data-sm-open="${c.id}" data-sm-id="${esc(r.id)}" data-cursor="Xem" aria-label="${esc(T('{t}, {i}: {c} gói {n}, {p}. Xem chi tiết',{t:r.title,i:r.industry||'',c:sh,n:t.n,p:price+(pfx?' ('+pfx+')':'')}))}">
+        <span class="sc-img"><span class="sc-par"><img src="${esc(r.cover||'')}" width="1280" height="791" alt="" loading="${ri<2&&i<3?'eager':'lazy'}" decoding="async" draggable="false"></span>${b?`<span class="sc-tag${r.spin?' s360':''}">${b}</span>`:''}<span class="sc-view" aria-hidden="true">${T('Xem chi tiết')} ${AR}</span></span>
+        <span class="sc-cap"><span class="sc-i">${esc(r.industry&&r.industry!=='Khác'&&r.industry!==T('Khác')?r.industry:'Concept')}</span><span class="sc-t">${esc(r.title)}</span>
+        <span class="sc-p"><span>${esc(sh)} · ${esc(t.n)}</span><b>${price}${FX(t.p)}</b></span></span></button></li>`}).join('')}</ul>
   </div>
   <div class="wrap srow-f" aria-hidden="true"><div class="sbar"><i></i></div><span class="scount"><b>01</b> / ${pad(items.length)}</span></div>
 </div>`}).join('');

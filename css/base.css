@@ -60,3 +60,18 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{-webkit-tap-highlight-color:transparent}
 button,a,[role=button],summary,label{touch-action:manipulation}
 input,select,textarea{font-size:max(16px,1em)}
+/* đa ngôn ngữ: nút chuyển VI · EN · JA, quy đổi giá tham khảo, chữ Nhật */
+.lang{display:flex;align-items:center;flex:none;height:var(--hit);padding:0 3px;border:1px solid var(--line);border-radius:999px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font-family:var(--f-body);font-size:11px;font-weight:600;letter-spacing:.08em}
+.lang a{display:grid;place-items:center;min-width:30px;height:calc(var(--hit) - 10px);padding:0 5px;border-radius:999px;color:var(--muted);text-decoration:none;transition:color var(--d2,.2s),background var(--d2,.2s)}
+.lang a:hover,.lang a:focus-visible{color:var(--ink)}
+.lang a[aria-current]{color:var(--ink);background:color-mix(in oklab,var(--ink) 9%,transparent)}
+@media (max-width:400px){.lang a{min-width:26px;padding:0 3px}}
+small.fx{display:block;margin:2px 0 0!important;font-family:var(--f-body);font-size:var(--t0h);font-weight:400;letter-spacing:0;color:var(--muted);white-space:nowrap}
+.fx-note{font-size:var(--t0h);color:var(--muted)}
+:lang(ja){--f-body:"Be Vietnam Pro","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic UI","Yu Gothic","Meiryo",system-ui,sans-serif;--f-display:"Fraunces","Hiragino Mincho ProN","Noto Serif JP","Yu Mincho",Georgia,serif}
+html:lang(ja) body{line-break:strict;overflow-wrap:anywhere}
+:lang(ja) :is(h1,h2,h3,h4){word-break:keep-all;overflow-wrap:anywhere}
+:lang(ja) :is(.lead,.q,summary,.btn){word-break:auto-phrase}
+:lang(ja) :is(h1,h2,h3,h4){letter-spacing:0}
+:lang(ja) :is(h1,h2,h3,h4) em,:lang(ja) .fab-t em{font-style:normal}
+:is(:lang(en),:lang(ja)) .tier .tprice,:is(:lang(en),:lang(ja)) .sm-pkg-p{font-size:clamp(var(--t2),2.6vw,var(--t2h))}

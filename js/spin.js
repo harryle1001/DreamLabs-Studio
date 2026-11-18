@@ -18,18 +18,18 @@ D.spin=function(host,o){
   const N=Math.max(2,o.frames|0),loop=o.loop!==false,arc=loop?360:(+o.arc||120),sgn=o.rev?-1:1,dir=String(o.dir||''),RM=RMQ.matches;
   const name=String(o.title||'').split(/\s[—–-]\s/)[0].trim(),hs=(Array.isArray(o.hotspots)?o.hotspots:[]).filter(h=>h&&h.t);
   const node=document.createElement('div');node.className='spin is-load';node.tabIndex=0;node.dataset.tone=o.tone==='light'?'light':'dark';
-  node.setAttribute('role','group');node.setAttribute('aria-roledescription','trình xem 360 độ');
-  node.setAttribute('aria-label',(o.title?o.title+'. ':'')+'Kéo ngang hoặc dùng phím mũi tên trái, phải để xoay sản phẩm.');
-  node.innerHTML=`<canvas class="spin-cv" role="img" aria-label="${esc(o.title||'Sản phẩm')}, ảnh xoay ${loop?'360 độ':'nhiều góc'}"></canvas>
+  node.setAttribute('role','group');const T=(window.DL&&DL.t)||(s=>s);node.setAttribute('aria-roledescription',T('trình xem 360 độ'));
+  node.setAttribute('aria-label',(o.title?o.title+'. ':'')+T('Kéo ngang hoặc dùng phím mũi tên trái, phải để xoay sản phẩm.'));
+  node.innerHTML=`<canvas class="spin-cv" role="img" aria-label="${esc((o.title||T('Sản phẩm'))+', '+T(loop?'ảnh xoay 360 độ':'ảnh xoay nhiều góc'))}"></canvas>
    ${name?`<div class="spin-tape" aria-hidden="true"><span>${(esc(name)+'<i>✦</i>').repeat(6)}</span></div>`:''}
    <i class="spin-sheen" aria-hidden="true"></i>
-   <div class="spin-head"><span class="spin-k"><b>${loop?'360°':'Đa góc'}</b>${o.kicker?esc(o.kicker):''}</span>${name?`<span class="spin-t" aria-hidden="true">${[...name].map((c,i)=>c===' '?' ':`<i style="--i:${i}">${esc(c)}</i>`).join('')}</span>`:''}</div>
+   <div class="spin-head"><span class="spin-k"><b>${loop?'360°':T('Đa góc')}</b>${o.kicker?esc(o.kicker):''}</span>${name?`<span class="spin-t" aria-hidden="true">${[...name].map((c,i)=>c===' '?' ':`<i style="--i:${i}">${esc(c)}</i>`).join('')}</span>`:''}</div>
    <div class="spin-hs">${hs.map((h,i)=>`<div class="spin-h" data-h="${i}" data-side="${h.side==='l'||(h.side!=='r'&&+h.x>56)?'l':'r'}" style="left:${+h.x||50}%;top:${+h.y||50}%"><i></i><p style="max-width:min(40cqw,calc(${h.side==='l'||(h.side!=='r'&&+h.x>56)?+h.x||50:100-(+h.x||50)}cqw - 50px))"><b>${esc(h.t)}</b>${h.d?`<small>${esc(h.d)}</small>`:''}</p></div>`).join('')}</div>
-   <p class="spin-hint" aria-hidden="true">${HAND}<span>Kéo để xoay</span></p>
-   <p class="spin-msg" hidden>Bộ ảnh xoay chưa tải được ở đây.</p>
+   <p class="spin-hint" aria-hidden="true">${HAND}<span>${T('Kéo để xoay')}</span></p>
+   <p class="spin-msg" hidden>${T('Bộ ảnh xoay chưa tải được ở đây.')}</p>
    <div class="spin-prog" aria-hidden="true"><i></i></div>
-   <div class="spin-bar"><button class="spin-pp" type="button" aria-label="Tự xoay" aria-pressed="false">${PLAY}</button>
-    <div class="spin-track" role="slider" tabindex="0" aria-label="Góc xoay" aria-valuemin="0" aria-valuemax="${arc}" aria-valuenow="0" aria-valuetext="0 độ"><i class="spin-thumb"></i></div>
+   <div class="spin-bar"><button class="spin-pp" type="button" aria-label="${T('Tự xoay')}" aria-pressed="false">${PLAY}</button>
+    <div class="spin-track" role="slider" tabindex="0" aria-label="${T('Góc xoay')}" aria-valuemin="0" aria-valuemax="${arc}" aria-valuenow="0" aria-valuetext="${T('{d} độ',{d:0})}"><i class="spin-thumb"></i></div>
     <output class="spin-deg" aria-hidden="true">0°</output></div>`;
   host.append(node);
   const q=s=>node.querySelector(s),cv=q('.spin-cv'),ctx=cv.getContext('2d'),tape=q('.spin-tape span'),sheen=q('.spin-sheen'),pp=q('.spin-pp'),track=q('.spin-track'),thumb=q('.spin-thumb'),deg=q('.spin-deg'),prog=q('.spin-prog i'),hsEl=[...node.querySelectorAll('.spin-h')];
@@ -64,7 +64,7 @@ D.spin=function(host,o){
       ctx.drawImage(im,(cv.width-w)/2,(cv.height-h)/2,w,h);shown=i}
     dirty=false;
     const fr=f/MAXI,d=Math.round(fr*arc)%(loop?360:361);
-    thumb.style.left=(fr*100).toFixed(2)+'%';deg.textContent=d+'°';track.setAttribute('aria-valuenow',d);track.setAttribute('aria-valuetext',d+' độ');
+    thumb.style.left=(fr*100).toFixed(2)+'%';deg.textContent=d+'°';track.setAttribute('aria-valuenow',d);track.setAttribute('aria-valuetext',T('{d} độ',{d}));
     if(tape)tape.style.transform=`translate3d(${(-50+((sgn*f/N*2)%1+1)%1*100/6).toFixed(3)}%,0,0)`;
     for(let k=0;k<hs.length;k++){const h=hs[k],c=(+h.a||0)*MAXI,w=(h.w==null?.1:+h.w)*N;let dd=Math.abs(f-c);if(loop)dd=Math.min(dd,N-dd);if(h.p){const P=h.p,u=f/MAXI;let j=0;while(j<P.length-2&&u>P[j+1][0])j++;const A=P[j],B=P[j+1]||A,t=clamp((u-A[0])/((B[0]-A[0])||1),0,1);hsEl[k].style.left=(A[1]+(B[1]-A[1])*t).toFixed(2)+'%';hsEl[k].style.top=(A[2]+(B[2]-A[2])*t).toFixed(2)+'%'}
       hsEl[k].classList.toggle('is-on',dd<=w&&!node.classList.contains('is-load'))}}
@@ -85,7 +85,7 @@ D.spin=function(host,o){
     if(alive&&visible)raf=requestAnimationFrame(tick);else last=0}
   const kick=()=>{if(!raf&&!dead&&(visible||dirty))raf=requestAnimationFrame(tick)};
   const flash=()=>{sheen.classList.remove('is-go');void sheen.offsetWidth;sheen.classList.add('is-go')};
-  const setPlay=on=>{playing=!!on;pp.setAttribute('aria-pressed',String(playing));pp.setAttribute('aria-label',playing?'Dừng tự xoay':'Tự xoay');node.classList.toggle('is-play',playing);if(playing)intro=null;kick()};
+  const setPlay=on=>{playing=!!on;pp.setAttribute('aria-pressed',String(playing));pp.setAttribute('aria-label',playing?T('Dừng tự xoay'):T('Tự xoay'));node.classList.toggle('is-play',playing);if(playing)intro=null;kick()};
   const touch=()=>{touched=true;intro=null;if(!hinted){hinted=true;node.classList.add('is-used')}};
   /* đủ khung + đang trong khung nhìn: xoay một vòng giới thiệu rồi tự xoay chậm */
   function ready(){
@@ -93,7 +93,7 @@ D.spin=function(host,o){
     node.classList.add('is-in');
     if(RM||o.intro===false||touched){node.classList.add('is-hint');if(!RM&&!touched&&o.auto!==false)setPlay(true);kick();return}
     intro={t0:performance.now()+260,dur:loop?2900:3400,p0:pos};
-    if(o.auto!==false){playing=true;pp.setAttribute('aria-pressed','true');pp.setAttribute('aria-label','Dừng tự xoay');node.classList.add('is-play')}
+    if(o.auto!==false){playing=true;pp.setAttribute('aria-pressed','true');pp.setAttribute('aria-label',T('Dừng tự xoay'));node.classList.add('is-play')}
     kick()}
 
   /* ── kéo / vuốt ── */
