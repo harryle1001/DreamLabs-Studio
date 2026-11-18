@@ -48,27 +48,43 @@ nav{display:flex;gap:26px}nav a{position:relative;padding:10px 0}nav a::after{co
 .back{position:fixed;left:16px;bottom:16px;z-index:40;background:var(--paper);border:2px solid var(--ink);padding:0 16px;min-height:42px;display:flex;align-items:center;gap:8px;box-shadow:3px 3px 0 var(--ink)}
 @media(max-width:860px){nav{display:none}}
 /* hero */
-.hero{padding:var(--s6) 0 var(--s5);position:relative;overflow:hidden}
-.hero .g{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:center}
-.hero h1{font-size:clamp(72px,10.6vw,152px);letter-spacing:-.005em;line-height:1;white-space:nowrap}
+.hero{position:relative;overflow:hidden;background:#170E0B;color:var(--paper);min-height:calc(100svh - 104px);display:flex;flex-direction:column;justify-content:flex-end;border-bottom:2px solid var(--kraft)}
+.hp{position:absolute;inset:0 0 0 38%;overflow:hidden}
+.hpi{position:absolute;inset:-6% -3%}
+.hpi img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.hp::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#170E0B 0,rgba(23,14,11,.72) 22%,rgba(23,14,11,0) 58%),linear-gradient(0deg,rgba(23,14,11,.86) 0,rgba(23,14,11,0) 34%)}
+.sk{position:absolute;left:18%;bottom:-30%;width:64%;height:80%;background:radial-gradient(closest-side,rgba(226,232,233,.3),rgba(226,232,233,.1) 55%,transparent);opacity:0;pointer-events:none}
+.sk:nth-of-type(2){left:38%;width:52%;animation-delay:-4.6s;animation-duration:17s}.sk:nth-of-type(3){left:2%;width:58%;animation-delay:-9s;animation-duration:21s}
+.mo .sk{animation:smk 13s linear infinite;will-change:transform,opacity}
+.mo .hpi img{animation:kb 26s ease-in-out infinite alternate}
+.pz .sk,.pz .hpi img{animation-play-state:paused}
+@keyframes smk{0%{transform:translate3d(6%,24%,0) scale(.7);opacity:0}25%{opacity:1}to{transform:translate3d(-10%,-110%,0) scale(1.6);opacity:0}}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12) translateY(-2%)}}
+.hc{position:relative;z-index:2;padding-top:var(--s5)}
+.hero h1{font-size:clamp(72px,min(10.6vw,11.4svh),152px);letter-spacing:-.005em;line-height:1;white-space:nowrap}
 .hero h1 span{display:block;overflow:hidden;padding-top:.2em;margin-top:-.1em}
 .hero h1 i{display:block;font-style:normal;animation:up var(--d5) var(--ease) both}
 .hero h1 span:nth-child(2) i{animation-delay:.1s}.hero h1 span:nth-child(3) i{animation-delay:.2s;color:transparent;-webkit-text-stroke:2px var(--ember)}
 @keyframes up{from{transform:translateY(105%)}}
-.hero .sub{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s4);margin-top:var(--s5);align-items:end;max-width:760px}
-.hero .sub p{font-size:17px}
+.hero .sub{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s4);margin-top:var(--s4);align-items:end;max-width:760px}
+.hero .sub p{font-size:17px}.hero .sub .m{color:var(--kraft)}
 .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:var(--s4)}
-.bagbox{position:relative;justify-self:center;width:min(100%,380px)}
-.smoke path{fill:none;stroke:var(--smoke);stroke-width:3;stroke-linecap:round;stroke-dasharray:60 240;animation:sm 4.24s linear infinite;opacity:.7}
-.smoke path:nth-child(2){animation-delay:-1.6s;stroke-dasharray:40 260}.smoke path:nth-child(3){animation-delay:-2.6s}
-@keyframes sm{from{stroke-dashoffset:300}to{stroke-dashoffset:0}}
-.stamp{position:absolute;right:-16px;bottom:26px;width:144px;height:144px;animation:rot 16.18s linear infinite}
+.hero .btn{background:var(--ember);border-color:var(--ember);box-shadow:4px 4px 0 var(--paper)}.hero .btn:hover{box-shadow:6px 6px 0 var(--paper)}
+.hero .btn.o{background:transparent;border-color:var(--paper);color:var(--paper);box-shadow:none}.hero .btn.o:hover{background:var(--paper);color:var(--ink)}
+.hst{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-top:var(--s5);position:relative;padding:16px 0 64px}.emb .hst{padding-bottom:20px}
+.hst::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--paper);transform-origin:left}
+.js .hst::before{transform:scaleX(0);transition:transform 1.6s var(--ease) .3s}.js .hst.in::before{transform:none}
+.hst b{display:block;font-family:var(--fd);font-weight:400;font-size:clamp(33px,3.4vw,48px);line-height:1.1}.hst b small{font-size:.5em;margin-left:6px;color:var(--ember)}
+.hst .m{font-size:11px;color:var(--kraft)}
+.stamp{position:absolute;z-index:2;right:max(16px,4vw);top:var(--s5);width:132px;height:132px;animation:rot 16.18s linear infinite}
 .stamp text{font-family:var(--fm);font-size:11.5px;letter-spacing:.14em;fill:var(--paper)}
 @keyframes rot{to{transform:rotate(360deg)}}
+@media(max-width:860px){.hero{display:block}.hp{position:relative;inset:auto;height:54svh}.hpi img{object-position:50% 62%}
+ .hp::after{background:linear-gradient(0deg,#170E0B 0,rgba(23,14,11,.55) 30%,rgba(23,14,11,0) 62%)}
+ .hc{margin-top:-118px;padding-top:0}.hero .sub{grid-template-columns:1fr;gap:var(--s3)}.hst{grid-template-columns:1fr 1fr;gap:16px 26px}.stamp{width:96px;height:96px;top:16px}}
 .orig{border-block:2px solid var(--ink);overflow:hidden;white-space:nowrap;background:var(--ink);color:var(--paper)}
 .orig div{display:inline-block;font-family:var(--fd);font-size:clamp(33px,5vw,68px);text-transform:uppercase;padding:10px 0;animation:mq 42s linear infinite reverse}
 .orig span{margin:0 26px}.orig span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px var(--kraft)}
-@media(max-width:860px){.hero{padding-top:var(--s5)}.hero .g{grid-template-columns:1fr}.hero .sub{grid-template-columns:1fr;gap:var(--s3)}.bagbox{width:68%;margin-top:var(--s4)}.stamp{width:110px;height:110px;right:-26px}}
 /* tiêu đề mục */
 .sec{padding:var(--s7) 0}
 .sh{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:end;margin-bottom:var(--s6)}
@@ -144,6 +160,59 @@ nav{display:flex;gap:26px}nav a{position:relative;padding:10px 0}nav a::after{co
 .fld:focus{outline:3px solid var(--ember);outline-offset:2px}
 .msg{font-size:13px;margin-top:10px;min-height:1.6em}
 @media(max-width:860px){.sub2{grid-template-columns:1fr}.sub2 .r{border-left:0;border-top:2px solid var(--ink)}.sub2>*{padding:var(--s4)}}
+/* một mẻ rang */
+.bat{background:var(--ink);color:var(--paper);scroll-margin-top:70px}
+.bs{position:relative;padding:var(--s6) max(16px,4vw) var(--s4)}
+.bh{display:flex;justify-content:space-between;gap:16px;color:var(--kraft);margin-bottom:var(--s4)}
+.st{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s5);align-items:center;margin-bottom:var(--s5)}
+.st figure{margin:0;position:relative;overflow:hidden;aspect-ratio:4/3;border:2px solid var(--paper)}
+.st img{width:100%;height:100%;object-fit:cover}
+.sx .m{color:var(--kraft);margin-bottom:10px}
+.k{display:block;font-family:var(--fd);font-weight:400;font-size:clamp(56px,min(8.4vw,15svh),128px);line-height:1.08;text-transform:uppercase;color:var(--ember);white-space:nowrap}.k i{display:block;font-style:normal}
+.st h3{font-size:clamp(24px,2.6vw,42px);margin:16px 0 10px}
+.sx p:last-child{color:rgba(241,233,218,.8);max-width:44ch}
+.cvw{position:relative;max-width:560px;margin-left:auto;color:rgba(241,233,218,.24)}
+.cvw svg{display:block;width:100%;height:auto;overflow:visible}
+.cvl{position:absolute;inset:0;color:var(--ember)}
+.cvw text{font-family:var(--fm);font-size:13px;letter-spacing:.06em;fill:var(--paper)}
+.cvw line{stroke:rgba(241,233,218,.3);stroke-dasharray:3 6}
+.cvd{display:none;position:absolute;left:-7px;top:-7px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--ember)}
+.mo .bat{height:calc(340svh - 70px)}
+.mo .bs{position:sticky;top:70px;height:calc(100svh - 70px);padding:0;overflow:hidden}
+.mo .bh,.mo .sx,.mo .cvw{position:absolute;left:calc(56% + var(--s5));right:max(16px,4vw);margin:0}
+.mo .bh{top:var(--s4);z-index:3}
+.mo .st{position:absolute;inset:0;margin:0;display:block}
+.mo .st figure{position:absolute;inset:0 44% 0 0;aspect-ratio:auto;border:0;border-right:2px solid var(--paper);will-change:clip-path}
+.mo .st img{will-change:transform}
+.mo .sx{top:46%;transform:translateY(-58%)}
+.mo .sx>*{opacity:0;transform:translateY(22px);transition:opacity .4s var(--ease),transform .7s var(--ease)}
+.mo .on .sx>*{opacity:1;transform:none;transition-delay:.18s}.mo .on .sx>h3{transition-delay:.26s}.mo .on .sx>p:last-child{transition-delay:.34s}
+.mo .sx>.k{opacity:1;transform:none;overflow:hidden;padding-top:.2em;margin-top:-.2em}.mo .k i{transform:translateY(130%);transition:transform .8s var(--ease)}.mo .on .k i{transform:none;transition-delay:.14s}
+.mo .cvw{bottom:var(--s4);max-width:none;z-index:4}.mo .cvw svg{height:clamp(84px,22svh,190px)}.mo .cvl{clip-path:inset(0 100% 0 0);will-change:clip-path}.mo .cvd{display:block}
+.mo .cvw line~g{opacity:.3;transition:opacity var(--d3)}.mo .cvw g.on{opacity:1}
+@media(max-width:860px){.st{grid-template-columns:1fr;gap:var(--s3)}
+ .mo .st figure{inset:0 0 60% 0;border-right:0;border-bottom:2px solid var(--paper)}
+ .mo .bh,.mo .sx,.mo .cvw{left:16px;right:16px}.mo .bh{top:calc(40% + 14px)}.mo .sx{top:calc(40% + 48px);transform:none}
+ .mo .st h3{margin:10px 0 6px}.mo .sx p:last-child{font-size:15px;line-height:1.5}
+ .mo .cvw{bottom:68px}.emb.mo .cvw{bottom:20px}.mo .cvw svg{height:60px}.mo .cvw text,.mo .cvw line{display:none}}
+@media(max-width:860px) and (max-height:700px){.mo .sx h3{display:none}}
+/* một vòng quanh lò */
+.lb{overflow:hidden}
+.lt{display:flex;gap:26px;align-items:flex-start;overflow-x:auto;padding:10px max(16px,4vw) 26px;scrollbar-width:none;-webkit-user-select:none;user-select:none}
+.lt::-webkit-scrollbar{display:none}.lt::after{content:"";flex:0 0 1px}
+.lc{flex:0 0 clamp(250px,27vw,380px);margin:0}.lc:nth-child(even){margin-top:42px}.lc.wd{flex-basis:clamp(300px,44vw,640px)}
+.mo .lc{transform:skewX(var(--sk,0deg))}
+.li{position:relative;height:clamp(340px,56vh,520px);overflow:hidden;border:2px solid var(--ink);background:var(--ink);box-shadow:6px 6px 0 var(--ink);transition:transform var(--d4) var(--ease)}
+.li img{width:116%;max-width:none;height:100%;object-fit:cover;margin-left:-8%;pointer-events:none}
+.li::after{content:"";position:absolute;inset:0;background:var(--ink);opacity:.3;transition:opacity var(--d4) var(--ease)}
+.lc:hover .li::after,.lc:active .li::after{opacity:0}.lc:hover .li{transform:translate(-3px,-3px)}.lc:active .li{transform:scale(.985)}
+.lc figcaption{display:flex;gap:10px;margin-top:16px;text-transform:none;letter-spacing:.02em}.lc figcaption b{color:var(--ember);font-weight:400}
+.lp{height:2px;background:var(--line);margin-top:10px}.lp i{display:block;height:100%;background:var(--ember);transform-origin:left;transform:scaleX(.08)}
+.lcur{position:fixed;left:-42px;top:-42px;z-index:30;width:84px;height:84px;pointer-events:none}
+.lcur span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;background:var(--ember);color:var(--paper);border:2px solid var(--ink);transform:scale(0);transition:transform var(--d3) var(--ease)}.lcur.on span{transform:none}.lcur.dg span{transform:scale(.7)}
+@media(hover:hover) and (pointer:fine){.mo .lt{cursor:grab}.mo .lt.dg{cursor:grabbing}}
+@media(hover:none){.lt{scroll-snap-type:x mandatory;gap:16px}.lc{scroll-snap-align:center;flex-basis:74vw}.lc.wd{flex-basis:86vw}.lc:nth-child(even){margin-top:26px}.li{height:min(100vw,54svh)}.lcur{display:none}}
+@supports selector(:has(a)){.js .sh .m::before{transform:scaleX(0);transform-origin:left;transition:transform var(--d5) var(--ease) .25s}.js .sh:has(.in) .m::before{transform:none}}
 footer{padding:var(--s6) 0 var(--s7)}
 .fg{display:grid;grid-template-columns:1.618fr 1fr 1fr;gap:var(--s5)}
 .fg .big{font-family:var(--fd);font-size:clamp(68px,12vw,178px);line-height:1.1;text-transform:uppercase}
@@ -153,7 +222,7 @@ footer{padding:var(--s6) 0 var(--s7)}
 .toast{position:fixed;right:16px;bottom:16px;z-index:50;background:var(--ink);color:var(--paper);padding:16px 26px;border:2px solid var(--paper);transform:translateY(180%);visibility:hidden;transition:transform var(--d3) var(--ease),visibility 0s var(--d3)}
 .toast.on{transform:none;visibility:visible;transition-delay:0s}
 .emb .back{display:none}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.js [data-r]{opacity:1;transform:none}.js .hst::before,.js .sh .m::before{transform:none}}
 </style>
 </head>
 <body>
@@ -165,39 +234,39 @@ footer{padding:var(--s6) 0 var(--s7)}
 </div></header>
 
 <main id="top">
-<section class="hero"><div class="w"><div class="g">
- <div>
+<section class="hero" id="hero">
+ <div class="hp"><div class="hpi"><img src="../img/photo/ca-phe-31890552.webp" width="1600" height="2400" alt="Hạt cà phê vừa rang đổ ra khỏi lồng rang giữa làn khói mỏng" fetchpriority="high" decoding="async"></div><i class="sk"></i><i class="sk"></i><i class="sk"></i></div>
+ <svg class="stamp" viewBox="0 0 144 144" aria-hidden="true"><circle cx="72" cy="72" r="70" fill="#E4572E" stroke="#1F1612" stroke-width="2"/><path id="cp" d="M72 72m-52 0a52 52 0 1 1 104 0a52 52 0 1 1-104 0" fill="none"/><text><textPath href="#cp">RANG TƯƠI ✦ GIAO TRONG 48 GIỜ ✦ RANG TƯƠI ✦ ĐÓNG TÚI TAY ✦</textPath></text><ellipse cx="72" cy="72" rx="14" ry="20" transform="rotate(30 72 72)" fill="#F1E9DA"/><path d="M66 58c8 6 5 12 2 16s-2 8 8 12" fill="none" stroke="#E4572E" stroke-width="2.5"/></svg>
+ <div class="w hc">
   <p class="m" style="margin-bottom:16px;color:var(--ember)">Xưởng rang thủ công · Đà Lạt</p>
   <h1><span><i>Rang tươi</i></span><span><i>mỗi sáng</i></span><span><i>thứ Ba.</i></span></h1>
   <div class="sub">
    <p class="m">Từ 2 nông hộ<br>Cầu Đất &amp; Khe Sanh</p>
    <div><p>Chúng tôi chỉ rang một mẻ mỗi tuần, đóng túi ngay khi hạt nguội và gửi đi trong 48 giờ. Bạn nhận cà phê lúc hương còn đầy.</p>
-   <div class="cta"><a class="btn" href="#ca-phe">Chọn cà phê →</a><a class="btn o" href="#me-rang">Xem mẻ rang</a></div></div>
+   <div class="cta"><a class="btn" href="#ca-phe">Chọn cà phê →</a><a class="btn o" href="#me">Xem mẻ rang</a></div></div>
   </div>
+  <div class="hst" data-r><div><b><span data-n="1">1</span><small>mẻ</small></b><span class="m">Mỗi tuần</span></div><div><b><span data-n="48">48</span><small>giờ</small></b><span class="m">Từ lò tới cửa</span></div><div><b><span data-n="2">2</span><small>nông hộ</small></b><span class="m">Cầu Đất, Khe Sanh</span></div><div><b><span data-n="13">13</span><small>chỗ</small></b><span class="m">Ngồi cạnh lò rang</span></div></div>
  </div>
- <div class="bagbox">
-  <svg viewBox="0 0 300 420" aria-label="Túi cà phê Gác Khói">
-   <g class="smoke"><path d="M110 70c-20-20 20-30 0-50s20-30 0-50" transform="translate(0 30)"/><path d="M150 70c-20-20 20-30 0-50s20-30 0-50" transform="translate(0 20)"/><path d="M190 70c-20-20 20-30 0-50s20-30 0-50" transform="translate(0 34)"/></g>
-   <path d="M52 110h196l14 280a14 14 0 0 1-14 14H52a14 14 0 0 1-14-14z" fill="#1F1612"/>
-   <path d="M52 110h196v26H52z" fill="#2e221c"/><path d="M52 136h196" stroke="#F1E9DA" stroke-width="2" stroke-dasharray="4 5"/>
-   <rect x="66" y="172" width="168" height="186" fill="#F1E9DA"/>
-   <text x="150" y="222" text-anchor="middle" font-family="Anton,Impact" font-size="44" fill="#1F1612">GÁC KHÓI</text>
-   <path d="M82 236h136" stroke="#1F1612" stroke-width="2"/>
-   <text x="150" y="258" text-anchor="middle" font-family="Space Mono,monospace" font-size="8.5" letter-spacing=".6" fill="#1F1612">CẦU ĐẤT · ARABICA · 250G</text>
-   <rect x="82" y="274" width="136" height="42" fill="#E4572E"/>
-   <text x="150" y="302" text-anchor="middle" font-family="Anton,Impact" font-size="24" fill="#F1E9DA">MẺ SỐ 21</text>
-   <text x="150" y="342" text-anchor="middle" font-family="Space Mono,monospace" font-size="8.5" letter-spacing=".6" fill="#1F1612">RANG: THỨ BA 05:00</text>
-   <circle cx="222" cy="152" r="8" fill="none" stroke="#C9A27A" stroke-width="2"/>
-  </svg>
-  <svg class="stamp" viewBox="0 0 144 144" aria-hidden="true"><circle cx="72" cy="72" r="70" fill="#E4572E" stroke="#1F1612" stroke-width="2"/><path id="cp" d="M72 72m-52 0a52 52 0 1 1 104 0a52 52 0 1 1-104 0" fill="none"/><text><textPath href="#cp">RANG TƯƠI ✦ GIAO TRONG 48 GIỜ ✦ RANG TƯƠI ✦ ĐÓNG TÚI TAY ✦</textPath></text><ellipse cx="72" cy="72" rx="14" ry="20" transform="rotate(30 72 72)" fill="#F1E9DA"/><path d="M66 58c8 6 5 12 2 16s-2 8 8 12" fill="none" stroke="#E4572E" stroke-width="2.5"/></svg>
- </div>
-</div></div></section>
+</section>
 
 <div class="orig" aria-hidden="true"><div><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span><span>Cầu Đất</span><span>Khe Sanh</span><span>Đắk Mil</span><span>Sơn La</span></div></div>
 
 <section class="sec" id="ca-phe"><div class="w">
  <div class="sh"><div><p class="m">Mẻ rang tuần này</p><h2 data-r>Bốn túi.<br><em>Không hơn.</em></h2></div><p data-r>Ít lựa chọn để mỗi túi đều được nếm thử, chỉnh lửa và rang lại cho tới khi đúng vị. Giá cho túi 250g, xay theo cách pha của bạn.</p></div>
  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="bat" id="me" aria-label="Một mẻ rang"><div class="bs">
+  <div class="bh m"><span>Một mẻ rang · sáng thứ Ba</span><span><b id="bn" style="color:var(--paper)">01</b> / 04</span></div>
+  <article class="st on"><figure><img src="../img/photo/ca-phe-6280317.webp" width="1100" height="1670" alt="Phễu đầy hạt cà phê nhân xanh phía trên lò rang, người thợ cúi xuống khay hạt" loading="lazy" decoding="async"></figure><div class="sx"><p class="m">01 · Nạp hạt</p><b class="k"><i>05:00</i></b><h3>Lò nóng từ lúc trời còn sương</h3><p>Hạt nhân xanh từ hai nông hộ Cầu Đất và Khe Sanh được cân rồi đổ vào lồng rang. Mỗi tuần chỉ một mẻ.</p></div></article>
+  <article class="st"><figure><img src="../img/photo/ca-phe-31890546.webp" width="1100" height="1650" alt="Cận cảnh đồng hồ nhiệt trên thân lò rang bằng thép đã ngả màu" loading="lazy" decoding="async"></figure><div class="sx"><p class="m">02 · Giữ lửa</p><b class="k"><i>Nổ lần 1</i></b><h3>Nghe hạt, nhìn kim nhiệt</h3><p>Nhiệt độ được ghi lại từng giây. Tiếng nổ đầu tiên báo hạt bắt đầu chín, từ đây người rang quyết định xả sớm hay kéo dài thêm.</p></div></article>
+  <article class="st"><figure><img src="../img/photo/ca-phe-31890551.webp" width="1100" height="1650" alt="Hạt cà phê đổ từ lồng rang xuống khay trong làn khói trắng dày" loading="lazy" decoding="async"><i class="sk"></i></figure><div class="sx"><p class="m">03 · Xả lò</p><b class="k"><i>226°C</i></b><h3>Mở cửa lò đúng giây</h3><p>Rang sáng xả ở 205°C sau 9 phút 20. Rang đậm đi tới 226°C, gần tiếng nổ thứ hai. Cửa lò mở, hạt đổ ra cùng làn khói.</p></div></article>
+  <article class="st"><figure><img src="../img/photo/ca-phe-37540260.webp" width="1100" height="1650" alt="Hạt cà phê vừa rang được cánh gạt đảo đều trên khay làm nguội" loading="lazy" decoding="async"></figure><div class="sx"><p class="m">04 · Làm nguội</p><b class="k"><i>48 giờ</i></b><h3>Nguội là đóng túi</h3><p>Hạt được đảo đều trên khay cho nguội nhanh, đóng túi ngay và gửi đi trong 48 giờ. Bạn nhận cà phê lúc hương còn đầy.</p></div></article>
+  <div class="cvw" aria-hidden="true">
+   <svg viewBox="0 0 520 190"><g id="hcv" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path vector-effect="non-scaling-stroke" d="M12 84C40 160,72 172,112 152S222 96,300 74S400 44,440 34"/><path vector-effect="non-scaling-stroke" d="M440 34C468 60,490 110,508 150" stroke-dasharray="2 8"/></g><line x1="300" y1="14" x2="300" y2="176"/>
+    <g><text x="12" y="62">NẠP HẠT</text></g><g><text x="308" y="26">NỔ LẦN 1</text></g><g><text x="424" y="18">XẢ</text></g><g><text x="444" y="178">NGUỘI</text></g></svg>
+   <svg class="cvl" viewBox="0 0 520 190"><use href="#hcv"/></svg><i class="cvd"></i>
+  </div>
 </div></section>
 
 <section class="sec roast" id="me-rang"><div class="w">
@@ -235,6 +304,20 @@ footer{padding:var(--s6) 0 var(--s7)}
   </div>
  </div>
 </div></section>
+
+<section class="sec lb" id="xuong"><div class="w">
+ <div class="sh"><div><p class="m">Trong xưởng</p><h2 data-r>Một vòng<br><em>quanh lò.</em></h2></div><p data-r>Gác nhỏ, một chiếc lò, vài chiếc khay và mùi khói bám trên áo. Kéo ngang để dạo một vòng.</p></div>
+</div>
+ <div class="lt" id="lt" tabindex="0" role="group" aria-label="Ảnh trong xưởng rang, cuộn ngang để xem">
+  <figure class="lc"><div class="li"><img src="../img/photo/ca-phe-22679455.webp" width="760" height="1138" alt="Hai bàn tay nâng một nắm hạt cà phê vừa rang phía trên khay nguội" loading="lazy" decoding="async" draggable="false"></div><figcaption class="m"><b>01</b>Nâng hạt lên xem màu</figcaption></figure>
+  <figure class="lc wd"><div class="li"><img src="../img/photo/ca-phe-6079719.webp" width="900" height="578" alt="Hạt cà phê rang nằm trên khay làm nguội bằng thép sáng" loading="lazy" decoding="async" draggable="false"></div><figcaption class="m"><b>02</b>Khay nguội quay đều</figcaption></figure>
+  <figure class="lc"><div class="li"><img src="../img/photo/ca-phe-31890545.webp" width="760" height="1140" alt="Lồng rang nhìn từ trên xuống, hạt cà phê đổ đầy khay bên dưới" loading="lazy" decoding="async" draggable="false"></div><figcaption class="m"><b>03</b>Lồng rang nhìn từ trên</figcaption></figure>
+  <figure class="lc"><div class="li"><img src="../img/photo/ca-phe-35283349.webp" width="760" height="1014" alt="Bàn tay cầm nắm hạt cà phê rang cạnh muỗng lấy mẫu" loading="lazy" decoding="async" draggable="false"></div><figcaption class="m"><b>04</b>Thử từng nắm hạt</figcaption></figure>
+  <figure class="lc"><div class="li"><img src="../img/photo/ca-phe-6280315.webp" width="760" height="1140" alt="Bàn tay rút que lấy mẫu trên lò rang trong ánh sáng tối" loading="lazy" decoding="async" draggable="false"></div><figcaption class="m"><b>05</b>Rút mẫu giữa mẻ</figcaption></figure>
+ </div>
+ <div class="w"><div class="lp"><i id="lpi"></i></div></div>
+ <div class="lcur m" aria-hidden="true"><span>Kéo</span></div>
+</section>
 
 <section class="sec menu" id="menu"><div class="w">
  <div class="sh"><div><p class="m">Uống tại gác</p><h2 data-r>Menu<br><em>quán nhỏ.</em></h2></div><p data-r>Quán chỉ có 13 chỗ ngồi cạnh lò rang. Mở cửa 7:00–17:00, nghỉ thứ Hai.</p></div>
@@ -277,7 +360,7 @@ footer{padding:var(--s6) 0 var(--s7)}
   <div><h4>Ghé xưởng</h4><p>Gác 2, số 13 Dốc Sương<br>Đà Lạt, Lâm Đồng<br>7:00–17:00 · nghỉ thứ Hai</p></div>
   <div><h4>Liên hệ</h4><p>hello@gackhoi.example<br>0900 000 000</p></div>
  </div>
- <div class="cpt"><span>Gác Khói là thương hiệu concept. Website mẫu do <a href="../index.html" target="_top" style="text-decoration:underline">Dream Labs</a> thiết kế, mọi thông tin chỉ để minh họa.</span><span class="m">© 2026</span></div>
+ <div class="cpt"><span>Gác Khói là thương hiệu concept. Website mẫu do <a href="../index.html" target="_top" style="text-decoration:underline">Dream Labs</a> thiết kế, mọi thông tin chỉ để minh họa, ảnh chụp lấy từ thư viện Pexels để minh họa không khí.</span><span class="m">© 2026</span></div>
 </div></footer>
 <a class="back m" href="../index.html">← Dream Labs</a>
 <div class="toast m" id="toast" role="status"></div>
@@ -315,6 +398,41 @@ $('#sf').addEventListener('submit',e=>{e.preventDefault();const ok=$$('.fld').ev
 /* reveal */
 const els=$$('[data-r]');
 if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);if(e.target.classList.contains('chart'))setR(0)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>io.observe(el))}else{els.forEach(el=>el.classList.add('in'));setR(0)}
+/* chuyển động */
+const H=document.documentElement,mo=!matchMedia('(prefers-reduced-motion:reduce)').matches,cl=(v,a=0,b=1)=>v<a?a:v>b?b:v,eo=t=>1-(1-t)**4;
+if(mo&&'IntersectionObserver' in window){H.classList.add('mo');
+ const hero=$('#hero'),hpi=$('.hpi'),bat=$('#me'),bs=$('.bs'),sts=$$('.st'),figs=sts.map(e=>$('figure',e)),ims=sts.map(e=>$('img',e)),cvw=$('.cvw'),cvl=$('.cvl'),dot=$('.cvd'),mks=$$('.cvw line~g'),pts=[];
+ let vh=1,vb=0,raf=0,sy=scrollY,mx=0,my=0,tx=0,ty=0,p=-1,act=-1,tot=1,cs=1,cz=1,cx=0,cy=0,cw=1;
+ $$('#hcv path').forEach(a=>{const L=a.getTotalLength();for(let i=0;i<61;i++){const q=a.getPointAtLength(L*i/60);pts.push([q.x,q.y])}});
+ const U=[1,pts.findIndex(q=>q[0]>=300),60,121];
+ const ms=()=>{tot=Math.max(1,bat.offsetHeight-bs.offsetHeight);cw=cvw.clientWidth;const h=cvw.clientHeight,n=innerWidth<861;$$('svg',cvw).forEach(e=>e.setAttribute('preserveAspectRatio',n?'none':'xMidYMid'));cs=n?cw/520:Math.min(cw/520,h/190);cz=n?h/190:cs;cx=(cw-520*cs)/2;cy=(h-190*cz)/2;p=-1;req()};
+ const tick=()=>{raf=0;let go=0;
+  if(vh){const y=scrollY;sy+=(y-sy)*.14;tx+=(mx-tx)*.07;ty+=(my-ty)*.07;hpi.style.transform=`translate3d(${-tx*18}px,${sy*.16-ty*12}px,0)`;if(Math.abs(y-sy)>.3||Math.abs(mx-tx)+Math.abs(my-ty)>.002)go=1}
+  if(vb){const g=cl((70-bat.getBoundingClientRect().top)/tot);if(p<0)p=g;p+=(g-p)*.16;if(Math.abs(g-p)>4e-4)go=1;else p=g;
+   const t=cl(p*3.4,0,3);
+   for(let i=0;i<4;i++){const w=i?eo(cl((t-i+.62)/.5)):1,r=(1-w)*100;if(i)figs[i].style.clipPath=i==2?`inset(0 ${r}% 0 0)`:`inset(${r}% 0 0 0)`;ims[i].style.transform=`scale(${1.16-.12*w+cl(t-i,0,1.2)*.05})`}
+   const a=cl(Math.floor(t+.5),0,3);if(a!==act){act=a;sts.forEach((e,i)=>e.classList.toggle('on',i===a));mks.forEach((e,i)=>e.classList.toggle('on',i<=a));$('#bn').textContent='0'+(a+1)}
+   const j=Math.min(2,Math.floor(t)),u=U[j]+(U[j+1]-U[j])*(t-j),i0=Math.min(120,Math.floor(u)),q0=pts[i0],q1=pts[i0+1],f=u-i0,x=cx+(q0[0]+(q1[0]-q0[0])*f)*cs,yy=cy+(q0[1]+(q1[1]-q0[1])*f)*cz;
+   cvl.style.clipPath=`inset(0 ${100-x/cw*100}% 0 0)`;dot.style.transform=`translate3d(${x}px,${yy}px,0)`}
+  if(go)req()};
+ const req=()=>{if(!raf)raf=requestAnimationFrame(tick)};
+ new IntersectionObserver(es=>es.forEach(e=>{const v=e.isIntersecting;vh=v;hero.classList.toggle('pz',!v);req()})).observe(hero);
+ new IntersectionObserver(es=>es.forEach(e=>{vb=e.isIntersecting;bat.classList.toggle('pz',!vb);req()})).observe(bat);
+ addEventListener('scroll',req,{passive:true});addEventListener('resize',ms);addEventListener('load',ms);ms();
+ if(matchMedia('(hover:hover) and (pointer:fine)').matches)hero.addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;req()});
+ /* số đếm */
+ setTimeout(()=>{const t0=performance.now(),ns=$$('.hst [data-n]'),f=n=>{const k=eo(cl((n-t0)/1500));ns.forEach(e=>e.textContent=Math.round(e.dataset.n*k));k<1&&requestAnimationFrame(f)};requestAnimationFrame(f)},500);
+ /* lookbook */
+ const lt=$('#lt'),lis=$$('.li img',lt),lpi=$('#lpi'),lcur=$('.lcur');let lr=0,dg=0,lx=0,vel=0,sk=0;
+ const lpar=()=>{const m=lt.scrollWidth-lt.clientWidth,w=lt.clientWidth;lpi.style.transform=`scaleX(${m>0?cl(lt.scrollLeft/m,.08):1})`;lis.forEach(im=>{const r=im.parentNode.getBoundingClientRect();im.style.transform=`translate3d(${cl((r.left+r.width/2-w/2)/w,-1,1)*-6}%,0,0)`})};
+ const ll=()=>{lr=0;if(!dg){if(Math.abs(vel)>.4){lt.scrollLeft-=vel;vel*=.94}else vel=0}sk+=(cl(vel*.1,-3,3)-sk)*.18;if(Math.abs(sk)<.02&&!vel)sk=0;lt.style.setProperty('--sk',sk.toFixed(2)+'deg');lpar();if(dg||vel||sk)lq()},lq=()=>{if(!lr)lr=requestAnimationFrame(ll)};
+ lt.addEventListener('scroll',lq,{passive:true});addEventListener('resize',lq);lq();
+ if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  lt.addEventListener('pointerdown',e=>{if(e.button)return;dg=1;lx=e.clientX;vel=0;lt.classList.add('dg');lcur.classList.add('dg');lt.setPointerCapture(e.pointerId)});
+  lt.addEventListener('pointermove',e=>{lcur.style.transform=`translate3d(${e.clientX}px,${e.clientY}px,0)`;lcur.classList.add('on');if(dg){const d=e.clientX-lx;lx=e.clientX;lt.scrollLeft-=d;vel=vel*.4+d*.6;lq()}});
+  const up=()=>{dg=0;lt.classList.remove('dg');lcur.classList.remove('dg');lq()};lt.addEventListener('pointerup',up);lt.addEventListener('pointercancel',up);
+  lt.addEventListener('pointerleave',()=>lcur.classList.remove('on'))}
+}
 try{parent!==window&&parent.postMessage({wkDemo:'gac-khoi'},'*')}catch(e){}
 })();
 </script>
