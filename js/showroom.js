@@ -20,28 +20,31 @@ const CH=d=>`<svg viewBox="0 0 16 16" aria-hidden="true"><path d="${d<0?'M10 3.5
 const tierOf=(pkg,c)=>{const k=nk(pkg);return c.tiers.find(t=>nk(c.name+' '+t.n)===k)||c.tiers.find(t=>t.hot)||c.tiers[0]};
 const badge=r=>T(r.spin?'Xoay 360':r.kind==='video'?'Phim':r.kind==='interactive'?'Bấm thử':r.kind==='site'&&r.demo?'Chạy thật':'');
 
-const rows=ORDER.map(id=>CATS.find(c=>c.id===id)).filter(Boolean).map(c=>({c,items:(Array.isArray(S[c.id])?S[c.id]:[]).filter(r=>r&&r.id)})).filter(r=>r.items.length);
+/* mẫu chủ lực của từng hạng mục (thẻ lớn); không khai báo thì lấy mẫu đầu */
+const FEAT={ai:'ai-ngoc-yen',web:'web-ombreve',landing:'landing-elorne',product:'product-khue-lam',motion:'motion-thaverine',video:'video-lamky'};
+const rows=ORDER.map(id=>CATS.find(c=>c.id===id)).filter(Boolean).map(c=>{let items=(Array.isArray(S[c.id])?S[c.id]:[]).filter(r=>r&&r.id);
+  const f=items.findIndex(r=>r.id===FEAT[c.id]);if(f>0)items=[items[f],...items.filter((_,i)=>i!==f)];return{c,items}}).filter(r=>r.items.length);
 if(!rows.length)return;
-const total=rows.reduce((a,r)=>a+r.items.length,0);
-const hc=document.getElementById('heroCount');if(hc)hc.textContent=T('{n} mẫu · {m} dịch vụ',{n:total,m:rows.length});
+/* giá mẫu chủ lực ở hero */
+const hp=document.getElementById('heroPrice'),hc=CATS.find(c=>c.id==='motion');
+if(hp&&hc){const t=tierOf((S.motion||[]).concat([]).find(r=>r.id==='motion-orvele')?.pkg||'',hc);hp.innerHTML=vnd(t.p)+(t.u||'')+FX(t.p)}
 
 box.innerHTML=rows.map(({c,items},ri)=>{
   const min=c.tiers.reduce((a,t)=>t.p<a.p?t:a,c.tiers[0]),sh=SHORT[c.id]||c.name;
-  return `<div class="srow" id="${VI?'p-':'sr-'}${c.id}" data-cat="${c.id}">
+  return `<div class="srow${ri%2?' flip':''}" id="${VI?'p-':'sr-'}${c.id}" data-cat="${c.id}">
   <div class="wrap srow-h">
-    <div class="srow-t"><span class="srow-n">${pad(ri+1)}</span><h3>${esc(sh)}</h3><span class="srow-c">${T('{n} mẫu',{n:items.length})}</span></div>
+    <div class="srow-t"><span class="srow-n">${pad(ri+1)}</span><h3>${esc(sh)}</h3></div>
     <p class="srow-from">${T('Từ')} <b>${vnd(min.p)}</b>${min.u?`<small>${esc(min.u)}</small>`:''}${FX(min.p)}</p>
     <a class="btn sm srow-go" href="${VI?PAGE[c.id]||'bang-gia/':'#p-'+c.id}">${T('Xem bảng giá')} ${AR}</a>
     <div class="srow-nav"><button class="sn" type="button" data-d="-1" aria-label="${esc(T('Mẫu {c} trước',{c:sh}))}">${CH(-1)}</button><button class="sn" type="button" data-d="1" aria-label="${esc(T('Mẫu {c} tiếp theo',{c:sh}))}">${CH(1)}</button></div>
   </div>
   <div class="srail" tabindex="0" role="region" aria-label="${esc(T('Mẫu {c}: vuốt ngang hoặc dùng phím mũi tên',{c:sh}))}">
-    <ul class="strack">${items.map((r,i)=>{const t=tierOf(r.pkg,c),b=badge(r),price=vnd(t.p)+(t.u||''),pfx=D.fx?D.fx(t.p):'';
-      return `<li class="sc" style="--i:${Math.min(i,5)}"><button class="sc-b" type="button" data-sm-open="${c.id}" data-sm-id="${esc(r.id)}" data-cursor="Xem" aria-label="${esc(T('{t}, {i}: {c} gói {n}, {p}. Xem chi tiết',{t:r.title,i:r.industry||'',c:sh,n:t.n,p:price+(pfx?' ('+pfx+')':'')}))}">
-        <span class="sc-img"><span class="sc-par"><img src="${esc(r.cover||'')}" width="1280" height="791" alt="" loading="${ri<2&&i<3?'eager':'lazy'}" decoding="async" draggable="false"></span>${b?`<span class="sc-tag${r.spin?' s360':''}">${b}</span>`:''}<span class="sc-view" aria-hidden="true">${T('Xem chi tiết')} ${AR}</span></span>
-        <span class="sc-cap"><span class="sc-i">${esc(r.industry&&r.industry!=='Khác'&&r.industry!==T('Khác')?r.industry:'Concept')}</span><span class="sc-t">${esc(r.title)}</span>
-        <span class="sc-p"><span>${esc(sh)} · ${esc(t.n)}</span><b>${price}${FX(t.p)}</b></span></span></button></li>`}).join('')}</ul>
+    <ul class="strack">${items.map((r,i)=>{const t=tierOf(r.pkg,c),b=badge(r),price=vnd(t.p)+(t.u||''),pfx=D.fx?D.fx(t.p):'',ind=r.industry&&r.industry!=='Khác'&&r.industry!==T('Khác')?r.industry:'Concept';
+      return `<li class="sc${i?'':' sc-f'}" style="--i:${Math.min(i,5)}"><button class="sc-b" type="button" data-sm-open="${c.id}" data-sm-id="${esc(r.id)}" data-cursor="Xem" aria-label="${esc(T('{t}, {i}: {c} gói {n}, {p}. Xem chi tiết',{t:r.title,i:ind,c:sh,n:t.n,p:price+(pfx?' ('+pfx+')':'')}))}">
+        <span class="sc-img"><span class="sc-par"><img src="${esc(r.thumb||r.cover||'')}" width="1280" height="791" alt="" loading="${ri<1||(ri<2&&!i)?'eager':'lazy'}" decoding="async" draggable="false"></span>${b?`<span class="sc-tag${r.spin?' s360':''}">${b}</span>`:''}<span class="sc-more" aria-hidden="true"><span>${esc(ind)} · ${esc(t.n)}</span><span class="sc-view">${T('Xem chi tiết')} ${AR}</span></span></span>
+        <span class="sc-cap"><span class="sc-t">${esc(r.title)}</span><b>${price}${FX(t.p)}</b></span></button></li>`}).join('')}</ul>
   </div>
-  <div class="wrap srow-f" aria-hidden="true"><div class="sbar"><i></i></div><span class="scount"><b>01</b> / ${pad(items.length)}</span></div>
+  <div class="wrap srow-f" aria-hidden="true"><div class="sbar"><i></i></div></div>
 </div>`}).join('');
 document.querySelectorAll('.sc-img img').forEach(im=>{const bad=()=>im.closest('.sc-img').classList.add('err');im.addEventListener('error',bad);if(im.complete&&!im.naturalWidth)bad()});
 
@@ -52,21 +55,22 @@ addEventListener('click',e=>{if(swallow){swallow=false;e.preventDefault();e.stop
 const rowsEl=[...box.querySelectorAll('.srow')];
 rowsEl.forEach(row=>{
   const rail=row.querySelector('.srail'),track=row.querySelector('.strack'),cards=[...track.children],pars=cards.map(c=>c.querySelector('.sc-par'));
-  const bar=row.querySelector('.sbar i'),cnt=row.querySelector('.scount b'),[prev,next]=row.querySelectorAll('.sn');
-  let lefts=[],ws=[],padL=0,max=0,raf=0,lastI=-1;
+  const bar=row.querySelector('.sbar i'),[prev,next]=row.querySelectorAll('.sn');
+  let lefts=[],ws=[],padL=0,max=0,raf=0;
   const measure=()=>{padL=parseFloat(getComputedStyle(track).paddingLeft)||0;lefts=cards.map(c=>c.offsetLeft);ws=cards.map(c=>c.offsetWidth);max=rail.scrollWidth-rail.clientWidth;
     const f=Math.min(1,rail.clientWidth/rail.scrollWidth);bar.style.width=(f*100)+'%';row.classList.toggle('fits',max<=2);paint()};
   const idx=()=>{const x=rail.scrollLeft+padL;let b=0,d=1e9;lefts.forEach((l,i)=>{const k=Math.abs(l-x);if(k<d){d=k;b=i}});return b};
   function paint(){raf=0;const x=rail.scrollLeft,p=max>0?x/max:0,bw=bar.parentElement.clientWidth;
     bar.style.transform=`translate3d(${(p*(bw-bar.offsetWidth)).toFixed(1)}px,0,0)`;
-    const i=x>=max-2?cards.length-1:idx();if(i!==lastI){lastI=i;cnt.textContent=pad(i+1)}
     prev.disabled=x<=2;next.disabled=x>=max-2;
     if(!RM){const cw=rail.clientWidth;for(let k=0;k<cards.length;k++){const c=lefts[k]+ws[k]/2-x;if(c<-ws[k]||c>cw+ws[k])continue;const o=(c-cw/2)/cw;pars[k].style.transform=`translate3d(${(-o*7).toFixed(2)}%,0,0)`}}}
   const req=()=>{if(!raf)raf=requestAnimationFrame(paint)};
   const go=i=>{i=Math.max(0,Math.min(cards.length-1,i));rail.scrollTo({left:Math.min(max,lefts[i]-padL),behavior:RM?'auto':'smooth'});return i};
-  const per=()=>Math.max(1,Math.floor((rail.clientWidth-padL)/((ws[0]||1)+16)));
   rail.addEventListener('scroll',req,{passive:true});
-  row.querySelector('.srow-nav').addEventListener('click',e=>{const b=e.target.closest('.sn');if(!b)return;const d=+b.dataset.d;go(idx()+d*per())});
+  row.querySelector('.srow-nav').addEventListener('click',e=>{const b=e.target.closest('.sn');if(!b)return;const d=+b.dataset.d,x=rail.scrollLeft+padL,w=rail.clientWidth-padL*2;
+    /* theo cột: tiến/lùi gần một màn, dừng ở mép cột */
+    const cols=[...new Set(lefts)].sort((a,b)=>a-b),tgt=d>0?cols.filter(l=>l>x+4&&l<=x+w*.9).pop()||cols.find(l=>l>x+4):cols.filter(l=>l<x-4&&l>=x-w*.9)[0]??cols.filter(l=>l<x-4).pop();
+    if(tgt!=null)rail.scrollTo({left:Math.min(max,Math.max(0,tgt-padL)),behavior:RM?'auto':'smooth'})});
   rail.addEventListener('keydown',e=>{if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight'&&e.key!=='Home'&&e.key!=='End')return;e.preventDefault();
     const cur=cards.indexOf(document.activeElement&&document.activeElement.closest('.sc'));
     const base=cur>=0?cur:idx(),i=e.key==='Home'?0:e.key==='End'?cards.length-1:base+(e.key==='ArrowRight'?1:-1),t=go(i);
@@ -85,6 +89,11 @@ rowsEl.forEach(row=>{
 });
 /* thẻ hiện dần khi hàng vào màn hình */
 if(!RM&&'IntersectionObserver' in window){box.classList.add('reveal');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});rowsEl.forEach(r=>io.observe(r))}
+/* phim mẫu chủ lực ở hero: chỉ chạy khi đang thấy, không chạy khi người dùng giảm chuyển động */
+const hv=document.getElementById('heroVid');
+if(hv&&!RM&&'IntersectionObserver' in window){let on=false;const run=()=>{if(on&&!document.hidden){const p=hv.play();p&&p.catch(()=>{})}else hv.pause()};
+  new IntersectionObserver(([e])=>{on=e.isIntersecting;run()},{threshold:.2}).observe(hv);document.addEventListener('visibilitychange',run);
+  document.addEventListener('dl:cover',e=>{on=!(e.detail&&e.detail.on)&&hv.getBoundingClientRect().bottom>0;run()})}
 D.refresh&&D.refresh();
 });
 })();

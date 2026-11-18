@@ -1164,10 +1164,6 @@
    "<a href=\"#bao-gia\"><small>03</small><span>Pricing</span></a>"
   ],
   [
-   "<a href=\"lab/\"><small>04</small><span>Lab</span></a>",
-   "<a href=\"#showreel\"><small>04</small><span>Showreel</span></a>"
-  ],
-  [
    "<a href=\"blog/\"><small>05</small><span>Bài viết</span></a>",
    "<a href=\"#faq\"><small>05</small><span>FAQ</span></a>"
   ],
@@ -1230,10 +1226,6 @@
   [
    "Xem mẫu &amp; giá <svg",
    "See work &amp; pricing <svg"
-  ],
-  [
-   "<span id=\"heroCount\">Mẫu thật · giá từng gói</span>",
-   "<span id=\"heroCount\">Real work · price per package</span>"
   ],
   [
    "<h2 id=\"show-h\">Mẫu &amp; giá</h2>",
@@ -1376,38 +1368,6 @@
    "<p class=\"note\">Indicative pricing. A formal quote follows the consultation.</p>"
   ],
   [
-   "<p class=\"reel-line\">21 giây, dựng hoàn toàn bằng code.</p>",
-   "<p class=\"reel-line\">21 seconds, built entirely in code.</p>"
-  ],
-  [
-   "aria-label=\"Showreel Dream Labs: sáu dịch vụ trong 21 giây, phim không có tiếng\"",
-   "aria-label=\"Dream Labs showreel: six services in 21 seconds, no sound\""
-  ],
-  [
-   "aria-label=\"Phát showreel\"",
-   "aria-label=\"Play showreel\""
-  ],
-  [
-   "aria-label=\"Nhảy tới từng đoạn của phim\"",
-   "aria-label=\"Jump to a chapter\""
-  ],
-  [
-   "<button type=\"button\" data-t=\"0\">Mở đầu</button>",
-   "<button type=\"button\" data-t=\"0\">Intro</button>"
-  ],
-  [
-   "<b>03</b>Edit Video</button>",
-   "<b>03</b>Video editing</button>"
-  ],
-  [
-   "<b>04</b>Sản phẩm</button>",
-   "<b>04</b>Product</button>"
-  ],
-  [
-   "<b>06</b>Tự động hóa quy trình doanh nghiệp</button>",
-   "<b>06</b>AI automation</button>"
-  ],
-  [
    "<p class=\"eyebrow\">Câu hỏi thường gặp</p>",
    "<p class=\"eyebrow\">FAQ</p>"
   ],
@@ -1496,8 +1456,8 @@
    "<p>Not yet. Brands labeled Concept are projects Dream Labs imagined and built itself so you can see the craft first-hand: working websites, real video and AI demos you can try.</p>"
   ],
   [
-   "<p class=\"eyebrow\">Liên hệ</p><h2 data-split>Bắt đầu <em>dự án của bạn.</em></h2>",
-   "<p class=\"eyebrow\">Contact</p><h2 data-split>Start <em>your project.</em></h2>"
+   "<h2 data-split>Bắt đầu <em>dự án của bạn.</em></h2>",
+   "<h2 data-split>Start <em>your project.</em></h2>"
   ],
   [
    "<p class=\"lead\" data-reveal>Tư vấn miễn phí, phản hồi trong 24 giờ.</p>",
@@ -1552,7 +1512,7 @@
    "data-magnetic>Prepare my request <svg"
   ],
   [
-   "<p class=\"cf-note\">Bấm gửi để nhận nội dung soạn sẵn, dán vào Zalo là xong.</p>",
+   "<p class=\"cf-note\">Gửi xong, dán nội dung vào Zalo.</p>",
    "<p class=\"cf-note\">We’ll draft your message for you. Paste it into Zalo or an email and you’re done.</p>"
   ],
   [
@@ -1572,10 +1532,6 @@
    "id=\"cfAgain\">Start over</button>"
   ],
   [
-   "<h2>Có ý tưởng? <em>Nhắn Dream Labs.</em></h2>",
-   "<h2>Have an idea? <em>Talk to Dream Labs.</em></h2>"
-  ],
-  [
    "<nav aria-label=\"Dịch vụ\"><b>Dịch vụ</b><a href=\"tu-dong-hoa-quy-trinh-doanh-nghiep/\">Tự động hóa AI</a><a href=\"thiet-ke-website/\">Website</a><a href=\"thiet-ke-landing-page/\">Landing page</a><a href=\"thiet-ke-bao-bi/\">Bao bì</a><a href=\"video-motion-graphic/\">Motion graphic</a><a href=\"edit-video/\">Edit video</a></nav>",
    "<nav aria-label=\"Services\"><b>Services</b><a href=\"#p-ai\">AI automation</a><a href=\"#p-web\">Websites</a><a href=\"#p-landing\">Landing pages</a><a href=\"#p-product\">Packaging</a><a href=\"#p-motion\">Motion graphics</a><a href=\"#p-video\">Video editing</a></nav>"
   ],
@@ -1586,6 +1542,46 @@
   [
    "Về đầu trang <svg",
    "Back to top <svg"
+  ],
+  [
+   "<a href=\"lab/\"><small>04</small><span>Lab</span></a>",
+   "<a href=\"#quy-trinh\"><small>04</small><span>How we work</span></a>"
+  ],
+  [
+   "aria-label=\"Xem mẫu Maison Orvèle, Ambre Minuit\"",
+   "aria-label=\"View the Maison Orvèle sample, Ambre Minuit\""
+  ],
+  [
+   "<span class=\"sc-tag\">Phim</span>",
+   "<span class=\"sc-tag\">Film</span>"
+  ],
+  [
+   "<small>Motion graphic · concept</small>",
+   "<small>Motion graphic · concept</small>"
+  ],
+  [
+   "<h2 id=\"steps-h\">Cách làm việc</h2>",
+   "<h2 id=\"steps-h\">How we work</h2>"
+  ],
+  [
+   "<p class=\"steps-note\">Mẫu trên trang là concept do Dream Labs tự thiết kế.</p>",
+   "<p class=\"steps-note\">All samples on this page are concepts designed by Dream Labs.</p>"
+  ],
+  [
+   "<h3>Chọn mẫu &amp; gói</h3><p>Giá ghi rõ từng gói.</p>",
+   "<h3>Pick a sample &amp; package</h3><p>Every package is priced upfront.</p>"
+  ],
+  [
+   "<h3>Gọi 30 phút</h3><p>Hiểu thương hiệu và mục tiêu.</p>",
+   "<h3>A 30-minute call</h3><p>We learn your brand and goals.</p>"
+  ],
+  [
+   "<h3>Thiết kế &amp; tinh chỉnh</h3><p>Sửa theo số vòng của gói.</p>",
+   "<h3>Design &amp; refine</h3><p>Revisions within your package rounds.</p>"
+  ],
+  [
+   "<h3>Bàn giao file gốc</h3><p>Kèm hướng dẫn, có bảo hành.</p>",
+   "<h3>Source files handed over</h3><p>With a guide and warranty.</p>"
   ]
  ]
 }

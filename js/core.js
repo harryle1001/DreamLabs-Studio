@@ -213,6 +213,9 @@ safe('fab',()=>{
     ST.create({start:()=>innerHeight*.618,end:'max',onToggle:a,onUpdate:a,onRefresh:a});
     const c=$('#lien-he');if(c)ST.create({trigger:c,start:'top 61.8%',end:'max',onToggle:b,onUpdate:b,onRefresh:b});
   }else fab.classList.add('show');
+  /* điện thoại: cuộn xuống thì tạm ẩn để không che mẫu, cuộn lên hoặc dừng thì hiện lại */
+  let ly=scrollY,tm=0;addEventListener('scroll',()=>{const y=scrollY,dn=y>ly+4,up=y<ly-4;if(dn||up){fab.classList.toggle('away',dn);ly=y}
+    clearTimeout(tm);tm=setTimeout(()=>fab.classList.remove('away'),900)},{passive:true});
 });
 
 /* ═════════ CLICK TOÀN TRANG: data-pick + anchor (capture, chạy trước kit) ═════════ */
@@ -347,7 +350,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
       gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0)}};
   const draw=()=>{if(lost)return;size();
-    const narrow=cw<760,cxn=.618+Math.sin(t*.13)*.012,cyn=(narrow?.3:.382)+Math.cos(t*.11)*.012,R=(narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
+    const narrow=cw<760,cxn=(narrow?.618:.67)+Math.sin(t*.13)*.012,cyn=(narrow?.3:.5)+Math.cos(t*.11)*.012,R=(narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
     const sm=clamp(sc/.3);const morph=Math.max(st.morph,sm*sm*(3-2*sm)),fade=1-clamp((sc-.618)/.382)*.618;
     gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.disable(gl.BLEND);gl.useProgram(pA);
     gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
@@ -387,7 +390,7 @@ safe('hero-intro',()=>{
     const em=$('em',h1);if(em){const er=em.getBoundingClientRect();$$('.dl-c',em).forEach(c=>{const r=c.getBoundingClientRect();c.style.backgroundSize=er.width+'px 100%';c.style.backgroundPosition=(er.left-r.left)+'px 0'})}
     tl.from(sp.chars,{yPercent:110,rotate:6.18,opacity:0,duration:1.11,ease:'expo.out',stagger:.0262,onComplete:()=>{try{sp.revert()}catch(e){}}},0);
   }
-  tl.from('.hero .eyebrow,.hero-side>*,.hero-foot',{y:26,opacity:0,duration:1.11,ease:'expo.out',stagger:.1,clearProps:'all'},.262)
+  tl.from('.hero-main>.lead,.hero-cta,.hero-media',{y:26,opacity:0,duration:1.11,ease:'expo.out',stagger:.1,clearProps:'all'},.262)
     .from('.hero-note',{opacity:0,duration:1.11,clearProps:'all'},.686)
     .from('#head',{yPercent:-100,duration:1.11,ease:'expo.out',clearProps:'transform'},.1);
 });
@@ -545,8 +548,7 @@ safe('contact',()=>{
 /* ═════════ FOOTER: chữ khổng lồ parallax + xoắn ốc vàng vẽ theo cuộn ═════════ */
 safe('footer',()=>{
   const ft=$('.foot');if(!ft||!g||!ST||RM)return;
-  g.fromTo('#giant',{xPercent:0},{xPercent:-38.2,ease:'none',scrollTrigger:{trigger:ft,start:'top bottom',end:'bottom bottom',scrub:true}});
-  g.fromTo('#footSpiral',{strokeDashoffset:1},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:ft,start:'top 90%',end:'bottom bottom',scrub:true}});
+  if($('#giant'))g.fromTo('#giant',{xPercent:0},{xPercent:-38.2,ease:'none',scrollTrigger:{trigger:ft,start:'top bottom',end:'bottom bottom',scrub:true}});
 });
 
 D.refresh();

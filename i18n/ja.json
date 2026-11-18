@@ -1143,10 +1143,6 @@
    "<a href=\"#bao-gia\"><small>03</small><span>料金表</span></a>"
   ],
   [
-   "<a href=\"lab/\"><small>04</small><span>Lab</span></a>",
-   "<a href=\"#showreel\"><small>04</small><span>ショーリール</span></a>"
-  ],
-  [
    "<a href=\"blog/\"><small>05</small><span>Bài viết</span></a>",
    "<a href=\"#faq\"><small>05</small><span>よくある質問</span></a>"
   ],
@@ -1209,10 +1205,6 @@
   [
    "Xem mẫu &amp; giá <svg",
    "作品と料金を見る <svg"
-  ],
-  [
-   "<span id=\"heroCount\">Mẫu thật · giá từng gói</span>",
-   "<span id=\"heroCount\">実際の作品 · プラン別料金</span>"
   ],
   [
    "<h2 id=\"show-h\">Mẫu &amp; giá</h2>",
@@ -1355,38 +1347,6 @@
    "<p class=\"note\">参考価格です。正式なお見積もりはご相談後にお送りします。</p>"
   ],
   [
-   "<p class=\"reel-line\">21 giây, dựng hoàn toàn bằng code.</p>",
-   "<p class=\"reel-line\">21秒、すべてコードで制作。</p>"
-  ],
-  [
-   "aria-label=\"Showreel Dream Labs: sáu dịch vụ trong 21 giây, phim không có tiếng\"",
-   "aria-label=\"Dream Labs ショーリール：6つのサービスを21秒で紹介（音声なし）\""
-  ],
-  [
-   "aria-label=\"Phát showreel\"",
-   "aria-label=\"ショーリールを再生\""
-  ],
-  [
-   "aria-label=\"Nhảy tới từng đoạn của phim\"",
-   "aria-label=\"チャプターへ移動\""
-  ],
-  [
-   "<button type=\"button\" data-t=\"0\">Mở đầu</button>",
-   "<button type=\"button\" data-t=\"0\">オープニング</button>"
-  ],
-  [
-   "<b>03</b>Edit Video</button>",
-   "<b>03</b>動画編集</button>"
-  ],
-  [
-   "<b>04</b>Sản phẩm</button>",
-   "<b>04</b>プロダクト</button>"
-  ],
-  [
-   "<b>06</b>Tự động hóa quy trình doanh nghiệp</button>",
-   "<b>06</b>AI自動化</button>"
-  ],
-  [
    "<p class=\"eyebrow\">Câu hỏi thường gặp</p>",
    "<p class=\"eyebrow\">よくある質問</p>"
   ],
@@ -1475,8 +1435,8 @@
    "<p>いいえ、現時点では違います。「Concept」と表示したブランドは、技術力をそのままご覧いただくためにDream Labsが自ら企画・制作したものです。実際に動くWebサイト、本物の映像、操作できるAIデモをご覧いただけます。</p>"
   ],
   [
-   "<p class=\"eyebrow\">Liên hệ</p><h2 data-split>Bắt đầu <em>dự án của bạn.</em></h2>",
-   "<p class=\"eyebrow\">お問い合わせ</p><h2 data-split>プロジェクトを、<em>始めましょう。</em></h2>"
+   "<h2 data-split>Bắt đầu <em>dự án của bạn.</em></h2>",
+   "<h2 data-split>プロジェクトを、<em>始めましょう。</em></h2>"
   ],
   [
    "<p class=\"lead\" data-reveal>Tư vấn miễn phí, phản hồi trong 24 giờ.</p>",
@@ -1531,7 +1491,7 @@
    "data-magnetic>相談内容を作成 <svg"
   ],
   [
-   "<p class=\"cf-note\">Bấm gửi để nhận nội dung soạn sẵn, dán vào Zalo là xong.</p>",
+   "<p class=\"cf-note\">Gửi xong, dán nội dung vào Zalo.</p>",
    "<p class=\"cf-note\">送信内容を自動で作成します。Zaloまたはメールにそのまま貼り付けてお送りください。</p>"
   ],
   [
@@ -1551,10 +1511,6 @@
    "id=\"cfAgain\">入力し直す</button>"
   ],
   [
-   "<h2>Có ý tưởng? <em>Nhắn Dream Labs.</em></h2>",
-   "<h2>アイデアがあれば、<em>Dream Labsへ。</em></h2>"
-  ],
-  [
    "<nav aria-label=\"Dịch vụ\"><b>Dịch vụ</b><a href=\"tu-dong-hoa-quy-trinh-doanh-nghiep/\">Tự động hóa AI</a><a href=\"thiet-ke-website/\">Website</a><a href=\"thiet-ke-landing-page/\">Landing page</a><a href=\"thiet-ke-bao-bi/\">Bao bì</a><a href=\"video-motion-graphic/\">Motion graphic</a><a href=\"edit-video/\">Edit video</a></nav>",
    "<nav aria-label=\"サービス\"><b>サービス</b><a href=\"#p-ai\">AI自動化</a><a href=\"#p-web\">Webサイト</a><a href=\"#p-landing\">ランディングページ</a><a href=\"#p-product\">パッケージ</a><a href=\"#p-motion\">モーショングラフィックス</a><a href=\"#p-video\">動画編集</a></nav>"
   ],
@@ -1567,24 +1523,48 @@
    "ページの先頭へ <svg"
   ],
   [
-   "<b>01</b>Website</button>",
-   "<b>01</b>Webサイト</button>"
-  ],
-  [
-   "<b>02</b>Landing Page</button>",
-   "<b>02</b>LP</button>"
-  ],
-  [
-   "<b>05</b>Motion</button>",
-   "<b>05</b>モーション</button>"
-  ],
-  [
-   "data-t=\"16.9\">Logo</button>",
-   "data-t=\"16.9\">ロゴ</button>"
-  ],
-  [
    "<li class=\"chip\">Website</li>",
    "<li class=\"chip\">Webサイト</li>"
+  ],
+  [
+   "<a href=\"lab/\"><small>04</small><span>Lab</span></a>",
+   "<a href=\"#quy-trinh\"><small>04</small><span>進め方</span></a>"
+  ],
+  [
+   "aria-label=\"Xem mẫu Maison Orvèle, Ambre Minuit\"",
+   "aria-label=\"Maison Orvèle「Ambre Minuit」のサンプルを見る\""
+  ],
+  [
+   "<span class=\"sc-tag\">Phim</span>",
+   "<span class=\"sc-tag\">映像</span>"
+  ],
+  [
+   "<small>Motion graphic · concept</small>",
+   "<small>モーショングラフィックス · コンセプト</small>"
+  ],
+  [
+   "<h2 id=\"steps-h\">Cách làm việc</h2>",
+   "<h2 id=\"steps-h\">進め方</h2>"
+  ],
+  [
+   "<p class=\"steps-note\">Mẫu trên trang là concept do Dream Labs tự thiết kế.</p>",
+   "<p class=\"steps-note\">掲載サンプルはすべてDream Labsが制作したコンセプトです。</p>"
+  ],
+  [
+   "<h3>Chọn mẫu &amp; gói</h3><p>Giá ghi rõ từng gói.</p>",
+   "<h3>サンプルとプランを選ぶ</h3><p>料金はプランごとに明示。</p>"
+  ],
+  [
+   "<h3>Gọi 30 phút</h3><p>Hiểu thương hiệu và mục tiêu.</p>",
+   "<h3>30分のお打ち合わせ</h3><p>ブランドと目標を把握します。</p>"
+  ],
+  [
+   "<h3>Thiết kế &amp; tinh chỉnh</h3><p>Sửa theo số vòng của gói.</p>",
+   "<h3>デザインと調整</h3><p>プランの回数内で修正します。</p>"
+  ],
+  [
+   "<h3>Bàn giao file gốc</h3><p>Kèm hướng dẫn, có bảo hành.</p>",
+   "<h3>元データを納品</h3><p>操作ガイドと保証付き。</p>"
   ]
  ]
 }

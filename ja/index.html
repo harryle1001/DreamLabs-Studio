@@ -41,8 +41,6 @@
 <script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <!-- 00-chrome.html -->
 <svg class="sr-only" width="0" height="0" aria-hidden="true" focusable="false"><defs>
-  <symbol id="dl-spiral" viewBox="-1 -1 57 36"><path d="M15 10A1 1 0 0 0 16 9A1 1 0 0 0 15 8A2 2 0 0 0 13 10A3 3 0 0 0 16 13A5 5 0 0 0 21 8A8 8 0 0 0 13 0A13 13 0 0 0 0 13A21 21 0 0 0 21 34A34 34 0 0 0 55 0" fill="none" stroke="currentColor" stroke-linecap="round" vector-effect="non-scaling-stroke"/></symbol>
-  <symbol id="dl-grid" viewBox="-1 -1 57 36"><path d="M15 9h1v1h-1zM15 8h1v1h-1zM13 8h2v2h-2zM13 10h3v3h-3zM16 8h5v5h-5zM13 0h8v8h-8zM0 0h13v13h-13zM0 13h21v21h-21zM21 0h34v34h-34z" fill="none" stroke="currentColor" vector-effect="non-scaling-stroke"/></symbol>
   <symbol id="dl-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="dl-logo" viewBox="0 0 26 26"><circle cx="13" cy="13" r="12" fill="url(#dl-lg)"/><path d="M17 6.5a7.5 7.5 0 1 0 2.5 10.6A6 6 0 0 1 17 6.5z" style="fill:var(--paper)" opacity=".85"/></symbol>
   <linearGradient id="dl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".618" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient>
@@ -50,12 +48,11 @@
 
 <div class="pre" id="pre" aria-hidden="true">
   <div class="pre-in">
-    <svg class="pre-sp" viewBox="-1 -1 57 36"><path class="pre-g" d="M13 10h3v3h-3zM16 8h5v5h-5zM13 0h8v8h-8zM0 0h13v13h-13zM0 13h21v21h-21zM21 0h34v34h-34z"/><path class="pre-s" pathLength="1" d="M15 10A1 1 0 0 0 16 9A1 1 0 0 0 15 8A2 2 0 0 0 13 10A3 3 0 0 0 16 13A5 5 0 0 0 21 8A8 8 0 0 0 13 0A13 13 0 0 0 0 13A21 21 0 0 0 21 34A34 34 0 0 0 55 0"/></svg>
     <p class="pre-w">Dream <i>Labs</i></p>
   </div>
 </div>
 
-<div class="veil" id="veil" aria-hidden="true"><svg viewBox="-1 -1 57 36"><use href="#dl-spiral"/></svg></div>
+<div class="veil" id="veil" aria-hidden="true"><svg viewBox="0 0 26 26"><use href="#dl-logo"/></svg></div>
 <div class="cur" id="cur" aria-hidden="true"><i class="cur-ring"></i><span class="cur-label"></span></div>
 
 <header class="head" id="head">
@@ -80,12 +77,11 @@
 </header>
 
 <div class="menu" id="menu" aria-hidden="true">
-  <svg class="menu-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-grid" class="g"/><use href="#dl-spiral"/></svg>
   <nav class="menu-nav" aria-label="メニュー">
     <a href="#mau-gia"><small>01</small><span>作品と料金</span></a>
     <a href="#tu-dong-hoa"><small>02</small><span>AI自動化</span></a>
     <a href="#bao-gia"><small>03</small><span>料金表</span></a>
-    <a href="#showreel"><small>04</small><span>ショーリール</span></a>
+    <a href="#quy-trinh"><small>04</small><span>進め方</span></a>
     <a href="#faq"><small>05</small><span>よくある質問</span></a>
     <a href="#lien-he"><small>06</small><span>お問い合わせ</span></a>
   </nav>
@@ -124,17 +120,19 @@
     <div class="hero-grid">
       <div class="hero-main">
         <h1 class="hero-title" id="heroTitle">AIによる<wbr><em>業務プロセス<wbr>自動化。</em></h1>
-      </div>
-      <div class="hero-side">
         <p class="lead">上質なWebサイト、動画、パッケージも。実際の作品と全プランの料金を下にまとめています。</p>
         <div class="hero-cta">
           <a class="btn primary" href="#mau-gia" data-magnetic>作品と料金を見る <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
           <a class="btn" href="https://zalo.me/0934246420" target="_blank" rel="noopener" data-magnetic>Zaloで相談</a>
         </div>
       </div>
-    </div>
-    <div class="hero-foot">
-      <a class="hero-scroll" href="#mau-gia"><i aria-hidden="true"></i><span id="heroCount">実際の作品 · プラン別料金</span></a>
+      <figure class="hero-media">
+        <button class="hm-b" type="button" data-sm-open="motion" data-sm-id="motion-orvele" data-cursor="Xem" aria-label="Maison Orvèle「Ambre Minuit」のサンプルを見る">
+          <video class="hm-v" id="heroVid" muted playsinline loop preload="none" poster="img/sm-motion-orvele.webp" width="1280" height="720" aria-hidden="true"><source src="media/sm-motion-orvele.mp4" type="video/mp4"></video>
+          <span class="sc-tag">映像</span>
+        </button>
+        <figcaption class="hm-cap"><span class="hm-t">Ambre Minuit <small>モーショングラフィックス · コンセプト</small></span><b class="hm-p" id="heroPrice"></b></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -224,7 +222,6 @@
         <div class="est-list" id="estList"></div>
       </div>
       <aside class="est-sum" aria-live="polite">
-        <svg class="est-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-spiral"/></svg>
         <span class="lbl">概算合計</span>
         <div class="total" id="estTotal">0 VND</div>
         <div class="lines" id="estLines"><div><span>まだ選択されていません</span></div></div>
@@ -236,35 +233,16 @@
     </div>
   </div>
 </section>
-<!-- 40-reel.html -->
-<section id="showreel" class="band reel">
+<!-- 55-steps.html -->
+<section class="steps-sec" id="quy-trinh" aria-labelledby="steps-h">
   <div class="wrap">
-    <div class="reel-head"><p class="eyebrow">Showreel</p><p class="reel-line">21秒、すべてコードで制作。</p></div>
-
-    <div class="reel-stage">
-      <div class="reel-frame" data-cursor="Phát / dừng">
-        <video class="reel-video" muted playsinline loop preload="metadata" poster="media/showreel-poster.webp" width="1280" height="792" aria-label="Dream Labs ショーリール：6つのサービスを21秒で紹介（音声なし）">
-          <source src="media/showreel.mp4" type="video/mp4">
-        </video>
-        <button class="reel-toggle" type="button" aria-label="ショーリールを再生">
-          <svg class="i-play" viewBox="0 0 26 26" aria-hidden="true"><path d="M9 5.5v15l12-7.5z" fill="currentColor"/></svg>
-          <svg class="i-pause" viewBox="0 0 26 26" aria-hidden="true"><path d="M8 5.5h3.5v15H8zM14.5 5.5H18v15h-3.5z" fill="currentColor"/></svg>
-        </button>
-        <span class="reel-time" aria-hidden="true">0:00 / 0:21</span>
-        <div class="reel-bar" aria-hidden="true"><i></i></div>
-      </div>
-      <div class="reel-chapters" role="group" aria-label="チャプターへ移動">
-        <button type="button" data-t="0">オープニング</button>
-        <button type="button" data-t="2.8"><b>01</b>Webサイト</button>
-        <button type="button" data-t="5.15"><b>02</b>LP</button>
-        <button type="button" data-t="7.5"><b>03</b>動画編集</button>
-        <button type="button" data-t="9.85"><b>04</b>プロダクト</button>
-        <button type="button" data-t="12.2"><b>05</b>モーション</button>
-        <button type="button" data-t="14.55"><b>06</b>AI自動化</button>
-        <button type="button" data-t="16.9">ロゴ</button>
-      </div>
-    </div>
-
+    <div class="steps-head"><h2 id="steps-h">進め方</h2><p class="steps-note">掲載サンプルはすべてDream Labsが制作したコンセプトです。</p></div>
+    <ol class="steps">
+      <li><b>01</b><h3>サンプルとプランを選ぶ</h3><p>料金はプランごとに明示。</p></li>
+      <li><b>02</b><h3>30分のお打ち合わせ</h3><p>ブランドと目標を把握します。</p></li>
+      <li><b>03</b><h3>デザインと調整</h3><p>プランの回数内で修正します。</p></li>
+      <li><b>04</b><h3>元データを納品</h3><p>操作ガイドと保証付き。</p></li>
+    </ol>
   </div>
 </section>
 <!-- 80-faq.html.off -->
@@ -275,7 +253,6 @@
       <h2 data-split>始める<em>前に。</em></h2>
       <p class="lead" data-reveal>お探しの答えが見つからない場合は、お気軽にご連絡ください。24時間以内にお返事します。</p>
       <a class="btn" href="#lien-he" data-reveal data-magnetic>直接質問する <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
-      <svg class="faq-sp" viewBox="-1 -1 57 36" aria-hidden="true" data-parallax="0.1"><use href="#dl-grid" class="g"/><use href="#dl-spiral"/></svg>
     </div>
     <div class="faq-list" id="faqList">
       <details name="faq"><summary><span class="n">01</span><span class="q">AIによる業務プロセス自動化とは何ですか？</span><i aria-hidden="true"></i></summary><div class="a"><p>AIと自動化ツールを使い、顧客への返信、注文作成、データ入力、照合、リマインド、レポート作成といった繰り返しの業務を代行させることです。スタッフは人の判断が必要な部分だけを担うため、業務が速くなり、ミスも減ります。</p></div></details>
@@ -294,7 +271,7 @@
 <section class="band contact-sec" id="lien-he">
   <div class="wrap contact">
     <div class="cinfo">
-      <div><p class="eyebrow">お問い合わせ</p><h2 data-split>プロジェクトを、<em>始めましょう。</em></h2></div>
+      <h2 data-split>プロジェクトを、<em>始めましょう。</em></h2>
       <p class="lead" data-reveal>ご相談は無料、24時間以内にお返事します。日本語でのお問い合わせは、フォームまたはメールからどうぞ（Zalo・お電話も可）。</p>
       <dl data-stagger>
         <div><dt>Zalo / 電話</dt><dd>0934 246 420</dd>
@@ -327,20 +304,13 @@
 <!-- 95-footer.html -->
 <footer class="foot" id="chan-trang">
   <div class="wrap">
-    <svg class="foot-sp" viewBox="-1 -1 57 36" aria-hidden="true"><path class="g" d="M13 10h3v3h-3zM16 8h5v5h-5zM13 0h8v8h-8zM0 0h13v13h-13zM0 13h21v21h-21zM21 0h34v34h-34z"/><path class="s" id="footSpiral" pathLength="1" d="M15 10A1 1 0 0 0 16 9A1 1 0 0 0 15 8A2 2 0 0 0 13 10A3 3 0 0 0 16 13A5 5 0 0 0 21 8A8 8 0 0 0 13 0A13 13 0 0 0 0 13A21 21 0 0 0 21 34A34 34 0 0 0 55 0"/></svg>
     <div class="foot-top">
-      <div class="foot-cta">
-        <h2>アイデアがあれば、<em>Dream Labsへ。</em></h2>
-        <a class="btn primary" href="https://zalo.me/0934246420" target="_blank" rel="noopener" data-magnetic>Zalo 0934 246 420 <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
-      </div>
+      <a class="logo foot-logo" href="#top" aria-label="Dream Labs、ページの先頭へ"><svg viewBox="0 0 26 26" aria-hidden="true"><use href="#dl-logo"/></svg><span>Dream <i>Labs</i></span></a>
       <div class="foot-cols">
         <nav aria-label="サービス"><b>サービス</b><a href="#p-ai">AI自動化</a><a href="#p-web">Webサイト</a><a href="#p-landing">ランディングページ</a><a href="#p-product">パッケージ</a><a href="#p-motion">モーショングラフィックス</a><a href="#p-video">動画編集</a></nav>
         <nav aria-label="もっと見る"><b>もっと見る</b><a href="#mau-gia">作品と料金</a><a href="#bao-gia">料金表</a><a href="#tinh-gia">見積もりシミュレーター</a><a href="#faq">よくある質問</a><a href="./" hreflang="vi" lang="vi">Tiếng Việt</a><a href="en/" hreflang="en" lang="en">English</a></nav>
       </div>
     </div>
-  </div>
-  <div class="giant" aria-hidden="true"><div class="giant-in" id="giant">Dream <i>Labs</i><svg viewBox="-1 -1 57 36"><use href="#dl-spiral"/></svg>Dream <i>Labs</i><svg viewBox="-1 -1 57 36"><use href="#dl-spiral"/></svg>Dream <i>Labs</i></div></div>
-  <div class="wrap">
     <div class="foot-bot">
       <span>© 2026 Dream Labs</span>
       <a href="#top" class="foot-up">ページの先頭へ <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
@@ -354,7 +324,7 @@
 <link rel="stylesheet" href="css/work.css?v=c86394f3">
 <link rel="stylesheet" href="css/lab.css?v=2a9d3e08">
 <link rel="stylesheet" href="css/samples.css?v=1dc25b52">
-<link rel="stylesheet" href="css/showroom.css?v=36c0a5f3">
+<link rel="stylesheet" href="css/showroom.css?v=1b7a8d1f">
 <script src="vendor/gsap.min.js?v=ff86cb55"></script>
 <script src="vendor/ScrollTrigger.min.js?v=2e3b8c36"></script>
 <script src="vendor/SplitText.min.js?v=6631fa05"></script>
@@ -362,10 +332,10 @@
 <script src="js/data.js?v=1936282e"></script>
 <script src="js/kit.js?v=15802869"></script>
 <script src="js/i18n.js?v=a4b5c5a4"></script>
-<script src="js/core.js?v=fa8fd8ac"></script>
+<script src="js/core.js?v=f33e4aeb"></script>
 <script src="js/work.js?v=2f6e38b4"></script>
 <script src="js/lab.js?v=2fa6a412"></script>
-<script src="js/samples-ai.js?v=ca14d816"></script>
+<script src="js/samples-ai.js?v=445e3367"></script>
 <script src="js/samples-landing.js?v=257424ef"></script>
 <script src="js/samples-motion.js?v=f0d5b877"></script>
 <script src="js/samples-product.js?v=25677e17"></script>
@@ -373,6 +343,6 @@
 <script src="js/samples-web.js?v=22ca97ea"></script>
 <script src="js/spin.js?v=85a75955"></script>
 <script src="js/samples.js?v=0009b53d"></script>
-<script src="js/showroom.js?v=a40ccc8e"></script>
+<script src="js/showroom.js?v=747751a3"></script>
 </body>
 </html>

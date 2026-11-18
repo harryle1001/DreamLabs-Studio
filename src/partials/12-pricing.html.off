@@ -21,7 +21,6 @@
         <div class="est-list" id="estList"></div>
       </div>
       <aside class="est-sum" aria-live="polite">
-        <svg class="est-sp" viewBox="-1 -1 57 36" aria-hidden="true"><use href="#dl-spiral"/></svg>
         <span class="lbl">Tổng dự kiến</span>
         <div class="total" id="estTotal">0đ</div>
         <div class="lines" id="estLines"><div><span>Chưa chọn hạng mục nào</span></div></div>

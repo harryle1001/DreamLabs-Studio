@@ -5,7 +5,6 @@
       <h2 data-split>Trước khi <em>bắt đầu.</em></h2>
       <p class="lead" data-reveal>Chưa thấy câu trả lời bạn cần? Nhắn cho chúng tôi, phản hồi trong 24h.</p>
       <a class="btn" href="#lien-he" data-reveal data-magnetic>Hỏi trực tiếp <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a>
-      <svg class="faq-sp" viewBox="-1 -1 57 36" aria-hidden="true" data-parallax="0.1"><use href="#dl-grid" class="g"/><use href="#dl-spiral"/></svg>
     </div>
     <div class="faq-list" id="faqList">
       <details name="faq"><summary><span class="n">01</span><span class="q">Tự động hóa quy trình doanh nghiệp bằng AI là gì?</span><i aria-hidden="true"></i></summary><div class="a"><p>Là dùng AI và các công cụ tự động để làm thay những việc lặp đi lặp lại: trả lời khách, tạo đơn, nhập liệu, đối soát, nhắc việc, làm báo cáo. Nhân viên chỉ xử lý phần cần con người quyết định, nên doanh nghiệp vận hành nhanh hơn và ít sai sót hơn.</p></div></details>
