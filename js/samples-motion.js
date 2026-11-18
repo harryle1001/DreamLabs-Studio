@@ -48,5 +48,13 @@
     pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-navelia.webp', kind: 'video',
     src: 'media/sm-motion-navelia.mp4', poster: 'media/sm-motion-navelia.webp', ratio: '16:9', duration: 8
+  },
+  {
+    id: 'motion-studio3d', title: 'Dream Labs 3D Studio — Sáu vật thật', industry: 'Nội thất',
+    desc: 'Phim sản phẩm 3D 17 giây: sáu món đồ quét 3D từ vật thật (Poly Haven, CC0) đặt trên bệ đá viền đồng, máy quay lượn và đẩy sát, ánh sáng lướt qua bề mặt đồng, gốm, sứ, gỗ; chữ tên sản phẩm hiện theo nhịp. Toàn bộ dựng bằng Three.js trong trình duyệt.',
+    tags: ['Phim sản phẩm 3D', 'Quét 3D vật thật', 'Ánh sáng studio'],
+    pkg: 'Motion Graphic — Cao cấp',
+    cover: 'img/sm-motion-studio3d.webp', kind: 'video',
+    src: 'media/sm-motion-studio3d.mp4', poster: 'media/sm-motion-studio3d.webp', ratio: '16:9', duration: 17
   }
 ];
