@@ -21,7 +21,9 @@ Cần cài một lần:
 |---|---|
 | Giá, tên gói, tính năng từng gói | `js/data.js` |
 | Số điện thoại, Zalo, email | `src/partials/00-chrome.html`, `90-contact.html`, `95-footer.html` |
-| Mẫu trong Phòng mẫu | `js/samples-<hạng mục>.js` |
+| Mẫu trong Phòng mẫu và showroom trang chủ | `js/samples-<hạng mục>.js` (giá trên thẻ lấy từ trường `pkg` + `js/data.js`; showroom: `js/showroom.js`, `css/showroom.css`) |
+| Trang Lab (5 demo) | `src/lab/lab.html` (build.js dựng `lab/index.html`) |
+| Công cụ tự tính giá, hỏi đáp | `src/pages/bang-gia.html` (mã `{{tinh-gia}}`) |
 | Nội dung từng phần của trang | `src/partials/*.html` |
 | Trang dịch vụ (`/thiet-ke-website/`, `/bang-gia/`…) | `src/pages/<slug>.html` (giá tự lấy từ `js/data.js`, dựng bằng `tools/pages.js`) |
 | Bài viết | `src/blog/<slug>.html` (dựng bằng `tools/blog.js`) |
@@ -44,7 +46,8 @@ rồi mở http://127.0.0.1:4100
 ## Cấu trúc
 
 - `index.html`: trang chủ đã ghép (do `build.js` tạo, không sửa tay)
-- `src/partials/`: từng phần của trang chủ
+- `src/partials/`: từng phần của trang chủ (header, hero, showroom mẫu & giá, showreel, ô xem thêm, liên hệ, chân trang; file `.off` là phần đã tắt)
+- `giai-phap-theo-nganh/`: danh mục 60 trang ngành (tools/pages.js tự dựng)
 - `src/pages/`, `src/blog/`: nguồn trang dịch vụ và bài viết; khung trang dùng chung ở `tools/site.js`
 - `css/`, `js/`: giao diện và tương tác
 - `demos/`: các website và landing page mẫu chạy thật

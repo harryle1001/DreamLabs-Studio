@@ -40,6 +40,11 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
   html=html.replace(/<script src="js\/[^"]+"><\/script>\n?/g,()=>firstJs?(firstJs=false,'<script src="a.js"></script>\n'):'');
   html=await htmlmin(html,{collapseWhitespace:true,conservativeCollapse:true,removeComments:true,minifyCSS:true,minifyJS:true});
   fs.writeFileSync(path.join(OUT,'index.html'),html);
+  /* /lab/: cùng khung trang chủ, <base href="../"> nên a.css / a.js trỏ về gốc */
+  if(ex('lab/index.html')){let lh=cls(ren(rd('lab/index.html').replace(/<!--[\s\S]*?-->/g,'')));let fc=true,fj=true;
+    lh=lh.replace(linkRe,()=>fc?(fc=false,'<link rel="stylesheet" href="a.css">\n'):'').replace(/<script src="js\/[^"]+"><\/script>\n?/g,()=>fj?(fj=false,'<script src="a.js"></script>\n'):'');
+    lh=await htmlmin(lh,{collapseWhitespace:true,conservativeCollapse:true,removeComments:true,minifyCSS:true,minifyJS:true});
+    fs.mkdirSync(path.join(OUT,'lab'),{recursive:true});fs.writeFileSync(path.join(OUT,'lab/index.html'),lh)}
 
   /* demo: nén từng trang */
   for(const f of fs.readdirSync(path.join(R,'demos')).filter(f=>f.endsWith('.html'))){
@@ -60,6 +65,7 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
     const blogQueue=[];walk('blog');
     /* trang dịch vụ (src/pages → <slug>/index.html) dùng chung khung và b.css với blog */
     for(const p of require('./site.js').HUBS)if(ex(p.slug))walk(p.slug);   /* trang theo ngành nằm trong thư mục trang dịch vụ */
+    if(ex('giai-phap-theo-nganh'))walk('giai-phap-theo-nganh');
     for(const p of require('./site.js').INDUSTRY)if(!blogQueue.includes(p.slug+'/index.html')&&ex(p.slug))walk(p.slug);
     for(const p of blogQueue){
       let h=rd(p);let first=true;

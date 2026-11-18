@@ -4,7 +4,7 @@
      Trong thân bài: {{gia:<id>}} chèn bảng giá lấy từ js/data.js (luôn khớp bảng giá trang chủ).
      Mục "Câu hỏi thường gặp": <h2 id="cau-hoi">…</h2> rồi các cặp <h3>câu hỏi</h3><p>trả lời</p> (tự sinh FAQPage JSON-LD).
    Khung trang dùng chung với trang dịch vụ: tools/site.js.
-   Kết quả: blog/index.html, blog/<slug>/index.html, src/partials/70-blog.html (khối "Bài viết mới" trên trang chủ), sitemap.xml.
+   Kết quả: blog/index.html, blog/<slug>/index.html, sitemap.xml.
    build.js tự gọi file này nên thường không cần chạy riêng. */
 const fs=require('fs'),path=require('path');
 const S=require('./site.js');
@@ -76,25 +76,13 @@ ${p.body.trim()}
   fs.writeFileSync(path.join(OUT,'index.html'),page({up:'../',cur:'blog',title,desc,canonical:url,image:posts[0].image,imageAlt:'Bài viết của Dream Labs',jsonld:ld({'@context':'https://schema.org','@graph':graph}),main}));
 }
 
-/* khối "Bài viết mới" trên trang chủ */
-const home=posts.filter(p=>p.home!==false).slice(0,3);
-fs.writeFileSync(path.join(R,'src/partials/70-blog.html'),`<!-- Sinh tự động bởi tools/blog.js: đừng sửa tay -->
-<section class="band bposts-sec" id="bai-viet">
-  <div class="wrap">
-    <div class="bposts-head"><div><p class="eyebrow">Bài viết mới</p><h2>Kinh nghiệm <em>trước khi bắt đầu.</em></h2></div>
-      <a class="btn sm" href="blog/">Tất cả bài viết <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a></div>
-    <div class="bposts">
-${home.map(p=>`      <a class="bpost" href="blog/${p.slug}/" data-cursor="Đọc"><span class="bpost-img"><img src="${p.image}" width="1280" height="791" alt="${esc(p.imageAlt)}" loading="lazy" decoding="async"></span><span class="bpost-t"><small>${esc(p.cat)} · ${p.read} phút đọc</small><b>${esc(p.h1)}</b></span></a>`).join('\n')}
-    </div>
-  </div>
-</section>
-`);
-
 /* sitemap */
 const today=new Date().toISOString().slice(0,10);
 fs.writeFileSync(path.join(R,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>${SITE}lab/</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>${SITE}giai-phap-theo-nganh/</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>${SITE}blog/</loc><lastmod>${posts.map(p=>p.updated||p.date).sort().pop()}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
 ${S.PAGES.map(p=>`  <url><loc>${SITE}${p.slug}/</loc><lastmod>${p.updated||p.date}</lastmod><changefreq>monthly</changefreq><priority>${p.industry_id?'0.7':'0.9'}</priority></url>`).join('\n')}
 ${posts.map(p=>`  <url><loc>${p.url}</loc><lastmod>${p.updated||p.date}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`).join('\n')}

@@ -93,6 +93,8 @@ safe('render-pricing',()=>{
   const el=$('#estList');
   if(el)el.innerHTML=CATS.map(c=>`<div class="est-row" data-c="${c.id}"><div class="l" id="el-${c.id}">${icoPlain(c.id)}<span>${c.name}<small>${c.tag}</small></span></div>
    <div class="seg" role="group" aria-labelledby="el-${c.id}" data-c="${c.id}"><button type="button" class="on" data-i="-1" aria-pressed="true">Không</button>${c.tiers.map((t,i)=>`<button type="button" data-i="${i}" aria-pressed="false">${t.n}</button>`).join('')}</div></div>`).join('');
+});
+safe('render-form',()=>{
   const sel=$('#f-svc');
   if(sel)sel.innerHTML='<option value="">Chưa chắc, cần tư vấn</option>'+CATS.map(c=>`<optgroup label="${c.name}">${c.tiers.map(t=>`<option>${c.name} — ${t.n}</option>`).join('')}</optgroup>`).join('')+'<option value="combo">Cấu hình tự tính</option>';
 });
@@ -143,6 +145,15 @@ function pick(raw,note){
   pickBanner(t,true);return false;
 }
 D.pick=pick;
+
+/* ?chon=<gói>&ghi-chu=… (từ /lab/) hoặc ?cau-hinh=… (công cụ tự tính giá ở /bang-gia/): điền sẵn form liên hệ rồi xóa tham số khỏi địa chỉ */
+safe('url-pick',()=>{
+  const q=new URLSearchParams(location.search),c=q.get('chon'),n=q.get('ghi-chu'),h=q.get('cau-hinh');if(!c&&!h)return;
+  if(c)pick(c,n||'');
+  if(h){const sel=$('#f-svc'),msg=$('#f-msg');if(sel)sel.value='combo';if(msg)msg.value='Cấu hình: '+h;pickBanner('Cấu hình tự tính',true)}
+  try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
+  const f=$('#lien-he');if(f)setTimeout(()=>D.scrollTo(f,{immediate:true}),60);
+});
 
 /* ═════════ MENU ĐIỆN THOẠI ═════════ */
 const menu=$('#menu'),burger=$('#burger');
@@ -209,6 +220,7 @@ document.addEventListener('click',e=>{
   if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||!e.target.closest)return;
   if(D.samples&&e.target.closest('[data-sm-open]'))return; // phòng mẫu (samples.js) tự xử lý
   const p=e.target.closest('[data-pick]');
+  if(p&&!$('#cf')){e.preventDefault();location.href=new URL('./?chon='+encodeURIComponent(p.dataset.pick)+(p.dataset.pickNote?'&ghi-chu='+encodeURIComponent(p.dataset.pickNote):'')+'#lien-he',document.baseURI).href;return}
   if(p){e.preventDefault();pick(p.dataset.pick,p.dataset.pickNote);document.dispatchEvent(new CustomEvent('dl:pick',{detail:{pick:p.dataset.pick,note:p.dataset.pickNote||''}}));D.modal.close();setMenu(false);setFab(false);D.lenis&&D.lenis.start();go('#lien-he');return}
   const a=e.target.closest('a[href^="#"]');if(!a)return;
   const id=a.getAttribute('href').slice(1),el=id&&document.getElementById(id);if(!el)return;

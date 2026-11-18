@@ -36,13 +36,28 @@ const fill=s=>s
   .replace(/\{\{gia:(\w+)\}\}/g,(_,id)=>priceTable(id))
   .replace(/\{\{so-sanh:(\w+)\}\}/g,(_,id)=>compare(id))
   .replace(/\{\{tu:(\w+)\}\}/g,(_,id)=>vnd(Math.min(...cat(id).tiers.map(t=>t.p))))
-  .replace(/\{\{p:(\w+):(\d)\}\}/g,(_,id,i)=>priceText(cat(id).tiers[+i]));
+  .replace(/\{\{p:(\w+):(\d)\}\}/g,(_,id,i)=>priceText(cat(id).tiers[+i]))
+  .replace(/\{\{tinh-gia\}\}/g,()=>estimator());
+/* {{tinh-gia}}: công cụ tự tính giá (chọn gói từng dịch vụ, từ 3 dịch vụ giảm 10%), gửi cấu hình về form liên hệ trang chủ (?cau-hinh=) */
+function estimator(){
+  const D=CATS.map(c=>({n:c.name,t:c.tiers.map(t=>[t.n,t.p,t.u||''])}));
+  return `<div class="tg" id="tinh-gia">
+ <div class="tg-rows">${CATS.map((c,ci)=>`<fieldset class="tg-row"><legend>${esc(c.name)}</legend><div class="tg-seg"><label><input type="radio" name="tg${ci}" value="-1" checked><span>Không</span></label>${c.tiers.map((t,i)=>`<label><input type="radio" name="tg${ci}" value="${i}"><span>${esc(t.n)}<small>${vnd(t.p)}${esc(t.u||'')}</small></span></label>`).join('')}</div></fieldset>`).join('')}</div>
+ <aside class="tg-sum" aria-live="polite"><small>Tổng dự kiến</small><b class="tg-total">0đ</b><ul class="tg-lines"><li>Chưa chọn dịch vụ nào</li></ul><p class="tg-save">Chọn từ 3 dịch vụ: giảm 10%</p>
+  <a class="btn primary tg-go" href="../#lien-he">Gửi cấu hình này ${ICON.arrow}</a><p class="tg-note">Giá tham khảo, chưa gồm VAT.</p></aside>
+</div>
+<script>(function(){var D=${JSON.stringify(D)},r=document.getElementById('tinh-gia');if(!r)return;var f=function(n){return Math.round(n).toLocaleString('vi-VN')+'đ'};
+function up(){var L=[],s=0;D.forEach(function(c,i){var x=r.querySelector('input[name="tg'+i+'"]:checked'),v=x?+x.value:-1;r.querySelectorAll('.tg-row')[i].classList.toggle('on',v>=0);if(v>=0){var t=c.t[v];s+=t[1];L.push([c.n+' — '+t[0],f(t[1])+t[2]])}});
+var d=L.length>=3?Math.round(s*.1):0;r.querySelector('.tg-total').textContent=f(s-d);r.querySelector('.tg-lines').innerHTML=L.length?L.map(function(l){return '<li><span>'+l[0]+'</span><b>'+l[1]+'</b></li>'}).join('')+(d?'<li class="d"><span>Giảm combo 10%</span><b>−'+f(d)+'</b></li>':''):'<li>Chưa chọn dịch vụ nào</li>';
+r.querySelector('.tg-save').classList.toggle('on',!!d);var g=r.querySelector('.tg-go');g.href='../'+(L.length?'?cau-hinh='+encodeURIComponent(L.map(function(l){return l[0]+' ('+l[1]+')'}).join('; ')+(d?'; tổng sau giảm 10%: '+f(s-d):'')):'')+'#lien-he'}
+r.addEventListener('change',up);up()})();</script>`;
+}
 /* {{nganh:<id>}}: danh sách trang theo ngành của một dịch vụ; up tùy độ sâu trang đang dựng */
 const fillUp=(s,up)=>s.replace(/\{\{nganh:(\w+)\}\}/g,(_,id)=>links(up,INDUSTRY.filter(p=>p.cat_id===id).map(p=>[p.slug+'/',p.industry,p.short||p.h1])));
 
 /* kiểm tra: số chữ, độ dài, chữ cấm, ảnh, liên kết nội bộ */
 const BAN=/tỷ lệ vàng|tỉ lệ vàng|góc vàng|xoắn ốc vàng|φ|1[.,]618|golden/i;
-const known=new Set(['',...PAGES.map(p=>p.slug),'blog',...POSTS.map(p=>'blog/'+p.slug)]);
+const known=new Set(['','lab','giai-phap-theo-nganh',...PAGES.map(p=>p.slug),'blog',...POSTS.map(p=>'blog/'+p.slug)]);
 function lint(m,words){
   const w=[];
   if(m.industry_id&&(words<800||words>1300))w.push(`số chữ ${words} (cần 800–1300)`);
@@ -81,7 +96,7 @@ for(const m of PAGES){
   const sameInd=m.industry_id?INDUSTRY.filter(p=>p.industry_id===m.industry_id&&p!==m):[];
   const siblings=m.industry_id?INDUSTRY.filter(p=>p.cat_id===m.cat_id&&p!==m):[];
   const from=c?Math.min(...c.tiers.map(t=>t.p)):0,fast=c?c.tiers[0].t:'';
-  const act=`<a class="btn primary" href="${ZALO}" target="_blank" rel="noopener">${ICON.zalo} Nhắn Zalo ${esc(PHONE)}</a><a class="btn" href="${up}#lien-he">Gửi yêu cầu tư vấn</a><a class="btn" href="${up}#bao-gia">Xem mẫu đã làm ${ICON.arrow}</a>`;
+  const act=`<a class="btn primary" href="${ZALO}" target="_blank" rel="noopener">${ICON.zalo} Nhắn Zalo ${esc(PHONE)}</a><a class="btn" href="${up}#lien-he">Gửi yêu cầu tư vấn</a><a class="btn" href="${up}#mau-gia">Xem mẫu và giá ${ICON.arrow}</a>`;
   const main=`<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="${up}">Trang chủ</a><span aria-hidden="true">/</span>${m.industry_id?`<a href="${up}${hubLink(m.cat_id)[0]}">${esc(hubLink(m.cat_id)[1])}</a><span aria-hidden="true">/</span>`:''}<span aria-current="page">${esc(m.short||m.h1)}</span></nav>
 <article class="bl-post sv">
  <header class="bl-wrap bl-post-h sv-h">
@@ -115,28 +130,26 @@ ${related.length?`<section class="bl-wrap bl-more sv-posts" aria-labelledby="sv-
     jsonld:ld({'@context':'https://schema.org','@graph':graph}),main,extraHead:m.keywords?`<meta name="keywords" content="${esc(m.keywords.join(', '))}">\n`:''}));
   built.push(`${m.slug} (${words} chữ)`);
 }
-/* khối "Giải pháp theo ngành" trên trang chủ (src/partials/75-nganh.html): mỗi ngành một thẻ, liên kết tới các dịch vụ của ngành đó */
+/* trang danh mục /giai-phap-theo-nganh/: mỗi ngành một nhóm, liên kết tới các dịch vụ của ngành đó */
 {
   const order=['spa','nha-khoa','nha-hang','bat-dong-san','my-pham','noi-that','khach-san','giao-duc','thuy-san','ban-hang-online','phong-kham','thoi-trang'];
   const SV={ai:'Tự động hóa AI',web:'Website',landing:'Landing page',video:'Edit video',product:'Bao bì',motion:'Motion graphic'};
   const ids=[...new Set(INDUSTRY.map(p=>p.industry_id))].sort((a,b)=>((order.indexOf(a)+1)||99)-((order.indexOf(b)+1)||99));
-  const cards=ids.map(id=>{const ps=INDUSTRY.filter(p=>p.industry_id===id).sort((a,b)=>CATS.findIndex(c=>c.id===a.cat_id)-CATS.findIndex(c=>c.id===b.cat_id));
-    return `      <div class="ind"><h3>${esc(ps[0].industry)}</h3><p>${ps.map(p=>`<a href="${p.slug}/">${SV[p.cat_id]}</a>`).join('')}</p></div>`});
-  const top=cards.slice(0,8),rest=cards.slice(8);
-  fs.writeFileSync(path.join(R,'src/partials/75-nganh.html'),`<!-- Sinh tự động bởi tools/pages.js: đừng sửa tay -->
-<section class="band ind-sec" id="theo-nganh" aria-labelledby="ind-h">
-  <div class="wrap">
-    <div class="bposts-head"><div><p class="eyebrow">Giải pháp theo ngành</p><h2 id="ind-h">Làm đúng cho <em>ngành của bạn.</em></h2></div>
-      <a class="btn sm" href="bang-gia/">Bảng giá dịch vụ <svg viewBox="0 0 16 16" aria-hidden="true"><use href="#dl-arrow"/></svg></a></div>
-    <p class="ind-lead">Mỗi ngành có cách bán, cách chăm khách và quy định riêng. Chọn ngành của bạn để xem doanh nghiệp được gì từ từng dịch vụ.</p>
-    <div class="inds">
-${top.join('\n')}
-    </div>
-${rest.length?`    <details class="ind-more"><summary>Xem thêm ${rest.length} ngành</summary><div class="inds">
-${rest.join('\n')}
-    </div></details>\n`:''}  </div>
-</section>
-`);
+  const slug='giai-phap-theo-nganh',url=SITE+slug+'/',up='../';
+  const groups=ids.map(id=>INDUSTRY.filter(p=>p.industry_id===id).sort((a,b)=>CATS.findIndex(c=>c.id===a.cat_id)-CATS.findIndex(c=>c.id===b.cat_id)));
+  const title='Giải pháp theo ngành: website, AI, video | Dream Labs',desc='Dịch vụ Dream Labs cho từng ngành: spa, nha khoa, nhà hàng, bất động sản, mỹ phẩm, nội thất và hơn thế. Chọn ngành để xem giải pháp và giá.';
+  checkLen(slug,title,desc);
+  const main=`<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="${up}">Trang chủ</a><span aria-hidden="true">/</span><span aria-current="page">Giải pháp theo ngành</span></nav>
+<section class="bl-wrap bl-post-h sv-h"><p class="eyebrow">${groups.length} ngành · ${INDUSTRY.length} trang</p><h1>Giải pháp <em>theo ngành</em></h1>
+ <p class="bl-lead">Chọn ngành của bạn để xem doanh nghiệp được gì từ từng dịch vụ, kèm giá từng gói.</p></section>
+<div class="bl-wrap ind-list">
+${groups.map(ps=>`<section class="bl-more ind-g" aria-labelledby="ng-${ps[0].industry_id}"><h2 id="ng-${ps[0].industry_id}">${esc(ps[0].industry)}</h2>${links(up,ps.map(p=>[p.slug+'/',SV[p.cat_id]||cat(p.cat_id).name,'Giá từ '+fromPrice(p.cat_id)]))}</section>`).join('\n')}
+</div>`;
+  const graph=[org,{'@type':'CollectionPage','@id':url+'#trang',url,name:title,description:desc,inLanguage:'vi',isPartOf:{'@type':'WebSite','@id':SITE+'#web'}},
+    {'@type':'ItemList',itemListElement:INDUSTRY.map((p,i)=>({'@type':'ListItem',position:i+1,url:SITE+p.slug+'/',name:p.short||p.h1}))},crumbs([['Trang chủ',SITE],['Giải pháp theo ngành',url]])];
+  fs.mkdirSync(path.join(R,slug),{recursive:true});
+  fs.writeFileSync(path.join(R,slug,'index.html'),page({up,cur:slug,title,desc,canonical:url,image:'img/og.webp',imageAlt:'Dream Labs',jsonld:ld({'@context':'https://schema.org','@graph':graph}),main}));
+  built.push(slug);
 }
 if(require.main===module)console.log('trang dịch vụ:',built.length,'trang ·',built.join(' · '),bad?`\n⚠ ${bad} cảnh báo`:'\n✓ không có cảnh báo');
 module.exports={pages:PAGES.map(p=>p.slug)};

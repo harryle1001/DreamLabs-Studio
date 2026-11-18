@@ -84,7 +84,8 @@ const faqLd=(url,faq)=>({'@type':'FAQPage','@id':url+'#cau-hoi',mainEntity:faq.m
 
 /* khung trang. up: đường dẫn về gốc ('../' hoặc '../../'); cur: khóa mục menu đang mở */
 function page({up,cur='',title,desc,canonical,ogType='website',image,imageAlt,jsonld,main,extraHead=''}){
-  const nav=[...HUBS.filter(p=>p.nav).map(p=>[p.slug,p.nav,up+p.slug+'/']),['blog','Bài viết',up+'blog/'],['lien-he','Liên hệ',up+'#lien-he']];
+  const hub=s=>{const p=HUBS.find(x=>x.slug===s);return p?[[p.slug,p.nav||p.short,up+p.slug+'/']]:[]};
+  const nav=[['mau-gia','Mẫu & giá',up+'#mau-gia'],...hub('tu-dong-hoa-quy-trinh-doanh-nghiep'),...hub('thiet-ke-website'),['lab','Lab',up+'lab/'],['blog','Bài viết',up+'blog/'],['lien-he','Liên hệ',up+'#lien-he']];
   return `<!doctype html>
 <html lang="vi">
 <head>
@@ -134,6 +135,7 @@ ${main}
   <div class="bl-foot-brand"><a class="bl-logo" href="${up}">${ICON.logo}<span>Dream <i>Labs</i></span></a>
    <p>Tự động hóa quy trình doanh nghiệp bằng AI, thiết kế website, landing page, video, bao bì cho doanh nghiệp Việt Nam.</p></div>
   <nav aria-label="Dịch vụ"><b>Dịch vụ</b>${CATS.map(c=>`<a href="${svcHref(c.id,up)}">${esc((pageFor(c.id)||{}).short||c.name)}</a>`).join('')}${HUBS.filter(p=>!p.cat_id).map(p=>`<a href="${up}${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
+  <nav aria-label="Khám phá"><b>Khám phá</b><a href="${up}#mau-gia">Mẫu &amp; giá</a><a href="${up}bang-gia/">Bảng giá, tự tính giá, hỏi đáp</a><a href="${up}lab/">Lab: demo tương tác</a><a href="${up}giai-phap-theo-nganh/">Giải pháp theo ngành</a><a href="${up}blog/">Tất cả bài viết</a></nav>
   <nav aria-label="Bài viết"><b>Bài viết</b>${POSTS.map(p=>`<a href="${up}blog/${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
   <div><b>Liên hệ</b><span class="sel">${esc(PHONE)}</span>${EMAIL?`<span class="sel">${esc(EMAIL)}</span>`:''}<a href="${ZALO}" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
  </div>
