@@ -167,14 +167,14 @@ function zoom(src,alt){
 function segHTML(label,opts,attr){return`<div class="sm-seg" role="group" aria-label="${label}">${opts.map(([v,t])=>`<button type="button" data-${attr}="${v}" aria-pressed="false">${t}</button>`).join('')}</div>`}
 function segSet(root,attr,val){$$(`[data-${attr}]`,root).forEach(b=>b.setAttribute('aria-pressed',String(b.dataset[attr]===val)))}
 
-/* site: ảnh cuộn dài (Máy tính / Điện thoại) + demo trực tiếp trong iframe, không tải được thì trả về ảnh cuộn dài */
+/* site: mở thẳng demo trực tiếp trong iframe (Máy tính / Điện thoại); không tải được thì hiện ảnh cuộn dài */
 function stageSite(it){
   const r=it.raw,demo=str(r.demo),L={d:str(r.long),m:str(r.longM)};
   let mode=innerWidth<=860&&L.m?'m':L.d?'d':L.m?'m':'d',live=false,ok=false,timer=0,ro=null,ifr=null;
-  const node=el('div','sm-site',`<div class="sm-site-bar"><span class="sm-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sm-url">${esc(demo||T('Ảnh chụp toàn trang'))}</span>${demo?`<a class="sm-lk" href="${esc(demo)}">${T('Mở trang demo riêng')}</a>`:''}${segHTML(T('Khung xem'),[['d',T('Máy tính')],['m',T('Điện thoại')]],'m')}${demo?`<button class="btn primary sm" type="button" data-live>${T('Mở demo trực tiếp')} ${ARROW}</button>`:''}</div>
+  const node=el('div','sm-site',`<div class="sm-site-bar"><span class="sm-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="sm-url">${esc(demo||T('Ảnh chụp toàn trang'))}</span>${demo?`<a class="sm-lk" href="${esc(demo)}">${T('Mở trang demo riêng')}</a>`:''}${segHTML(T('Khung xem'),[['d',T('Máy tính')],['m',T('Điện thoại')]],'m')}</div>
    <div class="sm-port"><div class="sm-frame" data-imgbox><div class="sm-shot" tabindex="0" role="group" aria-label="${esc(T('Ảnh chụp toàn trang {t}, cuộn để xem',{t:it.title}))}"><img alt="${esc(T('Ảnh chụp toàn trang {t}',{t:it.title}))}" decoding="async"><span class="sm-mono" aria-hidden="true">${mono(it.title)}</span></div><div class="sm-load" aria-hidden="true">${T('Đang tải demo…')}</div></div></div>
    <p class="sm-note" hidden></p>`);
-  const port=$('.sm-port',node),frame=$('.sm-frame',node),shot=$('.sm-shot',node),img=$('img',shot),note=$('.sm-note',node),liveBtn=$('[data-live]',node);
+  const port=$('.sm-port',node),frame=$('.sm-frame',node),shot=$('.sm-shot',node),img=$('img',shot),note=$('.sm-note',node);
   const shotSrc=()=>(mode==='m'?L.m||L.d:L.d||L.m)||it.cover;
   img.addEventListener('error',()=>{if(it.cover&&img.getAttribute('src')!==it.cover){img.classList.remove('sm-err');frame.classList.remove('is-noimg');img.src=it.cover}});
   const fit=()=>{const cw=port.clientWidth;if(!cw)return;const m=mode==='m',vh=Math.max(377,innerHeight*.68);
@@ -188,7 +188,7 @@ function stageSite(it){
   const onMsg=e=>{if(ifr&&e.source===ifr.contentWindow)setOk()};
   const stopLive=()=>{if(!live)return;live=false;ok=false;clearTimeout(timer);removeEventListener('message',onMsg);
     if(ifr){try{ifr.src='about:blank'}catch(e){}ifr.remove();ifr=null}
-    frame.classList.remove('is-live','is-ok');if(liveBtn)liveBtn.innerHTML=T('Mở demo trực tiếp')+' '+ARROW};
+    frame.classList.remove('is-live','is-ok')};
   const fail=()=>{if(ok||!live)return;stopLive();note.hidden=false;
     note.textContent=T('Khung xem trực tiếp không tải được ở môi trường này nên đang hiện ảnh chụp toàn trang. Bạn vẫn mở được trang demo bằng liên kết "Mở trang demo riêng".');paint()};
   const startLive=()=>{if(live||!demo)return;live=true;ok=false;note.hidden=true;frame.classList.add('is-live');
@@ -196,12 +196,10 @@ function stageSite(it){
     ifr.addEventListener('load',()=>{try{const d=ifr.contentDocument;if(d&&d.contentType==='text/html'&&d.location.href!=='about:blank'&&d.querySelector('main,header,nav,section,article,footer,canvas'))setOk()}catch(e){}});
     ifr.addEventListener('error',fail);addEventListener('message',onMsg);
     frame.append(ifr);fit();ifr.src=url(demo);timer=setTimeout(fail,4240);
-    liveBtn.textContent=T('Về ảnh chụp');
-    const v=node.closest('.sm-view');if(v){const y=node.getBoundingClientRect().top-v.getBoundingClientRect().top;if(y>26)v.scrollBy({top:y-16,behavior:RM?'auto':'smooth'})}};
+};
   node.addEventListener('click',e=>{const b=e.target.closest('[data-m]');
-    if(b){mode=b.dataset.m;paint();return}
-    if(e.target.closest('[data-live]'))live?(stopLive(),paint()):startLive()});
-  return{node,wide:true,start(){paint();if(window.ResizeObserver){ro=new ResizeObserver(fit);ro.observe(port)}},destroy(){stopLive();ro&&ro.disconnect()}};
+    if(b){mode=b.dataset.m;paint()}});
+  return{node,wide:true,start(){paint();if(window.ResizeObserver){ro=new ResizeObserver(fit);ro.observe(port)}startLive()},destroy(){stopLive();ro&&ro.disconnect()}};
 }
 
 /* product: ảnh lớn đổi mẫu mã có crossfade + dải ảnh bấm xem lớn */
