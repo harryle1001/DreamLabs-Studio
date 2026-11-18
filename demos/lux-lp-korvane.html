@@ -25,9 +25,9 @@ ul,ol{padding:0;list-style:none}
 summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
 .w{width:100%;max-width:1280px;margin:0 auto;padding:0 max(20px,4.4vw)}
 .h1 span{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
-.h1 i{display:block;font-style:normal;animation:up var(--d6) var(--ease) both}
+.h1 i{display:block;font-style:normal;animation:sl var(--d6) var(--ease) .1s both}
 .h1 span:nth-child(2) i{animation-delay:.162s}.h1 span:nth-child(3) i{animation-delay:.324s}
-@keyframes up{from{transform:translateY(110%)}}
+@keyframes sl{from{transform:translateX(-104%) skewX(-13deg)}}
 @keyframes fade{from{opacity:0}}
 .js [data-r]{opacity:0;transform:translateY(26px);transition:opacity var(--d5) var(--ease),transform var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
 .js [data-r=clip]{opacity:1;transform:none;clip-path:inset(0 0 100% 0);transition:clip-path var(--d6) var(--ease);transition-delay:calc(var(--i,0)*162ms)}
@@ -41,7 +41,7 @@ summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:n
 @media(max-width:760px){.stk{display:flex}body{padding-bottom:0}}
 .emb .bk{display:none!important}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none;clip-path:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none;clip-path:none}.js .lc[data-r] div{clip-path:polygon(9% 0,100% 0,91% 100%,0 100%)}}
 :root{--bk:#0A0A0B;--cb:#141416;--wh:#F1F0EC;--mu:rgba(241,240,236,.64);--ln:rgba(241,240,236,.14);--pa:#FF5B1F;--ac:var(--pa);--fd:"Big Shoulders",Impact,sans-serif;--fb:"Chakra Petch",system-ui,sans-serif}
 body{background:var(--bk);color:var(--wh);font-family:var(--fb);font-weight:400}
 h1,h2,h3{font-family:var(--fd);font-weight:800;text-transform:uppercase;line-height:1;letter-spacing:.01em}
@@ -61,17 +61,30 @@ header .w{display:flex;align-items:center;gap:var(--s3);height:68px}
 .lg i{width:10px;height:26px;background:var(--pa);transform:skewX(-21deg);margin-right:var(--s2);transition:background var(--d4)}
 /* hero */
 .hero{position:relative;min-height:min(100svh,940px);padding:var(--s7) 0 var(--s5);display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:radial-gradient(ellipse 68% 26% at 50% 68%,#2A2A2E 0,transparent 100%),linear-gradient(180deg,#050506,#131315 61.8%,#0A0A0B)}
-.hero::before{content:"";position:absolute;left:16%;right:16%;top:13%;height:10px;border-radius:9px;background:#fff;filter:blur(13px);opacity:.5;animation:fade 2.6s var(--ease) both}
+.hb{position:absolute;inset:-12px;overflow:hidden;translate:calc(var(--mx,0)*-10px) calc(var(--my,0)*-6px);transition:translate var(--d5) var(--ease)}
+.hb div{position:absolute;inset:-9% 0}
+.hb img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 64%;animation:kb 16s var(--ease) both}
+@keyframes kb{from{transform:scale(1.16)}}
+.hb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.92),rgba(10,10,11,.3) 34%,rgba(10,10,11,.5) 58%,var(--bk) 94%)}
+.sk i{position:absolute;left:0;top:31%;width:34vw;height:2px;background:linear-gradient(90deg,transparent,var(--pa) 70%,#fff);opacity:0;animation:sk 4.2s cubic-bezier(.5,0,.1,1) 1s infinite;animation-play-state:paused}
+.sk i:nth-child(2){top:47%;width:52vw;height:1px;animation-duration:5.6s;animation-delay:2.1s}
+.sk i:nth-child(3){top:62%;width:22vw;height:3px;animation-duration:3.6s;animation-delay:2.9s}
+.sk i:nth-child(4){top:22%;width:44vw;height:1px;animation-duration:6.8s;animation-delay:.4s}
+.on>.sk i{animation-play-state:running}
+@keyframes sk{0%{transform:translateX(-56vw) skewX(-21deg);opacity:0}8%{opacity:.85}46%{opacity:.5}58%,100%{transform:translateX(112vw) skewX(-21deg);opacity:0}}
 .bg{position:absolute;left:0;right:0;top:14%;text-align:center;font-family:var(--fd);font-weight:900;font-size:min(46vw,620px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(241,240,236,.13);white-space:nowrap;pointer-events:none;-webkit-user-select:none;user-select:none}
 .cw{position:relative;width:min(100%,1180px);margin:0 auto;padding:0 var(--s3);animation:drv var(--d6) var(--ease) both}
 @keyframes drv{from{transform:translateX(-26%);opacity:0}}
-.car{width:100%;overflow:visible;--p1:#FF9A6B;--p2:#FF5B1F;--p3:#A82C00;--r1:#C9CED3;--r2:#55595F;--cl:#F2C230}
+.car{translate:calc(var(--mx,0)*13px) calc(var(--my,0)*5px);transition:translate var(--d5) var(--ease);width:100%;overflow:visible;--p1:#FF9A6B;--p2:#FF5B1F;--p3:#A82C00;--r1:#C9CED3;--r2:#55595F;--cl:#F2C230}
 .car .sp{transform:rotate(calc(var(--sy,0)*.6deg))}
 .car .hl{animation:hl 4.24s ease-in-out infinite alternate}@keyframes hl{from{opacity:.5}to{opacity:1}}
 .hero .w{position:relative;z-index:2;display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:end;margin-top:calc(-1*var(--s4))}
 h1{font-size:clamp(42px,5.8vw,84px);margin-top:var(--s3)}.h1 span{white-space:nowrap}
 .hr{display:grid;gap:var(--s4);justify-items:start;animation:fade var(--d6) var(--ease) .6s both}
 .hr p{color:var(--mu);max-width:38ch}
+.spd,.rv{display:none}
+.mo .spd{display:block;font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);min-width:92px;text-align:right;font-variant-numeric:tabular-nums}.spd b{font-size:26px;color:var(--wh)}
+.mo .rv{display:block;position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--pa);transform-origin:0 0;transform:scaleX(0);transition:background var(--d4)}
 /* số */
 .nb{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
 .nb .w{display:grid;grid-template-columns:repeat(4,1fr)}
@@ -89,6 +102,43 @@ h2{font-size:clamp(42px,6vw,89px)}
 .bn li::before{content:"";position:absolute;left:0;top:0;width:42px;height:4px;background:var(--pa);transition:width var(--d5) var(--ease),background var(--d4)}.bn li:hover::before{width:100%}
 .bn small{font-family:var(--fd);font-weight:800;font-size:53px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--mu)}
 .bn h3{font-size:33px;margin:var(--s4) 0 var(--s2)}.bn p{color:var(--mu)}
+/* chất liệu */
+.mt{position:relative}
+.mk{position:relative;display:grid;grid-template-columns:1.618fr 1fr;align-items:center;gap:var(--s5);max-width:1280px;margin:0 auto;padding:0 max(20px,4.4vw) var(--s6)}
+.mk figure{overflow:hidden;aspect-ratio:1.618}
+.mk img{display:block;width:100%;height:100%;object-fit:cover}
+.mc{display:grid;gap:var(--s3);justify-items:start}
+.mc>p:nth-child(3){color:var(--mu);max-width:36ch}
+.mn{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 var(--s2);font-size:13px;color:var(--mu);margin-top:var(--s2)}
+.mn b{font-family:var(--fd);font-weight:800;font-size:clamp(68px,9vw,144px);line-height:.86;color:var(--wh);font-variant-numeric:tabular-nums}
+.mn small{font-family:var(--fd);font-weight:800;font-size:26px;letter-spacing:.06em;color:var(--pa);transition:color var(--d4)}.mn span{flex-basis:100%;margin-top:var(--s2)}
+.me,.mg{display:none}
+.mo .mt{height:300vh;height:300svh}
+.mo .mp{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.mo .mk{position:absolute;inset:0;max-width:none;padding:0;display:flex}
+.mo .mk figure{position:absolute;inset:0;aspect-ratio:auto}
+.mo .mk figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,11,.96),rgba(10,10,11,.82) 36%,rgba(10,10,11,.08) 76%),linear-gradient(0deg,rgba(10,10,11,.8),transparent 34%)}
+.mo .mk img{will-change:transform}
+.mo .mc{position:relative;width:100%;max-width:1280px;margin:0 auto;padding:var(--s6) max(20px,4.4vw)}
+.mo .mc>*{opacity:0;transform:translateX(-68px);transition:opacity var(--d4) var(--ease),transform var(--d5) var(--ease)}
+.mo .a .mc>*{opacity:1;transform:none;transition-delay:.16s}.mo .a .mc>:nth-child(2){transition-delay:.26s}.mo .a .mc>:nth-child(3){transition-delay:.36s}.mo .a .mc>:nth-child(4){transition-delay:.46s}
+.mo .me{display:block;position:absolute;top:0;left:0;width:18%;height:100%;z-index:3;opacity:0;pointer-events:none;background:linear-gradient(to bottom right,transparent calc(50% - 2px),var(--pa) calc(50% - 2px),var(--pa) calc(50% + 2px),transparent calc(50% + 2px))}
+.mo .mg{display:block;position:absolute;left:max(20px,4.4vw);right:max(20px,4.4vw);bottom:var(--s5);height:13px;z-index:4;background:repeating-linear-gradient(90deg,var(--ln) 0 2px,transparent 2px 13px)}
+.mg i{position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--pa) 0 2px,transparent 2px 13px);clip-path:inset(0 100% 0 0)}
+/* cận cảnh */
+.lk{overflow:hidden}
+.lr{display:flex;gap:var(--s4);overflow-x:auto;padding:0 max(20px,4.4vw) var(--s3);scrollbar-width:none;outline-offset:-2px;cursor:grab;-webkit-user-select:none;user-select:none}.lr::-webkit-scrollbar{display:none}
+.lr.dg{cursor:grabbing}
+.lc{flex:0 0 min(46vw,620px)}
+.lc div{aspect-ratio:1.5;overflow:hidden;clip-path:polygon(9% 0,100% 0,91% 100%,0 100%);background:var(--cb)}
+.js .lc[data-r] div{clip-path:polygon(9% 0,9% 0,0 100%,0 100%);transition:clip-path var(--d6) var(--ease) calc(var(--i,0)*162ms)}
+.js .lc.in div{clip-path:polygon(9% 0,100% 0,91% 100%,0 100%)}
+.lc img{display:block;width:120%;max-width:none;height:100%;margin-left:-10%;object-fit:cover;pointer-events:none;transition:scale var(--d5) var(--ease)}
+.lc:hover img{scale:1.06}
+.lc figcaption{display:flex;align-items:baseline;gap:var(--s3);margin-top:var(--s3);padding-left:9%;color:var(--mu);font-size:13px;letter-spacing:.06em}
+.lc b{font-family:var(--fd);font-weight:800;font-size:33px;line-height:1;color:var(--pa);transition:color var(--d4)}
+.lb{margin:var(--s3) max(20px,4.4vw) 0;height:2px;background:var(--ln)}.lb i{display:block;height:100%;background:var(--pa);transform-origin:0 0;transform:scaleX(.2);transition:background var(--d4)}
+@media(hover:none){.lr{scroll-snap-type:x mandatory;scroll-padding:0 max(20px,4.4vw)}.lc{scroll-snap-align:start}}
 /* cấu hình */
 .cz{background:var(--cb)}
 .ch{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:start}
@@ -143,7 +193,13 @@ footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2
 .stk button{background:var(--pa);color:var(--bk);font-family:var(--fd);font-weight:800;font-size:16px;letter-spacing:.06em;text-transform:uppercase;transition:background var(--d4)}
 .stk .msg{background:var(--pa);color:var(--bk)}
 @media(max-width:860px){
-.bk span{display:none}
+.bk span,.mo .spd{display:none}
+.sk i:nth-child(n+3){display:none}.hb img{object-position:38% 60%}
+.mk{grid-template-columns:1fr;gap:var(--s3);padding-bottom:var(--s5)}
+.mo .mk{align-items:flex-end}.mo .mc{padding-bottom:132px}
+.mo .mk figure::after{background:linear-gradient(0deg,rgba(10,10,11,.96) 22%,rgba(10,10,11,.6) 52%,rgba(10,10,11,.1) 80%)}
+.mo .mg{bottom:94px}
+.lc{flex-basis:80vw}.lr{gap:var(--s2)}
 .hero{padding:94px 0 var(--s4);min-height:0}.bg{top:68px;font-size:58vw}.cw{padding:0;margin-top:var(--s6);width:122%;margin-left:-11%}
 .hero .w,.sh,.pg,.fm{grid-template-columns:1fr;gap:var(--s4)}.hero .w{margin-top:0}
 .hr .btn{margin-left:var(--s2)}
@@ -158,9 +214,11 @@ footer{padding-bottom:94px}
 </style>
 </head>
 <body>
-<header><div class="w"><a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a><a class="lg" href="#top"><i></i>KORVANE</a><a class="btn sm" href="#dk"><span>Giữ suất</span></a></div></header>
+<header><div class="w"><a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a><a class="lg" href="#top"><i></i>KORVANE</a><span class="spd" aria-hidden="true"><b id="sp">0</b> km/h</span><a class="btn sm" href="#dk"><span>Giữ suất</span></a></div><i class="rv" id="rv"></i></header>
 <main id="top">
-<section class="hero">
+<section class="hero" id="hero">
+ <div class="hb"><div data-p=".1"><img src="../img/photo/sieu-xe-1499539.webp" width="2400" height="1600" alt="Vệt đèn xe màu vàng và đỏ uốn theo khúc cua trên đường cao tốc ban đêm" fetchpriority="high" decoding="async"></div></div>
+ <div class="sk" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
  <div class="bg" aria-hidden="true" data-p="-.14">K13</div>
  <div class="cw">
   <svg class="car" id="k0" viewBox="0 0 1000 380" role="img" aria-label="Siêu xe Korvane K13 nhìn ngang, hình vẽ bằng SVG">
@@ -214,6 +272,16 @@ footer{padding-bottom:94px}
  </ul>
 </div></section>
 
+<section class="mt" id="chat-lieu" aria-label="Chất liệu"><div class="mp">
+ <article class="mk"><figure><img src="../img/photo/sieu-xe-596815.webp" width="1800" height="1192" alt="Cận cảnh bề mặt sợi carbon dệt chéo, phía trên có một đường chỉ khâu trắng" loading="lazy" decoding="async"></figure>
+  <div class="mc"><p class="cap">Chất liệu 01 / 03</p><h2>Carbon <em>dệt lộ.</em></h2><p>Khung liền khối để lộ vân sợi. Số thứ tự và tên bạn được khắc ngay trên đó.</p><p class="mn"><b data-c="1390">1.390</b><small>KG</small><span>Khối lượng khô</span></p></div></article>
+ <article class="mk"><figure><img src="../img/photo/sieu-xe-16527891.webp" width="1800" height="1134" alt="Cận cảnh mặt ghế da màu nâu cam đục lỗ với hai đường chỉ khâu đôi" loading="lazy" decoding="async"></figure>
+  <div class="mc"><p class="cap">Chất liệu 02 / 03</p><h2>Da và <em>đường chỉ.</em></h2><p>Ghế đúc theo dáng ngồi của người lái chính, bọc da hoặc Alcantara, màu chỉ đi theo nội thất bạn chọn.</p><p class="mn"><b data-c="4">4</b><small>MẪU</small><span>Lựa chọn nội thất</span></p></div></article>
+ <article class="mk"><figure><img src="../img/photo/sieu-xe-833320.webp" width="1800" height="1200" alt="Cận cảnh cùm phanh sơn đỏ ôm đĩa phanh, nhìn qua nan mâm màu bạc" loading="lazy" decoding="async"></figure>
+  <div class="mc"><p class="cap">Chất liệu 03 / 03</p><h2>Thép <em>ghìm tốc.</em></h2><p>Cùm phanh sơn vàng, đỏ, bạc hoặc xanh, lộ ra sau từng nan mâm.</p><p class="mn"><b data-c="355">355</b><small>KM/H</small><span>Tốc độ tối đa</span></p></div></article>
+ <i class="me" id="me"></i><div class="mg" aria-hidden="true"><i id="mg"></i></div>
+</div></section>
+
 <section class="sec cz" id="chon"><div class="w">
  <div class="sh"><p class="cap">Cấu hình</p><h2 data-r>Vẽ chiếc <em>của bạn.</em></h2><p data-r style="--i:1">Mọi lựa chọn đổi ngay trên hình vẽ. Giá tham khảo cập nhật theo cấu hình.</p></div>
  <div class="ch">
@@ -240,6 +308,17 @@ footer{padding-bottom:94px}
   </div>
  </div>
 </div></section>
+
+<section class="sec lk" id="can-canh">
+ <div class="w"><div class="sh"><p class="cap">Cận cảnh</p><h2 data-r>Nhìn gần, <em>thật gần.</em></h2><p data-r style="--i:1">Kéo ngang để xem. Đây là ảnh minh họa không khí, chưa phải ảnh chiếc K13 nào.</p></div></div>
+ <div class="lr" id="lr" tabindex="0" role="group" aria-label="Dải ảnh chi tiết, kéo ngang để xem">
+  <figure class="lc" data-r style="--i:0"><div><img src="../img/photo/sieu-xe-12912924.webp" width="960" height="533" alt="Cận cảnh nan mâm màu bạc, phía sau là đĩa phanh khoan lỗ và cùm phanh vàng" loading="lazy" decoding="async"></div><figcaption><b>01</b>Nan mâm và đĩa phanh khoan lỗ</figcaption></figure>
+  <figure class="lc" data-r style="--i:1"><div><img src="../img/photo/sieu-xe-9651480.webp" width="960" height="640" alt="Cận cảnh táp-lô bọc da nâu sẫm với đường chỉ khâu sáng màu và dải nan kim loại" loading="lazy" decoding="async"></div><figcaption><b>02</b>Da nâu, chỉ khâu sáng màu</figcaption></figure>
+  <figure class="lc" data-r style="--i:0"><div><img src="../img/photo/sieu-xe-34277923.webp" width="960" height="641" alt="Đĩa phanh xẻ rãnh và cùm phanh trên trục bánh trong xưởng, chưa lắp mâm" loading="lazy" decoding="async"></div><figcaption><b>03</b>Đĩa phanh xẻ rãnh trong xưởng</figcaption></figure>
+  <figure class="lc" data-r style="--i:1"><div><img src="../img/photo/sieu-xe-1679719.webp" width="960" height="640" alt="Vệt đèn xe trắng và đỏ kéo dài trên con đường tối ban đêm" loading="lazy" decoding="async"></div><figcaption><b>04</b>Đường đêm, vệt đèn kéo dài</figcaption></figure>
+ </div>
+ <div class="lb" aria-hidden="true"><i id="lb"></i></div>
+</section>
 
 <section class="sec" id="quy-trinh"><div class="w">
  <div class="sh"><p class="cap">Thông số và quy trình</p><h2 data-r>Chín tháng, <em>bốn chặng.</em></h2></div>
@@ -283,19 +362,27 @@ footer{padding-bottom:94px}
  </form>
 </div></section>
 </main>
-<footer><div class="w"><span>Korvane là thương hiệu concept, mẫu xe, thông số và giá chỉ để minh hoạ. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@korvane.example</span></div></footer>
+<footer><div class="w"><span>Korvane là thương hiệu concept, mẫu xe, thông số và giá chỉ để minh hoạ, ảnh chụp lấy từ thư viện Pexels để minh họa không khí. Landing page mẫu do <a href="../index.html" target="_top">Dream Labs</a> thiết kế.</span><span>hello@korvane.example</span></div></footer>
 <form class="stk" novalidate data-ok="Đã ghi số của bạn. Trang mẫu nên chưa gửi đi đâu."><p class="msg" role="status"></p><label class="vh" for="s1">Số điện thoại</label><input id="s1" type="tel" required placeholder="Số điện thoại"><button>Giữ suất</button></form>
 <script>
 (()=>{
 const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
-H.classList.add('js');if(parent!==window)H.classList.add('emb');
+H.classList.add('js');RM||H.classList.add('mo');if(parent!==window)H.classList.add('emb');
 const vnd=n=>Math.round(n).toLocaleString('vi-VN');
 const tween=(el,to,fm=vnd,ms=1110)=>{const fr=+el._v||0;el._v=to;cancelAnimationFrame(el._r);if(RM||!ms){el.textContent=fm(to);return}const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-u,4);el.textContent=fm(fr+(to-fr)*e);if(u<1)el._r=requestAnimationFrame(run)};el._r=requestAnimationFrame(run)};
 const seen=t=>{t.classList.add('in');if(t.dataset.n!=null){const dc=+t.dataset.dc||0;tween(t,+t.dataset.n,v=>v.toLocaleString('vi-VN',{minimumFractionDigits:dc,maximumFractionDigits:dc}),1796)}};
 const watch=r=>{const a=$$('[data-r],[data-n]',r).filter(e=>!e._w);a.forEach(e=>e._w=1);if(!('IntersectionObserver' in window))return a.forEach(seen);const mp=new Map,io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);mp.get(e.target).forEach(seen)}}),{threshold:.1,rootMargin:'0px 0px -6% 0px'});a.forEach(e=>{const t=/clip|wipe/.test(e.dataset.r)?e.parentNode:e;mp.has(t)?mp.get(t).push(e):(mp.set(t,[e]),io.observe(t))})};
-const hd=$('header'),stk=$('.stk'),dk=$('#dk'),px=$$('[data-p]');let tk=0;
+const hd=$('header'),stk=$('.stk'),dk=$('#dk'),px=$$('[data-p]'),hero=$('#hero'),mt=$('#chat-lieu'),mks=$$('.mk'),me=$('#me'),mg=$('#mg'),sp=$('#sp'),rv=$('#rv'),K=18;let tk=0,ma=-1;
+const sm=t=>t<0?0:t>1?1:t*t*(3-2*t);
+/* cảnh ghim chất liệu: ảnh mở bằng wipe xiên, số đếm khi tới lượt */
+const scene=vh=>{const r=mt.getBoundingClientRect();if(r.bottom<-9||r.top>vh+9)return;const p=Math.max(0,Math.min(1,-r.top/(r.height-vh)));let ed=-1;
+ mks.forEach((m,i)=>{const t=i?sm((p-(i*.36-.18))/.28):1,a=(100+K)*(1-t);if(i){m.style.clipPath=`polygon(${a.toFixed(2)}% 0,120% 0,120% 100%,${(a-K).toFixed(2)}% 100%)`;if(t>0&&t<1)ed=a}
+  $('img',m).style.transform=`translate3d(${((1-t)*7-p*2).toFixed(2)}%,0,0) scale(${(1.1+(1-t)*.08).toFixed(3)})`});
+ me.style.opacity=ed<0?0:1;if(ed>=0)me.style.transform=`translate3d(${((ed-K)/K*100).toFixed(1)}%,0,0)`;mg.style.clipPath=`inset(0 ${(100-p*100).toFixed(1)}% 0 0)`;
+ const n=r.top>vh*.55?-1:p<.32?0:p<.68?1:2;if(n!==ma){ma=n;mks.forEach((m,i)=>{m.classList.toggle('a',i===n);if(i===n){const b=$('[data-c]',m);b._v=0;tween(b,+b.dataset.c)}})}};
 const onS=()=>{tk=0;const y=scrollY,vh=innerHeight;hd&&hd.classList.toggle('s',y>42);if(stk&&dk)stk.classList.toggle('on',y>vh*.618&&dk.getBoundingClientRect().top>vh*.8);
- if(!RM)px.forEach(p=>{const r=p.parentNode.getBoundingClientRect();if(r.bottom>-99&&r.top<vh+99)p.style.transform=`translate3d(0,${((r.top+r.height/2-vh/2)*+p.dataset.p).toFixed(1)}px,0)`});H.style.setProperty('--sy',y.toFixed(0))};
+ if(!RM)px.forEach(p=>{const r=p.parentNode.getBoundingClientRect();if(r.bottom>-99&&r.top<vh+99)p.style.transform=`translate3d(0,${((r.top+r.height/2-vh/2)*+p.dataset.p).toFixed(1)}px,0)`});H.style.setProperty('--sy',y.toFixed(0));
+ if(!RM){const g=Math.min(1,y/Math.max(1,H.scrollHeight-vh));rv.style.transform=`scaleX(${g.toFixed(4)})`;sp.textContent=Math.round(g*355);scene(vh)}};
 addEventListener('scroll',()=>{tk||(tk=requestAnimationFrame(onS))},{passive:true});onS();
 $$('form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const m=$('.msg',f),ok=$$('[required]',f).every(i=>i.value.trim());m.textContent=ok?(f.dataset.ok||'Cảm ơn bạn. Đây là trang mẫu của Dream Labs nên chưa có thông tin nào được gửi đi.'):'Bạn điền giúp các ô còn trống nhé.';m.classList.toggle('ok',ok)}));
 try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-korvane',smDemo:'lux-lp-korvane'},'*')}catch(e){}
@@ -317,6 +404,17 @@ const up=()=>{const o=S.map((v,i)=>G[i][v]),p=34+o.reduce((a,x)=>a+x[2],0),code=
 $('#chon').addEventListener('click',e=>{const b=e.target.closest('[data-g]'),t=e.target.closest('[data-t]');if(t)view(t.dataset.t);if(b){S[b.dataset.g]=+b.dataset.v;view(b.dataset.g==3?1:0);up()}});
 $('#pr')._v=34;up();
 watch(D);
+/* hero: vệt sáng chỉ chạy khi trong khung nhìn, lớp ảnh và xe lệch nhẹ theo chuột */
+if('IntersectionObserver' in window)new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('on',e.isIntersecting))).observe(hero);else hero.classList.add('on');
+if(!RM&&matchMedia('(hover:hover)').matches)hero.addEventListener('pointermove',e=>{hero.style.setProperty('--mx',(e.clientX/innerWidth-.5).toFixed(3));hero.style.setProperty('--my',(e.clientY/innerHeight-.5).toFixed(3))});
+/* dải ảnh cận cảnh: ảnh trượt ngược trong khung, chuột kéo có quán tính, điện thoại vuốt snap */
+const lr=$('#lr'),lb=$('#lb'),li=$$('img',lr);let lt=0,dn=0,sx,sl,lx,v=0,rf=0;
+const lp=()=>{lt=0;const W=innerWidth,m=lr.scrollWidth-lr.clientWidth;lb.style.transform=`scaleX(${(.2+.8*(m>0?lr.scrollLeft/m:1)).toFixed(3)})`;
+ if(!RM)li.forEach(im=>{const r=im.parentNode.getBoundingClientRect();if(r.right>-60&&r.left<W+60)im.style.transform=`translate3d(${(Math.max(-.5,Math.min(.5,(r.left+r.width/2)/W-.5))*-14).toFixed(2)}%,0,0)`})};
+lr.addEventListener('scroll',()=>{lt||(lt=requestAnimationFrame(lp))},{passive:true});addEventListener('resize',()=>{lp();onS()});lp();
+lr.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;dn=1;sx=lx=e.clientX;sl=lr.scrollLeft;v=0;cancelAnimationFrame(rf);lr.classList.add('dg')});
+addEventListener('pointermove',e=>{if(!dn)return;v=e.clientX-lx;lx=e.clientX;lr.scrollLeft=sl-(e.clientX-sx)});
+addEventListener('pointerup',()=>{if(!dn)return;dn=0;lr.classList.remove('dg');const go=()=>{v*=.94;lr.scrollLeft-=v;if(!RM&&Math.abs(v)>.4)rf=requestAnimationFrame(go)};go()});
 })();
 </script>
 </body>
