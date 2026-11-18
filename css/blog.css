@@ -202,3 +202,15 @@ body.bl{overflow-x:clip}
 .sv-value{display:grid;gap:var(--s2)}
 .bl-price .g{margin:0 0 var(--s2);padding:var(--s1) var(--s2);border-radius:var(--r0);background:color-mix(in oklab,var(--lav) 16%,transparent);color:var(--ink)}
 .bl-more:has(+ .bl-more){padding-bottom:0}
+/* Điện thoại: bảng giá xếp thành thẻ dọc, không phải cuộn ngang để đọc tính năng */
+@media (max-width:640px){
+  .bl-price{overflow-x:visible}
+  .bl-price table{min-width:0;display:block}
+  .bl-price thead{display:none}
+  .bl-price caption{display:block;white-space:normal}
+  .bl-price tbody,.bl-price tr{display:block}
+  .bl-price tr{border-top:1px solid var(--line);padding:var(--s3) var(--s3) var(--s4)}
+  .bl-price tbody th,.bl-price td{display:block;border-top:0;padding:0;white-space:normal}
+  .bl-price td{margin-top:var(--s2)}
+  .bl-price .p{font-size:var(--t2)}
+}
