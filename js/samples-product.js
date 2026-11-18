@@ -55,7 +55,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-bag-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/bag/', dirs: ['img/spin/bag/', '', '', 'img/spin/bag-ivory/'], frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/bag/', dirs: ['img/spin/bag/', 'img/spin/bag-cognac/', 'img/spin/bag-jade/', 'img/spin/bag-ivory/'], frames: 48, loop: true, tone: 'light', hotspots: [
    {a: .04, w: .08, x: 49, y: 56, side: 'r', t: 'Khóa đĩa tròn'},
    {a: .3, w: .09, x: 50, y: 36, side: 'r', t: 'Quai cuộn khâu tay'},
    {a: .58, w: .1, x: 50, y: 50, side: 'r', t: 'Dáng hộp vai vòm'}
@@ -143,7 +143,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-watch-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/watch/', frames: 48, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/watch/', dirs: ['img/spin/watch/', 'img/spin/watch-ivory/', 'img/spin/watch-smoke/', 'img/spin/watch-jade/'], frames: 48, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .07, x: 53, y: 53, side: 'r', t: 'Kim giây nhỏ ở 6 giờ', d: 'Mặt số tia mặt trời, cọc số nổi'},
    {a: .27, w: .08, x: 66, y: 45, side: 'l', t: 'Vỏ tròn 40 mm'},
    {a: .5, w: .09, x: 57, y: 27, side: 'r', t: 'Dây da khâu tay'}
@@ -191,8 +191,8 @@
   kind: 'product',
   spin: {dir: 'img/spin/jewel/', dirs: ['img/spin/jewel/', 'img/spin/jewel-sapphire/', 'img/spin/jewel-diamond/', 'img/spin/jewel-ruby/'], frames: 48, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ bốn chấu'},
-   {a: .25, w: .08, x: 52, y: 60, side: 'r', t: 'Đai nhẫn vàng 18K'},
-   {a: .5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá lục bảo', d: 'Giác cắt bậc, soi được từ mọi phía'}
+   {a: .25, w: .08, x: 52, y: 60, side: 'r', t: 'Đai nhẫn trơn bóng'},
+   {a: .5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ giác cắt bậc', d: 'Soi được từ mọi phía'}
   ]},
   variants: [
    {
@@ -278,7 +278,7 @@
   kind: 'product',
   spin: {dir: 'img/spin/candle/', dirs: ['img/spin/candle/', 'img/spin/candle-tra/', 'img/spin/candle-que/'], frames: 48, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 46, y: 56, side: 'r', t: 'Nhãn chữ nhũ'},
-   {a: .5, w: .12, x: 50, y: 33, side: 'r', t: 'Cốc sứ đen bóng'}
+   {a: .5, w: .12, x: 50, y: 33, side: 'r', t: 'Cốc nến dáng trụ'}
   ]},
   variants: [
    {
