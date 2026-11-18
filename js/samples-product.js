@@ -316,7 +316,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-skin-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/skin/', frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/skin/', dirs: ['img/spin/skin/', 'img/spin/skin-celadon/', 'img/spin/skin-blush/'], frames: 48, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 35, y: 37, side: 'r', t: 'Vòi nhấn kim loại'},
    {a: .25, w: .08, x: 59, y: 44, side: 'r', t: 'Ống nhỏ giọt', d: 'Chai tinh chất thủy tinh mờ'},
    {a: .5, w: .09, x: 36, y: 53, side: 'r', t: 'Hũ kem nắp kim loại'}
