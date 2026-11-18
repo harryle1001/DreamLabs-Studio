@@ -585,3 +585,16 @@ form.cf>.btn{grid-column:1/-1;justify-content:center;min-height:var(--t3h)}
 .ind-more{margin-top:var(--s3)}
 .ind-more summary{display:inline-flex;align-items:center;min-height:var(--hit);cursor:pointer;color:var(--accent);font-weight:500}
 .ind-more .inds{margin-top:var(--s2)}
+/* Điện thoại: không bắt khách kéo ngang để đọc nội dung */
+@media (max-width:640px){
+  .tiers{display:flex;flex-direction:column;overflow:visible;scroll-snap-type:none;margin-inline:0;padding:var(--s3) 0 0;gap:var(--s3)}
+  .tier{flex:none;width:100%}
+  .tier-dots{display:none}
+  .cmp-scroll{overflow-x:visible}
+  .cmp table{min-width:0;table-layout:fixed;font-size:12px}
+  .cmp th,.cmp td{padding:var(--s2) var(--s1);overflow-wrap:anywhere;width:auto}
+  .cmp tbody th{width:34%}
+  .cmp thead th{letter-spacing:.04em;font-size:var(--t0)}
+  .cmp td b{font-size:var(--t0h)}
+}
+@media (max-width:640px){.cmp td b{white-space:nowrap;font-size:12px}}

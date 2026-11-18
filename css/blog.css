@@ -214,3 +214,9 @@ body.bl{overflow-x:clip}
   .bl-price td{margin-top:var(--s2)}
   .bl-price .p{font-size:var(--t2)}
 }
+@media (max-width:640px){
+  .bl-table,.sv-cmp{overflow-x:visible}
+  .bl-table table,.sv-cmp table{min-width:0;table-layout:fixed;font-size:12px}
+  .bl-table th,.bl-table td,.sv-cmp th,.sv-cmp td{padding:var(--s2) var(--s1);overflow-wrap:anywhere}
+  .bl-table thead th,.sv-cmp thead th{letter-spacing:.04em}
+}

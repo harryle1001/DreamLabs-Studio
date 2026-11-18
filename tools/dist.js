@@ -15,8 +15,8 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
   execFileSync('node',[path.join(R,'build.js')],{stdio:'ignore'});
   fs.rmSync(OUT,{recursive:true,force:true});fs.mkdirSync(OUT,{recursive:true});
   let html=rd('index.html');
-  const cssFiles=[...html.matchAll(/<link rel="stylesheet" href="(css\/[^"]+)">/g)].map(m=>m[1]);
-  const ownJs=[...html.matchAll(/<script src="(js\/[^"]+)"><\/script>/g)].map(m=>m[1]);
+  const cssFiles=[...html.matchAll(/<link rel="stylesheet" href="(css\/[^"]+)">/g)].map(m=>m[1].split("?")[0]);
+  const ownJs=[...html.matchAll(/<script src="(js\/[^"]+)"><\/script>/g)].map(m=>m[1].split("?")[0]);
   let css=cssFiles.map(rd).join('\n'),js=ownJs.map(f=>rd(f)).join(';\n');
   html=html.replace(/<!--[\s\S]*?-->/g,'');
 

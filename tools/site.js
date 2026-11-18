@@ -77,6 +77,7 @@ const ICON={arrow:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M
   theme:'<svg viewBox="0 0 26 26" aria-hidden="true"><g class="sun"><circle cx="13" cy="13" r="4.6"/><path d="M13 3v2.4M13 20.6V23M3 13h2.4M20.6 13H23M5.9 5.9l1.7 1.7M18.4 18.4l1.7 1.7M5.9 20.1l1.7-1.7M18.4 7.6l1.7-1.7"/></g><path class="moon" d="M19.6 15.4A7.6 7.6 0 0 1 10.6 6.4a7.6 7.6 0 1 0 9 9z"/></svg>',
   zalo:'<svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 4.2c-5.2 0-9.4 3.5-9.4 7.9 0 2.5 1.4 4.7 3.5 6.2l-.8 3.5 3.8-2.1c.9.2 1.9.3 2.9.3 5.2 0 9.4-3.5 9.4-7.9S18.2 4.2 13 4.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>'};
 const CSS=['css/fonts.css','css/tokens.css','css/base.css','css/blog.css'];
+const VER=f=>require('crypto').createHash('md5').update(require('fs').readFileSync(require('path').join(__dirname,'..',f))).digest('hex').slice(0,8);
 const org={'@type':'Organization','@id':SITE+'#org',name:'Dream Labs',url:SITE,logo:SITE+'img/icon-512.png'};
 const crumbs=list=>({'@type':'BreadcrumbList',itemListElement:list.map(([name,item],i)=>({'@type':'ListItem',position:i+1,name,item}))});
 const faqLd=(url,faq)=>({'@type':'FAQPage','@id':url+'#cau-hoi',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))});
@@ -108,7 +109,7 @@ function page({up,cur='',title,desc,canonical,ogType='website',image,imageAlt,js
 <meta property="og:image:alt" content="${esc(imageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
 ${extraHead}<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-${CSS.map(c=>`<link rel="stylesheet" href="${up}${c}">`).join('\n')}
+${CSS.map(c=>`<link rel="stylesheet" href="${up}${c}?v=${VER(c)}">`).join('\n')}
 ${jsonld}
 </head>
 <body class="bl">

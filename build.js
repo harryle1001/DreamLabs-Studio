@@ -13,7 +13,8 @@ const pdir=path.join(R,'src/partials');
 const parts=fs.readdirSync(pdir).filter(f=>f.endsWith('.html')).sort().map(f=>`<!-- ${f} -->\n`+fs.readFileSync(path.join(pdir,f),'utf8').trim());
 const head=fs.readFileSync(path.join(R,'src/head.html'),'utf8').trim();
 const v=Date.now().toString(36);
-const frag=[head,...css.map(c=>`<link rel="stylesheet" href="${c}">`),...parts,...js.map(s=>`<script src="${s}"></script>`)].join('\n')+'\n';
+const VER=f=>require('crypto').createHash('md5').update(fs.readFileSync(path.join(R,f))).digest('hex').slice(0,8);
+const frag=[head,...css.map(c=>`<link rel="stylesheet" href="${c}?v=${VER(c)}">`),...parts,...js.map(s=>`<script src="${s}?v=${VER(s)}"></script>`)].join('\n')+'\n';
 
 /* Dữ liệu có cấu trúc cho Google (chỉ bản host) */
 const ld=(()=>{try{
