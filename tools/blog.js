@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Dựng mục Bài viết: node tools/blog.js
    Nguồn: src/blog/<slug>.html — dòng đầu là chú thích <!--meta {...} --> (JSON), phần còn lại là thân bài HTML.
-     Trong thân bài: {{gia:<id>}} chèn bảng giá lấy từ js/data.js (luôn khớp bảng giá trang chủ).
+     Trong thân bài: {{gia:<id>}} chèn bảng giá lấy từ js/data.js (luôn khớp bảng giá trang chủ); {{p:<id>:<i>}} giá gói thứ i, {{tu:<id>}} giá thấp nhất.
      Mục "Câu hỏi thường gặp": <h2 id="cau-hoi">…</h2> rồi các cặp <h3>câu hỏi</h3><p>trả lời</p> (tự sinh FAQPage JSON-LD).
    Khung trang dùng chung với trang dịch vụ: tools/site.js.
    Kết quả: blog/index.html, blog/<slug>/index.html, sitemap.xml.
@@ -13,7 +13,8 @@ const OUT=path.join(R,'blog');
 
 /* đọc bài (khung chung, menu, chân trang: tools/site.js) */
 const posts=S.POSTS.map(m=>{
-  const o=outline(m.raw.replace(/\{\{gia:(\w+)\}\}/g,(_,id)=>priceTable(id)));
+  const o=outline(m.raw.replace(/\{\{gia:(\w+)\}\}/g,(_,id)=>priceTable(id))
+    .replace(/\{\{p:(\w+):(\d)\}\}/g,(_,id,i)=>S.priceText(S.cat(id).tiers[+i])).replace(/\{\{tu:(\w+)\}\}/g,(_,id)=>S.vnd(Math.min(...S.cat(id).tiers.map(t=>t.p)))));
   const words=countWords(o.body.replace(/<table[\s\S]*?<\/table>/g,''));
   return{...m,...o,words,read:Math.max(1,Math.round(words/200)),url:SITE+'blog/'+m.slug+'/'};
 });

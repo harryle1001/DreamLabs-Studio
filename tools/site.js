@@ -2,6 +2,9 @@
    Dùng bởi tools/blog.js và tools/pages.js. */
 const fs=require('fs'),path=require('path');
 const R=path.join(__dirname,'..'),SITE='https://dreamlabs.vn/';
+/* Google Search Console: dán mã trong thẻ <meta name="google-site-verification" content="..."> (chỉ phần content) rồi chạy node build.js */
+const GSC_VERIFY='';
+const verifyTag=GSC_VERIFY?`<meta name="google-site-verification" content="${GSC_VERIFY}">\n`:'';
 const rd=f=>fs.readFileSync(path.join(R,f),'utf8');
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const strip=s=>String(s).replace(/<[^>]+>/g,' ').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
@@ -60,7 +63,7 @@ function outline(body){
 }
 const checkLen=(slug,title,desc)=>{
   if(title.length>60)console.warn('⚠ title > 60 ký tự:',slug,title.length);
-  if(desc.length>160)console.warn('⚠ description > 160 ký tự:',slug,desc.length);
+  if(desc.length>155)console.warn('⚠ description > 155 ký tự:',slug,desc.length);
 };
 
 /* danh sách trang để dựng menu, chân trang, sitemap */
@@ -110,8 +113,9 @@ function page({up,cur='',title,desc,canonical,ogType='website',image,imageAlt,js
 <meta property="og:image" content="${SITE}${image}">
 <meta property="og:image:alt" content="${esc(imageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
-${extraHead}<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+${verifyTag}${extraHead}<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 ${CSS.map(c=>`<link rel="stylesheet" href="${up}${c}?v=${VER(c)}">`).join('\n')}
+<script src="${up}js/track.js?v=${VER('js/track.js')}" defer></script>
 ${jsonld}
 </head>
 <body class="bl">
@@ -138,7 +142,7 @@ ${main}
   <nav aria-label="Dịch vụ"><b>Dịch vụ</b>${CATS.map(c=>`<a href="${svcHref(c.id,up)}">${esc((pageFor(c.id)||{}).short||c.name)}</a>`).join('')}${HUBS.filter(p=>!p.cat_id).map(p=>`<a href="${up}${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
   <nav aria-label="Khám phá"><b>Khám phá</b><a href="${up}#mau-gia">Mẫu &amp; giá</a><a href="${up}bang-gia/">Bảng giá, tự tính giá, hỏi đáp</a><a href="${up}lab/">Lab: demo tương tác</a><a href="${up}giai-phap-theo-nganh/">Giải pháp theo ngành</a><a href="${up}blog/">Tất cả bài viết</a></nav>
   <nav aria-label="Bài viết"><b>Bài viết</b>${POSTS.map(p=>`<a href="${up}blog/${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
-  <div><b>Liên hệ</b><span class="sel">${esc(PHONE)}</span>${EMAIL?`<span class="sel">${esc(EMAIL)}</span>`:''}<a href="${ZALO}" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
+  <div><b>Liên hệ</b><a href="tel:+84${PHONE.replace(/\D/g,'').replace(/^0/,'')}">Gọi ${esc(PHONE)}</a>${EMAIL?`<span class="sel">${esc(EMAIL)}</span>`:''}<a href="${ZALO}" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
  </div>
  <div class="bl-wrap bl-foot-bot"><span>© 2026 Dream Labs</span><a href="${up}">dreamlabs.vn</a></div>
 </footer>
@@ -149,4 +153,4 @@ document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttrib
 `;
 }
 
-module.exports={R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,upOf,pageFor,svcHref,ICON,org,crumbs,faqLd,page};
+module.exports={GSC_VERIFY,verifyTag,R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,upOf,pageFor,svcHref,ICON,org,crumbs,faqLd,page};

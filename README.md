@@ -54,6 +54,28 @@ rồi mở http://127.0.0.1:4100
 - `img/`, `media/`, `fonts/`, `vendor/`: ảnh, video, phông, thư viện
 - `tools/`: công cụ kiểm tra và nguồn dựng phim
 
+## SEO và đo chuyển đổi
+
+Mọi trang tự sinh `<title>`, mô tả, canonical, Open Graph, JSON-LD (trang chủ: Organization + ProfessionalService; trang dịch vụ và trang ngành: Service; bài viết: BlogPosting + BreadcrumbList; FAQPage khi có mục `<h2 id="cau-hoi">`) và `sitemap.xml` khi chạy `node build.js`. `tools/site.js` cảnh báo khi title > 60 hoặc mô tả > 155 ký tự.
+
+### Xác minh Google Search Console (chủ studio tự làm)
+1. Vào https://search.google.com/search-console → Thêm tài sản → chọn **Tiền tố URL** `https://dreamlabs.vn/`.
+2. Chọn cách xác minh **Thẻ HTML**, chép phần `content="..."` (chỉ chuỗi mã).
+3. Dán chuỗi đó vào hằng `GSC_VERIFY` ở đầu `tools/site.js`, chạy `node build.js`, đẩy lên `main`. Thẻ `google-site-verification` sẽ có trên mọi trang, kể cả trang chủ.
+4. Đợi web cập nhật (1–2 phút) rồi bấm **Xác minh**. Sau đó vào Sơ đồ trang web → gửi `sitemap.xml`.
+(Hoặc xác minh bằng DNS ở nhà cung cấp tên miền, khi đó không cần sửa code.)
+
+### Bật Google Analytics 4 / Google Tag Manager / Google Ads
+`js/track.js` (có trên mọi trang) đẩy sự kiện vào `window.dataLayer`, kèm `page_path`, `page_title`, `page_location`:
+- `zalo_click`: bấm mọi liên kết `zalo.me` (có `link_url`, `link_text`)
+- `call_click`: bấm liên kết `tel:` (số điện thoại ở chân trang các trang con)
+- `form_submit`: gửi form liên hệ hợp lệ (có `form_id`, `form_service`)
+
+Mặc định không nạp mã nào từ bên ngoài. Để bật, điền **một** mã vào hằng `TAG_ID` đầu file `js/track.js`, chạy `node build.js` (để đổi số phiên bản file) rồi đẩy lên:
+- `G-XXXXXXXXXX`: nạp GA4, sự kiện gửi thẳng lên GA4. Trong GA4 → Quản trị → Sự kiện, đánh dấu 3 sự kiện trên là **sự kiện chính** (key event). Nếu có Google Ads, điền thêm `ADS_ID = 'AW-...'` hoặc nhập sự kiện chính từ GA4 sang Ads.
+- `GTM-XXXXXXX`: nạp Tag Manager; trong GTM tạo trình kích hoạt **Sự kiện tùy chỉnh** tên `zalo_click` / `call_click` / `form_submit` và gắn thẻ GA4 hoặc chuyển đổi Google Ads.
+Kiểm tra: mở trang, F12 → Console gõ `dataLayer` sau khi bấm nút Zalo.
+
 ## Lưu ý
 
 - Thương hiệu trong Phòng mẫu và các demo là concept do Dream Labs tự thiết kế, chưa tra cứu nhãn hiệu.
