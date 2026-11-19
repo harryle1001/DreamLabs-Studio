@@ -28,7 +28,7 @@ D.spin=function(host,o){
   const node=document.createElement('div');node.className='spin is-load'+(V2?' is-v2':'');node.tabIndex=0;node.dataset.tone=light?'light':'dark';
   node.setAttribute('role','group');const T=(window.DL&&DL.t)||(s=>s);node.setAttribute('aria-roledescription',T('trình xem 360 độ'));
   node.setAttribute('aria-label',(o.title?o.title+'. ':'')+T('Kéo ngang hoặc dùng phím mũi tên trái, phải để xoay sản phẩm.'));
-  node.innerHTML=`<canvas class="spin-cv" role="img" aria-label="${esc((o.title||T('Sản phẩm'))+', '+T(loop?'ảnh xoay 360 độ':'ảnh xoay nhiều góc'))}"></canvas>
+  node.innerHTML=`${V2?'<i class="spin-bgp" aria-hidden="true"></i><i class="spin-aura" aria-hidden="true"></i><i class="spin-shadow" aria-hidden="true"></i>':''}<canvas class="spin-cv" role="img" aria-label="${esc((o.title||T('Sản phẩm'))+', '+T(loop?'ảnh xoay 360 độ':'ảnh xoay nhiều góc'))}"></canvas>
    ${name?`<div class="spin-tape" aria-hidden="true"><span>${(esc(name)+'<i>✦</i>').repeat(6)}</span></div>`:''}
    <i class="spin-sheen" aria-hidden="true"></i>
    <div class="spin-head"><span class="spin-k"><b>${loop?'360°':T('Đa góc')}</b>${o.kicker?esc(o.kicker):''}</span>${name?`<span class="spin-t" aria-hidden="true">${[...name].map((c,i)=>c===' '?' ':`<i style="--i:${i}">${esc(c)}</i>`).join('')}</span>`:''}</div>
@@ -42,7 +42,8 @@ D.spin=function(host,o){
     <output class="spin-deg" aria-hidden="true">0°</output>
     <button class="spin-zb" type="button" aria-pressed="false" aria-label="${T('Kính phóng')}">${LENS}</button></div>`;
   host.append(node);
-  const q=s=>node.querySelector(s),cv=q('.spin-cv'),ctx=cv.getContext('2d'),tape=q('.spin-tape span'),sheen=q('.spin-sheen'),pp=q('.spin-pp'),zb=q('.spin-zb'),track=q('.spin-track'),thumb=q('.spin-thumb'),deg=q('.spin-deg'),prog=q('.spin-prog i'),hsBox=q('.spin-hs'),hsEl=[...node.querySelectorAll('.spin-h')],lens=q('.spin-lens'),lctx=lens.getContext('2d');
+  const q=s=>node.querySelector(s),cv=q('.spin-cv'),ctx=cv.getContext('2d'),tape=q('.spin-tape span'),sheen=q('.spin-sheen'),pp=q('.spin-pp'),zb=q('.spin-zb'),track=q('.spin-track'),thumb=q('.spin-thumb'),deg=q('.spin-deg'),prog=q('.spin-prog i'),hsBox=q('.spin-hs'),hsEl=[...node.querySelectorAll('.spin-h')],lens=q('.spin-lens'),lctx=lens.getContext('2d'),bgp=q('.spin-bgp'),aura=q('.spin-aura'),shd=q('.spin-shadow');
+  if(V2){shd.style.left='50%';shd.style.top=GR[0]+'%';shd.style.width=(GR[1]*1.3)+'%'}
   const imgs=new Array(N),his=new Array(N),MAXI=loop?N:N-1,TOTAL=N+(V2?1:0);
   const F0=Math.max(0,Math.min(N-1,Math.round(+o.start||0)));
   let pos=F0,vel=0,count=0,fail=0,started=false,visible=false,dead=false,raf=0,last=0,playing=false,touched=false,intro=null,drag=null,swing=1,dirty=true,hinted=false;
@@ -62,7 +63,7 @@ D.spin=function(host,o){
     const tally=()=>{prog.style.transform=`scaleX(${(count+fail)/TOTAL})`;
       if(count+fail===TOTAL){node.classList.remove('is-load');node.classList.add('is-ready');ready()}dirty=true;kick()};
     const first=()=>{if(imgs[F0]&&(!V2||bg))node.classList.add('is-first')};
-    if(V2){const im=new Image();im.decoding='async';im.onload=()=>{if(dead)return;bg=im;count++;first();tally()};im.onerror=()=>{if(dead)return;fail++;tally()};im.src=dir+'bg.webp'}
+    if(V2){const im=new Image();im.decoding='async';im.onload=()=>{if(dead)return;bg=im;bgp.style.backgroundImage=`url("${dir}bg.webp")`;count++;first();tally()};im.onerror=()=>{if(dead)return;fail++;tally()};im.src=dir+'bg.webp'}
     const next=()=>{if(dead)return;while(active<5&&queue.length){const i=queue.shift(),im=new Image();active++;im.decoding='async';
       const done=ok=>{active--;if(dead)return;if(ok){imgs[i]=im;count++}else{fail++;if(i===F0){node.classList.add('is-bad');q('.spin-msg').hidden=false}}
         if(i===F0&&ok)first();tally();next()};
@@ -74,36 +75,30 @@ D.spin=function(host,o){
 
   /* ── vẽ một cảnh lên ctx bất kỳ (khung chính và kính phóng dùng chung) ── */
   const cover=(c,im,W,H,dy)=>{const s=Math.max(W/im.naturalWidth,H/im.naturalHeight),w=im.naturalWidth*s,h=im.naturalHeight*s;c.drawImage(im,(W-w)/2,(H-h)/2+(dy||0),w,h)};
-  function scene(c,W,H,sharp){
+  /* full=true (kính phóng): vẽ cả nền và độ nâng; khung chính chỉ vẽ sản phẩm, nền/bóng/độ nâng là lớp CSS */
+  function scene(c,W,H,sharp,full){
     const f=wrap(pos),a=Math.floor(f)%N,fr=f-Math.floor(f),b=loop?(a+1)%N:Math.min(N-1,a+1),ia=imgs[a]?a:nearest(a);
     if(ia<0)return;
-    const lift=V2?fy*H:0;
-    if(V2){
-      if(bg)cover(c,bg,W,H);else{c.fillStyle=light?'#e9e6e1':'#0d0b11';c.fillRect(0,0,W,H)}
-      /* quầng sáng sau lưng + bóng đổ: bóng nhỏ và nhạt dần khi vật lên cao */
-      const up=clamp(-fy/.03,0,1),gx=W/2,gy=GR[0]/100*H,gw=GR[1]/100*W;
-      let g=c.createRadialGradient(gx,H*.46+lift,0,gx,H*.46+lift,W*.46);const al=(light?.34:.16)*(.8+.2*up);
-      g.addColorStop(0,`rgba(255,${light?255:236},${light?255:205},${al})`);g.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=g;c.fillRect(0,0,W,H);
-      const sw=gw*(.62-.12*up),sa=(light?.36:.62)*(1-.42*up);
-      c.save();c.translate(gx,gy+H*.012);c.scale(1,.2);
-      if(!light){/* nền tối: thêm vũng sáng hắt xuống sàn để thấy rõ vật đang lơ lửng */
-        g=c.createRadialGradient(0,0,0,0,0,gw*1.15);g.addColorStop(0,`rgba(255,232,200,${.2-.06*up})`);g.addColorStop(.6,`rgba(255,232,200,${.06})`);g.addColorStop(1,'rgba(255,232,200,0)');
-        c.fillStyle=g;c.beginPath();c.arc(0,0,gw*1.15,0,TAU);c.fill()}
-      g=c.createRadialGradient(0,0,0,0,0,sw);
-      g.addColorStop(0,`rgba(${light?'38,24,30':'0,0,0'},${sa})`);g.addColorStop(.55,`rgba(${light?'38,24,30':'0,0,0'},${sa*.42})`);g.addColorStop(1,'rgba(0,0,0,0)');
-      c.fillStyle=g;c.beginPath();c.arc(0,0,sw,0,TAU);c.fill();c.restore()}
+    const lift=V2&&full?fy*H:0;
+    if(V2&&full){if(bg)cover(c,bg,W,H);else{c.fillStyle=light?'#e9e6e1':'#0d0b11';c.fillRect(0,0,W,H)}}
     const hi=sharp&&his[ia]&&his[ia].ok&&fr<.02?his[ia]:null;
-    cover(c,imgs[ia],W,H,lift);
-    if(fr>.02&&imgs[b]&&ia===a){c.globalAlpha=fr;cover(c,imgs[b],W,H,lift);c.globalAlpha=1}
+    if(!(hi&&sharp===true)){cover(c,imgs[ia],W,H,lift);
+      if(fr>.02&&imgs[b]&&ia===a){c.globalAlpha=fr;cover(c,imgs[b],W,H,lift);c.globalAlpha=1}}
     if(hi){c.globalAlpha=sharp===true?1:sharp;cover(c,hi,W,H,lift);c.globalAlpha=1}}
 
-  function size(){const w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;const k=Math.min(Math.min(window.devicePixelRatio||1,2),1600/Math.max(w,h)),W=Math.round(w*k),H=Math.round(h*k);
+  /* canvas chỉ cần nét bằng ảnh đang vẽ: khung xoay 960px, khung nét tới 1600px */
+  let CAP=V2?960:1200,key='';
+  function size(){const w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;const k=Math.min(Math.min(window.devicePixelRatio||1,2),CAP/Math.max(w,h)),W=Math.round(w*k),H=Math.round(h*k);
     if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H;dirty=true;kick()}}
   function paint(now){
     const f=wrap(pos);
-    if(cv.width){if(!V2)ctx.clearRect(0,0,cv.width,cv.height);scene(ctx,cv.width,cv.height,hiA>0?hiA:0)}
+    if(V2){const cap=hiA>0||zoom?1600:960;if(cap!==CAP){CAP=cap;size()}}
+    if(cv.width){const k=cv.width+'|'+Math.round(f*400)+'|'+hiA.toFixed(2)+'|'+count;
+      if(k!==key||dirty){key=k;ctx.clearRect(0,0,cv.width,cv.height);scene(ctx,cv.width,cv.height,hiA>=1?true:hiA>0?hiA:0,false)}}
     dirty=false;
-    if(V2)hsBox.style.transform=`translate3d(0,${(fy*100).toFixed(3)}cqw,0)`;
+    if(V2){const ty=`translate3d(0,${(fy*100).toFixed(3)}cqw,0)`,up=clamp(-fy/.03,0,1);
+      cv.style.transform=ty;hsBox.style.transform=ty;aura.style.transform=ty;aura.style.opacity=(.78+.22*up).toFixed(3);
+      shd.style.transform=`translate(-50%,-50%) scale(${(1-.2*up).toFixed(3)})`;shd.style.opacity=(1-.45*up).toFixed(3)}
     const fr=f/MAXI,d=Math.round(fr*arc)%(loop?360:361);
     thumb.style.left=(fr*100).toFixed(2)+'%';deg.textContent=d+'°';track.setAttribute('aria-valuenow',d);track.setAttribute('aria-valuetext',T('{d} độ',{d}));
     if(tape)tape.style.transform=`translate3d(${(-50+((sgn*f/N*2)%1+1)%1*100/6).toFixed(3)}%,0,0)`;
@@ -120,7 +115,7 @@ D.spin=function(host,o){
     lctx.setTransform(1,0,0,1,0,0);lctx.clearRect(0,0,S,S);lctx.save();lctx.beginPath();lctx.arc(S/2,S/2,S/2,0,TAU);lctx.clip();
     lctx.setTransform(k*ZOOM,0,0,k*ZOOM,S/2-lx*k*ZOOM,S/2-ly*k*ZOOM);lctx.imageSmoothingQuality='high';
     if(!V2){lctx.fillStyle=light?'#e9e6e1':'#0d0b11';lctx.fillRect(0,0,W,H)}
-    scene(lctx,W,H,true);lctx.restore()}
+    scene(lctx,W,H,true,true);lctx.restore()}
   function zoomOn(x,y,touch){
     if(node.classList.contains('is-load'))return;zoom={x,y,touch};vel=0;intro=null;if(playing)setPlay(false);
     /* đưa về khung nét gần nhất để kính soi được ảnh lớn */
