@@ -281,7 +281,7 @@ safe('hero',()=>{
   const FS_A=HP+`uniform vec2 r,m,ctr;uniform float t,sc;uniform vec3 c0,c1,c2,c3;
 float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
-float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<${small?4:5};i++){v+=a*n(p);p=p*2.+vec2(1.7,9.2);a*=.5;}return v;}
+float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p=p*2.+vec2(1.7,9.2);a*=.5;}return v;}
 void main(){vec2 uv=gl_FragCoord.xy/r;float asp=r.x/r.y;vec2 p=uv*vec2(asp,1.)*1.618;float s=t*.045;p.y+=sc*.618;
  vec2 q=vec2(fbm(p+s),fbm(p+vec2(5.2,1.3)-s));
  vec2 w=vec2(fbm(p+1.618*q+vec2(1.7,9.2)+s*1.5+m*.382),fbm(p+1.618*q+vec2(8.3,2.8)-s));
@@ -338,29 +338,31 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   const colors=()=>{const cs=getComputedStyle(root),c=k=>hex(cs.getPropertyValue(k));dark=isDark();
     const acc=c('--accent'),lav=c('--lav'),peach=c('--peach'),mist=c('--mist');
     col={c0:c('--bg'),c1:lav,c2:peach,c3:mist,k0:acc,k1:dark?mix(acc,mist,.5):mix(acc,lav,.382),k2:mix(acc,peach,.5)}};
-  colors();document.addEventListener('dl:theme',()=>{colors();if(!running)draw()});
+  colors();document.addEventListener('dl:theme',()=>{colors();fresh=true;if(!running)draw()});
   /* trạng thái */
-  const dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.4;
-  let W=0,H=0,cw=0,ch=0,t=20,rot=0,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
+  let dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.25,ema=16.7,warm=0,lowQ=false;
+  let W=0,H=0,cw=0,ch=0,t=20,rot=0,spd=0,fc=0,fresh=true,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
   const st={in:RM?1:0,morph:0}; // không dựng hình xoắn ốc lúc mở trang
-  /* tâm lớp hạt bám theo quả cầu logo (#heroArt .ha-orb), đo lại khi đổi kích thước */
-  const orb=$('#heroArt .ha-orb'),art={x:.67,y:.5,r:0};
-  const place=()=>{if(!orb)return;const a=cv.getBoundingClientRect(),o=orb.getBoundingClientRect();if(!a.width||!o.width)return;
-    const yOff=parseFloat(getComputedStyle(orb).translate)||0;art.x=(o.left+o.width/2-a.left)/a.width;art.y=(o.top+o.height/2-a.top-yOff)/a.height;art.r=o.width/2};
-  place();new ResizeObserver(place).observe(sec);addEventListener('load',place);
-  const size=()=>{cw=cv.clientWidth;ch=cv.clientHeight;const w=Math.max(2,Math.round(cw*dpr)),h=Math.max(2,Math.round(ch*dpr));
+  /* tâm vòng hạt = tâm logo (#heroArt .ha-logo). Đo bằng offsetLeft/Top (bỏ qua transform bồng bềnh của logo), chỉ khi đổi kích thước;
+     bán kính theo khung #heroArt. Không đọc layout trong vòng vẽ. */
+  const logo=$('#heroArt .ha-logo'),box=$('#heroArt'),art={x:.67,y:.5,r:0};
+  const place=()=>{if(!logo||!box)return;let x=logo.offsetWidth/2,y=logo.offsetHeight/2,e=logo;
+    while(e&&e!==sec){x+=e.offsetLeft;y+=e.offsetTop;e=e.offsetParent}
+    if(e!==sec||!sec.offsetWidth)return;art.x=x/sec.offsetWidth;art.y=y/sec.offsetHeight;art.r=Math.min(box.offsetWidth,box.offsetHeight)/2;if(!running)draw()};
+  const size=()=>{const w=Math.max(2,Math.round(cw*dpr)),h=Math.max(2,Math.round(ch*dpr));
     if(w!==W||h!==H){W=cv.width=w;H=cv.height=h}
     const a=Math.max(2,Math.round(cw*fq)),b=Math.max(2,Math.round(ch*fq));
-    if(a!==fw||b!==fh){fw=a;fh=b;gl.bindTexture(gl.TEXTURE_2D,tex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,fw,fh,0,gl.RGBA,gl.UNSIGNED_BYTE,null);
+    if(a!==fw||b!==fh){fw=a;fh=b;fresh=true;gl.bindTexture(gl.TEXTURE_2D,tex);gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,fw,fh,0,gl.RGBA,gl.UNSIGNED_BYTE,null);
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
       gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0)}};
-  const draw=()=>{if(lost)return;size();
-    const narrow=cw<760,cxn=art.x+Math.sin(t*.13)*.012,cyn=art.y+Math.cos(t*.11)*.012,R=(art.r?art.r*1.9:narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
+  const draw=()=>{if(lost||!cw)return;size();
+    const narrow=cw<760,cxn=art.x,cyn=art.y,R=(art.r?art.r*.96:narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
     const sm=clamp(sc/.3);const morph=Math.max(st.morph,sm*sm*(3-2*sm)),fade=1-clamp((sc-.618)/.382)*.618;
-    gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.disable(gl.BLEND);gl.useProgram(pA);
-    gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
+    /* nền aurora đổi rất chậm: vẽ lại vào FBO cách một khung (đỡ một nửa tải GPU), vòng hạt vẫn vẽ mỗi khung */
+    gl.disable(gl.BLEND);gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
+    if(!running||(fc++&1)===0||fresh){fresh=false;gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.useProgram(pA);
     gl.uniform2f(uA.r,fw,fh);gl.uniform2f(uA.m,mx-.5,.5-my);gl.uniform2f(uA.ctr,cxn,1-cyn);gl.uniform1f(uA.t,t);gl.uniform1f(uA.sc,sc);
-    gl.uniform3fv(uA.c0,col.c0);gl.uniform3fv(uA.c1,col.c1);gl.uniform3fv(uA.c2,col.c2);gl.uniform3fv(uA.c3,col.c3);gl.drawArrays(gl.TRIANGLES,0,3);
+    gl.uniform3fv(uA.c0,col.c0);gl.uniform3fv(uA.c1,col.c1);gl.uniform3fv(uA.c2,col.c2);gl.uniform3fv(uA.c3,col.c3);gl.drawArrays(gl.TRIANGLES,0,3)}
     gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.useProgram(pB);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(uB.tx,0);gl.uniform2f(uB.r,W,H);gl.drawArrays(gl.TRIANGLES,0,3);
     gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,dark?gl.ONE:gl.ONE_MINUS_SRC_ALPHA);gl.useProgram(pP);
     gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.vertexAttribPointer(0,1,gl.FLOAT,false,0,0);
@@ -370,14 +372,18 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
     gl.uniform3fv(uP.k0,col.k0);gl.uniform3fv(uP.k1,col.k1);gl.uniform3fv(uP.k2,col.k2);gl.drawArrays(gl.POINTS,0,N);
   };
   const loop=now=>{raf=0;if(!running)return;const dt=Math.min(.05,(now-last)/1000||.016);last=now;
-    t+=dt;rot+=dt*.06;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
+    /* máy yếu: sau 2 giây nếu khung trung bình > 20ms thì hạ độ phân giải nền + mật độ điểm ảnh một lần */
+    ema+=(dt*1000-ema)*.08;if(!lowQ&&(warm+=dt)>2&&ema>20){lowQ=true;fq*=.6;dpr=Math.min(dpr,1)*.75;fresh=true}
+    t+=dt;spd+=(.08-spd)*Math.min(1,dt*.6);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
   const setRun=()=>{const on=vis&&!covered&&!document.hidden&&!RM&&!lost;if(on===running)return;running=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
   /* Hình nền tự chuyển động, không phụ thuộc thao tác cuộn (tránh giật khi vuốt) */
   if(fine)addEventListener('pointermove',e=>{const r=sec.getBoundingClientRect();if(e.clientY>r.bottom){mpt=0;return}tx=clamp((e.clientX-r.left)/r.width);ty=clamp((e.clientY-r.top)/r.height);mpt=1},{passive:true});
   new IntersectionObserver(([en])=>{vis=en.isIntersecting;setRun()}).observe(sec);
   document.addEventListener('visibilitychange',setRun);
   document.addEventListener('dl:cover',e=>{covered=!!(e.detail&&e.detail.on);setRun()}); // phòng mẫu toàn màn hình đang che trang: tạm dừng cảnh WebGL
-  new ResizeObserver(()=>{if(!running)draw()}).observe(cv);
+  /* kích thước canvas + tâm logo: chỉ đo khi đổi kích thước (ResizeObserver), vòng vẽ không đọc layout */
+  new ResizeObserver(([en])=>{const r=en.contentRect;cw=r.width;ch=r.height;place();if(!running)draw()}).observe(cv);
+  if(box)new ResizeObserver(place).observe(box);addEventListener('load',place);document.fonts&&document.fonts.ready.then(place);
   cv.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;running=false;sec.classList.remove('gl-on')});
   cv.addEventListener('webglcontextrestored',()=>{try{build();lost=false;sec.classList.add('gl-on');RM?draw():setRun()}catch(e){fallback()}});
   draw();sec.classList.add('gl-on');setRun();
