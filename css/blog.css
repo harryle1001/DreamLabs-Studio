@@ -275,3 +275,24 @@ body.bl{overflow-x:clip}
 .bl-body .sv-card p{font-size:var(--t0h);line-height:1.55;color:var(--muted)}
 .bl-body .sv-card-act{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-top:var(--s1)!important}
 .bl-body .sv-card-act a{font-size:var(--t0h);font-weight:500}
+
+/* ảnh nhiều cỡ (picture), ảnh trong bài, nguồn ảnh, liên hệ giữa bài */
+.bl-card-img picture,.bl-hero picture{display:contents}
+.bl-fig{margin:var(--s5) 0 0}
+.bl-fig img{display:block;width:100%;height:auto;aspect-ratio:1280/791;object-fit:cover;border-radius:var(--r2);background:var(--grad-dream)}
+.bl-fig figcaption{margin-top:var(--s2);font-size:var(--t0h);color:var(--muted);line-height:1.5}
+.bl-src{margin-top:var(--s5)!important;padding-top:var(--s3);border-top:1px solid var(--line);font-size:var(--t0h);color:var(--muted);line-height:1.6}
+.bl-mid{margin-top:var(--s5)!important;display:flex;flex-wrap:wrap;align-items:center;gap:var(--s3);padding:var(--s4);border-radius:var(--r2);border:1px solid var(--line);background:color-mix(in oklab,var(--lav) 12%,var(--paper))}
+.bl-mid p{margin:0!important;flex:1 1 280px}
+.bl-mid .btn{min-height:var(--hit);text-decoration:none;flex:none}
+.bl-body .bl-mid a.btn.primary{color:var(--bg)}
+@media (max-width:520px){.bl-mid .btn{flex:1 1 100%;justify-content:center}}
+/* lọc chủ đề + phân trang (trang danh sách) */
+.bl-filter{display:flex;flex-wrap:wrap;gap:var(--s2);margin-bottom:var(--s5)}
+.bl-filter button,.bl-pager button{min-height:var(--hit);padding:0 var(--s3);border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font:inherit;font-size:var(--t0h);cursor:pointer}
+.bl-filter button small{color:var(--muted);margin-left:var(--s0)}
+.bl-filter button[aria-pressed="true"],.bl-pager button[aria-current]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.bl-filter button[aria-pressed="true"] small{color:inherit;opacity:.7}
+.bl-pager{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--s2);margin-top:var(--s6)}
+.bl-pager button{min-width:var(--hit);padding:0}
+.bl-card[hidden]{display:none}
