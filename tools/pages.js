@@ -27,15 +27,16 @@ const sub=m=>!!(m.industry_id||m.topic||m.sample_id);
 const parentOf=m=>m.slug.includes('/')?PAGES.find(p=>p.slug===m.slug.split('/').slice(0,-1).join('/')):null;
 const parentLink=m=>{const p=parentOf(m);return p?[p.slug+'/',p.short||p.h1]:hubLink(m.cat_id)};
 const pageOfSample=id=>SAMPLE_PAGES.find(p=>p.sample_id===id);
-/* {{mau}}: ảnh chụp toàn trang cuộn được + nút mở bản chạy thật; {{mau-luoi:web|landing}}: lưới mọi mẫu của một loại */
+/* {{mau}}: ảnh chụp toàn trang cuộn được + nút mở bản chạy thật; {{mau-luoi:web|landing}}: lưới mọi mẫu của một loại; {{mau-nganh:<ngành>}}: lưới mẫu web + landing của một ngành */
 function sampleBlock(s,up){
   if(!s)throw new Error('Không có mẫu');
   return `<figure class="sv-demo"><div class="sv-demo-frame" tabindex="0" role="region" aria-label="Ảnh chụp toàn trang mẫu ${esc(s.title)}, cuộn để xem"><picture>${s.longM?`<source media="(max-width:600px)" srcset="${up}${s.longM}">`:''}<img src="${up}${s.long||s.cover}" alt="Toàn bộ trang mẫu ${esc(s.title)} từ đầu tới cuối" loading="lazy" decoding="async"></picture></div>
 <figcaption>Cuộn trong khung để xem toàn trang. ${esc(s.title)} là mẫu concept do Dream Labs tự thiết kế, không phải khách hàng.</figcaption></figure>
 <p class="sv-demo-act"><a class="btn primary" href="${up}${s.demo}" target="_blank" rel="noopener">Mở bản chạy thật ${ICON.arrow}</a><span>${esc((s.tags||[]).join(' · '))} · ${esc(s.pkg||'')}</span></p>`;
 }
-function sampleGrid(kind,up){
-  return `<div class="sv-grid">${(SAMPLES[kind]||[]).map(s=>{const pg=pageOfSample(s.id);return `<article class="sv-card"><img src="${up}${s.cover}" width="1280" height="791" alt="Mẫu ${esc(s.title)}" loading="lazy" decoding="async"><div><small>${esc(s.industry)}</small><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><p class="sv-card-act">${pg?`<a href="${up}${pg.slug}/">Xem giới thiệu</a>`:''}<a href="${up}${s.demo}" target="_blank" rel="noopener">Mở bản chạy thật</a></p></div></article>`}).join('\n')}</div>`;
+function sampleGrid(kind,up,ind){
+  const list=ind?Object.values(SAMPLES).flat().filter(s=>s.industry===ind):(SAMPLES[kind]||[]);
+  return `<div class="sv-grid">${list.map(s=>{const pg=pageOfSample(s.id);return `<article class="sv-card"><img src="${up}${s.cover}" width="1280" height="791" alt="Mẫu ${esc(s.title)}" loading="lazy" decoding="async"><div><small>${esc(s.industry)}</small><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><p class="sv-card-act">${pg?`<a href="${up}${pg.slug}/">Xem giới thiệu</a>`:''}<a href="${up}${s.demo}" target="_blank" rel="noopener">Mở bản chạy thật</a></p></div></article>`}).join('\n')}</div>`;
 }   /* trang con nằm dưới trang dịch vụ */
 const hubOf=m=>sub(m)?S.pageFor(m.cat_id):null;
 const hubLink=id=>{const h=S.pageFor(id);return h?[h.slug+'/',h.short||h.h1]:['#p-'+id,cat(id).name]};
@@ -70,7 +71,7 @@ r.querySelector('.tg-save').classList.toggle('on',!!d);var g=r.querySelector('.t
 r.addEventListener('change',up);up()})();</script>`;
 }
 /* {{nganh:<id>}}: danh sách trang theo ngành của một dịch vụ; up tùy độ sâu trang đang dựng */
-const fillUp=(s,up,m)=>s.replace(/\{\{mau\}\}/g,()=>sampleBlock(sampleById(m.sample_id),up)).replace(/\{\{mau-luoi:(\w+)\}\}/g,(_,k)=>sampleGrid(k,up)).replace(/\{\{nganh:(\w+)\}\}/g,(_,id)=>links(up,INDUSTRY.filter(p=>p.cat_id===id).map(p=>[p.slug+'/',p.industry,p.short||p.h1])));
+const fillUp=(s,up,m)=>s.replace(/\{\{mau\}\}/g,()=>sampleBlock(sampleById(m.sample_id),up)).replace(/\{\{mau-luoi:(\w+)\}\}/g,(_,k)=>sampleGrid(k,up)).replace(/\{\{mau-nganh:([^}]+)\}\}/g,(_,n)=>sampleGrid(null,up,n.trim())).replace(/\{\{nganh:(\w+)\}\}/g,(_,id)=>links(up,INDUSTRY.filter(p=>p.cat_id===id).map(p=>[p.slug+'/',p.industry,p.short||p.h1])));
 
 /* kiểm tra: số chữ, độ dài, chữ cấm, ảnh, liên kết nội bộ */
 const BAN=/tỷ lệ vàng|tỉ lệ vàng|góc vàng|xoắn ốc vàng|φ|1[.,]618|golden/i;

@@ -18,7 +18,7 @@ const pad=n=>String(n).padStart(2,'0');
 const ARROW='<svg class="sm-ar" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const SPIRAL='M15 10A1 1 0 0 0 16 9A1 1 0 0 0 15 8A2 2 0 0 0 13 10A3 3 0 0 0 16 13A5 5 0 0 0 21 8A8 8 0 0 0 13 0A13 13 0 0 0 0 13A21 21 0 0 0 21 34A34 34 0 0 0 55 0';
 const GOLD_GRID='M13 10h3v3h-3zM16 8h5v5h-5zM13 0h8v8h-8zM0 0h13v13h-13zM0 13h21v21h-21zM21 0h34v34h-34z';
-const IND=['Nước hoa','Túi xách','Giày','Đồng hồ','Trang sức','Du thuyền','Phi cơ riêng','Bất động sản','Siêu xe','Rượu & ẩm thực','Thời trang','Nghỉ dưỡng','Khác'].map(s=>T(s)),OTHER=T('Khác');
+const IND=['Nước hoa','Túi xách','Giày','Đồng hồ','Trang sức','Du thuyền','Phi cơ riêng','Bất động sản','Siêu xe','Xe sang','Rượu & ẩm thực','Thời trang','Nghỉ dưỡng','Khác'].map(s=>T(s)),OTHER=T('Khác');
 const LINE={web:['Website cho thương hiệu','xa xỉ.'],landing:['Landing page','mở bán riêng tư.'],video:['Edit video','chuẩn điện ảnh.'],product:['Bao bì và sản phẩm','đáng sưu tầm.'],motion:['Motion graphic','có nhịp thở.'],ai:['AI phục vụ như','quản gia riêng.']};Object.keys(LINE).forEach(k=>{LINE[k]=LINE[k].map(s=>T(s))});
 const KIND_LABEL={site:'Website chạy thật',product:'Bộ mẫu mã',video:'Phim',interactive:'Demo tương tác',image:'Hình mẫu'};Object.keys(KIND_LABEL).forEach(k=>{KIND_LABEL[k]=T(KIND_LABEL[k])});
 const RATIO={'16:9':[16,9],'9:16':[9,16],'1:1':[1,1]};

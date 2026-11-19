@@ -1,7 +1,7 @@
 // node check.js → kiểm tra hợp đồng dữ liệu + file ảnh; node check.js shots → chụp trang thử 1440/390 sáng/tối
 const fs=require('fs'),R='/home/user/dreamlab/',sharp=require('/tmp/claude-0/-home-user/2c805972-97eb-57ae-8841-14adfe365124/scratchpad/npm/node_modules/sharp');
 (async()=>{global.window={};require(R+'js/data.js');delete require.cache[require.resolve(R+'js/samples-product.js')];require(R+'js/samples-product.js');const A=window.DL_SAMPLES.product,D=window.DL_DATA;
-const IND=['Nước hoa','Túi xách','Giày','Đồng hồ','Trang sức','Du thuyền','Phi cơ riêng','Bất động sản','Siêu xe','Rượu & ẩm thực','Thời trang','Nghỉ dưỡng','Khác'];
+const IND=['Nước hoa','Túi xách','Giày','Đồng hồ','Trang sức','Du thuyền','Phi cơ riêng','Bất động sản','Siêu xe','Xe sang','Rượu & ẩm thực','Thời trang','Nghỉ dưỡng','Khác'];
 const cat=D.CATS.find(c=>c.id==='product'),pk=JSON.stringify(cat).match(/"name":"[^"]+"/g);let err=0,total=0;const seen=new Set(),ids=new Set();
 const E=m=>{err++;console.log('LỖI',m)};
 for(const it of A){if(ids.has(it.id))E('trùng id '+it.id);ids.add(it.id);if(!it.id.startsWith('product-'))E('id '+it.id);if(!IND.includes(it.industry))E('industry '+it.industry);if(it.kind!=='product')E('kind');if(it.tags.length>3)E('tags>3');if(!(it.variants.length>=3))E('variants<3 '+it.id);
