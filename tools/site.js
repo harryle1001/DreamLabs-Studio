@@ -69,10 +69,14 @@ const checkLen=(slug,title,desc)=>{
 /* danh sách trang để dựng menu, chân trang, sitemap */
 const POSTS=readSrc('src/blog').sort((a,b)=>b.date.localeCompare(a.date)||(a.order||0)-(b.order||0));
 const PAGES=readSrc('src/pages').sort((a,b)=>(a.order||0)-(b.order||0));
-const HUBS=PAGES.filter(p=>!p.industry_id&&!p.topic);              /* trang dịch vụ chính (không phải trang theo ngành) */
+const HUBS=PAGES.filter(p=>!p.industry_id&&!p.topic&&!p.sample_id);              /* trang dịch vụ chính (không phải trang theo ngành) */
 const INDUSTRY=PAGES.filter(p=>p.industry_id);             /* trang dịch vụ theo ngành: meta industry_id + industry */
-const TOPICS=PAGES.filter(p=>p.topic);                     /* trang dịch vụ theo nhu cầu (vd website bán hàng): meta topic */
-const pageFor=id=>HUBS.find(p=>p.cat_id===id);   /* trang dịch vụ riêng của một hạng mục (nếu có) */
+const TOPICS=PAGES.filter(p=>p.topic);
+const SAMPLE_PAGES=PAGES.filter(p=>p.sample_id);           /* trang giới thiệu một mẫu trong Phòng mẫu: meta sample_id */
+/* dữ liệu Phòng mẫu (website, landing page) */
+const SAMPLES=(()=>{const w={};for(const k of ['web','landing']){try{new Function('window',rd('js/samples-'+k+'.js'))(w)}catch(e){}}return w.DL_SAMPLES||{}})();
+const sampleById=id=>Object.values(SAMPLES).flat().find(s=>s.id===id);                     /* trang dịch vụ theo nhu cầu (vd website bán hàng): meta topic */
+const pageFor=id=>HUBS.find(p=>p.cat_id===id&&!p.gallery);   /* trang dịch vụ riêng của một hạng mục (nếu có) */
 const upOf=slug=>'../'.repeat(slug.split('/').length);
 const svcHref=(id,up)=>{const p=pageFor(id);return p?`${up}${p.slug}/`:`${up}#p-${id}`};
 
@@ -153,4 +157,4 @@ document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttrib
 `;
 }
 
-module.exports={GSC_VERIFY,verifyTag,R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,upOf,pageFor,svcHref,ICON,org,crumbs,faqLd,page};
+module.exports={GSC_VERIFY,verifyTag,R,SITE,rd,esc,strip,ld,countWords,CATS,STEPS,CMP,cat,vnd,priceText,EMAIL,PHONE,ZALO,fmtDate,priceTable,tierCards,readSrc,outline,checkLen,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,SAMPLE_PAGES,SAMPLES,sampleById,upOf,pageFor,svcHref,ICON,org,crumbs,faqLd,page};

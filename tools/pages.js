@@ -18,11 +18,25 @@
    Khung trang, menu, chân trang dùng chung với blog: tools/site.js. */
 const fs=require('fs'),path=require('path');
 const S=require('./site.js');
-const {R,SITE,esc,strip,ld,countWords,CATS,cat,vnd,priceText,ZALO,PHONE,priceTable,tierCards,outline,checkLen,org,crumbs,faqLd,page,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,upOf,svcHref,ICON}=S;
+const {R,SITE,esc,strip,ld,countWords,CATS,cat,vnd,priceText,ZALO,PHONE,priceTable,tierCards,outline,checkLen,org,crumbs,faqLd,page,POSTS,PAGES,HUBS,INDUSTRY,TOPICS,SAMPLE_PAGES,SAMPLES,sampleById,upOf,svcHref,ICON}=S;
 const fromPrice=id=>vnd(Math.min(...cat(id).tiers.map(t=>t.p)));
 /* ô liên kết: [href, tiêu đề, dòng phụ] */
 const links=(up,list)=>`<ul class="sv-links">${list.map(([h,b,t])=>`<li><a href="${h.startsWith('#')?up+h:h.startsWith('http')?h:up+h}"><b>${esc(b)}</b><span>${esc(t)}</span>${ICON.arrow}</a></li>`).join('')}</ul>`;
-const sub=m=>!!(m.industry_id||m.topic);   /* trang con nằm dưới trang dịch vụ */
+const sub=m=>!!(m.industry_id||m.topic||m.sample_id);
+/* trang cha theo đường dẫn (vd thiet-ke-website/spa -> thiet-ke-website; mau-website/nuoc-hoa -> mau-website) */
+const parentOf=m=>m.slug.includes('/')?PAGES.find(p=>p.slug===m.slug.split('/').slice(0,-1).join('/')):null;
+const parentLink=m=>{const p=parentOf(m);return p?[p.slug+'/',p.short||p.h1]:hubLink(m.cat_id)};
+const pageOfSample=id=>SAMPLE_PAGES.find(p=>p.sample_id===id);
+/* {{mau}}: ảnh chụp toàn trang cuộn được + nút mở bản chạy thật; {{mau-luoi:web|landing}}: lưới mọi mẫu của một loại */
+function sampleBlock(s,up){
+  if(!s)throw new Error('Không có mẫu');
+  return `<figure class="sv-demo"><div class="sv-demo-frame" tabindex="0" role="region" aria-label="Ảnh chụp toàn trang mẫu ${esc(s.title)}, cuộn để xem"><picture>${s.longM?`<source media="(max-width:600px)" srcset="${up}${s.longM}">`:''}<img src="${up}${s.long||s.cover}" alt="Toàn bộ trang mẫu ${esc(s.title)} từ đầu tới cuối" loading="lazy" decoding="async"></picture></div>
+<figcaption>Cuộn trong khung để xem toàn trang. ${esc(s.title)} là mẫu concept do Dream Labs tự thiết kế, không phải khách hàng.</figcaption></figure>
+<p class="sv-demo-act"><a class="btn primary" href="${up}${s.demo}" target="_blank" rel="noopener">Mở bản chạy thật ${ICON.arrow}</a><span>${esc((s.tags||[]).join(' · '))} · ${esc(s.pkg||'')}</span></p>`;
+}
+function sampleGrid(kind,up){
+  return `<div class="sv-grid">${(SAMPLES[kind]||[]).map(s=>{const pg=pageOfSample(s.id);return `<article class="sv-card"><img src="${up}${s.cover}" width="1280" height="791" alt="Mẫu ${esc(s.title)}" loading="lazy" decoding="async"><div><small>${esc(s.industry)}</small><h3>${esc(s.title)}</h3><p>${esc(s.desc)}</p><p class="sv-card-act">${pg?`<a href="${up}${pg.slug}/">Xem giới thiệu</a>`:''}<a href="${up}${s.demo}" target="_blank" rel="noopener">Mở bản chạy thật</a></p></div></article>`}).join('\n')}</div>`;
+}   /* trang con nằm dưới trang dịch vụ */
 const hubOf=m=>sub(m)?S.pageFor(m.cat_id):null;
 const hubLink=id=>{const h=S.pageFor(id);return h?[h.slug+'/',h.short||h.h1]:['#p-'+id,cat(id).name]};
 
@@ -56,7 +70,7 @@ r.querySelector('.tg-save').classList.toggle('on',!!d);var g=r.querySelector('.t
 r.addEventListener('change',up);up()})();</script>`;
 }
 /* {{nganh:<id>}}: danh sách trang theo ngành của một dịch vụ; up tùy độ sâu trang đang dựng */
-const fillUp=(s,up)=>s.replace(/\{\{nganh:(\w+)\}\}/g,(_,id)=>links(up,INDUSTRY.filter(p=>p.cat_id===id).map(p=>[p.slug+'/',p.industry,p.short||p.h1])));
+const fillUp=(s,up,m)=>s.replace(/\{\{mau\}\}/g,()=>sampleBlock(sampleById(m.sample_id),up)).replace(/\{\{mau-luoi:(\w+)\}\}/g,(_,k)=>sampleGrid(k,up)).replace(/\{\{nganh:(\w+)\}\}/g,(_,id)=>links(up,INDUSTRY.filter(p=>p.cat_id===id).map(p=>[p.slug+'/',p.industry,p.short||p.h1])));
 
 /* kiểm tra: số chữ, độ dài, chữ cấm, ảnh, liên kết nội bộ */
 const BAN=/tỷ lệ vàng|tỉ lệ vàng|góc vàng|xoắn ốc vàng|φ|1[.,]618|golden/i;
@@ -86,13 +100,14 @@ for(const m of PAGES){
   const url=SITE+m.slug+'/',up=upOf(m.slug),c=m.cat_id?cat(m.cat_id):null,hub=hubOf(m);
   const words=countWords(m.raw.replace(/\{\{[^}]+\}\}/g,''));
   bad+=lint(m,words);
-  const {body,toc,faq}=outline(fillUp(fill(m.raw),up));
+  const {body,toc,faq}=outline(fillUp(fill(m.raw),up,m));
   checkLen(m.slug,m.title,m.description);
   const graph=[{...org,telephone:'+84'+PHONE.replace(/\D/g,'').replace(/^0/,'')},
     {'@type':'WebPage','@id':url+'#trang',url,name:m.title,description:m.description,inLanguage:'vi',isPartOf:{'@type':'WebSite','@id':SITE+'#web'},
      primaryImageOfPage:SITE+m.image,dateModified:m.updated||m.date},
+    ...(m.sample_id&&sampleById(m.sample_id)?[{'@type':'CreativeWork','@id':url+'#mau',name:sampleById(m.sample_id).title,genre:sampleById(m.sample_id).industry,description:sampleById(m.sample_id).desc,image:SITE+sampleById(m.sample_id).cover,url:SITE+sampleById(m.sample_id).demo,creator:{'@id':SITE+'#org'},inLanguage:'vi'}]:[]),
     ...(c?[service(c,url)]:(m.cats||CATS.map(x=>x.id)).map(id=>service(cat(id),url))),
-    crumbs([['Trang chủ',SITE],...(sub(m)?[[hubLink(m.cat_id)[1],SITE+hubLink(m.cat_id)[0]]]:[]),[m.short||m.h1,url]])];
+    crumbs([['Trang chủ',SITE],...(sub(m)?[[parentLink(m)[1],SITE+parentLink(m)[0]]]:[]),[m.short||m.h1,url]])];
   if(faq.length)graph.push(faqLd(url,faq));
   const related=(m.related||[]).map(s=>POSTS.find(p=>p.slug===s)).filter(Boolean);
   const children=INDUSTRY.filter(p=>!sub(m)&&m.cat_id&&p.cat_id===m.cat_id);
@@ -100,9 +115,11 @@ for(const m of PAGES){
   const indOfTopic=m.topic?INDUSTRY.filter(p=>p.cat_id===m.cat_id):[];
   const sameInd=m.industry_id?INDUSTRY.filter(p=>p.industry_id===m.industry_id&&p!==m):[];
   const siblings=m.industry_id?INDUSTRY.filter(p=>p.cat_id===m.cat_id&&p!==m):[];
+  const otherSamples=m.sample_id?SAMPLE_PAGES.filter(p=>p!==m&&parentOf(p)===parentOf(m)):[];
   const from=c?Math.min(...c.tiers.map(t=>t.p)):0,fast=c?c.tiers[0].t:'';
-  const act=`<a class="btn primary" href="${ZALO}" target="_blank" rel="noopener">${ICON.zalo} Nhắn Zalo ${esc(PHONE)}</a><a class="btn" href="${up}#lien-he">Gửi yêu cầu tư vấn</a><a class="btn" href="${up}#mau-gia">Xem mẫu và giá ${ICON.arrow}</a>`;
-  const main=`<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="${up}">Trang chủ</a><span aria-hidden="true">/</span>${sub(m)?`<a href="${up}${hubLink(m.cat_id)[0]}">${esc(hubLink(m.cat_id)[1])}</a><span aria-hidden="true">/</span>`:''}<span aria-current="page">${esc(m.short||m.h1)}</span></nav>
+  const smp=m.sample_id?sampleById(m.sample_id):null;
+  const act=`${smp?`<a class="btn primary" href="${up}${smp.demo}" target="_blank" rel="noopener">Mở bản chạy thật ${ICON.arrow}</a>`:''}<a class="btn${smp?'':' primary'}" href="${ZALO}" target="_blank" rel="noopener">${ICON.zalo} Nhắn Zalo ${esc(PHONE)}</a><a class="btn" href="${up}#lien-he">Gửi yêu cầu tư vấn</a><a class="btn" href="${up}#mau-gia">Xem mẫu và giá ${ICON.arrow}</a>`;
+  const main=`<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="${up}">Trang chủ</a><span aria-hidden="true">/</span>${sub(m)?`<a href="${up}${parentLink(m)[0]}">${esc(parentLink(m)[1])}</a><span aria-hidden="true">/</span>`:''}<span aria-current="page">${esc(m.short||m.h1)}</span></nav>
 <article class="bl-post sv">
  <header class="bl-wrap bl-post-h sv-h">
   <p class="eyebrow">${esc(m.eyebrow||'Dịch vụ')}</p>
@@ -125,7 +142,7 @@ ${body.trim()}
   </div>
  </div>
 </article>
-${needs.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-need-h"><h2 id="sv-need-h">${esc(c.name)} ${m.topic?'cho nhu cầu khác':'theo nhu cầu'}</h2>${links(up,needs.map(p=>[p.slug+'/',p.topic,p.short||p.h1]))}</section>\n`:''}${indOfTopic.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-ind-h"><h2 id="sv-ind-h">${esc(c.name)} theo ngành</h2>${links(up,indOfTopic.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}${children.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-ind-h"><h2 id="sv-ind-h">${esc(c.name)} theo ngành</h2>${links(up,children.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}${sameInd.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-same-h"><h2 id="sv-same-h">Dịch vụ khác cho ngành ${esc(m.industry.toLowerCase())}</h2>${links(up,sameInd.map(p=>[p.slug+'/',p.short||p.h1,'Giá từ '+fromPrice(p.cat_id)]))}</section>\n`:''}${siblings.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-sib-h"><h2 id="sv-sib-h">${esc(c.name)} cho ngành khác</h2>${links(up,siblings.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}<section class="bl-wrap bl-more" aria-labelledby="sv-more-h"><h2 id="sv-more-h">${m.industry_id?'Các dịch vụ của Dream Labs':'Dịch vụ khác của Dream Labs'}</h2>
+${otherSamples.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-oth-h"><h2 id="sv-oth-h">Mẫu khác cùng loại</h2>${links(up,otherSamples.map(p=>[p.slug+'/',p.short||p.h1,sampleById(p.sample_id)?sampleById(p.sample_id).industry:'']))}</section>\n`:''}${needs.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-need-h"><h2 id="sv-need-h">${esc(c.name)} ${m.topic?'cho nhu cầu khác':'theo nhu cầu'}</h2>${links(up,needs.map(p=>[p.slug+'/',p.topic,p.short||p.h1]))}</section>\n`:''}${indOfTopic.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-ind-h"><h2 id="sv-ind-h">${esc(c.name)} theo ngành</h2>${links(up,indOfTopic.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}${children.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-ind-h"><h2 id="sv-ind-h">${esc(c.name)} theo ngành</h2>${links(up,children.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}${sameInd.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-same-h"><h2 id="sv-same-h">Dịch vụ khác cho ngành ${esc(m.industry.toLowerCase())}</h2>${links(up,sameInd.map(p=>[p.slug+'/',p.short||p.h1,'Giá từ '+fromPrice(p.cat_id)]))}</section>\n`:''}${siblings.length?`<section class="bl-wrap bl-more" aria-labelledby="sv-sib-h"><h2 id="sv-sib-h">${esc(c.name)} cho ngành khác</h2>${links(up,siblings.map(p=>[p.slug+'/',p.industry,p.short||p.h1]))}</section>\n`:''}<section class="bl-wrap bl-more" aria-labelledby="sv-more-h"><h2 id="sv-more-h">${m.industry_id?'Các dịch vụ của Dream Labs':'Dịch vụ khác của Dream Labs'}</h2>
  ${links(up,[...CATS.filter(x=>x.id!==m.cat_id||sub(m)).map(x=>[hubLink(x.id)[0],hubLink(x.id)[1],'Giá từ '+fromPrice(x.id)]),...HUBS.filter(p=>!p.cat_id&&p!==m).map(p=>[p.slug+'/',p.short||p.h1,'Giá của cả 6 dịch vụ'])])}
 </section>
 ${related.length?`<section class="bl-wrap bl-more sv-posts" aria-labelledby="sv-posts-h"><h2 id="sv-posts-h">Bài viết nên đọc</h2><div class="bl-cards">${related.map(p=>`<article class="bl-card"><a href="${up}blog/${p.slug}/"><span class="bl-card-img"><img src="${up}${p.image}" width="1280" height="791" alt="${esc(p.imageAlt)}" loading="lazy" decoding="async"></span>

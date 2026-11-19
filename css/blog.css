@@ -256,3 +256,22 @@ body.bl{overflow-x:clip}
 .ind-g .sv-links{grid-template-columns:repeat(auto-fill,minmax(min(100%,140px),1fr));gap:var(--s2)}
 .ind-g .sv-links a{padding:var(--s2) var(--s3);min-height:var(--hit,42px)}
 .ind-g .sv-links b{font-size:var(--t1)}
+
+/* trang mẫu (tools/pages.js {{mau}}, {{mau-luoi}}) */
+.sv-demo{margin:var(--s4) 0 0}
+.sv-demo-frame{max-height:min(78vh,720px);overflow:auto;overscroll-behavior:contain;border:1px solid var(--line);border-radius:var(--r2);background:var(--paper);scrollbar-width:thin}
+.sv-demo-frame img{display:block;width:100%;height:auto}
+.sv-demo figcaption{margin-top:var(--s2);font-size:var(--t0h);color:var(--muted)}
+.bl-body .sv-demo-act{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s2) var(--s3);margin-top:var(--s3)}
+.sv-demo-act .btn{min-height:var(--hit);text-decoration:none}
+.bl-body .sv-demo-act .btn.primary{color:var(--bg)}
+.sv-demo-act span{font-size:var(--t0h);color:var(--muted)}
+.bl-body .sv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:var(--s4) var(--s3);margin-top:var(--s4)}
+.sv-card{display:grid;gap:var(--s2);align-content:start}
+.sv-card img{width:100%;height:auto;aspect-ratio:1280/791;object-fit:cover;border-radius:var(--r2);background:var(--grad-dream)}
+.bl-body .sv-card>div>*{margin:0}
+.sv-card small{font-size:var(--t0);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bl-body .sv-card h3{font-size:var(--t1h);margin:var(--s0) 0}
+.bl-body .sv-card p{font-size:var(--t0h);line-height:1.55;color:var(--muted)}
+.bl-body .sv-card-act{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);margin-top:var(--s1)!important}
+.bl-body .sv-card-act a{font-size:var(--t0h);font-weight:500}
