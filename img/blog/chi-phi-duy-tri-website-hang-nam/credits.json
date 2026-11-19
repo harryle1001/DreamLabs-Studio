@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Kaboompics.com",
+  "page": "https://www.pexels.com/photo/7680742/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7680742/pexels-photo-7680742.jpeg",
+  "w": 6720,
+  "h": 4480
+ },
+ "a1": {
+  "author": "Brett Sayles",
+  "page": "https://www.pexels.com/photo/5480781/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5480781/pexels-photo-5480781.jpeg",
+  "w": 6048,
+  "h": 4024
+ },
+ "a2": {
+  "author": "Tima Miroshnichenko",
+  "page": "https://www.pexels.com/photo/6694543/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg",
+  "w": 6000,
+  "h": 4000
+ }
+}

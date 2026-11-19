@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Rachel Claire",
+  "page": "https://www.pexels.com/photo/woman-looking-at-the-product-5864762/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5864762/pexels-photo-5864762.jpeg",
+  "w": 5472,
+  "h": 3648
+ },
+ "a2": {
+  "author": "Laura James",
+  "page": "https://www.pexels.com/photo/woman-choosing-frozen-product-in-supermarket-6097890/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6097890/pexels-photo-6097890.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a1": {
+  "author": "Sam Lion",
+  "page": "https://www.pexels.com/photo/crop-asian-female-buyer-watching-beauty-product-in-shop-5709642/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5709642/pexels-photo-5709642.jpeg",
+  "w": 5616,
+  "h": 3744
+ }
+}

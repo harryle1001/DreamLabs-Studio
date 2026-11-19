@@ -1,0 +1,26 @@
+{
+ "a2": {
+  "author": "Christina Morillo",
+  "page": "https://www.pexels.com/photo/man-wearing-blue-dress-shirt-facing-whiteboard-1181343/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/1181343/pexels-photo-1181343.jpeg",
+  "w": 5849,
+  "h": 3905
+ },
+ "a1": {
+  "author": "picjumbo.com",
+  "page": "https://www.pexels.com/photo/blue-pen-beside-black-smartphone-on-white-paper-196646/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/196646/pexels-photo-196646.jpeg",
+  "w": 4000,
+  "h": 2667
+ },
+ "cover": {
+  "author": "Davide Baraldi",
+  "page": "https://www.pexels.com/photo/close-up-shot-of-an-ipad-11813187/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/11813187/pexels-photo-11813187.jpeg",
+  "w": 6086,
+  "h": 4057
+ }
+}

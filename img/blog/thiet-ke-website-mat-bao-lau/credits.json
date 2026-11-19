@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Yan Krukau",
+  "page": "https://www.pexels.com/photo/7793704/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7793704/pexels-photo-7793704.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a1": {
+  "author": "Christina Morillo",
+  "page": "https://www.pexels.com/photo/1181311/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/1181311/pexels-photo-1181311.jpeg",
+  "w": 6016,
+  "h": 4016
+ },
+ "a2": {
+  "author": "Jakub Zerdzicki",
+  "page": "https://www.pexels.com/photo/35719571/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/35719571/pexels-photo-35719571.jpeg",
+  "w": 3840,
+  "h": 2160
+ }
+}

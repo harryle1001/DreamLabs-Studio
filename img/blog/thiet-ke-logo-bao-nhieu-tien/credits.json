@@ -1,0 +1,26 @@
+{
+ "a1": {
+  "author": "Tima Miroshnichenko",
+  "page": "https://www.pexels.com/photo/a-person-holding-colors-samples-6474450/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6474450/pexels-photo-6474450.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "cover": {
+  "author": "Ivan S",
+  "page": "https://www.pexels.com/photo/person-sketching-on-a-notebook-4238498/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/4238498/pexels-photo-4238498.jpeg",
+  "w": 6240,
+  "h": 4160
+ },
+ "a2": {
+  "author": "Messala Ciulla",
+  "page": "https://www.pexels.com/photo/person-doodling-on-a-booklet-2324808/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/2324808/pexels-photo-2324808.jpeg",
+  "w": 4928,
+  "h": 3264
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Luna Lovegood",
+  "page": "https://www.pexels.com/photo/person-using-macbook-pro-on-white-surface-4087474/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/4087474/pexels-photo-4087474.jpeg",
+  "w": 8256,
+  "h": 5504
+ },
+ "a1": {
+  "author": "Atlantic Ambience",
+  "page": "https://www.pexels.com/photo/close-up-shot-of-a-laptop-computer-12969403/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/12969403/pexels-photo-12969403.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a2": {
+  "author": "Akshar Dave",
+  "page": "https://www.pexels.com/photo/a-person-holding-black-smartphone-11780441/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/11780441/pexels-photo-11780441.jpeg",
+  "w": 4032,
+  "h": 3024
+ }
+}

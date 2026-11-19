@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Nemuel Sereti",
+  "page": "https://www.pexels.com/photo/6424584/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6424584/pexels-photo-6424584.jpeg",
+  "w": 5760,
+  "h": 3840
+ },
+ "a1": {
+  "author": "Masud Gaanwala",
+  "page": "https://www.pexels.com/photo/35184837/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/35184837/pexels-photo-35184837.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a2": {
+  "author": "Stanislav Kondratiev",
+  "page": "https://www.pexels.com/photo/10816120/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/10816120/pexels-photo-10816120.jpeg",
+  "w": 6000,
+  "h": 4000
+ }
+}
