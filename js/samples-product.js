@@ -55,10 +55,10 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-bag-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/bag/', dirs: ['img/spin/bag/', 'img/spin/bag-cognac/', 'img/spin/bag-jade/', 'img/spin/bag-ivory/'], frames: 48, loop: true, tone: 'light', hotspots: [
-   {a: .04, w: .08, x: 49, y: 56, side: 'r', t: 'Khóa đĩa tròn'},
-   {a: .3, w: .09, x: 50, y: 36, side: 'r', t: 'Quai cuộn khâu tay'},
-   {a: .58, w: .1, x: 50, y: 50, side: 'r', t: 'Dáng hộp vai vòm'}
+  spin: {dir: 'img/spin/bag/', v2: true, ground: [75.2, 57.6], hiStep: 4, frames: 144, loop: true, tone: 'light', hotspots: [
+   {a: 0, w: .08, x: 44, y: 57, side: 'r', t: 'Khóa đĩa tròn'},
+   {a: 0.25, w: .09, x: 50, y: 22, side: 'r', t: 'Quai cuộn khâu tay'},
+   {a: 0.5, w: .1, x: 50, y: 55, side: 'r', t: 'Dáng hộp vai vòm'}
   ]},
   variants: [
    {
@@ -189,10 +189,10 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-jewel-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/jewel/', v2: true, ground: [70.6, 37.2], hiStep: 4, frames: 144, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/jewel/', v2: true, ground: [70.6, 37.2], hiStep: 4, dirs: ['img/spin/jewel/', 'img/spin/jewel-sapphire/', '', ''], frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ bốn chấu'},
-   {a: .25, w: .08, x: 52, y: 60, side: 'r', t: 'Đai nhẫn trơn bóng'},
-   {a: .5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ giác cắt bậc', d: 'Soi được từ mọi phía'}
+   {a: 0.25, w: .08, x: 51, y: 55, side: 'r', t: 'Đai nhẫn trơn bóng'},
+   {a: 0.5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ giác cắt bậc', d: 'Soi được từ mọi phía'}
   ]},
   variants: [
    {
@@ -236,9 +236,9 @@
   cover: 'img/sm-product-whisky-set.webp',
   kind: 'product',
   spin: {dir: 'img/spin/whisky/', v2: true, ground: [74.8, 23.4], hiStep: 4, frames: 144, loop: true, tone: 'dark', hotspots: [
-   {a: .98, w: .09, x: 61, y: 62, side: 'r', t: 'Nhãn giấy in nổi', d: 'Dấu hiệu núi mây và số năm ủ'},
-   {a: .3, w: .1, x: 50, y: 27, side: 'r', t: 'Màng co cổ chai'},
-   {a: .6, w: .1, x: 50, y: 80, side: 'r', t: 'Đáy chai dày'}
+   {a: 0, w: .09, x: 60, y: 60, side: 'r', t: 'Nhãn giấy in nổi', d: 'Dấu hiệu núi mây và số năm ủ'},
+   {a: 0.3, w: .1, x: 50, y: 27, side: 'r', t: 'Màng co cổ chai'},
+   {a: 0.6, w: .1, x: 50, y: 73, side: 'r', t: 'Đáy chai dày'}
   ]},
   variants: [
    {
