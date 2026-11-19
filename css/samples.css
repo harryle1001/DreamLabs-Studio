@@ -711,9 +711,9 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .spin.is-first .spin-bgp{opacity:1}
 .spin-aura{left:4%;top:0;width:92%;aspect-ratio:1;border-radius:50%;background:radial-gradient(closest-side,rgba(255,236,205,.17),rgba(255,236,205,0));will-change:transform,opacity}
 .spin[data-tone="light"] .spin-aura{background:radial-gradient(closest-side,rgba(255,255,255,.36),rgba(255,255,255,0))}
-.spin-shadow{aspect-ratio:5/1;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.66),rgba(0,0,0,.28) 55%,rgba(0,0,0,0));will-change:transform,opacity}
-.spin-shadow::before{content:"";position:absolute;inset:-60% -42%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,232,200,.2),rgba(255,232,200,.06) 60%,rgba(255,232,200,0));z-index:-1}
-.spin[data-tone="light"] .spin-shadow{background:radial-gradient(closest-side,rgba(38,24,30,.38),rgba(38,24,30,.16) 55%,rgba(38,24,30,0))}
+.spin-shadow{aspect-ratio:5/1;margin-top:1.6%;border-radius:50%;background:radial-gradient(ellipse closest-side,rgba(0,0,0,.66),rgba(0,0,0,.28) 55%,rgba(0,0,0,0));will-change:transform,opacity}
+.spin-shadow::before{content:"";position:absolute;inset:-60% -42%;border-radius:50%;background:radial-gradient(ellipse closest-side,rgba(255,232,200,.2),rgba(255,232,200,.06) 60%,rgba(255,232,200,0));z-index:-1}
+.spin[data-tone="light"] .spin-shadow{background:radial-gradient(ellipse closest-side,rgba(38,24,30,.38),rgba(38,24,30,.16) 55%,rgba(38,24,30,0))}
 .spin[data-tone="light"] .spin-shadow::before{display:none}
 .spin.is-v2 .spin-cv{will-change:transform}
 /* lớp kính mờ nằm trên vùng đang chuyển động buộc trình duyệt làm mờ lại từng khung: bỏ trong trình xem, bù bằng nền đặc hơn */
