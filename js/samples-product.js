@@ -102,10 +102,10 @@
   cover: 'img/sm-product-shoe-set.webp',
   kind: 'product',
   spin: {dir: 'img/spin/shoe/', dirs: ['img/spin/shoe/', 'img/spin/shoe-nude/', 'img/spin/shoe-mulberry/'], frames: 48, loop: true, tone: 'light', hotspots: [
-   {a: 0, w: .08, x: 34, y: 68, side: 'r', t: 'Mũi nhọn', d: 'Phom mũi thon, miệng giày khoét thấp'},
-   {a: .25, w: .08, x: 29, y: 55, side: 'r', t: 'Gót 9,5 cm', d: 'Gót mảnh bọc cùng chất liệu thân giày'},
-   {a: .5, w: .08, x: 33, y: 71, side: 'r', t: 'Khâu gót mạ vàng'},
-   {a: .75, w: .08, x: 56, y: 59, side: 'r', t: 'Đế da viền mảnh'}
+   {a: 0, w: .08, x: 35, y: 65, side: 'r', t: 'Mũi nhọn', d: 'Phom mũi thon, miệng giày khoét thấp'},
+   {a: 0.25, w: .08, x: 30, y: 52, side: 'r', t: 'Gót 9,5 cm', d: 'Gót mảnh bọc cùng chất liệu thân giày'},
+   {a: 0.5, w: .08, x: 35, y: 68, side: 'r', t: 'Khâu gót mạ vàng'},
+   {a: 0.75, w: .08, x: 55, y: 57, side: 'r', t: 'Đế da viền mảnh'}
   ]},
   variants: [
    {
@@ -317,9 +317,9 @@
   cover: 'img/sm-product-skin-set.webp',
   kind: 'product',
   spin: {dir: 'img/spin/skin/', dirs: ['img/spin/skin/', 'img/spin/skin-celadon/', 'img/spin/skin-blush/'], frames: 48, loop: true, tone: 'light', hotspots: [
-   {a: 0, w: .08, x: 35, y: 37, side: 'r', t: 'Vòi nhấn kim loại'},
-   {a: .25, w: .08, x: 59, y: 44, side: 'r', t: 'Ống nhỏ giọt', d: 'Chai tinh chất thủy tinh mờ'},
-   {a: .5, w: .09, x: 36, y: 53, side: 'r', t: 'Hũ kem nắp kim loại'}
+   {a: 0, w: .08, x: 30, y: 27, side: 'r', t: 'Vòi nhấn kim loại'},
+   {a: 0.25, w: .08, x: 63, y: 37, side: 'r', t: 'Ống nhỏ giọt', d: 'Chai tinh chất thủy tinh mờ'},
+   {a: 0.5, w: .09, x: 32, y: 54, side: 'r', t: 'Hũ kem nắp kim loại'}
   ]},
   variants: [
    {
