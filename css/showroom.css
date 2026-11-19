@@ -118,15 +118,9 @@
 .hero-main{display:flex;flex-direction:column;gap:var(--s4)}
 .hero .hero-title{font-size:clamp(var(--t3),4.6vw,var(--t4));max-width:12ch}
 .hero-main .lead{margin:0;max-width:34ch}
-/* hero: vòng hạt WebGL (js/core.js) xoay quanh logo nhỏ ở tâm; logo chỉ bồng bềnh bằng transform, không làm lệch tâm đo */
-.hero-art{position:relative;display:grid;place-items:center;aspect-ratio:1;width:min(100%,560px);justify-self:center}
-.ha-logo{position:relative;width:clamp(64px,7vw,104px);aspect-ratio:1;animation:ha-float 9s ease-in-out infinite,ha-in 1.4s var(--ease) .5s both}
-.ha-logo svg{position:relative;display:block;width:100%;height:100%;filter:drop-shadow(0 12px 28px color-mix(in oklab,var(--accent) 45%,transparent))}
-.ha-glow{position:absolute;inset:-70%;border-radius:50%;background:radial-gradient(closest-side,color-mix(in oklab,var(--paper) 92%,transparent),color-mix(in oklab,var(--paper) 50%,transparent) 45%,transparent);animation:ha-pulse 7s ease-in-out infinite}
-@keyframes ha-in{from{opacity:0;scale:.8}}
-@keyframes ha-pulse{50%{opacity:.7}}
-@keyframes ha-float{50%{transform:translateY(-6px)}}
-@media (prefers-reduced-motion:reduce){.hero-art *{animation:none!important}}
+/* hero: khung #heroArt (cột 61.8%) chỉ để định vị mắt xoắn ốc của vòng hạt (WebGL, dự phòng Canvas2D trong #heroFb) */
+.hero-art{position:relative;aspect-ratio:1;width:min(100%,560px);justify-self:center}
+.hero-fb canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 @media (max-width:860px){
   .hero{min-height:0;padding-top:calc(var(--head) + var(--s4));padding-bottom:var(--s4)}
   .hero .hero-grid{grid-template-columns:minmax(0,1fr);gap:var(--s3)}
