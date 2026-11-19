@@ -21,14 +21,13 @@ const tierOf=(pkg,c)=>{const k=nk(pkg);return c.tiers.find(t=>nk(c.name+' '+t.n)
 const badge=r=>T(r.spin?'Xoay 360':r.kind==='video'?'Phim':r.kind==='interactive'?'Bấm thử':r.kind==='site'&&r.demo?'Chạy thật':'');
 
 /* mẫu chủ lực của từng hạng mục (thẻ lớn); không khai báo thì lấy mẫu đầu */
-const FEAT={ai:'ai-ngoc-yen',web:'web-ombreve',landing:'landing-elorne',product:'product-khue-lam',motion:'motion-thaverine',video:'video-lamky'};
+const FEAT={ai:'ai-ngoc-yen',web:'web-ombreve',landing:'landing-elorne',product:'product-khue-lam',motion:'motion-orvele',video:'video-lamky'};
 const rows=ORDER.map(id=>CATS.find(c=>c.id===id)).filter(Boolean).map(c=>{let items=(Array.isArray(S[c.id])?S[c.id]:[]).filter(r=>r&&r.id);
   const f=items.findIndex(r=>r.id===FEAT[c.id]);if(f>0)items=[items[f],...items.filter((_,i)=>i!==f)];return{c,items}}).filter(r=>r.items.length);
 if(!rows.length)return;
-/* giá mẫu chủ lực ở hero */
-const hp=document.getElementById('heroPrice'),hc=CATS.find(c=>c.id==='motion');
-if(hp&&hc){const t=tierOf((S.motion||[]).concat([]).find(r=>r.id==='motion-orvele')?.pkg||'',hc);hp.innerHTML=vnd(t.p)+(t.u||'')+FX(t.p)}
-
+/* clip chạy trong thẻ: ảnh bìa động (thumbVid, webm + mp4) hoặc phim của mẫu chủ lực dạng video; ảnh tĩnh vẫn nằm dưới làm poster */
+const vid=(r,feat)=>{const b=r.thumbVid,src=b?null:(feat&&r.kind==='video'&&r.src)||null;if(!b&&!src)return'';
+  return `<video class="sc-vid${b?"":" film"}" muted playsinline loop preload="none" disablepictureinpicture aria-hidden="true">${b?`<source src="${esc(b)}.webm" type="video/webm"><source src="${esc(b)}.mp4" type="video/mp4">`:`<source src="${esc(src)}" type="video/mp4">`}</video>`};
 box.innerHTML=rows.map(({c,items},ri)=>{
   const min=c.tiers.reduce((a,t)=>t.p<a.p?t:a,c.tiers[0]),sh=SHORT[c.id]||c.name;
   return `<div class="srow${ri%2?' flip':''}" id="${VI?'p-':'sr-'}${c.id}" data-cat="${c.id}">
@@ -41,7 +40,7 @@ box.innerHTML=rows.map(({c,items},ri)=>{
   <div class="srail" tabindex="0" role="region" aria-label="${esc(T('Mẫu {c}: vuốt ngang hoặc dùng phím mũi tên',{c:sh}))}">
     <ul class="strack">${items.map((r,i)=>{const t=tierOf(r.pkg,c),b=badge(r),price=vnd(t.p)+(t.u||''),pfx=D.fx?D.fx(t.p):'',ind=r.industry&&r.industry!=='Khác'&&r.industry!==T('Khác')?r.industry:'Concept';
       return `<li class="sc${i?'':' sc-f'}" style="--i:${Math.min(i,5)}"><button class="sc-b" type="button" data-sm-open="${c.id}" data-sm-id="${esc(r.id)}" data-cursor="Xem" aria-label="${esc(T('{t}, {i}: {c} gói {n}, {p}. Xem chi tiết',{t:r.title,i:ind,c:sh,n:t.n,p:price+(pfx?' ('+pfx+')':'')}))}">
-        <span class="sc-img"><span class="sc-par"><img src="${esc(r.thumb||r.cover||'')}" width="1280" height="791" alt="" loading="${ri<1||(ri<2&&!i)?'eager':'lazy'}" decoding="async" draggable="false"></span>${b?`<span class="sc-tag${r.spin?' s360':''}">${b}</span>`:''}<span class="sc-more" aria-hidden="true"><span>${esc(ind)} · ${esc(t.n)}</span><span class="sc-view">${T('Xem chi tiết')} ${AR}</span></span></span>
+        <span class="sc-img"><span class="sc-par"><img src="${esc(r.thumb||r.cover||'')}" width="1280" height="791" alt="" loading="${ri<1||(ri<2&&!i)?'eager':'lazy'}" decoding="async" draggable="false"></span>${vid(r,!i)}${b?`<span class="sc-tag${r.spin?' s360':''}">${b}</span>`:''}<span class="sc-more" aria-hidden="true"><span>${esc(ind)} · ${esc(t.n)}</span><span class="sc-view">${T('Xem chi tiết')} ${AR}</span></span></span>
         <span class="sc-cap"><span class="sc-t">${esc(r.title)}</span><b>${price}${FX(t.p)}</b></span></button></li>`}).join('')}</ul>
   </div>
   <div class="wrap srow-f" aria-hidden="true"><div class="sbar"><i></i></div></div>
@@ -89,11 +88,15 @@ rowsEl.forEach(row=>{
 });
 /* thẻ hiện dần khi hàng vào màn hình */
 if(!RM&&'IntersectionObserver' in window){box.classList.add('reveal');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -12% 0px'});rowsEl.forEach(r=>io.observe(r))}
-/* phim mẫu chủ lực ở hero: chỉ chạy khi đang thấy, không chạy khi người dùng giảm chuyển động */
-const hv=document.getElementById('heroVid');
-if(hv&&!RM&&'IntersectionObserver' in window){let on=false;const run=()=>{if(on&&!document.hidden){const p=hv.play();p&&p.catch(()=>{})}else hv.pause()};
-  new IntersectionObserver(([e])=>{on=e.isIntersecting;run()},{threshold:.2}).observe(hv);document.addEventListener('visibilitychange',run);
-  document.addEventListener('dl:cover',e=>{on=!(e.detail&&e.detail.on)&&hv.getBoundingClientRect().bottom>0;run()})}
+/* clip trong thẻ: chỉ tải và chạy khi thẻ vào khung nhìn; dừng khi ra khỏi, khi tab ẩn, khi phòng mẫu che trang. Giảm chuyển động: không chạy. */
+const vids=[...box.querySelectorAll('.sc-vid')];
+if(vids.length&&!RM&&'IntersectionObserver' in window){const seen=new Set();let cov=false;
+  const run=v=>{if(seen.has(v)&&!cov&&!document.hidden){const p=v.play();p&&p.catch(()=>{})}else v.pause()};
+  vids.forEach(v=>v.addEventListener('playing',()=>v.classList.add('on'),{once:true}));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{e.isIntersecting?seen.add(e.target):seen.delete(e.target);run(e.target)}),{threshold:.35});
+  vids.forEach(v=>io.observe(v));
+  document.addEventListener('visibilitychange',()=>vids.forEach(run));
+  document.addEventListener('dl:cover',e=>{cov=!!(e.detail&&e.detail.on);vids.forEach(run)})}
 D.refresh&&D.refresh();
 });
 })();

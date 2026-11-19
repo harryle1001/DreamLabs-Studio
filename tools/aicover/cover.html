@@ -1,48 +1,63 @@
 <!doctype html><meta charset="utf-8">
-<!-- Ảnh bìa minh họa cho mẫu Tự động hóa AI: trước (giấy tờ, tin nhắn rối) → sau (bảng gọn). Dựng bằng: node tools/aicover/render.js -->
-<style>
-html,body{margin:0}body{width:1280px;height:791px;overflow:hidden;background:#F1EBE1;font-family:Georgia,serif}
-svg{display:block}
-</style>
+<!-- Ảnh bìa động cho mẫu Tự động hóa AI: trước (giấy tờ, tin nhắn rối) → sau (bảng gọn tự điền). render(T) vẽ khung tại T∈[0,1), lặp liền mạch.
+     Dựng: node tools/aicover/render.js (Playwright chụp từng khung, ffmpeg ghép mp4 + webm + poster webp). -->
+<style>html,body{margin:0}body{width:1280px;height:791px;overflow:hidden;background:#F1EBE1}svg{display:block}</style>
 <body><svg id="s" width="1280" height="791" viewBox="0 0 1280 791"></svg>
 <script>
 const K=new URLSearchParams(location.search).get('k')||'report';
 const A={chat:'#8C5A3C',book:'#2F5D50',care:'#7A4E6B',quote:'#1F4E6B',lead:'#9A3B2E',report:'#4B3F8C'}[K];
-const R=(x,y,w,h,r,f,ex='')=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${f}" ${ex}/>`;
+const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),ease=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2},seg=(T,a,d)=>ease((T-a)/d),pop=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const R=(x,y,w,h,r,f,ex='')=>`<rect x="${x}" y="${y}" width="${Math.max(0,w)}" height="${h}" rx="${r}" fill="${f}" ${ex}/>`;
 const L=(x,y,w,c='#C9BFB2',h=8)=>R(x,y,w,h,h/2,c);
-const shadow='filter="url(#sh)"';
-let s=`<defs><filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#3A2A1E" flood-opacity=".16"/></filter>
-<linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#E9E1D5"/><stop offset=".5" stop-color="#F4EEE6"/><stop offset="1" stop-color="#F7F3EC"/></linearGradient></defs>
-${R(0,0,1280,791,0,'url(#bg)')}`;
-/* TRƯỚC: đống giấy và tin nhắn nghiêng lệch */
-const paper=(x,y,rot,w,h,lines)=>{let t=`<g transform="rotate(${rot} ${x+w/2} ${y+h/2})" ${shadow}>${R(x,y,w,h,10,'#FFFDF9','stroke="#E2D9CC"')}`;for(let i=0;i<lines;i++)t+=L(x+22,y+28+i*22,(w-44)*(.45+((i*37)%50)/100));return t+'</g>'};
-const bubble=(x,y,rot,w)=>`<g transform="rotate(${rot} ${x} ${y})" ${shadow}>${R(x,y,w,58,29,'#FFFFFF')}${L(x+22,y+17,w*.6)}${L(x+22,y+33,w*.38,'#DDD3C6')}</g>`;
-const before={
- chat:()=>[bubble(90,170,-8,250),bubble(170,280,6,290),bubble(70,400,-3,230),bubble(200,500,9,260),paper(300,150,12,170,210,6)],
- book:()=>[paper(80,170,-10,240,300,9),bubble(250,420,7,250),bubble(90,540,-6,220),paper(300,200,14,160,200,5)],
- care:()=>[paper(70,160,-6,260,340,11),paper(230,230,9,240,300,9),bubble(110,560,-4,240)],
- quote:()=>[bubble(80,180,-6,280),bubble(150,300,5,250),paper(260,380,-11,200,240,7),bubble(70,520,8,230)],
- lead:()=>[...[0,1,2,3,4,5].map(i=>`<g transform="rotate(${[-14,9,-5,12,-9,6][i]} ${120+(i%3)*110} ${210+Math.floor(i/3)*190})" ${shadow}>${R(60+(i%3)*110,160+Math.floor(i/3)*190,150,96,12,'#FFFDF9','stroke="#E2D9CC"')}<circle cx="${96+(i%3)*110}" cy="${196+Math.floor(i/3)*190}" r="16" fill="#D9CFC2"/>${L(122+(i%3)*110,186+Math.floor(i/3)*190,64)}${L(122+(i%3)*110,204+Math.floor(i/3)*190,44,'#DDD3C6')}</g>`)],
- report:()=>[0,1,2].map(i=>{const x=70+i*70,y=170+i*90,r=[-9,5,-3][i];let t=`<g transform="rotate(${r} ${x+150} ${y+120})" ${shadow}>${R(x,y,300,240,10,'#FFFDF9','stroke="#E2D9CC"')}`;for(let a=0;a<6;a++)for(let b=0;b<4;b++)t+=R(x+18+b*68,y+20+a*34,58,20,3,a?'#EEE7DC':'#DCD2C4');return t+'</g>'})
+const SH='filter="url(#sh)"';
+const DEFS=`<defs><filter id="sh" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#3A2A1E" flood-opacity=".16"/></filter>
+<linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#E9E1D5"/><stop offset=".5" stop-color="#F4EEE6"/><stop offset="1" stop-color="#F7F3EC"/></linearGradient></defs>`;
+/* vật "trước": [cx, cy, góc, hàm vẽ quanh gốc 0,0] */
+const paper=(w,h,n)=>{let t=R(-w/2,-h/2,w,h,10,'#FFFDF9','stroke="#E2D9CC"');for(let i=0;i<n;i++)t+=L(-w/2+22,-h/2+28+i*22,(w-44)*(.45+((i*37)%50)/100));return t};
+const bub=w=>R(-w/2,-29,w,58,29,'#FFFFFF')+L(-w/2+22,-12,w*.6)+L(-w/2+22,4,w*.38,'#DDD3C6');
+const card=()=>R(-75,-48,150,96,12,'#FFFDF9','stroke="#E2D9CC"')+'<circle cx="-39" cy="-12" r="16" fill="#D9CFC2"/>'+L(-13,-22,64)+L(-13,-4,44,'#DDD3C6');
+const sheet=()=>{let t=R(-150,-120,300,240,10,'#FFFDF9','stroke="#E2D9CC"');for(let a=0;a<6;a++)for(let b=0;b<4;b++)t+=R(-132+b*68,-100+a*34,58,20,3,a?'#EEE7DC':'#DCD2C4');return t};
+const BEFORE={
+ chat:[[215,200,-8,bub(250)],[315,310,6,bub(290)],[185,430,-3,bub(230)],[330,530,9,bub(260)],[385,255,12,paper(170,210,6)]],
+ book:[[200,320,-10,paper(240,300,9)],[375,450,7,bub(250)],[200,570,-6,bub(220)],[380,300,14,paper(160,200,5)]],
+ care:[[200,330,-6,paper(260,340,11)],[350,380,9,paper(240,300,9)],[230,590,-4,bub(240)]],
+ quote:[[220,210,-6,bub(280)],[275,330,5,bub(250)],[360,500,-11,paper(200,240,7)],[185,550,8,bub(230)]],
+ lead:[0,1,2,3,4,5].map(i=>[135+(i%3)*110,208+Math.floor(i/3)*190,[-14,9,-5,12,-9,6][i],card()]),
+ report:[0,1,2].map(i=>[220+i*70,290+i*90,[-9,5,-3][i],sheet()])
+}[K];
+const AX=560,AY=395,px=650,py=130,pw=560,ph=530,IX=px+40,IY=py+104,IW=pw-80;
+const tick=(x,y,k)=>`<g transform="translate(${x} ${y}) scale(${pop(k)})"><circle r="15" fill="${A}"/><path d="M-7 0l5 5 9-10" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24" stroke-dashoffset="${24*(1-cl(k*1.4-.3))}"/></g>`;
+/* nội dung "sau", b∈[0,1] là tiến độ dựng */
+const AFTER={
+ cal:b=>{let t='';const cw=IW/7;for(let r=0;r<5;r++)for(let c=0;c<7;c++){const i=r*7+c,k=cl(b*2.2-i/35),on=r==2&&c==4,x=IX+c*cw,y=IY+r*72,hk=cl((b-.62)/.25);
+   t+=`<g opacity="${k}" transform="translate(${x+cw/2} ${y+35}) scale(${.7+.3*ease(k)})">`+R(-cw/2+4,-31,cw-8,62,10,on&&hk>0?A:'#F6F2EC',on&&hk>0?`opacity="${.25+.75*hk}"`:'')+(on&&hk>0?`<path d="M-9 1l7 7 13-14" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="32" stroke-dashoffset="${32*(1-hk)}"/>`:L(-cw/2+14,-19,22,'#D3C9BC',7))+'</g>'}
+   const n=cl((b-.72)/.2);if(n>0)t+=`<g opacity="${n}" transform="translate(${IX+IW-210} ${IY+148-22*n})">${R(0,0,200,54,27,'#3A3140')}${L(22,16,120,'rgba(255,255,255,.85)',9)}${L(22,32,80,'rgba(255,255,255,.45)',7)}</g>`;return t},
+ care:b=>{let t='';for(let i=0;i<5;i++){const y=IY+i*76,k=cl(b*1.6-i*.12),tk=cl((b-.25-i*.12)/.18);if(k<=0)continue;
+   t+=`<g opacity="${k}" transform="translate(${24*(1-ease(k))} 0)">`+R(IX,y,IW,60,12,'#F6F2EC')+(tk>0?tick(IX+34,y+30,tk):`<circle cx="${IX+34}" cy="${y+30}" r="14" fill="none" stroke="#D3C9BC" stroke-width="2.5"/>`)+L(IX+66,y+18,200+((i*53)%120),'#3A3140',10)+L(IX+66,y+38,120,'#CFC5B8')+R(IX+IW-110,y+16,90*cl(tk*1.2),28,14,A,'opacity=".18"')+'</g>'}return t},
+ quote:b=>{let t='';for(let i=0;i<4;i++){const y=IY+i*58,k=cl((b-i*.12)/.2);t+=L(IX,y+10,(220-i*20)*ease(k),'#3A3140',10)+L(IX+IW-120+120*(1-ease(k)),y+10,120*ease(k),'#CFC5B8',10)+R(IX,y+44,IW*ease(k),2,1,'#EEE7DC')}
+   const s=cl((b-.5)/.2),u=cl((b-.7)/.2);return t+`<g opacity="${s}">`+R(IX,IY+260,IW,96,14,A,'opacity=".1"')+L(IX+24,IY+296,140*ease(s),'#3A3140',12)+'</g>'+`<g transform="translate(${IX+IW-112} ${IY+302}) scale(${pop(u)})">`+R(-88,-18,176,36,8,A)+L(-60,-4,120,'rgba(255,255,255,.8)',8)+'</g>'},
+ lead:b=>{let t='';const cols=['#C2412D','#D69A2D','#6C8FB0'],cw=(IW-32)/3,order=[[0,0],[1,0],[0,1],[2,0],[1,1],[0,2]];
+   cols.forEach((c,j)=>{const x=IX+j*(cw+16);t+=R(x,IY,cw,40,10,c)+L(x+18,IY+16,70,'rgba(255,255,255,.8)')});
+   order.forEach(([j,i],n)=>{const k=cl(b*1.5-n*.15),x=IX+j*(cw+16),y=IY+56+i*96,c=cols[j];if(k<=0)return;
+     t+=`<g opacity="${cl(k*2)}" transform="translate(0 ${-140*(1-ease(k))})">`+R(x,y,cw,84,12,'#F6F2EC')+`<circle cx="${x+30}" cy="${y+42}" r="16" fill="${c}" opacity=".85"/>`+L(x+56,y+32,cw-80,'#3A3140',9)+L(x+56,y+50,cw-110,'#CFC5B8')+'</g>'});return t},
+ report:b=>{let t='';[0,1,2].forEach(i=>{const x=IX+i*(IW/3),k=cl((b-i*.1)/.25);t+=`<g opacity="${cl(k*2)}">`+R(x,IY,IW/3-16,86,12,'#F6F2EC')+L(x+18,IY+20,60,'#CFC5B8')+R(x+18,IY+44,(90-i*14)*ease(k),22,6,i?'#3A3140':A)+'</g>'});
+   const gx=IX,gy=IY+120,gw=IW,gh=230;for(let i=0;i<4;i++)t+=R(gx,gy+i*(gh/3),gw,1.5,0,'#EEE7DC');
+   const pts=[.82,.7,.74,.55,.6,.42,.46,.3,.22].map((v,i,a)=>[gx+i*gw/(a.length-1),gy+v*gh]),d='M'+pts.map(p=>p.join(' ')).join('L'),k=ease(cl((b-.3)/.5));
+   t+=`<clipPath id="cp"><rect x="${gx-10}" y="${gy-20}" width="${(gw+20)*k}" height="${gh+40}"/></clipPath><g clip-path="url(#cp)"><path d="${d}L${gx+gw} ${gy+gh}L${gx} ${gy+gh}Z" fill="${A}" opacity=".12"/><path d="${d}" stroke="${A}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+   const e=cl((b-.8)/.15);return t+`<circle cx="${pts.at(-1)[0]}" cy="${pts.at(-1)[1]}" r="${11*pop(e)}" fill="${A}" stroke="#fff" stroke-width="4"/>`}
 };
-s+=`<g opacity=".95">${before[K]().join('')}</g>`;
-/* mũi tên chuyển */
-s+=`<g transform="translate(560 395)"><circle r="44" fill="${A}"/><path d="M-16 0h30M2-14l14 14-14 14" stroke="#FBF8F3" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
-/* SAU: một bảng gọn */
-const px=650,py=130,pw=560,ph=530;
-s+=`<g ${shadow}>${R(px,py,pw,ph,22,'#FFFFFF')}</g>${R(px,py,pw,64,22,A)}${R(px,py+40,pw,24,0,A)}`;
-s+=`<circle cx="${px+34}" cy="${py+32}" r="7" fill="#FBF8F3" opacity=".7"/>${L(px+56,py+28,140,'rgba(251,248,243,.75)')}`;
-const IX=px+40,IY=py+104,IW=pw-80;
-const tick=(x,y)=>`<circle cx="${x}" cy="${y}" r="15" fill="${A}"/><path d="M${x-7} ${y}l5 5 9-10" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
-const rows=n=>{let t='';for(let i=0;i<n;i++){const y=IY+i*76;t+=R(IX,y,IW,60,12,'#F6F2EC')+tick(IX+34,y+30)+L(IX+66,y+18,200+((i*53)%120),'#3A3140',10)+L(IX+66,y+38,120,'#CFC5B8')+R(IX+IW-110,y+16,90,28,14,A,'opacity=".14"')}return t};
-const cal=()=>{let t='';const cw=IW/7;for(let r=0;r<5;r++)for(let c=0;c<7;c++){const on=(r==2&&c==4),x=IX+c*cw,y=IY+r*72;t+=R(x+4,y+4,cw-8,62,10,on?A:'#F6F2EC')+(on?`<path d="M${x+cw/2-9} ${y+36}l7 7 13-14" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`:L(x+14,y+16,22,'#D3C9BC',7))}return t+R(IX,IY+372,IW,0,0,'none')};
-const quote=()=>{let t='';for(let i=0;i<4;i++){const y=IY+i*58;t+=L(IX,y+10,220-i*20,'#3A3140',10)+L(IX+IW-120,y+10,120,'#CFC5B8',10)+R(IX,y+44,IW,2,1,'#EEE7DC')}return t+R(IX,IY+260,IW,96,14,A,'opacity=".1"')+L(IX+24,IY+296,140,'#3A3140',12)+R(IX+IW-200,IY+284,176,36,8,A)};
-const lanes=()=>{let t='';const cols=['#C2412D','#D69A2D','#6C8FB0'],cw=(IW-32)/3;cols.forEach((c,j)=>{const x=IX+j*(cw+16);t+=R(x,IY,cw,40,10,c)+L(x+18,IY+16,70,'rgba(255,255,255,.8)');for(let i=0;i<[3,2,1][j];i++){const y=IY+56+i*96;t+=R(x,y,cw,84,12,'#F6F2EC')+`<circle cx="${x+30}" cy="${y+42}" r="16" fill="${c}" opacity=".85"/>`+L(x+56,y+32,cw-80,'#3A3140',9)+L(x+56,y+50,cw-110,'#CFC5B8')}});return t};
-const chart=()=>{let t='';[[0,'72%'],[1,'38%'],[2,'54%']].forEach(([i])=>{const x=IX+i*(IW/3);t+=R(x,IY,IW/3-16,86,12,'#F6F2EC')+L(x+18,IY+20,60,'#CFC5B8')+R(x+18,IY+44,90-i*14,22,6,i?'#3A3140':A)});
- const gx=IX,gy=IY+120,gw=IW,gh=230;for(let i=0;i<4;i++)t+=R(gx,gy+i*(gh/3),gw,1.5,0,'#EEE7DC');
- const pts=[.82,.7,.74,.55,.6,.42,.46,.3,.22].map((v,i,a)=>[gx+i*gw/(a.length-1),gy+v*gh]);
- t+=`<path d="M${pts.map(p=>p.join(' ')).join('L')}L${gx+gw} ${gy+gh}L${gx} ${gy+gh}Z" fill="${A}" opacity=".12"/><path d="M${pts.map(p=>p.join(' ')).join('L')}" stroke="${A}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
- pts.forEach((p,i)=>{if(i%2==0)t+=R(p[0]-3,gy+gh+16,6,0,0,'none')});return t+`<circle cx="${pts.at(-1)[0]}" cy="${pts.at(-1)[1]}" r="11" fill="${A}" stroke="#fff" stroke-width="4"/>`};
-s+=({chat:cal,book:cal,care:()=>rows(5),quote:quote,lead:lanes,report:chart})[K]();
-document.getElementById('s').innerHTML=s;
+AFTER.chat=AFTER.book=AFTER.cal;
+function render(T){
+  const en=seg(T,0,.16),ab=seg(T,.3,.16),b=cl((T-.42)/.4),out=seg(T,.9,.09);
+  let s=DEFS+R(0,0,1280,791,0,'url(#bg)')+'<g transform="translate(640 395) scale(.84) translate(-635 -395)">'; /* vùng an toàn: thẻ cắt ảnh theo nhiều tỷ lệ */
+  BEFORE.forEach(([cx,cy,r,g],i)=>{const e=seg(T,i*.025,.16),a=cl((T-.3-i*.02)/.16),ea=ease(a),wob=Math.sin(T*Math.PI*4+i)*4*(1-ea);
+    const x=cx-260*(1-e)+(AX-cx)*ea,y=cy+wob+(AY-cy)*ea,sc=1-.85*ea,op=e*(1-ea);if(op<=.01)return;
+    s+=`<g opacity="${op.toFixed(3)}" transform="translate(${x} ${y}) rotate(${r*(1-ea)}) scale(${sc})" ${SH}>${g}</g>`});
+  const pu=Math.sin(cl((T-.36)/.16)*Math.PI);
+  s+=`<g transform="translate(${AX} ${AY}) scale(${1+.18*pu})"><circle r="${44+30*pu}" fill="${A}" opacity="${.15*pu}"/><circle r="44" fill="${A}"/><path d="M-16 0h30M2-14l14 14-14 14" stroke="#FBF8F3" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  s+=`<g ${SH}>${R(px,py,pw,ph,22,'#FFFFFF')}</g>${R(px,py,pw,64,22,A)}${R(px,py+40,pw,24,0,A)}<circle cx="${px+34}" cy="${py+32}" r="7" fill="#FBF8F3" opacity=".7"/>${L(px+56,py+28,140,'rgba(251,248,243,.75)')}`;
+  if(b>0)s+=`<g opacity="${(1-out).toFixed(3)}">${AFTER[K](b)}</g>`;
+  document.getElementById('s').innerHTML=s+'</g>';
+}
+render(+(new URLSearchParams(location.search).get('t')||.86));
 </script>

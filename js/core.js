@@ -342,7 +342,12 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   /* trạng thái */
   const dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.4;
   let W=0,H=0,cw=0,ch=0,t=20,rot=0,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
-  const st={in:RM?1:0,morph:RM?0:1};
+  const st={in:RM?1:0,morph:0}; // không dựng hình xoắn ốc lúc mở trang
+  /* tâm lớp hạt bám theo quả cầu logo (#heroArt .ha-orb), đo lại khi đổi kích thước */
+  const orb=$('#heroArt .ha-orb'),art={x:.67,y:.5,r:0};
+  const place=()=>{if(!orb)return;const a=cv.getBoundingClientRect(),o=orb.getBoundingClientRect();if(!a.width||!o.width)return;
+    const yOff=parseFloat(getComputedStyle(orb).translate)||0;art.x=(o.left+o.width/2-a.left)/a.width;art.y=(o.top+o.height/2-a.top-yOff)/a.height;art.r=o.width/2};
+  place();new ResizeObserver(place).observe(sec);addEventListener('load',place);
   const size=()=>{cw=cv.clientWidth;ch=cv.clientHeight;const w=Math.max(2,Math.round(cw*dpr)),h=Math.max(2,Math.round(ch*dpr));
     if(w!==W||h!==H){W=cv.width=w;H=cv.height=h}
     const a=Math.max(2,Math.round(cw*fq)),b=Math.max(2,Math.round(ch*fq));
@@ -350,7 +355,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
       gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
       gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0)}};
   const draw=()=>{if(lost)return;size();
-    const narrow=cw<760,cxn=(narrow?.618:.67)+Math.sin(t*.13)*.012,cyn=(narrow?.3:.5)+Math.cos(t*.11)*.012,R=(narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
+    const narrow=cw<760,cxn=art.x+Math.sin(t*.13)*.012,cyn=art.y+Math.cos(t*.11)*.012,R=(art.r?art.r*1.9:narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
     const sm=clamp(sc/.3);const morph=Math.max(st.morph,sm*sm*(3-2*sm)),fade=1-clamp((sc-.618)/.382)*.618;
     gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.disable(gl.BLEND);gl.useProgram(pA);
     gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
@@ -360,7 +365,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
     gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,dark?gl.ONE:gl.ONE_MINUS_SRC_ALPHA);gl.useProgram(pP);
     gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.vertexAttribPointer(0,1,gl.FLOAT,false,0,0);
     gl.uniform1f(uP.u_n,N);gl.uniform1f(uP.u_t,t);gl.uniform1f(uP.u_morph,morph);gl.uniform1f(uP.u_in,st.in);gl.uniform1f(uP.u_dpr,dpr);gl.uniform1f(uP.u_R,R);
-    gl.uniform1f(uP.u_mr,110*dpr);gl.uniform1f(uP.u_mp,mp);gl.uniform1f(uP.u_fade,fade);gl.uniform1f(uP.u_rot,rot);gl.uniform1f(uP.u_lo,narrow?.382:.26);gl.uniform1f(uP.u_ss,narrow?1:1.4);gl.uniform1f(uP.u_sc,sc);
+    gl.uniform1f(uP.u_mr,110*dpr);gl.uniform1f(uP.u_mp,mp);gl.uniform1f(uP.u_fade,fade);gl.uniform1f(uP.u_rot,rot);gl.uniform1f(uP.u_lo,narrow?.82:.78);gl.uniform1f(uP.u_ss,narrow?1:1.4);gl.uniform1f(uP.u_sc,sc);
     gl.uniform2f(uP.u_res,W,H);gl.uniform2f(uP.u_ctr,cxn*W,(1-cyn)*H);gl.uniform2f(uP.u_m,mx*W,(1-my)*H);gl.uniform2f(uP.u_tilt,.3+(my-.5)*.382,(mx-.5)*.5);
     gl.uniform3fv(uP.k0,col.k0);gl.uniform3fv(uP.k1,col.k1);gl.uniform3fv(uP.k2,col.k2);gl.drawArrays(gl.POINTS,0,N);
   };
@@ -377,7 +382,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   cv.addEventListener('webglcontextrestored',()=>{try{build();lost=false;sec.classList.add('gl-on');RM?draw():setRun()}catch(e){fallback()}});
   draw();sec.classList.add('gl-on');setRun();
   heroIntro=delay=>{if(RM||!g){st.in=1;st.morph=0;return}
-    g.to(st,{in:1,duration:1.796,ease:'power2.out',delay});g.to(st,{morph:0,duration:2.906,ease:'power3.inOut',delay:delay+.1})};
+    g.to(st,{in:1,duration:1.796,ease:'power2.out',delay})};
 });
 safe('hero-intro',()=>{
   const pre=$('#pre'),h1=$('#heroTitle');let left=0;
@@ -390,7 +395,7 @@ safe('hero-intro',()=>{
     const em=$('em',h1);if(em){const er=em.getBoundingClientRect();$$('.dl-c',em).forEach(c=>{const r=c.getBoundingClientRect();c.style.backgroundSize=er.width+'px 100%';c.style.backgroundPosition=(er.left-r.left)+'px 0'})}
     tl.from(sp.chars,{yPercent:110,rotate:6.18,opacity:0,duration:1.11,ease:'expo.out',stagger:.0262,onComplete:()=>{try{sp.revert()}catch(e){}}},0);
   }
-  tl.from('.hero-main>.lead,.hero-cta,.hero-media',{y:26,opacity:0,duration:1.11,ease:'expo.out',stagger:.1,clearProps:'all'},.262)
+  tl.from('.hero-main>.lead,.hero-cta',{y:26,opacity:0,duration:1.11,ease:'expo.out',stagger:.1,clearProps:'all'},.262)
     .from('.hero-note',{opacity:0,duration:1.11,clearProps:'all'},.686)
     .from('#head',{yPercent:-100,duration:1.11,ease:'expo.out',clearProps:'transform'},.1);
 });
