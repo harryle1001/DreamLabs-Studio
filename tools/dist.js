@@ -40,11 +40,11 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
   html=html.replace(/<script src="js\/[^"]+"><\/script>\n?/g,()=>firstJs?(firstJs=false,'<script src="a.js"></script>\n'):'');
   html=await htmlmin(html,{collapseWhitespace:true,conservativeCollapse:true,removeComments:true,minifyCSS:true,minifyJS:true});
   fs.writeFileSync(path.join(OUT,'index.html'),html);
-  /* /lab/: cùng khung trang chủ, <base href="../"> nên a.css / a.js trỏ về gốc */
-  if(ex('lab/index.html')){let lh=cls(ren(rd('lab/index.html').replace(/<!--[\s\S]*?-->/g,'')));let fc=true,fj=true;
+  /* /lab/, /en/, /ja/: cùng khung trang chủ, <base href="../"> nên a.css / a.js trỏ về gốc */
+  for(const sub of ['lab','en','ja'])if(ex(sub+'/index.html')){let lh=cls(ren(rd(sub+'/index.html').replace(/<!--[\s\S]*?-->/g,'')));let fc=true,fj=true;
     lh=lh.replace(linkRe,()=>fc?(fc=false,'<link rel="stylesheet" href="a.css">\n'):'').replace(/<script src="js\/[^"]+"><\/script>\n?/g,()=>fj?(fj=false,'<script src="a.js"></script>\n'):'');
     lh=await htmlmin(lh,{collapseWhitespace:true,conservativeCollapse:true,removeComments:true,minifyCSS:true,minifyJS:true});
-    fs.mkdirSync(path.join(OUT,'lab'),{recursive:true});fs.writeFileSync(path.join(OUT,'lab/index.html'),lh)}
+    fs.mkdirSync(path.join(OUT,sub),{recursive:true});fs.writeFileSync(path.join(OUT,sub,'index.html'),lh)}
 
   /* demo: nén từng trang */
   for(const f of fs.readdirSync(path.join(R,'demos')).filter(f=>f.endsWith('.html'))){
@@ -78,6 +78,8 @@ const cpDir=(dir,filter=()=>true)=>{if(!ex(dir))return;for(const f of fs.readdir
   const vendorUsed=new Set();for(const s of [html,t.code,...fs.readdirSync(path.join(OUT,'demos')).filter(f=>f.endsWith('.html')).map(f=>fs.readFileSync(path.join(OUT,'demos',f),'utf8'))])for(const m of s.matchAll(/vendor\/([A-Za-z.]+\.js)/g))vendorUsed.add(m[1]);
   if(vendorUsed.has('three.module.js'))vendorUsed.add('three.core.js');
   for(const v of vendorUsed)if(ex('vendor/'+v))cp('vendor/'+v);
+  /* js/track.js (đo chuyển đổi) nạp riêng bằng <script defer> ở mọi trang, không nằm trong a.js */
+  if(ex('js/track.js')){const tk=await terser(rd('js/track.js'),{format:{comments:false}});fs.mkdirSync(path.join(OUT,'js'),{recursive:true});fs.writeFileSync(path.join(OUT,'js/track.js'),tk.code)}
   for(const f of ['manifest.webmanifest','robots.txt','sitemap.xml','CNAME','.nojekyll'])if(ex(f))cp(f);
   /* CSS phông chữ được nạp từ a.css nên đường dẫn ../fonts phải đổi thành fonts/ */
   const a=path.join(OUT,'a.css');fs.writeFileSync(a,fs.readFileSync(a,'utf8').replaceAll('../fonts/','fonts/'));
