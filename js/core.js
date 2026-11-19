@@ -301,8 +301,8 @@ varying float v_al,v_mix,v_soft;const float GA=2.39996323,PHI=1.61803399,TAU=6.2
 float hh(float n){return fract(sin(n*12.9898+4.1414)*43758.5453);}
 void main(){float k=(a_i+.5)/u_n,h1=hh(a_i),h2=hh(a_i*1.7+3.),h3=hh(a_i*2.3+7.);
  float rr=sqrt(k),th=a_i*GA+u_rot;vec2 ph=vec2(cos(th),sin(th))*rr;
- float rs=mix(.012,1.,k),ths=log(rs)/log(PHI)*(TAU*.25)+.227+sin(u_t*.2)*.06;
- vec2 sp=(vec2(cos(ths),sin(ths))*rs*(1.+(h1+h2-1.)*.09)+(vec2(h2,h3)-.5)*.012-vec2(.3,-.19))*u_ss;
+ float rs=mix(.012,1.,k),ths=log(rs)/log(PHI)*(TAU*.25)+.227+u_rot+sin(u_t*.2)*.06,br=1.+.04*sin(u_t*1.3-rs*7.);
+ vec2 sp=(vec2(cos(ths),sin(ths))*rs*br*(1.+(h1+h2-1.)*.09)+(vec2(h2,h3)-.5)*.012)*u_ss; /* mắt xoắn ốc nằm đúng tâm (u_ctr) = tâm logo */
  float mm=smoothstep(0.,1.,clamp(u_morph*1.618-h3*.618,0.,1.));
  vec2 p=mix(ph,sp,mm);float sw=sin(mm*3.14159)*.5*(1.-rr),cs=cos(sw),sn=sin(sw);p=vec2(p.x*cs-p.y*sn,p.x*sn+p.y*cs);
  float z=sin(rr*9.-u_t*.8)*.03*(1.-mm)+(h2-.5)*.06;
@@ -342,7 +342,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   /* trạng thái */
   let dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.25,ema=16.7,warm=0,lowQ=false;
   let W=0,H=0,cw=0,ch=0,t=20,rot=0,spd=0,fc=0,fresh=true,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
-  const st={in:RM?1:0,morph:0}; // không dựng hình xoắn ốc lúc mở trang
+  const st={in:RM?1:0,morph:RM?1:0}; // mở đầu: hạt hiện ra rồi xếp thành hình xoắn ốc
   /* tâm vòng hạt = tâm logo (#heroArt .ha-logo). Đo bằng offsetLeft/Top (bỏ qua transform bồng bềnh của logo), chỉ khi đổi kích thước;
      bán kính theo khung #heroArt. Không đọc layout trong vòng vẽ. */
   const logo=$('#heroArt .ha-logo'),box=$('#heroArt'),art={x:.67,y:.5,r:0};
@@ -367,14 +367,14 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
     gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,dark?gl.ONE:gl.ONE_MINUS_SRC_ALPHA);gl.useProgram(pP);
     gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.vertexAttribPointer(0,1,gl.FLOAT,false,0,0);
     gl.uniform1f(uP.u_n,N);gl.uniform1f(uP.u_t,t);gl.uniform1f(uP.u_morph,morph);gl.uniform1f(uP.u_in,st.in);gl.uniform1f(uP.u_dpr,dpr);gl.uniform1f(uP.u_R,R);
-    gl.uniform1f(uP.u_mr,110*dpr);gl.uniform1f(uP.u_mp,mp);gl.uniform1f(uP.u_fade,fade);gl.uniform1f(uP.u_rot,rot);gl.uniform1f(uP.u_lo,narrow?.82:.78);gl.uniform1f(uP.u_ss,narrow?1:1.4);gl.uniform1f(uP.u_sc,sc);
+    gl.uniform1f(uP.u_mr,110*dpr);gl.uniform1f(uP.u_mp,mp);gl.uniform1f(uP.u_fade,fade);gl.uniform1f(uP.u_rot,rot);gl.uniform1f(uP.u_lo,narrow?.82:.78);gl.uniform1f(uP.u_ss,narrow?1.05:1.2);gl.uniform1f(uP.u_sc,sc);
     gl.uniform2f(uP.u_res,W,H);gl.uniform2f(uP.u_ctr,cxn*W,(1-cyn)*H);gl.uniform2f(uP.u_m,mx*W,(1-my)*H);gl.uniform2f(uP.u_tilt,.3+(my-.5)*.382,(mx-.5)*.5);
     gl.uniform3fv(uP.k0,col.k0);gl.uniform3fv(uP.k1,col.k1);gl.uniform3fv(uP.k2,col.k2);gl.drawArrays(gl.POINTS,0,N);
   };
   const loop=now=>{raf=0;if(!running)return;const dt=Math.min(.05,(now-last)/1000||.016);last=now;
     /* máy yếu: sau 2 giây nếu khung trung bình > 20ms thì hạ độ phân giải nền + mật độ điểm ảnh một lần */
     ema+=(dt*1000-ema)*.08;if(!lowQ&&(warm+=dt)>2&&ema>20){lowQ=true;fq*=.6;dpr=Math.min(dpr,1)*.75;fresh=true}
-    t+=dt;spd+=(.08-spd)*Math.min(1,dt*.6);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
+    t+=dt;spd+=(.25-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
   const setRun=()=>{const on=vis&&!covered&&!document.hidden&&!RM&&!lost;if(on===running)return;running=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
   /* Hình nền tự chuyển động, không phụ thuộc thao tác cuộn (tránh giật khi vuốt) */
   if(fine)addEventListener('pointermove',e=>{const r=sec.getBoundingClientRect();if(e.clientY>r.bottom){mpt=0;return}tx=clamp((e.clientX-r.left)/r.width);ty=clamp((e.clientY-r.top)/r.height);mpt=1},{passive:true});
@@ -387,8 +387,9 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   cv.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;running=false;sec.classList.remove('gl-on')});
   cv.addEventListener('webglcontextrestored',()=>{try{build();lost=false;sec.classList.add('gl-on');RM?draw():setRun()}catch(e){fallback()}});
   draw();sec.classList.add('gl-on');setRun();
-  heroIntro=delay=>{if(RM||!g){st.in=1;st.morph=0;return}
-    g.to(st,{in:1,duration:1.796,ease:'power2.out',delay})};
+  D.heroState=()=>({rot:+rot.toFixed(3),morph:+st.morph.toFixed(3),lowQ}); /* để kiểm thử */
+  heroIntro=delay=>{if(RM||!g){st.in=1;st.morph=1;return}
+    g.to(st,{in:1,duration:1.6,ease:'power2.out',delay});g.to(st,{morph:1,duration:2.9,ease:'power3.inOut',delay:delay+.5})};
 });
 safe('hero-intro',()=>{
   const pre=$('#pre'),h1=$('#heroTitle');let left=0;
