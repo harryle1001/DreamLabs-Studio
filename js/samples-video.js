@@ -8,7 +8,7 @@
     tags: ['Reels 9:16', 'Phụ đề động', 'Color grading'],
     pkg: 'Edit Video — Chuyên nghiệp',
     cover: 'img/sm-video-lamky.webp', kind: 'video',
-    src: 'media/sm-video-lamky.mp4', poster: 'media/sm-video-lamky.webp', ratio: '9:16', duration: 8,
+    src: 'media/sm-video-lamky.mp4?v=a1', poster: 'media/sm-video-lamky.webp', ratio: '9:16', duration: 8,
     before: 'img/sm-video-lamky-before.webp'
   },
   {
@@ -17,7 +17,7 @@
     tags: ['TVC 16:9', 'Chuyển cảnh', 'Color grading'],
     pkg: 'Edit Video — Cao cấp',
     cover: 'img/sm-video-belmora.webp', kind: 'video',
-    src: 'media/sm-video-belmora.mp4', poster: 'media/sm-video-belmora.webp', ratio: '16:9', duration: 8,
+    src: 'media/sm-video-belmora.mp4?v=a1', poster: 'media/sm-video-belmora.webp', ratio: '16:9', duration: 8,
     before: 'img/sm-video-belmora-before.webp'
   },
   {
@@ -26,7 +26,7 @@
     tags: ['Lookbook 9:16', 'Speed ramp', 'Split screen'],
     pkg: 'Edit Video — Chuyên nghiệp',
     cover: 'img/sm-video-nere.webp', kind: 'video',
-    src: 'media/sm-video-nere.mp4', poster: 'media/sm-video-nere.webp', ratio: '9:16', duration: 8,
+    src: 'media/sm-video-nere.mp4?v=a1', poster: 'media/sm-video-nere.webp', ratio: '9:16', duration: 8,
     before: 'img/sm-video-nere-before.webp'
   },
   {
@@ -35,7 +35,7 @@
     tags: ['Unboxing 1:1', 'Phụ đề động', 'Speed ramp'],
     pkg: 'Edit Video — Chuyên nghiệp',
     cover: 'img/sm-video-halden.webp', kind: 'video',
-    src: 'media/sm-video-halden.mp4', poster: 'media/sm-video-halden.webp', ratio: '1:1', duration: 7.5,
+    src: 'media/sm-video-halden.mp4?v=a1', poster: 'media/sm-video-halden.webp', ratio: '1:1', duration: 7.5,
     before: 'img/sm-video-halden-before.webp'
   },
   {
@@ -44,7 +44,7 @@
     tags: ['Tour bất động sản', 'Lower-third', 'Color grading'],
     pkg: 'Edit Video — Cao cấp',
     cover: 'img/sm-video-vandinh.webp', kind: 'video',
-    src: 'media/sm-video-vandinh.mp4', poster: 'media/sm-video-vandinh.webp', ratio: '16:9', duration: 9,
+    src: 'media/sm-video-vandinh.mp4?v=a1', poster: 'media/sm-video-vandinh.webp', ratio: '16:9', duration: 9,
     before: 'img/sm-video-vandinh-before.webp'
   },
   {
@@ -53,7 +53,7 @@
     tags: ['Recap sự kiện', 'Cắt theo nhịp', 'Lower-third'],
     pkg: 'Edit Video — Chuyên nghiệp',
     cover: 'img/sm-video-serac.webp', kind: 'video',
-    src: 'media/sm-video-serac.mp4', poster: 'media/sm-video-serac.webp', ratio: '16:9', duration: 8,
+    src: 'media/sm-video-serac.mp4?v=a1', poster: 'media/sm-video-serac.webp', ratio: '16:9', duration: 8,
     before: 'img/sm-video-serac-before.webp'
   }
 ];

@@ -27,7 +27,7 @@ const rows=ORDER.map(id=>CATS.find(c=>c.id===id)).filter(Boolean).map(c=>{let it
 if(!rows.length)return;
 /* video trong thẻ: màn hình phần mềm mẫu (r.ui → media/ai-<cảnh>) hoặc phim của mẫu chủ lực dạng video; ảnh nằm dưới làm poster */
 const vid=(r,feat)=>{const ui=r.ui,src=ui?null:(feat&&r.kind==='video'&&r.src)||null;if(!ui&&!src)return'';
-  return `<video class="sc-vid av${ui?'':' film'}" muted playsinline loop preload="none" disablepictureinpicture aria-hidden="true">${ui?`<source src="media/ai-${ui}.mp4" type="video/mp4"><source src="media/ai-${ui}.webm" type="video/webm">`:`<source src="${esc(src)}" type="video/mp4">`}</video>`};
+  return `<video class="sc-vid av${ui?'':' film'}" muted playsinline loop preload="none" disablepictureinpicture aria-hidden="true">${ui?`<source src="media/ai-${ui}.mp4?v=a1" type="video/mp4"><source src="media/ai-${ui}.webm?v=a1" type="video/webm">`:`<source src="${esc(src)}" type="video/mp4">`}</video>`};
 /* ảnh thẻ: màn hình phần mềm mẫu (r.ui) có nhiều cỡ webp/avif; còn lại một ảnh */
 const pic=(r,feat,eager)=>{const L=`loading="${eager?'eager':'lazy'}" decoding="async" draggable="false" alt=""`,sz=feat?'(max-width:860px) 84vw, 50vw':'(max-width:860px) 62vw, 30vw';
   if(r.ui){const k='img/ai/'+r.ui;return `<picture><source type="image/avif" srcset="${k}-1280.avif 1280w, ${k}-1920.avif 1920w" sizes="${sz}"><img src="${k}-1280.webp" srcset="${k}-640.webp 640w, ${k}-1280.webp 1280w, ${k}-1920.webp 1920w, ${k}-3840.webp 3840w" sizes="${sz}" width="1280" height="792" ${L}></picture>`}

@@ -7,7 +7,7 @@
     tags: ['Quảng cáo sản phẩm', 'Hạt chuyển động', 'Loop'],
     pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-orvele.webp', kind: 'video',
-    src: 'media/sm-motion-orvele.mp4', poster: 'media/sm-motion-orvele.webp', ratio: '16:9', duration: 8
+    src: 'media/sm-motion-orvele.mp4?v=a1', poster: 'media/sm-motion-orvele.webp', ratio: '16:9', duration: 8
   },
   {
     id: 'motion-talvere', title: 'Talvère — Arc 28', industry: 'Túi xách',
@@ -15,7 +15,7 @@
     tags: ['Ra mắt sản phẩm', 'Reels / TikTok', 'Đổi màu'],
     pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-talvere.webp', kind: 'video',
-    src: 'media/sm-motion-talvere.mp4', poster: 'media/sm-motion-talvere.webp', ratio: '9:16', duration: 8
+    src: 'media/sm-motion-talvere.mp4?v=a1', poster: 'media/sm-motion-talvere.webp', ratio: '9:16', duration: 8
   },
   {
     id: 'motion-valmere', title: 'Valmère — Logo animation', industry: 'Đồng hồ',
@@ -23,7 +23,7 @@
     tags: ['Logo animation', 'Morph', 'Intro thương hiệu'],
     pkg: 'Motion Graphic — Cơ bản',
     cover: 'img/sm-motion-valmere.webp', kind: 'video',
-    src: 'media/sm-motion-valmere.mp4', poster: 'media/sm-motion-valmere.webp', ratio: '1:1', duration: 7
+    src: 'media/sm-motion-valmere.mp4?v=a1', poster: 'media/sm-motion-valmere.webp', ratio: '1:1', duration: 7
   },
   {
     id: 'motion-calvente', title: 'Calvente — Đi chậm. Đến xa.', industry: 'Giày',
@@ -31,7 +31,7 @@
     tags: ['Kinetic typography', 'Reels / TikTok', 'Tiếng Việt đủ dấu'],
     pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-calvente.webp', kind: 'video',
-    src: 'media/sm-motion-calvente.mp4', poster: 'media/sm-motion-calvente.webp', ratio: '9:16', duration: 7
+    src: 'media/sm-motion-calvente.mp4?v=a1', poster: 'media/sm-motion-calvente.webp', ratio: '9:16', duration: 7
   },
   {
     id: 'motion-thaverine', title: 'Thavérine — Hành trình một viên đá', industry: 'Trang sức',
@@ -39,7 +39,7 @@
     tags: ['Infographic', 'Explainer', 'Số liệu động'],
     pkg: 'Motion Graphic — Cao cấp',
     cover: 'img/sm-motion-thaverine.webp', kind: 'video',
-    src: 'media/sm-motion-thaverine.mp4', poster: 'media/sm-motion-thaverine.webp', ratio: '16:9', duration: 9.6
+    src: 'media/sm-motion-thaverine.mp4?v=a1', poster: 'media/sm-motion-thaverine.webp', ratio: '16:9', duration: 9.6
   },
   {
     id: 'motion-navelia', title: 'Navélia 62 — Lễ hạ thủy', industry: 'Du thuyền',
@@ -47,7 +47,7 @@
     tags: ['Teaser sự kiện', 'Thông số động', 'Loop'],
     pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-navelia.webp', kind: 'video',
-    src: 'media/sm-motion-navelia.mp4', poster: 'media/sm-motion-navelia.webp', ratio: '16:9', duration: 8
+    src: 'media/sm-motion-navelia.mp4?v=a1', poster: 'media/sm-motion-navelia.webp', ratio: '16:9', duration: 8
   },
   {
     id: 'motion-studio3d', title: 'Dream Labs 3D Studio — Sáu vật thật', industry: 'Nội thất',
@@ -55,6 +55,6 @@
     tags: ['Phim sản phẩm 3D', 'Quét 3D vật thật', 'Ánh sáng studio'],
     pkg: 'Motion Graphic — Cao cấp',
     cover: 'img/sm-motion-studio3d.webp', kind: 'video',
-    src: 'media/sm-motion-studio3d.mp4', poster: 'media/sm-motion-studio3d.webp', ratio: '16:9', duration: 17
+    src: 'media/sm-motion-studio3d.mp4?v=a1', poster: 'media/sm-motion-studio3d.webp', ratio: '16:9', duration: 17
   }
 ];

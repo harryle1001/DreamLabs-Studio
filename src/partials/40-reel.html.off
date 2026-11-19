@@ -5,7 +5,7 @@
     <div class="reel-stage">
       <div class="reel-frame" data-cursor="Phát / dừng">
         <video class="reel-video" muted playsinline loop preload="metadata" poster="media/showreel-poster.webp" width="1280" height="792" aria-label="Showreel Dream Labs: sáu dịch vụ trong 21 giây, phim không có tiếng">
-          <source src="media/showreel.mp4" type="video/mp4">
+          <source src="media/showreel.mp4?v=a1" type="video/mp4">
         </video>
         <button class="reel-toggle" type="button" aria-label="Phát showreel">
           <svg class="i-play" viewBox="0 0 26 26" aria-hidden="true"><path d="M9 5.5v15l12-7.5z" fill="currentColor"/></svg>

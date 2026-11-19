@@ -28,6 +28,7 @@ Cần cài một lần:
 | Trang dịch vụ (`/thiet-ke-website/`, `/bang-gia/`…) | `src/pages/<slug>.html` (giá tự lấy từ `js/data.js`, dựng bằng `tools/pages.js`) |
 | Bài viết | `src/blog/<slug>.html` (dựng bằng `tools/blog.js`) |
 | Màu, cỡ chữ, khoảng cách | `css/tokens.css` |
+| Nhạc nền trong video (tự tổng hợp) | `tools/music/gen.py` tạo nhạc, `tools/music/mux.py` ghép vào `media/` (nút loa: `js/sound.js`) |
 
 Sau khi sửa file trong `src/`, ghép lại trang:
 

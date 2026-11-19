@@ -1,0 +1,25 @@
+/* nút loa trên video (js/sound.js) */
+.snd-rel{position:relative}
+.snd{position:absolute;z-index:4;top:10px;right:10px;display:inline-flex;align-items:center;gap:5px;height:30px;min-width:30px;padding:0 9px;
+  border:1px solid rgba(251,248,243,.22);border-radius:999px;background:rgba(24,19,30,.46);color:#FBF8F3;cursor:pointer;
+  backdrop-filter:blur(10px) saturate(1.2);-webkit-backdrop-filter:blur(10px) saturate(1.2);
+  transition:background .25s ease,opacity .35s ease,transform .25s ease;-webkit-tap-highlight-color:transparent;animation:snd-in .45s ease both}
+.snd[hidden]{display:none}
+.snd::before{content:"";position:absolute;inset:-8px}
+.snd:hover{background:rgba(24,19,30,.68)}
+.snd:active{transform:scale(.94)}
+.snd:focus-visible{outline:2px solid #FBF8F3;outline-offset:2px}
+.snd svg{width:14px;height:14px;flex:none}
+.snd-w{display:none;align-items:center;gap:2px;height:12px}
+.snd-w i{display:block;width:2px;height:100%;border-radius:2px;background:currentColor;transform:scaleY(.3);transform-origin:50% 50%}
+.snd.on .snd-x{display:none}
+.snd.on .snd-w{display:inline-flex}
+.snd.play .snd-w i{animation:snd-b 1.1s ease-in-out infinite}
+.snd.play .snd-w i:nth-child(2){animation-delay:-.45s}
+.snd.play .snd-w i:nth-child(3){animation-delay:-.2s}
+.snd.play .snd-w i:nth-child(4){animation-delay:-.7s}
+@keyframes snd-b{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+@keyframes snd-in{from{opacity:0;transform:translateY(-3px)}}
+.sm-vframe .snd{top:12px;right:12px}
+@media (max-width:600px){.snd{top:8px;right:8px;height:28px;padding:0 8px}}
+@media (prefers-reduced-motion:reduce){.snd{animation:none}.snd.play .snd-w i{animation:none;transform:scaleY(.7)}}
