@@ -33,6 +33,9 @@ const CFG={
  candle:{shot:'tram',keep:null,drop:[2,3],pivot:1,fill:.74,scale:{0:[.36,1,.6]},center:[1]},
  skin:{shot:'pearl',keep:null,pivot:'box',fill:.8,scale:{1:[.72,1,.9]}},
 }[line];
+/* v2 (?v2=1): chỉ giữ sản phẩm (bỏ bệ, bỏ sàn hứng bóng, bỏ phản chiếu), xuất khung RGBA nền trong suốt + một ảnh nền riêng;
+   trình xem tự vẽ nền, bóng và chuyển động lơ lửng. V2KEEP: con của stage được giữ ở chế độ này. */
+const V2=q.get('v2')==='1',V2KEEP={perfume:[0],whisky:[0],bag:[1],watch:null,jewel:[0],shoe:[0],candle:[1],skin:[2,3,4]}[line];
 try{
  await L.loadFonts();
  const r=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,powerPreference:'high-performance'});r.setPixelRatio(1);r.setSize(L.W,L.H);r.shadowMap.enabled=true;r.shadowMap.type=T.PCFShadowMap;
@@ -43,7 +46,8 @@ try{
  window.__kids=kids.map((k,i)=>{const b=new T.Box3().setFromObject(k);return i+': '+k.type+' '+[b.min,b.max].map(v=>v.toArray().map(n=>n.toFixed(2))).join(' → ')});
  for(const k in CFG.scale||{})kids[k].scale.set(...CFG.scale[k]);
  for(const k of CFG.center||[]){kids[k].position.x=0;kids[k].position.z=0}
- const keep=CFG.keep?kids.filter((k,i)=>CFG.keep.includes(i)):kids.filter((k,i)=>!(CFG.drop||[]).includes(i));
+ const keep=V2?(V2KEEP?kids.filter((k,i)=>V2KEEP.includes(i)):kids):CFG.keep?kids.filter((k,i)=>CFG.keep.includes(i)):kids.filter((k,i)=>!(CFG.drop||[]).includes(i));
+ if(V2)keep.forEach(k=>{k.position.y-=new T.Box3().setFromObject(k).min.y});   // đặt mọi vật xuống cùng mặt đất (đã bỏ bệ)
  kids.forEach(k=>keep.includes(k)||st.stage.remove(k));
  /* trục xoay */
  const box=o=>new T.Box3().setFromObject(o);
@@ -53,20 +57,38 @@ try{
  let rad=0,top=0;const p=V3();G.updateMatrixWorld(true);G.traverse(n=>{if(!n.isMesh||!n.geometry||n.material&&n.material.isShadowMaterial)return;const a=n.geometry.attributes.position;if(!a)return;if(n.geometry.type==='PlaneGeometry'&&n.renderOrder<0)return;const step=Math.max(1,a.count>>11);for(let i=0;i<a.count;i+=step){p.fromBufferAttribute(a,i).applyMatrix4(n.matrixWorld);rad=Math.max(rad,Math.hypot(p.x,p.z));top=Math.max(top,p.y)}});
  /* máy quay: giữ hướng nhìn và tiêu cự của ảnh tĩnh, lùi lại cho vừa khung vuông */
  const cam0=S.camera,dir=cam0.position.clone().sub(S.focus).normalize();dir.x=0;dir.normalize();const el=+(q.get('el')||0);if(el){dir.y=Math.sin(el);dir.z=Math.cos(el)}
- const camera=new T.PerspectiveCamera(cam0.fov,L.W/L.H,.1,100),half=Math.max(rad,top/2)/(+q.get('fill')||CFG.fill),dist=half/Math.tan(cam0.fov*Math.PI/360)+rad;
- const focus=V3(0,top*(+q.get('fy')||.5),0);camera.position.copy(focus).addScaledVector(dir,dist);camera.lookAt(focus);camera.updateMatrixWorld();
+ const camera=new T.PerspectiveCamera(cam0.fov,L.W/L.H,.1,100),half=Math.max(rad,top/2)/(+q.get('fill')||(V2?({candle:.52,bag:.66,skin:.74}[line]||CFG.fill*.9):CFG.fill)),dist=half/Math.tan(cam0.fov*Math.PI/360)+rad;
+ const focus=V3(0,top*(+q.get('fy')||(V2?.44:.5)),0);camera.position.copy(focus).addScaledVector(dir,dist);camera.lookAt(focus);camera.updateMatrixWorld();
  st.scene.traverse(n=>{const ms=n.material?(Array.isArray(n.material)?n.material:[n.material]):[];ms.forEach(m=>{if(m.envMapIntensity!==undefined&&m.envMapIntensity!==1&&!m.envMap){m.envMap=st.scene.environment;m.envMapIntensity*=st.scene.environmentIntensity??1}})});
  /* double: dây đồng hồ là mặt đơn, nhìn từ phía sau sẽ thủng nếu không dựng hai mặt */
  if(CFG.double)G.traverse(n=>{const ms=n.material?(Array.isArray(n.material)?n.material:[n.material]):[];ms.forEach(m=>{if(!m.transparent&&!m.transmission&&m.side===T.FrontSide){m.side=T.DoubleSide;m.shadowSide=T.FrontSide}})});
  const proj=(x,y,z)=>{const v=V3(x,y,z).project(camera);return[+((v.x+1)*50).toFixed(1),+((1-v.y)*50).toFixed(1)]};
  window.__info={rad:+rad.toFixed(3),top:+top.toFixed(3),dist:+dist.toFixed(2),axis:[0,.25,.5,.75,1].map(t=>proj(0,top*t,0)),front:[0,.25,.5,.75,1].map(t=>proj(0,top*t,rad)),side:proj(rad,top/2,0)};
  const bg0=st.bgC,ns=+(q.get('n')||8),base=G.rotation.y;let rf=S.reflect;
+ if(V2){rf=null;st.floor.visible=false}
+ window.__info.ground=[proj(0,0,0)[1],+((proj(rad,0,0)[0]-50)*2).toFixed(1)];   // [y% mặt đất, bề rộng % của chân vật]
  if(rf){const y0=proj(0,0,0)[1]/100;rf={...rf,y0,y1:Math.min(1.05,y0+.34)}}
  window.__frame=async(i,N)=>{
   G.rotation.y=base+i/N*Math.PI*2;G.updateMatrixWorld(true);
   if(rf){st.bgC=bg0;const old=st.scene.background;st.scene.background=L.tex(bg0);old&&old.dispose&&old.dispose();await L.reflect(r,st,camera,{focus,...rf,samples:Math.min(4,Math.max(2,ns>>2))})}
   const img=await L.accumulate(r,st.scene,camera,{samples:ns,focus,aperture:0,lights:st.lights});
   const post={...(S.post||{})};delete post.over;return L.post(img,post).toDataURL('image/png')};
+
+ if(V2){
+  const post0={...(S.post||{})};delete post0.over;
+  /* ảnh nền: cảnh không có sản phẩm */
+  window.__plate=async()=>{G.visible=false;const img=await L.accumulate(r,st.scene,camera,{samples:2,focus,aperture:0,lights:[]});G.visible=true;return L.post(img,post0).toDataURL('image/png')};
+  const white=new T.MeshBasicMaterial({color:'#ffffff',toneMapped:false,side:T.DoubleSide}),black=new T.Color('#000000');
+  window.__frame=async(i,N)=>{
+   G.rotation.y=base+i/N*Math.PI*2;G.updateMatrixWorld(true);
+   const img=L.post(await L.accumulate(r,st.scene,camera,{samples:ns,focus,aperture:0,lights:st.lights}),post0);
+   /* mặt nạ: mọi vật tô trắng trên nền đen, cùng bộ rung khử răng cưa */
+   const bgT=st.scene.background,sh=r.shadowMap.enabled;st.scene.background=black;st.scene.overrideMaterial=white;r.shadowMap.enabled=false;
+   const m=await L.accumulate(r,st.scene,camera,{samples:Math.max(4,ns>>1),focus,aperture:0,lights:[]});
+   st.scene.overrideMaterial=null;st.scene.background=bgT;r.shadowMap.enabled=sh;
+   const x=img.getContext('2d'),d=x.getImageData(0,0,L.W,L.H),a=m.getContext('2d').getImageData(0,0,L.W,L.H).data;
+   for(let k=0;k<a.length;k+=4){const v=a[k]<4?0:a[k]>251?255:a[k];d.data[k+3]=v;if(!v)d.data[k]=d.data[k+1]=d.data[k+2]=0}   // bỏ nhiễu rung ở vùng đặc/trống để kênh alpha nén gọn
+   x.putImageData(d,0,0);return img.toDataURL('image/png')}}
  window.__done=true;
 }catch(e){console.error(e.stack||e.message||e);window.__err=String(e.stack||e);window.__done=true}
 </script></body></html>

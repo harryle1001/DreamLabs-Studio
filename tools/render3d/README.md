@@ -15,3 +15,8 @@ DL_NPM=/tmp/dl/node_modules node tools/render3d/spin.js watch --pre 0,12   # xem
 ```
 
 Chạy lại sẽ bỏ qua khung PNG đã có trong thư mục `out/` (đổi `DL_OUT` hoặc xóa thư mục đó để dựng lại từ đầu). Trình xem ở `js/spin.js`; mẫu bật 360 bằng trường `spin` trong `js/samples-product.js` (file này giờ sửa tay, `gen.js` không sinh trường `spin`).
+
+### Định dạng v2 (nền trong suốt, cho hiệu ứng lơ lửng)
+
+`node tools/render3d/spin.js <dòng> [--shot <mẫu mã>] --v2` dựng 72 khung 1600px chỉ có sản phẩm (bỏ bệ, sàn, phản chiếu) và ghi vào `img/spin/<slug>/`:
+`bg.webp` (ảnh nền), `l/001…072.webp` (960px, đủ khung, dùng khi xoay), `h/001, 003…071.webp` (1600px, khung lẻ, dùng khi dừng và phóng to), `meta.json` (vị trí mặt đất để trình xem vẽ bóng). Chạy lại sẽ bỏ qua khung đã có.
