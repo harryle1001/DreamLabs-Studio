@@ -1,0 +1,34 @@
+{
+ "cover": {
+  "author": "PNW Production",
+  "page": "https://www.pexels.com/photo/brown-wooden-pencil-on-white-paper-8250889/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8250889/pexels-photo-8250889.jpeg",
+  "w": 3960,
+  "h": 2640
+ },
+ "a1": {
+  "author": "Tima Miroshnichenko",
+  "page": "https://www.pexels.com/photo/sketches-and-drawings-on-a-sketchpad-6615229/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6615229/pexels-photo-6615229.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a2": {
+  "author": "Ron Lach",
+  "page": "https://www.pexels.com/photo/man-sitting-at-the-desk-and-editing-footage-on-a-computer-8102676/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8102676/pexels-photo-8102676.jpeg",
+  "w": 6240,
+  "h": 4160
+ },
+ "a3": {
+  "author": "Reel Focus Productions",
+  "page": "https://www.pexels.com/photo/podcast-microphone-27616685/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/27616685/pexels-photo-27616685.jpeg",
+  "w": 5184,
+  "h": 3888
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Ron Lach",
+  "page": "https://www.pexels.com/photo/man-filming-himself-using-a-smartphone-8360497/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8360497/pexels-photo-8360497.jpeg",
+  "w": 6720,
+  "h": 4480
+ },
+ "a1": {
+  "author": "Javier Gonzalez",
+  "page": "https://www.pexels.com/photo/close-up-of-a-smartphone-attached-to-a-stabilizer-recording-a-green-background-15468076/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/15468076/pexels-photo-15468076.jpeg",
+  "w": 5184,
+  "h": 3456
+ },
+ "a2": {
+  "author": "Ron Lach",
+  "page": "https://www.pexels.com/photo/a-man-and-a-woman-looking-at-a-computer-monitor-8102680/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8102680/pexels-photo-8102680.jpeg",
+  "w": 6240,
+  "h": 4160
+ }
+}

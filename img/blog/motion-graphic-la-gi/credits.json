@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Ivan S",
+  "page": "https://www.pexels.com/photo/person-drawing-on-a-tablet-4238489/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/4238489/pexels-photo-4238489.jpeg",
+  "w": 6240,
+  "h": 4160
+ },
+ "a1": {
+  "author": "ThisIsEngineering",
+  "page": "https://www.pexels.com/photo/3d-design-on-laptop-screen-3913016/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/3913016/pexels-photo-3913016.jpeg",
+  "w": 5472,
+  "h": 3648
+ },
+ "a2": {
+  "author": "Ahimsa - OM",
+  "page": "https://www.pexels.com/photo/home-studio-for-podcasts-large-black-microphone-notebook-and-notebooks-on-table-close-up-cinematic-style-19537510/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/19537510/pexels-photo-19537510.jpeg",
+  "w": 5133,
+  "h": 3645
+ }
+}

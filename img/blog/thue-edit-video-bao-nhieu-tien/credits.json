@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Ron Lach",
+  "page": "https://www.pexels.com/photo/a-man-sitting-on-front-of-the-computer-while-editing-video-8102677/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8102677/pexels-photo-8102677.jpeg",
+  "w": 6148,
+  "h": 4099
+ },
+ "a1": {
+  "author": "Muhammed Çetinkaya",
+  "page": "https://www.pexels.com/photo/layout-of-editing-software-17115910/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/17115910/pexels-photo-17115910.jpeg",
+  "w": 7688,
+  "h": 5126
+ },
+ "a2": {
+  "author": "Ron Lach",
+  "page": "https://www.pexels.com/photo/backview-of-a-female-editor-working-on-a-computer-8100059/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8100059/pexels-photo-8100059.jpeg",
+  "w": 6162,
+  "h": 4108
+ }
+}
