@@ -55,7 +55,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-bag-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/bag/', v2: true, ground: [75.2, 57.6], hiStep: 4, frames: 144, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/bag/', v2: true, ground: [75.2, 57.6], hiStep: 4, dirs: ['img/spin/bag/', 'img/spin/bag-cognac/', '', ''], frames: 144, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 44, y: 57, side: 'r', t: 'Khóa đĩa tròn'},
    {a: 0.25, w: .09, x: 50, y: 22, side: 'r', t: 'Quai cuộn khâu tay'},
    {a: 0.5, w: .1, x: 50, y: 55, side: 'r', t: 'Dáng hộp vai vòm'}
@@ -143,7 +143,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-watch-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/watch/', dirs: ['img/spin/watch/', 'img/spin/watch-ivory/', 'img/spin/watch-smoke/', 'img/spin/watch-jade/'], frames: 48, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/watch/', v2: true, ground: [74.6, 52.2], hiStep: 4, frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .07, x: 53, y: 53, side: 'r', t: 'Kim giây nhỏ ở 6 giờ', d: 'Mặt số tia mặt trời, cọc số nổi'},
    {a: .27, w: .08, x: 66, y: 45, side: 'l', t: 'Vỏ tròn 40 mm'},
    {a: .5, w: .09, x: 57, y: 27, side: 'r', t: 'Dây da khâu tay'}
@@ -189,7 +189,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-jewel-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/jewel/', v2: true, ground: [70.6, 37.2], hiStep: 4, dirs: ['img/spin/jewel/', 'img/spin/jewel-sapphire/', 'img/spin/jewel-diamond/', ''], frames: 144, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/jewel/', v2: true, ground: [70.6, 37.2], hiStep: 4, dirs: ['img/spin/jewel/', 'img/spin/jewel-sapphire/', 'img/spin/jewel-diamond/', 'img/spin/jewel-ruby/'], frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ bốn chấu'},
    {a: 0.25, w: .08, x: 51, y: 55, side: 'r', t: 'Đai nhẫn trơn bóng'},
    {a: 0.5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ giác cắt bậc', d: 'Soi được từ mọi phía'}
