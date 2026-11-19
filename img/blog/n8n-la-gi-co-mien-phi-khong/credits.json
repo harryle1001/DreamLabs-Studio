@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Brett Sayles",
+  "page": "https://www.pexels.com/photo/blue-wires-connected-to-server-4716292/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/4716292/pexels-photo-4716292.jpeg",
+  "w": 6048,
+  "h": 4024
+ },
+ "a1": {
+  "author": "Brett Sayles",
+  "page": "https://www.pexels.com/photo/server-racks-on-data-center-5480781/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5480781/pexels-photo-5480781.jpeg",
+  "w": 6048,
+  "h": 4024
+ },
+ "a2": {
+  "author": "Kampus Production",
+  "page": "https://www.pexels.com/photo/person-looking-at-charts-displayed-on-a-laptop-and-sitting-at-the-table-with-cardboard-boxes-7857526/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7857526/pexels-photo-7857526.jpeg",
+  "w": 6016,
+  "h": 4016
+ }
+}

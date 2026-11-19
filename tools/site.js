@@ -48,6 +48,7 @@ function readSrc(dir,sub=''){
   return fs.readdirSync(D,{withFileTypes:true}).sort((a,b)=>a.name.localeCompare(b.name)).flatMap(e=>{
     if(e.isDirectory())return readSrc(dir,sub+e.name+'/');   /* thư mục con: src/pages/thiet-ke-website/spa.html -> /thiet-ke-website/spa/ */
     if(!e.name.endsWith('.html'))return[];
+    if(process.env.SKIP_SRC&&new RegExp(process.env.SKIP_SRC).test(e.name))return[];   /* bỏ qua tạm (vd bài đang viết dở) */
     const raw=fs.readFileSync(path.join(D,e.name),'utf8'),m=raw.match(/^<!--meta\s*([\s\S]*?)-->\s*/);
     if(!m)throw new Error(dir+'/'+sub+e.name+': thiếu khối <!--meta-->');
     return[{...JSON.parse(m[1]),slug:sub+e.name.replace(/\.html$/,''),raw:raw.slice(m[0].length)}];

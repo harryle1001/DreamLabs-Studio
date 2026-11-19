@@ -1,0 +1,122 @@
+<!--meta {
+ "order": 27,
+ "date": "2026-11-19",
+ "title": "RPA là gì? Khác gì tự động hóa bằng AI?",
+ "h1": "RPA là gì? Khác gì tự động hóa bằng AI và doanh nghiệp nhỏ nên chọn cách nào",
+ "short": "RPA là gì, khác tự động hóa AI",
+ "description": "RPA là robot phần mềm bắt chước thao tác chuột, bàn phím theo quy tắc cố định; AI đọc hiểu và phán đoán. So sánh, ví dụ, khi nào dùng RPA, AI hay API.",
+ "lead": "RPA, tự động hóa qua API và AI thường bị gọi chung là tự động hóa, nhưng chúng giải ba bài toán khác nhau. Chọn sai cách là tốn tiền mà hệ thống vẫn chập chờn.",
+ "cat": "Tự động hóa AI",
+ "cat_id": "ai",
+ "keywords": ["RPA là gì","RPA khác AI","tự động hóa quy trình bằng robot","RPA cho doanh nghiệp nhỏ","tự động hóa bằng AI"],
+ "imageAlt": "Chồng hồ sơ giấy dày kẹp ghim màu đặt trên bàn gỗ cạnh cặp kính và bàn phím",
+ "imageCaption": "Ảnh minh họa: những chồng chứng từ phải nhập tay là nơi RPA và AI thường được nghĩ tới đầu tiên.",
+ "related": ["ai-agent-la-gi-khac-chatbot","n8n-la-gi-co-mien-phi-khong","ai-co-thay-the-nhan-vien-ke-toan"],
+ "ctaTitle": "Không biết quy trình của mình hợp RPA, API hay AI?",
+ "ctaText": "Nhắn Zalo cho Dream Labs quy trình đang làm tay và phần mềm đang dùng. Chúng tôi xem phần mềm có kết nối được không và đề xuất cách tự động hóa bền nhất."
+} -->
+<p><strong>RPA</strong> (Robotic Process Automation, tự động hóa quy trình bằng robot phần mềm) là cách dùng một chương trình bắt chước thao tác của người trên máy tính: mở phần mềm, bấm nút, sao chép, dán, gõ dữ liệu, theo các bước cố định. <strong>Tự động hóa bằng AI</strong> thì khác: AI đọc hiểu nội dung như email, hóa đơn, tin nhắn và đưa ra phán đoán. RPA làm tay chân theo quy tắc, AI làm phần đọc và nghĩ; hai cách thường được kết hợp với nhau.</p>
+<p>Với doanh nghiệp nhỏ, còn một lựa chọn thứ ba hay bị bỏ quên: nối thẳng các phần mềm với nhau qua API bằng công cụ như n8n hoặc Make. Bài này giải thích cả ba, khi nào dùng cái nào, ví dụ cụ thể ở Việt Nam và những sai lầm khiến dự án tự động hóa chạy chập chờn.</p>
+
+<h2 id="rpa-la-gi">RPA là gì, hiểu đơn giản</h2>
+<p>Hãy hình dung một nhân viên mỗi sáng mở email, tải bảng kê đơn hàng, đăng nhập phần mềm kế toán cài trên máy, gõ từng dòng vào, rồi xuất báo cáo gửi sếp. RPA ghi lại chuỗi thao tác đó thành kịch bản và cho một “robot phần mềm” làm lại y hệt, nhanh hơn và không mệt.</p>
+<p>Chữ “robot” dễ gây hiểu nhầm. RPA không phải cánh tay máy trong nhà xưởng; nó là phần mềm chạy trên máy tính hoặc máy chủ, điều khiển chuột, bàn phím và cửa sổ ứng dụng như một người dùng vô hình.</p>
+<h3>Hai kiểu RPA</h3>
+<ul>
+ <li><strong>RPA có người đi kèm (attended):</strong> chạy trên máy của nhân viên, nhân viên bấm nút để robot làm một đoạn việc, ví dụ điền sẵn biểu mẫu từ dữ liệu khách đang mở.</li>
+ <li><strong>RPA tự chạy (unattended):</strong> chạy trên một máy riêng theo lịch hoặc theo sự kiện, không cần ai ngồi cạnh, ví dụ mỗi đêm tải sao kê và đối chiếu.</li>
+</ul>
+<p>Các nền tảng RPA phổ biến trên thế giới có UiPath, Automation Anywhere, Microsoft Power Automate (phần chạy trên máy tính Windows). Mức phí và giấy phép của từng hãng khác nhau và thay đổi theo thời gian, nên hãy xem trang giá chính thức khi cần so sánh.</p>
+
+{{anh:a2|Cận cảnh đầu kẹp của một cánh tay robot công nghiệp màu bạc trong nhà xưởng|Ảnh minh họa: robot vật lý như thế này không phải RPA; RPA là phần mềm thao tác trên máy tính.}}
+
+<h2 id="ai-khac-gi">Tự động hóa bằng AI khác RPA ở đâu</h2>
+<p>RPA giỏi làm đúng từng bước đã định, nhưng không hiểu nội dung. Nếu hóa đơn của nhà cung cấp A đặt số tiền ở góc phải, nhà cung cấp B đặt ở cuối trang, RPA thuần sẽ cần một kịch bản riêng cho mỗi mẫu. AI thì đọc được cả hai vì hiểu “đây là tổng tiền thanh toán”.</p>
+<p>Tương tự, RPA không tự biết một email là khiếu nại hay hỏi giá, một tin nhắn Zalo là khách nóng hay khách hỏi cho biết. Đó là việc của AI: phân loại, trích thông tin, tóm tắt, viết nháp, chọn hướng xử lý. Khi AI được cho phép tự gọi công cụ để hoàn thành nhiệm vụ nhiều bước, ta có <a href="../ai-agent-la-gi-khac-chatbot/">AI agent</a>.</p>
+<div class="bl-note"><p><strong>Một câu để nhớ:</strong> RPA tự động hóa thao tác, tự động hóa qua API tự động hóa đường đi của dữ liệu, còn AI tự động hóa phần đọc hiểu và phán đoán.</p></div>
+
+<h2 id="so-sanh">So sánh RPA, tự động hóa qua API và AI</h2>
+<div class="bl-table" role="region" aria-label="So sánh RPA, tự động hóa qua API và tự động hóa bằng AI" tabindex="0"><table><caption>RPA, tự động hóa qua API và AI: mỗi cách hợp với việc gì</caption>
+<thead><tr><th>Tiêu chí</th><th>RPA</th><th>Tự động hóa qua API (n8n, Make)</th><th>AI</th></tr></thead>
+<tbody>
+<tr><td>Làm việc thế nào</td><td>Bắt chước chuột, bàn phím trên giao diện</td><td>Phần mềm trao đổi dữ liệu trực tiếp với nhau</td><td>Đọc hiểu văn bản, hình ảnh, đưa ra phán đoán</td></tr>
+<tr><td>Hợp với dữ liệu</td><td>Có cấu trúc, mẫu cố định</td><td>Có cấu trúc</td><td>Không cấu trúc: email, tin nhắn, chứng từ nhiều mẫu</td></tr>
+<tr><td>Cần phần mềm có API</td><td>Không</td><td>Có</td><td>Không, nhưng cần nơi để đọc và ghi kết quả</td></tr>
+<tr><td>Độ bền</td><td>Dễ hỏng khi giao diện đổi, cửa sổ bật lên bất ngờ</td><td>Bền, ít phụ thuộc giao diện</td><td>Kết quả có xác suất sai, cần kiểm tra</td></tr>
+<tr><td>Tốc độ</td><td>Ngang hoặc nhanh hơn người một chút</td><td>Rất nhanh</td><td>Vài giây mỗi lần xử lý</td></tr>
+<tr><td>Dùng tốt nhất khi</td><td>Phần mềm cũ, cài trên máy, không kết nối được</td><td>Các phần mềm hiện đại, dịch vụ đám mây</td><td>Bước cần đọc, phân loại, viết</td></tr>
+</tbody></table></div>
+<p>Thứ tự ưu tiên hợp lý cho doanh nghiệp nhỏ: nếu phần mềm có API hoặc xuất được dữ liệu ra Google Sheets, hãy nối qua API trước vì bền và rẻ. Chỉ dùng RPA cho đoạn bắt buộc phải thao tác trên giao diện. Thêm AI vào đúng những bước cần đọc hiểu. Công cụ nối qua API phổ biến là n8n, xem bài <a href="../n8n-la-gi-co-mien-phi-khong/">n8n là gì, có miễn phí không</a>.</p>
+
+{{anh:a1|Hai bàn tay gõ trên bàn phím laptop màu bạc đặt trên mặt bàn trắng|Ảnh minh họa: việc gõ lại dữ liệu từ hệ thống này sang hệ thống khác là việc RPA hay được giao.}}
+
+<h2 id="vi-du">Ví dụ RPA và AI trong doanh nghiệp Việt</h2>
+<p>Các tình huống dưới đây là <strong>ví dụ minh họa</strong>, không phải dự án khách hàng thật.</p>
+<h3>Công ty thương mại: hóa đơn đầu vào vào phần mềm kế toán cài máy</h3>
+<p>Hóa đơn điện tử từ nhiều nhà cung cấp về hộp thư. AI đọc từng hóa đơn, trích nhà cung cấp, số hóa đơn, mặt hàng, số tiền, thuế suất, đánh dấu hóa đơn đọc chưa chắc. Nếu phần mềm kế toán có chức năng nhập từ tệp Excel, luồng tự động chỉ cần xuất đúng mẫu. Nếu phần mềm cũ chỉ cho gõ tay, RPA làm phần nhập liệu vào màn hình. Kế toán chỉ duyệt danh sách đã đánh dấu. Bài <a href="../tu-dong-hoa-ke-toan-bang-ai/">tự động hóa kế toán bằng AI</a> đi sâu hơn vào phần này.</p>
+<h3>Đơn vị vận chuyển: cập nhật trạng thái đơn hàng</h3>
+<p>Nhân viên mỗi ngày tra mã vận đơn trên trang của đối tác vận chuyển rồi cập nhật vào bảng theo dõi. Nếu đối tác có API tra cứu, nên nối API: nhanh, chính xác, không lo đổi giao diện. Chỉ khi đối tác không cung cấp kết nối và điều khoản sử dụng cho phép, mới cân nhắc RPA thao tác trên trang. AI ở đây gần như không cần, vì dữ liệu đã có cấu trúc.</p>
+<h3>Cửa hàng bán nhiều kênh: chăm sóc sau mua</h3>
+<p>Khách nhắn hỏi đổi size, phàn nàn giao chậm, hỏi bảo hành. Đây là bài toán của AI: hiểu ý khách, phân loại, soạn câu trả lời, chuyển người khi cần. RPA không giúp được gì ở bước hiểu tin nhắn. Sau khi AI phân loại, luồng tự động qua API ghi phiếu vào bảng theo dõi và báo cho nhân viên phụ trách.</p>
+
+{{zalo}}
+
+<h2 id="khi-nao-dung">Khi nào nên dùng RPA, khi nào không</h2>
+<h3>RPA hợp khi</h3>
+<ul>
+ <li>Phần mềm đang dùng là bản cài trên máy, không có API, không xuất nhập được tệp, mà doanh nghiệp chưa thể thay.</li>
+ <li>Quy trình ổn định, ít ngoại lệ, giao diện phần mềm hiếm khi cập nhật.</li>
+ <li>Khối lượng đủ lớn: việc lặp lại hằng ngày, mất nhiều giờ công mỗi tháng.</li>
+ <li>Cần giải pháp tạm thời trong lúc chờ chuyển sang phần mềm mới có kết nối.</li>
+</ul>
+<h3>RPA không hợp khi</h3>
+<ul>
+ <li>Phần mềm đã có API hoặc kết nối sẵn với Google Sheets, CRM: nối trực tiếp rẻ và bền hơn.</li>
+ <li>Dữ liệu đầu vào là văn bản tự do, chứng từ nhiều mẫu: cần AI đọc trước.</li>
+ <li>Trang web có mã xác thực chống robot, hoặc điều khoản sử dụng cấm truy cập tự động.</li>
+ <li>Không có máy tính để robot chạy ổn định, hoặc không ai theo dõi khi robot dừng.</li>
+</ul>
+<h3>Ba câu hỏi để tự chọn</h3>
+<ol>
+ <li>Phần mềm đích có API, có chức năng nhập tệp, hoặc kết nối sẵn với công cụ khác không? Có thì dùng tự động hóa qua API.</li>
+ <li>Dữ liệu đầu vào có cố định về mẫu không? Không thì cần AI ở bước đọc.</li>
+ <li>Còn đoạn nào bắt buộc phải bấm trên giao diện? Đoạn đó mới dùng RPA.</li>
+</ol>
+
+<h3>Chuẩn bị gì trước khi tự động hóa một quy trình</h3>
+<ul>
+ <li>Ghi lại từng bước nhân viên đang làm, kèm ảnh chụp màn hình, số lần làm mỗi ngày và thời gian mỗi lần.</li>
+ <li>Liệt kê các phần mềm tham gia và kiểm tra từng phần mềm có API, có chức năng nhập xuất tệp hay không.</li>
+ <li>Gom 10 đến 20 mẫu dữ liệu đầu vào thật, gồm cả mẫu xấu, thiếu thông tin, để chạy thử.</li>
+ <li>Thống nhất trường hợp nào robot hoặc AI phải dừng lại và chuyển cho người xử lý.</li>
+ <li>Chọn người nội bộ nhận cảnh báo khi luồng lỗi và kiểm tra kết quả trong những tuần đầu.</li>
+</ul>
+
+<h2 id="sai-lam">Sai lầm thường gặp</h2>
+<ul>
+ <li><strong>Dùng RPA cho mọi thứ.</strong> Robot bấm nút trên phần mềm có API sẵn là làm khó chính mình: chậm hơn, dễ hỏng hơn khi phần mềm cập nhật.</li>
+ <li><strong>Tự động hóa một quy trình đang lộn xộn.</strong> RPA làm đúng từng bước bạn ghi, kể cả bước thừa. Hãy rút gọn quy trình trước rồi mới tự động hóa.</li>
+ <li><strong>Gọi mọi thứ là AI.</strong> Nhiều giải pháp quảng cáo “AI” thực chất là RPA theo quy tắc. Không sai, nhưng cần biết để kỳ vọng đúng: nó không tự xử lý được trường hợp lạ.</li>
+ <li><strong>Để AI ghi thẳng vào sổ sách.</strong> AI đọc chứng từ có xác suất sai. Kết quả AI nên có ngưỡng tin cậy và bước người duyệt trước khi robot nhập vào hệ thống.</li>
+ <li><strong>Không có người phụ trách.</strong> Robot dừng vì một cửa sổ cập nhật bật lên, không ai biết, việc dồn lại cả tuần.</li>
+ <li><strong>Dùng tài khoản cá nhân của nhân viên cho robot.</strong> Khi nhân viên nghỉ, đổi mật khẩu, robot dừng. Hãy tạo tài khoản riêng cho robot với quyền vừa đủ.</li>
+</ul>
+
+<h2 id="chi-phi">Chi phí tự động hóa tại Dream Labs</h2>
+<p>Dream Labs ưu tiên kết nối qua API và Google Sheets bằng nền tảng như n8n, thêm AI ở những bước cần đọc hiểu như phân loại khách, trích thông tin chứng từ, viết báo cáo. Với phần mềm không có kết nối, chúng tôi khảo sát trước và nói rõ phương án nào khả thi, phương án nào dễ hỏng. Phí triển khai chia theo ba gói, gói Tăng trưởng {{p:ai:1}} gồm 3 quy trình tự động và kết nối phần mềm bán hàng, kế toán:</p>
+{{gia:ai}}
+<p>Phí mô hình AI và nền tảng hằng tháng tính riêng theo lượng dùng, tài khoản đứng tên doanh nghiệp. Xem trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">dịch vụ tự động hóa quy trình doanh nghiệp</a>, <a href="../../bang-gia/">bảng giá</a> hoặc bài tổng quan <a href="../tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai/">tự động hóa quy trình doanh nghiệp bằng AI</a>. Gửi danh sách phần mềm đang dùng qua <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a> để được tư vấn cách nối.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>RPA có phải là AI không?</h3>
+<p>Không hẳn; RPA truyền thống chạy theo quy tắc cố định và không tự hiểu nội dung, còn AI đọc hiểu và phán đoán, nhiều nền tảng RPA hiện nay gắn thêm AI để xử lý phần chứng từ và văn bản.</p>
+<h3>Doanh nghiệp nhỏ có cần RPA không?</h3>
+<p>Phần lớn doanh nghiệp nhỏ dùng phần mềm đám mây có kết nối sẵn nên nối qua API là đủ; RPA chỉ cần khi còn phần mềm cũ cài trên máy không có cách kết nối nào khác.</p>
+<h3>RPA có thay thế nhân viên không?</h3>
+<p>RPA thay phần thao tác lặp lại như gõ, sao chép, đối chiếu; nhân viên vẫn cần cho việc xử lý ngoại lệ, kiểm tra kết quả và làm việc với khách hàng, đối tác.</p>
+<h3>Vì sao robot RPA hay bị lỗi?</h3>
+<p>RPA dựa vào vị trí nút bấm và giao diện, nên dễ dừng khi phần mềm cập nhật, có cửa sổ bật lên bất ngờ, mạng chậm hoặc dữ liệu đầu vào khác mẫu.</p>
+<h3>n8n có phải là công cụ RPA không?</h3>
+<p>Không, n8n chủ yếu tự động hóa bằng cách nối các phần mềm qua API và webhook, không điều khiển chuột, bàn phím trên giao diện như công cụ RPA.</p>
+<h3>Nên kết hợp RPA và AI thế nào?</h3>
+<p>Để AI đọc và phân loại dữ liệu không cấu trúc như email, hóa đơn, người duyệt các trường hợp chưa chắc, rồi để luồng tự động qua API hoặc RPA nhập kết quả vào hệ thống.</p>

@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Kindel Media",
+  "page": "https://www.pexels.com/photo/a-close-up-shot-of-paper-clipped-documents-7054757/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7054757/pexels-photo-7054757.jpeg",
+  "w": 5184,
+  "h": 2920
+ },
+ "a1": {
+  "author": "cottonbro studio",
+  "page": "https://www.pexels.com/photo/hands-on-a-laptop-keyboard-5474285/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5474285/pexels-photo-5474285.jpeg",
+  "w": 6720,
+  "h": 4480
+ },
+ "a2": {
+  "author": "KJ Brix",
+  "page": "https://www.pexels.com/photo/close-up-of-modern-robotic-mechanism-16544054/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/16544054/pexels-photo-16544054.jpeg",
+  "w": 4032,
+  "h": 3024
+ }
+}

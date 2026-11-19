@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Mikhail Nilov",
+  "page": "https://www.pexels.com/photo/colleagues-sitting-by-table-at-office-8101931/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8101931/pexels-photo-8101931.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a1": {
+  "author": "Kampus Production",
+  "page": "https://www.pexels.com/photo/business-woman-using-a-gray-laptop-7857551/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7857551/pexels-photo-7857551.jpeg",
+  "w": 6016,
+  "h": 4016
+ },
+ "a2": {
+  "author": "RDNE Stock project",
+  "page": "https://www.pexels.com/photo/man-s-thumbs-typing-on-a-smartphone-6669813/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6669813/pexels-photo-6669813.jpeg",
+  "w": 6613,
+  "h": 4409
+ }
+}

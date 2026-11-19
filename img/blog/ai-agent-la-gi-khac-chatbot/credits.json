@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Kampus Production",
+  "page": "https://www.pexels.com/photo/woman-sitting-behind-a-table-working-as-call-center-agent-8204396/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8204396/pexels-photo-8204396.jpeg",
+  "w": 6016,
+  "h": 4016
+ },
+ "a1": {
+  "author": "RDNE Stock project",
+  "page": "https://www.pexels.com/photo/close-up-view-of-man-texting-on-phone-10376167/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/10376167/pexels-photo-10376167.jpeg",
+  "w": 6720,
+  "h": 4480
+ },
+ "a2": {
+  "author": "Thirdman",
+  "page": "https://www.pexels.com/photo/a-group-of-people-having-a-meeting-in-the-office-7652178/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7652178/pexels-photo-7652178.jpeg",
+  "w": 6720,
+  "h": 4480
+ }
+}
