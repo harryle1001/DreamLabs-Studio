@@ -95,5 +95,31 @@
     demo: 'demos/lux-lp-aurevo.html',
     long: 'img/sm-landing-aurevo-long.webp',
     longM: 'img/sm-landing-aurevo-long-m.webp'
+  },
+  {
+    id: 'landing-sevrine',
+    title: 'Sevrine · Xe sang có tài xế',
+    industry: 'Xe sang',
+    desc: 'Landing thuê xe sang có tài xế tông ngà và xanh đêm, ảnh khung vòm: chọn đón sân bay Tân Sơn Nhất, Nội Bài, xe cưới hay theo giờ cùng hạng xe để ra giá ước tính rồi đặt xe.',
+    tags: ['Ước tính giá', 'Đón sân bay', 'Đặt xe'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-sevrine.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-sevrine.html',
+    long: 'img/sm-landing-sevrine-long.webp',
+    longM: 'img/sm-landing-sevrine-long-m.webp'
+  },
+  {
+    id: 'landing-orsenne',
+    title: 'Orsenne · Lái thử Vela',
+    industry: 'Xe sang',
+    desc: 'Landing ra mắt SUV hybrid tông xanh tím phát sáng, đếm ngược ngày ra mắt: chọn phiên bản, showroom, ngày và khung giờ còn trống trên lịch, nhận mã đặt lịch, kèm bảng giá lăn bánh tham khảo.',
+    tags: ['Lịch lái thử', 'Giá lăn bánh', 'Đếm ngược'],
+    pkg: 'Landing Page — Cao cấp',
+    cover: 'img/sm-landing-orsenne.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-orsenne.html',
+    long: 'img/sm-landing-orsenne-long.webp',
+    longM: 'img/sm-landing-orsenne-long-m.webp'
   }
 ];

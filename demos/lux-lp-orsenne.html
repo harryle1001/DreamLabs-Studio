@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Orsenne Vela — đặt lịch lái thử trước ngày ra mắt (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho chiến dịch ra mắt một mẫu SUV hybrid hạng sang: chọn phiên bản, showroom TP.HCM hoặc Hà Nội, ngày và khung giờ còn trống, kèm bảng giá lăn bánh tham khảo.">
+<style>
+@font-face{font-family:"Unbounded";font-weight:200 900;font-style:normal;font-display:swap;src:url(fonts/unbounded-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Unbounded";font-weight:200 900;font-style:normal;font-display:swap;src:url(fonts/unbounded-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:6px;--s2:10px;--s3:16px;--s4:26px;--s5:42px;--s6:68px;--s7:110px;--s8:178px;--e:cubic-bezier(.22,1,.36,1);
+--bg:#06071A;--b2:#0E1030;--b3:#171A44;--tx:#ECEBFF;--mu:rgba(236,235,255,.6);--ln:rgba(236,235,255,.13);--vi:#8B6BFF;--em:#FF6A3D;--fd:"Unbounded",system-ui,sans-serif;--fb:"Manrope",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--fb);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure,table{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1280px;margin:0 auto;padding:0 max(18px,4vw)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.ey{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mu)}
+.dsp{font-family:var(--fd);font-weight:300;letter-spacing:-.02em;line-height:1}
+.gr{background:linear-gradient(100deg,var(--tx) 20%,var(--vi) 60%,var(--em));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 var(--s4);border-radius:14px;background:var(--tx);color:var(--bg);font-weight:700;font-size:15px;transition:transform .5s var(--e),box-shadow .5s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px -10px var(--vi)}
+.btn.gl{background:linear-gradient(110deg,var(--vi),var(--em));color:#fff}
+.btn:disabled{opacity:.4;pointer-events:none}
+.tag{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--ln);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.tag i{width:6px;height:6px;border-radius:50%;background:var(--em);box-shadow:0 0 10px var(--em)}
+/* top */
+.tp{position:fixed;inset:0 0 auto;z-index:30;transition:background .4s,backdrop-filter .4s}
+.tp.s{background:rgba(6,7,26,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.tp .w{display:flex;align-items:center;gap:var(--s3);height:68px}
+.lo{font-family:var(--fd);font-weight:500;letter-spacing:.32em;font-size:15px;margin-right:auto;min-height:44px;display:flex;align-items:center}
+.back{font-size:13px;color:var(--mu);min-height:44px;display:flex;align-items:center}
+.emb .back{display:none}
+.tp .btn{min-height:44px;font-size:13px;padding:0 var(--s3);border-radius:12px}
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden}
+.glow{position:absolute;width:70vmax;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(139,107,255,.32),transparent 60%);left:-20vmax;top:-20vmax;pointer-events:none}
+.glow.b{background:radial-gradient(circle,rgba(255,106,61,.22),transparent 60%);left:auto;right:-30vmax;top:auto;bottom:-30vmax}
+.hx{position:relative;z-index:2;padding:calc(68px + var(--s5)) 0 var(--s6) max(18px,4vw);max-width:640px}
+.hx h1{font-size:clamp(68px,11vw,176px);font-weight:200;margin:var(--s4) 0 var(--s3);letter-spacing:-.04em}
+.hx h1 b{font-weight:700}
+.hx .sub{font-size:clamp(17px,1.5vw,20px);color:var(--mu);max-width:32ch}
+.cd{display:flex;gap:var(--s3);margin:var(--s5) 0}
+.cd div{min-width:72px;padding:var(--s2) var(--s3);border:1px solid var(--ln);border-radius:14px;background:rgba(236,235,255,.03);backdrop-filter:blur(8px)}
+.cd b{display:block;font-family:var(--fd);font-weight:400;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cd span{font-size:11px;color:var(--mu);letter-spacing:.1em;text-transform:uppercase}
+.hi{position:relative;height:100%;min-height:100svh;-webkit-mask:linear-gradient(90deg,transparent,#000 30%);mask:linear-gradient(90deg,transparent,#000 30%)}
+.hi picture{position:absolute;inset:0}
+.hi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg),transparent 30%)}
+/* specs */
+.sp{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--ln)}
+.sp div{padding:var(--s5) var(--s3);border-left:1px solid var(--ln)}.sp div:first-child{border-left:0}
+.sp b{display:block;font-family:var(--fd);font-weight:300;font-size:clamp(32px,4vw,60px);line-height:1}
+.sp b small{font-size:.36em;font-weight:400;margin-left:4px}
+.sp div>span{color:var(--mu);font-size:14px}
+/* light */
+.sec{padding:var(--s8) 0}
+.lt{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.lt figure{border-radius:24px;overflow:hidden;aspect-ratio:4/5;position:relative}
+.lt figure:nth-child(2){margin-top:var(--s7)}
+.lt figcaption{position:absolute;left:var(--s4);bottom:var(--s4);right:var(--s4);font-size:14px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.lt figcaption b{display:block;font-family:var(--fd);font-weight:400;font-size:22px}
+.h2{font-size:clamp(36px,5.4vw,84px);font-weight:200;letter-spacing:-.03em}
+.h2 b{font-weight:600}
+.hd2{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s6)}
+.hd2 p{max-width:38ch;color:var(--mu)}
+/* versions */
+.vr{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.vc{position:relative;text-align:left;border-radius:22px;padding:var(--s4);background:var(--b2);border:1px solid var(--ln);display:grid;gap:var(--s3);transition:border-color .4s,background .4s,transform .6s var(--e);overflow:hidden}
+.vc::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(130deg,var(--vi),var(--em));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .5s}
+.vc[aria-pressed=true]::before{opacity:1}
+.vc[aria-pressed=true]{background:var(--b3)}
+.vc:hover{transform:translateY(-3px)}
+.vc h3{font-family:var(--fd);font-weight:400;font-size:24px}
+.vc .pr{font-family:var(--fd);font-weight:300;font-size:30px}
+.vc ul{display:grid;gap:6px;color:var(--mu);font-size:14px}
+.vc li::before{content:"— ";color:var(--vi)}
+.vc .lim{position:absolute;top:var(--s4);right:var(--s4);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--em)}
+/* booking */
+.bk{display:grid;grid-template-columns:1fr 1.25fr;gap:var(--s4);align-items:start}
+.pn{background:var(--b2);border:1px solid var(--ln);border-radius:24px;padding:var(--s4)}
+.st{display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);font-weight:700}
+.st i{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;background:var(--b3);border:1px solid var(--ln)}
+.blk+.blk{margin-top:var(--s4);padding-top:var(--s4);border-top:1px solid var(--ln)}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.seg.v3{grid-template-columns:repeat(3,1fr)}
+.seg button{min-height:52px;border-radius:14px;border:1px solid var(--ln);padding:6px var(--s2);text-align:left;font-weight:600;font-size:14px;line-height:1.25;transition:border-color .3s,background .3s}
+.seg button small{display:block;color:var(--mu);font-weight:400;font-size:12px}
+.seg button[aria-pressed=true]{border-color:var(--vi);background:rgba(139,107,255,.14)}
+.cal .ch{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s2)}
+.cal .ch b{font-family:var(--fd);font-weight:400;font-size:18px}
+.cal .ch button{width:44px;height:44px;border-radius:12px;border:1px solid var(--ln);font-size:18px}
+.cal .ch button:disabled{opacity:.3}
+.gd{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.gd .dw{font-size:11px;color:var(--mu);font-weight:700;padding:4px 0}
+.gd button{aspect-ratio:1;min-height:40px;border-radius:12px;font-weight:600;font-size:15px;position:relative;transition:background .3s,color .3s}
+.gd button:not(:disabled):hover{background:var(--b3)}
+.gd button:disabled{color:rgba(236,235,255,.22);text-decoration:line-through;cursor:default}
+.gd button.lo2::after{content:"";position:absolute;left:50%;bottom:5px;width:4px;height:4px;border-radius:50%;background:var(--em);transform:translateX(-50%)}
+.gd button.av::after{content:"";position:absolute;left:50%;bottom:5px;width:4px;height:4px;border-radius:50%;background:#7CF2C2;transform:translateX(-50%)}
+.gd button[aria-pressed=true]{background:linear-gradient(130deg,var(--vi),var(--em));color:#fff}
+.lg2{display:flex;gap:var(--s3);font-size:12px;color:var(--mu);margin-top:var(--s2);flex-wrap:wrap}
+.lg2 span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:6px;vertical-align:middle;background:#7CF2C2}.lg2 span:nth-child(2)::before{background:var(--em)}
+.sl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+.sl button{min-height:48px;border-radius:12px;border:1px solid var(--ln);font-weight:600;font-variant-numeric:tabular-nums;transition:border-color .3s,background .3s}
+.sl button:disabled{opacity:.3;text-decoration:line-through;cursor:default}
+.sl button[aria-pressed=true]{border-color:var(--em);background:rgba(255,106,61,.16)}
+.hint{color:var(--mu);font-size:14px}
+.fi{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.fi input{width:100%;min-height:52px;border-radius:14px;border:1px solid var(--ln);background:var(--bg);padding:0 var(--s3);font-size:16px;outline:0;transition:border-color .3s}
+.fi input:focus{border-color:var(--vi)}
+.smr{display:grid;gap:6px;font-size:14px;margin:var(--s3) 0}
+.smr div{display:flex;justify-content:space-between;gap:var(--s3)}.smr span{color:var(--mu)}.smr b{text-align:right;font-weight:600}
+.msg{min-height:1.4em;font-size:14px;color:#FF9C85;margin-top:var(--s2)}
+.ok{display:none;text-align:center;padding:var(--s5) var(--s3)}
+.ok.on{display:block;animation:pop .8s var(--e)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}}
+.ok .code{font-family:var(--fd);font-size:clamp(28px,4vw,40px);font-weight:400;margin:var(--s2) 0;letter-spacing:.06em}
+.ok svg{margin:0 auto var(--s3)}
+/* price */
+.pt{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s5);align-items:start}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl td{padding:var(--s3) 0;border-bottom:1px solid var(--ln);vertical-align:top}
+.tbl td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:var(--s3)}
+.tbl td small{display:block;color:var(--mu);font-size:12.5px}
+.tbl tr.t td{border:0;padding-top:var(--s4);font-family:var(--fd);font-weight:400;font-size:clamp(20px,2.4vw,30px)}
+.tbl tr.off td{opacity:.35}
+.sw{display:flex;align-items:center;gap:var(--s2);min-height:44px;cursor:pointer;font-size:14px}
+.sw input{width:20px;height:20px;accent-color:var(--vi)}
+.disc{font-size:13px;color:var(--mu);margin-top:var(--s3);border-left:2px solid var(--em);padding-left:var(--s3)}
+footer{border-top:1px solid var(--ln);padding:var(--s6) 0;color:var(--mu);font-size:14px}
+footer .w{display:flex;justify-content:space-between;gap:var(--s4);flex-wrap:wrap;align-items:flex-end}
+footer .lo{font-size:22px;color:var(--tx)}
+footer a{color:var(--tx);text-decoration:underline}
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity 1.2s var(--e),transform 1.4s var(--e)}
+.js .rv.in{opacity:1;transform:none}
+@media(max-width:900px){
+ .hero{grid-template-columns:1fr;min-height:0}
+ .hi{position:absolute;inset:0;min-height:0;-webkit-mask:linear-gradient(180deg,#000 30%,transparent 92%);mask:linear-gradient(180deg,#000 30%,transparent 92%);opacity:.55}
+ .hx{padding:calc(68px + var(--s7)) max(18px,4vw) var(--s6)}
+ .sp{grid-template-columns:1fr 1fr}.sp div:nth-child(3){border-left:0}.sp div:nth-child(n+3){border-top:1px solid var(--ln)}
+ .vr,.bk,.pt{grid-template-columns:1fr}
+ .lt figure:nth-child(2){margin-top:var(--s6)}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:520px){.fi{grid-template-columns:1fr}.seg.v3{grid-template-columns:1fr}.cd div{min-width:0;flex:1;padding:var(--s2)}.cd b{font-size:22px}.tp .btn{display:none}.pn{padding:var(--s3);border-radius:20px}.gd{gap:2px}.gd button{min-height:44px;border-radius:10px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="tp"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top" aria-label="Orsenne">ORSENNE</a>
+ <a class="btn" href="#lai-thu">Đăng ký lái thử</a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="glow" aria-hidden="true"></div><div class="glow b" aria-hidden="true"></div>
+ <div class="hx">
+  <span class="tag"><i></i>Ra mắt 12.12.2026 · Concept</span>
+  <h1 class="dsp">Orsenne <b class="gr">Vela</b></h1>
+  <p class="sub">SUV hybrid sạc ngoài, bảy chỗ. Lái thử trước ngày ra mắt tại TP.HCM và Hà Nội.</p>
+  <div class="cd" id="cd" aria-label="Thời gian còn lại đến ngày ra mắt"><div><b id="cD">00</b><span>ngày</span></div><div><b id="cH">00</b><span>giờ</span></div><div><b id="cM">00</b><span>phút</span></div><div><b id="cS">00</b><span>giây</span></div></div>
+  <div style="display:flex;gap:var(--s3);flex-wrap:wrap"><a class="btn gl" href="#lai-thu">Chọn lịch lái thử</a><a class="btn" style="background:transparent;color:var(--tx);box-shadow:inset 0 0 0 1px var(--ln)" href="#lan-banh">Giá lăn bánh</a></div>
+ </div>
+ <div class="hi"><picture><source type="image/avif" srcset="../img/demo/orsenne/den-640.avif 640w, ../img/demo/orsenne/den-1280.avif 1280w, ../img/demo/orsenne/den-1920.avif 1920w, ../img/demo/orsenne/den-2560.avif 2560w" sizes="(max-width:900px) 100vw, 50vw"><img src="../img/demo/orsenne/den-1280.webp" srcset="../img/demo/orsenne/den-640.webp 640w, ../img/demo/orsenne/den-1280.webp 1280w, ../img/demo/orsenne/den-1920.webp 1920w, ../img/demo/orsenne/den-2560.webp 2560w" sizes="(max-width:900px) 100vw, 50vw" width="1280" height="1600" alt="Đèn pha xe bật sáng trong đêm mưa, giọt nước đọng trên nắp capo" fetchpriority="high" decoding="async"></picture></div>
+</section>
+
+<div class="w"><div class="sp" id="sp">
+ <div><b><span data-n="571">0</span><small>mã lực</small></b><span>Tổng công suất hệ hybrid</span></div>
+ <div><b><span data-n="4.9" data-d="1">0</span><small>giây</small></b><span>0–100 km/h</span></div>
+ <div><b><span data-n="92">0</span><small>km</small></b><span>Chạy thuần điện</span></div>
+ <div><b><span data-n="7">0</span><small>chỗ</small></b><span>Ba hàng ghế</span></div>
+</div></div>
+
+<section class="sec"><div class="w">
+ <div class="hd2 rv"><h2 class="dsp h2">Ánh sáng <b>dẫn đường</b></h2><p>Dải đèn ban ngày một nét liền, chạy từ đầu xe vòng ra hông. Nhận ra từ xa, kể cả trong mưa.</p></div>
+ <div class="lt">
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/orsenne/anh-sang-640.avif 640w, ../img/demo/orsenne/anh-sang-1280.avif 1280w, ../img/demo/orsenne/anh-sang-1920.avif 1920w, ../img/demo/orsenne/anh-sang-2560.avif 2560w" sizes="(max-width:900px) 50vw, 40vw"><img src="../img/demo/orsenne/anh-sang-1280.webp" srcset="../img/demo/orsenne/anh-sang-640.webp 640w, ../img/demo/orsenne/anh-sang-1280.webp 1280w, ../img/demo/orsenne/anh-sang-1920.webp 1920w, ../img/demo/orsenne/anh-sang-2560.webp 2560w" sizes="(max-width:900px) 50vw, 40vw" width="1280" height="1600" alt="Cụm đèn LED xanh tím trên thân xe phản chiếu ánh đèn cam trong phòng tối" loading="lazy" decoding="async"></picture><figcaption><b>Ánh tím</b>Dải LED đổi màu khi mở khóa</figcaption></figure>
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/orsenne/duong-net-640.avif 640w, ../img/demo/orsenne/duong-net-1280.avif 1280w, ../img/demo/orsenne/duong-net-1920.avif 1920w, ../img/demo/orsenne/duong-net-2560.avif 2560w" sizes="(max-width:900px) 50vw, 40vw"><img src="../img/demo/orsenne/duong-net-1280.webp" srcset="../img/demo/orsenne/duong-net-640.webp 640w, ../img/demo/orsenne/duong-net-1280.webp 1280w, ../img/demo/orsenne/duong-net-1920.webp 1920w, ../img/demo/orsenne/duong-net-2560.webp 2560w" sizes="(max-width:900px) 50vw, 40vw" width="1280" height="1600" alt="Nắp capo trắng với nếp gấp sắc và cụm đèn pha mảnh" loading="lazy" decoding="async"></picture><figcaption><b>Nếp gấp</b>Capo dập liền một tấm nhôm</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="sec" id="phien-ban" style="padding-top:0"><div class="w">
+ <div class="hd2 rv"><h2 class="dsp h2">Ba <b>phiên bản</b></h2><p>Giá niêm yết dự kiến, chỉ để minh họa. Chọn một bản để đặt lịch và xem giá lăn bánh.</p></div>
+ <div class="vr" id="vr"></div>
+</div></section>
+
+<section class="sec" id="lai-thu" style="padding-top:0"><div class="w">
+ <div class="hd2 rv"><h2 class="dsp h2">Đặt lịch <b>lái thử</b></h2><p>Mỗi lượt 45 phút, có chuyên viên đi cùng. Chọn ngày có chấm xanh để còn nhiều giờ trống.</p></div>
+ <div class="bk">
+  <div class="pn rv">
+   <div class="blk"><p class="st"><i>1</i>Phiên bản</p><div class="seg v3" id="bV"></div></div>
+   <div class="blk"><p class="st"><i>2</i>Showroom</p><div class="seg" id="bS"><button type="button" data-v="0" aria-pressed="true">TP.HCM<small>Orsenne Studio Quận 1 (minh họa)</small></button><button type="button" data-v="1" aria-pressed="false">Hà Nội<small>Orsenne Studio Hoàn Kiếm (minh họa)</small></button></div></div>
+   <div class="blk cal"><p class="st"><i>3</i>Ngày</p>
+     <div class="ch"><button type="button" id="pM" aria-label="Tháng trước">‹</button><b id="mT"></b><button type="button" id="nM" aria-label="Tháng sau">›</button></div>
+     <div class="gd" id="gd"></div>
+     <p class="lg2"><span>còn nhiều giờ</span><span>sắp kín</span></p>
+    </div>
+  </div>
+  <div class="pn rv" id="bkR">
+   <div id="bkF">
+    <div class="blk"><p class="st"><i>4</i>Khung giờ</p><p class="hint" id="slH">Chọn ngày trước.</p><div class="sl" id="sl"></div></div>
+    <div class="blk"><p class="st"><i>5</i>Xác nhận</p>
+     <div class="smr" id="smr"></div>
+     <div class="fi"><label class="vh" for="fN">Họ tên</label><input id="fN" placeholder="Họ tên" autocomplete="name"><label class="vh" for="fP">Điện thoại</label><input id="fP" type="tel" placeholder="Điện thoại" inputmode="tel" autocomplete="tel"></div>
+     <button class="btn gl" id="go" style="width:100%;margin-top:var(--s3)" type="button">Xác nhận lịch lái thử</button>
+     <p class="msg" id="msg" role="status"></p>
+    </div>
+   </div>
+   <div class="ok" id="ok" role="status" aria-live="polite">
+    <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="url(#og)" stroke-width="2"/><path d="M20 33l8 8 16-17" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="og"><stop offset="0" stop-color="#8B6BFF"/><stop offset="1" stop-color="#FF6A3D"/></linearGradient></defs></svg>
+    <p class="ey">Mã đặt lịch</p><p class="code" id="okC"></p><p id="okT" class="hint"></p>
+    <p class="hint" style="margin-top:var(--s3)">Đây là trang mẫu nên chưa có thông tin nào được gửi đi.</p>
+    <button class="btn" type="button" id="again" style="margin-top:var(--s4)">Đặt lịch khác</button>
+   </div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="lan-banh" style="padding-top:0"><div class="w pt">
+ <div class="rv">
+  <h2 class="dsp h2">Giá <b>lăn bánh</b></h2>
+  <p class="hint" style="margin:var(--s3) 0 var(--s4)">Bảng tính tham khảo cho xe cá nhân bảy chỗ. Có thể thay đổi theo quy định và thời điểm đăng ký.</p>
+  <div class="seg" id="pC" style="margin-bottom:var(--s2)"><button type="button" data-v="0" aria-pressed="true">TP.HCM<small>Trước bạ 10%</small></button><button type="button" data-v="1" aria-pressed="false">Hà Nội<small>Trước bạ 12%</small></button></div>
+  <div class="seg v3" id="pV"></div>
+  <label class="sw" style="margin-top:var(--s2)"><input type="checkbox" id="pI">Thêm bảo hiểm vật chất năm đầu (ước 1,4%)</label>
+ </div>
+ <div class="rv">
+  <table class="tbl"><tbody id="tb"></tbody></table>
+  <p class="disc">Giá lăn bánh tham khảo, có thể thay đổi. Giá xe là giá dự kiến minh họa của thương hiệu concept; các khoản phí lấy mức phổ biến để minh họa, chưa gồm phụ kiện và ưu đãi.</p>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <div><p class="lo">ORSENNE</p><p style="max-width:56ch;margin-top:var(--s2)">Orsenne là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; mẫu xe, thông số, giá, phí lăn bánh và showroom chỉ để minh họa. Ảnh: Pexels (đã làm mờ logo hãng).</p></div>
+ <p>Ra mắt 12.12.2026 · Concept</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+H.classList.add('js');if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-orsenne',smDemo:'lux-lp-orsenne'},'*')}catch(e){}
+const pad=n=>String(n).padStart(2,'0'),vnd=n=>Math.round(n).toLocaleString('vi-VN')+' đ',ty=tr=>(tr/1000).toLocaleString('vi-VN',{minimumFractionDigits:2})+' tỷ';
+/* countdown */
+const LAUNCH=new Date('2026-12-12T19:00:00+07:00');
+const tick=()=>{let s=Math.max(0,Math.floor((LAUNCH-Date.now())/1000));$('#cD').textContent=pad(Math.floor(s/86400));s%=86400;$('#cH').textContent=pad(Math.floor(s/3600));s%=3600;$('#cM').textContent=pad(Math.floor(s/60));$('#cS').textContent=pad(s%60)};tick();setInterval(tick,1000);
+/* header */
+const tp=$('.tp');addEventListener('scroll',()=>tp.classList.toggle('s',scrollY>40),{passive:true});
+/* reveal + counters */
+const cnt=el=>{const to=+el.dataset.n,dc=+el.dataset.d||0;if(RM){el.textContent=to.toLocaleString('vi-VN',{minimumFractionDigits:dc});return}const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/1600),e=1-Math.pow(1-u,4);el.textContent=(to*e).toLocaleString('vi-VN',{minimumFractionDigits:dc,maximumFractionDigits:dc});if(u<1)requestAnimationFrame(run)};requestAnimationFrame(run)};
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);e.target.classList.add('in');if(e.target.id==='sp')$$('[data-n]',e.target).forEach(cnt)}),{threshold:.15});$$('.rv').forEach(el=>io.observe(el));io.observe($('#sp'))}else{$$('.rv').forEach(el=>el.classList.add('in'));$$('[data-n]').forEach(cnt)}
+/* versions — giá dự kiến minh họa (triệu đồng) */
+const V=[['Signature',3950,['Hybrid 4 bánh, 571 mã lực','Mâm 21″, da Nappa','Âm thanh 18 loa']],['Performance',4650,['Treo khí nén thích ứng','Mâm 22″, phanh gốm','Ghế massage hàng hai']],['Launch Edition',5200,['Sơn Tím Đêm riêng bản','Bảng tên khắc số thứ tự','Sạc tại nhà kèm lắp đặt']]];
+const S={v:0,s:0,d:null,t:null,c:0,ins:false};
+$('#vr').innerHTML=V.map((v,i)=>`<button type="button" class="vc" data-v="${i}" aria-pressed="false">${i===2?'<span class="lim">Giới hạn</span>':''}<span class="ey">0${i+1}</span><h3>${v[0]}</h3><span class="pr">${ty(v[1])}</span><ul>${v[2].map(x=>`<li>${x}</li>`).join('')}</ul></button>`).join('');
+const vseg=id=>{$(id).innerHTML=V.map((v,i)=>`<button type="button" data-v="${i}" aria-pressed="false">${v[0]}<small>${ty(v[1])}</small></button>`).join('')};vseg('#bV');vseg('#pV');
+const setV=i=>{S.v=i;$$('#vr .vc,#bV button,#pV button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v==i));price();sum()};
+$('#vr').addEventListener('click',e=>{const b=e.target.closest('.vc');b&&setV(+b.dataset.v)});
+$('#bV').addEventListener('click',e=>{const b=e.target.closest('button');b&&setV(+b.dataset.v)});
+$('#pV').addEventListener('click',e=>{const b=e.target.closest('button');b&&setV(+b.dataset.v)});
+$('#bS').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.s=+b.dataset.v;$$('#bS button').forEach(x=>x.setAttribute('aria-pressed',x===b));S.c=S.s;$$('#pC button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v==S.c));S.t=null;cal();slots();price();sum()});
+/* calendar — chỗ trống giả lập theo ngày */
+const today=new Date();today.setHours(0,0,0,0);const first=new Date(today);first.setDate(first.getDate()+1);
+const MAXM=new Date(today.getFullYear(),today.getMonth()+2,1);
+let vm=new Date(first.getFullYear(),first.getMonth(),1);
+const TIMES=['09:00','10:30','13:30','15:00','16:30','18:00'];
+const hash=(d,s)=>{let x=(d.getFullYear()*372+d.getMonth()*31+d.getDate())*7+s*131;x=Math.imul(x^(x>>>7),2654435761)>>>0;return x};
+const taken=d=>{const h=hash(d,S.s);return TIMES.map((t,i)=>((h>>>(i*3))&7)<3)};
+const closed=d=>d<first||d.getDay()===1||d>=MAXM;
+const MN=['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+const cal=()=>{$('#mT').textContent=MN[vm.getMonth()]+' '+vm.getFullYear();
+ const y=vm.getFullYear(),m=vm.getMonth(),n=new Date(y,m+1,0).getDate(),off=(new Date(y,m,1).getDay()+6)%7;
+ let h=['T2','T3','T4','T5','T6','T7','CN'].map(d=>`<span class="dw">${d}</span>`).join('')+'<span></span>'.repeat(off);
+ for(let i=1;i<=n;i++){const d=new Date(y,m,i),c=closed(d),f=c?0:taken(d).filter(x=>!x).length,sel=S.d&&+S.d===+d;
+  h+=`<button type="button" data-d="${+d}" ${c||!f?'disabled':''} class="${c||!f?'':f>=3?'av':'lo2'}" aria-pressed="${!!sel}" aria-label="${i} ${MN[m].toLowerCase()}${c?', không nhận lịch':f?', còn '+f+' khung giờ':', đã kín'}">${i}</button>`}
+ $('#gd').innerHTML=h;$('#pM').disabled=vm<=new Date(first.getFullYear(),first.getMonth(),1);$('#nM').disabled=new Date(y,m+1,1)>=MAXM};
+$('#pM').addEventListener('click',()=>{vm=new Date(vm.getFullYear(),vm.getMonth()-1,1);cal()});
+$('#nM').addEventListener('click',()=>{vm=new Date(vm.getFullYear(),vm.getMonth()+1,1);cal()});
+$('#gd').addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b||b.disabled)return;S.d=new Date(+b.dataset.d);S.t=null;$$('#gd button').forEach(x=>x.setAttribute('aria-pressed',x===b));slots();sum()});
+const DW=['Chủ nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
+const fd=d=>`${DW[d.getDay()]}, ${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`;
+const slots=()=>{if(!S.d){$('#sl').innerHTML='';$('#slH').textContent='Chọn ngày trước.';return}const tk=taken(S.d);$('#slH').textContent=fd(S.d)+' · '+tk.filter(x=>!x).length+' khung còn trống';
+ $('#sl').innerHTML=TIMES.map((t,i)=>`<button type="button" data-t="${t}" ${tk[i]?'disabled aria-label="'+t+', đã có người đặt"':''} aria-pressed="${S.t===t}">${t}</button>`).join('')};
+$('#sl').addEventListener('click',e=>{const b=e.target.closest('button[data-t]');if(!b||b.disabled)return;S.t=b.dataset.t;$$('#sl button').forEach(x=>x.setAttribute('aria-pressed',x===b));sum()});
+const SR=['Orsenne Studio Quận 1, TP.HCM (minh họa)','Orsenne Studio Hoàn Kiếm, Hà Nội (minh họa)'];
+const sum=()=>{$('#smr').innerHTML=[['Phiên bản','Vela '+V[S.v][0]],['Showroom',SR[S.s]],['Ngày',S.d?fd(S.d):'Chưa chọn'],['Giờ',S.t||'Chưa chọn']].map(r=>`<div><span>${r[0]}</span><b>${r[1]}</b></div>`).join('')};
+$('#go').addEventListener('click',()=>{const m=$('#msg'),n=$('#fN').value.trim(),p=$('#fP').value.trim();
+ if(!S.d){m.textContent='Bạn chọn ngày lái thử trước nhé.';return}if(!S.t){m.textContent='Bạn chọn một khung giờ còn trống nhé.';return}if(!n||!/^[0-9 +.]{9,}$/.test(p)){m.textContent='Bạn điền họ tên và số điện thoại đúng giúp nhé.';return}
+ m.textContent='';const code='OV-'+String(hash(S.d,S.s+TIMES.indexOf(S.t)+7)%9000+1000);$('#okC').textContent=code;$('#okT').textContent=`${n} · Vela ${V[S.v][0]} · ${S.t}, ${fd(S.d)} · ${SR[S.s]}`;
+ $('#bkF').hidden=true;$('#ok').classList.add('on');$('#bkR').scrollIntoView({block:'nearest',behavior:RM?'auto':'smooth'})});
+$('#again').addEventListener('click',()=>{$('#ok').classList.remove('on');$('#bkF').hidden=false;S.t=null;slots();sum()});
+/* rolling price — tham khảo */
+$('#pC').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;S.c=+b.dataset.v;$$('#pC button').forEach(x=>x.setAttribute('aria-pressed',x===b));price()});
+$('#pI').addEventListener('change',price);
+function price(){const p=V[S.v][1]*1e6,rt=S.c?.12:.10,ins=$('#pI').checked;
+ const R=[['Giá xe dự kiến',`Vela ${V[S.v][0]} · minh họa`,p,1],['Lệ phí trước bạ',`${S.c?'Hà Nội 12%':'TP.HCM 10%'} giá tính lệ phí`,p*rt,1],['Phí cấp biển số','Khu vực I, xe dưới 10 chỗ',20000000,1],['Phí đăng kiểm','Lần đầu, gồm cấp giấy chứng nhận',340000,1],['Phí bảo trì đường bộ','12 tháng, xe cá nhân',1560000,1],['Bảo hiểm trách nhiệm dân sự','Bắt buộc, xe 7 chỗ, 12 tháng',873400,1],['Bảo hiểm vật chất','Tự nguyện, ước 1,4% giá xe',Math.round(p*.014/1000)*1000,ins]];
+ const tot=R.reduce((a,r)=>a+(r[3]?r[2]:0),0);
+ $('#tb').innerHTML=R.map(r=>`<tr class="${r[3]?'':'off'}"><td>${r[0]}<small>${r[1]}</small></td><td>${vnd(r[2])}</td></tr>`).join('')+`<tr class="t"><td>Tổng lăn bánh tham khảo</td><td>${(tot/1e9).toLocaleString('vi-VN',{minimumFractionDigits:3,maximumFractionDigits:3})} tỷ</td></tr>`}
+setV(0);cal();slots();sum();
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hx>*',{y:40,opacity:0,stagger:.1,duration:1.4,ease:'expo.out'});
+ gsap.fromTo('.hi picture',{scale:1.15},{scale:1,duration:2.4,ease:'expo.out'});
+ gsap.to('.glow',{x:'12vw',y:'8vh',duration:8,ease:'sine.inOut',yoyo:true,repeat:-1});
+ gsap.to('.hi',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.lt figure').forEach((f,i)=>gsap.fromTo($('img',f),{yPercent:-6,scale:1.14},{yPercent:6,scale:1.14,ease:'none',scrollTrigger:{trigger:f,start:'top bottom',end:'bottom top',scrub:true}}));
+}
+})();
+</script>
+</body>
+</html>

@@ -69,7 +69,6 @@
 | orsenne | anh-sang | Brady Knoll | Pexels | https://www.pexels.com/photo/blue-and-red-car-in-a-dark-room-3221165/ | 4648×7617 |
 | orsenne | den | Abdulvahap Demir | Pexels | https://www.pexels.com/photo/a-close-up-shot-of-the-headlight-of-a-car-11079820/ | 3773×5659 |
 | orsenne | duong-net | Vidul Arora | Pexels | https://www.pexels.com/photo/close-up-of-the-headlight-15785276/ | 3072×4080 · đã làm mờ logo |
-| orsenne | duoi | Luke Miller | Pexels | https://www.pexels.com/photo/luxury-black-sedan-in-elegant-showroom-29566862/ | 4620×6930 · đã làm mờ logo |
 | sevrine | don | Pavel Danilyuk | Pexels | https://www.pexels.com/photo/man-in-a-gray-suit-opening-a-car-door-for-a-woman-in-black-suit-8425027/ | 4602×3072 · đã làm mờ logo |
 | sevrine | khoang | Autotrade Design | Pexels | https://www.pexels.com/photo/luxury-limousine-interior-17246680/ | 6048×4024 · đã làm mờ logo |
 | sevrine | cuoi | Filip Sestrenek | Pexels | https://www.pexels.com/photo/wedding-car-decoration-made-with-flowers-11474248/ | 3280×4928 |

@@ -129,5 +129,44 @@
     demo: 'demos/lux-gravene.html',
     long: 'img/sm-web-gravene-long.webp',
     longM: 'img/sm-web-gravene-long-m.webp'
+  },
+  {
+    id: 'web-kestrane',
+    title: 'Kestrane',
+    industry: 'Xe sang',
+    desc: 'Website showroom xe sang phong cách Thụy Sĩ chữ rộng: cấu hình màu sơn, mâm, nội thất ra giá ngay, tính trả góp dư nợ giảm dần hoặc trả đều, so sánh hai mẫu và đặt lái thử tại TP.HCM, Hà Nội.',
+    tags: ['Cấu hình xe', 'Trả góp', 'So sánh'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-kestrane.webp',
+    kind: 'site',
+    demo: 'demos/lux-kestrane.html',
+    long: 'img/sm-web-kestrane-long.webp',
+    longM: 'img/sm-web-kestrane-long-m.webp'
+  },
+  {
+    id: 'web-torvik',
+    title: 'Torvik',
+    industry: 'Xe sang',
+    desc: 'Website câu lạc bộ siêu xe kiểu poster đen và xanh chanh, chữ khổng lồ, dải chữ chạy theo cuộn: lịch sự kiện lọc theo tháng và loại, giữ chỗ, so sánh ba hạng thành viên và đơn xin gia nhập.',
+    tags: ['Lịch sự kiện', 'Hạng thành viên', 'Poster'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-torvik.webp',
+    kind: 'site',
+    demo: 'demos/lux-torvik.html',
+    long: 'img/sm-web-torvik-long.webp',
+    longM: 'img/sm-web-torvik-long-m.webp'
+  },
+  {
+    id: 'web-obsidra',
+    title: 'Obsidra',
+    industry: 'Xe sang',
+    desc: 'Website xưởng detailing tông than chì và đồng, khung ảnh kiểu ống ngắm: chọn cỡ xe và gói ceramic, PPF, nội thất ra giá cùng thời gian, kéo so sánh trước sau bằng chuột hoặc ngón tay và đặt lịch.',
+    tags: ['Báo giá theo xe', 'Trước / sau', 'Đặt lịch'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-obsidra.webp',
+    kind: 'site',
+    demo: 'demos/lux-obsidra.html',
+    long: 'img/sm-web-obsidra-long.webp',
+    longM: 'img/sm-web-obsidra-long-m.webp'
   }
 ];

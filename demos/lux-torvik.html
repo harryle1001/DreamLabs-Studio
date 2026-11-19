@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Torvik — câu lạc bộ siêu xe, track day và drive tour (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một câu lạc bộ siêu xe: lịch sự kiện lọc theo tháng và loại, so sánh ba hạng thành viên, hành trình drive tour và đơn xin gia nhập.">
+<style>
+@font-face{font-family:"Anton";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/anton-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Anton";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/anton-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Grotesk";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Grotesk";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-vietnamese-500-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.7,0,.2,1);--eo:cubic-bezier(.16,1,.3,1);
+--bk:#0C0C0C;--c2:#161616;--c3:#202020;--bo:#EFECE4;--mu:rgba(239,236,228,.56);--ln:rgba(239,236,228,.14);--ac:#D6FF3A;--fd:"Anton",Impact,sans-serif;--fb:"Space Grotesk",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bk);color:var(--bo);font-family:var(--fb);font-weight:300;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1440px;margin:0 auto;padding:0 max(16px,3vw)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.d{font-family:var(--fd);font-weight:400;text-transform:uppercase;line-height:.88;letter-spacing:.005em}
+.k{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.ac{color:var(--ac)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 var(--s4);background:var(--ac);color:var(--bk);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 70%,calc(100% - 14px) 100%,0 100%);transition:background .3s}
+.btn:hover{background:var(--bo)}
+.btn.o{background:transparent;color:var(--bo);box-shadow:inset 0 0 0 1px var(--bo);clip-path:none}.btn.o:hover{background:var(--bo);color:var(--bk)}
+/* header */
+.hd{position:fixed;inset:0 0 auto;z-index:40;mix-blend-mode:difference;color:#fff}
+.hd .w{display:flex;align-items:center;gap:var(--s4);height:64px}
+.lg{font-family:var(--fd);font-size:26px;letter-spacing:.06em;margin-right:auto;min-height:44px;display:flex;align-items:center}
+.nv{display:flex;gap:var(--s4)}.nv a{font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;min-height:44px;display:flex;align-items:center}
+.back{font-size:12px;min-height:44px;display:flex;align-items:center;opacity:.7}
+.emb .back{display:none}
+.mb{display:none;min-height:44px;min-width:44px;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.ov{position:fixed;inset:0;z-index:39;background:var(--ac);color:var(--bk);display:flex;flex-direction:column;justify-content:center;padding:0 max(16px,3vw);clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--e);visibility:hidden}
+.ov a{font-family:var(--fd);font-size:clamp(48px,14vw,120px);line-height:1;text-transform:uppercase;min-height:44px}
+.mo .ov{clip-path:inset(0);visibility:visible}
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;max-height:1100px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.hero .bg{position:absolute;inset:0}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,12,.6),rgba(12,12,12,0) 30%,rgba(12,12,12,.35) 62%,var(--bk))}
+.hero .in{position:relative;padding-bottom:var(--s5)}
+.hero h1{margin-top:.26em;font-size:min(31.5vw,520px);line-height:.78;margin-left:-.04em;white-space:nowrap}
+.hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s4);margin-top:var(--s4);flex-wrap:wrap}
+.hero .row p{max-width:38ch;font-size:clamp(16px,1.4vw,19px)}
+.tagc{display:inline-block;border:1px solid var(--ac);color:var(--ac);padding:2px 8px;margin-right:8px}
+/* marquee */
+.mq{border-block:1px solid var(--ln);overflow:hidden;padding:var(--s3) 0;white-space:nowrap}
+.mq div{display:inline-flex;gap:var(--s5);font-family:var(--fd);font-size:clamp(28px,4vw,56px);text-transform:uppercase;will-change:transform}
+.mq span{display:inline-flex;gap:var(--s5);align-items:center}
+.mq span::after{content:"";width:.5em;height:.5em;background:var(--ac);clip-path:polygon(0 0,100% 50%,0 100%)}
+/* section */
+.sec{padding:var(--s8) 0}
+.st{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s4);margin-bottom:var(--s6);flex-wrap:wrap}
+.st h2{font-size:clamp(56px,10vw,170px)}
+.st p{max-width:36ch;color:var(--mu)}
+/* tours */
+.tw{position:relative}
+.tw figure{aspect-ratio:21/9;overflow:hidden}
+.tw figure img{transform-origin:50% 60%}
+.tr{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln);margin-top:-1px}
+.tr article{background:var(--bk);padding:var(--s4);display:grid;gap:var(--s3);position:relative;overflow:hidden}
+.tr article::before{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--ac);transform:scaleX(0);transform-origin:0 0;transition:transform .7s var(--e)}
+.tr article:hover::before{transform:none}
+.tr h3{font-family:var(--fd);font-weight:400;font-size:clamp(28px,2.6vw,40px);text-transform:uppercase;line-height:.95}
+.tr dl{display:flex;gap:var(--s4);flex-wrap:wrap}
+.tr dt{font-size:11px;color:var(--mu);text-transform:uppercase;letter-spacing:.1em}.tr dd{font-weight:500}
+/* events */
+.flt{display:grid;gap:var(--s3);margin-bottom:var(--s5)}
+.chips{display:flex;gap:var(--s2);overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.chips::-webkit-scrollbar{display:none}
+.chips button{flex:none;min-height:44px;padding:0 var(--s4);border:1px solid var(--ln);font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:background .3s,color .3s,border-color .3s}
+.chips button[aria-pressed=true]{background:var(--bo);color:var(--bk);border-color:var(--bo)}
+.chips.t button[aria-pressed=true]{background:var(--ac);border-color:var(--ac)}
+.ev{border-top:1px solid var(--ln)}
+.ev li{display:grid;grid-template-columns:150px 1fr 170px 150px;gap:var(--s4);align-items:center;padding:var(--s4) 0;border-bottom:1px solid var(--ln);transition:background .4s}
+.ev li:hover{background:var(--c2)}
+.ev .dt{font-family:var(--fd);font-size:48px;line-height:.9}
+.ev .dt small{display:block;font-family:var(--fb);font-size:12px;font-weight:500;letter-spacing:.12em;color:var(--mu)}
+.ev h3{font-weight:500;font-size:clamp(18px,1.6vw,22px);line-height:1.2}
+.ev p{color:var(--mu);font-size:14px}
+.ev .ty{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:1px solid currentColor;padding:2px 8px;justify-self:start}
+.ev .ty[data-t=track]{color:var(--ac)}
+.ev .sl{font-size:13px;color:var(--mu);display:block;margin-top:6px}
+.ev button{min-height:46px;border:1px solid var(--bo);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:background .3s,color .3s}
+.ev button:hover{background:var(--bo);color:var(--bk)}
+.ev button[aria-pressed=true]{background:var(--ac);color:var(--bk);border-color:var(--ac)}
+.ev .em{padding:var(--s6) 0;color:var(--mu);display:block;grid-template-columns:none}
+.cnt{font-size:13px;color:var(--mu)}
+/* manifesto */
+.mf{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);align-items:stretch}
+.mf figure{aspect-ratio:4/5;overflow:hidden;position:relative}.mf figure picture{position:absolute;inset:-9% 0;height:auto}
+.mf .tx{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);padding-top:var(--s5)}
+.mf blockquote{margin:0;font-family:var(--fd);text-transform:uppercase;font-size:clamp(34px,4.4vw,72px);line-height:.95}
+.mf blockquote em{font-style:normal;color:var(--ac)}
+/* tiers */
+.ti{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.tc{border:1px solid var(--ln);padding:var(--s4);display:grid;gap:var(--s3);text-align:left;transition:border-color .4s,background .4s,transform .6s var(--eo);position:relative}
+.tc:hover{transform:translateY(-4px)}
+.tc[aria-pressed=true]{border-color:var(--ac);background:var(--c2)}
+.tc .nm{font-family:var(--fd);font-size:clamp(54px,6vw,96px);line-height:.85;text-transform:uppercase}
+.tc[aria-pressed=true] .nm{color:var(--ac)}
+.tc .fee{font-size:15px}.tc .fee b{font-weight:500;font-size:22px}
+.tc .pk{position:absolute;top:var(--s4);right:var(--s4);width:22px;height:22px;border:1px solid var(--ln);display:grid;place-items:center}
+.tc[aria-pressed=true] .pk{background:var(--ac);border-color:var(--ac)}
+.tc[aria-pressed=true] .pk::after{content:"";width:10px;height:6px;border:2px solid var(--bk);border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.cmp{margin-top:var(--s5);border-top:1px solid var(--ln)}
+.cmp .r{display:grid;grid-template-columns:1.618fr 1fr 1fr 1fr;border-bottom:1px solid var(--ln)}
+.cmp .r>*{padding:var(--s3) var(--s2);font-size:14px}
+.cmp .r>span:not(:first-child){text-align:center;transition:background .4s,color .4s}
+.cmp .r .on{background:rgba(214,255,58,.09);color:var(--ac);font-weight:500}
+.cmp .h>*{font-size:11px!important;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)}
+/* join */
+.jn{display:grid;grid-template-columns:1fr 1.618fr;gap:var(--s6)}
+.jn h2{font-size:clamp(56px,8vw,140px)}
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.fm .full{grid-column:1/-1}
+.fm label{display:block;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.fm input:not([type=checkbox]),.fm select{width:100%;min-height:50px;background:var(--c2);border:0;border-bottom:2px solid var(--ln);padding:0 var(--s3);font-size:16px;outline:0;border-radius:0;-webkit-appearance:none;appearance:none;transition:border-color .3s}
+.fm input:focus,.fm select:focus{border-color:var(--ac)}
+.fm select{background-image:linear-gradient(45deg,transparent 50%,var(--bo) 50%),linear-gradient(135deg,var(--bo) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.ck{display:flex;gap:var(--s3);align-items:flex-start;min-height:44px;cursor:pointer;font-size:14px;color:var(--mu)}
+.ck input{width:20px;height:20px;accent-color:var(--ac);margin-top:2px;flex:none}
+.msg{min-height:1.5em;font-weight:500;color:var(--ac)}.msg.err{color:#FF7A6B}
+.toast{position:fixed;left:50%;bottom:calc(var(--s4) + env(safe-area-inset-bottom));z-index:60;background:var(--ac);color:var(--bk);padding:var(--s3) var(--s4);font-weight:500;font-size:14px;transform:translate(-50%,160%);transition:transform .6s var(--eo);max-width:calc(100% - 32px);width:max-content}
+.toast{visibility:hidden}.toast.on{transform:translate(-50%,0);visibility:visible}
+footer{border-top:1px solid var(--ln);padding:var(--s6) 0 var(--s5);color:var(--mu);font-size:14px}
+footer .big{font-family:var(--fd);font-size:min(31.5vw,520px);line-height:.78;color:var(--c3);text-transform:uppercase;margin-bottom:var(--s4);white-space:nowrap}
+footer a{color:var(--bo);text-decoration:underline}
+@media(max-width:960px){
+ .nv{display:none}.mb{display:block}
+ .tr,.ti{grid-template-columns:1fr}
+ .ev li{grid-template-columns:84px 1fr;gap:var(--s2) var(--s3)}
+ .ev .dt{font-size:38px;grid-row:span 3}
+ .ev .ty{grid-column:2}.ev li>button{grid-column:2;justify-self:start;padding:0 var(--s4)}
+ .mf .tx,.jn{grid-template-columns:1fr}
+ .tw figure{aspect-ratio:4/3}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:560px){.fm{grid-template-columns:1fr}.cmp .r{grid-template-columns:1.3fr 1fr 1fr 1fr}.cmp .r>*{font-size:12.5px;padding:var(--s3) 4px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lg" href="#top" aria-label="Torvik">Torvik</a>
+ <nav class="nv" aria-label="Chính"><a href="#hanh-trinh">Hành trình</a><a href="#lich">Lịch</a><a href="#thanh-vien">Thành viên</a><a href="#gia-nhap">Gia nhập</a></nav>
+ <button class="mb" aria-expanded="false" aria-controls="ov">Menu</button>
+</div></header>
+<nav class="ov" id="ov" aria-label="Menu điện thoại"><a href="#hanh-trinh">Hành trình</a><a href="#lich">Lịch</a><a href="#thanh-vien">Thành viên</a><a href="#gia-nhap">Gia nhập</a></nav>
+
+<main id="top">
+<section class="hero">
+ <div class="bg"><picture><source type="image/avif" srcset="../img/demo/torvik/vet-den-640.avif 640w, ../img/demo/torvik/vet-den-1280.avif 1280w, ../img/demo/torvik/vet-den-1920.avif 1920w, ../img/demo/torvik/vet-den-2560.avif 2560w" sizes="100vw"><img src="../img/demo/torvik/vet-den-1280.webp" srcset="../img/demo/torvik/vet-den-640.webp 640w, ../img/demo/torvik/vet-den-1280.webp 1280w, ../img/demo/torvik/vet-den-1920.webp 1920w, ../img/demo/torvik/vet-den-2560.webp 2560w" sizes="100vw" width="1280" height="720" alt="Vệt đèn xe vàng và đỏ uốn theo khúc cua cao tốc ban đêm" fetchpriority="high" decoding="async"></picture></div>
+ <div class="w in">
+  <p class="k"><span class="tagc">Concept</span>Câu lạc bộ siêu xe · TP.HCM — Hà Nội</p>
+  <h1 class="d" id="h1">Torvik</h1>
+  <div class="row"><p>Đường đèo, đường đua và những người cùng nhịp. Mỗi tháng một lịch chạy, không chạy một mình.</p><div style="display:flex;gap:var(--s3);flex-wrap:wrap"><a class="btn" href="#gia-nhap">Xin gia nhập</a><a class="btn o" href="#lich">Xem lịch</a></div></div>
+ </div>
+</section>
+<div class="mq" aria-hidden="true"><div id="mq"><span>Track day</span><span>Drive tour</span><span>Học lái</span><span>Gặp mặt</span><span>Track day</span><span>Drive tour</span><span>Học lái</span><span>Gặp mặt</span><span>Track day</span><span>Drive tour</span><span>Học lái</span><span>Gặp mặt</span></div></div>
+
+<section class="sec" id="hanh-trinh"><div class="w">
+ <div class="st"><h2 class="d rv">Hành<br><span class="ac">trình</span></h2><p class="rv">Xe dẫn đoàn, xe hỗ trợ kỹ thuật theo sau, khách sạn và bữa tối đã đặt sẵn. Bạn chỉ cần lái.</p></div>
+ <div class="tw">
+  <figure><picture><source type="image/avif" srcset="../img/demo/torvik/deo-640.avif 640w, ../img/demo/torvik/deo-1280.avif 1280w, ../img/demo/torvik/deo-1920.avif 1920w, ../img/demo/torvik/deo-2560.avif 2560w" sizes="100vw"><img src="../img/demo/torvik/deo-1280.webp" srcset="../img/demo/torvik/deo-640.webp 640w, ../img/demo/torvik/deo-1280.webp 1280w, ../img/demo/torvik/deo-1920.webp 1920w, ../img/demo/torvik/deo-2560.webp 2560w" sizes="100vw" width="1280" height="549" alt="Xe thể thao màu đen chạy trên đường đèo ven núi dưới trời xanh" loading="lazy" decoding="async"></picture></figure>
+  <div class="tr">
+   <article class="rv"><p class="k ac">Tuyến 01</p><h3>Sài Gòn — Đà Lạt</h3><p style="color:var(--mu)">Lên đèo Prenn lúc sáng sớm, cà phê đồi thông.</p><dl><div><dt>Thời gian</dt><dd>2 ngày</dd></div><div><dt>Quãng đường</dt><dd>620 km</dd></div></dl></article>
+   <article class="rv"><p class="k ac">Tuyến 02</p><h3>Hải Vân — Hội An</h3><p style="color:var(--mu)">Đèo ven biển, dừng ăn trưa trên đỉnh.</p><dl><div><dt>Thời gian</dt><dd>3 ngày</dd></div><div><dt>Quãng đường</dt><dd>380 km</dd></div></dl></article>
+   <article class="rv"><p class="k ac">Tuyến 03</p><h3>Hà Giang — Mã Pí Lèng</h3><p style="color:var(--mu)">Cung khó nhất năm, đoàn tối đa tám xe.</p><dl><div><dt>Thời gian</dt><dd>4 ngày</dd></div><div><dt>Quãng đường</dt><dd>960 km</dd></div></dl></article>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="lich" style="padding-top:0"><div class="w">
+ <div class="st"><h2 class="d rv">Lịch<br><span class="ac">mùa này</span></h2><p class="rv cnt" id="cnt" aria-live="polite"></p></div>
+ <div class="flt">
+  <div class="chips" id="fM" role="group" aria-label="Lọc theo tháng"></div>
+  <div class="chips t" id="fT" role="group" aria-label="Lọc theo loại"></div>
+ </div>
+ <ul class="ev" id="ev"></ul>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w mf">
+ <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/torvik/deo-rung-640.avif 640w, ../img/demo/torvik/deo-rung-1280.avif 1280w, ../img/demo/torvik/deo-rung-1920.avif 1920w" sizes="(max-width:960px) 50vw, 50vw"><img src="../img/demo/torvik/deo-rung-1280.webp" srcset="../img/demo/torvik/deo-rung-640.webp 640w, ../img/demo/torvik/deo-rung-1280.webp 1280w, ../img/demo/torvik/deo-rung-1920.webp 1920w" sizes="(max-width:960px) 50vw, 50vw" width="1280" height="1600" alt="Đường đèo uốn nhiều khúc cua tay áo giữa rừng thông nhìn từ trên cao" loading="lazy" decoding="async"></picture></figure>
+ <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/torvik/dem-640.avif 640w, ../img/demo/torvik/dem-1280.avif 1280w, ../img/demo/torvik/dem-1920.avif 1920w, ../img/demo/torvik/dem-2560.avif 2560w" sizes="(max-width:960px) 50vw, 50vw"><img src="../img/demo/torvik/dem-1280.webp" srcset="../img/demo/torvik/dem-640.webp 640w, ../img/demo/torvik/dem-1280.webp 1280w, ../img/demo/torvik/dem-1920.webp 1920w, ../img/demo/torvik/dem-2560.webp 2560w" sizes="(max-width:960px) 50vw, 50vw" width="1280" height="1600" alt="Thân xe đen bóng lướt qua phố đêm, ánh đèn kéo thành vệt" loading="lazy" decoding="async"></picture></figure>
+ <div class="tx"><blockquote class="rv">Không ai <em>đua</em> với ai.<br>Chỉ với chính mình<br>của vòng trước.</blockquote><p class="rv" style="color:var(--mu);max-width:44ch;align-self:end">Mọi buổi track day đều có hướng dẫn viên kèm xe, chia nhóm theo kinh nghiệm và đo thời gian từng vòng để bạn tự so với chính mình.</p></div>
+</div></section>
+
+<section class="sec" id="thanh-vien" style="padding-top:0"><div class="w">
+ <div class="st"><h2 class="d rv">Ba hạng<br><span class="ac">thành viên</span></h2><p class="rv">Chạm vào từng hạng để so quyền lợi. Phí thường niên dưới đây là phí minh họa.</p></div>
+ <div class="ti" id="ti"></div>
+ <div class="cmp" id="cmp"></div>
+</div></section>
+
+<section class="sec" id="gia-nhap" style="padding-top:0"><div class="w jn">
+ <div><h2 class="d">Xin<br><span class="ac">gia nhập</span></h2><p style="color:var(--mu);margin-top:var(--s4);max-width:34ch">Hội đồng xét đơn mỗi tháng một lần. Nếu phù hợp, bạn được mời lái thử một buổi track day trước khi đóng phí.</p></div>
+ <form class="fm" id="jf" novalidate>
+  <div><label for="jN">Họ tên</label><input id="jN" required autocomplete="name"></div>
+  <div><label for="jP">Điện thoại</label><input id="jP" type="tel" required inputmode="tel" autocomplete="tel"></div>
+  <div><label for="jE">Email</label><input id="jE" type="email" required autocomplete="email"></div>
+  <div><label for="jC">Thành phố</label><select id="jC"><option>TP.HCM</option><option>Hà Nội</option><option>Đà Nẵng</option><option>Khác</option></select></div>
+  <div><label for="jX">Xe đang sở hữu</label><input id="jX" required placeholder="Dòng xe, năm sản xuất"></div>
+  <div><label for="jT">Hạng muốn tham gia</label><select id="jT"></select></div>
+  <label class="ck full"><input type="checkbox" id="jA" required>Tôi đồng ý tuân thủ quy tắc an toàn của câu lạc bộ trên đường công cộng và trường đua.</label>
+  <div class="full"><button class="btn" style="width:100%">Gửi đơn</button><p class="msg" id="jM" role="status" style="margin-top:var(--s3)"></p></div>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <div class="big" aria-hidden="true">Torvik</div>
+ <p>Torvik là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sự kiện, địa điểm, quyền lợi và phí chỉ để minh họa. Ảnh: Pexels (đã làm mờ logo hãng).</p>
+</div></footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script src="../vendor/SplitText.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-torvik',smDemo:'lux-torvik'},'*')}catch(e){}
+const mb=$('.mb'),tog=o=>{H.classList.toggle('mo',o);mb.setAttribute('aria-expanded',o);mb.textContent=o?'Đóng':'Menu'};mb.addEventListener('click',()=>tog(!H.classList.contains('mo')));$$('.ov a').forEach(a=>a.addEventListener('click',()=>tog(false)));
+const toast=t=>{const el=$('#toast');el.textContent=t;el.classList.add('on');clearTimeout(el._t);el._t=setTimeout(()=>el.classList.remove('on'),3200)};
+/* events — dữ liệu minh họa */
+const TY={track:'Track day',tour:'Drive tour',class:'Học lái',meet:'Gặp mặt'};
+const E=[
+ ['2026-12-06','track','Sáng thứ Bảy trên đường đua','Trường đua thuê riêng, Long An (minh họa)',12],
+ ['2026-12-13','tour','Sài Gòn — Đà Lạt qua đèo Prenn','Tập trung TP Thủ Đức · 2 ngày',8],
+ ['2026-12-20','meet','Cà phê sáng cuối năm','Club house TP.HCM (minh họa)',30],
+ ['2026-12-27','class','Lớp kiểm soát trượt bánh','Sân tập kín, Bình Dương (minh họa)',10],
+ ['2027-01-10','track','Track day miền Bắc','Trường đua thuê riêng, Hòa Bình (minh họa)',12],
+ ['2027-01-17','meet','Đêm xe bên Hồ Tây','Club house Hà Nội (minh họa)',30],
+ ['2027-01-24','tour','Hà Nội — Mộc Châu','Tập trung Tây Hồ · 2 ngày',8],
+ ['2027-02-21','tour','Đèo Hải Vân — Hội An','Tập trung Đà Nẵng · 3 ngày',8],
+ ['2027-02-28','class','Phanh gấp và vào cua','Sân tập kín, Bình Dương (minh họa)',10],
+ ['2027-03-07','track','Track day mở màn mùa khô','Trường đua thuê riêng, Long An (minh họa)',12],
+ ['2027-03-14','tour','Hà Giang — Mã Pí Lèng','Tập trung Hà Nội · 4 ngày',6],
+ ['2027-03-21','meet','Ngày hội xe cổ điển','Club house TP.HCM (minh họa)',40]].map((e,i)=>({id:i,d:new Date(e[0]+'T08:00:00'),t:e[1],n:e[2],p:e[3],s:e[4],h:0}));
+const MS=[...new Set(E.map(e=>e.d.getFullYear()+'-'+e.d.getMonth()))];
+const F={m:'all',t:'all'};
+$('#fM').innerHTML=`<button type="button" data-m="all" aria-pressed="true">Tất cả</button>`+MS.map(k=>{const [y,m]=k.split('-');return `<button type="button" data-m="${k}" aria-pressed="false">Th${+m+1}/${y}</button>`}).join('');
+$('#fT').innerHTML=`<button type="button" data-t="all" aria-pressed="true">Mọi loại</button>`+Object.entries(TY).map(([k,v])=>`<button type="button" data-t="${k}" aria-pressed="false">${v}</button>`).join('');
+const pad=n=>String(n).padStart(2,'0'),DW=['CN','T2','T3','T4','T5','T6','T7'];
+const list=()=>{const L=E.filter(e=>(F.m==='all'||e.d.getFullYear()+'-'+e.d.getMonth()===F.m)&&(F.t==='all'||e.t===F.t));
+ $('#ev').innerHTML=L.length?L.map(e=>`<li class="it"><p class="dt">${pad(e.d.getDate())}/${pad(e.d.getMonth()+1)}<small>${DW[e.d.getDay()]} · ${e.d.getFullYear()}</small></p><div><h3>${e.n}</h3><p>${e.p}</p></div><span class="ty" data-t="${e.t}">${TY[e.t]}<span class="sl">${e.s-e.h} chỗ trống</span></span><button type="button" data-id="${e.id}" aria-pressed="${!!e.h}">${e.h?'Đã giữ chỗ':'Giữ chỗ'}</button></li>`).join(''):`<li class="em">Không có sự kiện nào khớp bộ lọc. Thử chọn tháng khác.</li>`;
+ $('#cnt').textContent=`${L.length} sự kiện${F.m==='all'?' từ tháng 12 đến tháng 3':''}${F.t==='all'?'':' · '+TY[F.t]}`;
+ if(!RM&&window.gsap)gsap.from('#ev .it',{opacity:0,y:18,stagger:.04,duration:.6,ease:'power3.out'})};
+const pick=(id,k)=>$(id).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;F[k]=b.dataset[k];$$('button',$(id)).forEach(x=>x.setAttribute('aria-pressed',x===b));list()});
+pick('#fM','m');pick('#fT','t');
+$('#ev').addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(!b)return;const ev=E[+b.dataset.id];ev.h=ev.h?0:1;
+ b.setAttribute('aria-pressed',!!ev.h);b.textContent=ev.h?'Đã giữ chỗ':'Giữ chỗ';$('.sl',b.parentNode).textContent=(ev.s-ev.h)+' chỗ trống';
+ toast(ev.h?`Đã giữ chỗ “${ev.n}”. Trang mẫu nên chưa gửi đi đâu.`:'Đã bỏ giữ chỗ.')});
+list();
+/* tiers — phí minh họa */
+const T=[['Pit','48 triệu','Cho người mới vào đường đua.'],['Grid','120 triệu','Lịch chạy đều đặn quanh năm.'],['Pole','280 triệu','Ưu tiên mọi thứ, có chỗ gửi xe.']];
+const B=[['Track day mỗi năm','2','6','Không giới hạn'],['Drive tour mỗi năm','1','3','Tất cả'],['Lớp học lái','—','2','4'],['Club house & cà phê','✓','✓','✓'],['Ưu tiên giữ chỗ','—','48 giờ','7 ngày'],['Khách mời đi cùng','—','1','2'],['Gửi xe tại garage club','—','—','✓'],['Chăm sóc xe trước chuyến','—','Rửa & kiểm tra','Trọn gói']];
+let tier=1;
+$('#ti').innerHTML=T.map((t,i)=>`<button type="button" class="tc rv" data-i="${i}" aria-pressed="false"><span class="pk"></span><span class="k" style="color:var(--mu)">Hạng 0${i+1}</span><span class="nm">${t[0]}</span><span>${t[2]}</span><span class="fee"><b>${t[1]}</b> / năm · phí minh họa</span></button>`).join('');
+$('#jT').innerHTML=T.map((t,i)=>`<option value="${i}">${t[0]} · ${t[1]}/năm</option>`).join('');
+const tiers=()=>{$$('.tc').forEach(b=>b.setAttribute('aria-pressed',b.dataset.i==tier));$('#jT').value=tier;
+ $('#cmp').innerHTML=`<div class="r h"><span>Quyền lợi</span>${T.map((t,i)=>`<span class="${i===tier?'on':''}">${t[0]}</span>`).join('')}</div>`+B.map(r=>`<div class="r"><span>${r[0]}</span>${r.slice(1).map((v,i)=>`<span class="${i===tier?'on':''}">${v}</span>`).join('')}</div>`).join('')};
+$('#ti').addEventListener('click',e=>{const b=e.target.closest('.tc');if(!b)return;tier=+b.dataset.i;tiers()});$('#jT').addEventListener('change',e=>{tier=+e.target.value;tiers()});
+tiers();
+/* join */
+$('#jf').addEventListener('submit',e=>{e.preventDefault();const m=$('#jM'),f=$$('#jf [required]'),ok=f.every(i=>i.type==='checkbox'?i.checked:i.value.trim()),em=/^\S+@\S+\.\S+$/.test($('#jE').value),tel=/^[0-9 +.]{9,}$/.test($('#jP').value.trim());
+ m.classList.toggle('err',!(ok&&em&&tel));
+ if(!ok){m.textContent='Bạn điền đủ các ô và đánh dấu đồng ý quy tắc an toàn nhé.';return}if(!tel){m.textContent='Số điện thoại chưa đúng.';return}if(!em){m.textContent='Email chưa đúng.';return}
+ m.textContent=`Đã nhận đơn hạng ${T[tier][0]} của ${$('#jN').value.trim()}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+/* motion */
+const go=s=>{const el=$(s);el&&scrollTo({top:el.getBoundingClientRect().top+scrollY-20,behavior:RM?'auto':'smooth'})};
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ if(window.SplitText){try{const sp=new SplitText('#h1',{type:'chars'});gsap.from(sp.chars,{yPercent:100,opacity:0,stagger:.06,duration:1.2,ease:'expo.out',delay:.1})}catch(e){}}
+ gsap.fromTo('.hero .bg img',{scale:1.2},{scale:1,duration:2.2,ease:'expo.out'});
+ gsap.to('.hero .bg',{yPercent:18,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ const mq=$('#mq');let x=0,dir=1,v=0;ScrollTrigger.create({onUpdate:s=>{dir=s.direction;v=Math.min(8,Math.abs(s.getVelocity())/300)}});
+ gsap.ticker.add(()=>{x-=(1.2+v)*dir;v*=.92;const w=mq.scrollWidth/3;if(x<-w)x+=w;if(x>0)x-=w;mq.style.transform=`translate3d(${x}px,0,0)`});
+ gsap.fromTo('.tw figure img',{scale:1.25},{scale:1,ease:'none',scrollTrigger:{trigger:'.tw',start:'top bottom',end:'bottom top',scrub:true}});
+ $$('.rv').forEach(el=>gsap.from(el,{y:60,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
+ $$('.mf figure').forEach((f,i)=>gsap.fromTo($('img',f),{yPercent:i?-8:8},{yPercent:i?8:-8,ease:'none',scrollTrigger:{trigger:f,start:'top bottom',end:'bottom top',scrub:true}}));
+}
+})();
+</script>
+</body>
+</html>
