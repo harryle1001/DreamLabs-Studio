@@ -1,0 +1,93 @@
+<!--meta {
+ "order": 4,
+ "date": "2026-11-19",
+ "title": "Quản lý kho và đơn hàng tự động cho shop bán đa kênh",
+ "h1": "Quản lý kho và đơn hàng tự động cho doanh nghiệp bán đa kênh",
+ "short": "Quản lý kho và đơn hàng tự động",
+ "description": "Quản lý kho và đơn hàng tự động khi bán đa kênh: gom đơn về một nơi, AI đọc tin nhắn chốt đơn, trừ tồn kho, cảnh báo hết hàng, báo trạng thái giao.",
+ "lead": "Bán trên website, Facebook, Zalo và sàn thương mại điện tử cùng lúc thì đơn hàng rải khắp nơi, tồn kho lệch, khách hỏi đơn không ai trả lời kịp. Bài này chỉ cách gom đơn về một chỗ và để máy làm phần việc lặp lại, từ lên đơn đến báo giao hàng.",
+ "cat": "Tự động hóa AI",
+ "cat_id": "ai",
+ "keywords": ["quản lý kho và đơn hàng tự động","đồng bộ đơn hàng đa kênh","quản lý tồn kho bán online","AI chốt đơn từ tin nhắn","tự động hóa bán hàng online"],
+ "image": "img/sm-ai-hai-mien.webp",
+ "imageAlt": "Giao diện concept: tin nhắn yêu cầu của khách được AI đọc và chuyển thành phiếu đơn hàng kèm báo giá sơ bộ",
+ "imageCaption": "Hải Miên Yachts: concept AI đọc tin nhắn yêu cầu, tự điền đơn và lập báo giá sơ bộ, do Dream Labs tự thiết kế để minh họa, không phải dự án khách hàng.",
+ "related": ["tu-dong-tra-loi-khach-zalo-oa-facebook","chi-phi-trien-khai-tu-dong-hoa-cho-sme","tu-dong-hoa-ke-toan-bang-ai"],
+ "ctaTitle": "Đơn hàng của bạn đang nằm rải rác bao nhiêu nơi?",
+ "ctaText": "Nhắn Zalo cho Dream Labs các kênh đang bán và cách đang ghi đơn, tồn kho. Chúng tôi đề xuất luồng tự động nên làm trước, kèm phạm vi và chi phí rõ ràng."
+} -->
+<p>Một cửa hàng mỹ phẩm online bán trên website, fanpage Facebook, Zalo và một gian hàng trên sàn thương mại điện tử. Mỗi sáng, nhân viên mở bốn nơi, chép đơn vào bảng tính, kiểm tra kho bằng mắt, rồi nhắn từng khách xác nhận. Đến chiều, một mã son đã hết hàng nhưng vẫn được bán thêm ba đơn trên kênh khác.</p>
+<p>Đây là bài toán điển hình mà <strong>quản lý kho và đơn hàng tự động</strong> giải được: đơn từ mọi kênh về một nơi, tồn kho trừ ngay khi có đơn, khách nhận thông báo mà không cần ai gõ tay. Bài viết đi qua từng bước, phần dữ liệu cần chuẩn bị và những điểm nên để người kiểm soát. Nếu bạn muốn xem bức tranh chung trước, hãy đọc bài <a href="../tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai/">tự động hóa quy trình doanh nghiệp bằng AI</a>.</p>
+
+<h2 id="van-de">Vấn đề khi bán đa kênh mà quản lý tay</h2>
+<p>Bán nhiều kênh giúp tiếp cận thêm khách, nhưng mỗi kênh lại có cách ghi đơn riêng. Khi người làm là cầu nối duy nhất giữa các kênh, những lỗi sau gần như chắc chắn xảy ra:</p>
+<ul>
+ <li><strong>Bán vượt tồn kho.</strong> Kho chỉ được cập nhật cuối ngày, trong khi đơn đến liên tục từ nhiều nơi.</li>
+ <li><strong>Sót đơn trong tin nhắn.</strong> Khách chốt đơn bằng một câu "lấy em 2 hộp nhé" trong Messenger, tin nhắn trôi xuống dưới và không ai lên đơn.</li>
+ <li><strong>Sai thông tin giao hàng.</strong> Chép tay địa chỉ, số điện thoại từ đoạn chat dễ thiếu số, sai phường.</li>
+ <li><strong>Không biết lúc nào cần nhập hàng.</strong> Hết hàng mới phát hiện, trong khi nhà cung cấp cần vài ngày để giao.</li>
+ <li><strong>Trả lời khách chậm.</strong> Câu hỏi về trạng thái đơn chiếm nhiều thời gian của nhân viên chăm sóc khách.</li>
+</ul>
+
+<h2 id="he-thong">Một hệ thống đơn hàng tự động gồm những gì</h2>
+<p>Hệ thống không cần là một phần mềm lớn. Với doanh nghiệp nhỏ, nó thường gồm bốn phần nối với nhau bằng một công cụ tự động hóa như <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/n8n/">n8n</a>:</p>
+<ol>
+ <li><strong>Nơi chứa đơn duy nhất:</strong> phần mềm bán hàng đang dùng, hoặc một bảng Google Sheets có cột cố định nếu chưa có phần mềm.</li>
+ <li><strong>Danh mục sản phẩm và tồn kho:</strong> mỗi sản phẩm một mã SKU, số lượng tồn, ngưỡng cảnh báo.</li>
+ <li><strong>Các luồng tự động:</strong> lấy đơn từ từng kênh, đọc tin nhắn chốt đơn, trừ kho, gửi thông báo.</li>
+ <li><strong>Trợ lý AI:</strong> đọc tin nhắn tự nhiên của khách, tách thông tin đơn và soạn tin xác nhận.</li>
+</ol>
+<p>Phần lớn công việc là quy tắc cố định: có đơn thì trừ kho, kho dưới ngưỡng thì báo. AI chỉ được dùng ở chỗ cần hiểu ngôn ngữ, chủ yếu là đọc tin nhắn của khách.</p>
+
+<h2 id="quy-trinh">Quy trình tự động từng bước</h2>
+<h3>Bước 1: gom đơn từ mọi kênh về một nơi</h3>
+<p>Đơn từ website và sàn thương mại điện tử thường có sẵn dạng dữ liệu, có thể lấy tự động theo lịch hoặc ngay khi phát sinh. Mỗi đơn khi về đều được gắn nhãn kênh bán để sau này biết kênh nào bán tốt.</p>
+<h3>Bước 2: AI đọc tin nhắn chốt đơn thành đơn hàng</h3>
+<p>Đơn từ Facebook và Zalo khó hơn vì nằm trong hội thoại. Trợ lý AI đọc đoạn chat, nhận ra khách đã chốt, rồi tách ra tên sản phẩm, phân loại, số lượng, tên người nhận, số điện thoại, địa chỉ. Sau đó AI đối chiếu tên sản phẩm khách gõ với danh mục SKU để chọn đúng mã. Đơn được tạo ở trạng thái "chờ xác nhận". Nếu thiếu thông tin, ví dụ chưa có địa chỉ, AI hỏi lại khách thay vì tự đoán. Phần trả lời và tư vấn trước khi chốt được nói kỹ hơn trong bài <a href="../tu-dong-tra-loi-khach-zalo-oa-facebook/">tự động trả lời khách trên Zalo OA và Facebook</a>.</p>
+<h3>Bước 3: nhắn khách xác nhận đơn</h3>
+<p>Ngay khi có đơn, khách nhận một tin tóm tắt: sản phẩm, số lượng, tổng tiền, địa chỉ giao. Khách trả lời đồng ý thì đơn chuyển sang "đã xác nhận". Với đơn thanh toán khi nhận hàng, bước này giúp lọc đơn sai địa chỉ trước khi đóng gói.</p>
+<h3>Bước 4: trừ tồn kho và giữ hàng</h3>
+<p>Đơn xác nhận thì tồn kho của SKU đó giảm ngay. Nếu bạn bán cùng một kho trên nhiều kênh, số tồn mới được cập nhật lại cho các kênh, để kênh khác không bán vượt. Đơn bị hủy thì số lượng được cộng trả lại kho, có ghi nhật ký.</p>
+<h3>Bước 5: cảnh báo sắp hết hàng và gợi ý nhập hàng</h3>
+<p>Mỗi SKU có một ngưỡng cảnh báo. Khi tồn xuống dưới ngưỡng, người phụ trách nhận tin báo qua Zalo hoặc email. Hệ thống có thể kèm gợi ý số lượng nên nhập, tính từ lượng bán trung bình mấy tuần gần nhất và số ngày nhà cung cấp cần để giao. Người quyết định vẫn là chủ shop, máy chỉ đưa con số để quyết nhanh hơn.</p>
+<h3>Bước 6: cập nhật trạng thái giao hàng cho khách</h3>
+<p>Khi đơn có mã vận đơn, hệ thống theo dõi trạng thái và nhắn khách ở các mốc quan trọng: đã giao cho đơn vị vận chuyển, đang giao, giao thành công. Khách hỏi "đơn tới đâu rồi" thì trợ lý tra trạng thái và trả lời ngay. Đơn giao thất bại hoặc bị hoàn được báo riêng cho nhân viên xử lý.</p>
+<div class="bl-note"><p><strong>Nguyên tắc:</strong> việc trừ kho, cộng tiền, đổi trạng thái luôn chạy bằng quy tắc cố định. AI chỉ đọc và viết tin nhắn. Tách bạch như vậy thì số tồn kho không bao giờ phụ thuộc vào việc AI "hiểu đúng" hay không.</p></div>
+
+<h2 id="du-lieu">Dữ liệu cần chuẩn hóa trước khi tự động</h2>
+<p>Tự động hóa chỉ chạy đúng khi dữ liệu nền đúng. Trước khi dựng luồng, hãy làm xong những việc sau:</p>
+<ul>
+ <li><strong>Mã SKU cho từng biến thể.</strong> Mỗi màu, mỗi dung tích, mỗi size là một mã riêng. Ví dụ son màu đỏ và son màu cam phải là hai SKU khác nhau, không dùng chung một mã "son lì".</li>
+ <li><strong>Một tên chuẩn và các tên gọi khác.</strong> Khách có thể gọi một sản phẩm bằng nhiều cách. Ghi lại các tên gọi phổ biến bên cạnh tên chuẩn để AI đối chiếu chính xác hơn.</li>
+ <li><strong>Đồng nhất mã giữa các kênh.</strong> Sản phẩm trên website, trên sàn và trong kho phải dùng chung SKU, nếu không hệ thống sẽ không biết đó là cùng một món.</li>
+ <li><strong>Kiểm kê tồn kho thực tế.</strong> Đếm lại kho một lần trước khi bật hệ thống. Số đầu vào sai thì mọi cảnh báo sau đó đều sai.</li>
+ <li><strong>Quy ước trạng thái đơn.</strong> Thống nhất một bộ trạng thái như chờ xác nhận, đã xác nhận, đang đóng gói, đang giao, hoàn tất, hủy, hoàn.</li>
+</ul>
+<p>Phần này tốn công nhất nhưng chỉ làm một lần.</p>
+
+<h2 id="kiem-soat">Những điểm nên để người kiểm soát</h2>
+<ul>
+ <li><strong>Đơn bất thường.</strong> Số lượng lớn bất thường, địa chỉ thiếu, khách có lịch sử hoàn đơn: chuyển cho nhân viên duyệt.</li>
+ <li><strong>Đổi trả, khiếu nại.</strong> AI có thể ghi nhận yêu cầu, nhưng quyết định đổi hay hoàn tiền do người làm.</li>
+ <li><strong>Chạy song song giai đoạn đầu.</strong> Một đến hai tuần đầu, vẫn đối chiếu tồn kho bằng tay mỗi cuối ngày. Khi số khớp ổn định mới bỏ cách cũ.</li>
+ <li><strong>Nhật ký thay đổi.</strong> Mỗi lần kho tăng giảm đều ghi lại do đơn nào, lúc nào, để tra lại khi lệch.</li>
+</ul>
+<p>Doanh thu và tiền thu hộ từ các đơn này sau đó cần được đối chiếu với sổ sách. Phần đó được nói trong bài <a href="../tu-dong-hoa-ke-toan-bang-ai/">tự động hóa kế toán bằng AI</a>.</p>
+
+<h2 id="chi-phi">Chi phí tham khảo</h2>
+<p>Tại Dream Labs, quy trình đơn hàng nằm trong gói Tăng trưởng {{p:ai:1}}: gồm 3 quy trình tự động (đơn hàng, chăm sóc khách hàng, sổ sách và báo cáo), trợ lý AI đa kênh chuyển nhân viên khi cần, kết nối CRM, phần mềm bán hàng, kế toán và đào tạo đội ngũ vận hành. Gói Doanh nghiệp {{p:ai:2}} phù hợp khi bạn cần nhiều kho, nhiều quy trình hơn và dashboard điều hành thời gian thực.</p>
+{{gia:ai}}
+<p>Gói Khởi động {{p:ai:0}} không có kết nối phần mềm bán hàng, nên phù hợp hơn với việc tiếp nhận khách và gom dữ liệu về Google Sheets trước. Ngoài phí triển khai, nên dự trù phí mô hình AI và phí nền tảng tự động hóa theo lượng dùng hằng tháng. Cách tính tổng chi phí và lộ trình được trình bày trong bài <a href="../chi-phi-trien-khai-tu-dong-hoa-cho-sme/">chi phí triển khai tự động hóa cho SME</a>. Xem thêm trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/ban-hang-online/">tự động hóa cho shop bán hàng online</a>, trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">dịch vụ tự động hóa quy trình doanh nghiệp</a> và <a href="../../bang-gia/">bảng giá</a> đầy đủ.</p>
+<p>Muốn biết luồng nào nên làm trước với các kênh bạn đang bán, hãy <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">nhắn Zalo 0934 246 420</a> mô tả cách đang ghi đơn và quản lý kho.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Chưa có phần mềm bán hàng thì có quản lý kho tự động được không?</h3>
+<p>Được. Nhiều shop nhỏ bắt đầu với một bảng Google Sheets làm nơi chứa đơn và tồn kho, có cột cố định cho SKU, số lượng và trạng thái.</p>
+<h3>AI đọc tin nhắn chốt đơn có bị nhầm sản phẩm không?</h3>
+<p>Có thể nhầm nếu danh mục sản phẩm không rõ ràng. Vì vậy cần mã SKU cho từng biến thể và danh sách tên gọi khác. Đơn từ tin nhắn luôn ở trạng thái chờ xác nhận và được nhắn lại cho khách kiểm tra trước khi trừ kho.</p>
+<h3>Bán cùng một kho trên nhiều kênh thì làm sao tránh bán vượt?</h3>
+<p>Mỗi đơn xác nhận sẽ trừ tồn ngay trên nơi chứa dữ liệu chung, rồi cập nhật lại số tồn cho các kênh. Với hàng sắp hết, có thể đặt mức tồn an toàn để ngừng bán trên kênh phụ sớm hơn một chút.</p>
+<h3>Hệ thống có tự đặt hàng với nhà cung cấp không?</h3>
+<p>Có thể làm, nhưng thường nên dừng ở mức gợi ý số lượng nhập và báo cho người phụ trách. Đặt hàng là quyết định chi tiền nên để chủ doanh nghiệp duyệt.</p>
+<h3>Mất bao lâu để chạy được luồng đơn hàng tự động?</h3>
+<p>Gói Tăng trưởng triển khai trong khoảng 14 ngày. Thời gian thực tế phụ thuộc nhiều vào việc mã SKU và tồn kho đã được chuẩn hóa hay chưa.</p>

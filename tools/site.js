@@ -58,7 +58,7 @@ function outline(body){
   const toc=[];
   body=body.replace(/<h2(?: id="([^"]+)")?>([\s\S]*?)<\/h2>/g,(_,id,t)=>{id=id||'muc-'+(toc.length+1);toc.push({id,t:strip(t)});return `<h2 id="${id}">${t}</h2>`});
   const faq=[],fi=body.indexOf('<h2 id="cau-hoi">');
-  if(fi>=0){const sec=body.slice(fi).split(/<h2 /).slice(0,2).join('<h2 ');for(const q of sec.matchAll(/<h3>([\s\S]*?)<\/h3>\s*([\s\S]*?)(?=<h3>|<h2 |$)/g))faq.push({q:strip(q[1]),a:strip(q[2])})}
+  if(fi>=0){const sec=body.slice(fi).split(/<h2 /).slice(0,2).join('<h2 ');for(const q of sec.matchAll(/<h3>([\s\S]*?)<\/h3>\s*([\s\S]*?)(?=<h3>|<h2 |$)/g))faq.push({q:strip(q[1]),a:strip(q[2].split(/\n\s*\n/)[0])})   /* đoạn sau dòng trống (vd "Đọc thêm" cuối trang) không thuộc câu trả lời */}
   return{body,toc,faq};
 }
 const checkLen=(slug,title,desc)=>{
@@ -145,7 +145,7 @@ ${main}
    <p>Tự động hóa quy trình doanh nghiệp bằng AI, thiết kế website, landing page, video, bao bì cho doanh nghiệp Việt Nam.</p></div>
   <nav aria-label="Dịch vụ"><b>Dịch vụ</b>${CATS.map(c=>`<a href="${svcHref(c.id,up)}">${esc((pageFor(c.id)||{}).short||c.name)}</a>`).join('')}${HUBS.filter(p=>!p.cat_id).map(p=>`<a href="${up}${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
   <nav aria-label="Khám phá"><b>Khám phá</b><a href="${up}#mau-gia">Mẫu &amp; giá</a><a href="${up}bang-gia/">Bảng giá, tự tính giá, hỏi đáp</a><a href="${up}lab/">Lab: demo tương tác</a><a href="${up}giai-phap-theo-nganh/">Giải pháp theo ngành</a><a href="${up}blog/">Tất cả bài viết</a></nav>
-  <nav aria-label="Bài viết"><b>Bài viết</b>${POSTS.map(p=>`<a href="${up}blog/${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}</nav>
+  <nav aria-label="Bài viết"><b>Bài viết</b>${POSTS.slice(0,6).map(p=>`<a href="${up}blog/${p.slug}/">${esc(p.short||p.h1)}</a>`).join('')}<a href="${up}blog/">Tất cả bài viết</a></nav>
   <div><b>Liên hệ</b><a href="tel:+84${PHONE.replace(/\D/g,'').replace(/^0/,'')}">Gọi ${esc(PHONE)}</a>${EMAIL?`<span class="sel">${esc(EMAIL)}</span>`:''}<a href="${ZALO}" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
  </div>
  <div class="bl-wrap bl-foot-bot"><span>© 2026 Dream Labs</span><a href="${up}">dreamlabs.vn</a></div>

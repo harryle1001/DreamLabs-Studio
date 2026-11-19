@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Quản lý kho và đơn hàng tự động cho shop bán đa kênh</title>
+<meta name="description" content="Quản lý kho và đơn hàng tự động khi bán đa kênh: gom đơn về một nơi, AI đọc tin nhắn chốt đơn, trừ tồn kho, cảnh báo hết hàng, báo trạng thái giao.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://dreamlabs.vn/blog/quan-ly-kho-va-don-hang-tu-dong/">
+<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15121C" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="../../img/icon-192.png">
+<link rel="apple-touch-icon" href="../../img/icon-180.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dream Labs">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Quản lý kho và đơn hàng tự động cho shop bán đa kênh">
+<meta property="og:description" content="Quản lý kho và đơn hàng tự động khi bán đa kênh: gom đơn về một nơi, AI đọc tin nhắn chốt đơn, trừ tồn kho, cảnh báo hết hàng, báo trạng thái giao.">
+<meta property="og:url" content="https://dreamlabs.vn/blog/quan-ly-kho-va-don-hang-tu-dong/">
+<meta property="og:image" content="https://dreamlabs.vn/img/sm-ai-hai-mien.webp">
+<meta property="og:image:alt" content="Giao diện concept: tin nhắn yêu cầu của khách được AI đọc và chuyển thành phiếu đơn hàng kèm báo giá sơ bộ">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-11-19">
+<meta property="article:modified_time" content="2026-11-19">
+<meta property="article:section" content="Tự động hóa AI">
+<meta name="keywords" content="quản lý kho và đơn hàng tự động, đồng bộ đơn hàng đa kênh, quản lý tồn kho bán online, AI chốt đơn từ tin nhắn, tự động hóa bán hàng online">
+<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<link rel="stylesheet" href="../../css/fonts.css?v=4721b79b">
+<link rel="stylesheet" href="../../css/tokens.css?v=5552f45f">
+<link rel="stylesheet" href="../../css/base.css?v=2dbec699">
+<link rel="stylesheet" href="../../css/blog.css?v=37613e54">
+<script src="../../js/track.js?v=736328dc" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://dreamlabs.vn/#org","name":"Dream Labs","url":"https://dreamlabs.vn/","logo":"https://dreamlabs.vn/img/icon-512.png"},{"@type":"BlogPosting","@id":"https://dreamlabs.vn/blog/quan-ly-kho-va-don-hang-tu-dong/#bai","headline":"Quản lý kho và đơn hàng tự động cho doanh nghiệp bán đa kênh","description":"Quản lý kho và đơn hàng tự động khi bán đa kênh: gom đơn về một nơi, AI đọc tin nhắn chốt đơn, trừ tồn kho, cảnh báo hết hàng, báo trạng thái giao.","inLanguage":"vi","url":"https://dreamlabs.vn/blog/quan-ly-kho-va-don-hang-tu-dong/","mainEntityOfPage":"https://dreamlabs.vn/blog/quan-ly-kho-va-don-hang-tu-dong/","image":"https://dreamlabs.vn/img/sm-ai-hai-mien.webp","datePublished":"2026-11-19","dateModified":"2026-11-19","wordCount":1754,"keywords":"quản lý kho và đơn hàng tự động, đồng bộ đơn hàng đa kênh, quản lý tồn kho bán online, AI chốt đơn từ tin nhắn, tự động hóa bán hàng online","articleSection":"Tự động hóa AI","author":{"@id":"https://dreamlabs.vn/#org"},"publisher":{"@id":"https://dreamlabs.vn/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://dreamlabs.vn/"},{"@type":"ListItem","position":2,"name":"Bài viết","item":"https://dreamlabs.vn/blog/"},{"@type":"ListItem","position":3,"name":"Quản lý kho và đơn hàng tự động cho doanh nghiệp bán đa kênh","item":"https://dreamlabs.vn/blog/quan-ly-kho-va-don-hang-tu-dong/"}]},{"@type":"FAQPage","@id":"https://dreamlabs.vn/blog/quan-ly-kho-va-don-hang-tu-dong/#cau-hoi","mainEntity":[{"@type":"Question","name":"Chưa có phần mềm bán hàng thì có quản lý kho tự động được không?","acceptedAnswer":{"@type":"Answer","text":"Được. Nhiều shop nhỏ bắt đầu với một bảng Google Sheets làm nơi chứa đơn và tồn kho, có cột cố định cho SKU, số lượng và trạng thái."}},{"@type":"Question","name":"AI đọc tin nhắn chốt đơn có bị nhầm sản phẩm không?","acceptedAnswer":{"@type":"Answer","text":"Có thể nhầm nếu danh mục sản phẩm không rõ ràng. Vì vậy cần mã SKU cho từng biến thể và danh sách tên gọi khác. Đơn từ tin nhắn luôn ở trạng thái chờ xác nhận và được nhắn lại cho khách kiểm tra trước khi trừ kho."}},{"@type":"Question","name":"Bán cùng một kho trên nhiều kênh thì làm sao tránh bán vượt?","acceptedAnswer":{"@type":"Answer","text":"Mỗi đơn xác nhận sẽ trừ tồn ngay trên nơi chứa dữ liệu chung, rồi cập nhật lại số tồn cho các kênh. Với hàng sắp hết, có thể đặt mức tồn an toàn để ngừng bán trên kênh phụ sớm hơn một chút."}},{"@type":"Question","name":"Hệ thống có tự đặt hàng với nhà cung cấp không?","acceptedAnswer":{"@type":"Answer","text":"Có thể làm, nhưng thường nên dừng ở mức gợi ý số lượng nhập và báo cho người phụ trách. Đặt hàng là quyết định chi tiền nên để chủ doanh nghiệp duyệt."}},{"@type":"Question","name":"Mất bao lâu để chạy được luồng đơn hàng tự động?","acceptedAnswer":{"@type":"Answer","text":"Gói Tăng trưởng triển khai trong khoảng 14 ngày. Thời gian thực tế phụ thuộc nhiều vào việc mã SKU và tồn kho đã được chuẩn hóa hay chưa."}}]}]}</script>
+</head>
+<body class="bl">
+<a class="bl-skip" href="#noi-dung">Bỏ qua tới nội dung</a>
+<header class="bl-head">
+ <div class="bl-wrap bl-head-in">
+  <a class="bl-logo" href="../../" aria-label="Dream Labs, trang chủ"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+  <nav class="bl-nav" aria-label="Chính">
+   <a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa AI</a><a href="../../thiet-ke-website/">Website</a><a href="../../lab/">Lab</a><a href="../../blog/" aria-current="page">Bài viết</a><a href="../../#lien-he">Liên hệ</a>
+  </nav>
+  <div class="bl-act">
+   <button class="bl-ib" type="button" data-theme-toggle aria-label="Đổi giao diện sáng hoặc tối"><svg viewBox="0 0 26 26" aria-hidden="true"><g class="sun"><circle cx="13" cy="13" r="4.6"/><path d="M13 3v2.4M13 20.6V23M3 13h2.4M20.6 13H23M5.9 5.9l1.7 1.7M18.4 18.4l1.7 1.7M5.9 20.1l1.7-1.7M18.4 7.6l1.7-1.7"/></g><path class="moon" d="M19.6 15.4A7.6 7.6 0 0 1 10.6 6.4a7.6 7.6 0 1 0 9 9z"/></svg></button>
+   <a class="btn primary sm bl-zalo" href="https://zalo.me/0934246420" target="_blank" rel="noopener"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 4.2c-5.2 0-9.4 3.5-9.4 7.9 0 2.5 1.4 4.7 3.5 6.2l-.8 3.5 3.8-2.1c.9.2 1.9.3 2.9.3 5.2 0 9.4-3.5 9.4-7.9S18.2 4.2 13 4.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Zalo 0934 246 420</span></a>
+  </div>
+ </div>
+</header>
+<main id="noi-dung">
+<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="../../">Trang chủ</a><span aria-hidden="true">/</span><a href="../">Bài viết</a><span aria-hidden="true">/</span><span aria-current="page">Quản lý kho và đơn hàng tự động</span></nav>
+<article class="bl-post">
+ <header class="bl-wrap bl-post-h">
+  <p class="eyebrow">Tự động hóa AI</p>
+  <h1>Quản lý kho và đơn hàng tự động cho doanh nghiệp bán đa kênh</h1>
+  <p class="bl-lead">Bán trên website, Facebook, Zalo và sàn thương mại điện tử cùng lúc thì đơn hàng rải khắp nơi, tồn kho lệch, khách hỏi đơn không ai trả lời kịp. Bài này chỉ cách gom đơn về một chỗ và để máy làm phần việc lặp lại, từ lên đơn đến báo giao hàng.</p>
+  <p class="bl-meta"><span>Dream Labs</span><time datetime="2026-11-19">19 tháng 11, 2026</time><span>9 phút đọc</span></p>
+ </header>
+ <figure class="bl-wrap bl-hero"><img src="../../img/sm-ai-hai-mien.webp" width="1280" height="791" alt="Giao diện concept: tin nhắn yêu cầu của khách được AI đọc và chuyển thành phiếu đơn hàng kèm báo giá sơ bộ" fetchpriority="high" decoding="async"><figcaption>Hải Miên Yachts: concept AI đọc tin nhắn yêu cầu, tự điền đơn và lập báo giá sơ bộ, do Dream Labs tự thiết kế để minh họa, không phải dự án khách hàng.</figcaption></figure>
+ <div class="bl-wrap bl-grid">
+  <aside class="bl-toc" aria-label="Mục lục"><details open><summary>Mục lục</summary><ol><li><a href="#van-de">Vấn đề khi bán đa kênh mà quản lý tay</a></li><li><a href="#he-thong">Một hệ thống đơn hàng tự động gồm những gì</a></li><li><a href="#quy-trinh">Quy trình tự động từng bước</a></li><li><a href="#du-lieu">Dữ liệu cần chuẩn hóa trước khi tự động</a></li><li><a href="#kiem-soat">Những điểm nên để người kiểm soát</a></li><li><a href="#chi-phi">Chi phí tham khảo</a></li><li><a href="#cau-hoi">Câu hỏi thường gặp</a></li></ol></details></aside>
+  <div class="bl-body">
+<p>Một cửa hàng mỹ phẩm online bán trên website, fanpage Facebook, Zalo và một gian hàng trên sàn thương mại điện tử. Mỗi sáng, nhân viên mở bốn nơi, chép đơn vào bảng tính, kiểm tra kho bằng mắt, rồi nhắn từng khách xác nhận. Đến chiều, một mã son đã hết hàng nhưng vẫn được bán thêm ba đơn trên kênh khác.</p>
+<p>Đây là bài toán điển hình mà <strong>quản lý kho và đơn hàng tự động</strong> giải được: đơn từ mọi kênh về một nơi, tồn kho trừ ngay khi có đơn, khách nhận thông báo mà không cần ai gõ tay. Bài viết đi qua từng bước, phần dữ liệu cần chuẩn bị và những điểm nên để người kiểm soát. Nếu bạn muốn xem bức tranh chung trước, hãy đọc bài <a href="../tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai/">tự động hóa quy trình doanh nghiệp bằng AI</a>.</p>
+
+<h2 id="van-de">Vấn đề khi bán đa kênh mà quản lý tay</h2>
+<p>Bán nhiều kênh giúp tiếp cận thêm khách, nhưng mỗi kênh lại có cách ghi đơn riêng. Khi người làm là cầu nối duy nhất giữa các kênh, những lỗi sau gần như chắc chắn xảy ra:</p>
+<ul>
+ <li><strong>Bán vượt tồn kho.</strong> Kho chỉ được cập nhật cuối ngày, trong khi đơn đến liên tục từ nhiều nơi.</li>
+ <li><strong>Sót đơn trong tin nhắn.</strong> Khách chốt đơn bằng một câu "lấy em 2 hộp nhé" trong Messenger, tin nhắn trôi xuống dưới và không ai lên đơn.</li>
+ <li><strong>Sai thông tin giao hàng.</strong> Chép tay địa chỉ, số điện thoại từ đoạn chat dễ thiếu số, sai phường.</li>
+ <li><strong>Không biết lúc nào cần nhập hàng.</strong> Hết hàng mới phát hiện, trong khi nhà cung cấp cần vài ngày để giao.</li>
+ <li><strong>Trả lời khách chậm.</strong> Câu hỏi về trạng thái đơn chiếm nhiều thời gian của nhân viên chăm sóc khách.</li>
+</ul>
+
+<h2 id="he-thong">Một hệ thống đơn hàng tự động gồm những gì</h2>
+<p>Hệ thống không cần là một phần mềm lớn. Với doanh nghiệp nhỏ, nó thường gồm bốn phần nối với nhau bằng một công cụ tự động hóa như <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/n8n/">n8n</a>:</p>
+<ol>
+ <li><strong>Nơi chứa đơn duy nhất:</strong> phần mềm bán hàng đang dùng, hoặc một bảng Google Sheets có cột cố định nếu chưa có phần mềm.</li>
+ <li><strong>Danh mục sản phẩm và tồn kho:</strong> mỗi sản phẩm một mã SKU, số lượng tồn, ngưỡng cảnh báo.</li>
+ <li><strong>Các luồng tự động:</strong> lấy đơn từ từng kênh, đọc tin nhắn chốt đơn, trừ kho, gửi thông báo.</li>
+ <li><strong>Trợ lý AI:</strong> đọc tin nhắn tự nhiên của khách, tách thông tin đơn và soạn tin xác nhận.</li>
+</ol>
+<p>Phần lớn công việc là quy tắc cố định: có đơn thì trừ kho, kho dưới ngưỡng thì báo. AI chỉ được dùng ở chỗ cần hiểu ngôn ngữ, chủ yếu là đọc tin nhắn của khách.</p>
+
+<h2 id="quy-trinh">Quy trình tự động từng bước</h2>
+<h3>Bước 1: gom đơn từ mọi kênh về một nơi</h3>
+<p>Đơn từ website và sàn thương mại điện tử thường có sẵn dạng dữ liệu, có thể lấy tự động theo lịch hoặc ngay khi phát sinh. Mỗi đơn khi về đều được gắn nhãn kênh bán để sau này biết kênh nào bán tốt.</p>
+<h3>Bước 2: AI đọc tin nhắn chốt đơn thành đơn hàng</h3>
+<p>Đơn từ Facebook và Zalo khó hơn vì nằm trong hội thoại. Trợ lý AI đọc đoạn chat, nhận ra khách đã chốt, rồi tách ra tên sản phẩm, phân loại, số lượng, tên người nhận, số điện thoại, địa chỉ. Sau đó AI đối chiếu tên sản phẩm khách gõ với danh mục SKU để chọn đúng mã. Đơn được tạo ở trạng thái "chờ xác nhận". Nếu thiếu thông tin, ví dụ chưa có địa chỉ, AI hỏi lại khách thay vì tự đoán. Phần trả lời và tư vấn trước khi chốt được nói kỹ hơn trong bài <a href="../tu-dong-tra-loi-khach-zalo-oa-facebook/">tự động trả lời khách trên Zalo OA và Facebook</a>.</p>
+<h3>Bước 3: nhắn khách xác nhận đơn</h3>
+<p>Ngay khi có đơn, khách nhận một tin tóm tắt: sản phẩm, số lượng, tổng tiền, địa chỉ giao. Khách trả lời đồng ý thì đơn chuyển sang "đã xác nhận". Với đơn thanh toán khi nhận hàng, bước này giúp lọc đơn sai địa chỉ trước khi đóng gói.</p>
+<h3>Bước 4: trừ tồn kho và giữ hàng</h3>
+<p>Đơn xác nhận thì tồn kho của SKU đó giảm ngay. Nếu bạn bán cùng một kho trên nhiều kênh, số tồn mới được cập nhật lại cho các kênh, để kênh khác không bán vượt. Đơn bị hủy thì số lượng được cộng trả lại kho, có ghi nhật ký.</p>
+<h3>Bước 5: cảnh báo sắp hết hàng và gợi ý nhập hàng</h3>
+<p>Mỗi SKU có một ngưỡng cảnh báo. Khi tồn xuống dưới ngưỡng, người phụ trách nhận tin báo qua Zalo hoặc email. Hệ thống có thể kèm gợi ý số lượng nên nhập, tính từ lượng bán trung bình mấy tuần gần nhất và số ngày nhà cung cấp cần để giao. Người quyết định vẫn là chủ shop, máy chỉ đưa con số để quyết nhanh hơn.</p>
+<h3>Bước 6: cập nhật trạng thái giao hàng cho khách</h3>
+<p>Khi đơn có mã vận đơn, hệ thống theo dõi trạng thái và nhắn khách ở các mốc quan trọng: đã giao cho đơn vị vận chuyển, đang giao, giao thành công. Khách hỏi "đơn tới đâu rồi" thì trợ lý tra trạng thái và trả lời ngay. Đơn giao thất bại hoặc bị hoàn được báo riêng cho nhân viên xử lý.</p>
+<div class="bl-note"><p><strong>Nguyên tắc:</strong> việc trừ kho, cộng tiền, đổi trạng thái luôn chạy bằng quy tắc cố định. AI chỉ đọc và viết tin nhắn. Tách bạch như vậy thì số tồn kho không bao giờ phụ thuộc vào việc AI "hiểu đúng" hay không.</p></div>
+
+<h2 id="du-lieu">Dữ liệu cần chuẩn hóa trước khi tự động</h2>
+<p>Tự động hóa chỉ chạy đúng khi dữ liệu nền đúng. Trước khi dựng luồng, hãy làm xong những việc sau:</p>
+<ul>
+ <li><strong>Mã SKU cho từng biến thể.</strong> Mỗi màu, mỗi dung tích, mỗi size là một mã riêng. Ví dụ son màu đỏ và son màu cam phải là hai SKU khác nhau, không dùng chung một mã "son lì".</li>
+ <li><strong>Một tên chuẩn và các tên gọi khác.</strong> Khách có thể gọi một sản phẩm bằng nhiều cách. Ghi lại các tên gọi phổ biến bên cạnh tên chuẩn để AI đối chiếu chính xác hơn.</li>
+ <li><strong>Đồng nhất mã giữa các kênh.</strong> Sản phẩm trên website, trên sàn và trong kho phải dùng chung SKU, nếu không hệ thống sẽ không biết đó là cùng một món.</li>
+ <li><strong>Kiểm kê tồn kho thực tế.</strong> Đếm lại kho một lần trước khi bật hệ thống. Số đầu vào sai thì mọi cảnh báo sau đó đều sai.</li>
+ <li><strong>Quy ước trạng thái đơn.</strong> Thống nhất một bộ trạng thái như chờ xác nhận, đã xác nhận, đang đóng gói, đang giao, hoàn tất, hủy, hoàn.</li>
+</ul>
+<p>Phần này tốn công nhất nhưng chỉ làm một lần.</p>
+
+<h2 id="kiem-soat">Những điểm nên để người kiểm soát</h2>
+<ul>
+ <li><strong>Đơn bất thường.</strong> Số lượng lớn bất thường, địa chỉ thiếu, khách có lịch sử hoàn đơn: chuyển cho nhân viên duyệt.</li>
+ <li><strong>Đổi trả, khiếu nại.</strong> AI có thể ghi nhận yêu cầu, nhưng quyết định đổi hay hoàn tiền do người làm.</li>
+ <li><strong>Chạy song song giai đoạn đầu.</strong> Một đến hai tuần đầu, vẫn đối chiếu tồn kho bằng tay mỗi cuối ngày. Khi số khớp ổn định mới bỏ cách cũ.</li>
+ <li><strong>Nhật ký thay đổi.</strong> Mỗi lần kho tăng giảm đều ghi lại do đơn nào, lúc nào, để tra lại khi lệch.</li>
+</ul>
+<p>Doanh thu và tiền thu hộ từ các đơn này sau đó cần được đối chiếu với sổ sách. Phần đó được nói trong bài <a href="../tu-dong-hoa-ke-toan-bang-ai/">tự động hóa kế toán bằng AI</a>.</p>
+
+<h2 id="chi-phi">Chi phí tham khảo</h2>
+<p>Tại Dream Labs, quy trình đơn hàng nằm trong gói Tăng trưởng 15.000.000đ: gồm 3 quy trình tự động (đơn hàng, chăm sóc khách hàng, sổ sách và báo cáo), trợ lý AI đa kênh chuyển nhân viên khi cần, kết nối CRM, phần mềm bán hàng, kế toán và đào tạo đội ngũ vận hành. Gói Doanh nghiệp 40.000.000đ trở lên phù hợp khi bạn cần nhiều kho, nhiều quy trình hơn và dashboard điều hành thời gian thực.</p>
+<div class="bl-price" role="region" aria-label="Bảng giá Tự động hóa quy trình doanh nghiệp" tabindex="0"><table>
+<caption>Bảng giá Tự động hóa quy trình doanh nghiệp tại Dream Labs (chưa gồm VAT)</caption>
+<thead><tr><th scope="col">Gói</th><th scope="col">Giá</th><th scope="col">Thời gian</th><th scope="col">Bao gồm</th></tr></thead>
+<tbody><tr><th scope="row">Khởi động</th><td class="p">5.000.000đ</td><td>5–7 ngày<small>Hỗ trợ 1 tháng</small></td><td><p class="g">Không bỏ lỡ khách nhắn ngoài giờ, nhân viên thôi trả lời lặp lại, mọi khách mới nằm gọn trong một bảng.</p><ul><li>1 quy trình tự động: tiếp nhận và phân loại khách hàng</li><li>Trợ lý AI trả lời khách trên Zalo OA / Messenger 24/7</li><li>Đồng bộ dữ liệu về Google Sheets</li></ul></td></tr>
+<tr class="hot"><th scope="row">Tăng trưởng<small>Phổ biến nhất</small></th><td class="p">15.000.000đ</td><td>14 ngày<small>Hỗ trợ 3 tháng</small></td><td><p class="g">Đơn hàng, chăm sóc khách và báo cáo tự chạy: dữ liệu nhập một lần, đội ngũ dành giờ cho tư vấn và chốt đơn.</p><ul><li>3 quy trình tự động: đơn hàng, chăm sóc khách hàng, sổ sách và báo cáo</li><li>AI tự viết báo cáo tuần, tháng</li><li>Kết nối CRM, phần mềm bán hàng, kế toán</li><li>Trợ lý AI đa kênh, chuyển nhân viên khi cần</li><li>Đào tạo đội ngũ vận hành</li></ul></td></tr>
+<tr><th scope="row">Doanh nghiệp</th><td class="p">40.000.000đ trở lên</td><td>30+ ngày<small>Hỗ trợ 12 tháng</small></td><td><p class="g">Một hệ thống vận hành riêng: xem số liệu theo thời gian thực, mở rộng quy mô mà không phải tăng người tương ứng.</p><ul><li>AI agent riêng theo nghiệp vụ</li><li>Không giới hạn quy trình</li><li>Tự động hóa toàn bộ sổ sách công ty</li><li>AI viết báo cáo và lập kế hoạch kinh doanh</li><li>Dashboard điều hành thời gian thực</li><li>Bảo mật dữ liệu nội bộ</li></ul></td></tr></tbody></table></div>
+<p>Gói Khởi động 5.000.000đ không có kết nối phần mềm bán hàng, nên phù hợp hơn với việc tiếp nhận khách và gom dữ liệu về Google Sheets trước. Ngoài phí triển khai, nên dự trù phí mô hình AI và phí nền tảng tự động hóa theo lượng dùng hằng tháng. Cách tính tổng chi phí và lộ trình được trình bày trong bài <a href="../chi-phi-trien-khai-tu-dong-hoa-cho-sme/">chi phí triển khai tự động hóa cho SME</a>. Xem thêm trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/ban-hang-online/">tự động hóa cho shop bán hàng online</a>, trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">dịch vụ tự động hóa quy trình doanh nghiệp</a> và <a href="../../bang-gia/">bảng giá</a> đầy đủ.</p>
+<p>Muốn biết luồng nào nên làm trước với các kênh bạn đang bán, hãy <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">nhắn Zalo 0934 246 420</a> mô tả cách đang ghi đơn và quản lý kho.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Chưa có phần mềm bán hàng thì có quản lý kho tự động được không?</h3>
+<p>Được. Nhiều shop nhỏ bắt đầu với một bảng Google Sheets làm nơi chứa đơn và tồn kho, có cột cố định cho SKU, số lượng và trạng thái.</p>
+<h3>AI đọc tin nhắn chốt đơn có bị nhầm sản phẩm không?</h3>
+<p>Có thể nhầm nếu danh mục sản phẩm không rõ ràng. Vì vậy cần mã SKU cho từng biến thể và danh sách tên gọi khác. Đơn từ tin nhắn luôn ở trạng thái chờ xác nhận và được nhắn lại cho khách kiểm tra trước khi trừ kho.</p>
+<h3>Bán cùng một kho trên nhiều kênh thì làm sao tránh bán vượt?</h3>
+<p>Mỗi đơn xác nhận sẽ trừ tồn ngay trên nơi chứa dữ liệu chung, rồi cập nhật lại số tồn cho các kênh. Với hàng sắp hết, có thể đặt mức tồn an toàn để ngừng bán trên kênh phụ sớm hơn một chút.</p>
+<h3>Hệ thống có tự đặt hàng với nhà cung cấp không?</h3>
+<p>Có thể làm, nhưng thường nên dừng ở mức gợi ý số lượng nhập và báo cho người phụ trách. Đặt hàng là quyết định chi tiền nên để chủ doanh nghiệp duyệt.</p>
+<h3>Mất bao lâu để chạy được luồng đơn hàng tự động?</h3>
+<p>Gói Tăng trưởng triển khai trong khoảng 14 ngày. Thời gian thực tế phụ thuộc nhiều vào việc mã SKU và tồn kho đã được chuẩn hóa hay chưa.</p>
+   <section class="bl-cta" aria-label="Liên hệ Dream Labs">
+    <p class="eyebrow">Bắt đầu cùng Dream Labs</p>
+    <h2 class="bl-cta-h">Đơn hàng của bạn đang nằm rải rác bao nhiêu nơi?</h2>
+    <p>Nhắn Zalo cho Dream Labs các kênh đang bán và cách đang ghi đơn, tồn kho. Chúng tôi đề xuất luồng tự động nên làm trước, kèm phạm vi và chi phí rõ ràng.</p>
+    <div class="bl-cta-act"><a class="btn primary" href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Xem gói Tự động hóa quy trình doanh nghiệp <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="../../bang-gia/">Toàn bộ bảng giá</a><a class="btn" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a></div>
+   </section>
+  </div>
+ </div>
+</article>
+<section class="bl-wrap bl-more" aria-labelledby="bl-more-h"><h2 id="bl-more-h">Bài viết liên quan</h2><div class="bl-cards"><article class="bl-card"><a href="../tu-dong-tra-loi-khach-zalo-oa-facebook/"><span class="bl-card-img"><img src="../../img/sm-ai-suong-tram.webp" width="1280" height="791" alt="Demo concept Maison Sương Trầm: khung chat trợ lý hỏi sở thích mùi hương, gợi ý một mùi nước hoa và mời khách đặt lịch thử" loading="lazy" decoding="async"></span>
+ <span class="bl-card-t"><small>Tự động hóa AI</small><h3>Tự động trả lời khách trên Zalo OA và Facebook bằng chatbot AI</h3><span class="bl-card-d">Cách tự động trả lời khách trên Zalo OA, Messenger và bình luận Facebook bằng chatbot AI: kịch bản, kho kiến thức, thu thông tin khách, chuyển người thật.</span><span class="bl-card-m">19 tháng 11, 2026 · 8 phút đọc</span></span></a></article><article class="bl-card"><a href="../chi-phi-trien-khai-tu-dong-hoa-cho-sme/"><span class="bl-card-img"><img src="../../img/sm-ai-vong-nguyet.webp" width="1280" height="791" alt="Giao diện concept: khách hỏi mua từ nhiều kênh được AI chấm điểm và xếp vào các cột nóng, ấm, lạnh trong CRM" loading="lazy" decoding="async"></span>
+ <span class="bl-card-t"><small>Tự động hóa AI</small><h3>Chi phí và lộ trình triển khai tự động hóa cho doanh nghiệp vừa và nhỏ</h3><span class="bl-card-d">Chi phí triển khai tự động hóa cho SME gồm những khoản nào, lộ trình 90 ngày, chọn quy trình đầu tiên, tính thời gian tiết kiệm, tự làm hay thuê ngoài.</span><span class="bl-card-m">19 tháng 11, 2026 · 8 phút đọc</span></span></a></article><article class="bl-card"><a href="../tu-dong-hoa-ke-toan-bang-ai/"><span class="bl-card-img"><img src="../../img/svc-ai.webp" width="1280" height="791" alt="Sơ đồ minh họa: tin nhắn của khách và dữ liệu từ form đi vào một lõi AI ở giữa, từ đó tỏa ra bảng tính, phân loại và thông báo" loading="lazy" decoding="async"></span>
+ <span class="bl-card-t"><small>Tự động hóa AI</small><h3>Tự động hóa kế toán bằng AI cho doanh nghiệp nhỏ: từ chứng từ đến công nợ</h3><span class="bl-card-d">Tự động hóa kế toán bằng AI cho doanh nghiệp nhỏ: đọc chứng từ, phân loại chi phí, đối chiếu sao kê, nhắc công nợ qua Zalo. Việc nào vẫn cần kế toán.</span><span class="bl-card-m">19 tháng 11, 2026 · 9 phút đọc</span></span></a></article></div></section>
+</main>
+<footer class="bl-foot">
+ <div class="bl-wrap bl-foot-in">
+  <div class="bl-foot-brand"><a class="bl-logo" href="../../"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+   <p>Tự động hóa quy trình doanh nghiệp bằng AI, thiết kế website, landing page, video, bao bì cho doanh nghiệp Việt Nam.</p></div>
+  <nav aria-label="Dịch vụ"><b>Dịch vụ</b><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa quy trình doanh nghiệp</a><a href="../../thiet-ke-website/">Thiết kế website</a><a href="../../thiet-ke-landing-page/">Thiết kế landing page</a><a href="../../edit-video/">Edit video quảng cáo</a><a href="../../thiet-ke-bao-bi/">Thiết kế bao bì</a><a href="../../video-motion-graphic/">Video motion graphic</a><a href="../../bang-gia/">Bảng giá dịch vụ</a><a href="../../mau-website/">Mẫu website</a><a href="../../mau-landing-page/">Mẫu landing page</a></nav>
+  <nav aria-label="Khám phá"><b>Khám phá</b><a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../bang-gia/">Bảng giá, tự tính giá, hỏi đáp</a><a href="../../lab/">Lab: demo tương tác</a><a href="../../giai-phap-theo-nganh/">Giải pháp theo ngành</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <nav aria-label="Bài viết"><b>Bài viết</b><a href="../../blog/tu-dong-hoa-ke-toan-bang-ai/">Tự động hóa kế toán bằng AI</a><a href="../../blog/ai-viet-bao-cao-kinh-doanh-tu-dong/">AI viết báo cáo kinh doanh tự động</a><a href="../../blog/tu-dong-tra-loi-khach-zalo-oa-facebook/">Tự động trả lời Zalo OA, Facebook</a><a href="../../blog/quan-ly-kho-va-don-hang-tu-dong/">Quản lý kho và đơn hàng tự động</a><a href="../../blog/ung-dung-ai-cho-phong-kham-spa-nha-hang/">Ứng dụng AI cho phòng khám, spa, nhà hàng</a><a href="../../blog/chi-phi-trien-khai-tu-dong-hoa-cho-sme/">Chi phí triển khai tự động hóa cho SME</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <div><b>Liên hệ</b><a href="tel:+84934246420">Gọi 0934 246 420</a><span class="sel">harryle1010@gmail.com</span><a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
+ </div>
+ <div class="bl-wrap bl-foot-bot"><span>© 2026 Dream Labs</span><a href="../../">dreamlabs.vn</a></div>
+</footer>
+<script>(function(){var c=document.querySelector('.bl-toc details');if(c&&innerWidth<1024)c.open=false;var r=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function d(){return r.dataset.theme?r.dataset.theme==='dark':m.matches}
+document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttribute('aria-pressed',String(d()));b.addEventListener('click',function(){var t=d()?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('dl-theme',t)}catch(e){}b.setAttribute('aria-pressed',String(t==='dark'))})})})();</script>
+</body>
+</html>

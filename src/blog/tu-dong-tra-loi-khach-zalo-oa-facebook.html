@@ -1,0 +1,91 @@
+<!--meta {
+ "order": 3,
+ "date": "2026-11-19",
+ "title": "Tự động trả lời khách trên Zalo OA và Facebook",
+ "h1": "Tự động trả lời khách trên Zalo OA và Facebook bằng chatbot AI",
+ "short": "Tự động trả lời Zalo OA, Facebook",
+ "description": "Cách tự động trả lời khách trên Zalo OA, Messenger và bình luận Facebook bằng chatbot AI: kịch bản, kho kiến thức, thu thông tin khách, chuyển người thật.",
+ "lead": "Khách nhắn hỏi giá lúc 10 giờ tối, bình luận dưới bài quảng cáo lúc trưa, hỏi lại cùng một câu ở ba kênh. Bài này hướng dẫn dựng chatbot AI trả lời khách trên Zalo OA và Facebook đúng thông tin, đúng giọng thương hiệu, và biết lúc nào cần chuyển cho người thật.",
+ "cat": "Tự động hóa AI",
+ "cat_id": "ai",
+ "keywords": ["tự động trả lời khách Zalo OA","chatbot Facebook Messenger","tự động trả lời bình luận Facebook","chatbot AI chăm sóc khách hàng","trả lời tin nhắn ngoài giờ"],
+ "image": "img/sm-ai-suong-tram.webp",
+ "imageAlt": "Demo concept Maison Sương Trầm: khung chat trợ lý hỏi sở thích mùi hương, gợi ý một mùi nước hoa và mời khách đặt lịch thử",
+ "imageCaption": "Maison Sương Trầm: trợ lý concierge concept hỏi sở thích, gợi ý mùi hương và đặt lịch thử. Concept do Dream Labs tự thiết kế, không phải dự án khách hàng.",
+ "related": ["ung-dung-ai-cho-phong-kham-spa-nha-hang","tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai","chi-phi-trien-khai-tu-dong-hoa-cho-sme"],
+ "ctaTitle": "Muốn inbox Zalo OA và Facebook được trả lời ngay cả lúc nửa đêm?",
+ "ctaText": "Gửi cho Dream Labs danh sách câu khách hay hỏi và các kênh đang dùng. Chúng tôi đề xuất kịch bản chatbot, cách chuyển người thật và chi phí rõ ràng."
+} -->
+<p>Một tiệm nước hoa nhỏ chạy quảng cáo trên Facebook, nhận tin nhắn ở cả Messenger lẫn Zalo OA. Ban ngày, nhân viên trả lời kịp. Sau 9 giờ tối, tin nhắn dồn lại đến sáng, và một phần khách đã mua ở nơi trả lời trước. Trong khi đó, phần lớn câu hỏi lặp lại: giá bao nhiêu, còn mùi này không, cửa hàng ở đâu, có giao tỉnh không.</p>
+<p><strong>Tự động trả lời khách trên Zalo OA và Facebook</strong> bằng chatbot AI giải quyết đúng phần lặp lại đó: trả lời ngay, đúng thông tin doanh nghiệp cung cấp, ghi lại khách vào một nơi, và chuyển cho nhân viên khi câu hỏi vượt khỏi phạm vi. Bài này đi qua các bước dựng một chatbot như vậy. Nếu bạn muốn xem bức tranh chung trước, hãy đọc bài <a href="../tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai/">tự động hóa quy trình doanh nghiệp bằng AI</a>.</p>
+
+<h2 id="kenh">Chatbot làm được gì trên từng kênh</h2>
+<p>Ba điểm khách thường liên hệ có cách hoạt động khác nhau, nên chatbot cũng cần xử lý khác nhau:</p>
+<ul>
+ <li><strong>Zalo OA:</strong> khách quan tâm hoặc nhắn vào tài khoản Zalo chính thức của doanh nghiệp. Hợp với khách đã biết thương hiệu, hỏi chi tiết, đặt lịch, theo dõi đơn.</li>
+ <li><strong>Messenger:</strong> tin nhắn vào Fanpage, thường đến từ quảng cáo hoặc bài đăng. Khách ở giai đoạn tìm hiểu, hỏi giá, so sánh.</li>
+ <li><strong>Bình luận Facebook:</strong> khách hỏi công khai dưới bài viết. Chatbot có thể trả lời ngắn trong bình luận và mời khách nhắn riêng để tư vấn chi tiết, tránh để giá và thông tin cá nhân lộ trên bài.</li>
+</ul>
+<p>Điều quan trọng là cả ba kênh dùng chung một kho kiến thức và một nơi lưu khách. Khách hỏi ở bình luận rồi nhắn Zalo vẫn được nhận ra là cùng một người nếu để lại số điện thoại.</p>
+
+<h2 id="kich-ban">Xây kịch bản câu hỏi thường gặp</h2>
+<h3>Bắt đầu từ tin nhắn thật</h3>
+<p>Đừng tự nghĩ ra câu hỏi. Hãy xuất hoặc chép lại vài trăm tin nhắn gần nhất, rồi nhóm theo ý: hỏi giá, hỏi tồn hàng, hỏi địa chỉ và giờ mở cửa, hỏi giao hàng và đổi trả, hỏi tư vấn chọn sản phẩm, phàn nàn. Thường vài nhóm đầu chiếm phần lớn tin nhắn, và đó là chỗ chatbot cần trả lời thật tốt.</p>
+<h3>Viết câu trả lời mẫu và câu hỏi ngược</h3>
+<p>Với mỗi nhóm, viết câu trả lời chuẩn mà nhân viên giỏi nhất của bạn sẽ dùng. Thêm câu hỏi ngược để tư vấn tiếp: khách hỏi "có kem chống nắng không" thì hỏi lại loại da và nhu cầu dùng hằng ngày hay đi biển. Chatbot AI không đọc thuộc lòng các câu này mà dùng chúng làm mẫu để trả lời linh hoạt theo cách khách hỏi.</p>
+<h3>Định nghĩa rõ việc chatbot không làm</h3>
+<p>Liệt kê những câu chatbot không được tự trả lời: giảm giá ngoài chương trình, cam kết công dụng, tư vấn y tế, xử lý khiếu nại. Với nhóm này, chatbot chỉ ghi nhận và chuyển người.</p>
+
+<h2 id="kho-kien-thuc">Kho kiến thức sản phẩm và giá</h2>
+<p>Chatbot AI chỉ trả lời đúng khi được đọc đúng tài liệu. Kho kiến thức tối thiểu gồm:</p>
+<ul>
+ <li><strong>Danh mục sản phẩm:</strong> tên, mô tả ngắn, giá, quy cách, tình trạng còn hàng. Tốt nhất là một bảng Google Sheets mà nhân viên cập nhật hằng ngày.</li>
+ <li><strong>Chính sách:</strong> giao hàng, phí ship, đổi trả, bảo hành, phương thức thanh toán.</li>
+ <li><strong>Thông tin cửa hàng:</strong> địa chỉ, giờ mở cửa, cách đặt lịch, chương trình đang chạy và ngày kết thúc.</li>
+</ul>
+<p>Khi giá hoặc chương trình thay đổi, chỉ cần sửa bảng, chatbot dùng thông tin mới ngay. Quy tắc nên đặt là: thông tin nào không có trong kho thì chatbot nói sẽ nhờ nhân viên kiểm tra, không tự đoán. Đây là cách đơn giản nhất để tránh việc chatbot báo sai giá hoặc hứa điều cửa hàng không làm.</p>
+
+<h2 id="thu-thong-tin">Thu thông tin khách vào Google Sheets hoặc CRM</h2>
+<p>Trả lời nhanh mới là một nửa. Nửa còn lại là không để mất khách sau cuộc trò chuyện. Trong lúc tư vấn, chatbot hỏi tự nhiên những thông tin cần cho bước sau: tên, số điện thoại, sản phẩm quan tâm, khu vực, thời gian muốn nhận hàng hoặc đặt lịch. Mỗi khách được ghi thành một dòng trong Google Sheets hoặc CRM, kèm kênh nguồn và tóm tắt nhu cầu do AI viết.</p>
+<p>Từ bảng này, nhân viên biết ngay khách nào đang nóng cần gọi lại, khách nào chỉ hỏi giá. Nếu doanh nghiệp đã có CRM hoặc phần mềm bán hàng, luồng tự động có thể tạo khách và đơn nháp trực tiếp trong đó.</p>
+
+<h2 id="chuyen-nguoi">Chuyển người thật, ngoài giờ và giọng thương hiệu</h2>
+<h3>Khi nào chuyển người thật</h3>
+<ul>
+ <li>Khách yêu cầu nói chuyện với nhân viên.</li>
+ <li>Khách phàn nàn, có dấu hiệu bực bội hoặc nhắc tới đổi trả, hoàn tiền.</li>
+ <li>Câu hỏi nằm ngoài kho kiến thức, hoặc chatbot đã trả lời hai lần mà khách vẫn hỏi lại.</li>
+ <li>Đơn giá trị lớn, khách sỉ, yêu cầu báo giá riêng.</li>
+</ul>
+<p>Khi chuyển, nhân viên nhận thông báo kèm tóm tắt cuộc trò chuyện để không phải hỏi lại khách từ đầu. Chatbot báo cho khách biết đã có người tiếp nhận và thời gian dự kiến phản hồi.</p>
+<h3>Ngoài giờ làm việc</h3>
+<p>Ngoài giờ, chatbot vẫn trả lời các câu thông thường và ghi nhận đơn, lịch hẹn. Với câu cần người, chatbot nói rõ nhân viên sẽ liên hệ lại vào giờ nào sáng hôm sau, thay vì để khách chờ không rõ.</p>
+<h3>Giọng thương hiệu</h3>
+<p>Một tiệm nước hoa cao cấp và một shop đồ ăn vặt không nên trả lời cùng một giọng. Hãy viết vài đoạn mẫu: cách xưng hô, độ dài câu, có dùng từ thân mật hay không, cách chào và kết. Chatbot học theo mẫu đó để mọi tin nhắn nghe như cùng một người của thương hiệu.</p>
+
+<h2 id="luu-y">Lưu ý về chính sách nền tảng và sai lầm thường gặp</h2>
+<p>Zalo và Facebook đều có chính sách riêng về nhắn tin tự động: loại tin được gửi, thời điểm được chủ động nhắn cho khách, nội dung quảng cáo, cách thu thập thông tin người dùng. Các chính sách này được cập nhật theo thời gian, nên trước khi triển khai cần đọc tài liệu chính thức hiện hành của từng nền tảng và thiết kế chatbot chủ yếu để phản hồi khi khách nhắn trước. Với ngành nhạy cảm như y tế, thực phẩm chức năng, tài chính, nên hỏi thêm người có chuyên môn về quy định quảng cáo.</p>
+<p>Những sai lầm hay gặp khi tự làm:</p>
+<ul>
+ <li><strong>Để chatbot trả lời mọi thứ:</strong> không có danh sách câu cấm, dẫn tới hứa giảm giá hoặc cam kết công dụng.</li>
+ <li><strong>Kho kiến thức không ai cập nhật:</strong> chatbot vẫn báo giá cũ sau khi đổi giá.</li>
+ <li><strong>Không có lối thoát:</strong> khách muốn gặp người nhưng bị vòng lặp trả lời tự động.</li>
+ <li><strong>Không đọc lại hội thoại:</strong> nên dành thời gian mỗi tuần đọc một số cuộc trò chuyện để sửa kịch bản.</li>
+</ul>
+
+<h2 id="chi-phi">Chi phí tham khảo</h2>
+<p>Tại Dream Labs, gói Khởi động {{p:ai:0}} gồm trợ lý AI trả lời khách trên Zalo OA và Messenger 24/7, quy trình tiếp nhận và phân loại khách, đồng bộ dữ liệu về Google Sheets, triển khai trong 5–7 ngày. Gói này chưa gồm kết nối CRM hoặc phần mềm bán hàng. Nếu cần trợ lý đa kênh có chuyển nhân viên, kết nối CRM và thêm quy trình đơn hàng, báo cáo, hãy xem gói Tăng trưởng {{p:ai:1}}.</p>
+{{gia:ai}}
+<p>Xem chi tiết tại trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/chatbot-zalo-oa/">chatbot Zalo OA</a>, trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/chatbot-ai-ban-hang/">chatbot AI bán hàng</a> cho Messenger, trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">dịch vụ tự động hóa quy trình doanh nghiệp</a> và <a href="../../bang-gia/">bảng giá</a>. Nếu bạn làm phòng khám, spa hay nhà hàng, bài <a href="../ung-dung-ai-cho-phong-kham-spa-nha-hang/">ứng dụng AI cho phòng khám, spa, nhà hàng</a> có thêm ví dụ đặt lịch và nhắc hẹn. Gửi danh sách câu khách hay hỏi qua <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a> để được gợi ý kịch bản.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Chatbot có trả lời được cả Zalo OA và Facebook cùng lúc không?</h3>
+<p>Có. Một trợ lý dùng chung kho kiến thức có thể trả lời trên Zalo OA, Messenger và bình luận Facebook, khách ở kênh nào cũng được ghi về cùng một bảng.</p>
+<h3>Chatbot AI có trả lời sai giá không?</h3>
+<p>Rủi ro thấp khi giá nằm trong một bảng được cập nhật và chatbot được quy định chỉ trả lời theo bảng đó. Câu hỏi về thông tin không có trong kho sẽ được chuyển cho nhân viên.</p>
+<h3>Khách có biết mình đang chat với máy không?</h3>
+<p>Nên nói rõ. Lời chào có thể giới thiệu đây là trợ lý tự động và khách có thể yêu cầu gặp nhân viên bất kỳ lúc nào. Cách này minh bạch và giúp khách thoải mái hơn.</p>
+<h3>Có cần Zalo OA đã xác thực mới làm chatbot được không?</h3>
+<p>Mức tính năng của Zalo OA phụ thuộc loại tài khoản và chính sách hiện hành của Zalo. Khi tư vấn, Dream Labs sẽ kiểm tra tài khoản hiện có của bạn và nói rõ những gì làm được.</p>
+<h3>Mất bao lâu để chatbot chạy được?</h3>
+<p>Gói Khởi động triển khai trong 5–7 ngày nếu doanh nghiệp đã có sẵn danh mục sản phẩm, bảng giá và chính sách bán hàng.</p>
