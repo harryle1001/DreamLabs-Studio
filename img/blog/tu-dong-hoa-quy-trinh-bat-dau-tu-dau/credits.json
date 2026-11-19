@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Christina Morillo",
+  "page": "https://www.pexels.com/photo/man-standing-infront-of-white-board-1181345/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg",
+  "w": 5740,
+  "h": 3832
+ },
+ "a1": {
+  "author": "RDNE Stock project",
+  "page": "https://www.pexels.com/photo/a-person-holding-a-black-pen-writing-on-white-paper-9034763/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/9034763/pexels-photo-9034763.jpeg",
+  "w": 6720,
+  "h": 4480
+ },
+ "a2": {
+  "author": "ThisIsEngineering",
+  "page": "https://www.pexels.com/photo/person-drawing-on-white-paper-3861462/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/3861462/pexels-photo-3861462.jpeg",
+  "w": 7952,
+  "h": 5304
+ }
+}

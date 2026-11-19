@@ -1,0 +1,134 @@
+<!--meta {
+ "order": 23,
+ "date": "2026-11-19",
+ "title": "Tự động hóa quy trình doanh nghiệp bắt đầu từ đâu?",
+ "h1": "Tự động hóa quy trình doanh nghiệp bắt đầu từ đâu? Chọn, vẽ, đo và chuẩn bị dữ liệu",
+ "short": "Tự động hóa quy trình bắt đầu từ đâu",
+ "description": "Bắt đầu tự động hóa từ việc liệt kê việc làm tay, chấm điểm chọn quy trình đầu tiên, vẽ quy trình, đo trước sau và chuẩn bị dữ liệu. Có bảng mẫu.",
+ "lead": "Phần lớn dự án tự động hóa thất bại không phải vì công cụ, mà vì chọn sai quy trình hoặc bắt tay làm khi chưa hiểu quy trình hiện tại. Bài này là phương pháp năm bước bạn làm được trước khi gọi bất kỳ đơn vị triển khai nào.",
+ "cat": "Tự động hóa AI",
+ "cat_id": "ai",
+ "keywords": ["tự động hóa quy trình bắt đầu từ đâu","chọn quy trình tự động hóa","vẽ quy trình doanh nghiệp","đo hiệu quả tự động hóa","chuẩn bị dữ liệu tự động hóa"],
+ "imageAlt": "Người đàn ông đứng quay lưng trước bảng trắng lớn có sơ đồ quy trình vẽ bằng bút đỏ",
+ "imageCaption": "Ảnh minh họa: vẽ lại quy trình hiện tại trên bảng trắng trước khi tự động hóa.",
+ "related": ["tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai","chi-phi-trien-khai-tu-dong-hoa-cho-sme","doanh-nghiep-nho-co-nen-dung-ai"],
+ "ctaTitle": "Cần người cùng chọn và vẽ quy trình đầu tiên?",
+ "ctaText": "Gửi Dream Labs danh sách việc đang làm tay qua Zalo. Chúng tôi giúp chấm điểm, chọn quy trình nên làm trước và báo phạm vi, chi phí rõ ràng."
+} -->
+<p><strong>Tự động hóa quy trình doanh nghiệp nên bắt đầu từ đâu?</strong> Bắt đầu từ việc liệt kê những việc đang làm tay, chấm điểm để chọn một quy trình lặp lại nhiều, quy tắc rõ và dữ liệu đã có sẵn, rồi vẽ lại quy trình đó và đo số liệu hiện tại. Chỉ khi đã có sơ đồ, số đo và dữ liệu gọn gàng mới nên chọn công cụ và dựng luồng tự động.</p>
+<p>Nếu bạn chưa rõ tự động hóa bằng AI là gì và làm được những việc nào, hãy đọc trước bài <a href="../tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai/">tự động hóa quy trình doanh nghiệp bằng AI</a>. Nếu bạn đang cân nhắc ngân sách, bài <a href="../chi-phi-trien-khai-tu-dong-hoa-cho-sme/">chi phí triển khai tự động hóa cho SME</a> có lộ trình 90 ngày. Bài này đi vào phần trước đó: phương pháp chọn quy trình đầu tiên và chuẩn bị để dự án không đổ vỡ giữa chừng.</p>
+
+<h2 id="buoc-1-liet-ke">Bước 1: Liệt kê việc làm tay trong một tuần</h2>
+<p>Đừng dựa vào trí nhớ. Hãy nhờ từng bộ phận ghi lại trong năm ngày làm việc những việc lặp lại mà họ làm, theo mẫu đơn giản:</p>
+<ul>
+ <li>Tên việc, ví dụ: chép đơn từ tin nhắn vào bảng tính.</li>
+ <li>Ai làm, làm trên công cụ nào: Zalo, Messenger, Excel, phần mềm bán hàng, giấy.</li>
+ <li>Bao nhiêu lần mỗi ngày hoặc mỗi tuần.</li>
+ <li>Mỗi lần mất khoảng bao nhiêu phút.</li>
+ <li>Hay sai ở đâu, sai thì hậu quả gì.</li>
+</ul>
+<p>Sau một tuần, bạn sẽ có danh sách vài chục việc. Nhiều chủ doanh nghiệp bất ngờ vì những việc nhỏ như chuyển thông tin giữa hai phần mềm lại chiếm nhiều giờ nhất.</p>
+<div class="bl-note"><p><strong>Mẹo:</strong> hỏi nhân viên câu "việc nào bạn thấy chán nhất vì phải làm đi làm lại?" thường cho ra danh sách tốt hơn hỏi "việc nào nên tự động hóa?".</p></div>
+
+<h2 id="cham-diem">Bước 2: Chấm điểm để chọn quy trình đầu tiên</h2>
+<p>Không chọn theo cảm tính hay theo việc nghe nói ở doanh nghiệp khác. Chấm mỗi việc theo năm tiêu chí, mỗi tiêu chí từ 1 đến 3 điểm, rồi cộng lại.</p>
+<div class="bl-table" role="region" aria-label="Bảng chấm điểm chọn quy trình tự động hóa đầu tiên" tabindex="0"><table><caption>Bảng chấm điểm chọn quy trình đầu tiên</caption>
+<thead><tr><th>Tiêu chí</th><th>1 điểm</th><th>2 điểm</th><th>3 điểm</th></tr></thead>
+<tbody>
+<tr><td>Tần suất</td><td>Vài lần mỗi tháng</td><td>Vài lần mỗi tuần</td><td>Nhiều lần mỗi ngày</td></tr>
+<tr><td>Quy tắc</td><td>Cần phán đoán nhiều</td><td>Có quy tắc, nhiều ngoại lệ</td><td>Quy tắc rõ, ít ngoại lệ</td></tr>
+<tr><td>Dữ liệu</td><td>Trên giấy, trong đầu người làm</td><td>Rải rác nhiều file</td><td>Đã nằm trong một công cụ số</td></tr>
+<tr><td>Rủi ro khi sai</td><td>Ảnh hưởng tiền, pháp lý</td><td>Ảnh hưởng khách, sửa được</td><td>Nội bộ, dễ sửa</td></tr>
+<tr><td>Mức đau hiện tại</td><td>Ít ai phàn nàn</td><td>Thỉnh thoảng gây chậm</td><td>Thường xuyên gây trễ, sót khách</td></tr>
+</tbody></table></div>
+<p>Quy trình đạt từ 12 điểm trở lên là ứng viên tốt cho lần đầu. Nếu có nhiều việc cùng điểm, chọn việc có <strong>rủi ro khi sai thấp</strong> để đội ngũ quen với tự động hóa trước khi đụng tới tiền và hợp đồng.</p>
+<h3>Những ứng viên thường đạt điểm cao</h3>
+<ul>
+ <li>Tiếp nhận khách hỏi mua từ nhiều kênh về một bảng chung.</li>
+ <li>Đặt lịch và nhắc lịch hẹn cho phòng khám, spa, trung tâm đào tạo.</li>
+ <li>Gửi xác nhận đơn và cập nhật trạng thái giao hàng.</li>
+ <li>Tổng hợp báo cáo bán hàng tuần từ phần mềm bán hàng.</li>
+</ul>
+<h3>Những việc nên để sau</h3>
+<p>Duyệt chi, báo giá dự án lớn, xử lý khiếu nại, hạch toán thuế. Đây là việc có giá trị nhưng cần phán đoán và kiểm soát chặt, nên làm khi đã có kinh nghiệm từ quy trình đầu.</p>
+{{anh:a1|Hai tay đặt trên tờ sơ đồ quy trình các bước nối nhau kẹp trên bìa cứng, tay phải cầm bút chỉ vào sơ đồ|Một sơ đồ đơn giản trên giấy đã đủ để cả nhóm thống nhất các bước trước khi dựng luồng.}}
+
+<h2 id="ve-quy-trinh">Bước 3: Vẽ lại quy trình đang chạy</h2>
+<p>Vẽ quy trình hiện tại, không phải quy trình bạn mong muốn. Không cần phần mềm chuyên dụng, một tờ giấy A3, bảng trắng hoặc Google Sheets là đủ. Mời người trực tiếp làm việc đó cùng vẽ.</p>
+<h3>Năm thứ cần có trên sơ đồ</h3>
+<ol>
+ <li><strong>Điểm bắt đầu và kết thúc:</strong> khách nhắn tin hỏi giá; kết thúc khi khách nhận được xác nhận đơn.</li>
+ <li><strong>Từng bước và ai làm:</strong> mỗi ô một hành động, ghi tên vai trò, ví dụ nhân viên trực page, kho, kế toán.</li>
+ <li><strong>Công cụ ở mỗi bước:</strong> thông tin đang nằm ở đâu, chuyển sang đâu.</li>
+ <li><strong>Điểm chờ:</strong> chỗ nào việc phải đợi người khác, đợi duyệt, đợi kiểm tra kho.</li>
+ <li><strong>Ngoại lệ:</strong> khi nào quy trình rẽ nhánh, ví dụ hết hàng, khách đổi địa chỉ, khách hỏi giá sỉ.</li>
+</ol>
+<h3>Ví dụ minh họa: quy trình nhận đơn của một shop online</h3>
+<p>Đây là <strong>ví dụ minh họa</strong>. Khách nhắn Facebook, nhân viên hỏi size và địa chỉ, nhắn kho kiểm tra còn hàng, chờ kho trả lời, báo giá cuối cho khách, chép đơn vào Excel, tạo đơn trên trang của đơn vị vận chuyển, gửi mã vận đơn cho khách. Khi vẽ ra, chủ shop thấy thông tin khách được gõ lại ba lần ở ba nơi và có một điểm chờ kho dễ bị quên vào giờ cao điểm. Đó chính là chỗ tự động hóa có giá trị nhất: gom thông tin một lần, kiểm tra tồn kho tự động, tạo đơn từ dữ liệu đã có.</p>
+<p>Sau khi vẽ quy trình hiện tại, hãy đánh dấu từng bước bằng ba màu: bước máy làm được, bước máy làm và người duyệt, bước người phải làm. Sơ đồ có màu này là tài liệu quan trọng nhất để đưa cho đơn vị triển khai.</p>
+
+{{zalo}}
+
+<h2 id="do-truoc-sau">Bước 4: Đo trước khi làm để biết sau có hiệu quả không</h2>
+<p>Không đo trước thì sau khi tự động hóa bạn chỉ có cảm giác. Chọn ba đến năm chỉ số, ghi lại trong hai tuần trước khi triển khai và đo lại bằng đúng cách đó sau một tháng chạy ổn định.</p>
+<div class="bl-table" role="region" aria-label="Mẫu bảng đo trước và sau tự động hóa" tabindex="0"><table><caption>Mẫu bảng đo trước và sau tự động hóa</caption>
+<thead><tr><th>Chỉ số</th><th>Cách đo</th><th>Trước</th><th>Sau</th></tr></thead>
+<tbody>
+<tr><td>Thời gian xử lý một lần</td><td>Bấm giờ 20 lần ngẫu nhiên, lấy trung bình</td><td>… phút</td><td>… phút</td></tr>
+<tr><td>Số lần mỗi tuần</td><td>Đếm từ bảng tính, phần mềm</td><td>…</td><td>…</td></tr>
+<tr><td>Thời gian phản hồi khách</td><td>Từ lúc khách nhắn đến lúc có câu trả lời đầu tiên</td><td>…</td><td>…</td></tr>
+<tr><td>Tỷ lệ sai sót</td><td>Số đơn sai địa chỉ, sai số lượng, sót khách trên tổng số</td><td>… %</td><td>… %</td></tr>
+<tr><td>Số việc chuyển cho người</td><td>Chỉ đo sau khi tự động hóa, để biết máy xử lý được bao nhiêu phần</td><td>Không áp dụng</td><td>…</td></tr>
+</tbody></table></div>
+<p>Từ số đo, bạn tính được giờ tiết kiệm mỗi tháng theo công thức: số lần × số phút tiết kiệm mỗi lần ÷ 60. Đừng quên tính cả thời gian người phải kiểm tra, xử lý ngoại lệ sau khi tự động hóa, vì con số này không bằng không.</p>
+
+<h2 id="du-lieu">Bước 5: Chuẩn bị dữ liệu trước khi dựng luồng</h2>
+<p>Tự động hóa trên dữ liệu lộn xộn chỉ làm sai nhanh hơn. Đây là các việc nên làm xong trước, phần lớn bạn tự làm được bằng Google Sheets.</p>
+<ul>
+ <li><strong>Một nguồn sự thật cho mỗi loại dữ liệu.</strong> Danh sách khách ở đâu, bảng giá ở đâu, tồn kho ở đâu. Không để hai bảng giá song song.</li>
+ <li><strong>Mã thống nhất.</strong> Mỗi sản phẩm, mỗi khách hàng có một mã duy nhất. Tránh cùng một sản phẩm có ba cách viết tên.</li>
+ <li><strong>Trạng thái rõ ràng.</strong> Đơn hàng có danh sách trạng thái cố định như mới, đã xác nhận, đang giao, đã giao, hủy, thay vì ghi chú tự do.</li>
+ <li><strong>Định dạng chuẩn.</strong> Số điện thoại, ngày tháng, số tiền viết theo một kiểu để máy đọc được.</li>
+ <li><strong>Tài liệu cho AI.</strong> Nếu có trợ lý AI trả lời khách: bảng giá, chính sách đổi trả, câu hỏi thường gặp đã được duyệt, viết rõ ràng.</li>
+ <li><strong>Quyền truy cập và tài khoản.</strong> Tài khoản Zalo OA, fanpage, phần mềm bán hàng, nền tảng tự động hóa đứng tên doanh nghiệp, cấp quyền vừa đủ.</li>
+ <li><strong>Dữ liệu cá nhân.</strong> Xác định dữ liệu khách nào được dùng, cho mục đích gì. Xem thêm bài <a href="../dung-ai-co-lo-du-lieu-doanh-nghiep/">dùng AI có lộ dữ liệu doanh nghiệp không</a>.</li>
+</ul>
+{{anh:a2|Bàn tay cầm bút dạ tím vẽ sơ đồ các khối nối nhau trên tờ giấy trắng lớn|Vẽ quy trình mong muốn sau khi đã đo và hiểu rõ quy trình hiện tại.}}
+
+<h2 id="vi-du">Ví dụ áp dụng năm bước theo ngành</h2>
+<p>Các tình huống dưới đây là <strong>ví dụ minh họa</strong>, không phải khách hàng thật.</p>
+<h3>Phòng khám nha khoa</h3>
+<p>Danh sách việc cho thấy lễ tân mất nhiều thời gian gọi nhắc lịch và xác nhận lịch qua Zalo. Quy trình này điểm cao vì lặp lại hằng ngày, quy tắc rõ, lịch hẹn đã nằm trong một bảng. Dữ liệu cần chuẩn bị: số điện thoại một định dạng, danh mục dịch vụ, khung giờ bác sĩ. Chỉ số đo: tỷ lệ khách không đến, thời gian lễ tân dành cho việc nhắc lịch.</p>
+<h3>Xưởng nội thất nhận báo giá</h3>
+<p>Báo giá có điểm quy tắc thấp vì mỗi công trình khác nhau, nên không chọn làm đầu tiên. Thay vào đó, chọn khâu tiếp nhận yêu cầu: khách gửi ảnh, kích thước qua nhiều kênh, luồng tự động gom về một bảng, tạo mã yêu cầu và nhắc nhân viên liên hệ trong ngày. Báo giá để giai đoạn sau.</p>
+<h3>Công ty phân phối</h3>
+<p>Kế toán chép số từ phần mềm bán hàng sang Excel để làm báo cáo tuần. Điểm cao, rủi ro thấp vì là báo cáo nội bộ. Dữ liệu cần chuẩn bị: danh mục mã hàng, nhóm khách thống nhất. Khi đã chạy ổn, bước tiếp theo là báo cáo do AI viết nhận xét, xem bài <a href="../ai-viet-bao-cao-kinh-doanh-tu-dong/">AI viết báo cáo kinh doanh tự động</a>.</p>
+
+<h2 id="sai-lam">Sai lầm thường gặp khi bắt đầu</h2>
+<ul>
+ <li><strong>Chọn công cụ trước khi chọn quy trình.</strong> Mua phần mềm rồi mới tìm việc cho nó làm.</li>
+ <li><strong>Vẽ quy trình lý tưởng thay vì quy trình thật.</strong> Bỏ qua các ngoại lệ đang xảy ra hằng ngày, đến khi chạy mới phát hiện.</li>
+ <li><strong>Chọn quy trình khó nhất để chứng minh.</strong> Lần đầu nên chọn việc rủi ro thấp để đội ngũ tin tưởng.</li>
+ <li><strong>Không có người phụ trách nội bộ.</strong> Cần một người hiểu quy trình, duyệt ngoại lệ, đề xuất chỉnh sửa.</li>
+ <li><strong>Bỏ qua bước đo.</strong> Không có số liệu ban đầu thì không chứng minh được hiệu quả và khó quyết định mở rộng.</li>
+ <li><strong>Tắt cách làm cũ quá sớm.</strong> Nên chạy song song vài tuần đến khi kết quả khớp.</li>
+</ul>
+
+<h2 id="chi-phi">Chi phí khi đã chọn được quy trình</h2>
+<p>Sau năm bước trên, bạn đã có đủ thông tin để đơn vị triển khai báo giá chính xác. Tại Dream Labs, gói Khởi động {{p:ai:0}} phù hợp khi quy trình đầu tiên là tiếp nhận và phân loại khách, có trợ lý AI trên Zalo OA hoặc Messenger. Gói Tăng trưởng {{p:ai:1}} gồm ba quy trình và kết nối CRM, phần mềm bán hàng, kế toán, có đào tạo đội ngũ. Gói Doanh nghiệp {{p:ai:2}} cho hệ thống không giới hạn quy trình.</p>
+{{gia:ai}}
+<p>Xem chi tiết tại trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">dịch vụ tự động hóa quy trình doanh nghiệp</a>, trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/n8n/">dịch vụ n8n</a> nếu bạn muốn tự vận hành workflow, và <a href="../../bang-gia/">bảng giá</a> tổng hợp. Gửi danh sách việc và bảng chấm điểm qua <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a>, Dream Labs sẽ góp ý quy trình nên làm trước.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Có cần thuê tư vấn để chọn quy trình đầu tiên không?</h3>
+<p>Không bắt buộc. Với bảng liệt kê việc và bảng chấm điểm trong bài, chủ doanh nghiệp tự chọn được. Đơn vị triển khai giúp ở bước kiểm tra tính khả thi kỹ thuật và ước tính chi phí.</p>
+<h3>Nên vẽ quy trình bằng công cụ gì?</h3>
+<p>Giấy, bảng trắng hoặc Google Sheets đều được. Quan trọng là có đủ điểm bắt đầu, kết thúc, người làm, công cụ ở mỗi bước, điểm chờ và ngoại lệ, không phải sơ đồ đẹp.</p>
+<h3>Mất bao lâu để chuẩn bị trước khi tự động hóa?</h3>
+<p>Thường một đến hai tuần: một tuần ghi việc, vài buổi chấm điểm và vẽ quy trình, phần còn lại để đo số liệu và làm sạch dữ liệu. Nơi dữ liệu còn rời rạc cần lâu hơn.</p>
+<h3>Quy trình nhiều ngoại lệ có tự động hóa được không?</h3>
+<p>Được một phần. Máy xử lý các trường hợp thông thường, ngoại lệ được chuyển cho người kèm đầy đủ thông tin. Nếu ngoại lệ chiếm phần lớn, nên chuẩn hóa quy trình trước.</p>
+<h3>Đo hiệu quả tự động hóa bằng chỉ số nào?</h3>
+<p>Phổ biến nhất là thời gian xử lý mỗi lần, số lần mỗi tháng, thời gian phản hồi khách, tỷ lệ sai sót và số việc phải chuyển cho người. Đo trước và sau bằng cùng một cách.</p>
+<h3>Doanh nghiệp chưa dùng phần mềm nào có tự động hóa được không?</h3>
+<p>Nên bắt đầu bằng việc đưa dữ liệu lên một công cụ số đơn giản như Google Sheets hoặc phần mềm bán hàng. Khi dữ liệu đã nằm trong công cụ số, việc tự động hóa mới chạy ổn định.</p>

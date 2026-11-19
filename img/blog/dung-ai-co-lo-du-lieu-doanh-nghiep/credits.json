@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Dan Nelson",
+  "page": "https://www.pexels.com/photo/a-laptop-over-a-round-table-4973899/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/4973899/pexels-photo-4973899.jpeg",
+  "w": 5184,
+  "h": 2920
+ },
+ "a1": {
+  "author": "cottonbro studio",
+  "page": "https://www.pexels.com/photo/close-up-shot-of-a-laptop-5474301/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5474301/pexels-photo-5474301.jpeg",
+  "w": 4480,
+  "h": 6720
+ },
+ "a2": {
+  "author": "Thirdman",
+  "page": "https://www.pexels.com/photo/a-group-of-people-having-a-meeting-in-the-office-7652050/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7652050/pexels-photo-7652050.jpeg",
+  "w": 6322,
+  "h": 4215
+ }
+}

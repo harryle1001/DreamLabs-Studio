@@ -1,0 +1,128 @@
+<!--meta {
+ "order": 24,
+ "date": "2026-11-19",
+ "title": "Dùng AI như ChatGPT có lộ dữ liệu doanh nghiệp không?",
+ "h1": "Dùng AI như ChatGPT có lộ dữ liệu doanh nghiệp không? Chính sách, cấu hình và quy tắc nội bộ",
+ "short": "Dùng AI có lộ dữ liệu doanh nghiệp",
+ "description": "Dùng ChatGPT, Gemini, Claude có thể lộ dữ liệu nếu sai gói, sai cấu hình. Chính sách từng dịch vụ, cách cài đặt an toàn và quy định dữ liệu cá nhân.",
+ "lead": "Nhân viên dán hợp đồng, bảng lương, danh sách khách vào công cụ AI mỗi ngày, thường bằng tài khoản cá nhân. Bài này giải thích dữ liệu đó đi đâu, khác nhau thế nào giữa bản miễn phí và bản doanh nghiệp, và doanh nghiệp cần đặt quy tắc gì.",
+ "cat": "Tự động hóa AI",
+ "cat_id": "ai",
+ "keywords": ["dùng ChatGPT có lộ dữ liệu không","bảo mật dữ liệu khi dùng AI","chính sách dữ liệu ChatGPT doanh nghiệp","quy tắc dùng AI trong công ty","bảo vệ dữ liệu cá nhân khi dùng AI"],
+ "imageAlt": "Laptop đặt trên bàn tròn cạnh chậu cây, màn hình hiện biểu tượng ổ khóa trên nền bản đồ thế giới",
+ "imageCaption": "Ảnh minh họa: bảo mật dữ liệu khi doanh nghiệp dùng công cụ AI.",
+ "related": ["doanh-nghiep-nho-co-nen-dung-ai","ai-co-thay-the-nhan-vien-ke-toan","tu-dong-hoa-quy-trinh-doanh-nghiep-bang-ai"],
+ "ctaTitle": "Muốn dùng AI mà vẫn giữ dữ liệu trong tầm kiểm soát?",
+ "ctaText": "Nhắn Zalo cho Dream Labs các việc nhân viên đang dùng AI. Chúng tôi gợi ý cách cấu hình, phân quyền và luồng tự động hóa phù hợp với dữ liệu của bạn."
+} -->
+<p><strong>Dùng AI như ChatGPT có lộ dữ liệu doanh nghiệp không?</strong> Có thể, nếu nhân viên dùng tài khoản cá nhân chưa tắt tùy chọn cho phép dùng dữ liệu để cải thiện mô hình, hoặc dán dữ liệu nhạy cảm vào công cụ chưa được công ty duyệt. Các gói dành cho doanh nghiệp và API của những nhà cung cấp lớn mặc định không dùng dữ liệu của bạn để huấn luyện mô hình, nhưng rủi ro lớn nhất vẫn nằm ở cách dùng: tài khoản cá nhân, mật khẩu yếu, không có quy tắc dữ liệu.</p>
+<p>Bài viết tổng hợp chính sách dữ liệu của các dịch vụ phổ biến theo trang chính thức tại thời điểm viết (11/2026), cách cấu hình an toàn, mẫu quy tắc nội bộ và các điểm cần biết về dữ liệu cá nhân theo pháp luật Việt Nam. Chính sách của nhà cung cấp thay đổi thường xuyên, hãy mở lại các liên kết để kiểm tra trước khi quyết định.</p>
+
+<h2 id="du-lieu-di-dau">Dữ liệu bạn nhập vào AI đi đâu</h2>
+<p>Khi bạn gõ hoặc dán nội dung vào một công cụ AI, có bốn khả năng cần phân biệt. Hiểu rõ từng khả năng giúp tránh lo sợ thái quá và cũng tránh chủ quan.</p>
+<h3>1. Được lưu lại trên máy chủ nhà cung cấp</h3>
+<p>Hầu hết dịch vụ lưu lịch sử hội thoại để bạn xem lại, kèm một thời gian lưu giữ để phục vụ an toàn và chống lạm dụng. Thời gian này khác nhau theo dịch vụ, theo gói và theo cài đặt.</p>
+<h3>2. Được dùng để huấn luyện, cải thiện mô hình</h3>
+<p>Ở một số bản dành cho cá nhân, hội thoại có thể được dùng để cải thiện mô hình nếu bạn không tắt tùy chọn này. Về lý thuyết, nội dung đã dùng để huấn luyện khó có thể lấy ra lại nguyên văn, nhưng doanh nghiệp không nên đặt cược vào điều đó với dữ liệu bí mật.</p>
+<h3>3. Được người của nhà cung cấp xem xét</h3>
+<p>Một số dịch vụ nêu rõ có người đánh giá xem một phần hội thoại để cải thiện chất lượng hoặc kiểm tra vi phạm.</p>
+<h3>4. Bị lộ do chính phía bạn</h3>
+<p>Đây là khả năng phổ biến nhất: tài khoản dùng chung mật khẩu, nhân viên nghỉ việc vẫn giữ tài khoản cá nhân chứa lịch sử hội thoại có dữ liệu công ty, chia sẻ đường link hội thoại công khai, hoặc cài thêm tiện ích, ứng dụng bên thứ ba không rõ nguồn gốc có quyền đọc dữ liệu.</p>
+
+<h2 id="chinh-sach">Chính sách dữ liệu của các dịch vụ AI phổ biến</h2>
+<p>Bảng dưới tóm tắt theo trang chính thức của từng nhà cung cấp tại thời điểm viết (11/2026). Đây là tóm tắt để tham khảo, không thay cho việc đọc điều khoản đầy đủ.</p>
+<div class="bl-table" role="region" aria-label="So sánh chính sách dữ liệu của các dịch vụ AI phổ biến" tabindex="0"><table><caption>Bản cá nhân và bản doanh nghiệp khác nhau thế nào (tham khảo 11/2026)</caption>
+<thead><tr><th>Dịch vụ</th><th>Bản cá nhân</th><th>Bản doanh nghiệp, API</th></tr></thead>
+<tbody>
+<tr><td>ChatGPT (OpenAI)</td><td>Có tùy chọn tắt dùng hội thoại để cải thiện mô hình; chế độ trò chuyện tạm thời không dùng để huấn luyện và được giữ tối đa khoảng 30 ngày</td><td>Mặc định không dùng dữ liệu của ChatGPT Business, Enterprise, Edu và API để huấn luyện mô hình</td></tr>
+<tr><td>Gemini (Google)</td><td>Hoạt động có thể được lưu và dùng để cải thiện dịch vụ; một phần hội thoại do người đánh giá xem xét và có thể được giữ riêng đến 3 năm; Google khuyên không nhập thông tin bí mật</td><td>Bản trong Google Workspace và API có điều khoản riêng, cần kiểm tra theo gói đang dùng</td></tr>
+<tr><td>Claude (Anthropic)</td><td>Người dùng Free, Pro, Max tự chọn có cho phép dùng dữ liệu để huấn luyện không; cho phép thì thời gian lưu kéo dài đến 5 năm, không cho phép thì giữ chính sách 30 ngày</td><td>Thay đổi trên không áp dụng cho các gói dành cho tổ chức và API</td></tr>
+<tr><td>Microsoft Copilot Chat</td><td>Bản cá nhân có điều khoản riêng</td><td>Khi đăng nhập tài khoản công việc, có bảo vệ dữ liệu doanh nghiệp, lời nhắc và câu trả lời không dùng để huấn luyện mô hình nền tảng, được ghi nhật ký để quản trị</td></tr>
+</tbody></table></div>
+<p>Nguồn: <a href="https://openai.com/business-data/" target="_blank" rel="noopener">OpenAI, Business data privacy</a>; <a href="https://help.openai.com/en/articles/7730893-data-controls-faq" target="_blank" rel="noopener">OpenAI, Data Controls FAQ</a>; <a href="https://support.google.com/gemini/answer/13594961" target="_blank" rel="noopener">Google, Gemini Apps Privacy Hub</a>; <a href="https://www.anthropic.com/news/updates-to-our-consumer-terms" target="_blank" rel="noopener">Anthropic, cập nhật điều khoản người dùng cá nhân</a>; <a href="https://learn.microsoft.com/copilot/microsoft-365/enterprise-data-protection" target="_blank" rel="noopener">Microsoft, Enterprise data protection</a>.</p>
+<div class="bl-note"><p><strong>Điểm chung:</strong> bản doanh nghiệp không có nghĩa là an toàn tuyệt đối. Nó cho bạn hợp đồng xử lý dữ liệu, quyền quản trị tập trung và cam kết không huấn luyện mặc định. Dữ liệu vẫn nằm trên máy chủ nhà cung cấp và vẫn có thể lộ nếu tài khoản bị chiếm.</p></div>
+{{anh:a1|Khóa bảo mật USB màu đen có biểu tượng chiếc chìa khóa đặt trên mặt bàn trắng cạnh góc laptop|Khóa bảo mật vật lý là một cách xác thực hai lớp cho tài khoản công cụ AI của công ty.}}
+
+<h2 id="cau-hinh">Cấu hình an toàn ngay hôm nay</h2>
+<p>Những việc dưới đây không tốn tiền và làm được trong một buổi.</p>
+<ol>
+ <li><strong>Kiểm tra cài đặt dữ liệu của từng công cụ.</strong> Trong ChatGPT bản cá nhân, mục kiểm soát dữ liệu có tùy chọn cho phép dùng nội dung để cải thiện mô hình cho mọi người, hãy tắt nếu dùng cho công việc. Với Claude bản cá nhân, xem lại lựa chọn trong phần cài đặt quyền riêng tư. Với Gemini bản cá nhân, xem lại cài đặt lưu hoạt động.</li>
+ <li><strong>Dùng chế độ trò chuyện tạm thời</strong> cho những việc chỉ cần một lần, nếu công cụ có hỗ trợ.</li>
+ <li><strong>Bật xác thực hai lớp</strong> cho mọi tài khoản AI dùng cho công việc, không dùng chung mật khẩu.</li>
+ <li><strong>Gỡ kết nối không cần thiết.</strong> Nhiều công cụ cho phép nối với email, Google Drive, lịch. Chỉ bật kết nối thực sự cần.</li>
+ <li><strong>Không chia sẻ đường link hội thoại</strong> có dữ liệu nội bộ ra ngoài.</li>
+ <li><strong>Chuyển sang gói doanh nghiệp</strong> khi nhiều người dùng thường xuyên, để có quản trị tập trung: thêm, khóa tài khoản khi nhân viên nghỉ, xem nhật ký.</li>
+</ol>
+
+{{zalo}}
+
+<h2 id="quy-tac-noi-bo">Quy tắc dùng AI nội bộ: mẫu phân loại ba màu</h2>
+<p>Quy tắc dễ nhớ sẽ được làm theo, quy tắc dài mười trang thì không. Gợi ý phân dữ liệu thành ba nhóm:</p>
+<div class="bl-table" role="region" aria-label="Phân loại dữ liệu ba màu khi dùng AI" tabindex="0"><table><caption>Mẫu phân loại dữ liệu khi dùng công cụ AI</caption>
+<thead><tr><th>Nhóm</th><th>Ví dụ</th><th>Quy tắc</th></tr></thead>
+<tbody>
+<tr><td>Xanh: công khai</td><td>Nội dung đã đăng trên website, mô tả sản phẩm, bài viết</td><td>Dùng tự do với công cụ đã được duyệt</td></tr>
+<tr><td>Vàng: nội bộ</td><td>Quy trình nội bộ, số liệu bán hàng tổng hợp, biên bản họp không có tên khách</td><td>Chỉ dùng tài khoản công ty đã cấu hình an toàn, bỏ tên người, tên đối tác trước khi dán</td></tr>
+<tr><td>Đỏ: nhạy cảm</td><td>Danh sách khách kèm số điện thoại, bảng lương, hợp đồng, số tài khoản, mật khẩu, dữ liệu sức khỏe</td><td>Không đưa vào công cụ chat; chỉ xử lý qua hệ thống đã được thiết kế, phân quyền và có thỏa thuận xử lý dữ liệu</td></tr>
+</tbody></table></div>
+<h3>Năm dòng quy tắc nên có</h3>
+<ul>
+ <li>Chỉ dùng các công cụ AI trong danh sách công ty đã duyệt, bằng tài khoản công ty.</li>
+ <li>Không dán dữ liệu nhóm đỏ vào bất kỳ công cụ chat nào.</li>
+ <li>Mọi nội dung AI viết gửi ra ngoài phải có người đọc lại.</li>
+ <li>Khi nghỉ việc, bàn giao và xóa quyền truy cập tài khoản AI cùng lúc với email.</li>
+ <li>Nghi ngờ đã đưa nhầm dữ liệu, báo ngay cho người phụ trách để xử lý.</li>
+</ul>
+{{anh:a2|Nhóm nhân viên văn phòng trẻ tụ quanh laptop tại phòng họp, một người đọc tài liệu|Quy tắc dùng AI chỉ hiệu quả khi cả đội được hướng dẫn và hiểu lý do.}}
+
+<h2 id="du-lieu-ca-nhan">Dữ liệu cá nhân và pháp luật Việt Nam</h2>
+<p>Khi nhân viên đưa họ tên, số điện thoại, địa chỉ, thông tin sức khỏe của khách vào công cụ AI, doanh nghiệp đang xử lý dữ liệu cá nhân và phải tuân thủ quy định về bảo vệ dữ liệu cá nhân.</p>
+<ul>
+ <li><strong><a href="https://thuvienphapluat.vn/van-ban/Bo-may-hanh-chinh/Luat-Bao-ve-du-lieu-ca-nhan-2025-so-91-2025-QH15-625628.aspx" target="_blank" rel="noopener">Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15</a></strong> được Quốc hội thông qua ngày 26/6/2025, có hiệu lực từ ngày 01/01/2026.</li>
+ <li><strong><a href="https://thuvienphapluat.vn/van-ban/Quyen-dan-su/Nghi-dinh-356-2025-ND-CP-huong-dan-Luat-Bao-ve-du-lieu-ca-nhan-687428.aspx" target="_blank" rel="noopener">Nghị định 356/2025/NĐ-CP</a></strong> ngày 31/12/2025 quy định chi tiết và hướng dẫn thi hành Luật, có hiệu lực từ ngày 01/01/2026 và thay thế Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân trước đây.</li>
+</ul>
+<h3>Những điểm doanh nghiệp nhỏ nên lưu ý</h3>
+<ul>
+ <li><strong>Có căn cứ xử lý dữ liệu.</strong> Thu thập và dùng dữ liệu khách cho mục đích đã thông báo, thường là có sự đồng ý của khách. Dùng dữ liệu đó cho mục đích khác, như đưa vào công cụ AI bên ngoài để phân tích, cần xem lại căn cứ.</li>
+ <li><strong>Dữ liệu nhạy cảm cần bảo vệ chặt hơn.</strong> Thông tin sức khỏe, tài chính, vị trí là nhóm cần đặc biệt cẩn trọng, phòng khám và spa nên lưu ý.</li>
+ <li><strong>Chuyển dữ liệu ra nước ngoài.</strong> Phần lớn dịch vụ AI phổ biến đặt máy chủ ở nước ngoài. Luật có quy định riêng về chuyển dữ liệu cá nhân xuyên biên giới, nên hỏi ý kiến tư vấn pháp lý trước khi đưa dữ liệu khách vào các dịch vụ này một cách có hệ thống.</li>
+ <li><strong>Ưu đãi cho doanh nghiệp nhỏ.</strong> Theo khoản 2 Điều 38 của Luật, doanh nghiệp nhỏ và doanh nghiệp khởi nghiệp được lựa chọn thực hiện hoặc chưa thực hiện một số nghĩa vụ trong 5 năm kể từ ngày Luật có hiệu lực, nhưng có ngoại lệ, ví dụ khi trực tiếp xử lý dữ liệu nhạy cảm. Các nghĩa vụ cơ bản như bảo mật dữ liệu và tôn trọng quyền của khách vẫn phải làm.</li>
+</ul>
+<div class="bl-note"><p><strong>Lưu ý:</strong> phần này giúp bạn nhận diện vấn đề, không phải tư vấn pháp lý. Quy định chi tiết, hồ sơ cần lập và chế tài nằm trong toàn văn Luật, Nghị định 356/2025/NĐ-CP và các văn bản liên quan. Hãy đối chiếu văn bản gốc hoặc hỏi luật sư cho trường hợp cụ thể.</p></div>
+
+<h2 id="vi-du">Ví dụ minh họa theo ngành</h2>
+<p>Các tình huống dưới đây là <strong>ví dụ minh họa</strong>, không phải khách hàng thật.</p>
+<h3>Spa dùng AI viết tin nhắn chăm sóc khách</h3>
+<p>Cách rủi ro: xuất danh sách khách kèm số điện thoại và liệu trình đã làm, dán vào tài khoản ChatGPT cá nhân để viết tin nhắn. Cách an toàn hơn: nhờ AI viết mẫu tin nhắn có chỗ trống cho tên và liệu trình, sau đó hệ thống gửi tin tự động điền thông tin từ bảng khách, dữ liệu không đi qua công cụ chat.</p>
+<h3>Công ty xây dựng nhờ AI rà hợp đồng</h3>
+<p>Cách rủi ro: dán nguyên hợp đồng có giá trị, tên đối tác vào công cụ bất kỳ. Cách an toàn hơn: dùng gói doanh nghiệp đã cấu hình, xóa tên và số tiền trước khi dán, chỉ hỏi về điều khoản, kết luận cuối cùng vẫn do người phụ trách pháp lý quyết định.</p>
+<h3>Shop online phân tích đơn hàng</h3>
+<p>Cách an toàn: xuất số liệu tổng hợp theo sản phẩm, theo ngày, không có thông tin người mua, rồi mới nhờ AI nhận xét. Nếu muốn việc này chạy tự động, dựng luồng chỉ gửi số liệu đã ẩn danh cho mô hình AI.</p>
+
+<h2 id="sai-lam">Sai lầm thường gặp</h2>
+<ul>
+ <li><strong>Cấm hẳn AI.</strong> Nhân viên vẫn dùng bằng điện thoại cá nhân, công ty mất luôn khả năng kiểm soát. Tốt hơn là cho dùng có quy tắc.</li>
+ <li><strong>Nghĩ trả phí là an toàn.</strong> Bản trả phí cho cá nhân khác bản dành cho doanh nghiệp. Hãy đọc chính sách của đúng gói đang dùng.</li>
+ <li><strong>Dùng chung một tài khoản cho cả phòng.</strong> Không biết ai đã đưa dữ liệu gì vào, khó thu hồi khi có người nghỉ.</li>
+ <li><strong>Quên lịch sử hội thoại cũ.</strong> Dữ liệu đã dán trước đây vẫn nằm trong lịch sử, cần rà soát và xóa khi đổi chính sách.</li>
+ <li><strong>Để bên triển khai giữ tài khoản.</strong> Khóa truy cập, tài khoản nền tảng tự động hóa phải đứng tên doanh nghiệp.</li>
+</ul>
+
+<h2 id="chi-phi">Chi phí cho một hệ thống AI kiểm soát được dữ liệu</h2>
+<p>Với các luồng tự động có dữ liệu khách hàng, cách an toàn là thiết kế để mỗi bước chỉ đọc đúng dữ liệu cần, ẩn thông tin không cần thiết trước khi gửi cho mô hình AI, ghi nhật ký và để tài khoản đứng tên doanh nghiệp. Tại Dream Labs, gói Khởi động {{p:ai:0}} và Tăng trưởng {{p:ai:1}} đều áp dụng nguyên tắc tài khoản đứng tên doanh nghiệp, gói Doanh nghiệp {{p:ai:2}} có thêm hạng mục bảo mật dữ liệu nội bộ và AI agent riêng theo nghiệp vụ.</p>
+{{gia:ai}}
+<p>Xem thêm trang <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">dịch vụ tự động hóa quy trình doanh nghiệp</a>, <a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/chatbot-zalo-oa/">chatbot Zalo OA</a> và <a href="../../bang-gia/">bảng giá</a>. Để được góp ý cách cấu hình cho doanh nghiệp của bạn, nhắn <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a>. Nếu đang cân nhắc có nên dùng AI hay chưa, đọc thêm bài <a href="../doanh-nghiep-nho-co-nen-dung-ai/">doanh nghiệp nhỏ có nên dùng AI không</a>.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>ChatGPT có dùng dữ liệu của tôi để huấn luyện không?</h3>
+<p>Với bản cá nhân, có thể có nếu bạn chưa tắt tùy chọn cho phép dùng nội dung để cải thiện mô hình trong phần kiểm soát dữ liệu. Với ChatGPT Business, Enterprise, Edu và API, OpenAI cho biết mặc định không dùng dữ liệu để huấn luyện mô hình, theo trang chính thức tại thời điểm viết.</p>
+<h3>Xóa hội thoại thì dữ liệu có mất hẳn không?</h3>
+<p>Không phải lúc nào cũng ngay lập tức. Nhà cung cấp thường giữ dữ liệu thêm một thời gian để phục vụ an toàn, và ở một số dịch vụ, hội thoại đã được người đánh giá xem xét được lưu riêng lâu hơn. Hãy đọc chính sách lưu giữ của dịch vụ đang dùng.</p>
+<h3>Có nên cấm nhân viên dùng ChatGPT không?</h3>
+<p>Thường không hiệu quả vì nhân viên vẫn dùng bằng thiết bị cá nhân. Nên cung cấp công cụ đã duyệt bằng tài khoản công ty, kèm quy tắc phân loại dữ liệu và hướng dẫn ngắn gọn.</p>
+<h3>Đưa dữ liệu khách hàng vào AI có vi phạm pháp luật không?</h3>
+<p>Tùy mục đích, căn cứ xử lý và loại dữ liệu. Từ 01/01/2026, Luật Bảo vệ dữ liệu cá nhân và Nghị định 356/2025/NĐ-CP được áp dụng, nên doanh nghiệp cần xem lại sự đồng ý của khách, dữ liệu nhạy cảm và việc chuyển dữ liệu ra nước ngoài, tốt nhất hỏi ý kiến luật sư.</p>
+<h3>Nghị định 13/2023/NĐ-CP còn hiệu lực không?</h3>
+<p>Nghị định 356/2025/NĐ-CP hướng dẫn Luật Bảo vệ dữ liệu cá nhân có hiệu lực từ 01/01/2026 và thay thế Nghị định 13/2023/NĐ-CP. Hãy kiểm tra tình trạng hiệu lực trên cổng văn bản pháp luật trước khi trích dẫn.</p>
+<h3>Gói doanh nghiệp của các công cụ AI có đắt không?</h3>
+<p>Thường tính theo người dùng mỗi tháng và cao hơn bản cá nhân, giá thay đổi theo thời điểm. Hãy kiểm tra trang giá chính thức và chỉ mua cho những người dùng thường xuyên với dữ liệu nội bộ.</p>

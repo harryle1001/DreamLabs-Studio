@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Pavel Danilyuk",
+  "page": "https://www.pexels.com/photo/woman-using-calculator-at-the-office-7654131/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7654131/pexels-photo-7654131.jpeg",
+  "w": 6016,
+  "h": 4016
+ },
+ "a1": {
+  "author": "Mikhail Nilov",
+  "page": "https://www.pexels.com/photo/a-person-examining-documents-8296970/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8296970/pexels-photo-8296970.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a2": {
+  "author": "Mikhail Nilov",
+  "page": "https://www.pexels.com/photo/a-person-working-on-the-documents-using-a-calculator-8297220/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8297220/pexels-photo-8297220.jpeg",
+  "w": 4000,
+  "h": 6000
+ }
+}

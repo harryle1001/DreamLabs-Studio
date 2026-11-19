@@ -4,6 +4,18 @@
 
 | Bài | Ảnh | Tác giả | Nguồn | Link |
 |---|---|---|---|---|
+| [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | cover | Ketut Subiyanto | Pexels | https://www.pexels.com/photo/busy-asian-waitress-working-with-cashier-at-desk-in-cozy-cafe-4473492/ |
+| [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | a1 | Amina Filkins | Pexels | https://www.pexels.com/photo/ethnic-florist-working-in-floral-shop-5409672/ |
+| [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | a2 | Mikhail Nilov | Pexels | https://www.pexels.com/photo/colleagues-sitting-by-table-at-office-8101931/ |
+| [AI có thay thế nhân viên kế toán](https://dreamlabs.vn/blog/ai-co-thay-the-nhan-vien-ke-toan/) | cover | Pavel Danilyuk | Pexels | https://www.pexels.com/photo/woman-using-calculator-at-the-office-7654131/ |
+| [AI có thay thế nhân viên kế toán](https://dreamlabs.vn/blog/ai-co-thay-the-nhan-vien-ke-toan/) | a1 | Mikhail Nilov | Pexels | https://www.pexels.com/photo/a-person-examining-documents-8296970/ |
+| [AI có thay thế nhân viên kế toán](https://dreamlabs.vn/blog/ai-co-thay-the-nhan-vien-ke-toan/) | a2 | Mikhail Nilov | Pexels | https://www.pexels.com/photo/a-person-working-on-the-documents-using-a-calculator-8297220/ |
+| [Tự động hóa quy trình bắt đầu từ đâu](https://dreamlabs.vn/blog/tu-dong-hoa-quy-trinh-bat-dau-tu-dau/) | cover | Christina Morillo | Pexels | https://www.pexels.com/photo/man-standing-infront-of-white-board-1181345/ |
+| [Tự động hóa quy trình bắt đầu từ đâu](https://dreamlabs.vn/blog/tu-dong-hoa-quy-trinh-bat-dau-tu-dau/) | a1 | RDNE Stock project | Pexels | https://www.pexels.com/photo/a-person-holding-a-black-pen-writing-on-white-paper-9034763/ |
+| [Tự động hóa quy trình bắt đầu từ đâu](https://dreamlabs.vn/blog/tu-dong-hoa-quy-trinh-bat-dau-tu-dau/) | a2 | ThisIsEngineering | Pexels | https://www.pexels.com/photo/person-drawing-on-white-paper-3861462/ |
+| [Dùng AI có lộ dữ liệu doanh nghiệp](https://dreamlabs.vn/blog/dung-ai-co-lo-du-lieu-doanh-nghiep/) | cover | Dan Nelson | Pexels | https://www.pexels.com/photo/a-laptop-over-a-round-table-4973899/ |
+| [Dùng AI có lộ dữ liệu doanh nghiệp](https://dreamlabs.vn/blog/dung-ai-co-lo-du-lieu-doanh-nghiep/) | a1 | cottonbro studio | Pexels | https://www.pexels.com/photo/close-up-shot-of-a-laptop-5474301/ |
+| [Dùng AI có lộ dữ liệu doanh nghiệp](https://dreamlabs.vn/blog/dung-ai-co-lo-du-lieu-doanh-nghiep/) | a2 | Thirdman | Pexels | https://www.pexels.com/photo/a-group-of-people-having-a-meeting-in-the-office-7652050/ |
 | [n8n là gì, có miễn phí không](https://dreamlabs.vn/blog/n8n-la-gi-co-mien-phi-khong/) | cover | Brett Sayles | Pexels | https://www.pexels.com/photo/blue-wires-connected-to-server-4716292/ |
 | [n8n là gì, có miễn phí không](https://dreamlabs.vn/blog/n8n-la-gi-co-mien-phi-khong/) | a1 | Brett Sayles | Pexels | https://www.pexels.com/photo/server-racks-on-data-center-5480781/ |
 | [n8n là gì, có miễn phí không](https://dreamlabs.vn/blog/n8n-la-gi-co-mien-phi-khong/) | a2 | Kampus Production | Pexels | https://www.pexels.com/photo/person-looking-at-charts-displayed-on-a-laptop-and-sitting-at-the-table-with-cardboard-boxes-7857526/ |

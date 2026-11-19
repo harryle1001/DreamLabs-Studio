@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Ketut Subiyanto",
+  "page": "https://www.pexels.com/photo/busy-asian-waitress-working-with-cashier-at-desk-in-cozy-cafe-4473492/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/4473492/pexels-photo-4473492.jpeg",
+  "w": 5895,
+  "h": 3930
+ },
+ "a1": {
+  "author": "Amina Filkins",
+  "page": "https://www.pexels.com/photo/ethnic-florist-working-in-floral-shop-5409672/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5409672/pexels-photo-5409672.jpeg",
+  "w": 3936,
+  "h": 2624
+ },
+ "a2": {
+  "author": "Mikhail Nilov",
+  "page": "https://www.pexels.com/photo/colleagues-sitting-by-table-at-office-8101931/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8101931/pexels-photo-8101931.jpeg",
+  "w": 6000,
+  "h": 4000
+ }
+}
