@@ -291,7 +291,7 @@ function gradeDemo(root){
 /* ============================== 5. Landing page builder mini ============================== */
 function buildDemo(root){
   const phone=$('.lab-bd-phone',root),h=$('.lab-bd-h',root),btn=$('.lab-bd-btn',root),code=$('.lab-bd-code',root),ti=$('#lab-bd-title',root),ci=$('#lab-bd-cta',root);
-  const FONT={serif:'Fraunces',sans:'Be Vietnam Pro',italic:'Fraunces Italic'},MODE={light:'sáng',dark:'tối'};
+  const FONT={serif:'Playfair Display',sans:'Be Vietnam Pro',italic:'Playfair Display Italic'},MODE={light:'sáng',dark:'tối'};
   const s={c:'#6247B8',f:'serif',m:'light'};
   const pulse=(nodes,big)=>{if(g&&!RM)g.fromTo(nodes,{scale:big?.94:.97,opacity:.5},{scale:1,opacity:1,duration:.424,ease:'back.out(2.2)',stagger:.062,overwrite:true,clearProps:'transform,opacity'})};
   const out=()=>{code.textContent=`màu ${s.c} · phông ${FONT[s.f]} · nền ${MODE[s.m]}`};

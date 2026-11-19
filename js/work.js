@@ -15,10 +15,10 @@ const L={
  mt(o){const W=o.w||768,H=o.h||768,c=cv(W,H),x=c.getContext('2d'),cx=W/2,bg=o.bg||'#F6F2E9',ink=o.ink||'#2E3A2C',acc=o.accent||'#B9785A',u=Math.min(H,W*1.3),mw=Math.min(W*.82,u*1.25);
   x.fillStyle=bg;x.fillRect(0,0,W,H);x.fillStyle=acc;
   if(o.flat){phy(x,cx-u*1.5,H*.5,34,u*.045,u*.01,u*.026);
-   txt(x,'Miên Thảo',cx,H*.56,`italic 400 ${u*.42}px Cormorant,Fraunces,serif`,ink);
+   txt(x,'Miên Thảo',cx,H*.56,`italic 400 ${u*.42}px 'Playfair Display',serif`,ink);
    txt(x,o.sub||'KEM ĐÊM CÁM GẠO',cx,H*.82,`500 ${u*.1}px "Be Vietnam Pro",sans-serif`,'#6B7466',u*.04);return c}
   if(o.v){x.fillRect(0,0,W,H*.382);x.fillStyle=bg;phy(x,cx,H*.191,34,u*.024,u*.004,u*.014)}else phy(x,cx,H*.27,55,u*.021,u*.004,u*.013);
-  txt(x,'Miên Thảo',cx,H*.62,`italic 400 ${u*.16}px Cormorant,Fraunces,serif`,ink,0,mw);
+  txt(x,'Miên Thảo',cx,H*.62,`italic 400 ${u*.16}px 'Playfair Display',serif`,ink,0,mw);
   x.fillStyle=ink;x.fillRect(cx-u*.1,H*.675,u*.2,Math.max(1.5,u*.004));
   txt(x,o.sub||'TINH CHẤT RAU MÁ',cx,H*.77,`500 ${u*.042}px "Be Vietnam Pro",sans-serif`,'#6B7466',u*.014,mw);
   txt(x,o.vol||'30 ml',cx,H*.89,`500 ${u*.038}px "Be Vietnam Pro",sans-serif`,'#6B7466',u*.01);

@@ -7,7 +7,7 @@
   --glass:rgba(251,248,243,.62); --shadow:rgba(60,30,90,.28);
   --grad-dream:linear-gradient(135deg,var(--lav),var(--peach) 61.8%,var(--mist));
   /* chữ */
-  --f-display:"Fraunces",Georgia,"Times New Roman",serif;
+  --f-display:"Playfair Display",Georgia,"Times New Roman",serif;
   --f-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
   --t0:10px; --t0h:13px; --t1:16px; --t1h:20px; --t2:26px; --t2h:33px; --t3:42px; --t3h:53px; --t4:68px; --t5:110px; --t6:178px;
   --fz-h1:clamp(var(--t3),9.2vw,var(--t5)); --fz-h2:clamp(var(--t2),5.4vw,var(--t4)); --fz-h3:clamp(var(--t1h),2.6vw,var(--t2h)); --fz-lead:clamp(var(--t1),1.6vw,18px);

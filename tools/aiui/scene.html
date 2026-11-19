@@ -1,0 +1,214 @@
+<!doctype html><meta charset="utf-8">
+<!-- Màn hình phần mềm mẫu cho bộ Tự động hóa AI. ?k=<cảnh>&t=<giây>. frame(t) đặt trạng thái tại giây t (0–6, lặp).
+     Dựng ảnh + clip: node tools/aiui/render.js. Mọi con số là DỮ LIỆU MẪU. -->
+<style>
+@font-face{font-family:BVP;font-weight:400;src:url(../../fonts/be-vietnam-pro-vietnamese-400-normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:BVP;font-weight:400;src:url(../../fonts/be-vietnam-pro-latin-400-normal.woff2)}
+@font-face{font-family:BVP;font-weight:500;src:url(../../fonts/be-vietnam-pro-vietnamese-500-normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:BVP;font-weight:500;src:url(../../fonts/be-vietnam-pro-latin-500-normal.woff2)}
+@font-face{font-family:BVP;font-weight:600;src:url(../../fonts/be-vietnam-pro-vietnamese-600-normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:BVP;font-weight:600;src:url(../../fonts/be-vietnam-pro-latin-600-normal.woff2)}
+@font-face{font-family:PF;font-style:normal;font-weight:400 900;src:url(../../fonts/playfair-display-vietnamese-wght-normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:PF;font-style:normal;font-weight:400 900;src:url(../../fonts/playfair-display-latin-wght-normal.woff2)}
+:root{--bg:#EFE8DE;--paper:#FFFDF9;--ink:#221C2A;--mut:#7A7181;--line:#E7DFD3;--acc:#5E43A8;--acc2:#EDE7F8;--ok:#2F7A5B;--okb:#E3F1EA;--warn:#B5632A;--warnb:#FBEBDD;--hot:#C2412D;--warm:#D69A2D;--cold:#6C8FB0}
+*{box-sizing:border-box}html,body{margin:0}
+body{width:1280px;height:792px;overflow:hidden;background:linear-gradient(135deg,#E6DCEE,#F3E7DD 55%,#E2EAF0);font-family:BVP,sans-serif;color:var(--ink);font-size:15px;-webkit-font-smoothing:antialiased}
+.win{position:absolute;left:40px;top:34px;width:1200px;height:724px;background:var(--paper);border-radius:22px;box-shadow:0 40px 90px -40px rgba(60,30,90,.45),0 0 0 1px rgba(34,28,42,.06);overflow:hidden;display:grid;grid-template-columns:212px 1fr}
+.side{background:#F7F2EA;border-right:1px solid var(--line);padding:22px 16px;display:flex;flex-direction:column;gap:6px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;margin-bottom:18px;line-height:1.2}
+.brand i{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,#BCA8E6,#F2C0A8 62%,#AACBE0);flex:none}
+.brand small{display:block;font-weight:400;font-size:12px;color:var(--mut)}
+.nav{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;color:var(--mut);font-size:14px}
+.nav b{width:16px;height:16px;border-radius:5px;background:#E2D9CC;flex:none}
+.nav.on{background:var(--acc2);color:var(--acc);font-weight:500}.nav.on b{background:var(--acc)}
+.side .ai{margin-top:auto;padding:12px;border-radius:12px;background:var(--ink);color:#F4EFE6;font-size:12.5px;line-height:1.45}
+.side .ai b{display:flex;align-items:center;gap:6px;font-size:13px;margin-bottom:4px}
+.side .ai b::before{content:"";width:8px;height:8px;border-radius:50%;background:#7BE0A8;box-shadow:0 0 0 4px rgba(123,224,168,.2)}
+.main{display:flex;flex-direction:column;min-width:0}
+.top{height:66px;display:flex;align-items:center;gap:14px;padding:0 26px;border-bottom:1px solid var(--line)}
+.top h1{margin:0;font-family:PF,serif;font-weight:500;font-size:23px;letter-spacing:-.01em}
+.top .sp{flex:1}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:999px;font-size:12.5px;font-weight:500;background:var(--acc2);color:var(--acc);white-space:nowrap}
+.pill.mut{background:#F1ECE4;color:var(--mut)}.pill.ok{background:var(--okb);color:var(--ok)}.pill.warn{background:var(--warnb);color:var(--warn)}
+.ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#D9CBEF,#F2D3C2)}
+.body{flex:1;padding:22px 26px;display:grid;gap:18px;min-height:0}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;min-width:0}
+.card h3{margin:0 0 10px;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+.card h3 .pill{margin-left:auto}
+.kpi small{display:block;color:var(--mut);font-size:13px}
+.kpi b{display:block;font-size:26px;font-weight:600;letter-spacing:-.01em;margin:4px 0 2px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kpi em{font-style:normal;font-size:12.5px;color:var(--ok);font-weight:500}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-weight:500;color:var(--mut);font-size:12.5px;padding:8px 10px;border-bottom:1px solid var(--line)}
+td{padding:10px;border-bottom:1px solid #F1ECE4;white-space:nowrap}
+td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+tr.new td{background:#F6F2FC}
+.bub{max-width:78%;padding:11px 14px;border-radius:16px;line-height:1.5;font-size:14.5px}
+.bub.c{background:#F1ECE4;border-bottom-left-radius:4px}
+.bub.a{background:var(--acc);color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+.who{font-size:12px;color:var(--mut);margin:0 0 4px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--acc);display:inline-block}
+.tick{width:20px;height:20px;border-radius:50%;background:var(--ok);display:inline-grid;place-items:center;flex:none}
+.tick::after{content:"";width:9px;height:5px;border:2px solid #fff;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+.bar{height:10px;border-radius:5px;background:#F1ECE4;overflow:hidden}.bar i{display:block;height:100%;border-radius:5px;background:var(--acc);transform-origin:left}
+.ln{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid #F1ECE4;font-size:14px}
+.ln:last-child{border-bottom:0}
+.mut{color:var(--mut)}
+.cur{display:inline-block;width:2px;height:1.05em;background:currentColor;vertical-align:-2px;margin-left:1px}
+</style>
+<body><div class="win"><aside class="side" id="sd"></aside><main class="main"><div class="top" id="tb"></div><div class="body" id="bd"></div></main></div>
+<script>
+const K=new URLSearchParams(location.search).get('k')||'report';
+/* ---------- khung chung ---------- */
+const NAV=['Tổng quan','Hộp thư','Lịch hẹn','Đơn hàng','Kho','Sổ sách','Khách hàng','Báo cáo','Quy trình AI'];
+const SC={
+ report:{brand:['Ngọc Yên Joaillerie','3 boutique'],nav:'Báo cáo',title:'Báo cáo doanh thu sáng nay',ai:'Bản tin tự viết lúc 7:00 mỗi sáng từ số liệu 3 boutique.'},
+ ledger:{brand:['Cửa hàng mẫu','Kế toán'],nav:'Sổ sách',title:'Sổ thu chi tháng 11',ai:'AI đọc hóa đơn, ghi sổ và đối soát công nợ.'},
+ chat:{brand:['Maison Sương Trầm','Salon nước hoa'],nav:'Hộp thư',title:'Hộp thư Zalo & Facebook',ai:'Trợ lý trả lời khách 24/7, việc khó chuyển người thật.'},
+ calendar:{brand:['Thiên Độ Horlogerie','Boutique đồng hồ'],nav:'Lịch hẹn',title:'Lịch hẹn tuần này',ai:'Khách tự chọn giờ trống, hệ thống tự nhắc qua Zalo.'},
+ inventory:{brand:['Cửa hàng mẫu','Bán lẻ'],nav:'Kho',title:'Đơn hàng & tồn kho',ai:'Đơn mới tự trừ kho, sắp hết hàng tự báo.'},
+ plan:{brand:['Cửa hàng mẫu','Điều hành'],nav:'Báo cáo',title:'Báo cáo tuần 46 · Kế hoạch tuần 47',ai:'AI đọc số liệu tuần và soạn kế hoạch tuần tới.'},
+ quote:{brand:['Hải Miên Yachts','Cho thuê du thuyền'],nav:'Quy trình AI',title:'Yêu cầu thuê tàu → Báo giá',ai:'AI đọc tin nhắn, điền yêu cầu, lập báo giá chờ duyệt.'},
+ crm:{brand:['Vọng Nguyệt Residences','Bất động sản'],nav:'Khách hàng',title:'Khách tiềm năng hôm nay',ai:'Khách từ website, Zalo, hotline được chấm điểm và vào CRM.'},
+ care:{brand:['Atelier Lam Khuê','Túi da thủ công'],nav:'Khách hàng',title:'Chăm sóc khách thân thiết',ai:'Mỗi sáng rà sổ khách: nhắc bảo dưỡng, mời xem BST, chúc sinh nhật.'}
+}[K];
+sd.innerHTML=`<div class="brand"><i></i><div>${SC.brand[0]}<small>${SC.brand[1]}</small></div></div>`+NAV.map(n=>`<div class="nav${n===SC.nav?' on':''}"><b></b>${n}</div>`).join('')+`<div class="ai"><b>Trợ lý AI đang chạy</b>${SC.ai}</div>`;
+tb.innerHTML=`<h1>${SC.title}</h1><span class="pill mut">Dữ liệu mẫu</span><span class="sp"></span><span class="pill">Thứ Hai, 18/11</span><span class="ava"></span>`;
+/* ---------- nội dung từng cảnh ----------
+   data-in="giây"   : hiện dần (trượt lên) tại giây đó
+   data-num="đích" data-at="giây" : số chạy tới đích (data-fmt="vnd|int|pct")
+   data-grow="giây" : thanh/khối lớn dần theo chiều ngang · data-growy: theo chiều dọc
+   data-draw="giây" : đường SVG tự vẽ · data-type="giây": chữ tự gõ */
+const N=(v,at,fmt='vnd')=>`<span data-num="${v}" data-at="${at}" data-fmt="${fmt}">0</span>`;
+const B=html=>{bd.innerHTML=html};
+const spark=(pts,c='var(--acc)',w=520,h=150,at=.9)=>{const mx=Math.max(...pts),mn=Math.min(...pts),X=i=>i*w/(pts.length-1),Y=v=>h-8-(v-mn)/(mx-mn||1)*(h-24);const d='M'+pts.map((v,i)=>X(i).toFixed(1)+' '+Y(v).toFixed(1)).join('L');
+  return `<svg width="100%" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" style="display:block;height:${h}px"><defs><linearGradient id="g${at}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E43A8" stop-opacity=".22"/><stop offset="1" stop-color="#5E43A8" stop-opacity="0"/></linearGradient></defs>${[0,1,2,3].map(i=>`<line x1="0" x2="${w}" y1="${8+i*(h-16)/3}" y2="${8+i*(h-16)/3}" stroke="#F1ECE4"/>`).join('')}<path d="${d}L${w} ${h}L0 ${h}Z" fill="url(#g${at})" data-in="${at+1.2}"/><path d="${d}" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-draw="${at}" pathLength="1"/></svg>`};
+const S={
+report:()=>{bd.style.gridTemplateRows='auto 1fr';B(`
+ <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+  ${[['Doanh thu hôm qua',N(486200000,.3),'▲ 12% so với thứ Hai tuần trước'],['Đơn hàng',N(38,.45,'int'),'▲ 5 đơn'],['Giá trị trung bình',N(12794000,.6),'▲ 4%'],['Khách mới',N(9,.75,'int'),'3 khách từ Zalo']].map(([a,b,c],i)=>`<div class="card kpi" data-in="${.1+i*.12}"><small>${a}</small><b>${b}</b><em>${c}</em></div>`).join('')}
+ </div>
+ <div style="display:grid;grid-template-columns:1.45fr 1fr;gap:16px;min-height:0">
+  <div class="card" data-in=".5"><h3>Doanh thu 14 ngày <span class="pill mut">triệu đồng</span></h3>${spark([310,342,298,365,402,388,356,420,455,431,398,470,452,486])}
+   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px">${[['Đồng Khởi',212,.82],['Thảo Điền',168,.65],['Hà Nội',106,.41]].map(([n,v,w],i)=>`<div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>${n}</span><b>${N(v,1+i*.15,'int')} tr</b></div><div class="bar"><i data-grow="${1.1+i*.15}" style="width:${w*100}%"></i></div></div>`).join('')}</div></div>
+  <div class="card" data-in=".8" style="display:flex;flex-direction:column"><h3>Bản tin AI · 7:00 <span class="pill ok">Đã gửi Zalo</span></h3>
+   ${[['Thảo Điền tăng mạnh nhờ bộ Hoa Sen, bán 6 chiếc.',1.8],['Hà Nội còn 2 mẫu nhẫn dưới mức tồn tối thiểu.',2.5],['Đề xuất: gọi lại 5 khách VIP chưa mua trong 90 ngày.',3.2]].map(([t,a])=>`<div class="ln" data-in="${a-.2}"><span class="tick"></span><span data-type="${a}">${t}</span></div>`).join('')}
+   <div style="margin-top:auto;display:flex;gap:8px" data-in="3.9"><span class="pill">Xem chi tiết</span><span class="pill mut">Giao việc cho quản lý</span></div></div>
+ </div>`)},
+ledger:()=>{bd.style.gridTemplateColumns='330px 1fr';B(`
+ <div style="display:flex;flex-direction:column;gap:16px">
+  <div class="card" data-in=".1" style="position:relative;overflow:hidden;background:#FFFEFB">
+   <h3>Hóa đơn vừa chụp <span class="pill warn" data-in=".2">AI đang đọc</span></h3>
+   <div style="font-size:12.5px;line-height:1.7;border:1px dashed #DCD2C4;border-radius:10px;padding:12px 14px;font-family:ui-monospace,monospace">
+    <b style="font-family:BVP">HÓA ĐƠN GTGT</b><br>Đơn vị bán: Công ty Bao bì mẫu<br>Ngày: 16/11 · Số: 0001248<br>Hộp giấy cao cấp × 500 … 3.250.000<br>Túi vải in logo × 200 … 1.100.000<br><b>Tổng cộng: 4.350.000đ</b>
+   </div>
+   <i data-scan="0.3" style="position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#5E43A8,transparent);top:70px;box-shadow:0 0 18px 4px rgba(94,67,168,.35)"></i>
+  </div>
+  <div class="card" data-in="1.6"><h3>AI đã nhận diện</h3>
+   ${[['Nhà cung cấp','Công ty Bao bì mẫu'],['Khoản mục','Chi phí bao bì'],['Số tiền','4.350.000đ'],['Hạn thanh toán','30/11']].map(([a,b],i)=>`<div class="ln" data-in="${1.8+i*.2}"><span class="mut" style="width:120px">${a}</span><b>${b}</b></div>`).join('')}
+  </div>
+ </div>
+ <div class="card" data-in=".3" style="display:flex;flex-direction:column"><h3>Sổ thu chi · tháng 11 <span class="pill ok" data-in="3.4">Đã ghi sổ tự động</span></h3>
+  <table><thead><tr><th>Ngày</th><th>Nội dung</th><th class="r">Thu</th><th class="r">Chi</th><th class="r">Số dư</th></tr></thead><tbody>
+  ${[['12/11','Bán lẻ tại cửa hàng','18.400.000','','126.900.000'],['13/11','Trả lương bán thời gian','','6.000.000','120.900.000'],['14/11','Đơn online #DH-1031','7.250.000','','128.150.000'],['15/11','Tiền điện tháng 10','','2.180.000','125.970.000'],['15/11','Bán lẻ tại cửa hàng','21.600.000','','147.570.000'],['16/11','Bao bì · HĐ 0001248','','4.350.000','143.220.000']].map((r,i)=>`<tr class="${i==5?'new':''}" data-in="${i==5?3:.5+i*.12}">${r.map((c,j)=>`<td class="${j>1?'r':''}">${c}</td>`).join('')}</tr>`).join('')}
+  </tbody></table>
+  <div style="margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding-top:16px">
+   ${[['Tổng thu',47250000,.9],['Tổng chi',12530000,1.1],['Công nợ phải trả',4350000,3.3]].map(([a,v,t])=>`<div class="kpi" data-in="${t}"><small>${a}</small><b>${N(v,t)}</b></div>`).join('')}
+  </div></div>`)},
+chat:()=>{bd.style.gridTemplateColumns='300px 1fr';bd.style.padding='0';bd.style.gap='0';B(`
+ <div style="border-right:1px solid var(--line);padding:16px">
+  ${[['Chị Mai Anh','Chị muốn mùi ấm, hợp đi tối…','Zalo',1],['Anh Đức Huy','Cho anh hỏi giờ mở cửa salon','Messenger',0],['Chị Thu Trang','Đã nhận quà, cảm ơn shop!','Zalo',0],['Chị Ngọc Hà','Còn chai 50ml không em?','Messenger',0],['Anh Tuấn','Đặt lịch thử thứ Bảy được không?','Zalo',0]].map(([n,m,c,on],i)=>`<div data-in="${.1+i*.08}" style="display:flex;gap:10px;padding:11px;border-radius:12px;${on?'background:var(--acc2)':''}"><span class="ava" style="width:38px;height:38px;flex:none"></span><div style="min-width:0;flex:1"><div style="display:flex;justify-content:space-between;font-weight:500;font-size:14px">${n}<span class="pill ${c=='Zalo'?'':'mut'}" style="padding:2px 8px;font-size:11px">${c}</span></div><div class="mut" style="font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${m}</div></div></div>`).join('')}
+ </div>
+ <div style="display:flex;flex-direction:column;padding:18px 24px;gap:12px;min-width:0">
+  <div style="display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line)"><span class="ava"></span><b>Chị Mai Anh</b><span class="pill">Zalo OA</span><span class="sp" style="flex:1"></span><span class="pill ok">AI đang trực</span></div>
+  <div data-in=".4"><p class="who">Khách · 21:42</p><div class="bub c">Chị muốn một mùi ấm, hợp đi tối, tầm 4 triệu. Em gợi ý giúp chị nhé?</div></div>
+  <div data-in="1.1" data-out="1.6" class="mut" style="font-size:13px">Trợ lý AI đang soạn…</div>
+  <div data-in="1.6" style="text-align:right"><p class="who">Trợ lý AI · 21:42</p><div class="bub a" style="text-align:left"><span data-type="1.7">Dạ chị, với mùi ấm cho buổi tối, chị thử Trầm Sớm N°3: tiêu hồng, trầm hương, hổ phách. Chai 50ml giá 3.900.000đ. Chị muốn ghé salon thử mùi không ạ?</span></div></div>
+  <div data-in="3.1"><div class="bub c">Thứ Bảy 3 giờ chiều được không em?</div></div>
+  <div data-in="3.8" style="text-align:right"><div class="bub a" style="text-align:left">Dạ được ạ, em đã giữ chỗ cho chị lúc 15:00 thứ Bảy.</div></div>
+  <div data-in="4.3" style="margin-top:auto;display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--okb);color:var(--ok);font-weight:500"><span class="tick"></span>Đã tạo lịch hẹn: Thứ Bảy 23/11 · 15:00 · Thử mùi tại salon</div>
+ </div>`)},
+calendar:()=>{bd.style.gridTemplateColumns='1fr 300px';const D=['T2 18','T3 19','T4 20','T5 21','T6 22','T7 23'],H=[9,10,11,12,13,14,15,16,17];
+ const ev=[[0,1,2,'Chị Lan · Xem Calibre','#E8E1F5'],[1,4,1.5,'Anh Phong · Bảo dưỡng','#F3E6DA'],[2,0,1,'Chị Vy · Thử dây da','#E1ECF2'],[3,5,2,'Anh Khoa · Xem bộ sưu tập','#E8E1F5'],[4,2,1,'Chị My · Khắc chữ','#F3E6DA'],[5,0,1.5,'Anh Bảo · Nhận đồng hồ','#E1ECF2'],[5,3,1,'Chị Hằng · Tư vấn quà','#F3E6DA']];
+ B(`<div class="card" data-in=".1" style="padding:0;overflow:hidden;position:relative">
+  <div style="display:grid;grid-template-columns:56px repeat(6,1fr);border-bottom:1px solid var(--line)"><span></span>${D.map(d=>`<div style="padding:10px 12px;font-size:13px;font-weight:500">${d}</div>`).join('')}</div>
+  <div style="position:relative;display:grid;grid-template-columns:56px repeat(6,1fr);height:560px">
+   <div>${H.map(h=>`<div style="height:62.2px;font-size:12px;color:var(--mut);padding:4px 8px">${h}:00</div>`).join('')}</div>
+   ${D.map(()=>`<div style="border-left:1px solid #F1ECE4;background:repeating-linear-gradient(#fff 0 61.2px,#F4EFE8 61.2px 62.2px)"></div>`).join('')}
+   ${ev.map(([d,s,l,t,c],i)=>`<div data-in="${.3+i*.1}" style="position:absolute;left:calc(56px + (100% - 56px)/6*${d} + 5px);width:calc((100% - 56px)/6 - 10px);top:${s*62.2+3}px;height:${l*62.2-6}px;background:${c};border-radius:10px;padding:8px 10px;font-size:12.5px;line-height:1.35">${t}</div>`).join('')}
+   <div data-in="2" data-pop style="position:absolute;left:calc(56px + (100% - 56px)/6*5 + 5px);width:calc((100% - 56px)/6 - 10px);top:${6*62.2+3}px;height:${62.2*1.5-6}px;background:var(--acc);color:#fff;border-radius:10px;padding:8px 10px;font-size:12.5px;line-height:1.35;box-shadow:0 10px 24px -8px rgba(94,67,168,.6)"><b>Chị Mai Anh</b><br>Thử mùi · 15:00</div>
+  </div></div>
+ <div style="display:flex;flex-direction:column;gap:16px">
+  <div class="card" data-in="1.2"><h3>Khách vừa đặt</h3><div style="font-size:14px;line-height:1.6"><b>Chị Mai Anh</b><br><span class="mut">Thứ Bảy 23/11 · 15:00–16:30</span><br>Chọn giờ trống qua Zalo, AI xác nhận.</div></div>
+  <div class="card" data-in="2.4"><h3>Tự nhắc khách</h3>
+   ${[['Xác nhận lịch qua Zalo',2.7,'Đã gửi'],['Nhắc trước 1 ngày',3.3,'Hẹn 22/11 · 15:00'],['Nhắc trước 2 giờ',3.8,'Hẹn 23/11 · 13:00'],['Giữ mẫu sẵn trong khay',4.3,'Đã báo cửa hàng']].map(([a,t,s])=>`<div class="ln" data-in="${t}"><span class="tick"></span><div><div>${a}</div><div class="mut" style="font-size:12.5px">${s}</div></div></div>`).join('')}
+  </div></div>`)},
+inventory:()=>{bd.style.gridTemplateColumns='1fr 1fr';B(`
+ <div class="card" data-in=".1"><h3>Đơn hàng hôm nay <span class="pill">${N(24,.2,'int')} đơn</span></h3>
+  ${[['#DH-1048','Chị Hạnh · 2 sản phẩm','Mới','',1.4],['#DH-1047','Anh Nam · 1 sản phẩm','Đang đóng gói','warn',.3],['#DH-1046','Chị Thảo · 3 sản phẩm','Đã giao vận chuyển','ok',.4],['#DH-1045','Anh Long · 1 sản phẩm','Đã giao vận chuyển','ok',.5],['#DH-1044','Chị Mỹ · 2 sản phẩm','Đã giao','ok',.6],['#DH-1043','Chị Lan · 1 sản phẩm','Đã giao','ok',.7]].map(([a,b,s,c,t],i)=>`<div class="ln" data-in="${t}" ${i==0?'style="background:#F6F2FC;margin:0 -10px;padding:9px 10px;border-radius:10px"':''}><b style="width:86px">${a}</b><span style="flex:1">${b}</span><span class="pill ${c}">${s}</span></div>`).join('')}
+ </div>
+ <div style="display:flex;flex-direction:column;gap:16px">
+  <div class="card" data-in=".3"><h3>Tồn kho <span class="pill ok" data-in="1.9">Tự trừ khi có đơn</span></h3>
+   <table><thead><tr><th>Sản phẩm</th><th class="r">Tồn</th><th style="width:150px"></th></tr></thead><tbody>
+   ${[['Nến thơm Trà 200g',86,214,.57,''],['Nến thơm Quế 200g',41,41,.3,''],['Hộp quà Tết size M',12,13,.12,'dec'],['Tinh dầu Trầm 10ml',3,5,.03,'low']].map(([n,v,f,w,x])=>`<tr><td>${n}</td><td class="r"><b ${x?`data-dec="${f}" data-to="${v}" data-at="1.6"`:''}>${x?f:v}</b></td><td><div class="bar"><i data-grow=".6" style="width:${Math.max(4,w*100)}%;${x=='low'?'background:var(--hot)':''}"></i></div></td></tr>`).join('')}
+   </tbody></table></div>
+  <div class="card" data-in="2.4" style="border-color:#F1C9B7;background:#FFF8F3"><h3 style="color:var(--hot)">Cảnh báo sắp hết hàng</h3><div style="font-size:14px;line-height:1.6">Tinh dầu Trầm 10ml còn <b>3</b> chai, dự kiến hết sau 2 ngày.<br><span class="mut">AI đã soạn đơn nhập 50 chai, chờ bạn duyệt.</span></div><div style="display:flex;gap:8px;margin-top:10px" data-in="3.2"><span class="pill">Duyệt đơn nhập</span><span class="pill mut">Để sau</span></div></div>
+ </div>`)},
+plan:()=>{bd.style.gridTemplateColumns='1fr 1fr';B(`
+ <div style="display:flex;flex-direction:column;gap:16px">
+  <div class="card" data-in=".1"><h3>Kết quả tuần 46</h3><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+   ${[['Doanh thu',N(612,.3,'int')+' tr','▲ 8%'],['Đơn hàng',N(171,.45,'int'),'▲ 11'],['Tỷ lệ chốt',N(34,.6,'pct'),'▲ 3 điểm']].map(([a,b,c])=>`<div class="kpi"><small>${a}</small><b>${b}</b><em>${c}</em></div>`).join('')}</div>
+   ${spark([72,80,76,91,88,97,108],'var(--acc)',480,96,.8)}</div>
+  <div class="card" data-in="1"><h3>AI nhận xét</h3>
+   ${[['Cuối tuần chiếm 41% doanh thu, nên tăng ca thứ Bảy.',1.3],['Sản phẩm Quế bán chậm 2 tuần liền.',2],['Khách quay lại tăng sau tin nhắn chăm sóc.',2.6]].map(([t,a])=>`<div class="ln" data-in="${a-.15}"><span class="dot"></span><span data-type="${a}">${t}</span></div>`).join('')}</div>
+ </div>
+ <div class="card" data-in=".5" style="display:flex;flex-direction:column"><h3>Kế hoạch tuần 47 <span class="pill">AI soạn · chờ duyệt</span></h3>
+  ${[['Thêm 1 nhân viên ca thứ Bảy','Quản lý cửa hàng','T7',3.1],['Combo Quế + hộp quà, giảm tồn','Marketing','T3',3.4],['Nhắn chăm sóc 120 khách cũ','Trợ lý AI','T2–T4',3.7],['Đặt thêm nến Trà trước Noel','Kho','T5',4],['Báo cáo giữa tuần tự động','Trợ lý AI','T4',4.3]].map(([a,o,d,t])=>`<div class="ln" data-in="${t}"><span class="tick" style="background:#D9CFC2" data-tick="${t+.4}"></span><span style="flex:1">${a}</span><span class="pill mut">${o}</span><b style="width:52px;text-align:right;font-size:13px">${d}</b></div>`).join('')}
+  <div style="margin-top:auto;display:grid;grid-template-columns:110px repeat(6,1fr);gap:4px;font-size:12px;padding-top:14px" data-in="4.4">
+   <span></span>${['T2','T3','T4','T5','T6','T7'].map(d=>`<span class="mut">${d}</span>`).join('')}
+   ${[['Chăm sóc',0,3],['Combo',1,4],['Nhập hàng',3,1],['Ca T7',5,1]].map(([n,s,l])=>`<span>${n}</span>${Array.from({length:6},(_,i)=>`<i style="height:14px;border-radius:4px;display:block;background:${i>=s&&i<s+l?'#5E43A8':'#F1ECE4'}"></i>`).join('')}`).join('')}
+  </div></div>`)},
+quote:()=>{bd.style.gridTemplateColumns='1fr 1fr 1fr';B(`
+ <div class="card" data-in=".1"><h3>1 · Tin nhắn khách <span class="pill">Zalo</span></h3><div class="bub c" style="max-width:100%">Bên mình cần thuê du thuyền cho 12 khách tối thứ Bảy 30/11, khoảng 4 tiếng, có tiệc nhẹ trên tàu.</div><p class="who" style="margin-top:8px">Anh Quang · 09:14</p></div>
+ <div class="card" data-in=".8"><h3>2 · AI điền yêu cầu</h3>
+  ${[['Số khách','12 người',1.1],['Ngày','Thứ Bảy 30/11',1.35],['Thời lượng','4 giờ · 18:00–22:00',1.6],['Dịch vụ thêm','Tiệc nhẹ trên tàu',1.85],['Tàu phù hợp','Hải Miên 62 · 16 chỗ',2.1]].map(([a,b,t])=>`<div class="ln" data-in="${t}"><span class="mut" style="width:104px">${a}</span><b>${b}</b></div>`).join('')}</div>
+ <div class="card" data-in="2.3" style="display:flex;flex-direction:column"><h3>3 · Báo giá sơ bộ</h3>
+  ${[['Thuê tàu 4 giờ','48.000.000'],['Tiệc nhẹ 12 khách','14.400.000'],['Phí cảng & nhiên liệu','6.200.000']].map(([a,b],i)=>`<div class="ln" data-in="${2.5+i*.25}"><span style="flex:1">${a}</span><b>${b}</b></div>`).join('')}
+  <div class="kpi" data-in="3.3" style="padding-top:10px"><small>Tổng dự kiến</small><b>${N(68600000,3.3)}</b></div>
+  <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px" data-in="4">
+   <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--warnb);color:var(--warn);font-weight:500;font-size:14px" data-in="4" data-out="4.7">Chờ quản lý duyệt</div>
+   <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;background:var(--okb);color:var(--ok);font-weight:500;font-size:14px" data-in="4.7"><span class="tick"></span>Đã duyệt · đã gửi khách</div>
+  </div></div>`)},
+crm:()=>{bd.style.gridTemplateColumns='repeat(3,1fr)';bd.style.alignContent='start';const col=(n,c,cards,at)=>`<div style="display:flex;flex-direction:column;gap:12px"><div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:${c};color:#fff;font-weight:600">${n}<span style="margin-left:auto;font-weight:500">${cards.length}</span></div>${cards.map(([nm,src,sc,note,t])=>`<div class="card" data-in="${t}" ${t>=2?'data-drop':''} style="padding:12px 14px"><div style="display:flex;align-items:center;gap:8px"><span class="ava" style="width:30px;height:30px"></span><b style="font-size:14px">${nm}</b><span style="margin-left:auto;font-weight:600;color:${c}">${N(sc,t+.1,'int')}</span></div><div class="mut" style="font-size:12.5px;margin-top:6px">${note}</div><span class="pill mut" style="margin-top:8px;padding:2px 8px;font-size:11.5px">${src}</span></div>`).join('')}</div>`;
+ B(col('Nóng','var(--hot)',[['Anh Hoàng','Website',92,'Hỏi penthouse 3 phòng ngủ, muốn xem cuối tuần',2.2],['Chị Diệp','Hotline',88,'Đã có ngân sách, cần vay 30%',.4]],0)+col('Ấm','var(--warm)',[['Anh Trí','Zalo',71,'Quan tâm view sông, chưa chốt thời điểm',.55],['Chị Quyên','Website',64,'Tải brochure 2 lần',.7]],0)+col('Lạnh','var(--cold)',[['Anh Sơn','Zalo',38,'Hỏi giá chung chung',.85],['Chị Mai','Hotline',22,'Gọi nhầm dự án khác',1]],0)+`<div data-in="3.2" style="grid-column:1/-1;display:flex;gap:10px;align-items:center;padding:12px 16px;border-radius:14px;background:var(--okb);color:var(--ok);font-weight:500"><span class="tick"></span>Anh Hoàng đã vào CRM · giao cho chuyên viên Thảo · gọi lại trong 15 phút</div>`)},
+care:()=>{bd.style.gridTemplateColumns='1.2fr 1fr';B(`
+ <div class="card" data-in=".1"><h3>Việc AI làm sáng nay <span class="pill">${N(5,.3,'int')} khách</span></h3>
+  ${[['Chị Diệu Anh','Túi mua 11 tháng trước · nhắc bảo dưỡng','Đã nhắn Zalo','ok',1],['Anh Quốc Bảo','Khách thân thiết 2 năm · mời xem BST','Đã gửi thư mời','ok',1.6],['Chị Hạ Vy','Sinh nhật ngày mai · gửi lời chúc','Đã gửi lời chúc','ok',2.2],['Cô Thanh Tâm','Hạng Kim · bảo dưỡng','Chuyển quản lý gọi','warn',2.8],['Chị Ngọc Hân','Chưa đến hạn việc nào','Không làm phiền','mut',3.4]].map(([n,d,s,c,t],i)=>`<div class="ln" data-in="${.3+i*.1}"><span class="ava" style="width:34px;height:34px;flex:none"></span><div style="flex:1;min-width:0"><b>${n}</b><div class="mut" style="font-size:12.5px">${d}</div></div><span class="pill ${c}" data-in="${t}">${s}</span></div>`).join('')}
+ </div>
+ <div class="card" data-in=".6" style="display:flex;flex-direction:column"><h3>Tin nhắn AI soạn <span class="pill">Zalo</span></h3>
+  <p class="who">Gửi Chị Diệu Anh · 08:05</p>
+  <div class="bub a" style="max-width:100%"><span data-type="1.1">Chào chị Diệu Anh, chiếc Túi Khuê 28 của chị đã đồng hành gần một năm. Atelier mời chị ghé dưỡng da miễn phí trong tuần này, chị chọn giờ giúp em nhé.</span></div>
+  <div data-in="3.6" style="margin-top:16px"><p class="who">Khách trả lời · 08:21</p><div class="bub c">Chiều thứ Năm chị ghé nha em.</div></div>
+  <div data-in="4.3" style="margin-top:auto;display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:var(--okb);color:var(--ok);font-weight:500"><span class="tick"></span>Đã đặt lịch dưỡng da · Thứ Năm 21/11</div>
+ </div>`)}
+};
+S[K]();
+/* ---------- máy thời gian ---------- */
+const cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),ez=x=>1-Math.pow(1-cl(x),3);
+const fmt=(v,f)=>f==='int'?Math.round(v).toLocaleString('vi-VN'):f==='pct'?Math.round(v)+'%':(Math.round(v/1000)*1000).toLocaleString('vi-VN')+'đ';
+const Q=s=>[...document.querySelectorAll(s)];
+const types=Q('[data-type]').map(e=>({e,full:e.textContent,at:+e.dataset.type}));
+function frame(t){const out=1-ez((t-5.55)/.4);
+  bd.style.opacity=out;
+  Q('[data-in]').forEach(e=>{const k=ez((t-+e.dataset.in)/.45),o='out' in e.dataset?1-ez((t-+e.dataset.out)/.3):1;e.style.opacity=(k*o).toFixed(3);
+    e.style.transform='pop' in e.dataset?`scale(${.85+.15*k})`:'drop' in e.dataset?`translateY(${(-40*(1-k)).toFixed(1)}px)`:`translateY(${(10*(1-k)).toFixed(1)}px)`;if('out' in e.dataset)e.style.visibility=o<=0?'hidden':'';e.style.maxHeight=o<=0?'0px':'';e.style.overflow=o<=0?'hidden':'';e.style.margin=o<=0?'0':'';e.style.padding=o<=0?'0':''});
+  Q('[data-num]').forEach(e=>{e.textContent=fmt(+e.dataset.num*ez((t-+e.dataset.at)/1.2),e.dataset.fmt)});
+  Q('[data-dec]').forEach(e=>{const a=+e.dataset.dec,b=+e.dataset.to;e.textContent=Math.round(a+(b-a)*ez((t-+e.dataset.at)/.6))});
+  Q('[data-grow]').forEach(e=>{e.style.transform=`scaleX(${ez((t-+e.dataset.grow)/.9).toFixed(3)})`});
+  Q('[data-draw]').forEach(e=>{e.style.strokeDasharray=1;e.style.strokeDashoffset=(1-ez((t-+e.dataset.draw)/1.4)).toFixed(4)});
+  Q('[data-tick]').forEach(e=>{e.style.background=t>=+e.dataset.tick?'var(--ok)':'#D9CFC2'});
+  Q('[data-scan]').forEach(e=>{const k=cl((t-+e.dataset.scan)/1.3);e.style.top=(70+k*150)+'px';e.style.opacity=k>0&&k<1?1:0});
+  types.forEach(({e,full,at})=>{const n=Math.round(full.length*cl((t-at)/(full.length*.022)));e.innerHTML=full.slice(0,n)+(n>0&&n<full.length?'<i class="cur"></i>':'')});
+}
+window.frame=frame;frame(+(new URLSearchParams(location.search).get('t')||5.2));
+</script>
