@@ -145,8 +145,8 @@
   kind: 'product',
   spin: {dir: 'img/spin/watch/', v2: true, ground: [74.6, 52.2], hiStep: 4, frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .07, x: 53, y: 53, side: 'r', t: 'Kim giây nhỏ ở 6 giờ', d: 'Mặt số tia mặt trời, cọc số nổi'},
-   {a: .27, w: .08, x: 66, y: 45, side: 'l', t: 'Vỏ tròn 40 mm'},
-   {a: .5, w: .09, x: 57, y: 27, side: 'r', t: 'Dây da khâu tay'}
+   {a: 0.27, w: .08, x: 57, y: 43, side: 'r', t: 'Vỏ tròn 40 mm'},
+   {a: 0.5, w: .09, x: 58, y: 22, side: 'r', t: 'Dây da khâu tay'}
   ]},
   variants: [
    {
@@ -277,8 +277,8 @@
   cover: 'img/sm-product-candle-set.webp',
   kind: 'product',
   spin: {dir: 'img/spin/candle/', v2: true, ground: [69.9, 45.8], hiStep: 4, frames: 144, loop: true, tone: 'light', hotspots: [
-   {a: 0, w: .08, x: 46, y: 56, side: 'r', t: 'Nhãn chữ nhũ'},
-   {a: .5, w: .12, x: 50, y: 33, side: 'r', t: 'Cốc nến dáng trụ'}
+   {a: 0, w: .08, x: 46, y: 57, side: 'r', t: 'Nhãn chữ nhũ'},
+   {a: 0.5, w: .12, x: 50, y: 26, side: 'r', t: 'Cốc nến dáng trụ'}
   ]},
   variants: [
    {
