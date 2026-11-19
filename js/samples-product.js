@@ -14,10 +14,10 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-perfume-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/perfume/', dirs: ['img/spin/perfume/', 'img/spin/perfume-noir/', 'img/spin/perfume-rose/'], frames: 48, loop: true, tone: 'dark', hotspots: [
-   {a: .97, w: .1, x: 58, y: 64, side: 'r', t: 'Chữ in trên kính', d: 'Tên dòng và số mùi in thẳng lên mặt chai'},
-   {a: .27, w: .1, x: 50, y: 27, t: 'Nắp đá mài', d: 'Đá vân mài bóng trên đai kim loại'},
-   {a: .55, w: .11, x: 50, y: 58, t: 'Khối thủy tinh dày', d: 'Khoang chứa bo tròn nằm giữa lòng kính'}
+  spin: {dir: 'img/spin/perfume/', v2: true, ground: [74.3, 32], hiStep: 4, dirs: ['img/spin/perfume/', 'img/spin/perfume-noir/', ''], frames: 144, loop: true, tone: 'dark', hotspots: [
+   {a: .97, w: .1, x: 59, y: 60, side: 'r', t: 'Chữ in trên kính', d: 'Tên dòng và số mùi in thẳng lên mặt chai'},
+   {a: .27, w: .1, x: 50, y: 24, t: 'Nắp đá mài', d: 'Đá vân mài bóng trên đai kim loại'},
+   {a: .55, w: .11, x: 50, y: 55, t: 'Khối thủy tinh dày', d: 'Khoang chứa bo tròn nằm giữa lòng kính'}
   ]},
   variants: [
    {
@@ -189,7 +189,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-jewel-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/jewel/', dirs: ['img/spin/jewel/', 'img/spin/jewel-sapphire/', 'img/spin/jewel-diamond/', 'img/spin/jewel-ruby/'], frames: 48, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/jewel/', v2: true, ground: [70.6, 37.2], hiStep: 4, frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ bốn chấu'},
    {a: .25, w: .08, x: 52, y: 60, side: 'r', t: 'Đai nhẫn trơn bóng'},
    {a: .5, w: .09, x: 50, y: 27, side: 'r', t: 'Đá chủ giác cắt bậc', d: 'Soi được từ mọi phía'}
@@ -235,7 +235,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-whisky-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/whisky/', dirs: ['img/spin/whisky/', 'img/spin/whisky-y18/', 'img/spin/whisky-y25/'], frames: 48, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/whisky/', v2: true, ground: [74.8, 23.4], hiStep: 4, frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: .98, w: .09, x: 61, y: 62, side: 'r', t: 'Nhãn giấy in nổi', d: 'Dấu hiệu núi mây và số năm ủ'},
    {a: .3, w: .1, x: 50, y: 27, side: 'r', t: 'Màng co cổ chai'},
    {a: .6, w: .1, x: 50, y: 80, side: 'r', t: 'Đáy chai dày'}

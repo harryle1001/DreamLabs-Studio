@@ -217,7 +217,7 @@ function stageProduct(it){
     if(on){$$('.sm-th[data-at]',node).forEach(b=>b.setAttribute('aria-pressed','false'));
       /* đổi mẫu mã: dựng lại trình xem với bộ khung của mẫu đó, giữ nguyên góc đang xem */
       let keep=null;if(v!=null&&v!==sv&&dirOf(v)){if(spin){keep={start:spin.frame(),intro:false,auto:spin.playing()};spin.destroy();spin=null}sv=v}
-      if(!spin)spin=D.spin(sbox,{...keep,dir:dirOf(sv)||sp.dir,frames:sp.frames,loop:sp.loop!==false,arc:sp.arc,rev:sp.rev,tone:sp.tone,hotspots:sp.hotspots,title:it.title,kicker:it.industry===OTHER?'':it.industry});
+      if(!spin)spin=D.spin(sbox,{...sp,...keep,dir:dirOf(sv)||sp.dir,loop:sp.loop!==false,title:it.title,kicker:it.industry===OTHER?'':it.industry});
       if(picker){const vi=Math.min(it.vars.length-1,sv);$$('.sm-sw',picker).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.v===vi)));$('.sm-var-l b',picker).textContent=it.vars[vi].name}}
     else spin&&spin.pause()};
   const show=i=>{const a=all[i];if(!a)return;mode(false);at=i;const t=++tok;
@@ -413,7 +413,7 @@ function wire(){
       const v=$('.sm-spinfeat-v',f),cta=$('[data-sm-open]',f);let cur=null;
       const set=i=>{const it=pick[i],q=it.spin;cur&&cur.destroy();cta.dataset.smId=it.id;
         $$('[data-sf]',f).forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.sf===i)));
-        cur=D.spin(v,{dir:q.dir,frames:q.frames,loop:q.loop!==false,arc:q.arc,rev:q.rev,tone:q.tone,hotspots:q.hotspots,title:it.title,kicker:it.industry===OTHER?'':it.industry})};
+        cur=D.spin(v,{...q,loop:q.loop!==false,title:it.title,kicker:it.industry===OTHER?'':it.industry})};
       f.addEventListener('click',e=>{const b=e.target.closest('[data-sf]');if(b&&b.getAttribute('aria-pressed')!=='true')set(+b.dataset.sf)});
       s.prepend(f);set(0)}});
   const strip=$('#phong-mau');
