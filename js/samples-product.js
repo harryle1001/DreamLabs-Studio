@@ -463,5 +463,101 @@
    {name: 'Nghiêng phải', swatch: '#8a6f45', img: 'img/spin/scan-hai-trinh/007.webp'},
    {name: 'Phía sau', swatch: '#3b2d32', img: 'img/spin/scan-hai-trinh/025.webp'}
   ]
+ },
+ {
+  id: 'product-real-perfume-pink',
+  title: 'Hồng Sương — Ảnh chụp thật',
+  industry: 'Nước hoa',
+  desc: 'Chai nước hoa thủy tinh cắt giác, nước màu hồng đào, vòi xịt kim loại. Năm góc chụp của cùng một chai. Ảnh chụp sản phẩm thật từ thư viện Pexels; tách nền, dựng độ sâu và trình xem do Dream Labs làm: di chuột hoặc kéo để nghiêng sản phẩm, đổi góc chụp, soi chi tiết bằng kính phóng.',
+  tags: ['Ảnh chụp thật', 'Hiệu ứng 2.5D', 'Nhiều góc chụp'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/real/perfume-pink/01-p.webp',
+  kind: 'product',
+  spin: {dir: 'img/real/perfume-pink/', depth: true, frames: 5, loop: false, tone: 'light', bg: '#dce3db', amp: 0.45, shots: [{name: 'Chính diện', ground: [79.9, 26.2]}, {name: 'Nghiêng trái', ground: [79.9, 26.2]}, {name: 'Mặt bên', ground: [80.0, 20.8]}, {name: 'Nghiêng phải', ground: [79.8, 27.0]}, {name: 'Cạnh', ground: [79.9, 21.0]}]},
+  variants: [
+   {name: 'Chính diện', swatch: '#dce3db', img: 'img/real/perfume-pink/01-p.webp'},
+   {name: 'Nghiêng trái', swatch: '#dce3db', img: 'img/real/perfume-pink/02-p.webp'},
+   {name: 'Mặt bên', swatch: '#dce3db', img: 'img/real/perfume-pink/03-p.webp'},
+   {name: 'Nghiêng phải', swatch: '#dce3db', img: 'img/real/perfume-pink/04-p.webp'},
+   {name: 'Cạnh', swatch: '#dce3db', img: 'img/real/perfume-pink/05-p.webp'}
+  ]
+ },
+ {
+  id: 'product-real-headphone-white',
+  title: 'Vân Bạch — Ảnh chụp thật',
+  industry: 'Thiết bị âm thanh',
+  desc: 'Tai nghe chụp tai không dây màu trắng nhám, đệm tai mềm, gọng gập được. Bốn góc chụp: chính diện, nghiêng, mặt bên và khi gập gọn. Ảnh chụp sản phẩm thật từ thư viện Pexels; tách nền, dựng độ sâu và trình xem do Dream Labs làm: di chuột hoặc kéo để nghiêng sản phẩm, đổi góc chụp, soi chi tiết bằng kính phóng.',
+  tags: ['Ảnh chụp thật', 'Hiệu ứng 2.5D', 'Nhiều góc chụp'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/real/headphone-white/01-p.webp',
+  kind: 'product',
+  spin: {dir: 'img/real/headphone-white/', depth: true, frames: 4, loop: false, tone: 'light', bg: '#d5d9e0', shots: [{name: 'Chính diện', ground: [86.1, 70.0]}, {name: 'Nghiêng', ground: [75.9, 72.0]}, {name: 'Mặt bên', ground: [70.4, 72.0]}, {name: 'Gập gọn', ground: [86.0, 32.2]}]},
+  variants: [
+   {name: 'Chính diện', swatch: '#d5d9e0', img: 'img/real/headphone-white/01-p.webp'},
+   {name: 'Nghiêng', swatch: '#d5d9e0', img: 'img/real/headphone-white/02-p.webp'},
+   {name: 'Mặt bên', swatch: '#d5d9e0', img: 'img/real/headphone-white/03-p.webp'},
+   {name: 'Gập gọn', swatch: '#d5d9e0', img: 'img/real/headphone-white/04-p.webp'}
+  ]
+ },
+ {
+  id: 'product-real-headphone-black',
+  title: 'Huyền Âm — Ảnh chụp thật',
+  industry: 'Thiết bị âm thanh',
+  desc: 'Tai nghe chụp tai không dây màu đen nhám, chụp tai bầu, gọng mảnh. Hai góc chụp. Ảnh chụp sản phẩm thật từ thư viện Pexels; tách nền, dựng độ sâu và trình xem do Dream Labs làm: di chuột hoặc kéo để nghiêng sản phẩm, đổi góc chụp, soi chi tiết bằng kính phóng.',
+  tags: ['Ảnh chụp thật', 'Hiệu ứng 2.5D', 'Nhiều góc chụp'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/real/headphone-black/01-p.webp',
+  kind: 'product',
+  spin: {dir: 'img/real/headphone-black/', depth: true, frames: 2, loop: false, tone: 'light', bg: '#e6e2dc', shots: [{name: 'Nghiêng', ground: [71.4, 72.0]}, {name: 'Chính diện', ground: [76.0, 72.0]}]},
+  variants: [
+   {name: 'Nghiêng', swatch: '#e6e2dc', img: 'img/real/headphone-black/01-p.webp'},
+   {name: 'Chính diện', swatch: '#e6e2dc', img: 'img/real/headphone-black/02-p.webp'}
+  ]
+ },
+ {
+  id: 'product-real-bottle-frost',
+  title: 'Lam Tuyết — Ảnh chụp thật',
+  industry: 'Mỹ phẩm',
+  desc: 'Chai thủy tinh mờ vai vuông, nắp pha lê, cổ kim loại. Hai góc chụp. Ảnh chụp sản phẩm thật từ thư viện Pexels; tách nền, dựng độ sâu và trình xem do Dream Labs làm: di chuột hoặc kéo để nghiêng sản phẩm, đổi góc chụp, soi chi tiết bằng kính phóng.',
+  tags: ['Ảnh chụp thật', 'Hiệu ứng 2.5D', 'Nhiều góc chụp'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/real/bottle-frost/01-p.webp',
+  kind: 'product',
+  spin: {dir: 'img/real/bottle-frost/', depth: true, frames: 2, loop: false, tone: 'dark', bg: '#46555f', amp: 0.4, shots: [{name: 'Chính diện', ground: [80.2, 34.0]}, {name: 'Nghiêng', ground: [80.0, 34.2]}]},
+  variants: [
+   {name: 'Chính diện', swatch: '#46555f', img: 'img/real/bottle-frost/01-p.webp'},
+   {name: 'Nghiêng', swatch: '#46555f', img: 'img/real/bottle-frost/02-p.webp'}
+  ]
+ },
+ {
+  id: 'product-real-vase-white',
+  title: 'Bạch Sứ — Ảnh chụp thật',
+  industry: 'Gốm & trang trí',
+  desc: 'Bộ ba bình gốm men trắng mờ: bình vai tròn, bình cổ cao và bình bầu thấp. Hai góc chụp. Ảnh chụp sản phẩm thật từ thư viện Pexels; tách nền, dựng độ sâu và trình xem do Dream Labs làm: di chuột hoặc kéo để nghiêng sản phẩm, đổi góc chụp, soi chi tiết bằng kính phóng.',
+  tags: ['Ảnh chụp thật', 'Hiệu ứng 2.5D', 'Nhiều góc chụp'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/real/vase-white/01-p.webp',
+  kind: 'product',
+  spin: {dir: 'img/real/vase-white/', depth: true, frames: 2, loop: false, tone: 'light', bg: '#cfd2d6', shots: [{name: 'Bộ ba', ground: [78.9, 72.0]}, {name: 'Cận', ground: [83.3, 72.1]}]},
+  variants: [
+   {name: 'Bộ ba', swatch: '#cfd2d6', img: 'img/real/vase-white/01-p.webp'},
+   {name: 'Cận', swatch: '#cfd2d6', img: 'img/real/vase-white/02-p.webp'}
+  ]
+ },
+ {
+  id: 'product-real-vase-blue',
+  title: 'Thanh Lam — Ảnh chụp thật',
+  industry: 'Gốm & trang trí',
+  desc: 'Bình gốm cổ cao và tách cắt giác men lam xám. Ba góc chụp. Ảnh chụp sản phẩm thật từ thư viện Pexels; tách nền, dựng độ sâu và trình xem do Dream Labs làm: di chuột hoặc kéo để nghiêng sản phẩm, đổi góc chụp, soi chi tiết bằng kính phóng.',
+  tags: ['Ảnh chụp thật', 'Hiệu ứng 2.5D', 'Nhiều góc chụp'],
+  pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
+  cover: 'img/real/vase-blue/01-p.webp',
+  kind: 'product',
+  spin: {dir: 'img/real/vase-blue/', depth: true, frames: 3, loop: false, tone: 'light', bg: '#95a2b0', shots: [{name: 'Bình và tách', ground: [85.0, 72.0]}, {name: 'Toàn cảnh', ground: [84.3, 72.0]}, {name: 'Nghiêng', ground: [82.5, 72.0]}]},
+  variants: [
+   {name: 'Bình và tách', swatch: '#95a2b0', img: 'img/real/vase-blue/01-p.webp'},
+   {name: 'Toàn cảnh', swatch: '#95a2b0', img: 'img/real/vase-blue/02-p.webp'},
+   {name: 'Nghiêng', swatch: '#95a2b0', img: 'img/real/vase-blue/03-p.webp'}
+  ]
  }
 ];

@@ -720,3 +720,21 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .spin{--sg:rgba(16,13,22,.72)}
 .spin[data-tone="light"]{--sg:rgba(255,255,255,.82)}
 .spin .spin-k b,.spin .spin-h p,.spin .spin-hint,.spin .spin-bar{-webkit-backdrop-filter:none;backdrop-filter:none}
+/* ── trình xem ảnh chụp thật 2.5D (js/real.js): dùng lại khung .spin ── */
+.spin.is-real{--rbg:#d9dde3;background:var(--rbg);cursor:default}
+.spin.is-real .spin-bgp{background:radial-gradient(120% 92% at 50% 36%,color-mix(in srgb,var(--rbg) 70%,#fff),var(--rbg) 52%,color-mix(in srgb,var(--rbg) 76%,#1a1620))}
+.spin.is-real[data-tone="light"]{--sf:#1d1a22;--sg:rgba(255,255,255,.74);--sl:rgba(29,26,34,.16)}
+.spin.is-real .spin-cv{transform-origin:50% 62%;will-change:transform;backface-visibility:hidden}
+.spin.is-real.is-zoom{cursor:zoom-in}
+.spin.is-real .spin-shadow{aspect-ratio:6/1}
+.spin.is-real.is-first:not(.is-used) .spin-hint{opacity:1;transform:translate(-50%,0)}
+.real-shots{flex:1;min-width:0;display:flex;align-items:center;gap:4px;margin:0 var(--s2);overflow:hidden}
+.real-shots button{flex:none;display:flex;align-items:center;gap:6px;height:34px;padding:0 6px;border:0;border-radius:99px;background:none;color:inherit;font:500 12px/1 var(--f-body);letter-spacing:.02em;cursor:pointer;opacity:.62;transition:opacity var(--d1) var(--ease),background var(--d1) var(--ease),padding var(--d1) var(--ease)}
+.real-shots button i{width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor;transition:background var(--d1) var(--ease)}
+.real-shots button span{display:none;white-space:nowrap}
+.real-shots button[aria-pressed="true"]{opacity:1;padding:0 12px 0 10px;background:var(--sl)}
+.real-shots button[aria-pressed="true"] i{background:currentColor}
+.real-shots button[aria-pressed="true"] span{display:block}
+.real-shots button:hover{opacity:1}
+.real-shots button:focus-visible{outline:2px solid var(--sf);outline-offset:-2px}
+@container (min-width:560px){.real-shots button span{display:block}.real-shots button{padding:0 10px}}

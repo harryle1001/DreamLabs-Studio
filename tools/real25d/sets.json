@@ -1,0 +1,107 @@
+{
+ "perfume-pink": {
+  "fill": 0.6,
+  "shots": [
+   {
+    "id": 16266287,
+    "name": "Chính diện"
+   },
+   {
+    "id": 16266288,
+    "name": "Nghiêng trái"
+   },
+   {
+    "id": 16266289,
+    "name": "Mặt bên"
+   },
+   {
+    "id": 16266291,
+    "name": "Nghiêng phải"
+   },
+   {
+    "id": 16266292,
+    "name": "Cạnh"
+   }
+  ],
+  "soft": 9,
+  "amp": 0.45
+ },
+ "headphone-white": {
+  "shots": [
+   {
+    "id": 3394666,
+    "name": "Chính diện"
+   },
+   {
+    "id": 3394665,
+    "name": "Nghiêng"
+   },
+   {
+    "id": 3394655,
+    "name": "Mặt bên"
+   },
+   {
+    "id": 3394648,
+    "name": "Gập gọn"
+   }
+  ],
+  "bg": "#d5d9e0"
+ },
+ "headphone-black": {
+  "shots": [
+   {
+    "id": 7772547,
+    "name": "Nghiêng"
+   },
+   {
+    "id": 7772548,
+    "name": "Chính diện"
+   }
+  ],
+  "bg": "#e6e2dc"
+ },
+ "bottle-frost": {
+  "fill": 0.6,
+  "shots": [
+   {
+    "id": 34089129,
+    "name": "Chính diện"
+   },
+   {
+    "id": 34089127,
+    "name": "Nghiêng"
+   }
+  ],
+  "soft": 8,
+  "amp": 0.4
+ },
+ "vase-white": {
+  "shots": [
+   {
+    "id": 14608172,
+    "name": "Bộ ba"
+   },
+   {
+    "id": 14608169,
+    "name": "Cận"
+   }
+  ],
+  "bg": "#cfd2d6"
+ },
+ "vase-blue": {
+  "shots": [
+   {
+    "id": 8801077,
+    "name": "Bình và tách"
+   },
+   {
+    "id": 8801088,
+    "name": "Toàn cảnh"
+   },
+   {
+    "id": 8801080,
+    "name": "Nghiêng"
+   }
+  ]
+ }
+}

@@ -6,7 +6,7 @@ const fs=require('fs'),path=require('path'),R=__dirname,ex=f=>fs.existsSync(path
 /* Tỷ giá tham khảo cho bản /en/ và /ja/ (VNĐ cho 1 đơn vị ngoại tệ). Sửa số ở đây rồi chạy lại node build.js. */
 const FX_RATE={USD:25400,JPY:165};
 const css=['css/fonts.css','css/tokens.css','css/base.css','css/core.css','css/work.css','css/lab.css','css/samples.css','css/showroom.css','css/sound.css'].filter(ex);
-const js=['vendor/gsap.min.js','vendor/ScrollTrigger.min.js','vendor/SplitText.min.js','vendor/lenis.min.js','js/data.js','js/kit.js','js/i18n.js','js/core.js','js/work.js','js/lab.js'].filter(ex).concat(fs.readdirSync(path.join(R,'js')).filter(f=>/^samples-.+\.js$/.test(f)).sort().map(f=>'js/'+f),['js/spin.js','js/samples.js','js/showroom.js','js/sound.js'].filter(ex));
+const js=['vendor/gsap.min.js','vendor/ScrollTrigger.min.js','vendor/SplitText.min.js','vendor/lenis.min.js','js/data.js','js/kit.js','js/i18n.js','js/core.js','js/work.js','js/lab.js'].filter(ex).concat(fs.readdirSync(path.join(R,'js')).filter(f=>/^samples-.+\.js$/.test(f)).sort().map(f=>'js/'+f),['js/real.js','js/spin.js','js/samples.js','js/showroom.js','js/sound.js'].filter(ex));
 /* mục Bài viết: dựng blog/, khối "Bài viết mới" (src/partials/70-blog.html) và sitemap.xml trước khi ghép trang */
 try{require('./tools/blog.js')}catch(e){console.warn('Blog lỗi:',e.message)}
 /* trang dịch vụ: <slug>/index.html từ src/pages/ (tools/pages.js) */

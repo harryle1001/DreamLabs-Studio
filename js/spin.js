@@ -22,6 +22,7 @@ const TAU=Math.PI*2,FLOAT_MS=5200,ZOOM=2.6;
 
 D.spin=function(host,o){
   o=o||{};
+  if(o.depth&&D.real)return D.real(host,o);                                  /* ảnh chụp thật 2.5D: js/real.js */
   const N=Math.max(2,o.frames|0),loop=o.loop!==false,arc=loop?360:(+o.arc||120),sgn=o.rev?-1:1,dir=String(o.dir||''),RM=RMQ.matches;
   const V2=!!o.v2,HS=V2?Math.max(1,o.hiStep|0||2):0,GR=Array.isArray(o.ground)?o.ground:[78,40],light=o.tone==='light';
   const name=String(o.title||'').split(/\s[—–-]\s/)[0].trim(),hs=(Array.isArray(o.hotspots)?o.hotspots:[]).filter(h=>h&&h.t);

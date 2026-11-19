@@ -52,7 +52,7 @@ const total=()=>CATS.reduce((a,c)=>a+items(c.id).length,0);
 const catOf=id=>CATS.find(c=>c.id===id);
 const kindBadge=it=>{const r=it.raw;
   if(it.kind==='site')return str(r.demo)?'<i class="sm-dot"></i>'+T('Chạy thật'):T('Ảnh toàn trang');
-  if(it.kind==='product')return it.spin?'<i class="sm-dot"></i>'+T(it.spin.loop===false?'Xoay đa góc':'Xoay 360°'):T('{n} mẫu mã',{n:it.vars.length});
+  if(it.kind==='product')return it.spin?'<i class="sm-dot"></i>'+T(it.spin.depth?'Ảnh thật 2.5D':it.spin.loop===false?'Xoay đa góc':'Xoay 360°'):T('{n} mẫu mã',{n:it.vars.length});
   if(it.kind==='video')return'<i class="sm-tri"></i>'+(+r.duration?dur(r.duration):T('Phim'))+(RATIO[str(r.ratio)]?' · '+str(r.ratio):'');
   if(it.kind==='interactive')return'<i class="sm-dot"></i>'+T('Tự tay thử');
   return''};
@@ -208,7 +208,7 @@ function stageProduct(it){
   let at=0,tok=0,spin=null;const sp=it.spin;
   const node=el('div','sm-prod',`${sp?'<div class="sm-spinbox"></div>':''}<div class="sm-pstage" data-imgbox style="--a:${((it.i*137.5)%360).toFixed(1)}deg"><span class="sm-mono" aria-hidden="true">${mono(it.title)}</span><img class="sm-pi" alt="" decoding="async"><img class="sm-pi" alt="" decoding="async">
      <span class="sm-pcap" aria-live="polite"></span><button class="sm-ib sm-zoomb" type="button" data-zoom aria-label="${T('Phóng to ảnh')}" data-cursor="Phóng to"><svg class="sm-ar" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5L9 7M6.5 13.5h-4v-4M2.5 13.5L7 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
-   ${all.length>1||sp?`<div class="sm-gal" role="group" aria-label="${T('Ảnh của mẫu này')}">${sp?`<button class="sm-th sm-th-spin" type="button" data-spin aria-pressed="false" aria-label="${T(sp.loop===false?'Xem xoay nhiều góc':'Xem xoay 360 độ')}"><b>${sp.loop===false?T('Xoay'):'360°'}</b></button>`:''}${all.map((a,i)=>`<button class="sm-th" type="button" data-at="${i}" data-imgbox aria-pressed="false" aria-label="${esc(a.cap)}"><img src="${esc(a.src)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:''}`);
+   ${all.length>1||sp?`<div class="sm-gal" role="group" aria-label="${T('Ảnh của mẫu này')}">${sp?`<button class="sm-th sm-th-spin" type="button" data-spin aria-pressed="false" aria-label="${T(sp.depth?'Xem ảnh thật 2.5D':sp.loop===false?'Xem xoay nhiều góc':'Xem xoay 360 độ')}"><b>${sp.depth?'2.5D':sp.loop===false?T('Xoay'):'360°'}</b></button>`:''}${all.map((a,i)=>`<button class="sm-th" type="button" data-at="${i}" data-imgbox aria-pressed="false" aria-label="${esc(a.cap)}"><img src="${esc(a.src)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:''}`);
   const box=$('.sm-pstage',node),layers=$$('.sm-pi',node),cap=$('.sm-pcap',node);
   const picker=it.vars.length>1?el('div','sm-var',`<p class="sm-var-l">${T('Mẫu mã')} <b></b><small>${T('{n} lựa chọn',{n:pad(it.vars.length)})}</small></p><div class="sm-sws" role="group" aria-label="${T('Chọn mẫu mã')}">${it.vars.map((v,i)=>`<button class="sm-sw" type="button" data-v="${i}" aria-pressed="false"><i${v.swatch?` style="background:${esc(v.swatch)}"`:''}></i><span>${esc(v.name)}</span></button>`).join('')}</div>`):null;
   const sbox=$('.sm-spinbox',node),sth=$('.sm-th-spin',node);
@@ -275,7 +275,7 @@ const STAGE={site:stageSite,product:stageProduct,video:stageVideo,interactive:st
 /* ───────── trang chi tiết ───────── */
 function facts(it){const r=it.raw,f=[[T('Loại'),KIND_LABEL[it.kind]]];
   if(it.kind==='site')f.push([T('Xem trên'),[str(r.long)&&T('Máy tính'),str(r.longM)&&T('Điện thoại')].filter(Boolean).join(' · ')||T('Demo trực tiếp')]);
-  if(it.kind==='product'){it.spin&&f.push([T('Trình xem'),T(it.spin.loop===false?'Xoay qua lại, {n} khung':'Xoay 360°, {n} khung',{n:it.spin.frames})]);f.push([T('Mẫu mã'),T('{n} lựa chọn',{n:it.vars.length})]);it.gal.length&&f.push([T('Ảnh bổ sung'),T('{n} ảnh',{n:it.gal.length})])}
+  if(it.kind==='product'){it.spin&&f.push([T('Trình xem'),T(it.spin.depth?'Ảnh thật 2.5D, {n} góc chụp':it.spin.loop===false?'Xoay qua lại, {n} khung':'Xoay 360°, {n} khung',{n:it.spin.frames})]);f.push([T('Mẫu mã'),T('{n} lựa chọn',{n:it.vars.length})]);it.gal.length&&f.push([T('Ảnh bổ sung'),T('{n} ảnh',{n:it.gal.length})])}
   if(it.kind==='video'){+r.duration&&f.push([T('Thời lượng'),dur(r.duration)]);RATIO[str(r.ratio)]&&f.push([T('Tỷ lệ'),str(r.ratio)]);str(r.before)&&f.push([T('So sánh'),T('Trước / sau khi chỉnh')])}
   if(it.kind==='interactive')f.push([T('Cách xem'),T('Tự thao tác, không cần cài đặt')]);
   f.push([T('Ngành'),it.industry]);return f}
@@ -404,10 +404,10 @@ function wire(){
         <span class="sm-mini-t">${esc(it.title)}</span><span class="sm-mini-i">${esc(it.industry||'')}</span></button>`).join('')}</div>`;
     /* khối xoay 360: một trình xem chạy sẵn (chỉ tải khung khi cuộn tới), đổi được sản phẩm, nút mở Phòng mẫu */
     const sp=its.filter(it=>it.spin);
-    if(sp.length){const real=sp.filter(it=>/\/real-/.test(it.spin.dir)),pick=[...sp.filter(it=>!real.includes(it)).slice(0,4),...real.slice(0,1)],short=it=>it.title.split(/\s[—–-]\s/)[0];
+    if(sp.length){const real=sp.filter(it=>/\/real-/.test(it.spin.dir)),dep=sp.filter(it=>it.spin.depth),pick=[...sp.filter(it=>!real.includes(it)&&!it.spin.depth).slice(0,3),...dep.slice(0,2),...real.slice(0,1)],short=it=>it.title.split(/\s[—–-]\s/)[0];
       const f=el('div','sm-spinfeat',`<div class="sm-spinfeat-v"></div><div class="sm-spinfeat-c"><span class="sm-spinfeat-k">${T('Xoay 360° ngay trên web')}</span>
         <h4>${T('Khách tự tay xoay sản phẩm, <em>soi từng góc.</em>')}</h4>
-        <p>${T('Dream Labs dựng trình xem 360 độ từ ảnh quay bàn xoay hoặc mô hình 3D của sản phẩm: kéo để xoay, điểm chú thích hiện theo góc, chạy mượt trên điện thoại.')}</p>
+        <p>${T('Dream Labs dựng trình xem từ ảnh quay bàn xoay, mô hình 3D hoặc ảnh chụp thật của sản phẩm: kéo để xoay hay nghiêng, soi chi tiết bằng kính phóng, chạy mượt trên điện thoại.')}</p>
         ${pick.length>1?`<div class="sm-spinfeat-p" role="group" aria-label="${T('Chọn sản phẩm để xoay thử')}">${pick.map((it,i)=>`<button type="button" data-sf="${i}" aria-pressed="${!i}">${esc(short(it))}</button>`).join('')}</div>`:''}
         <button class="btn primary" type="button" data-sm-open="${c.id}" data-sm-id="${esc(pick[0].id)}">${T('Mở Phòng mẫu sản phẩm')} ${ARROW}</button></div>`);
       const v=$('.sm-spinfeat-v',f),cta=$('[data-sm-open]',f);let cur=null;
