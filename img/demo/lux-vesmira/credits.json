@@ -1,0 +1,107 @@
+{
+ "hero": {
+  "author": "The Glorious Studio",
+  "page": "https://www.pexels.com/photo/golden-ring-with-gem-18451698/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/18451698/pexels-photo-18451698.jpeg",
+  "w": 2813,
+  "h": 3505,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "nhan": {
+  "author": "The Glorious Studio",
+  "page": "https://www.pexels.com/photo/golden-ring-with-gem-18451698/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/18451698/pexels-photo-18451698.jpeg",
+  "w": 2813,
+  "h": 3505,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "bongtai": {
+  "author": "Lê Minh Hải",
+  "page": "https://www.pexels.com/photo/silver-jewelry-on-black-background-25403219/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/25403219/pexels-photo-25403219.jpeg",
+  "w": 3285,
+  "h": 3286,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "daychuyen": {
+  "author": "Mohamad Ali Altaweel",
+  "page": "https://www.pexels.com/photo/display-of-jewelry-with-diamonds-19820885/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/19820885/pexels-photo-19820885.jpeg",
+  "w": 5844,
+  "h": 3811,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "lac": {
+  "author": "The Glorious Studio",
+  "page": "https://www.pexels.com/photo/silver-bracelet-with-diamond-in-close-up-photography-5370647/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5370647/pexels-photo-5370647.jpeg",
+  "w": 6730,
+  "h": 4521,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "mat": {
+  "author": "The Glorious Studio",
+  "page": "https://www.pexels.com/photo/silver-pendant-with-diamonds-in-close-up-photography-5370650/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5370650/pexels-photo-5370650.jpeg",
+  "w": 6810,
+  "h": 4570,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "studs": {
+  "author": "say straight",
+  "page": "https://www.pexels.com/photo/close-up-photo-diamonds-stud-earrings-2735970/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg",
+  "w": 3361,
+  "h": 4201,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ }
+}

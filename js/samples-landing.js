@@ -121,5 +121,31 @@
     demo: 'demos/lux-lp-orsenne.html',
     long: 'img/sm-landing-orsenne-long.webp',
     longM: 'img/sm-landing-orsenne-long-m.webp'
+  },
+  {
+    id: 'landing-perlune',
+    title: 'Perlune · Ngọc ba vùng biển',
+    industry: 'Trang sức',
+    desc: 'Mời hẹn xem ngọc trai Akoya, South Sea, Tahiti: chọn loại ngọc, cỡ hạt, độ dài chuỗi hiện trên hình bóng cổ, chọn khóa để ra giá, xem cận ánh xà cừ.',
+    tags: ['Chọn chuỗi ngọc', 'Xem cận', 'Đặt lịch'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-perlune.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-perlune.html',
+    long: 'img/sm-landing-perlune-long.webp',
+    longM: 'img/sm-landing-perlune-long-m.webp'
+  },
+  {
+    id: 'landing-vantrel',
+    title: 'Vantrel · VT-01 và trang sức nam',
+    industry: 'Đồng hồ',
+    desc: 'Mời đeo thử đồng hồ cơ concept VT-01: kim chạy theo giờ thật, đổi mặt số, vỏ và dây trên hình vẽ, chọn nhẫn, vòng tay, khuy măng sét có khắc chữ hiện ngay, đặt lịch tại boutique.',
+    tags: ['Giờ thật', 'Phối đồng hồ', 'Khắc chữ'],
+    pkg: 'Landing Page — Cao cấp',
+    cover: 'img/sm-landing-vantrel.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-vantrel.html',
+    long: 'img/sm-landing-vantrel-long.webp',
+    longM: 'img/sm-landing-vantrel-long-m.webp'
   }
 ];

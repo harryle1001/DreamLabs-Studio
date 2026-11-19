@@ -168,5 +168,44 @@
     demo: 'demos/lux-obsidra.html',
     long: 'img/sm-web-obsidra-long.webp',
     longM: 'img/sm-web-obsidra-long-m.webp'
+  },
+  {
+    id: 'web-amaurelle',
+    title: 'Amaurelle',
+    industry: 'Trang sức',
+    desc: 'Website nhẫn cưới tông kem và vàng hồng, khung ảnh hình vòm: trình tạo nhẫn đổi kim loại, kiểu ổ, dáng viên chủ, carat ngay trên hình vẽ, cặp nhẫn cưới chọn size riêng, công cụ đo size và đặt lịch thử nhẫn.',
+    tags: ['Tạo nhẫn', 'Đo size', 'Đặt lịch'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-amaurelle.webp',
+    kind: 'site',
+    demo: 'demos/lux-amaurelle.html',
+    long: 'img/sm-web-amaurelle-long.webp',
+    longM: 'img/sm-web-amaurelle-long-m.webp'
+  },
+  {
+    id: 'web-vesmira',
+    title: 'Vesmira',
+    industry: 'Trang sức',
+    desc: 'Website kim cương nền đen, chữ serif lớn kiểu tạp chí: lọc bộ sưu tập theo loại, soi cận bằng kính lúp theo chuột hoặc ngón tay, phóng to chụm hai ngón, chọn kim loại và 4C để giá cập nhật, hẹn xem riêng.',
+    tags: ['Kính lúp', 'Chọn 4C', 'Lọc sản phẩm'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-vesmira.webp',
+    kind: 'site',
+    demo: 'demos/lux-vesmira.html',
+    long: 'img/sm-web-vesmira-long.webp',
+    longM: 'img/sm-web-vesmira-long-m.webp'
+  },
+  {
+    id: 'web-lac-kim',
+    title: 'Lạc Kim',
+    industry: 'Trang sức',
+    desc: 'Website vàng ta thủ công tông sơn mài đỏ đen và vàng, mặt trống đồng tự vẽ xoay chậm: họa tiết sen, mây hiện theo nét vẽ, tính giá theo tuổi vàng và chỉ, phân, đo size nhẫn, lắc, vòng, xem cận và đặt lịch.',
+    tags: ['Họa tiết Việt', 'Tính giá vàng', 'Đo size'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-lac-kim.webp',
+    kind: 'site',
+    demo: 'demos/lux-lac-kim.html',
+    long: 'img/sm-web-lac-kim-long.webp',
+    longM: 'img/sm-web-lac-kim-long-m.webp'
   }
 ];

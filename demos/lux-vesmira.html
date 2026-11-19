@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="vi" data-slug="lux-vesmira" data-lenis="1.15">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Vesmira — Trang sức kim cương (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một nhà trang sức kim cương: lọc bộ sưu tập, xem cận bằng kính lúp, chọn kim loại và 4C, đặt lịch xem riêng.">
+<style>
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/noto-serif-display-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/noto-serif-display-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:italic;font-display:swap;src:url(fonts/noto-serif-display-vietnamese-wght-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:italic;font-display:swap;src:url(fonts/noto-serif-display-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Archivo";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/archivo-vietnamese-wdth-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Archivo";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--bg:#0A0A0B;--bg2:#141416;--ink:#F2EEE8;--mut:#9A958D;--acc:#D8CBB4;--line:rgba(242,238,232,.14);
+ --fd:"Noto Serif Display",Georgia,serif;--fb:Archivo,system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.6 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+img,svg{display:block;max-width:100%}picture{display:block}
+h1,h2,h3,p,ul,ol,figure,dl,dd,fieldset{margin:0;padding:0}ul,ol{list-style:none}fieldset{border:0;min-width:0}
+h1,h2,h3{font-family:var(--fd);font-weight:200;line-height:1;letter-spacing:-.02em}
+input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:1px solid var(--acc);outline-offset:3px}
+::selection{background:var(--ink);color:var(--bg)}
+.w{width:100%;max-width:1440px;margin:0 auto;padding:0 max(18px,4vw)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.lb{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:500;font-stretch:85%;color:var(--mut)}
+.h2{font-size:clamp(44px,7vw,120px)}.h2 em{font-style:italic;font-weight:300;color:var(--acc)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 28px;background:var(--ink);color:var(--bg);font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;font-stretch:85%;transition:background .5s var(--ease),color .5s}
+.btn:hover{background:var(--acc)}
+.btn.o{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.btn.o:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.btn i{width:18px;height:1px;background:currentColor;position:relative}.btn i::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border:solid currentColor;border-width:1px 1px 0 0;transform:rotate(45deg)}
+.tc{font-size:10px;letter-spacing:.24em;text-transform:uppercase;border:1px solid var(--line);padding:3px 8px;color:var(--acc)}
+/* hiện dần (CSS khi không có GSAP) */
+.js [data-r]{opacity:0;transform:translate3d(0,24px,0);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease);transition-delay:calc(var(--i,0)*80ms)}
+.js [data-r].in{opacity:1;transform:none}
+.gs [data-r]{transition:none}
+/* đầu trang */
+.hd{position:fixed;inset:0 0 auto;z-index:40;transition:background .5s}
+.sc .hd{background:rgba(10,10,11,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.hd .w{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:18px;border-bottom:1px solid var(--line)}
+.lg{font:300 20px var(--fd);letter-spacing:.42em;min-height:44px;display:flex;align-items:center;gap:12px}
+.nv{display:flex;gap:30px}.nv a{min-height:44px;display:flex;align-items:center;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-stretch:85%;color:var(--mut);transition:color .4s}.nv a:hover{color:var(--ink)}
+.mb{display:none;min-height:44px;padding:0 4px;font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.mn{position:fixed;inset:0;z-index:35;background:var(--bg);display:grid;align-content:center;padding:0 24px;gap:6px;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+.no .mn{opacity:1;visibility:visible}.mn a{font:200 46px/1.2 var(--fd);min-height:60px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+@media(max-width:900px){.nv{display:none}.mb{display:block}.lg{font-size:16px;letter-spacing:.32em}}
+.back{position:fixed;left:12px;bottom:12px;z-index:50;min-height:44px;padding:0 16px;display:flex;align-items:center;background:rgba(242,238,232,.92);color:var(--bg);font-size:12px;letter-spacing:.04em}
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;padding:90px 0 40px}
+.hi{position:absolute;right:0;top:0;width:min(58vw,880px);height:100%}
+.hi picture,.hi img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.hi::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg),rgba(10,10,11,0) 40%),linear-gradient(0deg,var(--bg),rgba(10,10,11,0) 30%)}
+.hero .w{position:relative;z-index:2;display:grid;gap:26px}
+.h1{font-size:clamp(58px,9.4vw,164px);line-height:.95;max-width:6.4em}
+.h1 em{font-style:italic;font-weight:300;color:var(--acc)}
+.hr{display:flex;justify-content:space-between;align-items:end;gap:28px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+.hr p{max-width:28em;color:var(--mut)}
+.hn{display:flex;gap:40px}.hn b{display:block;font:200 40px/1 var(--fd)}.hn span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-stretch:85%}
+@media(max-width:900px){.hero{align-items:end;padding-bottom:30px}.hi{width:100%;height:64svh}.hi::after{background:linear-gradient(0deg,var(--bg) 8%,rgba(10,10,11,0) 55%)}.hn{gap:24px}.hn b{font-size:30px}}
+/* bộ sưu tập */
+.sec{padding:100px 0;position:relative}@media(min-width:901px){.sec{padding:160px 0}}
+.sh{display:grid;gap:22px;margin-bottom:44px}
+@media(min-width:901px){.sh{grid-template-columns:1fr auto;align-items:end}}
+.ft{display:flex;gap:4px 22px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.ft button{min-height:48px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-stretch:85%;color:var(--mut);position:relative;transition:color .4s}
+.ft button sup{font-size:9px;margin-left:3px;color:var(--acc)}
+.ft button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--ink);transform:scaleX(0);transition:transform .6s var(--ease)}
+.ft button[aria-pressed=true]{color:var(--ink)}.ft button[aria-pressed=true]::after{transform:none}
+.gr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 12px}
+@media(min-width:901px){.gr{grid-template-columns:repeat(3,minmax(0,1fr));gap:70px 28px}.gr .cd:nth-child(3n+2){margin-top:90px}.gr.f .cd{margin-top:0!important}}
+.cd{display:grid;gap:12px;text-align:left;width:100%;min-width:0;align-content:start}
+.cd .im{position:relative;overflow:hidden;background:#000;aspect-ratio:1}
+.cd img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter 1s}
+.cd:hover img{transform:scale(1.06)}
+.cd .im::after{content:"Xem cận";position:absolute;right:0;bottom:0;padding:10px 14px;background:var(--ink);color:var(--bg);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-stretch:85%;transform:translateY(100%);transition:transform .5s var(--ease)}
+.cd:hover .im::after,.cd:focus-visible .im::after{transform:none}
+.cd h3{font:300 clamp(22px,2.2vw,32px)/1.1 var(--fd)}.cd p{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:var(--mut);flex-wrap:wrap}
+.cd.hid{display:none}@media(max-width:900px){.cd p{flex-direction:column;gap:0}.c4 li{padding:20px 16px}}
+.cold img{filter:saturate(.18) brightness(.92) contrast(1.06)}
+/* xem cận + cấu hình */
+.at{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ag{display:grid;gap:36px}
+@media(min-width:901px){.ag{grid-template-columns:1.1fr .9fr;gap:5vw;align-items:start}.vw{position:sticky;top:90px}}
+.vw{display:grid;gap:12px}
+.fig{position:relative;overflow:hidden;background:#000;aspect-ratio:1;cursor:crosshair;user-select:none;-webkit-user-select:none}
+.fig.lm{touch-action:none}
+.fig img{width:100%;height:100%;object-fit:cover;pointer-events:none;transition:opacity .5s}
+.lens{position:absolute;left:0;top:0;width:190px;height:190px;margin:-95px 0 0 -95px;border-radius:50%;pointer-events:none;opacity:0;transform:scale(.6);transition:opacity .3s,transform .4s var(--ease);background-repeat:no-repeat;box-shadow:0 0 0 1px rgba(242,238,232,.7),0 20px 50px rgba(0,0,0,.6);will-change:transform,left,top}
+.lens.on{opacity:1;transform:none}
+.fig .hint{position:absolute;left:12px;top:12px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:rgba(10,10,11,.6);padding:6px 10px;font-stretch:85%;pointer-events:none;transition:opacity .4s}
+.fig.used .hint{opacity:0}
+.vt{display:flex;gap:8px;flex-wrap:wrap}
+.vt button{min-height:48px;padding:0 18px;box-shadow:inset 0 0 0 1px var(--line);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-stretch:85%;display:inline-flex;align-items:center;gap:10px}
+.vt button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.vt .mg{display:inline-flex;align-items:center;margin-left:auto;box-shadow:inset 0 0 0 1px var(--line)}.vt .mg button{box-shadow:none;width:48px;padding:0;justify-content:center;font-size:18px}.vt .mg output{min-width:42px;text-align:center;font-size:12px}
+.cf h2{font-size:clamp(40px,4.4vw,70px);margin:10px 0 6px}.cf .sub{color:var(--mut);margin-bottom:26px}
+.opt{border-top:1px solid var(--line);padding:18px 0;display:grid;gap:10px}
+.opt .t{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.opt .t b{font:300 22px var(--fd)}.opt .t span{font-size:13px;color:var(--acc)}
+.opt p{font-size:13px;color:var(--mut);max-width:34em}
+.ch{display:flex;flex-wrap:wrap;gap:6px}
+.ch button{min-width:48px;min-height:46px;padding:0 14px;box-shadow:inset 0 0 0 1px var(--line);font-size:13px;font-variant-numeric:tabular-nums;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .35s,color .35s,box-shadow .35s}
+.ch button:hover{box-shadow:inset 0 0 0 1px var(--mut)}
+.ch button[aria-pressed=true]{background:var(--ink);color:var(--bg);box-shadow:none}
+.sw{width:14px;height:14px;border-radius:50%}
+.tot{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;border-top:1px solid var(--ink);padding-top:20px;margin-top:6px}
+.tot small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);font-stretch:85%}
+.tot b{font:200 clamp(34px,3.6vw,52px)/1 var(--fd);white-space:nowrap}
+.tot .btn{flex:1 1 220px}
+/* 4C */
+.c4{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+@media(min-width:901px){.c4{grid-template-columns:repeat(4,1fr)}}
+.c4 li{background:var(--bg);padding:26px 22px;display:grid;gap:8px;align-content:start}
+.c4 b{font:200 clamp(36px,4vw,54px)/1 var(--fd);color:var(--acc)}.c4 h3{font:400 13px var(--fb);letter-spacing:.2em;text-transform:uppercase;font-stretch:85%}.c4 p{font-size:13px;color:var(--mut)}
+/* đặt lịch */
+.bk{display:grid;gap:40px}@media(min-width:901px){.bk{grid-template-columns:.8fr 1.2fr;gap:6vw}}
+.bkf{display:grid;gap:24px}
+.bk-g{display:grid;gap:10px}.bk-g>span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-stretch:85%}
+.city{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.city label{cursor:pointer;position:relative}.city input{position:absolute;opacity:0}
+.city span{display:block;padding:14px 16px;min-height:64px;background:var(--bg);transition:background .4s,color .4s}
+.city b{display:block;font:300 24px/1.1 var(--fd)}.city small{font-size:11px;color:var(--mut)}
+.city input:checked+span{background:var(--ink);color:var(--bg)}.city input:checked+span small{color:#555}
+.city input:focus-visible+span{outline:1px solid var(--acc);outline-offset:-4px}
+.bk-d{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.bk-d button{flex:none;width:60px;min-height:76px;box-shadow:inset 0 0 0 1px var(--line);display:grid;place-content:center;justify-items:center;scroll-snap-align:start}
+.bk-d b{font:200 26px/1.1 var(--fd)}.bk-d small{font-size:10px;color:var(--mut);letter-spacing:.08em}
+.bk-d button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.bk-t{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.bk-t button{min-height:46px;box-shadow:inset 0 0 0 1px var(--line);font-variant-numeric:tabular-nums}
+.bk-t button[aria-pressed=true]{background:var(--ink);color:var(--bg)}.bk-t button:disabled{opacity:.28;text-decoration:line-through;cursor:not-allowed}
+.fi{display:grid;gap:12px}@media(min-width:600px){.fi{grid-template-columns:1fr 1fr}}
+.fld{width:100%;min-height:52px;border:0;border-bottom:1px solid var(--line);background:transparent;padding:10px 0;outline:0;font-size:15px;border-radius:0}
+.fld:focus{border-color:var(--ink)}select.fld{appearance:none;-webkit-appearance:none;background:linear-gradient(45deg,transparent 50%,var(--mut) 50%) right 6px center/6px 6px no-repeat,linear-gradient(-45deg,transparent 50%,var(--mut) 50%) right 0 center/6px 6px no-repeat;grid-column:1/-1}
+select.fld option{background:var(--bg2)}
+.fm{font-size:13px;min-height:20px}.fm.ok{color:#B9D6B0}.fm.bad{color:#E79C84}
+.ftr{border-top:1px solid var(--line);padding:56px 0 90px;color:var(--mut);font-size:13px}
+.ftr .w{display:grid;gap:16px}@media(min-width:901px){.ftr .w{grid-template-columns:1fr 2fr;align-items:end}}.ftr .lg{color:var(--ink)}.ftr a{text-decoration:underline}
+/* phóng to */
+.zm{position:fixed;inset:0;z-index:80;background:#000;display:grid;grid-template-rows:auto 1fr auto;opacity:0;visibility:hidden;transition:opacity .45s,visibility .45s}
+.zm.on{opacity:1;visibility:visible}
+.zm-h{display:flex;justify-content:space-between;align-items:center;padding:8px 12px 8px 18px;font-size:12px;letter-spacing:.08em;gap:12px;color:var(--mut)}
+.zm-st{position:relative;overflow:hidden;touch-action:none;cursor:zoom-in}.zin .zm-st{cursor:grab}
+.zm-st img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:50% 50%;will-change:transform}
+.zm.ld .zm-st::after{content:"";position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px;border-radius:50%;border:1px solid rgba(255,255,255,.2);border-top-color:#fff;animation:sp 1s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.zm-b{display:flex;justify-content:center;align-items:center;gap:8px;padding:10px 12px 18px}
+.zm-b button,.zm-h button{width:50px;height:50px;box-shadow:inset 0 0 0 1px var(--line);font-size:22px}
+.zm-o{min-width:60px;text-align:center;font-size:12px;font-variant-numeric:tabular-nums}
+.zm-b small{position:absolute;left:18px;font-size:11px;color:var(--mut)}@media(max-width:600px){.zm-b small{display:none}}
+.toast{position:fixed;left:50%;bottom:70px;z-index:90;transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:opacity .5s,transform .5s var(--ease);background:var(--ink);color:var(--bg);padding:12px 20px;font-size:13px;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.js [data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="w">
+ <a class="lg" href="#top">VESMIRA</a>
+ <nav class="nv" aria-label="Mục chính"><a href="#bst">Bộ sưu tập</a><a href="#xem">Xem cận</a><a href="#c4">4C</a><a href="#hen">Hẹn riêng</a></nav>
+ <button class="mb" data-nav aria-expanded="false">Menu</button>
+</div></header>
+<nav class="mn" aria-label="Menu điện thoại"><a href="#bst">Bộ sưu tập</a><a href="#xem">Xem cận</a><a href="#c4">4C</a><a href="#hen">Hẹn riêng</a></nav>
+<a class="back" href="../index.html" target="_top">← Dream Labs</a>
+
+<main id="top">
+<section class="hero">
+ <div class="hi" data-par><picture><source type="image/avif" srcset="../img/demo/lux-vesmira/hero-640.avif 640w, ../img/demo/lux-vesmira/hero-1280.avif 1280w, ../img/demo/lux-vesmira/hero-1920.avif 1920w, ../img/demo/lux-vesmira/hero-2560.avif 2560w" sizes="(max-width:900px) 100vw, 58vw"><img src="../img/demo/lux-vesmira/hero-1280.webp" srcset="../img/demo/lux-vesmira/hero-640.webp 640w, ../img/demo/lux-vesmira/hero-1280.webp 1280w, ../img/demo/lux-vesmira/hero-1920.webp 1920w, ../img/demo/lux-vesmira/hero-2560.webp 2560w" sizes="(max-width:900px) 100vw, 58vw" width="1280" height="1600" alt="Nhẫn vàng với viên kim cương tròn lớn trên nền đen" fetchpriority="high" decoding="async"></picture></div>
+ <div class="w">
+  <p class="lb">Kim cương thiên nhiên · Hà Nội · TP.HCM <span class="tc">Concept</span></p>
+  <h1 class="h1" id="h1">Ánh sáng, <em>được cắt</em> thành hình.</h1>
+  <div class="hr"><p>Sáu thiết kế, mỗi viên đá chọn theo 4C. Soi từng giác cắt trước khi đặt lịch xem tận tay.</p>
+   <a class="btn" href="#bst">Xem bộ sưu tập <i></i></a>
+   <div class="hn"><div><b>57</b><span>giác cắt / viên tròn</span></div><div><b>4C</b><span>chọn theo ý bạn</span></div></div></div>
+ </div>
+</section>
+
+<section class="sec" id="bst"><div class="w">
+ <div class="sh"><h2 class="h2 sp">Bộ sưu tập <em>Lumen</em></h2>
+  <div class="ft" id="ft" role="group" aria-label="Lọc theo loại"><button type="button" data-v="all">Tất cả<sup>6</sup></button><button type="button" data-v="nhan">Nhẫn<sup>1</sup></button><button type="button" data-v="bong">Bông tai<sup>2</sup></button><button type="button" data-v="day">Dây chuyền<sup>2</sup></button><button type="button" data-v="lac">Lắc<sup>1</sup></button></div></div>
+ <div class="gr" id="gr"></div>
+</div></section>
+
+<section class="sec at" id="xem"><div class="w">
+ <div class="ag">
+  <div class="vw">
+   <div class="fig" id="fig"><img id="fimg" src="../img/demo/lux-vesmira/nhan-2560.webp" alt="" width="1280" height="1280" decoding="async" loading="lazy"><div class="lens" id="lens" aria-hidden="true"></div><span class="hint" id="fh">Rê chuột để soi</span></div>
+   <div class="vt"><button type="button" id="lp" aria-pressed="false">◎ Kính lúp</button><button type="button" id="zo">＋ Toàn màn hình</button>
+    <div class="mg"><button type="button" data-lz="-1" aria-label="Giảm độ phóng kính lúp">−</button><output id="lzo">3×</output><button type="button" data-lz="1" aria-label="Tăng độ phóng kính lúp">+</button></div></div>
+  </div>
+  <div class="cf">
+   <p class="lb" id="ctype">Nhẫn</p><h2 id="cname">Aster</h2><p class="sub" id="cdesc">—</p>
+   <div class="opt"><div class="t"><b>Kim loại</b><span id="omet"></span></div>
+    <div class="ch" id="oMet"><button type="button" data-v="wg"><i class="sw" style="background:linear-gradient(135deg,#F4F5F7,#8E949C)"></i>Vàng trắng 18K</button><button type="button" data-v="yg"><i class="sw" style="background:linear-gradient(135deg,#FBE7A6,#8F6A1E)"></i>Vàng 18K</button><button type="button" data-v="rg"><i class="sw" style="background:linear-gradient(135deg,#F6D3C2,#9A5A44)"></i>Vàng hồng 18K</button><button type="button" data-v="pt"><i class="sw" style="background:linear-gradient(135deg,#ECEEF0,#6F757D)"></i>Bạch kim</button></div></div>
+   <div class="opt"><div class="t"><b>Carat</b><span id="oct"></span></div><p>Trọng lượng viên đá: 1 carat = 0,2 gam.</p><div class="ch" id="oCt"></div></div>
+   <div class="opt"><div class="t"><b>Màu</b><span id="ocl"></span></div><p>Thang D–Z: D không màu tuyệt đối, càng xuống càng ngả vàng.</p>
+    <div class="ch" id="oCl"><button type="button" data-v="D">D</button><button type="button" data-v="E">E</button><button type="button" data-v="F">F</button><button type="button" data-v="G">G</button><button type="button" data-v="H">H</button></div></div>
+   <div class="opt"><div class="t"><b>Độ tinh khiết</b><span id="ocr"></span></div><p>Mức tạp chất bên trong khi soi dưới kính lúp 10×.</p>
+    <div class="ch" id="oCr"><button type="button" data-v="IF">IF</button><button type="button" data-v="VVS1">VVS1</button><button type="button" data-v="VVS2">VVS2</button><button type="button" data-v="VS1">VS1</button><button type="button" data-v="VS2">VS2</button></div></div>
+   <div class="opt"><div class="t"><b>Giác cắt</b><span id="ocu"></span></div><p>Quyết định độ lửa và độ sáng — yếu tố khó thấy nhất trên giấy, rõ nhất bằng mắt.</p>
+    <div class="ch" id="oCu"><button type="button" data-v="EX">Excellent</button><button type="button" data-v="VG">Very Good</button></div></div>
+   <div class="tot"><div><small>Giá minh họa</small><b id="price">—</b></div><a class="btn" href="#hen" id="tobk">Hẹn xem món này <i></i></a></div>
+  </div>
+ </div>
+ <ol class="c4" id="c4">
+  <li data-r><b>Cut</b><h3>Giác cắt</h3><p>Tỷ lệ và độ cân đối của các mặt cắt, quyết định ánh sáng phản xạ.</p></li>
+  <li data-r style="--i:1"><b>Color</b><h3>Màu</h3><p>Từ D đến Z. Ít màu hơn, ánh sáng đi qua trong hơn.</p></li>
+  <li data-r style="--i:2"><b>Clarity</b><h3>Độ tinh khiết</h3><p>Từ FL, IF đến I3, theo số và vị trí tạp chất.</p></li>
+  <li data-r style="--i:3"><b>Carat</b><h3>Trọng lượng</h3><p>Viên lớn hiếm hơn, giá tăng nhanh hơn trọng lượng.</p></li>
+ </ol>
+</div></section>
+
+<section class="sec" id="hen"><div class="w">
+ <div class="bk">
+  <div><h2 class="h2 sp">Một buổi xem <em>riêng tư</em></h2><p class="lb" style="margin-top:24px;line-height:2">Phòng xem riêng · 60 phút · có kính lúp 10×</p></div>
+  <form class="bkf" data-book novalidate data-r>
+   <div class="bk-g"><span>Thành phố</span><div class="city">
+    <label><input type="radio" name="cn" value="phòng xem Quận 3, TP.HCM" checked><span><b>TP.HCM</b><small>Phòng xem Quận 3</small></span></label>
+    <label><input type="radio" name="cn" value="phòng xem Tây Hồ, Hà Nội"><span><b>Hà Nội</b><small>Phòng xem Tây Hồ</small></span></label></div></div>
+   <div class="bk-g"><span>Ngày</span><div class="bk-d" role="group" aria-label="Chọn ngày"></div><input type="hidden" name="ngay" required data-n="ngày hẹn"></div>
+   <div class="bk-g"><span>Giờ</span><div class="bk-t" role="group" aria-label="Chọn giờ"></div><input type="hidden" name="gio" required data-n="giờ hẹn"></div>
+   <div class="fi">
+    <label class="vh" for="bm">Món muốn xem</label><select class="fld" id="bm" name="mon"></select>
+    <label class="vh" for="bn">Họ tên</label><input class="fld" id="bn" required data-n="họ tên" placeholder="Họ tên" autocomplete="name">
+    <label class="vh" for="bp">Số điện thoại</label><input class="fld" id="bp" type="tel" required data-n="số điện thoại" placeholder="Số điện thoại" autocomplete="tel" inputmode="tel">
+   </div>
+   <div><button class="btn" type="submit">Giữ lịch xem <i></i></button></div>
+   <p class="fm" role="status" aria-live="polite"></p>
+  </form>
+ </div>
+</div></section>
+</main>
+
+<footer class="ftr"><div class="w">
+ <p class="lg">VESMIRA</p>
+ <p>Vesmira là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; thiết kế, giá chỉ để minh họa. Ảnh: Pexels (The Glorious Studio, Lê Minh Hải, Mohamad Ali Altaweel, say straight).</p>
+</div></footer>
+
+<div class="zm" id="zm" aria-hidden="true" role="dialog" aria-label="Xem cận toàn màn hình">
+ <div class="zm-h"><span class="zm-c"></span><button type="button" data-zm="x" aria-label="Đóng">×</button></div>
+ <div class="zm-st"><img alt=""></div>
+ <div class="zm-b"><small>Chụm hai ngón · cuộn chuột · nhấp đúp</small><button type="button" data-zm="out" aria-label="Thu nhỏ">−</button><span class="zm-o">100%</span><button type="button" data-zm="in" aria-label="Phóng to">+</button></div>
+</div>
+
+<template id="pics">
+ <div data-k="nhan"><picture><source type="image/avif" srcset="../img/demo/lux-vesmira/nhan-640.avif 640w, ../img/demo/lux-vesmira/nhan-1280.avif 1280w, ../img/demo/lux-vesmira/nhan-1920.avif 1920w, ../img/demo/lux-vesmira/nhan-2560.avif 2560w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/lux-vesmira/nhan-1280.webp" srcset="../img/demo/lux-vesmira/nhan-640.webp 640w, ../img/demo/lux-vesmira/nhan-1280.webp 1280w, ../img/demo/lux-vesmira/nhan-1920.webp 1920w, ../img/demo/lux-vesmira/nhan-2560.webp 2560w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="1280" alt="Nhẫn solitaire vàng 18K với viên kim cương tròn trên nền đen" loading="lazy" decoding="async"></picture></div>
+ <div data-k="bongtai"><picture><source type="image/avif" srcset="../img/demo/lux-vesmira/bongtai-640.avif 640w, ../img/demo/lux-vesmira/bongtai-1280.avif 1280w, ../img/demo/lux-vesmira/bongtai-1920.avif 1920w, ../img/demo/lux-vesmira/bongtai-2560.avif 2560w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/lux-vesmira/bongtai-1280.webp" srcset="../img/demo/lux-vesmira/bongtai-640.webp 640w, ../img/demo/lux-vesmira/bongtai-1280.webp 1280w, ../img/demo/lux-vesmira/bongtai-1920.webp 1920w, ../img/demo/lux-vesmira/bongtai-2560.webp 2560w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="1280" alt="Đôi bông tai kim cương lớn phản chiếu trên mặt đá đen bóng" loading="lazy" decoding="async"></picture></div>
+ <div data-k="studs"><picture><source type="image/avif" srcset="../img/demo/lux-vesmira/studs-640.avif 640w, ../img/demo/lux-vesmira/studs-1280.avif 1280w, ../img/demo/lux-vesmira/studs-1920.avif 1920w, ../img/demo/lux-vesmira/studs-2560.avif 2560w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/lux-vesmira/studs-1280.webp" srcset="../img/demo/lux-vesmira/studs-640.webp 640w, ../img/demo/lux-vesmira/studs-1280.webp 1280w, ../img/demo/lux-vesmira/studs-1920.webp 1920w, ../img/demo/lux-vesmira/studs-2560.webp 2560w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="1280" alt="Đôi bông tai nụ kim cương trên phiến đá đen" loading="lazy" decoding="async"></picture></div>
+ <div data-k="daychuyen"><picture><source type="image/avif" srcset="../img/demo/lux-vesmira/daychuyen-640.avif 640w, ../img/demo/lux-vesmira/daychuyen-1280.avif 1280w, ../img/demo/lux-vesmira/daychuyen-1920.avif 1920w, ../img/demo/lux-vesmira/daychuyen-2560.avif 2560w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/lux-vesmira/daychuyen-1280.webp" srcset="../img/demo/lux-vesmira/daychuyen-640.webp 640w, ../img/demo/lux-vesmira/daychuyen-1280.webp 1280w, ../img/demo/lux-vesmira/daychuyen-1920.webp 1920w, ../img/demo/lux-vesmira/daychuyen-2560.webp 2560w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="1280" alt="Bộ dây chuyền, bông tai và nhẫn kim cương trên nền đen" loading="lazy" decoding="async"></picture></div>
+ <div data-k="mat"><picture><source type="image/avif" srcset="../img/demo/lux-vesmira/mat-640.avif 640w, ../img/demo/lux-vesmira/mat-1280.avif 1280w, ../img/demo/lux-vesmira/mat-1920.avif 1920w, ../img/demo/lux-vesmira/mat-2560.avif 2560w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/lux-vesmira/mat-1280.webp" srcset="../img/demo/lux-vesmira/mat-640.webp 640w, ../img/demo/lux-vesmira/mat-1280.webp 1280w, ../img/demo/lux-vesmira/mat-1920.webp 1920w, ../img/demo/lux-vesmira/mat-2560.webp 2560w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="1280" alt="Mặt dây chuyền kim cương cắt emerald viền halo" loading="lazy" decoding="async"></picture></div>
+ <div data-k="lac"><picture><source type="image/avif" srcset="../img/demo/lux-vesmira/lac-640.avif 640w, ../img/demo/lux-vesmira/lac-1280.avif 1280w, ../img/demo/lux-vesmira/lac-1920.avif 1920w, ../img/demo/lux-vesmira/lac-2560.avif 2560w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/lux-vesmira/lac-1280.webp" srcset="../img/demo/lux-vesmira/lac-640.webp 640w, ../img/demo/lux-vesmira/lac-1280.webp 1280w, ../img/demo/lux-vesmira/lac-1920.webp 1920w, ../img/demo/lux-vesmira/lac-2560.webp 2560w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="1280" alt="Lắc tay tennis kim cương uốn lượn" loading="lazy" decoding="async"></picture></div>
+</template>
+
+<script src="../vendor/lenis.min.js"></script>
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script src="../vendor/SplitText.min.js"></script>
+<script src="../vendor/Flip.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)];
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches,FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
+H.classList.add('js');RM&&H.classList.add('rm');
+const vnd=n=>Math.round(n).toString().replace(/\B(?=(\d{3})+$)/g,'.')+' ₫';
+const tween=(el,to,fm=vnd,ms=900)=>{if(!el)return;const fr=el._v==null?to:el._v;el._v=to;cancelAnimationFrame(el._r);if(RM||fr===to){el.textContent=fm(to);return}const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-u,4);el.textContent=fm(fr+(to-fr)*e);if(u<1)el._r=requestAnimationFrame(run)};el._r=requestAnimationFrame(run)};
+/* hiện dần khi cuộn */
+const io=('IntersectionObserver' in window)&&!RM?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'}):null;
+const scan=(r=D)=>$$('[data-r]:not(.in)',r).forEach(e=>io?io.observe(e):e.classList.add('in'));
+/* cuộn mượt */
+let lenis=null;
+if(window.Lenis&&FINE&&!RM){try{lenis=new Lenis({duration:+H.dataset.lenis||1.2,smoothWheel:true});const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf)}catch(e){lenis=null}}
+const go=(t,off=0)=>{const el=typeof t==='string'?$(t):t;if(!el)return;const y=el.getBoundingClientRect().top+scrollY+off;lenis?lenis.scrollTo(y,{duration:1.4}):scrollTo({top:y,behavior:RM?'auto':'smooth'})};
+D.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href');if(id.length<2)return;const el=$(id);if(!el)return;e.preventDefault();H.classList.remove('no');$$('[data-nav]').forEach(b=>b.setAttribute('aria-expanded','false'));go(el,-(+(a.dataset.off||0)))});
+const onS=()=>H.classList.toggle('sc',scrollY>40);addEventListener('scroll',onS,{passive:true});onS();
+$$('[data-nav]').forEach(b=>b.addEventListener('click',()=>{const o=H.classList.toggle('no');b.setAttribute('aria-expanded',o)}));
+/* thông báo */
+let tt;const toast=m=>{let t=$('.toast');if(!t){t=D.createElement('p');t.className='toast';t.setAttribute('role','status');D.body.appendChild(t)}t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),4200)};
+/* nhóm nút chọn: <div data-grp="x"><button data-v="..."> */
+const chips=(el,cb)=>{if(!el)return;const set=v=>{$$('[data-v]',el).forEach(b=>b.setAttribute('aria-pressed',b.dataset.v==v));cb&&cb(v)};el.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b&&el.contains(b))set(b.dataset.v)});return set};
+/* size nhẫn kiểu Việt Nam: chu vi trong (mm) ≈ 40 + số size */
+const ringSize=c=>Math.max(1,Math.min(30,Math.round(c-40))),ringCirc=s=>40+ +s,ringDia=s=>(40+ +s)/Math.PI;
+/* phóng to ảnh: kéo, chụm hai ngón, cuộn chuột, nút +/− */
+const ZM=(()=>{const z=$('#zm');if(!z)return{open(){}};const st=$('.zm-st',z),im=$('img',st),o=$('.zm-o',z);if(!im.getAttribute('src'))im.src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';let s=1,x=0,y=0,last=null;const P=new Map();let d0=0,s0=1,c0=null,moved=0;
+ const cl=()=>{const r=st.getBoundingClientRect(),mx=(s-1)*r.width/2,my=(s-1)*r.height/2;x=Math.max(-mx,Math.min(mx,x));y=Math.max(-my,Math.min(my,y))};
+ const ap=(an)=>{cl();im.style.transition=an&&!RM?'transform .45s cubic-bezier(.22,1,.36,1)':'none';im.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${s.toFixed(3)})`;if(o)o.textContent=Math.round(s*100)+'%';z.classList.toggle('zin',s>1.01)};
+ const rel=(cx,cy)=>{const r=st.getBoundingClientRect();return[cx-r.left-r.width/2,cy-r.top-r.height/2]};
+ const to=(ns,px=0,py=0,an)=>{ns=Math.max(1,Math.min(6,ns));const k=ns/s;x=px-(px-x)*k;y=py-(py-y)*k;s=ns;ap(an)};
+ st.addEventListener("pointerdown",e=>{try{st.setPointerCapture(e.pointerId)}catch(_){}P.set(e.pointerId,[e.clientX,e.clientY]);moved=0;if(P.size===2){const [a,b]=[...P.values()];d0=Math.hypot(a[0]-b[0],a[1]-b[1]);s0=s;c0=rel((a[0]+b[0])/2,(a[1]+b[1])/2)}});
+ st.addEventListener('pointermove',e=>{if(!P.has(e.pointerId))return;const p=P.get(e.pointerId),dx=e.clientX-p[0],dy=e.clientY-p[1];P.set(e.pointerId,[e.clientX,e.clientY]);
+  if(P.size===2){const [a,b]=[...P.values()],d=Math.hypot(a[0]-b[0],a[1]-b[1]);if(d0)to(s0*d/d0,c0[0],c0[1]);moved=1}else if(s>1){x+=dx;y+=dy;ap();if(Math.abs(dx)+Math.abs(dy)>2)moved=1}});
+ const up=e=>{P.delete(e.pointerId);if(P.size<2)d0=0;if(e.type==='pointerup'&&!moved&&e.pointerType!=='mouse'){const t=performance.now();if(last&&t-last<320){const [px,py]=rel(e.clientX,e.clientY);s>1.2?(s=1,x=y=0,ap(1)):to(2.6,px,py,1);last=null}else last=t}};
+ st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
+ st.addEventListener('dblclick',e=>{const [px,py]=rel(e.clientX,e.clientY);s>1.2?(s=1,x=y=0,ap(1)):to(2.6,px,py,1)});
+ st.addEventListener('wheel',e=>{e.preventDefault();const [px,py]=rel(e.clientX,e.clientY);to(s*(e.deltaY<0?1.18:1/1.18),px,py)},{passive:false});
+ let lf=null;const close=()=>{z.classList.remove('on');z.setAttribute('aria-hidden','true');H.style.overflow='';lenis&&lenis.start();lf&&lf.focus&&lf.focus({preventScroll:true})};
+ z.addEventListener('click',e=>{const b=e.target.closest('[data-zm]');if(!b)return;const k=b.dataset.zm;k==='x'?close():to(k==='in'?s*1.5:s/1.5,0,0,1)});
+ addEventListener('keydown',e=>{if(!z.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='+'||e.key==='=')to(s*1.5,0,0,1);if(e.key==='-')to(s/1.5,0,0,1)});
+ D.addEventListener('click',e=>{const t=e.target.closest('[data-zoom]');if(!t)return;e.preventDefault();open(t.dataset.zoom,t.dataset.alt||'',t.dataset.cap||'')});
+ function open(src,alt,cap){lf=D.activeElement;s=1;x=y=0;ap();im.alt=alt;if(im.getAttribute('src')!==src){z.classList.add('ld');im.onload=()=>z.classList.remove('ld');im.src=src}const c=$('.zm-c',z);if(c)c.textContent=cap||alt;z.classList.add('on');z.setAttribute('aria-hidden','false');H.style.overflow='hidden';lenis&&lenis.stop();const b=$('[data-zm=x]',z);b&&b.focus({preventScroll:true})}
+ return{open}})();
+/* đặt lịch tại boutique: chip ngày (12 ngày tới), chip giờ, thành phố */
+const book=f=>{if(!f)return;const dw=['CN','T2','T3','T4','T5','T6','T7'],dd=$('.bk-d',f),tt=$('.bk-t',f),hd=$('[name=ngay]',f),ht=$('[name=gio]',f),slots=(f.dataset.slots||'10:00,11:30,14:00,15:30,17:00,19:00').split(',');
+ const now=new Date();let html='';for(let i=1;i<=12;i++){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);const lab=`${dw[d.getDay()]}, ${d.getDate()}/${d.getMonth()+1}`;html+=`<button type="button" data-v="${lab}"><small>${dw[d.getDay()]}</small><b>${d.getDate()}</b><small>Th${d.getMonth()+1}</small></button>`}
+ if(dd){dd.innerHTML=html;chips(dd,v=>{hd.value=v})}
+ if(tt){tt.innerHTML=slots.map((s,i)=>`<button type="button" data-v="${s}"${(i*7+now.getDate())%5===3?' disabled aria-disabled="true" title="Đã kín lịch"':''}>${s}</button>`).join('');chips(tt,v=>{ht.value=v})}
+ f.addEventListener('submit',e=>{e.preventDefault();const m=$('.fm',f);const need=$$('[required]',f).find(i=>!i.value.trim());
+  if(need){m.textContent='Vui lòng chọn '+(need.dataset.n||'đủ thông tin')+'.';m.className='fm bad';const fo=need.type==='hidden'?$('button',need.closest('.bk-g')||f):need;fo&&fo.focus();return}
+  const city=($('[name=cn]:checked',f)||{}).value||'';m.className='fm ok';m.textContent=`Đã giữ chỗ ${hd?hd.value:''} lúc ${ht?ht.value:''}${city?' tại '+city:''}. Đây là trang mẫu của Dream Labs nên chưa có thông tin nào được gửi đi.`;toast('Đã giữ lịch hẹn (trang mẫu)')})};
+try{parent!==window&&parent.postMessage({wkDemo:H.dataset.slug,smDemo:H.dataset.slug},'*')}catch(e){}
+
+const G=window.gsap,ST=window.ScrollTrigger,GS=G&&ST&&!RM;
+const BIG={nhan:'../img/demo/lux-vesmira/nhan-2560.webp',bongtai:'../img/demo/lux-vesmira/bongtai-2560.webp',studs:'../img/demo/lux-vesmira/studs-2560.webp',daychuyen:'../img/demo/lux-vesmira/daychuyen-2560.webp',mat:'../img/demo/lux-vesmira/mat-2560.webp',lac:'../img/demo/lux-vesmira/lac-2560.webp'};
+/* [khóa ảnh, tên, loại, nhãn loại, mô tả, giá ổ, hệ số giá đá, các mức carat, carat mặc định, ảnh lạnh] */
+const P=[
+ {k:'nhan',n:'Aster',t:'nhan',tl:'Nhẫn solitaire',d:'Viên chủ tròn, sáu chấu mảnh nâng đá cao để đón trọn ánh sáng.',b:18e6,f:1,cts:[.5,.7,1,1.5,2],c:1},
+ {k:'bongtai',n:'Nova',t:'bong',tl:'Bông tai',d:'Hai viên tròn bốn chấu, đôi đá ghép cặp cùng cấp màu và độ tinh khiết.',b:16e6,f:.82,cts:[1,1.4,2,3],c:2},
+ {k:'studs',n:'Lys',t:'bong',tl:'Bông tai nụ',d:'Nụ kim cương sáu chấu, chốt vặn an toàn, đeo được hằng ngày.',b:9e6,f:.8,cts:[.5,.7,1,1.4],c:.7},
+ {k:'daychuyen',n:'Rivière',t:'day',tl:'Dây chuyền',d:'Chuỗi đá nối liền ôm cổ, kèm mặt giọt nước cắt pear.',b:68e6,f:.34,cts:[3,5,8],c:5},
+ {k:'mat',n:'Halo Émeraude',t:'day',tl:'Mặt dây chuyền',d:'Viên cắt emerald bậc thang, viền halo kim cương tấm.',b:14e6,f:.92,cts:[.7,1,1.5,2],c:1,cold:1},
+ {k:'lac',n:'Tennis',t:'lac',tl:'Lắc tay',d:'Ba mươi tám viên tròn đều cỡ, khóa đôi giấu trong thân lắc.',b:32e6,f:.3,cts:[2,3,5],c:3,cold:1}];
+const MET={wg:['Vàng trắng 18K',1],yg:['Vàng 18K',1],rg:['Vàng hồng 18K',1],pt:['Bạch kim',1.32]};
+const CL={D:1.36,E:1.22,F:1.1,G:1,H:.9},CR={IF:1.42,VVS1:1.26,VVS2:1.16,VS1:1.06,VS2:1},CU={EX:1,VG:.87},CUN={EX:'Excellent',VG:'Very Good'};
+const nf=v=>String(v).replace('.',',');
+const pics=$('#pics').content;
+const gr=$('#gr');gr.innerHTML=P.map((p,i)=>`<button type="button" class="cd${p.cold?' cold':''}" data-t="${p.t}" data-i="${i}" data-r style="--i:${i%3}"><div class="im">${pics.querySelector(`[data-k=${p.k}]`).innerHTML}</div><h3>${p.n}</h3><p><span>${p.tl}</span><span>Từ ${vnd(price(p,p.cts[0],'wg','G','VS2','EX'))}</span></p></button>`).join('');
+function price(p,ct,m,cl,cr,cu){const q=CL[cl]*CR[cr]*CU[cu],st=p.f<.5?ct*38e6*q:(p.t==='bong'?2*150e6*Math.pow(ct/2,1.85):150e6*Math.pow(ct,1.85))*q;return p.b*MET[m][1]+st}
+/* lọc (Flip) */
+const cards=$$('.cd',gr);
+chips($('#ft'),v=>{gr.classList.toggle('f',v!=='all');const st=GS&&window.Flip&&gr.dataset.ok?Flip.getState(cards):null;gr.dataset.ok=1;cards.forEach(c=>c.classList.toggle('hid',v!=='all'&&c.dataset.t!==v));
+ if(st){Flip.from(st,{duration:.8,ease:'power3.inOut',absolute:true,scale:true,onEnter:e=>G.fromTo(e,{opacity:0,scale:.92},{opacity:1,scale:1,duration:.6}),onLeave:e=>G.to(e,{opacity:0,scale:.92,duration:.4})})}})('all');
+/* xem cận + cấu hình */
+const S={i:0,m:'wg',ct:1,cl:'F',cr:'VS1',cu:'EX'};
+const fig=$('#fig'),fimg=$('#fimg'),lens=$('#lens');
+const setCt=chips($('#oCt'),v=>{S.ct=+v;up()});
+const load=i=>{S.i=i;const p=P[i];$('#cname').textContent=p.n;$('#ctype').textContent=p.tl;$('#cdesc').textContent=p.d;
+ $('#oCt').innerHTML=p.cts.map(c=>`<button type="button" data-v="${c}">${nf(c)} ct</button>`).join('');setCt(p.c);
+ fimg.style.opacity=0;const im=new Image();im.onload=()=>{fimg.src=BIG[p.k];fimg.alt=$(`[data-k=${p.k}] img`,pics).alt;fimg.style.opacity=1};im.src=BIG[p.k];
+ fig.classList.toggle('cold',!!p.cold);lens.style.filter=p.cold?'saturate(.18) brightness(.92) contrast(1.06)':'';fimg.style.filter=lens.style.filter;
+ $('#bm').value=i;up()};
+function up(){const p=P[S.i],v=price(p,S.ct,S.m,S.cl,S.cr,S.cu);$('#omet').textContent=MET[S.m][0];$('#oct').textContent=nf(S.ct)+(p.f<.5||p.t==='bong'?' ct tổng':' ct');$('#ocl').textContent=S.cl;$('#ocr').textContent=S.cr;$('#ocu').textContent=CUN[S.cu];tween($('#price'),v)}
+chips($('#oMet'),v=>{S.m=v;up()})('wg');chips($('#oCl'),v=>{S.cl=v;up()})('F');chips($('#oCr'),v=>{S.cr=v;up()})('VS1');chips($('#oCu'),v=>{S.cu=v;up()})('EX');
+$('#bm').innerHTML='<option value="">Chưa chọn món</option>'+P.map((p,i)=>`<option value="${i}">${p.tl} ${p.n}</option>`).join('');
+gr.addEventListener('click',e=>{const c=e.target.closest('.cd');if(!c)return;load(+c.dataset.i);go('#xem',-10)});
+load(0);
+/* kính lúp: chuột rê là soi; điện thoại bật nút Kính lúp rồi kéo ngón tay */
+let Z=3,lm=false;const lzo=$('#lzo');
+const lensAt=(e)=>{const r=fig.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;if(x<0||y<0||x>r.width||y>r.height){lens.classList.remove('on');return}
+ const off=e.pointerType==='touch'?-110:0,ly=Math.max(0,y+off);lens.style.left=x+'px';lens.style.top=ly+'px';
+ lens.style.backgroundImage=`url("${fimg.currentSrc||fimg.src}")`;lens.style.backgroundSize=`${r.width*Z}px ${r.height*Z}px`;lens.style.backgroundPosition=`${95-x*Z}px ${95-y*Z}px`;lens.classList.add('on');fig.classList.add('used')};
+fig.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||lm)lensAt(e)});
+fig.addEventListener('pointerdown',e=>{if(lm){try{fig.setPointerCapture(e.pointerId)}catch(_){}lensAt(e)}});
+fig.addEventListener('pointerleave',()=>lens.classList.remove('on'));fig.addEventListener('pointerup',e=>{if(e.pointerType!=='mouse')lens.classList.remove('on')});
+fig.addEventListener('click',e=>{if(!lm&&!FINE)ZM.open(fimg.src,fimg.alt,P[S.i].tl+' '+P[S.i].n)});
+$('#lp').addEventListener('click',()=>{lm=!lm;$('#lp').setAttribute('aria-pressed',lm);fig.classList.toggle('lm',lm);$('#fh').textContent=lm?'Chạm và kéo trên ảnh':(FINE?'Rê chuột để soi':'Chạm để phóng to');fig.classList.remove('used');lm&&toast('Kính lúp đã bật: chạm và kéo trên ảnh')});
+if(!FINE)$('#fh').textContent='Chạm để phóng to';
+$$('[data-lz]').forEach(b=>b.addEventListener('click',()=>{Z=Math.max(2,Math.min(6,Z+ +b.dataset.lz));lzo.textContent=Z+'×'}));
+$('#zo').addEventListener('click',()=>ZM.open(fimg.src,fimg.alt,P[S.i].tl+' '+P[S.i].n));
+$('#tobk').addEventListener('click',()=>{$('#bm').value=S.i});
+book($('[data-book]'));
+/* chuyển động */
+if(GS){H.classList.add('gs');G.registerPlugin(ST);lenis&&lenis.on('scroll',ST.update);
+ if(window.SplitText){const sp=SplitText.create('#h1',{type:'lines,words',mask:'lines'});G.from(sp.words,{yPercent:110,duration:1.6,ease:'expo.out',stagger:.06,delay:.15});
+  $$('.sp').forEach(h=>{const s=SplitText.create(h,{type:'lines,words',mask:'lines'});G.from(s.words,{yPercent:110,duration:1.3,ease:'expo.out',stagger:.05,scrollTrigger:{trigger:h,start:'top 86%',once:true}})})}
+ G.from('.hero .hr',{opacity:0,y:30,duration:1.4,ease:'expo.out',delay:.7});
+ G.fromTo('.hi',{clipPath:'inset(0 0 0 100%)'},{clipPath:'inset(0 0 0 0%)',duration:2,ease:'expo.inOut'});
+ G.to('.hi img',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('[data-r]').forEach(e=>{e.classList.add('in');G.from(e,{opacity:0,y:40,duration:1.2,ease:'expo.out',delay:(+getComputedStyle(e).getPropertyValue('--i')||0)*.08,scrollTrigger:{trigger:e,start:'top 92%',once:true}})});
+ $$('.cd .im').forEach(m=>G.fromTo(m,{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0% 0 0 0)',duration:1.4,ease:'expo.inOut',scrollTrigger:{trigger:m,start:'top 90%',once:true}}));
+}else scan();
+})();
+</script>
+</body>
+</html>

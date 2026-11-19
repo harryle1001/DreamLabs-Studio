@@ -1,0 +1,76 @@
+{
+ "hero": {
+  "author": "Kunal Lakhotia",
+  "page": "https://www.pexels.com/photo/intricate-gold-bangles-on-dark-background-37485309/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/37485309/pexels-photo-37485309.jpeg",
+  "w": 4240,
+  "h": 2832,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "kieng": {
+  "author": "Kushith M",
+  "page": "https://www.pexels.com/photo/two-gold-bracelets-on-a-black-background-20493839/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/20493839/pexels-photo-20493839.jpeg",
+  "w": 6960,
+  "h": 4640,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "day": {
+  "author": "COPPERTIST WU",
+  "page": "https://www.pexels.com/photo/shiny-golden-jewellery-in-close-up-view-15967466/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/15967466/pexels-photo-15967466.jpeg",
+  "w": 4672,
+  "h": 7008,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "lua": {
+  "author": "Kunal Lakhotia",
+  "page": "https://www.pexels.com/photo/elegant-gold-bangles-on-soft-satin-fabric-32989026/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/32989026/pexels-photo-32989026.jpeg",
+  "w": 9504,
+  "h": 6336,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "bim": {
+  "author": "Duygu Kamar",
+  "page": "https://www.pexels.com/photo/gold-bracelet-12124662/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/12124662/pexels-photo-12124662.jpeg",
+  "w": 2304,
+  "h": 3456,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

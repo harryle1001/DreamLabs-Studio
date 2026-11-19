@@ -42,7 +42,6 @@
 | lux-lp-perlune | chuoi | Svetlana B | Pexels | https://www.pexels.com/photo/a-close-up-shot-of-a-pearl-necklace-4532678/ | 4272×2848 |
 | lux-lp-perlune | hau | Nastia Ligrain | Pexels | https://www.pexels.com/photo/close-up-of-oysters-with-pearls-inside-31186059/ | 2731×4096 |
 | lux-lp-perlune | xacu | Lisa Fotios | Pexels | https://www.pexels.com/photo/elegant-pearl-jewelry-on-a-shell-plate-36229131/ | 3888×5184 |
-| lux-lp-vantrel | hero | Oktay Köseoğlu | Pexels | https://www.pexels.com/photo/close-up-of-a-black-mans-wristwatch-16739806/ | 4000×6000 · đã làm mờ logo |
 | lux-lp-vantrel | tay | Burst | Pexels | https://www.pexels.com/photo/adult-black-boy-close-up-545066/ | 2975×4460 |
 | lux-lp-vantrel | suit | Filipp Romanovski | Pexels | https://www.pexels.com/photo/closeup-of-a-man-wearing-a-black-suit-17923416/ | 4000×2668 |
 | lux-lp-vantrel | nhan | Kunal Lakhotia | Pexels | https://www.pexels.com/photo/elegant-platinum-solitary-diamond-ring-display-32988587/ | 4865×6336 |

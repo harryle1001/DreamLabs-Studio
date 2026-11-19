@@ -1,0 +1,77 @@
+{
+ "hero": {
+  "author": "Melike B",
+  "page": "https://www.pexels.com/photo/close-up-of-hands-holding-wedding-rings-28949852/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/28949852/pexels-photo-28949852.jpeg",
+  "w": 5760,
+  "h": 3840,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "doi": {
+  "author": "Kagiso Mokalake",
+  "page": "https://www.pexels.com/photo/close-up-shot-of-wedding-rings-7093179/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7093179/pexels-photo-7093179.jpeg",
+  "w": 2670,
+  "h": 3456,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "solitaire": {
+  "author": "The Glorious Studio",
+  "page": "https://www.pexels.com/photo/close-up-shot-of-a-diamond-ring-on-white-surface-14466162/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/14466162/pexels-photo-14466162.jpeg",
+  "w": 4999,
+  "h": 4999,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "vat": {
+  "author": "Ihsan Adityawarman",
+  "page": "https://www.pexels.com/photo/close-up-of-rings-17261921/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/17261921/pexels-photo-17261921.jpeg",
+  "w": 5472,
+  "h": 3648,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "tay": {
+  "author": "Aydın Photography",
+  "page": "https://www.pexels.com/photo/elegant-engagement-and-wedding-rings-on-hand-28445721/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/28445721/pexels-photo-28445721.jpeg",
+  "w": 3888,
+  "h": 2592,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ }
+}
