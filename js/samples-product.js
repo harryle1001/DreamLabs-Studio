@@ -14,7 +14,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-perfume-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/perfume/', v2: true, ground: [74.3, 32], hiStep: 4, dirs: ['img/spin/perfume/', 'img/spin/perfume-noir/', ''], frames: 144, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/perfume/', v2: true, ground: [74.3, 32], hiStep: 4, dirs: ['img/spin/perfume/', 'img/spin/perfume-noir/', 'img/spin/perfume-rose/'], frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: .97, w: .1, x: 59, y: 60, side: 'r', t: 'Chữ in trên kính', d: 'Tên dòng và số mùi in thẳng lên mặt chai'},
    {a: .27, w: .1, x: 50, y: 24, t: 'Nắp đá mài', d: 'Đá vân mài bóng trên đai kim loại'},
    {a: .55, w: .11, x: 50, y: 55, t: 'Khối thủy tinh dày', d: 'Khoang chứa bo tròn nằm giữa lòng kính'}
@@ -235,7 +235,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-whisky-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/whisky/', v2: true, ground: [74.8, 23.4], hiStep: 4, frames: 144, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/whisky/', v2: true, ground: [74.8, 23.4], hiStep: 4, dirs: ['img/spin/whisky/', 'img/spin/whisky-y18/', ''], frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .09, x: 60, y: 60, side: 'r', t: 'Nhãn giấy in nổi', d: 'Dấu hiệu núi mây và số năm ủ'},
    {a: 0.3, w: .1, x: 50, y: 27, side: 'r', t: 'Màng co cổ chai'},
    {a: 0.6, w: .1, x: 50, y: 73, side: 'r', t: 'Đáy chai dày'}
@@ -276,7 +276,7 @@
   pkg: 'Thiết kế sản phẩm — Chuyên nghiệp',
   cover: 'img/sm-product-candle-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/candle/', dirs: ['img/spin/candle/', 'img/spin/candle-tra/', 'img/spin/candle-que/'], frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/candle/', v2: true, ground: [69.9, 45.8], hiStep: 4, frames: 144, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 46, y: 56, side: 'r', t: 'Nhãn chữ nhũ'},
    {a: .5, w: .12, x: 50, y: 33, side: 'r', t: 'Cốc nến dáng trụ'}
   ]},
