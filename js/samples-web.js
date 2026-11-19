@@ -103,5 +103,31 @@
     demo: 'demos/mien-thao.html',
     long: 'img/wk-mien-thao-long.webp',
     longM: 'img/wk-mien-thao-long-m.webp'
+  },
+  {
+    id: 'web-cerelle',
+    title: 'Cérelle',
+    industry: 'Nước hoa',
+    desc: 'Website maison nước hoa niche tông giấy ngà và đỏ gạch như tập mẫu ép hoa: lọc tám mùi theo họ hương, tháp hương động đổi theo mùi, chọn 10/50/100 ml và giỏ hàng lưu lại.',
+    tags: ['Tháp hương', 'Lọc họ hương', 'Giỏ hàng'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-cerelle.webp',
+    kind: 'site',
+    demo: 'demos/lux-cerelle.html',
+    long: 'img/sm-web-cerelle-long.webp',
+    longM: 'img/sm-web-cerelle-long-m.webp'
+  },
+  {
+    id: 'web-gravene',
+    title: 'Gravène',
+    industry: 'Nước hoa',
+    desc: 'Website quà tặng nước hoa khắc tên tông xanh chai và đồng thau: chọn mùi, dung tích, khắc chữ xem trước trên chai, nắp hoặc hộp vẽ SVG với ba kiểu chữ, chọn hộp, thiệp, ngày giao và giỏ quà.',
+    tags: ['Khắc tên', 'Xem trước', 'Giỏ quà'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-gravene.webp',
+    kind: 'site',
+    demo: 'demos/lux-gravene.html',
+    long: 'img/sm-web-gravene-long.webp',
+    longM: 'img/sm-web-gravene-long-m.webp'
   }
 ];

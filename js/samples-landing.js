@@ -56,5 +56,44 @@
     tags: ['Tuyển hội viên', 'Lịch lớp', 'Tập thử'], pkg: 'Landing Page — Chuyên nghiệp', kind: 'site',
     cover: 'img/wk-vuon-club.webp', demo: 'demos/vuon-club.html',
     long: 'img/wk-vuon-club-long.webp', longM: 'img/wk-vuon-club-long-m.webp'
+  },
+  {
+    id: 'landing-aubrelle',
+    title: 'Aubrelle · Nước hoa đo riêng',
+    industry: 'Nước hoa',
+    desc: 'Landing nước hoa đo riêng tông đỏ rượu và hồng đồng: tự phối nốt đầu, giữa, cuối có giới hạn từng tầng, tháp hương vẽ lại tức thì, đặt tên, chọn dung tích ra giá và hẹn buổi tư vấn tại atelier.',
+    tags: ['Trình phối hương', 'Tính giá', 'Đặt lịch'],
+    pkg: 'Landing Page — Cao cấp',
+    cover: 'img/sm-landing-aubrelle.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-aubrelle.html',
+    long: 'img/sm-landing-aubrelle-long.webp',
+    longM: 'img/sm-landing-aubrelle-long-m.webp'
+  },
+  {
+    id: 'landing-mirane',
+    title: 'Mirane · Mùa Mưa',
+    industry: 'Nước hoa',
+    desc: 'Landing bộ sưu tập mùa mưa tông xám đá và rêu: mưa rơi trên ảnh đầu trang, cuộn kể chuyện bốn mùi có tháp hương theo thời gian, chọn dung tích, giỏ hàng nhỏ và đăng ký bộ thử.',
+    tags: ['Cuộn kể chuyện', 'Bộ thử', 'Giỏ hàng'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-mirane.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-mirane.html',
+    long: 'img/sm-landing-mirane-long.webp',
+    longM: 'img/sm-landing-mirane-long-m.webp'
+  },
+  {
+    id: 'landing-aurevo',
+    title: 'Aurévo · Quiz tìm mùi',
+    industry: 'Nước hoa',
+    desc: 'Landing quiz mùi hương tông tím khói và vàng chanh: sáu câu chạm thẻ có thanh tiến độ và quay lại, chấm điểm theo họ hương, gợi ý một mùi chính và hai mùi phụ kèm tháp hương, chọn dung tích và thêm giỏ.',
+    tags: ['Quiz', 'Gợi ý mùi', 'Giỏ hàng'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-aurevo.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-aurevo.html',
+    long: 'img/sm-landing-aurevo-long.webp',
+    longM: 'img/sm-landing-aurevo-long-m.webp'
   }
 ];

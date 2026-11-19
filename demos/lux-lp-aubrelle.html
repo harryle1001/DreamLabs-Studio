@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aubrelle · Nước hoa đo riêng (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho dịch vụ nước hoa đo riêng: tự phối nốt hương đầu, giữa, cuối, xem tháp hương tức thì, đặt tên, chọn dung tích và đặt buổi tư vấn tại atelier.">
+<meta name="theme-color" content="#2E0C12">
+<style>
+@font-face{font-family:"Playfair";font-weight:400 900;font-style:italic;font-display:swap;src:url(fonts/playfair-display-vietnamese-wght-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Playfair";font-weight:400 900;font-style:italic;font-display:swap;src:url(fonts/playfair-display-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Playfair";font-weight:400 900;font-style:normal;font-display:swap;src:url(fonts/playfair-display-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Playfair";font-weight:400 900;font-style:normal;font-display:swap;src:url(fonts/playfair-display-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-weight:200 800;font-display:swap;src:url(fonts/manrope-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Manrope";font-weight:200 800;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--ox:#2E0C12;--ox2:#4A1820;--cr:#F3E9DC;--cr2:#E9DCCB;--rg:#D4A487;--rg2:#A9705A;--ink:#22090D;--mu:rgba(243,233,220,.66);--mi:rgba(34,9,13,.62);--ln:rgba(243,233,220,.18);--li:rgba(34,9,13,.14);--e:cubic-bezier(.22,1,.36,1);--fd:Playfair,Georgia,serif;--fb:Manrope,system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ox);color:var(--cr);font:400 16px/1.62 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,ol,figure{margin:0}ul,ol{padding:0;list-style:none}
+.w{max-width:1280px;margin:0 auto;padding:0 max(18px,4.4vw)}
+.cap{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--rg)}
+.tc{border:1px solid currentColor;border-radius:99px;padding:2px 9px;letter-spacing:.18em;margin-right:8px}
+h1,h2{font-family:var(--fd);font-style:italic;font-weight:400;line-height:1.04;letter-spacing:-.01em}
+h2{font-size:clamp(34px,4.6vw,64px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:99px;background:var(--rg);color:var(--ink);font-weight:600;font-size:14px;letter-spacing:.04em;transition:transform .5s var(--e),background .4s}
+.btn:hover{transform:translateY(-2px);background:#E4B99D}
+.btn.o{background:none;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn.sm{min-height:44px;padding:0 18px;font-size:13px}
+header{position:fixed;inset:0 0 auto;z-index:30;transition:background .4s}
+header.s{background:rgba(46,12,18,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:68px}
+.bk{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:14px;color:var(--mu)}
+.lg{font:italic 400 25px var(--fd);letter-spacing:.02em;min-height:44px;display:flex;align-items:center}
+header .btn{justify-self:end}
+@media(max-width:640px){.bk span{display:none}}
+/* hero */
+.hero{min-height:min(100svh,940px);display:flex;align-items:center;padding:110px 0 70px;position:relative;overflow:hidden}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:5vw;align-items:center;width:100%}
+.hero h1{font-size:clamp(46px,7vw,104px)}
+.hero h1 em{display:block;color:var(--rg)}
+.hero .ld{color:var(--mu);font-size:18px;max-width:34ch;margin:26px 0 36px}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px}
+.arch{position:relative;aspect-ratio:3/4;border-radius:999px 999px 0 0;overflow:hidden;background:var(--ox2)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(46,12,18,0) 55%,rgba(46,12,18,.55))}
+.hfig{position:relative}
+.hfig .stamp{position:absolute;left:-34px;bottom:40px;width:120px;height:120px;z-index:2;animation:spin 28s linear infinite}
+.hfig .stamp text{font:600 9.6px var(--fb);letter-spacing:.32em;fill:var(--cr)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orb{position:absolute;width:60vw;height:60vw;max-width:820px;max-height:820px;border-radius:50%;background:radial-gradient(closest-side,rgba(212,164,135,.2),rgba(212,164,135,0));right:-18vw;top:-10vw;pointer-events:none}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}.hfig{max-width:360px;margin-left:auto;width:78%}.hfig .stamp{left:-56px;width:100px;height:100px}}
+/* steps */
+.steps{padding:110px 0;border-top:1px solid var(--ln)}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
+.sg li{border-top:1px solid var(--ln);padding-top:22px}
+.sg .n{font:italic 400 56px/1 var(--fd);color:var(--rg)}
+.sg h3{font:600 19px var(--fb);margin:14px 0 6px}
+.sg p{color:var(--mu)}
+.sg figure{margin-top:22px;aspect-ratio:4/5;overflow:hidden;border-radius:4px}
+.sg figure img{width:100%;height:100%;object-fit:cover}
+.sg li:nth-child(2){margin-top:56px}
+@media(max-width:820px){.sg{grid-template-columns:1fr}.sg li:nth-child(2){margin-top:0}.sg figure{aspect-ratio:16/10}}
+/* composer */
+.cmp{background:var(--cr);color:var(--ink);padding:110px 0;border-radius:28px 28px 0 0}
+.cmp .cap{color:var(--rg2)}
+.cmp h2 em{color:var(--rg2)}
+.cg{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;margin-top:48px;align-items:start}
+.tier{border-top:1px solid var(--ink);padding:18px 0 26px}
+.tier .th{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.tier h3{font:italic 400 28px var(--fd)}
+.tier .ct{font-size:13px;color:var(--mi);font-weight:600;letter-spacing:.06em}
+.tier .ct.full{color:var(--rg2)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-height:44px;padding:0 14px 0 10px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--li);display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;transition:background .35s var(--e),color .35s var(--e),box-shadow .35s}
+.chips button i{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.chips button small{font-size:11px;color:var(--rg2);font-weight:600}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--cr);box-shadow:none}
+.chips button[aria-pressed=true] small{color:var(--rg)}
+.chips button.no{animation:no .45s}
+@keyframes no{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
+.hint{min-height:1.5em;font-size:13px;color:var(--rg2);margin-top:8px}
+.pv{position:sticky;top:88px;background:var(--ox);color:var(--cr);border-radius:20px;padding:28px;display:grid;gap:18px;overflow:hidden}
+.pv .nm{font:italic 400 clamp(28px,3.2vw,40px)/1.1 var(--fd);color:var(--rg);min-height:1.1em;overflow-wrap:anywhere}
+.pv .sub{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.pyr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:center}
+.pyr svg{width:100%;height:auto}
+.pyr .lb{display:grid;gap:12px;font-size:14px}
+.pyr .lb b{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rg);font-weight:600}
+.pyr .lb span{color:var(--cr)}
+.pyr .lb em{color:var(--mu);font-style:normal}
+.fld{display:grid;gap:6px}
+.fld label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.fld input{min-height:50px;border:0;border-bottom:1px solid var(--ln);background:transparent;padding:0 2px;font-size:17px;border-radius:0;outline:0}
+.fld input:focus{border-bottom-color:var(--rg)}
+.szs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.szs button{min-height:56px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--ln);display:grid;place-items:center;font-size:15px;font-weight:600;line-height:1.1;transition:background .3s,color .3s}
+.szs button small{display:block;font-weight:400;font-size:11px;color:var(--mu)}
+.szs button[aria-pressed=true]{background:var(--cr);color:var(--ink)}
+.szs button[aria-pressed=true] small{color:var(--mi)}
+.tot{display:flex;justify-content:space-between;align-items:end;border-top:1px solid var(--ln);padding-top:16px;gap:12px}
+.tot b{font:italic 400 36px/1 var(--fd)}
+.tot small{display:block;color:var(--mu);font-size:12px}
+@media(max-width:960px){.cg{grid-template-columns:1fr}.pv{position:relative;top:0}}
+@media(max-width:420px){.pv{padding:20px}.pyr{grid-template-columns:1fr 1fr;gap:12px}}
+/* band */
+.band{background:var(--cr);color:var(--ink);padding:0 0 110px}
+.band .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:end}
+.band figure{overflow:hidden;border-radius:4px}
+.band figure:first-child{aspect-ratio:4/5}.band figure:nth-child(2){aspect-ratio:3/2}
+.band img{width:100%;height:100%;object-fit:cover}
+.band p{font:italic 400 clamp(22px,2.4vw,32px)/1.3 var(--fd);margin-top:22px;max-width:24ch}
+@media(max-width:760px){.band .w{grid-template-columns:1fr 1fr}.band p{grid-column:1/-1}}
+/* booking */
+.bk2{padding:110px 0}
+.bg{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.bg .ld{color:var(--mu);margin-top:18px;max-width:36ch}
+.sum{margin-top:26px;border:1px solid var(--ln);border-radius:16px;padding:18px;font-size:14px;color:var(--mu)}
+.sum b{color:var(--cr);font-weight:600}
+form{display:grid;gap:22px}
+.days,.slots{display:flex;flex-wrap:wrap;gap:8px}
+.days button,.slots button{min-height:56px;min-width:64px;padding:6px 12px;border-radius:12px;box-shadow:inset 0 0 0 1px var(--ln);font-size:14px;line-height:1.2;transition:background .3s,color .3s}
+.days button small{display:block;font-size:11px;color:var(--mu)}
+.days button[aria-pressed=true],.slots button[aria-pressed=true]{background:var(--rg);color:var(--ink)}
+.days button[aria-pressed=true] small{color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.msg{min-height:1.5em;font-size:14px;color:var(--rg)}
+.msg.ok{color:#E9D7A8}
+@media(max-width:860px){.bg{grid-template-columns:1fr}.two{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--ln);padding:48px 0 64px;color:var(--mu);font-size:14px}
+footer .w{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px}
+footer .lg{color:var(--cr);font-size:30px}
+footer p{max-width:70ch}
+.emb .bk{display:none}
+.js [data-r]{opacity:0;transform:translateY(26px);transition:opacity 1s var(--e),transform 1.2s var(--e)}
+.js [data-r].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="w">
+ <a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a>
+ <a class="lg" href="#top">Aubrelle</a>
+ <a class="btn sm" href="#hen">Đặt lịch</a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="orb" aria-hidden="true"></div>
+ <div class="w">
+  <div>
+   <p class="cap" data-r><span class="tc">Concept</span>Atelier nước hoa đo riêng</p>
+   <h1 class="h1" style="margin-top:22px">Một mùi hương <em>chỉ mang tên bạn.</em></h1>
+   <p class="ld" data-r>Bạn chọn nốt hương. Người pha chế cân chỉnh. Chai Extrait duy nhất được ủ và khắc tên.</p>
+   <div class="acts" data-r><a class="btn" href="#phoi">Tự phối thử</a><a class="btn o" href="#hen">Đặt buổi tư vấn</a></div>
+  </div>
+  <figure class="hfig">
+   <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="cp" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs><text><textPath href="#cp">EXTRAIT · ĐO RIÊNG · AUBRELLE · </textPath></text><circle cx="60" cy="60" r="3" fill="#D4A487"/></svg>
+   <div class="arch"><picture><source type="image/avif" srcset="../img/demo/aubrelle/hero-640.avif 640w, ../img/demo/aubrelle/hero-1280.avif 1280w, ../img/demo/aubrelle/hero-1920.avif 1920w, ../img/demo/aubrelle/hero-2560.avif 2560w" sizes="(max-width:860px) 78vw, 40vw"><img src="../img/demo/aubrelle/hero-1280.webp" srcset="../img/demo/aubrelle/hero-640.webp 640w, ../img/demo/aubrelle/hero-1280.webp 1280w, ../img/demo/aubrelle/hero-1920.webp 1920w, ../img/demo/aubrelle/hero-2560.webp 2560w" sizes="(max-width:860px) 78vw, 40vw" width="1280" height="1707" alt="Người pha chế nhỏ giọt tinh dầu vào ống thủy tinh" fetchpriority="high" decoding="async"></picture></div>
+  </figure>
+ </div>
+</section>
+
+<section class="steps">
+ <div class="w">
+  <p class="cap">Cách làm</p>
+  <h2 data-r>Ba buổi, <em style="color:var(--rg)">một công thức.</em></h2>
+  <ol class="sg">
+   <li data-r><span class="n">01</span><h3>Nghe</h3><p>Chín mươi phút trò chuyện về những mùi bạn nhớ.</p></li>
+   <li data-r><span class="n">02</span><h3>Phối</h3><p>Ba bản thử, chỉnh từng giọt đến khi đúng.</p><figure><picture><source type="image/avif" srcset="../img/demo/aubrelle/giot-640.avif 640w, ../img/demo/aubrelle/giot-1280.avif 1280w, ../img/demo/aubrelle/giot-1920.avif 1920w" sizes="(max-width:820px) 92vw, 30vw"><img src="../img/demo/aubrelle/giot-1280.webp" srcset="../img/demo/aubrelle/giot-640.webp 640w, ../img/demo/aubrelle/giot-1280.webp 1280w, ../img/demo/aubrelle/giot-1920.webp 1920w" sizes="(max-width:820px) 92vw, 30vw" width="1280" height="1600" alt="Ống nhỏ giọt tinh dầu trên lọ thủy tinh nâu" loading="lazy" decoding="async"></picture></figure></li>
+   <li data-r><span class="n">03</span><h3>Ủ</h3><p>Hai mươi mốt ngày nghỉ trong tối, rồi đóng chai.</p><figure><picture><source type="image/avif" srcset="../img/demo/aubrelle/pipet-640.avif 640w, ../img/demo/aubrelle/pipet-1280.avif 1280w, ../img/demo/aubrelle/pipet-1920.avif 1920w" sizes="(max-width:820px) 92vw, 30vw"><img src="../img/demo/aubrelle/pipet-1280.webp" srcset="../img/demo/aubrelle/pipet-640.webp 640w, ../img/demo/aubrelle/pipet-1280.webp 1280w, ../img/demo/aubrelle/pipet-1920.webp 1920w" sizes="(max-width:820px) 92vw, 30vw" width="1280" height="1600" alt="Giọt tinh dầu rơi vào lọ thủy tinh" loading="lazy" decoding="async"></picture></figure></li>
+  </ol>
+ </div>
+</section>
+
+<section class="cmp" id="phoi">
+ <div class="w">
+  <p class="cap">Trình phối hương</p>
+  <h2 data-r>Thử phối <em>bản nháp của bạn.</em></h2>
+  <div class="cg">
+   <div id="tiers"></div>
+   <aside class="pv" aria-live="polite">
+    <div><p class="sub">Bản nháp · Extrait de parfum</p><p class="nm" id="pnm">Chưa đặt tên</p></div>
+    <div class="pyr">
+     <svg viewBox="0 0 300 250" role="img" aria-label="Tháp hương của bản nháp"><defs>
+      <clipPath id="k0"><polygon points="150,6 197,86 103,86"/></clipPath>
+      <clipPath id="k1"><polygon points="100,92 200,92 247,172 53,172"/></clipPath>
+      <clipPath id="k2"><polygon points="50,178 250,178 296,248 4,248"/></clipPath>
+      <pattern id="ht" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="rgba(243,233,220,.22)" stroke-width="2"/></pattern></defs>
+      <g clip-path="url(#k0)"><rect width="300" height="250" fill="url(#ht)"/><g id="g0"></g></g>
+      <g clip-path="url(#k1)"><rect width="300" height="250" fill="url(#ht)"/><g id="g1"></g></g>
+      <g clip-path="url(#k2)"><rect width="300" height="250" fill="url(#ht)"/><g id="g2"></g></g>
+     </svg>
+     <div class="lb" id="plb"></div>
+    </div>
+    <div class="fld"><label for="nm">Đặt tên cho mùi hương</label><input id="nm" maxlength="18" autocomplete="off" placeholder="Ví dụ: Chiều Hội An"></div>
+    <div class="szs" id="szs" role="group" aria-label="Chọn dung tích"></div>
+    <div class="tot"><div><small>Tổng dự kiến · giá minh họa</small><b><span id="tt">0</span> ₫</b></div><a class="btn sm" href="#hen" id="keep">Giữ công thức</a></div>
+   </aside>
+  </div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="w">
+  <figure data-r><picture><source type="image/avif" srcset="../img/demo/aubrelle/hong-640.avif 640w, ../img/demo/aubrelle/hong-1280.avif 1280w, ../img/demo/aubrelle/hong-1920.avif 1920w, ../img/demo/aubrelle/hong-2560.avif 2560w" sizes="(max-width:760px) 46vw, 34vw"><img src="../img/demo/aubrelle/hong-1280.webp" srcset="../img/demo/aubrelle/hong-640.webp 640w, ../img/demo/aubrelle/hong-1280.webp 1280w, ../img/demo/aubrelle/hong-1920.webp 1920w, ../img/demo/aubrelle/hong-2560.webp 2560w" sizes="(max-width:760px) 46vw, 34vw" width="1280" height="1600" alt="Bông hồng đỏ trên nền tối" loading="lazy" decoding="async"></picture></figure>
+  <figure data-r><picture><source type="image/avif" srcset="../img/demo/aubrelle/ho-640.avif 640w, ../img/demo/aubrelle/ho-1280.avif 1280w, ../img/demo/aubrelle/ho-1920.avif 1920w, ../img/demo/aubrelle/ho-2560.avif 2560w" sizes="(max-width:760px) 46vw, 56vw"><img src="../img/demo/aubrelle/ho-1280.webp" srcset="../img/demo/aubrelle/ho-640.webp 640w, ../img/demo/aubrelle/ho-1280.webp 1280w, ../img/demo/aubrelle/ho-1920.webp 1920w, ../img/demo/aubrelle/ho-2560.webp 2560w" sizes="(max-width:760px) 46vw, 56vw" width="1280" height="853" alt="Ống nhỏ giọt và lọ hổ phách" loading="lazy" decoding="async"></picture></figure>
+  <p data-r>Không có hai chai Aubrelle giống nhau.</p>
+ </div>
+</section>
+
+<section class="bk2" id="hen">
+ <div class="w bg">
+  <div>
+   <p class="cap">Đặt buổi tư vấn</p>
+   <h2 data-r>Gặp nhau <em style="color:var(--rg)">tại atelier.</em></h2>
+   <p class="ld">Buổi đầu 90 phút, có trà và ba bản thử. Atelier nghỉ thứ Hai.</p>
+   <p class="sum" id="sum">Chưa có công thức nháp — bạn có thể phối thử ở trên hoặc để trống.</p>
+  </div>
+  <form id="fm" novalidate>
+   <div class="fld"><span class="cap" style="color:var(--mu)">Ngày</span><div class="days" id="days" role="group" aria-label="Chọn ngày"></div></div>
+   <div class="fld"><span class="cap" style="color:var(--mu)">Giờ</span><div class="slots" id="slots" role="group" aria-label="Chọn giờ"></div></div>
+   <div class="two"><div class="fld"><label for="fn">Họ tên</label><input id="fn" required autocomplete="name"></div><div class="fld"><label for="fp">Điện thoại</label><input id="fp" type="tel" required autocomplete="tel" inputmode="tel"></div></div>
+   <button class="btn" type="submit">Gửi yêu cầu đặt lịch</button>
+   <p class="msg" id="fmsg" role="status"></p>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer><div class="w"><span class="lg">Aubrelle</span><p>Aubrelle là thương hiệu concept do <a href="../index.html" target="_top"><u>Dream Labs</u></a> thiết kế; mùi hương, giá chỉ để minh họa. Ảnh: Pexels (MART PRODUCTION, Karola G, Eva Bronzini, Hatice Baran, Mira Fialkova). Trang mẫu: không thông tin nào được gửi đi.</p></div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script src="../vendor/SplitText.min.js"></script>
+<script src="../vendor/lenis.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches,G=!!window.gsap&&!RM;
+H.classList.add('js');try{if(parent!==window)H.classList.add('emb')}catch(e){}
+const vnd=n=>Math.round(n).toLocaleString('vi-VN');
+const TI=[
+ {h:'Hương đầu',max:2,t:'bay hơi trong 15 phút',n:[['Cam bergamot','#E2C35B',0],['Bưởi hồng','#E8A07A',0],['Tiêu hồng','#C8566A',150],['Bạch đậu khấu','#9BB38A',0],['Gừng','#D9B26B',0],['Lá trà xanh','#8FA97A',0],['Chanh yên','#EAD96A',0],['Nghệ tây','#C0522E',600]]},
+ {h:'Hương giữa',max:3,t:'trái tim, vài giờ',n:[['Hồng Damask','#B23A4E',450],['Nhài sambac','#F1E7C9',300],['Diên vĩ','#9A8FB8',800],['Hoa cam','#F0D9A8',250],['Ngọc lan tây','#E9CF73',0],['Hoa huệ','#EDE6D6',200],['Violet','#7C5C9E',0],['Quế','#9C5B34',0]]},
+ {h:'Hương cuối',max:2,t:'nền, đến hết ngày',n:[['Trầm hương','#4A2E22',1500],['Đàn hương','#B8875A',600],['Tuyết tùng','#8C6B4C',0],['Cỏ hương bài','#6E6A47',0],['Vani','#E1C79B',200],['Hổ phách','#C27A32',300],['Xạ hương','#D8D1C6',0],['Da thuộc','#5A3B2E',400]]}];
+const SZ=[[30,6800000,.7],[50,9800000,1],[100,15800000,1.7]];
+const st={sel:[[0],[1],[2]],ml:1,name:''};
+$('#tiers').innerHTML=TI.map((t,k)=>`<div class="tier" data-k="${k}"><div class="th"><h3>${t.h}</h3><span class="ct" id="ct${k}"></span></div><div class="chips" role="group" aria-label="${t.h}">${t.n.map((n,i)=>`<button type="button" data-k="${k}" data-i="${i}" style="--c:${n[1]}" aria-pressed="false"><i></i>${n[0]}${n[2]?` <small>+${vnd(n[2]*1000)}</small>`:''}</button>`).join('')}</div><p class="hint" id="h${k}" role="status"></p></div>`).join('');
+$('#tiers').addEventListener('click',e=>{const b=e.target.closest('button[data-k]');if(!b)return;const k=+b.dataset.k,i=+b.dataset.i,s=st.sel[k],j=s.indexOf(i),h=$('#h'+k);
+ if(j>=0){s.splice(j,1);h.textContent=''}else if(s.length>=TI[k].max){b.classList.remove('no');void b.offsetWidth;b.classList.add('no');h.textContent=`Tối đa ${TI[k].max} nốt cho ${TI[k].h.toLowerCase()} — bỏ bớt một nốt trước.`;return}else{s.push(i);h.textContent=''}
+ draw()});
+const szs=$('#szs');szs.innerHTML=SZ.map((z,i)=>`<button type="button" data-m="${i}" aria-pressed="${i===st.ml}">${z[0]} ml<small>${vnd(z[1]/1e6)} triệu+</small></button>`).join('');
+szs.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.ml=+b.dataset.m;$$('button',szs).forEach(x=>x.setAttribute('aria-pressed',x===b));draw()});
+$('#nm').addEventListener('input',e=>{st.name=e.target.value.trim();$('#pnm').textContent=st.name?`« ${st.name} »`:'Chưa đặt tên';sum()});
+const YB=[[6,86],[92,172],[178,248]],gs=[$('#g0'),$('#g1'),$('#g2')];
+const total=()=>{const z=SZ[st.ml];let p=z[1];st.sel.forEach((s,k)=>s.forEach(i=>p+=TI[k].n[i][2]*1000*z[2]));return Math.round(p/1e4)*1e4};
+let pv=0;const tt=$('#tt');
+function draw(){
+ st.sel.forEach((s,k)=>{const g=gs[k],n=s.length,old=$$('rect',g);
+  $('#ct'+k).textContent=`${n}/${TI[k].max} · ${TI[k].t}`;$('#ct'+k).classList.toggle('full',n>=TI[k].max);
+  $$('button[data-k="'+k+'"]').forEach(b=>b.setAttribute('aria-pressed',s.includes(+b.dataset.i)));
+  const [y0,y1]=YB[k];
+  old.slice(n).forEach(r=>{if(G)gsap.to(r,{opacity:0,duration:.3,onComplete:()=>r.remove()});else r.remove()});
+  s.forEach((i,j)=>{let r=old[j];const x=j*300/n,w=300/n,c=TI[k].n[i][1];
+   if(!r){r=D.createElementNS('http://www.w3.org/2000/svg','rect');r.setAttribute('y',y0);r.setAttribute('height',y1-y0);r.setAttribute('x',x+w/2);r.setAttribute('width',0);r.setAttribute('fill',c);g.appendChild(r)}
+   if(G)gsap.to(r,{attr:{x:x+(j?1:0),width:w-(j<n-1?1:0)},fill:c,opacity:1,duration:.7,ease:'power3.out',delay:k*.06});
+   else{r.setAttribute('x',x);r.setAttribute('width',w-(j<n-1?1:0));r.setAttribute('fill',c)}})});
+ $('#plb').innerHTML=TI.map((t,k)=>`<p><b>${t.h}</b>${st.sel[k].length?`<span>${st.sel[k].map(i=>t.n[i][0]).join(', ')}</span>`:'<em>chưa chọn</em>'}</p>`).join('');
+ const to=total();if(G){const o={v:pv};gsap.to(o,{v:to,duration:.8,ease:'power3.out',onUpdate:()=>tt.textContent=vnd(Math.round(o.v/1e4)*1e4)})}else tt.textContent=vnd(to);pv=to;sum()}
+function sum(){const parts=st.sel.map((s,k)=>s.map(i=>TI[k].n[i][0]).join(', ')).filter(Boolean);
+ $('#sum').innerHTML=parts.length?`Công thức nháp${st.name?` <b>« ${st.name.replace(/[<>&]/g,'')} »</b>`:''}: ${parts.join(' · ')}. <b>${SZ[st.ml][0]} ml · ${vnd(total())} ₫</b> (giá minh họa).`:'Chưa có công thức nháp — bạn có thể phối thử ở trên hoặc để trống.'}
+const WD=['CN','T2','T3','T4','T5','T6','T7'],days=$('#days'),slots=$('#slots');const bk={d:null,s:null};
+const now=new Date();let ds=[];for(let i=2;ds.length<6;i++){const d=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);if(d.getDay()!==1)ds.push(d)}
+days.innerHTML=ds.map((d,i)=>`<button type="button" data-d="${i}" aria-pressed="false">${d.getDate()}/${d.getMonth()+1}<small>${WD[d.getDay()]}</small></button>`).join('');
+slots.innerHTML=['10:00','14:00','16:30','19:00'].map(s=>`<button type="button" data-s="${s}" aria-pressed="false">${s}</button>`).join('');
+days.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;bk.d=ds[+b.dataset.d];$$('button',days).forEach(x=>x.setAttribute('aria-pressed',x===b))});
+slots.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;bk.s=b.dataset.s;$$('button',slots).forEach(x=>x.setAttribute('aria-pressed',x===b))});
+$('#fm').addEventListener('submit',e=>{e.preventDefault();const m=$('#fmsg'),ok=bk.d&&bk.s&&$('#fn').value.trim()&&$('#fp').value.trim();
+ m.classList.toggle('ok',!!ok);m.textContent=ok?`Đã ghi lịch ${bk.s}, ${WD[bk.d.getDay()]} ${bk.d.getDate()}/${bk.d.getMonth()+1}. Đây là trang mẫu nên chưa có gì được gửi đi.`:'Bạn chọn ngày, giờ và điền họ tên, điện thoại giúp nhé.'});
+$('#keep').addEventListener('click',sum);
+draw();
+const hd=$('header');const onS=()=>hd.classList.toggle('s',scrollY>30);addEventListener('scroll',onS,{passive:true});onS();
+let lenis=null;if(!RM&&window.Lenis){lenis=new Lenis({duration:1.2,smoothWheel:true});$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-60})}}))}
+if(G&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ if(lenis){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+ if(window.SplitText){gsap.registerPlugin(SplitText);D.fonts.ready.then(()=>{const sp=SplitText.create('.h1',{type:'chars,words',mask:'words'});gsap.from(sp.chars,{yPercent:120,rotate:6,duration:1.2,stagger:.022,ease:'power4.out'})})}
+ gsap.from('.arch',{clipPath:'inset(100% 0 0 0)',duration:1.8,ease:'power4.inOut'});
+ gsap.from('.arch img',{scale:1.3,duration:2.4,ease:'power3.out'});
+ gsap.to('.orb',{yPercent:30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.sg figure img,.band img').forEach(im=>gsap.fromTo(im,{yPercent:-5,scale:1.1},{yPercent:5,scale:1.1,ease:'none',scrollTrigger:{trigger:im.closest('figure'),start:'top bottom',end:'bottom top',scrub:true}}))
+}else if(lenis){const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf)}
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12}):null;
+$$('[data-r]').forEach(e=>io?io.observe(e):e.classList.add('in'));
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-aubrelle',smDemo:'lux-lp-aubrelle'},'*')}catch(e){}
+})();
+</script>
+</body>
+</html>

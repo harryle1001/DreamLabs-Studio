@@ -1,0 +1,97 @@
+{
+ "hero": {
+  "author": "ZBA Banner",
+  "page": "https://www.pexels.com/photo/34036480/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/34036480/pexels-photo-34036480.jpeg",
+  "w": 2075,
+  "h": 3130,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.41,
+    0.585,
+    0.2,
+    0.06
+   ]
+  ]
+ },
+ "nhai": {
+  "author": "The Eyes",
+  "page": "https://www.pexels.com/photo/12489728/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/12489728/pexels-photo-12489728.jpeg",
+  "w": 3039,
+  "h": 5401,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "cam": {
+  "author": "Sarah AlAmeri",
+  "page": "https://www.pexels.com/photo/20009529/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/20009529/pexels-photo-20009529.jpeg",
+  "w": 2518,
+  "h": 3776,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "khoi": {
+  "author": "Adilson Cardoso",
+  "page": "https://www.pexels.com/photo/29038866/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/29038866/pexels-photo-29038866.jpeg",
+  "w": 2333,
+  "h": 3500,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "hong": {
+  "author": "Svitlana Ivanova",
+  "page": "https://www.pexels.com/photo/34346394/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/34346394/pexels-photo-34346394.jpeg",
+  "w": 3264,
+  "h": 4928,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "tram": {
+  "author": "Mahmoud Atashi",
+  "page": "https://www.pexels.com/photo/17860048/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/17860048/pexels-photo-17860048.jpeg",
+  "w": 3940,
+  "h": 5910,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ }
+}

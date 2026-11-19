@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gravène — Quà tặng nước hoa khắc tên (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho nhãn quà tặng nước hoa khắc tên: chọn mùi và dung tích, khắc chữ xem trước trực tiếp trên chai, nắp hoặc hộp, chọn hộp và thiệp, ngày giao và giỏ hàng mẫu.">
+<meta name="theme-color" content="#16302A">
+<style>
+@font-face{font-family:"Old Standard";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/old-standard-tt-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Old Standard";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/old-standard-tt-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Old Standard";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/old-standard-tt-vietnamese-400-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Old Standard";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/old-standard-tt-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Grotesk";font-weight:300;font-display:swap;src:url(fonts/space-grotesk-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Grotesk";font-weight:300;font-display:swap;src:url(fonts/space-grotesk-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url(fonts/space-grotesk-vietnamese-500-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-display:swap;src:url(fonts/space-grotesk-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--gr:#16302A;--gr2:#21423A;--cr:#F2ECDF;--cr2:#E6DDCB;--br:#B48D52;--br2:#D8B97F;--ink:#13241F;--mu:rgba(19,36,31,.62);--mc:rgba(242,236,223,.66);--ln:rgba(19,36,31,.15);--lc:rgba(242,236,223,.18);--e:cubic-bezier(.22,1,.36,1);--fd:"Old Standard",Georgia,serif;--fb:"Space Grotesk",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cr);color:var(--ink);font:300 16px/1.6 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,ol,figure,fieldset{margin:0}ul,ol{padding:0;list-style:none}fieldset{border:0;padding:0;min-width:0}
+.w{max-width:1320px;margin:0 auto;padding:0 max(18px,4vw)}
+.cap{font:500 11px var(--fb);letter-spacing:.22em;text-transform:uppercase;color:var(--br)}
+.tc{display:inline-block;border:1px solid currentColor;padding:2px 8px;margin-right:8px}
+h1,h2,h3{font-family:var(--fd);font-weight:400;line-height:1.08}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;background:var(--br);color:var(--gr);font:500 13px var(--fb);letter-spacing:.14em;text-transform:uppercase;transition:background .4s var(--e)}
+.btn:hover{background:var(--br2)}
+.btn.d{background:var(--gr);color:var(--cr)}.btn.d:hover{background:var(--gr2)}
+.btn.o{background:none;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+header{position:fixed;inset:0 0 auto;z-index:40;color:var(--cr);transition:background .4s}
+header.s{background:rgba(22,48,42,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:68px}
+.bk{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:14px;color:var(--mc)}
+.lg{font:400 24px var(--fd);letter-spacing:.24em;padding-left:.24em;min-height:44px;display:flex;align-items:center}
+.hr{justify-self:end;display:flex;gap:18px;align-items:center}
+.hr nav{display:flex;gap:18px;font-size:14px}.hr nav a{min-height:44px;display:flex;align-items:center}
+.cb{min-height:44px;min-width:44px;display:inline-flex;align-items:center;gap:8px;font-size:14px}
+.cb b{min-width:24px;height:24px;display:inline-grid;place-items:center;background:var(--br);color:var(--gr);font-weight:500;font-size:12px;border-radius:50%}
+@media(max-width:900px){.hr nav{display:none}.bk span{display:none}.lg{font-size:19px}}
+/* hero */
+.hero{background:var(--gr);color:var(--cr);padding:120px 0 80px;position:relative;overflow:hidden}
+.hero .w{display:grid;grid-template-columns:.9fr 1.1fr;gap:5vw;align-items:center}
+.hero h1{font-size:clamp(46px,6.6vw,100px);margin:20px 0}
+.hero h1 i{color:var(--br2)}
+.hero .ld{color:var(--mc);font-size:18px;max-width:34ch}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.frame{position:relative;padding:14px;border:1px solid rgba(180,141,82,.5)}
+.frame .im{aspect-ratio:3/2;overflow:hidden}
+.frame img{width:100%;height:100%;object-fit:cover}
+.frame figcaption{position:absolute;right:28px;bottom:-14px;background:var(--gr);padding:4px 12px;font:italic 400 16px var(--fd);color:var(--br2)}
+.uspl{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:56px;padding-top:22px;border-top:1px solid var(--lc);font-size:13px;color:var(--mc);letter-spacing:.06em}
+.uspl span::before{content:"◆";color:var(--br);margin-right:8px;font-size:9px;vertical-align:2px}
+@media(max-width:900px){.hero .w{grid-template-columns:1fr}.hero{padding-top:100px}}
+/* configurator */
+.cfg{padding:100px 0}
+.ch2{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:44px}
+.ch2 h2{font-size:clamp(36px,4.8vw,66px)}
+.ch2 h2 i{color:var(--br)}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.pv{position:sticky;top:84px;background:var(--cr2);padding:20px;display:grid;gap:14px}
+.tabs{display:flex;gap:6px}
+.tabs button{flex:1;min-height:44px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;box-shadow:inset 0 0 0 1px var(--ln);transition:background .3s,color .3s}
+.tabs button[aria-pressed=true]{background:var(--gr);color:var(--cr)}
+.stage{position:relative;aspect-ratio:3/4;max-height:66vh;margin:0 auto;width:100%;background:radial-gradient(ellipse at 50% 85%,rgba(19,36,31,.12),transparent 60%),linear-gradient(180deg,#EFE7D6,#E2D7C1)}
+.stage svg{position:absolute;inset:0;width:100%;height:100%}
+.vw{transition:opacity .6s var(--e),transform .8s var(--e);transform-origin:150px 380px}
+.vw.off{opacity:0;transform:translateY(16px) scale(.96);pointer-events:none}
+#btl{transform-box:fill-box;transform-origin:50% 100%;transition:transform .8s var(--e)}
+#liq{transition:fill .8s var(--e)}
+.eg{fill:rgba(255,255,255,.9);transition:opacity .4s}
+.eg.f0{font-family:"Old Standard",serif;letter-spacing:.04em}
+.eg.f1{font-family:"Old Standard",serif;font-style:italic}
+.eg.f2{font-family:"Space Grotesk",sans-serif;font-weight:500;text-transform:uppercase;letter-spacing:.22em}
+.eg.dk{fill:rgba(19,36,31,.82)}
+.pvs{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--mu)}
+.steps{display:grid;gap:8px}
+.st{border-top:1px solid var(--ink);padding:20px 0 26px}
+.st legend{display:flex;gap:12px;align-items:baseline;font:400 24px var(--fd);margin-bottom:14px;padding:0}
+.st legend span{font:500 11px var(--fb);letter-spacing:.2em;color:var(--br)}
+.sc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sc button{text-align:left;min-height:96px;padding:14px;box-shadow:inset 0 0 0 1px var(--ln);display:grid;gap:4px;align-content:start;transition:background .3s,box-shadow .3s}
+.sc button b{font:400 20px var(--fd);display:flex;align-items:center;gap:8px}
+.sc button b i{width:12px;height:12px;border-radius:50%;background:var(--c)}
+.sc button small{font-size:12px;color:var(--mu);line-height:1.45}
+.sc button[aria-pressed=true]{background:var(--gr);color:var(--cr);box-shadow:none}
+.sc button[aria-pressed=true] small{color:var(--mc)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{min-height:46px;padding:0 16px;box-shadow:inset 0 0 0 1px var(--ln);font-size:14px;transition:background .3s,color .3s}
+.seg button small{color:var(--mu);margin-left:4px}
+.seg button[aria-pressed=true]{background:var(--gr);color:var(--cr)}
+.seg button[aria-pressed=true] small{color:var(--mc)}
+.seg .ff0{font:400 17px var(--fd)}.seg .ff1{font:italic 400 17px var(--fd)}.seg .ff2{font:500 13px var(--fb);letter-spacing:.18em;text-transform:uppercase}
+.fld{display:grid;gap:6px;margin-bottom:14px}
+.fld label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+.fld .row{display:flex;align-items:center;border-bottom:1px solid var(--ink)}
+.fld input,.fld textarea{flex:1;min-width:0;min-height:50px;border:0;background:transparent;font:400 22px var(--fd);padding:4px 0;outline:0;border-radius:0}
+.fld textarea{font:300 16px var(--fb);min-height:80px;border-bottom:1px solid var(--ink);resize:vertical}
+.fld .cnt{font-size:13px;color:var(--mu);min-width:48px;text-align:right}
+.fld .cnt.max{color:#9B3D2A}
+.lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin:16px 0 8px}
+.note{font-size:13px;color:var(--mu);margin-top:8px}
+input[type=date]{font:300 17px var(--fb)!important}
+.sum{background:var(--gr);color:var(--cr);padding:22px;margin-top:8px;display:grid;gap:12px}
+.sum ul{display:grid;gap:4px;font-size:14px;color:var(--mc)}
+.sum li{display:flex;justify-content:space-between;gap:12px}
+.sum .tt{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--lc);padding-top:12px}
+.sum .tt b{font:400 32px var(--fd)}
+.sum .tt small{display:block;font-size:12px;color:var(--mc)}
+.sum .m{min-height:1.3em;font-size:13px;color:var(--br2)}
+@media(max-width:980px){.cg{grid-template-columns:1fr}.pv{position:sticky;top:68px;z-index:5;padding:10px;grid-template-columns:1fr;box-shadow:0 10px 20px rgba(19,36,31,.08)}.stage{aspect-ratio:16/10;max-height:30vh}.pvs{display:none}}
+@media(max-width:520px){.sc{grid-template-columns:1fr 1fr}.sc button{min-height:88px;padding:10px}.sc button b{font-size:17px}}
+/* gallery */
+.gal{background:var(--gr);color:var(--cr);padding:100px 0}
+.gal .ch2 h2 i{color:var(--br2)}
+.gg{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:18px;align-items:end}
+.gg figure .im{overflow:hidden}
+.gg figure:nth-child(1) .im,.gg figure:nth-child(2) .im{aspect-ratio:4/5}
+.gg figure:nth-child(3) .im{aspect-ratio:3/2}
+.gg img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--e)}
+.gg figure:hover img{transform:scale(1.04)}
+.gg figcaption{margin-top:10px;font:italic 400 17px var(--fd);color:var(--br2)}
+.gg figcaption span{display:block;font:300 13px var(--fb);color:var(--mc);font-style:normal}
+@media(max-width:800px){.gg{grid-template-columns:1fr 1fr}.gg figure:nth-child(3){grid-column:1/-1}}
+.dl{padding:90px 0}
+.dl ol{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+.dl li{border-top:1px solid var(--ink);padding-top:14px}
+.dl li b{font:400 34px var(--fd);color:var(--br);display:block}
+.dl li p{color:var(--mu);font-size:15px}
+@media(max-width:800px){.dl ol{grid-template-columns:1fr 1fr}}
+footer{background:var(--gr);color:var(--mc);padding:50px 0 70px;font-size:14px}
+footer .w{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:baseline}
+footer .lg{color:var(--cr);padding:0}
+footer p{max-width:72ch}
+/* cart */
+.scrim{position:fixed;inset:0;background:rgba(19,36,31,.45);opacity:0;pointer-events:none;transition:opacity .5s;z-index:50}
+.cart{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--cr);z-index:60;transform:translateX(102%);visibility:hidden;transition:transform .7s var(--e),visibility 0s .7s;display:flex;flex-direction:column}
+body.co .scrim{opacity:1;pointer-events:auto}body.co .cart{transform:none;visibility:visible;transition:transform .7s var(--e)}
+.cart .hd{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid var(--ln)}
+.cart .hd h2{font-size:26px}
+.x{min-width:44px;min-height:44px;font-size:26px}
+.cl{flex:1;overflow:auto;padding:4px 22px}
+.cl li{padding:16px 0;border-bottom:1px solid var(--ln);display:grid;grid-template-columns:1fr auto;gap:4px 12px}
+.cl .nm{font:400 19px var(--fd)}
+.cl .dt{grid-column:1/-1;font-size:13px;color:var(--mu)}
+.cl .lp{text-align:right;font:400 18px var(--fd)}
+.cl .q{display:flex;align-items:center;gap:4px}
+.cl .q button{min-width:44px;min-height:44px;box-shadow:inset 0 0 0 1px var(--ln)}
+.cl .q span{min-width:24px;text-align:center}
+.cl .em{color:var(--mu);padding:24px 0;display:block}
+.cart .ft{padding:16px 22px calc(18px + env(safe-area-inset-bottom));border-top:1px solid var(--ln);display:grid;gap:10px}
+.cart .tt{display:flex;justify-content:space-between;align-items:baseline}
+.cart .tt b{font:400 28px var(--fd)}
+.cart .m{font-size:13px;color:#2F5C4F;min-height:1.3em}
+.emb .bk{display:none}
+.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity 1s var(--e),transform 1.2s var(--e)}
+.js [data-r].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header><div class="w">
+ <a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a>
+ <a class="lg" href="#top">GRAVÈNE</a>
+ <div class="hr"><nav aria-label="Mục chính"><a href="#khac">Khắc tên</a><a href="#hop">Hộp quà</a><a href="#giao">Giao hàng</a></nav><button class="cb" id="cb" aria-label="Mở giỏ hàng">Giỏ <b id="cn">0</b></button></div>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="w">
+  <div>
+   <p class="cap" data-r><span class="tc">Concept</span>Quà tặng nước hoa</p>
+   <h1 class="h1">Một dòng chữ, <i>khắc để tặng.</i></h1>
+   <p class="ld" data-r>Chọn mùi, khắc tên lên chai, nắp hoặc hộp. Gói tay, giao đúng ngày.</p>
+   <div class="acts" data-r><a class="btn" href="#khac">Bắt đầu khắc</a><a class="btn o" href="#hop">Xem hộp quà</a></div>
+  </div>
+  <figure class="frame" data-r>
+   <div class="im"><picture><source type="image/avif" srcset="../img/demo/gravene/hero-640.avif 640w, ../img/demo/gravene/hero-1280.avif 1280w, ../img/demo/gravene/hero-1920.avif 1920w, ../img/demo/gravene/hero-2560.avif 2560w" sizes="(max-width:900px) 92vw, 52vw"><img src="../img/demo/gravene/hero-1280.webp" srcset="../img/demo/gravene/hero-640.webp 640w, ../img/demo/gravene/hero-1280.webp 1280w, ../img/demo/gravene/hero-1920.webp 1920w, ../img/demo/gravene/hero-2560.webp 2560w" sizes="(max-width:900px) 92vw, 52vw" width="1280" height="853" alt="Hai bàn tay trao hộp quà buộc ruy băng đen trên nền đá cẩm thạch" fetchpriority="high" decoding="async"></picture></div>
+   <figcaption>gói tay, ruy băng lụa</figcaption>
+  </figure>
+ </div>
+ <div class="w"><div class="uspl"><span>Khắc laser trong 24 giờ</span><span>Ba kiểu chữ</span><span>Thiệp viết tay</span><span>Chọn ngày giao</span></div></div>
+</section>
+
+<section class="cfg" id="khac">
+ <div class="w">
+  <div class="ch2"><div><p class="cap">Tạo món quà</p><h2 data-r>Khắc <i>lời của bạn.</i></h2></div><p class="note" style="max-width:32ch">Xem trước trực tiếp. Chữ khắc chỉ là mô phỏng.</p></div>
+  <div class="cg">
+   <div class="pv">
+    <div class="tabs" role="group" aria-label="Góc xem"><button data-v="chai" aria-pressed="true">Chai</button><button data-v="nap" aria-pressed="false">Nắp</button><button data-v="hop" aria-pressed="false">Hộp</button></div>
+    <div class="stage">
+     <svg viewBox="0 0 300 400" role="img" aria-label="Xem trước chữ khắc" id="svg">
+      <defs>
+       <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".18" stop-color="#fff" stop-opacity=".08"/><stop offset=".8" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".3"/></linearGradient>
+       <linearGradient id="cp" x1="0" x2="1"><stop offset="0" stop-color="#7A5B2E"/><stop offset=".35" stop-color="#E2C690"/><stop offset=".6" stop-color="#B48D52"/><stop offset="1" stop-color="#6E5228"/></linearGradient>
+       <linearGradient id="bx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--bx1)"/><stop offset="1" stop-color="var(--bx2)"/></linearGradient>
+       <filter id="en" x="-10%" y="-30%" width="120%" height="160%"><feOffset dy="-.8" in="SourceAlpha" result="o"/><feGaussianBlur in="o" stdDeviation=".5" result="b"/><feComposite in="SourceAlpha" in2="b" operator="out" result="i"/><feFlood flood-color="#000" flood-opacity=".45"/><feComposite in2="i" operator="in" result="s"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="s"/></feMerge></filter>
+      </defs>
+      <ellipse cx="150" cy="384" rx="110" ry="9" fill="rgba(19,36,31,.18)"/>
+      <g class="vw" id="vb">
+       <g id="btl">
+        <rect x="128" y="104" width="44" height="30" fill="#CDBF9F"/>
+        <g id="cap"><rect x="104" y="40" width="92" height="68" rx="3" fill="url(#cp)"/><rect x="104" y="40" width="92" height="68" rx="3" fill="url(#gl)" opacity=".5"/><text class="eg dk" id="tc" x="150" y="80" text-anchor="middle" filter="url(#en)"></text></g>
+        <rect x="62" y="130" width="176" height="252" rx="16" fill="rgba(255,255,255,.35)" stroke="rgba(19,36,31,.25)"/>
+        <rect id="liq" x="70" y="160" width="160" height="214" rx="10" fill="#D9B46A"/>
+        <rect x="62" y="130" width="176" height="252" rx="16" fill="url(#gl)"/>
+        <text class="eg" id="tb" x="150" y="270" text-anchor="middle" filter="url(#en)"></text>
+        <text id="tl" x="150" y="346" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" letter-spacing="3" fill="rgba(255,255,255,.75)">GRAVÈNE · 50 ML</text>
+       </g>
+      </g>
+      <g class="vw off" id="vx">
+       <rect x="40" y="150" width="220" height="222" fill="url(#bx)"/>
+       <rect x="32" y="120" width="236" height="52" fill="url(#bx)" stroke="rgba(0,0,0,.12)"/>
+       <rect x="138" y="120" width="24" height="252" fill="var(--rb)"/>
+       <path d="M150 120c-40-40-70-10-44 4 12 6 30 2 44-4zm0 0c40-40 70-10 44 4-12 6-30 2-44-4z" fill="var(--rb)"/>
+       <rect x="62" y="228" width="176" height="64" fill="rgba(255,255,255,.08)" stroke="var(--rb)" stroke-opacity=".6"/>
+       <text class="eg" id="tx" x="150" y="268" text-anchor="middle" filter="url(#en)"></text>
+       <text x="150" y="350" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="8" letter-spacing="3" fill="rgba(255,255,255,.6)" id="bxl">GRAVÈNE</text>
+      </g>
+     </svg>
+    </div>
+    <div class="pvs"><span id="pv1">Nhài Gỗ · 50 ml</span><span id="pv2">Khắc trên thân chai</span></div>
+   </div>
+
+   <div class="steps">
+    <fieldset class="st"><legend><span>01</span>Chọn mùi</legend><div class="sc" id="sc"></div></fieldset>
+    <fieldset class="st"><legend><span>02</span>Dung tích</legend><div class="seg" id="sz"></div></fieldset>
+    <fieldset class="st"><legend><span>03</span>Chữ khắc</legend>
+     <div class="fld"><label for="eg">Nội dung (tối đa 16 ký tự)</label><div class="row"><input id="eg" maxlength="16" value="Gửi An" autocomplete="off"><span class="cnt" id="cnt">6/16</span></div></div>
+     <p class="lab">Vị trí</p><div class="seg" id="pos"></div>
+     <p class="lab">Kiểu chữ</p><div class="seg" id="ff"></div>
+     <p class="note">Phí khắc 150.000 ₫ · bỏ trống nếu không khắc.</p>
+    </fieldset>
+    <fieldset class="st" id="hop"><legend><span>04</span>Hộp &amp; thiệp</legend>
+     <div class="seg" id="bxs"></div>
+     <p class="lab">Thiệp</p><div class="seg" id="crd"></div>
+     <div class="fld" id="msgw" style="margin-top:14px" hidden><label for="msg">Lời nhắn (tối đa 120 ký tự)</label><textarea id="msg" maxlength="120" rows="3" placeholder="Viết tay bằng mực nâu"></textarea></div>
+    </fieldset>
+    <fieldset class="st" id="giao"><legend><span>05</span>Ngày giao</legend>
+     <div class="fld"><label for="dd">Chọn ngày (sớm nhất sau 2 ngày)</label><div class="row"><input type="date" id="dd" required></div></div>
+     <p class="note" id="ddn"></p>
+    </fieldset>
+    <div class="sum" aria-live="polite">
+     <ul id="sl"></ul>
+     <div class="tt"><div><small>Tổng · giá minh họa</small><b><span id="tt">0</span> ₫</b></div></div>
+     <button class="btn" id="add">Thêm quà vào giỏ</button>
+     <p class="m" id="am" role="status"></p>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="gal">
+ <div class="w">
+  <div class="ch2"><div><p class="cap">Hộp quà</p><h2 data-r>Gói bằng tay, <i>buộc bằng lụa.</i></h2></div></div>
+  <div class="gg">
+   <figure data-r><div class="im"><picture><source type="image/avif" srcset="../img/demo/gravene/hop-640.avif 640w, ../img/demo/gravene/hop-1280.avif 1280w, ../img/demo/gravene/hop-1920.avif 1920w" sizes="(max-width:800px) 46vw, 30vw"><img src="../img/demo/gravene/hop-1280.webp" srcset="../img/demo/gravene/hop-640.webp 640w, ../img/demo/gravene/hop-1280.webp 1280w, ../img/demo/gravene/hop-1920.webp 1920w" sizes="(max-width:800px) 46vw, 30vw" width="1280" height="1600" alt="Hai hộp quà gói giấy xanh buộc dây" loading="lazy" decoding="async"></picture></div><figcaption>Giấy mỹ thuật<span>miễn phí</span></figcaption></figure>
+   <figure data-r><div class="im"><picture><source type="image/avif" srcset="../img/demo/gravene/no-640.avif 640w, ../img/demo/gravene/no-1280.avif 1280w, ../img/demo/gravene/no-1920.avif 1920w" sizes="(max-width:800px) 46vw, 30vw"><img src="../img/demo/gravene/no-1280.webp" srcset="../img/demo/gravene/no-640.webp 640w, ../img/demo/gravene/no-1280.webp 1280w, ../img/demo/gravene/no-1920.webp 1920w" sizes="(max-width:800px) 46vw, 30vw" width="1280" height="1600" alt="Hộp quà buộc ruy băng vàng kèm thiệp" loading="lazy" decoding="async"></picture></div><figcaption>Ruy băng satin<span>đi kèm hộp gỗ, hộp nhung</span></figcaption></figure>
+   <figure data-r><div class="im"><picture><source type="image/avif" srcset="../img/demo/gravene/chai-640.avif 640w, ../img/demo/gravene/chai-1280.avif 1280w, ../img/demo/gravene/chai-1920.avif 1920w, ../img/demo/gravene/chai-2560.avif 2560w" sizes="(max-width:800px) 92vw, 38vw"><img src="../img/demo/gravene/chai-1280.webp" srcset="../img/demo/gravene/chai-640.webp 640w, ../img/demo/gravene/chai-1280.webp 1280w, ../img/demo/gravene/chai-1920.webp 1920w, ../img/demo/gravene/chai-2560.webp 2560w" sizes="(max-width:800px) 92vw, 38vw" width="1280" height="853" alt="Chai nước hoa thủy tinh trong cạnh bông hoa trắng" loading="lazy" decoding="async"></picture></div><figcaption>Thủy tinh dày, khắc tay<span>chữ không phai</span></figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section class="dl">
+ <div class="w"><p class="cap">Từ lúc đặt đến lúc trao</p>
+  <ol><li data-r><b>I</b><p>Chọn mùi và chữ khắc.</p></li><li data-r><b>II</b><p>Xưởng khắc trong 24 giờ.</p></li><li data-r><b>III</b><p>Gói tay, kèm thiệp.</p></li><li data-r><b>IV</b><p>Giao đúng ngày bạn chọn.</p></li></ol>
+ </div>
+</section>
+</main>
+
+<footer><div class="w"><span class="lg">GRAVÈNE</span><p>Gravène là thương hiệu concept do <a href="../index.html" target="_top"><u>Dream Labs</u></a> thiết kế; mùi hương, giá chỉ để minh họa. Ảnh: Pexels (Max Fischer, Laura Chouette, Maria Verkhoturtseva, MART PRODUCTION). Trang mẫu, không bán hàng thật.</p></div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="cart" id="cart" aria-label="Giỏ hàng">
+ <div class="hd"><h2>Giỏ quà</h2><button class="x" id="cx" aria-label="Đóng giỏ">×</button></div>
+ <ul class="cl" id="cl" data-lenis-prevent></ul>
+ <div class="ft"><p class="tt"><span>Tạm tính</span><b><span id="ct">0</span> ₫</b></p><button class="btn d" id="chk">Thanh toán</button><p class="m" id="cm" role="status"></p></div>
+</aside>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script src="../vendor/SplitText.min.js"></script>
+<script src="../vendor/lenis.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches,G=!!window.gsap&&!RM;
+H.classList.add('js');try{if(parent!==window)H.classList.add('emb')}catch(e){}
+const vnd=n=>Math.round(n).toLocaleString('vi-VN');
+const SC=[
+ {nm:'Nhài Gỗ',f:'Hoa cỏ',c:'#D9B46A',x:1,n:'Đầu: cam bergamot · Giữa: nhài · Cuối: tuyết tùng'},
+ {nm:'Cam Muối',f:'Cam chanh',c:'#E3CF7A',x:.92,n:'Đầu: bưởi, muối biển · Giữa: hoa cam · Cuối: xạ hương'},
+ {nm:'Hồng Trầm',f:'Hổ phách',c:'#B5574F',x:1.2,n:'Đầu: tiêu hồng · Giữa: hồng Damask · Cuối: trầm hương'},
+ {nm:'Tuyết Tùng',f:'Gỗ',c:'#9C8461',x:1.05,n:'Đầu: bạch đậu khấu · Giữa: diên vĩ · Cuối: tuyết tùng, cỏ hương bài'}];
+const SZ=[[30,2400000,.84],[50,3500000,.94],[100,5200000,1]];
+const POS=[['chai','Thân chai'],['nap','Nắp'],['hop','Mặt hộp']];
+const FF=[['Cổ điển'],['Nghiêng'],['Hiện đại']];
+const BX=[['Giấy mỹ thuật',0,'#2E4A40','#1E3730','#C9A86A'],['Gỗ sồi',450000,'#B08A5E','#8A6740','#2B2018'],['Nhung đỏ rượu',650000,'#6E1F2D','#4A1320','#D8B97F']];
+const CR=[['Không thiệp',0],['Thiệp viết tay',50000]];
+const ENG=150000;
+const st={s:0,z:1,p:0,f:0,b:0,c:0,t:'Gửi An',m:'',d:''};
+const seg=(el,items,key,fmt)=>{el.innerHTML=items.map((it,i)=>`<button type="button" data-i="${i}" aria-pressed="${st[key]===i}"${fmt?fmt(it,i):''}>${it.label}</button>`).join('');el.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st[key]=+b.dataset.i;$$('button',el).forEach(x=>x.setAttribute('aria-pressed',x===b));if(key==='p')view(POS[st.p][0]);up()})};
+$('#sc').innerHTML=SC.map((s,i)=>`<button type="button" data-i="${i}" aria-pressed="${i===0}" style="--c:${s.c}"><b><i></i>${s.nm}</b><small>${s.f} · EDP</small><small>${s.n}</small></button>`).join('');
+$('#sc').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.s=+b.dataset.i;$$('#sc button').forEach(x=>x.setAttribute('aria-pressed',x===b));up()});
+seg($('#sz'),SZ.map(z=>({label:`${z[0]} ml`})),'z');
+seg($('#pos'),POS.map(p=>({label:p[1]})),'p');
+seg($('#ff'),FF.map((f,i)=>({label:`<span class="ff${i}">${f[0]}</span>`})),'f');
+seg($('#bxs'),BX.map(b=>({label:`${b[0]}<small>${b[1]?'+'+vnd(b[1]):'miễn phí'}</small>`})),'b');
+seg($('#crd'),CR.map(c=>({label:`${c[0]}${c[1]?`<small>+${vnd(c[1])}</small>`:''}`})),'c');
+/* views */
+const vb=$('#vb'),vx=$('#vx');let cur='chai';
+function view(v){cur=v;$$('.tabs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));const box=v==='hop';vb.classList.toggle('off',box);vx.classList.toggle('off',!box);
+ $('#btl').style.transform=`scale(${SZ[st.z][2]})`+(v==='nap'?' translateY(0)':'');
+ const svg=$('#svg');svg.setAttribute('viewBox',v==='nap'?'60 0 180 150':'0 0 300 400');}
+$('.tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)view(b.dataset.v)});
+/* engraving text */
+const fit=(el,txt,maxW,base)=>{el.textContent=txt;el.setAttribute('font-size',base);el.removeAttribute('textLength');el.removeAttribute('lengthAdjust');
+ try{const w=el.getComputedTextLength();if(w>maxW){el.setAttribute('font-size',Math.max(8,base*maxW/w).toFixed(2))}}catch(e){}};
+const eg=$('#eg'),cnt=$('#cnt');
+eg.addEventListener('input',()=>{st.t=eg.value;cnt.textContent=`${[...eg.value].length}/16`;cnt.classList.toggle('max',[...eg.value].length>=16);
+ if(cur!==POS[st.p][0])view(POS[st.p][0]);up()});
+$('#msg').addEventListener('input',e=>{st.m=e.target.value;up()});
+/* date */
+const dd=$('#dd'),iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`,n0=new Date();
+const mn=new Date(n0.getFullYear(),n0.getMonth(),n0.getDate()+2),mx=new Date(n0.getFullYear(),n0.getMonth(),n0.getDate()+60),df=new Date(n0.getFullYear(),n0.getMonth(),n0.getDate()+3);
+dd.min=iso(mn);dd.max=iso(mx);dd.value=iso(df);st.d=dd.value;
+const WD=['Chủ nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
+const dtxt=v=>{if(!v)return'';const [y,m,d]=v.split('-').map(Number),t=new Date(y,m-1,d);return `${WD[t.getDay()]}, ${d}/${m}/${y}`};
+dd.addEventListener('change',()=>{st.d=dd.value;up()});
+/* update */
+const total=()=>{const s=SC[st.s];return Math.round(SZ[st.z][1]*s.x/1e4)*1e4+(st.t.trim()?ENG:0)+BX[st.b][1]+CR[st.c][1]};
+const tt=$('#tt');let pv=0;
+function up(){const s=SC[st.s],z=SZ[st.z],b=BX[st.b],t=st.t.trim();
+ $('#liq').setAttribute('fill',s.c);$('#btl').style.transform=`scale(${z[2]})`;$('#tl').textContent=`GRAVÈNE · ${z[0]} ML`;
+ const svg=$('#svg');svg.style.setProperty('--bx1',b[2]);svg.style.setProperty('--bx2',b[3]);svg.style.setProperty('--rb',b[4]);
+ const cls='eg f'+st.f;const p=POS[st.p][0];
+ const tb=$('#tb'),tc=$('#tc'),tx=$('#tx');tb.setAttribute('class',cls);tc.setAttribute('class',cls+' dk');tx.setAttribute('class',cls);
+ fit(tb,p==='chai'?t:'',140,st.f===2?17:24);fit(tc,p==='nap'?t:'',80,st.f===2?10:14);fit(tx,p==='hop'?t:'',160,st.f===2?15:22);
+ $('#msgw').hidden=st.c===0;
+ $('#pv1').textContent=`${s.nm} · ${z[0]} ml`;$('#pv2').textContent=t?`Khắc “${t}” · ${POS[st.p][1].toLowerCase()}`:'Không khắc chữ';
+ const rows=[[`${s.nm} · ${z[0]} ml EDP`,Math.round(z[1]*s.x/1e4)*1e4],[t?`Khắc “${t}” (${FF[st.f][0].toLowerCase()}, ${POS[st.p][1].toLowerCase()})`:'Không khắc',t?ENG:0],[`Hộp ${b[0].toLowerCase()}`,b[1]],[CR[st.c][0],CR[st.c][1]],[`Giao ${dtxt(st.d)||'— chưa chọn'}`,0]];
+ $('#sl').innerHTML=rows.map(r=>`<li><span>${r[0].replace(/[<>&]/g,'')}</span><span>${r[1]?vnd(r[1])+' ₫':'—'}</span></li>`).join('');
+ $('#ddn').textContent=st.d?`Giao trước 18:00 ${dtxt(st.d)}.`:'';
+ const to=total();if(G){const o={v:pv};gsap.to(o,{v:to,duration:.6,ease:'power2.out',onUpdate:()=>tt.textContent=vnd(Math.round(o.v/1e4)*1e4)})}else tt.textContent=vnd(to);pv=to}
+/* cart */
+const KEY='gravene-cart';let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}};
+const esc=s=>s.replace(/[<>&"]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+const render=()=>{const n=cart.reduce((a,c)=>a+c.q,0),t=cart.reduce((a,c)=>a+c.q*c.p,0);$('#cn').textContent=n;$('#ct').textContent=vnd(t);$('#cm').textContent='';
+ $('#cl').innerHTML=cart.length?cart.map((c,i)=>`<li><p class="nm">${esc(c.nm)}</p><p class="lp">${vnd(c.p*c.q)} ₫</p><p class="dt">${esc(c.dt)}</p><div class="q"><button data-a="-1" data-i="${i}" aria-label="Bớt một">−</button><span>${c.q}</span><button data-a="1" data-i="${i}" aria-label="Thêm một">+</button></div></li>`).join(''):'<li class="em">Giỏ quà đang trống.</li>'};
+$('#cl').addEventListener('click',e=>{const b=e.target.closest('button[data-a]');if(!b)return;const c=cart[+b.dataset.i];c.q+=+b.dataset.a;if(c.q<=0)cart.splice(+b.dataset.i,1);save();render()});
+$('#add').addEventListener('click',()=>{const am=$('#am');if(!st.d||st.d<dd.min||st.d>dd.max){am.textContent='Bạn chọn ngày giao hợp lệ giúp nhé.';return}
+ const s=SC[st.s],z=SZ[st.z],t=st.t.trim();const dt=[t?`Khắc “${t}” · ${POS[st.p][1].toLowerCase()} · ${FF[st.f][0].toLowerCase()}`:'Không khắc',`Hộp ${BX[st.b][0].toLowerCase()}`,CR[st.c][0]+(st.c&&st.m.trim()?`: “${st.m.trim().slice(0,40)}${st.m.trim().length>40?'…':''}”`:''),`Giao ${dtxt(st.d)}`].join(' · ');
+ const id=[st.s,st.z,t,st.p,st.f,st.b,st.c,st.m,st.d].join('|'),f=cart.find(c=>c.id===id);f?f.q++:cart.push({id,nm:`${s.nm} · ${z[0]} ml`,dt,p:total(),q:1});save();render();
+ am.textContent='Đã thêm vào giỏ quà.';open(true)});
+const open=o=>{D.body.classList.toggle('co',o);if(lenis)o?lenis.stop():lenis.start();if(o)setTimeout(()=>$('#cx').focus(),50)};
+$('#cb').addEventListener('click',()=>open(true));$('#cx').addEventListener('click',()=>open(false));$('#scrim').addEventListener('click',()=>open(false));addEventListener('keydown',e=>{if(e.key==='Escape')open(false)});
+$('#chk').addEventListener('click',()=>$('#cm').textContent=cart.length?'Đây là trang mẫu của Dream Labs: đơn quà không được gửi đi.':'Giỏ quà đang trống.');
+let lenis=null;
+D.fonts.ready.then(up);up();render();
+/* header + motion */
+const hd=$('header');const onS=()=>hd.classList.toggle('s',scrollY>30);addEventListener('scroll',onS,{passive:true});onS();
+if(!RM&&window.Lenis){lenis=new Lenis({duration:1.15,smoothWheel:true});$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-70})}}))}
+if(G&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ if(lenis){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+ if(window.SplitText){gsap.registerPlugin(SplitText);D.fonts.ready.then(()=>{const sp=SplitText.create('.h1',{type:'lines',mask:'lines'});gsap.from(sp.lines,{yPercent:105,duration:1.3,stagger:.12,ease:'power4.out'})})}
+ gsap.from('.frame .im',{clipPath:'inset(0 0 0 100%)',duration:1.6,ease:'power4.inOut',delay:.2});
+ gsap.fromTo('.frame img',{scale:1.2},{scale:1,duration:2.2,ease:'power3.out',delay:.2});
+ gsap.from('.stage svg',{opacity:0,y:24,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.stage',start:'top 85%'}})
+}else if(lenis){const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf)}
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12}):null;
+$$('[data-r]').forEach(e=>io?io.observe(e):e.classList.add('in'));
+try{parent!==window&&parent.postMessage({wkDemo:'lux-gravene',smDemo:'lux-gravene'},'*')}catch(e){}
+})();
+</script>
+</body>
+</html>

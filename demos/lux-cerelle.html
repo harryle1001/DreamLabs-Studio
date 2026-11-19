@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cérelle — Maison nước hoa niche (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một maison nước hoa niche: tám mẫu hương lọc theo họ hương, tháp hương động, chọn dung tích và giỏ hàng mẫu.">
+<meta name="theme-color" content="#ECE6DA">
+<style>
+@font-face{font-family:"Italiana";font-weight:400;font-display:swap;src:url(fonts/italiana-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/eb-garamond-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/eb-garamond-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/eb-garamond-vietnamese-400-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/eb-garamond-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--bone:#ECE6DA;--pap:#F5F1E8;--ink:#1B1A17;--mu:rgba(27,26,23,.62);--ln:rgba(27,26,23,.16);--ox:#8E3A22;--sg:#5F6B55;--fd:Italiana,"EB Garamond",Georgia,serif;--fb:"EB Garamond",Georgia,serif;--e:cubic-bezier(.22,1,.36,1);--s1:6px;--s2:10px;--s3:16px;--s4:26px;--s5:42px;--s6:68px;--s7:110px}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bone);color:var(--ink);font:400 18px/1.6 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,figure{margin:0}ul{padding:0;list-style:none}
+.w{max-width:1320px;margin:0 auto;padding:0 max(18px,4vw)}
+.cap{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.tag{display:inline-block;border:1px solid currentColor;border-radius:99px;padding:1px 9px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 28px;background:var(--ink);color:var(--pap);font-size:14px;letter-spacing:.16em;text-transform:uppercase;transition:background .4s var(--e)}
+.btn:hover{background:var(--ox)}
+.btn.o{background:none;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.o:hover{background:var(--ink);color:var(--pap)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:40;transition:background .4s,box-shadow .4s}
+header.s{background:rgba(236,230,218,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--ln)}
+header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:68px}
+.bk{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:15px;color:var(--mu)}
+.lg{font-family:Italiana,serif;font-size:26px;letter-spacing:.32em;padding-left:.32em;min-height:44px;display:flex;align-items:center}
+.hr{justify-self:end;display:flex;align-items:center;gap:22px}
+.hr nav{display:flex;gap:22px;font-size:15px}
+.hr nav a{min-height:44px;display:flex;align-items:center}
+.cb{min-height:44px;min-width:44px;display:inline-flex;align-items:center;gap:8px;font-size:15px}
+.cb b{font:400 13px/1 var(--fb);display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:99px;background:var(--ink);color:var(--pap);transition:transform .4s var(--e)}
+.cb b.bump{transform:scale(1.3)}
+@media(max-width:860px){.hr nav{display:none}.bk span{display:none}.lg{font-size:21px}}
+/* hero */
+.hero{padding:128px 0 var(--s6);position:relative}
+.hero .w{display:grid;grid-template-columns:1fr .78fr;gap:var(--s5);align-items:end}
+.hero h1{font:400 clamp(44px,7.4vw,108px)/.98 var(--fb);letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--ox);white-space:nowrap}
+.hero .lead{max-width:30ch;margin:var(--s4) 0 var(--s5);font-size:20px;color:var(--mu)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px}
+.hfig{position:relative}
+.hfig .im{overflow:hidden;aspect-ratio:4/5;background:#cfc8bb}
+.hfig img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.hfig figcaption{display:flex;justify-content:space-between;margin-top:10px;font-size:14px;color:var(--mu)}
+.big{position:absolute;left:-.42em;bottom:.6em;font:400 clamp(120px,19vw,300px)/1 Italiana,serif;color:transparent;-webkit-text-stroke:1px rgba(142,58,34,.35);pointer-events:none;z-index:-1}
+.mq{border-block:1px solid var(--ln);margin-top:var(--s6);overflow:hidden;white-space:nowrap}
+.mq div{display:inline-flex;gap:48px;padding:14px 0;animation:mq 40s linear infinite;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.mq span::before{content:"✦";margin-right:48px;color:var(--ox)}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(max-width:860px){.hero{padding-top:100px}.hero .w{grid-template-columns:1fr}.hfig{max-width:420px}}
+/* collection */
+.col{padding:var(--s7) 0}
+.ch{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:var(--s4);margin-bottom:var(--s5)}
+.ch h2{font:400 clamp(36px,5vw,68px)/1 var(--fb)}
+.ch h2 em{font-style:italic;color:var(--ox)}
+.fl{display:flex;flex-wrap:wrap;gap:8px}
+.fl button{min-height:44px;padding:0 16px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--ln);font-size:15px;transition:background .3s,color .3s,box-shadow .3s}
+.fl button[aria-pressed=true]{background:var(--ink);color:var(--pap);box-shadow:none}
+.cg{display:grid;grid-template-columns:1fr 1.05fr;gap:var(--s5);align-items:start}
+.ls{border-top:1px solid var(--ink)}
+.ls li{border-bottom:1px solid var(--ln)}
+.ls li.hid{display:none}
+.ls button{width:100%;display:grid;grid-template-columns:62px 1fr auto;align-items:center;gap:12px;min-height:76px;text-align:left;padding:10px 4px;position:relative}
+.ls button::before{content:"";position:absolute;inset:0;background:var(--pap);transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--e);z-index:-1}
+.ls li{position:relative;z-index:0}
+.ls button:hover::before,.ls button[aria-current=true]::before{transform:none}
+.ls .n{font:400 26px/1 Italiana,serif;color:var(--ox)}
+.ls .t{font-size:24px;line-height:1.1}
+.ls .t small{display:block;font-size:14px;color:var(--mu);font-style:italic;margin-top:4px}
+.ls .p{font-size:15px;color:var(--mu);white-space:nowrap}
+.dt{position:sticky;top:88px;background:var(--pap);padding:var(--s4);display:grid;grid-template-columns:.9fr 1fr;gap:var(--s4)}
+.dt .im{aspect-ratio:4/5;overflow:hidden;background:#cfc8bb;position:relative}
+.dt .im img{width:100%;height:100%;object-fit:cover;transition:opacity .6s var(--e),transform 1.2s var(--e)}
+.dt .im img.out{opacity:0;transform:scale(1.05)}
+.dt h3{font:400 38px/1.05 var(--fb);margin:6px 0 4px}
+.dt .fam{font-style:italic;color:var(--ox)}
+.dt .ds{font-size:17px;color:var(--mu);margin:10px 0 0}
+.pyr{grid-column:1/-1;display:grid;grid-template-columns:200px 1fr;gap:var(--s4);align-items:center;border-top:1px solid var(--ln);padding-top:var(--s4)}
+.pyr svg{width:100%;height:auto;overflow:visible}
+.pyr .bd{transform-box:fill-box;transform-origin:50% 100%;transition:transform .9s var(--e),fill .9s var(--e)}
+.pyr .bd.z{transform:scaleY(0)}
+.pyr .dp{animation:rise 3.2s ease-in infinite;opacity:0}
+@keyframes rise{0%{transform:translateY(0);opacity:0}25%{opacity:.9}100%{transform:translateY(-46px);opacity:0}}
+.pyr ol{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.pyr li{display:grid;grid-template-columns:auto 1fr;column-gap:12px;transition:opacity .6s var(--e),transform .6s var(--e)}
+.pyr li.z{opacity:0;transform:translateX(12px)}
+.pyr li i{font:400 22px/1 Italiana,serif;color:var(--ox);grid-row:span 2}
+.pyr li b{font-weight:400;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu)}
+.pyr li span{font-size:18px;line-height:1.3}
+.buy{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px;border-top:1px solid var(--ln);padding-top:var(--s4)}
+.sz{display:flex;gap:6px}
+.sz button{min-width:64px;min-height:46px;padding:0 10px;box-shadow:inset 0 0 0 1px var(--ln);font-size:16px;transition:background .3s,color .3s}
+.sz button[aria-pressed=true]{background:var(--ink);color:var(--pap)}
+.pr{font:400 30px/1 var(--fb);margin-left:auto;font-variant-numeric:lining-nums}
+.pr small{font:italic 13px var(--fb);color:var(--mu);display:block;text-align:right;margin-top:4px}
+.buy .btn{flex:1 1 100%}
+@media(max-width:1040px){.cg{grid-template-columns:1fr}.dt{position:relative;top:0}}
+@media(max-width:560px){.dt{grid-template-columns:1fr;padding:var(--s3)}.dt .im{aspect-ratio:5/4}.pyr{grid-template-columns:120px 1fr;gap:var(--s3)}.ls .p{display:none}.ls button{grid-template-columns:48px 1fr}}
+/* ingredients */
+.ing{padding:var(--s7) 0;background:var(--ink);color:var(--bone)}
+.ing .ch h2 em{color:#D9A07E}
+.ing .cap{color:rgba(236,230,218,.6)}
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.ig figure .im{aspect-ratio:4/5;overflow:hidden}
+.ig img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
+.ig figcaption{margin-top:12px;display:flex;gap:12px;align-items:baseline}
+.ig figcaption i{font:400 22px Italiana,serif;color:#D9A07E;font-style:normal}
+.ig figure:nth-child(2){margin-top:var(--s6)}
+@media(max-width:760px){.ig{grid-template-columns:1fr 1fr}.ig figure:nth-child(2){margin-top:var(--s5)}.ig figure:nth-child(3){grid-column:1/-1;max-width:70%}}
+/* set */
+.set{padding:var(--s7) 0}
+.set .w{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:center}
+.vials{display:flex;justify-content:center;gap:10px;align-items:end;height:240px;border-bottom:1px solid var(--ink);padding-bottom:0}
+.vials i{width:22px;border-radius:11px 11px 3px 3px;background:linear-gradient(180deg,rgba(255,255,255,.7),var(--c) 30%);box-shadow:inset 0 0 0 1px rgba(27,26,23,.25);height:var(--h);transform-origin:bottom}
+.set h2{font:400 clamp(34px,4.4vw,58px)/1.02 var(--fb)}
+.set h2 em{font-style:italic;color:var(--ox)}
+.set p{color:var(--mu);margin:var(--s3) 0 var(--s4);max-width:36ch}
+.set .row{display:flex;flex-wrap:wrap;align-items:center;gap:var(--s4)}
+@media(max-width:760px){.set .w{grid-template-columns:1fr}.vials{height:180px}}
+footer{border-top:1px solid var(--ln);padding:var(--s6) 0 var(--s7)}
+footer .w{display:grid;grid-template-columns:auto 1fr;gap:var(--s4) var(--s5);align-items:start}
+footer .lg{font-size:40px;padding:0}
+footer p{color:var(--mu);font-size:15px;max-width:68ch}
+@media(max-width:760px){footer .w{grid-template-columns:1fr}}
+/* cart */
+.scrim{position:fixed;inset:0;background:rgba(27,26,23,.4);opacity:0;pointer-events:none;transition:opacity .5s var(--e);z-index:50}
+.cart{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--pap);z-index:60;transform:translateX(102%);transition:transform .7s var(--e);display:flex;flex-direction:column}
+body.co .scrim{opacity:1;pointer-events:auto}body.co .cart{transform:none}
+.cart .hd{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--ln)}
+.cart .hd h2{font:400 26px var(--fb)}
+.x{min-width:44px;min-height:44px;font-size:26px;line-height:1}
+.cl{flex:1;overflow:auto;padding:6px 22px}
+.cl li{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:16px 0;border-bottom:1px solid var(--ln)}
+.cl .nm{font-size:20px;line-height:1.2}.cl .nm small{display:block;color:var(--mu);font-size:14px;font-style:italic}
+.cl .q{display:flex;align-items:center;gap:4px}
+.cl .q button{min-width:44px;min-height:44px;box-shadow:inset 0 0 0 1px var(--ln);font-size:18px}
+.cl .q span{min-width:28px;text-align:center}
+.cl .lp{align-self:center;text-align:right;font:400 19px var(--fb)}
+.cl .em{color:var(--mu);font-style:italic;padding:30px 0}
+.cart .ft{padding:18px 22px calc(18px + env(safe-area-inset-bottom));border-top:1px solid var(--ln);display:grid;gap:12px}
+.cart .tt{display:flex;justify-content:space-between;align-items:baseline;font-size:18px}
+.cart .tt b{font:400 30px var(--fb)}
+.msg{font-size:15px;font-style:italic;color:var(--sg);min-height:1.4em}
+.toast{position:fixed;left:50%;bottom:22px;z-index:70;background:var(--ink);color:var(--pap);padding:12px 20px;font-size:15px;transform:translate(-50%,calc(100% + 60px));visibility:hidden;transition:transform .6s var(--e),visibility 0s .6s;max-width:calc(100% - 32px)}
+.toast.on{transform:translate(-50%,0);visibility:visible;transition:transform .6s var(--e)}
+.emb .bk{display:none}
+.js [data-r]{opacity:0;transform:translateY(24px);transition:opacity 1s var(--e),transform 1.2s var(--e)}
+.js [data-r].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}.hfig img,.ig img{transform:none}}
+</style>
+</head>
+<body>
+<header><div class="w">
+ <a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a>
+ <a class="lg" href="#top" aria-label="Cérelle, về đầu trang">CÉRELLE</a>
+ <div class="hr"><nav aria-label="Mục chính"><a href="#bst">Bộ sưu tập</a><a href="#ng">Nguyên liệu</a><a href="#bt">Bộ thử</a></nav><button class="cb" id="cb" aria-label="Mở giỏ hàng">Giỏ <b id="cn">0</b></button></div>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="w">
+  <div>
+   <p class="cap" data-r><span class="tag">Concept</span>&nbsp; Maison de parfum · Hà Nội</p>
+   <h1 class="h1" style="margin-top:22px">Mùi hương<br><em>ép trong</em><br>trang giấy.</h1>
+   <p class="lead" data-r>Tám mẫu hương niche, pha theo mẻ nhỏ.</p>
+   <div class="acts" data-r><a class="btn" href="#bst">Xem bộ sưu tập</a><a class="btn o" href="#bt">Bộ thử 8 mùi</a></div>
+  </div>
+  <figure class="hfig">
+   <div class="im"><picture><source type="image/avif" srcset="../img/demo/cerelle/hero-640.avif 640w, ../img/demo/cerelle/hero-1280.avif 1280w, ../img/demo/cerelle/hero-1920.avif 1920w" sizes="(max-width:860px) 92vw, 40vw"><img src="../img/demo/cerelle/hero-1280.webp" srcset="../img/demo/cerelle/hero-640.webp 640w, ../img/demo/cerelle/hero-1280.webp 1280w, ../img/demo/cerelle/hero-1920.webp 1920w" sizes="(max-width:860px) 92vw, 40vw" width="1280" height="1600" alt="Chai nước hoa thủy tinh trơn dưới những vệt nắng qua rèm" fetchpriority="high" decoding="async" id="himg"></picture></div>
+   <figcaption><span>Nº 06 — Da Yên</span><span>Extrait de parfum</span></figcaption>
+  </figure>
+ </div>
+ <div class="mq" aria-hidden="true"><div><span>Hoa cỏ</span><span>Cam chanh</span><span>Gỗ</span><span>Hổ phách</span><span>Da thuộc</span><span>Xạ hương</span><span>Hoa cỏ</span><span>Cam chanh</span><span>Gỗ</span><span>Hổ phách</span><span>Da thuộc</span><span>Xạ hương</span></div></div>
+</section>
+
+<section class="col" id="bst">
+ <div class="w">
+  <div class="ch">
+   <div><p class="cap">Bộ sưu tập</p><h2 data-r>Tám <em>mẫu hương</em></h2></div>
+   <div class="fl" id="fl" role="group" aria-label="Lọc theo họ hương"></div>
+  </div>
+  <div class="cg">
+   <ul class="ls" id="ls"></ul>
+   <article class="dt" id="dt" aria-live="polite">
+    <div class="im" id="dim"></div>
+    <div>
+     <p class="cap" id="dno">Nº 01</p>
+     <h3 id="dnm">—</h3>
+     <p class="fam" id="dfm"></p>
+     <p class="ds" id="dds"></p>
+    </div>
+    <div class="pyr">
+     <svg viewBox="0 0 200 180" role="img" aria-label="Tháp hương">
+      <polygon class="bd" id="b0" points="100,8 132,62 68,62"/>
+      <polygon class="bd" id="b1" points="66,66 134,66 166,120 34,120"/>
+      <polygon class="bd" id="b2" points="32,124 168,124 196,172 4,172"/>
+      <g id="dps" fill="#fff"></g>
+      <line x1="0" y1="176" x2="200" y2="176" stroke="currentColor" stroke-opacity=".3"/>
+     </svg>
+     <ol id="nts"></ol>
+    </div>
+    <div class="buy">
+     <div class="sz" id="sz" role="group" aria-label="Chọn dung tích"></div>
+     <p class="pr"><span id="pr">0</span>&nbsp;₫<small>giá minh họa</small></p>
+     <button class="btn" id="add">Thêm vào giỏ</button>
+    </div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="ing" id="ng">
+ <div class="w">
+  <div class="ch"><div><p class="cap">Nguyên liệu</p><h2 data-r>Từ vỏ, nhựa<br><em>và khói.</em></h2></div></div>
+  <div class="ig">
+   <figure data-r><div class="im"><picture><source type="image/avif" srcset="../img/demo/cerelle/cam-640.avif 640w, ../img/demo/cerelle/cam-1280.avif 1280w, ../img/demo/cerelle/cam-1920.avif 1920w" sizes="(max-width:760px) 46vw, 30vw"><img src="../img/demo/cerelle/cam-1280.webp" srcset="../img/demo/cerelle/cam-640.webp 640w, ../img/demo/cerelle/cam-1280.webp 1280w, ../img/demo/cerelle/cam-1920.webp 1920w" sizes="(max-width:760px) 46vw, 30vw" width="1280" height="1600" alt="Lát cam cắt đôi trên nền tối" loading="lazy" decoding="async"></picture></div><figcaption><i>I</i>Vỏ cam chanh, ép lạnh</figcaption></figure>
+   <figure data-r><div class="im"><picture><source type="image/avif" srcset="../img/demo/cerelle/tram-640.avif 640w, ../img/demo/cerelle/tram-1280.avif 1280w, ../img/demo/cerelle/tram-1920.avif 1920w, ../img/demo/cerelle/tram-2560.avif 2560w" sizes="(max-width:760px) 46vw, 30vw"><img src="../img/demo/cerelle/tram-1280.webp" srcset="../img/demo/cerelle/tram-640.webp 640w, ../img/demo/cerelle/tram-1280.webp 1280w, ../img/demo/cerelle/tram-1920.webp 1920w, ../img/demo/cerelle/tram-2560.webp 2560w" sizes="(max-width:760px) 46vw, 30vw" width="1280" height="1600" alt="Lư đồng tỏa khói nhựa thơm" loading="lazy" decoding="async"></picture></div><figcaption><i>II</i>Nhựa thơm, đốt chậm</figcaption></figure>
+   <figure data-r><div class="im"><picture><source type="image/avif" srcset="../img/demo/cerelle/khoi-640.avif 640w, ../img/demo/cerelle/khoi-1280.avif 1280w, ../img/demo/cerelle/khoi-1920.avif 1920w" sizes="(max-width:760px) 70vw, 30vw"><img src="../img/demo/cerelle/khoi-1280.webp" srcset="../img/demo/cerelle/khoi-640.webp 640w, ../img/demo/cerelle/khoi-1280.webp 1280w, ../img/demo/cerelle/khoi-1920.webp 1920w" sizes="(max-width:760px) 70vw, 30vw" width="1280" height="1600" alt="Làn khói trắng uốn trên nền đen" loading="lazy" decoding="async"></picture></div><figcaption><i>III</i>Gỗ và khói, ủ sáu tuần</figcaption></figure>
+  </div>
+ </div>
+</section>
+
+<section class="set" id="bt">
+ <div class="w">
+  <div class="vials" id="vials" aria-hidden="true"></div>
+  <div>
+   <p class="cap">Bộ thử</p>
+   <h2 data-r>Tám ống <em>2 ml</em>,<br>một tuần để chọn.</h2>
+   <p data-r>Mỗi ống đủ cho vài ngày xịt. Thử trên da, ở nhà, không vội.</p>
+   <div class="row" data-r><p class="pr" style="margin:0"><span>980.000</span>&nbsp;₫<small style="text-align:left">giá minh họa</small></p><button class="btn" id="addset">Thêm bộ thử</button></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer><div class="w">
+ <span class="lg">CÉRELLE</span>
+ <p>Cérelle là thương hiệu concept do <a href="../index.html" target="_top"><u>Dream Labs</u></a> thiết kế; mùi hương, giá chỉ để minh họa. Ảnh: Pexels (ZBA Banner, The Eyes, Sarah AlAmeri, Adilson Cardoso, Svitlana Ivanova, Mahmoud Atashi). Trang mẫu, không bán hàng thật.</p>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="cart" id="cart" aria-label="Giỏ hàng" aria-hidden="true">
+ <div class="hd"><h2>Giỏ hàng</h2><button class="x" id="cx" aria-label="Đóng giỏ hàng">×</button></div>
+ <ul class="cl" id="cl" data-lenis-prevent></ul>
+ <div class="ft"><p class="tt"><span>Tạm tính</span><b><span id="ct">0</span> ₫</b></p><button class="btn" id="chk">Thanh toán</button><p class="msg" id="cm" role="status"></p></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script src="../vendor/SplitText.min.js"></script>
+<script src="../vendor/lenis.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+H.classList.add('js');try{if(parent!==window)H.classList.add('emb')}catch(e){}
+const vnd=n=>Math.round(n).toLocaleString('vi-VN');
+const IMG={hero:[640,1280,1920],nhai:[640,1280,1920,2560],cam:[640,1280,1920],khoi:[640,1280,1920],hong:[640,1280,1920,2560],tram:[640,1280,1920,2560]};
+const pic=(k,alt)=>{const s=IMG[k],ss=f=>s.map(w=>`../img/demo/cerelle/${k}-${w}.${f} ${w}w`).join(', ');return `<picture><source type="image/avif" srcset="${ss('avif')}" sizes="(max-width:560px) 90vw, (max-width:1040px) 44vw, 22vw"><img src="../img/demo/cerelle/${k}-1280.webp" srcset="${ss('webp')}" sizes="(max-width:560px) 90vw, (max-width:1040px) 44vw, 22vw" width="1280" height="1600" alt="${alt}" loading="lazy" decoding="async"></picture>`};
+const FAM={hoa:['Hoa cỏ','#B98B7A'],cam:['Cam chanh','#C9A13B'],go:['Gỗ','#6E5A43'],hp:['Hổ phách','#A0612C'],da:['Da thuộc','#4A3A33'],xa:['Xạ hương','#B9B3A6']};
+const S=[
+ {n:'01',nm:'Nhài Đêm',f:'hoa',c:'Eau de parfum',k:'nhai',a:'Hoa nhài trắng nở trong bóng tối',d:'Một vườn nhài sau mưa, lúc gần nửa đêm.',t:['Lá trà xanh','Cam bergamot'],m:['Nhài sambac','Hoa cam'],b:['Xạ hương trắng','Tuyết tùng'],p:1},
+ {n:'02',nm:'Vỏ Bưởi',f:'cam',c:'Eau de parfum',k:'cam',a:'Lát cam cắt đôi trên nền tối',d:'Vỏ bưởi bóc tay, đắng nhẹ và rất tỉnh.',t:['Vỏ bưởi','Chanh yên'],m:['Petitgrain','Hoa nhài'],b:['Cỏ hương bài','Xạ hương'],p:.92},
+ {n:'03',nm:'Khói Gỗ',f:'go',c:'Extrait de parfum',k:'khoi',a:'Làn khói trắng uốn trên nền đen',d:'Bếp củi đã tắt, mùi tuyết tùng còn lại.',t:['Tiêu đen','Bạch đậu khấu'],m:['Tuyết tùng Atlas','Hoắc hương'],b:['Cỏ hương bài','Gỗ guaiac'],p:1.25},
+ {n:'04',nm:'Trầm Cũ',f:'hp',c:'Extrait de parfum',k:'tram',a:'Lư đồng tỏa khói nhựa thơm',d:'Gian thờ cũ, nhựa thơm và gỗ trầm ấm.',t:['Nghệ tây','Quế'],m:['Nhũ hương','Hồng Damask'],b:['Trầm hương','Labdanum','Vani'],p:1.4},
+ {n:'05',nm:'Hồng Sương',f:'hoa',c:'Eau de parfum',k:'hong',a:'Cánh hồng đỏ đọng sương',d:'Cánh hồng còn ướt, hơi chát của diên vĩ.',t:['Hồng tiêu','Quả lê'],m:['Hồng Damask','Diên vĩ'],b:['Hoắc hương','Xạ hương'],p:1},
+ {n:'06',nm:'Da Yên',f:'da',c:'Extrait de parfum',k:'hero',a:'Chai thủy tinh trơn dưới vệt nắng',d:'Yên ngựa cũ, da mềm và chút khói bạch dương.',t:['Nghệ tây','Lá violet'],m:['Da thuộc','Diên vĩ'],b:['Nhựa bạch dương','Hổ phách'],p:1.3},
+ {n:'07',nm:'Xạ Trắng',f:'xa',c:'Eau de parfum',k:'nhai',a:'Hoa nhài trắng nở trong bóng tối',d:'Áo sơ mi vừa phơi khô, sạch và gần da.',t:['Aldehyde','Quả lê'],m:['Diên vĩ','Hoa vông vang'],b:['Xạ hương trắng','Ambrette'],p:.92},
+ {n:'08',nm:'Vani Muối',f:'hp',c:'Eau de parfum',k:'tram',a:'Lư đồng tỏa khói nhựa thơm',d:'Gió biển trên da ấm, ngọt mà không gắt.',t:['Muối biển','Cam ngọt'],m:['Ngọc lan tây','Benzoin'],b:['Vani Bourbon','Đậu tonka'],p:1.1}];
+const ML=[[10,1250000],[50,4200000],[100,6400000]];
+const st={i:0,ml:1,f:'all'};
+/* filter */
+const fl=$('#fl');fl.innerHTML=[['all','Tất cả'],...Object.entries(FAM).map(([k,v])=>[k,v[0]])].map(([k,v])=>`<button data-f="${k}" aria-pressed="${k==='all'}">${v}</button>`).join('');
+const ls=$('#ls');ls.innerHTML=S.map((s,i)=>`<li data-f="${s.f}"><button data-i="${i}" aria-current="${i===0}"><span class="n">${s.n}</span><span class="t">${s.nm}<small>${FAM[s.f][0]} · ${s.c==='Extrait de parfum'?'Extrait':'EDP'}</small></span><span class="p"></span></button></li>`).join('');
+$$('.ls .p').forEach((e,i)=>e.textContent='từ '+vnd(Math.round(ML[0][1]*S[i].p/1e4)*1e4)+' ₫');
+fl.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.f=b.dataset.f;$$('button',fl).forEach(x=>x.setAttribute('aria-pressed',x===b));
+ const vis=$$('li',ls).filter(l=>{const h=st.f!=='all'&&l.dataset.f!==st.f;l.classList.toggle('hid',h);return !h});
+ if(window.gsap&&!RM)gsap.fromTo(vis,{opacity:0,y:14},{opacity:1,y:0,duration:.6,stagger:.06,ease:'power3.out',clearProps:'transform,opacity'});
+ if(st.f!=='all'&&S[st.i].f!==st.f)sel(+$('button',vis[0]).dataset.i)});
+ls.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;sel(+b.dataset.i);if(innerWidth<1040){const t=$('#dt').getBoundingClientRect().top+scrollY-80;lenis?lenis.scrollTo(t):scrollTo({top:t,behavior:RM?'auto':'smooth'})}});
+/* sizes */
+const sz=$('#sz');sz.innerHTML=ML.map((m,i)=>`<button data-m="${i}" aria-pressed="${i===st.ml}">${m[0]} ml</button>`).join('');
+sz.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.ml=+b.dataset.m;$$('button',sz).forEach(x=>x.setAttribute('aria-pressed',x===b));price()});
+const price1=(s,m)=>Math.round(ML[m][1]*s.p/1e4)*1e4;
+const prE=$('#pr');let pv=0;
+const price=()=>{const to=price1(S[st.i],st.ml);if(window.gsap&&!RM){const o={v:pv};gsap.to(o,{v:to,duration:.7,ease:'power3.out',onUpdate:()=>prE.textContent=vnd(Math.round(o.v/1e3)*1e3)})}else prE.textContent=vnd(to);pv=to};
+/* droplets */
+const dps=$('#dps');dps.innerHTML=[[92,52,0],[104,46,.8],[98,58,1.6],[110,56,2.4],[88,44,.4]].map(([x,y,d])=>`<circle class="dp" cx="${x}" cy="${y}" r="1.8" style="animation-delay:${d}s"/>`).join('');
+const L=['Hương đầu','Hương giữa','Hương cuối'],T=['15 phút đầu','30 phút – 3 giờ','đến hết ngày'];
+const bands=[$('#b0'),$('#b1'),$('#b2')],nts=$('#nts'),dim=$('#dim');
+function sel(i){st.i=i;const s=S[i],c=FAM[s.f][1];
+ $$('button',ls).forEach(b=>b.setAttribute('aria-current',+b.dataset.i===i));
+ $('#dno').textContent='Nº '+s.n+' · '+s.c;$('#dnm').textContent=s.nm;$('#dfm').textContent='Họ '+FAM[s.f][0].toLowerCase();$('#dds').textContent=s.d;
+ const old=$('img',dim);if(old&&!RM){old.classList.add('out');setTimeout(()=>{dim.innerHTML=pic(s.k,s.a)},300)}else dim.innerHTML=pic(s.k,s.a);
+ const op=[.45,.72,1];
+ bands.forEach((b,k)=>{b.classList.add('z');b.style.fill=c;b.style.fillOpacity=op[k]});
+ nts.innerHTML=[s.t,s.m,s.b].map((n,k)=>`<li class="z"><i>${['I','II','III'][k]}</i><b>${L[k]} · ${T[k]}</b><span>${n.join(', ')}</span></li>`).join('');
+ const li=$$('li',nts);
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{bands.forEach((b,k)=>setTimeout(()=>b.classList.remove('z'),RM?0:(2-k)*170));li.forEach((l,k)=>setTimeout(()=>l.classList.remove('z'),RM?0:120+k*140))}));
+ price()}
+/* cart */
+const KEY='cerelle-cart';let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){cart=[]}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}};
+const cl=$('#cl'),cn=$('#cn'),ct=$('#ct'),cm=$('#cm');
+const render=()=>{const n=cart.reduce((a,c)=>a+c.q,0),t=cart.reduce((a,c)=>a+c.q*c.p,0);
+ cn.textContent=n;ct.textContent=vnd(t);cm.textContent='';
+ cl.innerHTML=cart.length?cart.map((c,i)=>`<li><p class="nm">${c.nm}<small>${c.v}</small></p><p class="lp">${vnd(c.p*c.q)} ₫</p><div class="q"><button data-a="-" data-i="${i}" aria-label="Bớt một">−</button><span>${c.q}</span><button data-a="+" data-i="${i}" aria-label="Thêm một">+</button></div></li>`).join(''):'<li class="em">Giỏ đang trống.</li>'};
+const add=(id,nm,v,p)=>{const f=cart.find(c=>c.id===id);f?f.q++:cart.push({id,nm,v,p,q:1});save();render();cn.classList.remove('bump');void cn.offsetWidth;cn.classList.add('bump');setTimeout(()=>cn.classList.remove('bump'),400);toast(`Đã thêm ${nm} · ${v}`)};
+cl.addEventListener('click',e=>{const b=e.target.closest('button[data-a]');if(!b)return;const c=cart[+b.dataset.i];c.q+=b.dataset.a==='+'?1:-1;if(c.q<=0)cart.splice(+b.dataset.i,1);save();render()});
+$('#add').addEventListener('click',()=>{const s=S[st.i];add('c'+s.n+'-'+ML[st.ml][0],'Nº '+s.n+' '+s.nm,ML[st.ml][0]+' ml · '+(s.c==='Extrait de parfum'?'Extrait':'EDP'),price1(s,st.ml))});
+$('#addset').addEventListener('click',()=>add('set','Bộ thử 8 mùi','8 × 2 ml',980000));
+const tw=$('#toast');let tt;const toast=m=>{tw.textContent=m;tw.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>tw.classList.remove('on'),2200)};
+const cart_=$('#cart');const open=o=>{D.body.classList.toggle('co',o);cart_.setAttribute('aria-hidden',!o);if(window.lenis_){o?lenis_.stop():lenis_.start()}if(o)$('#cx').focus()};
+$('#cb').addEventListener('click',()=>open(true));$('#cx').addEventListener('click',()=>open(false));$('#scrim').addEventListener('click',()=>open(false));
+addEventListener('keydown',e=>{if(e.key==='Escape')open(false)});
+$('#chk').addEventListener('click',()=>{cm.textContent=cart.length?'Đây là trang mẫu của Dream Labs: đơn hàng không được gửi đi.':'Giỏ đang trống.'});
+/* vials */
+const VC=['#E9DCC4','#E8C873','#9C7E5C','#B7773E','#D7A49A','#6B5248','#EEE9DF','#D9A86A'];
+$('#vials').innerHTML=VC.map((c,i)=>`<i style="--c:${c};--h:${[150,180,130,200,160,190,140,170][i]}px"></i>`).join('');
+render();sel(0);
+/* header */
+const hd=$('header');const onS=()=>hd.classList.toggle('s',scrollY>30);addEventListener('scroll',onS,{passive:true});onS();
+/* motion */
+let lenis=null;
+if(!RM&&window.Lenis){lenis=new Lenis({duration:1.15,smoothWheel:true});window.lenis_=lenis;$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-70})}}))}
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ if(lenis){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0)}
+ if(window.SplitText){gsap.registerPlugin(SplitText);D.fonts.ready.then(()=>{const sp=SplitText.create('.h1',{type:'lines,words',mask:'lines'});gsap.from(sp.words,{yPercent:110,duration:1.4,stagger:.05,ease:'power4.out'})})}
+ gsap.from('#himg',{scale:1.25,duration:2.4,ease:'power3.out'});
+ gsap.to('.hfig img',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.ig img').forEach(im=>gsap.fromTo(im,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:im.closest('figure'),start:'top bottom',end:'bottom top',scrub:true}}));
+ gsap.from('#vials i',{scaleY:0,duration:1.2,stagger:.07,ease:'power3.out',scrollTrigger:{trigger:'#vials',start:'top 80%'}})
+}else if(lenis){const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf)}
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12}):null;
+$$('[data-r]').forEach(e=>io?io.observe(e):e.classList.add('in'));
+try{parent!==window&&parent.postMessage({wkDemo:'lux-cerelle',smDemo:'lux-cerelle'},'*')}catch(e){}
+})();
+</script>
+</body>
+</html>

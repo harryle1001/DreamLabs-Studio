@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aurévo · Quiz tìm mùi hương (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho một nhãn nước hoa: quiz sáu câu chạm thẻ, chấm điểm theo họ hương, gợi ý một mùi chính và hai mùi phụ kèm tháp hương, chọn dung tích và giỏ hàng mẫu.">
+<meta name="theme-color" content="#ECE8F5">
+<style>
+@font-face{font-family:"Unbounded";font-weight:200 900;font-display:swap;src:url(fonts/unbounded-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Unbounded";font-weight:200 900;font-display:swap;src:url(fonts/unbounded-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-vietnamese-300-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-latin-300-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--li:#ECE8F5;--li2:#DDD7EE;--wh:#FBFAFD;--in:#1E1F4B;--mu:rgba(30,31,75,.62);--ln:rgba(30,31,75,.14);--ci:#D6E05A;--e:cubic-bezier(.22,1,.36,1);--fd:Unbounded,system-ui,sans-serif;--fb:Spectral,Georgia,serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--li);color:var(--in);font:300 18px/1.6 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,p,ul,ol,figure{margin:0}ul,ol{padding:0;list-style:none}
+.w{max-width:1240px;margin:0 auto;padding:0 max(18px,4.4vw)}
+.cap{font:400 11px var(--fd);letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.tc{display:inline-block;border:1px solid currentColor;border-radius:99px;padding:3px 10px;margin-right:8px}
+h1,h2,h3{font-family:var(--fd);font-weight:200;line-height:1.08;letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:99px;background:var(--in);color:var(--wh);font:400 13px var(--fd);letter-spacing:.06em;transition:transform .5s var(--e),background .4s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ci{background:var(--ci);color:var(--in)}
+.btn.o{background:none;color:var(--in);box-shadow:inset 0 0 0 1px var(--in)}
+header{position:fixed;inset:0 0 auto;z-index:30;transition:background .4s}
+header.s{background:rgba(236,232,245,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+header .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:66px}
+.bk{justify-self:start;min-height:44px;display:inline-flex;align-items:center;font-size:15px;color:var(--mu)}
+.lg{font:300 18px var(--fd);letter-spacing:.34em;padding-left:.34em;min-height:44px;display:flex;align-items:center}
+.cb{justify-self:end;min-height:44px;padding:0 14px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--ln);font:400 12px var(--fd);display:inline-flex;align-items:center;gap:8px;background:var(--wh)}
+.cb b{min-width:22px;height:22px;border-radius:99px;background:var(--in);color:var(--wh);display:inline-grid;place-items:center;font-weight:400;font-size:11px}
+@media(max-width:640px){.bk span{display:none}.lg{font-size:15px}}
+/* hero */
+.hero{min-height:min(100svh,900px);display:flex;align-items:center;padding:100px 0 60px;overflow:hidden}
+.hero .w{display:grid;grid-template-columns:1.1fr .9fr;gap:4vw;align-items:center;width:100%}
+.hero h1{font-size:clamp(46px,7.6vw,118px);margin:20px 0 22px}
+.hero h1 b{font-weight:500;display:inline-block;background:var(--ci);padding:0 .12em;border-radius:.2em}
+.hero .ld{font-size:21px;font-style:italic;color:var(--mu);max-width:30ch}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.orbit{position:relative;aspect-ratio:1;width:100%;max-width:520px;justify-self:center}
+.orbit .ring{position:absolute;inset:8%;border-radius:50%;border:1px dashed var(--ln)}
+.orbit .rot{position:absolute;inset:0;animation:rot 60s linear infinite}
+.orbit figure{position:absolute;width:38%;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 20px 40px rgba(30,31,75,.18);animation:rot 60s linear infinite reverse}
+.orbit figure img{width:100%;height:100%;object-fit:cover}
+.orbit figure:nth-child(1){left:31%;top:-4%}.orbit figure:nth-child(2){right:-4%;top:31%}.orbit figure:nth-child(3){left:31%;bottom:-4%}.orbit figure:nth-child(4){left:-4%;top:31%}
+.orbit .ct{position:absolute;inset:34%;border-radius:50%;background:var(--ci);display:grid;place-items:center;text-align:center;font:300 clamp(13px,1.3vw,16px)/1.3 var(--fd)}
+@keyframes rot{to{transform:rotate(360deg)}}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}.orbit{max-width:340px;margin-top:20px}}
+/* quiz */
+.quiz{padding:90px 0 110px}
+.qc{max-width:860px;margin:0 auto;background:var(--wh);border-radius:28px;padding:clamp(20px,4vw,48px);box-shadow:0 30px 80px rgba(30,31,75,.08);position:relative;overflow:hidden}
+.qt{display:flex;align-items:center;gap:14px}
+.qt .bkq{min-width:44px;min-height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ln);font-size:18px;transition:opacity .3s}
+.qt .bkq:disabled{opacity:.25;cursor:default}
+.pg{flex:1;height:4px;background:var(--li2);border-radius:4px;overflow:hidden}
+.pg i{display:block;height:100%;background:var(--in);transform-origin:left;transform:scaleX(0);transition:transform .7s var(--e)}
+.qn{font:400 12px var(--fd);min-width:44px;text-align:right}
+.qb{margin-top:34px;min-height:420px}
+.qb h2{font:italic 300 clamp(28px,3.6vw,44px)/1.2 var(--fb);letter-spacing:0;margin-bottom:28px}
+.ops{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ops button{position:relative;min-height:150px;border-radius:20px;padding:18px;text-align:left;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;background:var(--li);overflow:hidden;transition:transform .5s var(--e),box-shadow .4s;isolation:isolate}
+.ops button::before{content:"";position:absolute;width:120px;height:120px;right:-20px;top:-30px;border-radius:50%;background:var(--g);z-index:-1;transition:transform .8s var(--e)}
+.ops button:hover::before{transform:scale(1.25)}
+.ops button:hover{transform:translateY(-3px)}
+.ops button[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--in)}
+.ops button[aria-pressed=true]::after{content:"✓";position:absolute;left:18px;top:14px;width:30px;height:30px;border-radius:50%;background:var(--in);color:var(--wh);display:grid;place-items:center;font-size:14px}
+.ops b{font:400 15px/1.3 var(--fd)}
+.ops small{font-size:15px;color:var(--mu);font-style:italic}
+@media(max-width:520px){.ops{grid-template-columns:1fr 1fr;gap:8px}.ops button{min-height:132px;padding:14px}.ops b{font-size:13px}.ops small{font-size:13px}.qb{min-height:0}}
+/* result */
+.res{display:none}
+.qc.done .qz{display:none}.qc.done .res{display:block}
+.rm{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(18px,3vw,36px);align-items:start}
+.rm .im{aspect-ratio:1;border-radius:22px;overflow:hidden;background:var(--g)}
+.rm .im img{width:100%;height:100%;object-fit:cover}
+.rm h2{font-size:clamp(32px,4vw,52px);margin:8px 0 6px}
+.rm .fam{font-style:italic;color:var(--mu)}
+.mt{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font:400 12px var(--fd);background:var(--ci);border-radius:99px;padding:6px 12px}
+.pyr{display:grid;gap:8px;margin:22px 0}
+.pyr div{display:flex;justify-content:center}
+.pyr span{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;border-radius:99px;font-size:15px;text-align:center;line-height:1.2;transform-origin:center;transition:transform .9s var(--e),opacity .6s}
+.pyr div:nth-child(1) span{width:46%;background:var(--c1)}.pyr div:nth-child(2) span{width:72%;background:var(--c2)}.pyr div:nth-child(3) span{width:100%;background:var(--c3);color:var(--wh)}
+.pyr.z span{transform:scaleX(.2);opacity:0}
+.pyr div:nth-child(2) span{transition-delay:.12s}.pyr div:nth-child(3) span{transition-delay:.24s}
+.pyl{display:flex;justify-content:space-between;font:400 10px var(--fd);letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+.buy{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.szs{display:flex;gap:6px}
+.szs button{min-width:60px;min-height:46px;border-radius:99px;box-shadow:inset 0 0 0 1px var(--ln);font:400 12px var(--fd);transition:background .3s,color .3s}
+.szs button[aria-pressed=true]{background:var(--in);color:var(--wh)}
+.pr{margin-left:auto;text-align:right;font:300 24px var(--fd)}
+.pr small{display:block;font:italic 300 13px var(--fb);color:var(--mu)}
+.buy .btn{flex:1 1 100%}
+.alts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px;border-top:1px solid var(--ln);padding-top:26px}
+.alt{background:var(--li);border-radius:20px;padding:18px;display:grid;gap:10px}
+.alt .hd{display:flex;gap:12px;align-items:center}
+.alt .th{width:56px;height:56px;border-radius:50%;overflow:hidden;background:var(--g);flex:none}
+.alt .th img{width:100%;height:100%;object-fit:cover}
+.alt h3{font-size:18px;font-weight:300}
+.alt .pyr{margin:4px 0}
+.alt .pyr span{min-height:36px;font-size:13px}
+.prof{margin-top:30px;border-top:1px solid var(--ln);padding-top:22px;display:grid;gap:8px}
+.prof li{display:grid;grid-template-columns:92px 1fr 40px;gap:10px;align-items:center;font-size:14px}
+.prof li i{height:6px;border-radius:6px;background:var(--li2);overflow:hidden;display:block}
+.prof li i b{display:block;height:100%;background:var(--in);transform-origin:left;transform:scaleX(var(--v));transition:transform 1s var(--e)}
+.prof li span:last-child{font:400 11px var(--fd);text-align:right}
+.again{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+@media(max-width:760px){.rm{grid-template-columns:1fr}.rm .im{aspect-ratio:16/10}.alts{grid-template-columns:1fr}}
+/* steps strip */
+.how{padding:0 0 110px}
+.how ol{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.how li{border-top:1px solid var(--in);padding-top:16px}
+.how li b{font:300 40px var(--fd);display:block}
+.how li p{color:var(--mu);font-style:italic}
+@media(max-width:700px){.how ol{grid-template-columns:1fr}}
+footer{padding:44px 0 60px;border-top:1px solid var(--ln);font-size:15px;color:var(--mu)}
+footer .w{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+footer p{max-width:72ch}
+/* cart panel */
+.cp{position:fixed;top:72px;right:max(12px,4.4vw);z-index:40;width:min(380px,calc(100% - 24px));background:var(--wh);border-radius:22px;box-shadow:0 30px 70px rgba(30,31,75,.22);transform:translateY(-10px) scale(.97);opacity:0;visibility:hidden;transition:transform .5s var(--e),opacity .4s,visibility 0s .5s;transform-origin:top right}
+.cp.on{transform:none;opacity:1;visibility:visible;transition:transform .5s var(--e),opacity .4s}
+.cp ul{max-height:46vh;overflow:auto;padding:8px 18px}
+.cp li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:12px 0;border-bottom:1px solid var(--ln)}
+.cp li small{display:block;color:var(--mu);font-style:italic;font-size:14px}
+.cp .q{display:flex;align-items:center;gap:2px}
+.cp .q button{min-width:44px;min-height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ln)}
+.cp .q span{min-width:24px;text-align:center;font:400 12px var(--fd)}
+.cp .lp{align-self:center;font:300 15px var(--fd)}
+.cp .em{color:var(--mu);font-style:italic;padding:18px 0}
+.cp .ft{padding:14px 18px 18px;display:grid;gap:10px}
+.cp .tt{display:flex;justify-content:space-between;align-items:baseline}
+.cp .tt b{font:300 22px var(--fd)}
+.cp .ft p.m{font-size:14px;font-style:italic;color:var(--mu);min-height:1.3em}
+.emb .bk{display:none}
+.js [data-r]{opacity:0;transform:translateY(22px);transition:opacity 1s var(--e),transform 1.2s var(--e)}
+.js [data-r].in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js [data-r]{opacity:1;transform:none}.pyr.z span{transform:none;opacity:1}}
+</style>
+</head>
+<body>
+<header><div class="w">
+ <a class="bk" href="../index.html" target="_top" aria-label="Quay lại Dream Labs">←&nbsp;<span>Dream Labs</span></a>
+ <a class="lg" href="#top">AURÉVO</a>
+ <button class="cb" id="cb" aria-expanded="false" aria-controls="cp">Giỏ <b id="cn">0</b></button>
+</div></header>
+
+<aside class="cp" id="cp" aria-label="Giỏ hàng">
+ <ul id="cl" data-lenis-prevent></ul>
+ <div class="ft"><p class="tt"><span>Tạm tính</span><b><span id="ct">0</span> ₫</b></p><button class="btn" id="chk">Thanh toán</button><p class="m" id="cm" role="status"></p></div>
+</aside>
+
+<main id="top">
+<section class="hero">
+ <div class="w">
+  <div>
+   <p class="cap" data-r><span class="tc">Concept</span>Quiz mùi hương</p>
+   <h1 class="h1">Mùi nào <b>giống</b> bạn?</h1>
+   <p class="ld" data-r>Sáu câu chạm, chưa tới một phút.</p>
+   <div class="acts" data-r><a class="btn" href="#quiz">Bắt đầu quiz</a><a class="btn o" href="#cach">Cách chấm điểm</a></div>
+  </div>
+  <div class="orbit" aria-hidden="true">
+   <div class="ring"></div>
+   <div class="rot">
+    <figure><picture><source type="image/avif" srcset="../img/demo/aurevo/cam-640.avif 640w, ../img/demo/aurevo/cam-1280.avif 1280w" sizes="(max-width:860px) 130px, 200px"><img src="../img/demo/aurevo/cam-640.webp" srcset="../img/demo/aurevo/cam-640.webp 640w, ../img/demo/aurevo/cam-1280.webp 1280w" sizes="(max-width:860px) 130px, 200px" width="640" height="640" alt="" fetchpriority="high" decoding="async"></picture></figure>
+    <figure><picture><source type="image/avif" srcset="../img/demo/aurevo/nhai-640.avif 640w, ../img/demo/aurevo/nhai-1280.avif 1280w" sizes="(max-width:860px) 130px, 200px"><img src="../img/demo/aurevo/nhai-640.webp" srcset="../img/demo/aurevo/nhai-640.webp 640w, ../img/demo/aurevo/nhai-1280.webp 1280w" sizes="(max-width:860px) 130px, 200px" width="640" height="640" alt="" decoding="async"></picture></figure>
+    <figure><picture><source type="image/avif" srcset="../img/demo/aurevo/khoi-640.avif 640w, ../img/demo/aurevo/khoi-1280.avif 1280w" sizes="(max-width:860px) 130px, 200px"><img src="../img/demo/aurevo/khoi-640.webp" srcset="../img/demo/aurevo/khoi-640.webp 640w, ../img/demo/aurevo/khoi-1280.webp 1280w" sizes="(max-width:860px) 130px, 200px" width="640" height="640" alt="" decoding="async"></picture></figure>
+    <figure><picture><source type="image/avif" srcset="../img/demo/aurevo/hong-640.avif 640w, ../img/demo/aurevo/hong-1280.avif 1280w" sizes="(max-width:860px) 130px, 200px"><img src="../img/demo/aurevo/hong-640.webp" srcset="../img/demo/aurevo/hong-640.webp 640w, ../img/demo/aurevo/hong-1280.webp 1280w" sizes="(max-width:860px) 130px, 200px" width="640" height="640" alt="" decoding="async"></picture></figure>
+   </div>
+   <div class="ct">6 họ hương<br>6 mùi</div>
+  </div>
+ </div>
+</section>
+
+<section class="quiz" id="quiz">
+ <div class="w">
+  <div class="qc" id="qc">
+   <div class="qz">
+    <div class="qt"><button class="bkq" id="qbk" aria-label="Câu trước" disabled>←</button><div class="pg" aria-hidden="true"><i id="pg"></i></div><span class="qn" id="qn">1/6</span></div>
+    <div class="qb" id="qb" aria-live="polite"></div>
+   </div>
+   <div class="res" id="res" aria-live="polite"></div>
+  </div>
+ </div>
+</section>
+
+<section class="how" id="cach">
+ <div class="w">
+  <p class="cap" style="margin-bottom:22px">Cách chấm điểm</p>
+  <ol>
+   <li data-r><b>01</b><p>Mỗi lựa chọn cộng điểm cho một hai họ hương.</p></li>
+   <li data-r><b>02</b><p>Họ cao điểm nhất cho ra mùi chính.</p></li>
+   <li data-r><b>03</b><p>Hai họ kế tiếp cho ra mùi phụ để thử.</p></li>
+  </ol>
+ </div>
+</section>
+</main>
+
+<footer><div class="w"><span class="lg" style="font-size:14px;padding:0">AURÉVO</span><p>Aurévo là thương hiệu concept do <a href="../index.html" target="_top"><u>Dream Labs</u></a> thiết kế; mùi hương, giá chỉ để minh họa. Ảnh: Pexels (Tamanna Rumee, Sealight, Los Muertos Crew, Shubham Shrivastava). Trang mẫu, không bán hàng thật.</p></div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/SplitText.min.js"></script>
+<script src="../vendor/lenis.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches,G=!!window.gsap&&!RM;
+H.classList.add('js');try{if(parent!==window)H.classList.add('emb')}catch(e){}
+const vnd=n=>Math.round(n).toLocaleString('vi-VN');
+const pic=(k,alt,sizes)=>`<picture><source type="image/avif" srcset="../img/demo/aurevo/${k}-640.avif 640w, ../img/demo/aurevo/${k}-1280.avif 1280w" sizes="${sizes}"><img src="../img/demo/aurevo/${k}-640.webp" srcset="../img/demo/aurevo/${k}-640.webp 640w, ../img/demo/aurevo/${k}-1280.webp 1280w" sizes="${sizes}" width="640" height="640" alt="${alt}" loading="lazy" decoding="async"></picture>`;
+const F={
+ cam:{f:'Cam chanh',nm:'Sol Citron',k:'cam',a:'Lát cam trên nền vàng',c:'EDP',x:1,g:'radial-gradient(circle at 30% 30%,#F6E58A,#E9B44C)',cl:['#F4E38B','#E8C35B','#6F6A2E'],t:['Chanh yên','Bưởi'],m:['Petitgrain','Hoa cam'],b:['Xạ hương','Cỏ hương bài']},
+ hoa:{f:'Hoa cỏ',nm:'Nhài Trắng',k:'nhai',a:'Chùm hoa nhài trắng',c:'EDP',x:1,g:'radial-gradient(circle at 30% 30%,#FFFFFF,#CFE0C3)',cl:['#E4EED8','#F2EAD6','#5E6F4E'],t:['Quả lê','Cam bergamot'],m:['Nhài sambac','Hoa huệ'],b:['Xạ hương trắng','Đàn hương']},
+ go:{f:'Gỗ',nm:'Gỗ Khói',k:'khoi',a:'Làn khói từ nén hương',c:'EDP',x:1.08,g:'radial-gradient(circle at 30% 30%,#B9A891,#5B4A3A)',cl:['#D9CCBA','#A88F72','#4B3B2E'],t:['Tiêu đen','Bạch đậu khấu'],m:['Tuyết tùng','Hoắc hương'],b:['Cỏ hương bài','Gỗ guaiac']},
+ hp:{f:'Hổ phách · phương Đông',nm:'Hổ Phách Đêm',k:null,a:'',c:'Extrait',x:1.25,g:'radial-gradient(circle at 30% 30%,#F3C27A,#8A3F1E)',cl:['#F1D2A2','#D4954A','#7A3519'],t:['Quế','Nghệ tây'],m:['Nhũ hương','Benzoin'],b:['Vani','Labdanum']},
+ da:{f:'Da thuộc',nm:'Da Mềm',k:null,a:'',c:'Extrait',x:1.25,g:'radial-gradient(circle at 30% 30%,#B58E79,#3B2620)',cl:['#E2CFC2','#9C7462','#3A2721'],t:['Nghệ tây','Lá violet'],m:['Da thuộc','Diên vĩ'],b:['Nhựa bạch dương','Hổ phách']},
+ xa:{f:'Xạ hương',nm:'Xạ Hồng',k:'hong',a:'Bông hồng đỏ trên nền đen',c:'EDP',x:1.08,g:'radial-gradient(circle at 30% 30%,#FBE3E6,#C9A3B4)',cl:['#F6DCE0','#DDB6C2','#6E4A5A'],t:['Hồng tiêu','Aldehyde'],m:['Hồng Damask','Diên vĩ'],b:['Xạ hương trắng','Ambrette']}};
+const KEYS=Object.keys(F);
+const Q=[
+ {q:'Buổi sáng lý tưởng của bạn?',o:[['Ban công nắng sớm','có ly nước chanh',{cam:2,hoa:1},'#F6E27A'],['Vườn sau cơn mưa','đất còn ẩm',{hoa:2,go:1},'#CFE0C3'],['Thư viện gỗ cũ','mùi giấy và da',{go:2,da:1},'#B9A07F'],['Nằm thêm trong chăn','chưa muốn dậy',{xa:2,hp:1},'#EBD3DA']]},
+ {q:'Chọn một màu.',o:[['Vàng chanh','',{cam:2},'#E9D84E'],['Trắng ngà','',{xa:2,hoa:1},'#F4EFE4'],['Nâu khói','',{go:2,da:1},'#7A6250'],['Đỏ rượu','',{hp:2,hoa:1},'#7E1F2E']]},
+ {q:'Một món tráng miệng?',o:[['Kem chanh','mát, chua nhẹ',{cam:2},'#EDEB9A'],['Bánh vani','ngọt, ấm',{hp:2,xa:1},'#F1DDB4'],['Sô-cô-la đen','đắng, sâu',{da:1,go:1,hp:1},'#4A2C22'],['Trà hoa nhài','thanh, thơm',{hoa:2},'#E3ECD3']]},
+ {q:'Chất liệu bạn muốn chạm?',o:[['Lụa','mát và trơn',{xa:2,hoa:1},'#E9E1EE'],['Vải lanh phơi nắng','khô, sạch',{cam:1,hoa:1,xa:1},'#E5DCC6'],['Da thuộc','mềm, dày',{da:2},'#8B5E45'],['Nhung','ấm, sâu',{hp:2,da:1},'#5B2340']]},
+ {q:'Bạn xịt nước hoa khi nào?',o:[['Đi làm','gọn gàng',{cam:1,xa:1},'#D8E3EE'],['Hẹn buổi tối','muốn được nhớ',{hp:2,da:1},'#3B2B4F'],['Cuối tuần','nhẹ nhõm',{hoa:2,cam:1},'#D6E8C8'],['Lúc một mình','cho riêng mình',{go:2,xa:1},'#B7AE9F']]},
+ {q:'Độ đậm bạn thích?',o:[['Thoảng, sát da','chỉ người gần mới thấy',{xa:2,cam:1},'#F2EEF6'],['Vừa đủ để nhớ','theo cả ngày',{hoa:2},'#DCE7CF'],['Rõ, có dấu ấn','khó lẫn',{go:1,da:2},'#8A6A55'],['Ấm, vương lâu','đến tận hôm sau',{hp:2,go:1},'#C27A3A']]}];
+const ML=[[10,890000],[50,3200000],[100,4800000]];
+const price=(k,m)=>Math.round(ML[m][1]*F[k].x/1e4)*1e4;
+let step=0,ans=Array(Q.length).fill(null),lock=0;
+const qb=$('#qb'),pg=$('#pg'),qn=$('#qn'),qbk=$('#qbk'),qc=$('#qc'),res=$('#res');
+function show(dir=1){const q=Q[step];qn.textContent=`${step+1}/${Q.length}`;pg.style.transform=`scaleX(${(step+(ans[step]!=null?1:0))/Q.length})`;qbk.disabled=step===0;
+ qb.innerHTML=`<h2>${q.q}</h2><div class="ops" role="group" aria-label="${q.q}">${q.o.map((o,i)=>`<button data-i="${i}" aria-pressed="${ans[step]===i}" style="--g:${o[3]}"><b>${o[0]}</b>${o[1]?`<small>${o[1]}</small>`:''}</button>`).join('')}</div>`;
+ if(G)gsap.from(qb.children,{x:40*dir,opacity:0,duration:.6,stagger:.06,ease:'power3.out'})}
+qb.addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(!b||lock)return;ans[step]=+b.dataset.i;$$('button',qb).forEach(x=>x.setAttribute('aria-pressed',x===b));pg.style.transform=`scaleX(${(step+1)/Q.length})`;lock=1;
+ setTimeout(()=>{lock=0;if(step<Q.length-1){step++;show(1)}else result()},RM?60:420)});
+qbk.addEventListener('click',()=>{if(step>0){step--;show(-1)}});
+const sel={};
+const pyr=(k,z)=>{const s=F[k];return `<div class="pyr${z?' z':''}" style="--c1:${s.cl[0]};--c2:${s.cl[1]};--c3:${s.cl[2]}" role="img" aria-label="Tháp hương: đầu ${s.t.join(', ')}; giữa ${s.m.join(', ')}; cuối ${s.b.join(', ')}"><div><span>${s.t.join(' · ')}</span></div><div><span>${s.m.join(' · ')}</span></div><div><span>${s.b.join(' · ')}</span></div></div>`};
+const buy=k=>`<div class="buy"><div class="szs" role="group" aria-label="Dung tích ${F[k].nm}">${ML.map((m,j)=>`<button data-k="${k}" data-m="${j}" aria-pressed="${j===sel[k]}">${m[0]} ml</button>`).join('')}</div><p class="pr"><span data-p="${k}">${vnd(price(k,sel[k]))}</span> ₫<small>giá minh họa</small></p><button class="btn${''}" data-add="${k}">Thêm vào giỏ</button></div>`;
+const img=(k,sz)=>F[k].k?pic(F[k].k,F[k].a,sz):'';
+function result(){const sc={};KEYS.forEach(k=>sc[k]=0);ans.forEach((a,i)=>{const p=Q[i].o[a][2];for(const k in p)sc[k]+=p[k]});
+ const rk=KEYS.slice().sort((a,b)=>sc[b]-sc[a]||KEYS.indexOf(a)-KEYS.indexOf(b)),mx=Math.max(...KEYS.map(k=>sc[k])),tot=KEYS.reduce((a,k)=>a+sc[k],0)||1;
+ const [m,a1,a2]=rk;[m,a1,a2].forEach(k=>sel[k]=1);
+ res.innerHTML=`<p class="cap">Kết quả của bạn</p>
+ <div class="rm" style="margin-top:18px"><div class="im" style="--g:${F[m].g}">${img(m,'(max-width:760px) 90vw, 340px')}</div>
+ <div><h2>${F[m].nm}</h2><p class="fam">Họ ${F[m].f.toLowerCase()} · ${F[m].c}</p><span class="mt">Hợp ${Math.round(sc[m]/tot*100)}% hồ sơ của bạn</span>
+ <div class="pyl" style="margin-top:22px"><span>Tháp hương</span><span>đầu · giữa · cuối</span></div>${pyr(m,1)}${buy(m)}</div></div>
+ <div class="alts">${[a1,a2].map(k=>`<div class="alt"><div class="hd"><div class="th" style="--g:${F[k].g}">${img(k,'56px')}</div><div><p class="cap">Mùi phụ</p><h3>${F[k].nm}</h3></div></div>${pyr(k,1)}${buy(k)}</div>`).join('')}</div>
+ <ul class="prof" aria-label="Hồ sơ hương">${rk.map(k=>`<li><span>${F[k].f.split(' · ')[0]}</span><i><b style="--v:${(sc[k]/mx).toFixed(3)}"></b></i><span>${Math.round(sc[k]/tot*100)}%</span></li>`).join('')}</ul>
+ <div class="again"><button class="btn o" id="redo">Làm lại quiz</button><button class="btn ci" id="cbo">Xem giỏ</button></div>`;
+ qc.classList.add('done');
+ const t=qc.getBoundingClientRect().top+scrollY-80;lenis?lenis.scrollTo(t):scrollTo({top:t,behavior:RM?'auto':'smooth'});
+ requestAnimationFrame(()=>requestAnimationFrame(()=>$$('.pyr',res).forEach((p,i)=>setTimeout(()=>p.classList.remove('z'),RM?0:200+i*180))));
+ if(G)gsap.from(res.children,{y:30,opacity:0,duration:.8,stagger:.08,ease:'power3.out'})}
+res.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.m){const k=b.dataset.k;sel[k]=+b.dataset.m;$$(`button[data-k="${k}"]`,res).forEach(x=>x.setAttribute('aria-pressed',x===b));$(`[data-p="${k}"]`,res).textContent=vnd(price(k,sel[k]))}
+ else if(b.dataset.add){const k=b.dataset.add;add(k+sel[k],F[k].nm,`${ML[sel[k]][0]} ml · ${F[k].c}`,price(k,sel[k]));b.textContent='Đã thêm ✓';setTimeout(()=>b.textContent='Thêm vào giỏ',1400)}
+ else if(b.id==='redo'){step=0;ans=Array(Q.length).fill(null);qc.classList.remove('done');show(1);const t=qc.getBoundingClientRect().top+scrollY-80;lenis?lenis.scrollTo(t):scrollTo({top:t})}
+ else if(b.id==='cbo')openC(true)});
+/* cart */
+const KEY='aurevo-cart';let cart=[];try{cart=JSON.parse(localStorage.getItem(KEY))||[]}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cart))}catch(e){}};
+const cl=$('#cl'),cp=$('#cp'),cb=$('#cb');
+const render=()=>{const n=cart.reduce((a,c)=>a+c.q,0),t=cart.reduce((a,c)=>a+c.q*c.p,0);$('#cn').textContent=n;$('#ct').textContent=vnd(t);$('#cm').textContent='';
+ cl.innerHTML=cart.length?cart.map((c,i)=>`<li><span>${c.nm}<small>${c.v}</small></span><span class="lp">${vnd(c.p*c.q)} ₫</span><div class="q"><button data-a="-1" data-i="${i}" aria-label="Bớt một">−</button><span>${c.q}</span><button data-a="1" data-i="${i}" aria-label="Thêm một">+</button></div></li>`).join(''):'<li class="em">Giỏ đang trống.</li>'};
+const add=(id,nm,v,p)=>{const f=cart.find(c=>c.id===id);f?f.q++:cart.push({id,nm,v,p,q:1});save();render();if(G)gsap.fromTo(cb,{scale:1.12},{scale:1,duration:.6,ease:'elastic.out(1,.4)'})};
+cl.addEventListener('click',e=>{const b=e.target.closest('button[data-a]');if(!b)return;const c=cart[+b.dataset.i];c.q+=+b.dataset.a;if(c.q<=0)cart.splice(+b.dataset.i,1);save();render()});
+const openC=o=>{cp.classList.toggle('on',o);cb.setAttribute('aria-expanded',o)};
+cb.addEventListener('click',e=>{e.stopPropagation();openC(!cp.classList.contains('on'))});
+D.addEventListener('click',e=>{const pa=e.composedPath();if(!pa.includes(cp)&&!pa.includes(cb)&&!e.target.closest('#cbo'))openC(false)});
+addEventListener('keydown',e=>{if(e.key==='Escape')openC(false)});
+$('#chk').addEventListener('click',()=>$('#cm').textContent=cart.length?'Trang mẫu của Dream Labs: đơn hàng không được gửi đi.':'Giỏ đang trống.');
+render();show(1);
+/* header + motion */
+const hd=$('header');const onS=()=>hd.classList.toggle('s',scrollY>30);addEventListener('scroll',onS,{passive:true});onS();
+let lenis=null;if(!RM&&window.Lenis){lenis=new Lenis({duration:1.1,smoothWheel:true});const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf);$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=$(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-70})}}))}
+if(G&&window.SplitText){gsap.registerPlugin(SplitText);D.fonts.ready.then(()=>{const sp=SplitText.create('.h1',{type:'words',mask:'words'});gsap.from(sp.words,{yPercent:100,duration:1.1,stagger:.08,ease:'power4.out'})});gsap.from('.orbit .rot',{opacity:0,duration:1.4,delay:.3});gsap.from('.orbit .ct',{scale:0,duration:1,ease:'back.out(2)',delay:.8})}
+const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12}):null;
+$$('[data-r]').forEach(e=>io?io.observe(e):e.classList.add('in'));
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-aurevo',smDemo:'lux-lp-aurevo'},'*')}catch(e){}
+})();
+</script>
+</body>
+</html>

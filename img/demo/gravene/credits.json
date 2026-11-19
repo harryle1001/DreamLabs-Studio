@@ -1,0 +1,77 @@
+{
+ "hero": {
+  "author": "Max Fischer",
+  "page": "https://www.pexels.com/photo/5872190/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5872190/pexels-photo-5872190.jpeg",
+  "w": 6000,
+  "h": 4000,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "hop": {
+  "author": "Laura Chouette",
+  "page": "https://www.pexels.com/photo/29873592/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/29873592/pexels-photo-29873592.jpeg",
+  "w": 3072,
+  "h": 4608,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "no": {
+  "author": "Maria Verkhoturtseva",
+  "page": "https://www.pexels.com/photo/10520248/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/10520248/pexels-photo-10520248.jpeg",
+  "w": 3024,
+  "h": 4032,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "chai": {
+  "author": "MART PRODUCTION",
+  "page": "https://www.pexels.com/photo/8450248/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8450248/pexels-photo-8450248.jpeg",
+  "w": 6000,
+  "h": 4000,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "ruy": {
+  "author": "Lum3n",
+  "page": "https://www.pexels.com/photo/697224/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/697224/pexels-photo-697224.jpeg",
+  "w": 6000,
+  "h": 4000,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ }
+}
