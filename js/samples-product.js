@@ -55,7 +55,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-bag-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/bag/', v2: true, ground: [75.2, 57.6], hiStep: 4, dirs: ['img/spin/bag/', 'img/spin/bag-cognac/', '', ''], frames: 144, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/bag/', v2: true, ground: [75.2, 57.6], hiStep: 4, dirs: ['img/spin/bag/', 'img/spin/bag-cognac/', 'img/spin/bag-jade/', ''], frames: 144, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 44, y: 57, side: 'r', t: 'Khóa đĩa tròn'},
    {a: 0.25, w: .09, x: 50, y: 22, side: 'r', t: 'Quai cuộn khâu tay'},
    {a: 0.5, w: .1, x: 50, y: 55, side: 'r', t: 'Dáng hộp vai vòm'}
@@ -101,7 +101,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-shoe-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/shoe/', dirs: ['img/spin/shoe/', 'img/spin/shoe-nude/', 'img/spin/shoe-mulberry/'], frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/shoe/', v2: true, ground: [64.8, 59], hiStep: 4, frames: 144, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 35, y: 65, side: 'r', t: 'Mũi nhọn', d: 'Phom mũi thon, miệng giày khoét thấp'},
    {a: 0.25, w: .08, x: 30, y: 52, side: 'r', t: 'Gót 9,5 cm', d: 'Gót mảnh bọc cùng chất liệu thân giày'},
    {a: 0.5, w: .08, x: 35, y: 68, side: 'r', t: 'Khâu gót mạ vàng'},
@@ -235,7 +235,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-whisky-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/whisky/', v2: true, ground: [74.8, 23.4], hiStep: 4, dirs: ['img/spin/whisky/', 'img/spin/whisky-y18/', ''], frames: 144, loop: true, tone: 'dark', hotspots: [
+  spin: {dir: 'img/spin/whisky/', v2: true, ground: [74.8, 23.4], hiStep: 4, dirs: ['img/spin/whisky/', 'img/spin/whisky-y18/', 'img/spin/whisky-y25/'], frames: 144, loop: true, tone: 'dark', hotspots: [
    {a: 0, w: .09, x: 60, y: 60, side: 'r', t: 'Nhãn giấy in nổi', d: 'Dấu hiệu núi mây và số năm ủ'},
    {a: 0.3, w: .1, x: 50, y: 27, side: 'r', t: 'Màng co cổ chai'},
    {a: 0.6, w: .1, x: 50, y: 73, side: 'r', t: 'Đáy chai dày'}
@@ -316,7 +316,7 @@
   pkg: 'Thiết kế sản phẩm — Cao cấp',
   cover: 'img/sm-product-skin-set.webp',
   kind: 'product',
-  spin: {dir: 'img/spin/skin/', dirs: ['img/spin/skin/', 'img/spin/skin-celadon/', 'img/spin/skin-blush/'], frames: 48, loop: true, tone: 'light', hotspots: [
+  spin: {dir: 'img/spin/skin/', v2: true, ground: [68.3, 63.6], hiStep: 4, frames: 144, loop: true, tone: 'light', hotspots: [
    {a: 0, w: .08, x: 30, y: 27, side: 'r', t: 'Vòi nhấn kim loại'},
    {a: 0.25, w: .08, x: 63, y: 37, side: 'r', t: 'Ống nhỏ giọt', d: 'Chai tinh chất thủy tinh mờ'},
    {a: 0.5, w: .09, x: 32, y: 54, side: 'r', t: 'Hũ kem nắp kim loại'}
