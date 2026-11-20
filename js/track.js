@@ -7,8 +7,14 @@
 (function(){
   var TAG_ID='';
   var ADS_ID='';
+  /* Google tag (dạng GTM-..., snippet gtm.js + gtag('js')) do GA4 / Google Ads cấp: GA4 luồng "Dream Labs Web", Google Ads */
+  var GOOGLE_TAGS=['GTM-KMHVQ5B9','GTM-MK2QCPNB'];
   var w=window,d=document;w.dataLayer=w.dataLayer||[];
   function gtag(){w.dataLayer.push(arguments)}
+  if(GOOGLE_TAGS.length){
+    w.gtag=gtag;gtag('js',new Date());
+    for(var i=0;i<GOOGLE_TAGS.length;i++){var t=d.createElement('script');t.async=true;t.src='https://www.googletagmanager.com/gtm.js?id='+GOOGLE_TAGS[i];d.head.appendChild(t)}
+  }
   if(/^G-/.test(TAG_ID)){
     w.gtag=gtag;gtag('js',new Date());gtag('config',TAG_ID);if(/^AW-/.test(ADS_ID))gtag('config',ADS_ID);
     var s=d.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+TAG_ID;d.head.appendChild(s);
@@ -20,7 +26,7 @@
     var o={event:ev,page_path:location.pathname,page_title:d.title,page_location:location.href.split('#')[0]};
     for(var k in extra)o[k]=extra[k];
     w.dataLayer.push(o);
-    if(w.gtag&&/^G-/.test(TAG_ID)){var p={};for(var j in o)if(j!=='event')p[j]=o[j];w.gtag('event',ev,p)}
+    if(w.gtag&&(/^G-/.test(TAG_ID)||GOOGLE_TAGS.length)){var p={};for(var j in o)if(j!=='event')p[j]=o[j];w.gtag('event',ev,p)}
   }
   d.addEventListener('click',function(e){
     var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;var h=a.getAttribute('href')||'';
