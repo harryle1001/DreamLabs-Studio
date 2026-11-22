@@ -282,7 +282,7 @@ safe('hero',()=>{
   const INTRO_BIN=4.2,INTRO_BANG=4.6,replayQ=new URLSearchParams(location.search).has('intro'),frz=parseFloat(new URLSearchParams(location.search).get('intro')); /* ?intro=0.7: đứng hình ở 70% đoạn hai sao bay vào (để kiểm tra hình) */
   const preDone=()=>{const pre=$('#pre');if(!pre||replayQ)return Promise.resolve();let an=[];try{an=pre.getAnimations({subtree:true})}catch(e){}
     return Promise.race([Promise.all(an.map(a=>a.finished.catch(()=>0))),new Promise(r=>setTimeout(r,2500))])};
-  const loaded=()=>document.readyState==='complete'?Promise.resolve():Promise.race([new Promise(r=>addEventListener('load',r,{once:true})),new Promise(r=>setTimeout(r,6000))]);
+  const loaded=()=>document.readyState==='complete'?Promise.resolve():Promise.race([new Promise(r=>addEventListener('load',r,{once:true})),new Promise(r=>setTimeout(r,3000))]);
   const shown=()=>document.visibilityState==='visible'?Promise.resolve():new Promise(r=>{const f=()=>{if(document.visibilityState==='visible'){document.removeEventListener('visibilitychange',f);r()}};document.addEventListener('visibilitychange',f)});
   const introReady=Promise.all([loaded(),document.fonts?document.fonts.ready.catch(()=>0):0,preDone()]).then(shown).then(()=>new Promise(r=>requestAnimationFrame(()=>r())));
   /* Hai sao khổng lồ (dùng chung WebGL / Canvas2D). it: giây kể từ khi cảnh bắt đầu; w,h: kích thước canvas (px thiết bị);
@@ -539,7 +539,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
     col={c0:c('--bg'),c1:lav,c2:peach,c3:mist,k0:dark?[.66,.6,1]:[.5,.42,.93],k1:dark?[.86,.66,.95]:[.74,.5,.87],k2:dark?[1,.66,.74]:[.93,.4,.56]}};
   colors();document.addEventListener('dl:theme',()=>{colors();fresh=true;if(!running)draw()});
   /* trạng thái */
-  let dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.25,ema=16.7,warm=0,lowQ=false;
+  let dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.25,ema=16.7,warm=0,lowQ=false,hiQ=0,hiAt=0;
   let W=0,H=0,cw=0,ch=0,t=20,rot=0,spd=0,fc=0,fresh=true,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
   let bang=0,bin=0,introAt=null,ti=0; /* ti: đồng hồ cảnh mở đầu theo thời gian thật (để khớp âm thanh cả trên máy chậm) */const smoothstep01=x=>{x=clamp(x);return x*x*(3-2*x)}; // mở đầu: sao bung ra rồi bị hút về hình xoắn ốc (giảm chuyển động: bỏ qua)
   /* mắt xoắn ốc = tâm khung #heroArt (cột 61.8% của hero). Đo bằng offsetLeft/Top, chỉ khi đổi kích thước;
@@ -574,7 +574,12 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
   };
   const loop=now=>{raf=0;if(!running)return;const raw=(now-last)/1000||.016,dt=Math.min(.05,raw);last=now;ti+=Math.min(.25,raw);
     /* máy yếu: sau 2 giây nếu khung trung bình > 20ms thì hạ độ phân giải nền + mật độ điểm ảnh một lần */
-    ema+=(dt*1000-ema)*.08;if(!lowQ&&(warm+=dt)>2&&ema>20){lowQ=true;fq*=.6;dpr=Math.min(dpr,1)*.75;fresh=true}
+    ema+=(Math.min(100,raw*1000)-ema)*.08;warm+=dt;{const inIntro=introAt!=null&&bang<1&&!(frz>=0),DP=devicePixelRatio||1;
+      /* hạ chất lượng: không đổi kích thước canvas giữa cảnh mở đầu (gây khựng) trừ khi máy quá chậm */
+      if(!lowQ&&warm>1.2&&(ema>36||(!inIntro&&ema>21))){lowQ=true;fq*=.6;dpr=Math.min(dpr,1)*.75;fresh=true}
+      /* màn hình nét cao + máy khỏe: sau cảnh mở đầu thử nâng độ nét lên tối đa 2x; nếu khung hình chậm đi thì trả về 1,5x */
+      else if(!lowQ&&!inIntro&&hiQ===0&&warm>2.5&&DP>1.5&&ema<19){hiQ=1;hiAt=warm;dpr=Math.min(DP,2)}
+      else if(hiQ===1&&warm-hiAt>.6&&warm-hiAt<3&&ema>21){hiQ=-1;dpr=1.5}}
     t+=dt;if(introAt!=null){const it=frz>=0?frz*INTRO_BIN:ti-introAt;bin=clamp(it/INTRO_BIN);bang=clamp((it-INTRO_BIN)/INTRO_BANG)}spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
   const setRun=()=>{const on=vis&&!covered&&!document.hidden&&!lost;if(on===running)return;running=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
   /* Hình nền tự chuyển động, không phụ thuộc thao tác cuộn (tránh giật khi vuốt) */

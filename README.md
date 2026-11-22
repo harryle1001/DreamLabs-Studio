@@ -82,3 +82,8 @@ Kiểm tra: mở trang, F12 → Console gõ `dataLayer` sau khi bấm nút Zalo.
 - Thương hiệu trong Phòng mẫu và các demo là concept do Dream Labs tự thiết kế, chưa tra cứu nhãn hiệu.
 - Form liên hệ chưa gửi tự động: sau khi bấm gửi, trang soạn sẵn nội dung để khách dán vào Zalo.
 - Giá trong `js/data.js` là giá mẫu.
+
+
+## Gộp CSS/JS
+
+`node build.js` gộp và nén toàn bộ CSS thành `css/app.min.css` và JS thành `js/app.min.js` (cần `npm install` để có terser + lightningcss). Sửa mã ở các file gốc trong `css/` và `js/`, không sửa hai file gộp. Thiếu công cụ hoặc đặt `DL_NOBUNDLE=1` thì trang nạp từng file gốc như cũ.

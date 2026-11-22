@@ -16,7 +16,18 @@ const part=f=>`<!-- ${path.basename(f)} -->\n`+fs.readFileSync(path.join(R,f),'u
 const parts=fs.readdirSync(pdir).filter(f=>f.endsWith('.html')).sort().map(f=>part('src/partials/'+f));
 const head=fs.readFileSync(path.join(R,'src/head.html'),'utf8').trim();
 const VER=f=>require('crypto').createHash('md5').update(fs.readFileSync(path.join(R,f))).digest('hex').slice(0,8);
-const assets=body=>[...css.map(c=>`<link rel="stylesheet" href="${c}?v=${VER(c)}">`),...body,...js.map(s=>`<script src="${s}?v=${VER(s)}"></script>`)].join('\n')+'\n';
+/* Gộp + nén toàn bộ CSS thành css/app.min.css và toàn bộ JS thành js/app.min.js (2 file thay cho ~30) để trang tải nhanh.
+   Mã nguồn vẫn sửa ở các file gốc; node build.js tự dựng lại 2 file gộp. Thiếu terser/lightningcss (chưa npm install)
+   hoặc đặt DL_NOBUNDLE=1 thì trang nạp từng file gốc như cũ. */
+const BUNDLE=(()=>{if(process.env.DL_NOBUNDLE)return null;try{
+  const {minify_sync}=require('terser'),{transform}=require('lightningcss'),rd=f=>fs.readFileSync(path.join(R,f),'utf8');
+  const cssOut=transform({filename:'app.css',code:Buffer.from(css.map(rd).join('\n')),minify:true,errorRecovery:true}).code;
+  const jsOut=js.map(f=>f.startsWith('vendor/')?rd(f):minify_sync(rd(f),{compress:{passes:2},mangle:true,format:{comments:false}}).code).join('\n;\n');
+  const wr=(f,c)=>{const q=path.join(R,f);if(!fs.existsSync(q)||fs.readFileSync(q,'utf8')!==String(c))fs.writeFileSync(q,c)};
+  wr('css/app.min.css',cssOut);wr('js/app.min.js',jsOut);return{css:'css/app.min.css',js:'js/app.min.js'};
+}catch(e){console.warn('Không gộp được CSS/JS (dùng file gốc):',e.message);return null}})();
+const assets=body=>BUNDLE?[`<link rel="stylesheet" href="${BUNDLE.css}?v=${VER(BUNDLE.css)}">`,...body,`<script src="${BUNDLE.js}?v=${VER(BUNDLE.js)}"></script>`].join('\n')+'\n'
+  :[...css.map(c=>`<link rel="stylesheet" href="${c}?v=${VER(c)}">`),...body,...js.map(s=>`<script src="${s}?v=${VER(s)}"></script>`)].join('\n')+'\n';
 const frag=head+'\n'+assets(parts);
 
 /* Dữ liệu có cấu trúc cho Google (chỉ bản host) */
