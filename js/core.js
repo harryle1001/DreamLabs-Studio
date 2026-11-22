@@ -269,7 +269,7 @@ safe('cursor',()=>{
 let heroIntro=()=>{};
 safe('hero',()=>{
   const sec=$('.hero'),cv=$('#sky');if(!sec||!cv)return;
-  const small=innerWidth<760,N=small?610:1597,nEl=$('#heroN');
+  const small=innerWidth<760,N=small?610:1597,DN=small?200:420,nEl=$('#heroN');
   if(nEl)nEl.textContent=N.toLocaleString('vi-VN')+' hạt';
   /* Dự phòng khi WebGL không khởi tạo được hoặc bị mất (context lost): Canvas2D vẽ cùng hình xoắn ốc, xoay theo thời gian.
      Chạy rAF riêng, dừng khi hero khuất / tab ẩn; giảm chuyển động: xoay chậm hơn. Không ghi lỗi ra console. */
@@ -279,19 +279,27 @@ safe('hero',()=>{
     const c=document.createElement('canvas');c.setAttribute('aria-hidden','true');fb.appendChild(c);const x=c.getContext('2d');if(!x)return;
     const n=small?520:900,PH=1.61803399,P=[];const hh=v=>{const q=Math.sin(v*12.9898+4.1414)*43758.5453;return q-Math.floor(q)};
     for(let i=0;i<n;i++){const k=(i+.5)/n,h1=hh(i),h2=hh(i*1.7+3),h3=hh(i*2.3+7),rs=.012+.988*k;
-      P.push({b:Math.log(rs)/Math.log(PH)*Math.PI/2+.227,r:rs*(1+(h1+h2-1)*.09),jx:(h2-.5)*.012,jy:(h3-.5)*.012,sz:(1.6+3.6*Math.sqrt(k))*(.8+.4*h1),a:.35+.5*(1-k*.6),m:Math.min(1,Math.max(0,1-Math.sqrt(rs)+(h2-.5)*.2)),tw:h1*6.283})}
-    let W=0,H=0,cx=0,cy=0,R=0,rot=0,spd=0,last=0,t=0,raf=0,vis=true,run=false,cols=['#5E43A8','#8C7BC8','#C08A9A'];
+      const dist=.3+1.75*Math.pow(h2,.75);P.push({b:Math.log(rs)/Math.log(PH)*Math.PI/2+.227,r:rs*(1+(h1+h2-1)*.09),jx:(h2-.5)*.012,jy:(h3-.5)*.012,sz:(1.6+3.6*Math.sqrt(k))*(.8+.4*h1),a:.35+.5*(1-k*.6),m:Math.min(1,Math.max(0,1-Math.sqrt(rs)+(h2-.5)*.2)),tw:h1*6.283,ea:h1*6.2832,ed:dist,dn:(dist-.3)/1.75})}
+    const DU=[];for(let i=0;i<(small?120:240);i++)DU.push([hh(i+5e3),hh(i*1.3+7e3),.6+1.4*hh(i*2.1+9e3),hh(i*3.7+1e4)*6.283]);
+    let W=0,H=0,cx=0,cy=0,R=0,rot=0,spd=0,last=0,t=0,b2=RM?1:0,raf=0,vis=true,run=false,cols=['#5E43A8','#8C7BC8','#C08A9A'];
     const dpr2=Math.min(devicePixelRatio||1,1.5);
     const fit=()=>{const w=sec.offsetWidth,h=sec.offsetHeight;W=c.width=Math.round(w*dpr2);H=c.height=Math.round(h*dpr2);
       let ex=w*.67,ey=h*.5,r=Math.min(w,h)*.3;if(art2d){let e=art2d,ox=art2d.offsetWidth/2,oy=art2d.offsetHeight/2;while(e&&e!==sec){ox+=e.offsetLeft;oy+=e.offsetTop;e=e.offsetParent}
         if(e===sec){ex=ox;ey=oy;r=Math.min(art2d.offsetWidth,art2d.offsetHeight)/2*.96}}
       cx=ex*dpr2;cy=ey*dpr2;R=r*dpr2*(small?1.05:1.2);const cs=getComputedStyle(root);cols=['--accent','--lav','--peach'].map(k=>cs.getPropertyValue(k).trim()||'#5E43A8')};
+    const eo=v=>{v=Math.min(1,Math.max(0,v));return 1-(1-v)**3},eio=v=>{v=Math.min(1,Math.max(0,v));return v<.5?4*v*v*v:1-(-2*v+2)**3/2};
     const paint=()=>{x.clearRect(0,0,W,H);const tilt=Math.cos(.3);
+      /* bụi sao xa */
+      x.fillStyle=cols[1];for(const [u,v,z,ph] of DU){x.globalAlpha=(.12+.2*(.5+.5*Math.sin(t*.8+ph)))*Math.min(1,b2*4+.15);x.fillRect(u*W,v*H,z*dpr2,z*dpr2)}x.globalAlpha=1;
+      if(b2<1&&b2<.2){const fl=(1-b2/.2)*Math.min(1,b2/.02)*.5,gr=x.createRadialGradient(cx,cy,0,cx,cy,R*1.2);gr.addColorStop(0,`rgba(255,240,225,${fl})`);gr.addColorStop(1,'rgba(255,240,225,0)');x.fillStyle=gr;x.fillRect(0,0,W,H)}
       for(let j=0;j<3;j++){x.fillStyle=cols[j];x.beginPath();
-        for(let i=j;i<n;i+=3){const q=P[i],th=q.b+rot+Math.sin(t*.2)*.06,br=RM?1:1+.04*Math.sin(t*1.3-q.r*7),px=cx+(Math.cos(th)*q.r*br+q.jx)*R,py=cy-(Math.sin(th)*q.r*br+q.jy)*R*tilt,s=q.sz*dpr2*.5;
+        for(let i=j;i<n;i+=3){const q=P[i],th=q.b+rot+Math.sin(t*.2)*.06,br=RM?1:1+.04*Math.sin(t*1.3-q.r*7);let ux=Math.cos(th)*q.r*br+q.jx,uy=Math.sin(th)*q.r*br+q.jy;
+          if(b2<1){const b1=eo(b2/.16),ex=Math.cos(q.ea)*1.45*q.ed*b1,ey=Math.sin(q.ea)*q.ed*b1,sv=eio((b2-.3-.2*q.dn)/.48),rE=Math.hypot(ex,ey),aE=Math.atan2(ey,ex),rF=Math.hypot(ux,uy),aF=Math.atan2(uy,ux),
+            dA=((aF-aE)%6.2832+6.2832)%6.2832+3.1416,a=aE+dA*sv,r=rE+(rF-rE)*sv;ux=Math.cos(a)*r;uy=Math.sin(a)*r}
+          const px=cx+ux*R,py=cy-uy*R*tilt,s=q.sz*dpr2*.5;
           x.moveTo(px+s,py);x.arc(px,py,s,0,6.2832)}
         x.globalAlpha=j?.55:.8;x.fill()}x.globalAlpha=1};
-    const loop=now=>{raf=0;if(!run)return;const dt=Math.min(.05,(now-last)/1000||.016);last=now;t+=dt;spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;paint();raf=requestAnimationFrame(loop)};
+    const loop=now=>{raf=0;if(!run)return;const dt=Math.min(.05,(now-last)/1000||.016);last=now;t+=dt;if(b2<1)b2=Math.min(1,b2+dt/4.6);spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;paint();raf=requestAnimationFrame(loop)};
     const set=()=>{const on=vis&&!document.hidden&&sec.classList.contains('no-gl');if(on===run)return;run=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
     new IntersectionObserver(([en])=>{vis=en.isIntersecting;set()}).observe(sec);document.addEventListener('visibilitychange',set);
     new ResizeObserver(()=>{fit();paint()}).observe(sec);document.addEventListener('dl:theme',()=>{fit();paint()});
@@ -316,30 +324,49 @@ void main(){vec2 uv=gl_FragCoord.xy/r;float asp=r.x/r.y;vec2 p=uv*vec2(asp,1.)*1
  vec2 d=(uv-ctr)*vec2(asp,1.);col=mix(col,c0,exp(-dot(d,d)*3.)*.382);
  col=mix(col,c0,smoothstep(.55,1.,uv.y)*.35);
  gl_FragColor=vec4(col,1.);}`;
-  const FS_B=HP+`uniform sampler2D tx;uniform vec2 r;void main(){vec3 c=texture2D(tx,gl_FragCoord.xy/r).rgb;
+  const FS_B=HP+`uniform sampler2D tx;uniform vec2 r,ctr;uniform float fl;void main(){vec3 c=texture2D(tx,gl_FragCoord.xy/r).rgb;
+ vec2 d=(gl_FragCoord.xy-ctr)/min(r.x,r.y);c+=vec3(1.,.93,.86)*fl*exp(-dot(d,d)*16.);
  float g=fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453);gl_FragColor=vec4(c+(g-.5)/96.,1.);}`;
-  const VS_P=`attribute float a_i;uniform float u_br,u_n,u_t,u_morph,u_in,u_dpr,u_R,u_mr,u_mp,u_fade,u_rot,u_lo,u_ss,u_sc;uniform vec2 u_res,u_ctr,u_m,u_tilt;
-varying float v_al,v_mix,v_soft;const float GA=2.39996323,PHI=1.61803399,TAU=6.28318531;
+  /* Hạt = vì sao. a_i < u_n: sao của hình xoắn ốc; a_i >= u_n: bụi sao xa (phủ cả hero, trôi rất chậm, lệch nhẹ theo chuột).
+     u_bang 0→1 (~4,6 giây): bung từ tâm (vệt sáng theo hướng bay) → lơ lửng → bị hút xoáy về hình xoắn ốc (đường cong, sao xa vào sau).
+     u_bang = 1: đúng hình xoắn ốc đang xoay (u_rot), không đổi so với trước. */
+  const VS_P=`attribute float a_i;uniform float u_br,u_n,u_t,u_bang,u_dpr,u_R,u_mr,u_mp,u_rot,u_lo,u_ss;uniform vec2 u_res,u_ctr,u_m,u_tilt;
+varying float v_al,v_mix,v_soft,v_gold,v_str,v_glow;varying vec2 v_dir;const float PHI=1.61803399,TAU=6.28318531;
 float hh(float n){return fract(sin(n*12.9898+4.1414)*43758.5453);}
-void main(){float k=(a_i+.5)/u_n,h1=hh(a_i),h2=hh(a_i*1.7+3.),h3=hh(a_i*2.3+7.);
- float rr=sqrt(k),th=a_i*GA+u_rot;vec2 ph=vec2(cos(th),sin(th))*rr;
+float eo(float x){x=clamp(x,0.,1.);return 1.-(1.-x)*(1.-x)*(1.-x);}
+float eio(float x){x=clamp(x,0.,1.);return x<.5?4.*x*x*x:1.-pow(-2.*x+2.,3.)*.5;}
+void main(){float h1=hh(a_i),h2=hh(a_i*1.7+3.),h3=hh(a_i*2.3+7.),h4=hh(a_i*3.1+11.);
+ if(a_i>=u_n){vec2 q=vec2(h1,h2)*2.-1.;q+=vec2(sin(u_t*.05+h3*TAU),cos(u_t*.04+h1*TAU))*.012;q-=(u_m/u_res*2.-1.)*.012*(.4+h3);
+  gl_Position=vec4(q,0.,1.);gl_PointSize=max(1.,(.9+1.7*h3*h3)*u_dpr);
+  float tw=.5+.5*sin(u_t*(.5+h4*1.8)+h1*TAU);v_al=(.2+.35*h4)*(.45+.55*tw)*clamp(u_bang*4.+.15,0.,1.);
+  v_soft=0.;v_mix=h2;v_gold=step(.78,h4);v_str=0.;v_glow=0.;v_dir=vec2(1.,0.);return;}
+ float k=(a_i+.5)/u_n,rr=sqrt(k);
  float rs=mix(.012,1.,k),ths=log(rs)/log(PHI)*(TAU*.25)+.227+u_rot+sin(u_t*.2)*.06,br=1.+.04*u_br*sin(u_t*1.3-rs*7.);
- vec2 sp=(vec2(cos(ths),sin(ths))*rs*br*(1.+(h1+h2-1.)*.09)+(vec2(h2,h3)-.5)*.012)*u_ss; /* mắt xoắn ốc nằm đúng tâm (u_ctr) = tâm logo */
- float mm=smoothstep(0.,1.,clamp(u_morph*1.618-h3*.618,0.,1.));
- vec2 p=mix(ph,sp,mm);float sw=sin(mm*3.14159)*.5*(1.-rr),cs=cos(sw),sn=sin(sw);p=vec2(p.x*cs-p.y*sn,p.x*sn+p.y*cs);
- float z=sin(rr*9.-u_t*.8)*.03*(1.-mm)+(h2-.5)*.06;
- float cx=cos(u_tilt.x),sx=sin(u_tilt.x),cy=cos(u_tilt.y),sy=sin(u_tilt.y);
+ vec2 sp=(vec2(cos(ths),sin(ths))*rs*br*(1.+(h1+h2-1.)*.09)+(vec2(h2,h3)-.5)*.012)*u_ss;
+ vec2 p=sp,dir=vec2(1.,0.);float str=0.,boost=0.;
+ if(u_bang<1.){float ang=h1*TAU,dist=.3+1.75*pow(h2,.75),dn=(dist-.3)/1.75;vec2 dv=vec2(cos(ang)*1.45,sin(ang));
+  float b1=eo(u_bang/.16);vec2 ex=dv*dist*b1+vec2(sin(u_t*.9+h3*TAU),cos(u_t*.7+h4*TAU))*.05*smoothstep(.1,.3,u_bang);
+  float s=eio((u_bang-.3-.2*dn)/.48),rE=length(ex),aE=atan(ex.y,ex.x),rF=length(sp),aF=atan(sp.y,sp.x);
+  float dA=mod(aF-aE,TAU)+TAU*.5,a=aE+dA*s,r=mix(rE,rF,s);p=vec2(cos(a),sin(a))*r;
+  float burst=1.-smoothstep(.03,.2,u_bang),suck=sin(s*3.14159);str=min(1.2,burst*1.3+suck*.9);
+  dir=burst>suck?dv:(rF-rE)*vec2(cos(a),sin(a))+r*dA*vec2(-sin(a),cos(a));boost=1.6*(1.-smoothstep(0.,.18,u_bang));}
+ float z=(h2-.5)*.06,cx=cos(u_tilt.x),sx=sin(u_tilt.x),cy=cos(u_tilt.y),sy=sin(u_tilt.y);
  vec3 P=vec3(p.x,p.y*cx-z*sx,p.y*sx+z*cx);P=vec3(P.x*cy+P.z*sy,P.y,-P.x*sy+P.z*cy);
  float pe=1./(1.-P.z*.382);vec2 scr=u_ctr+P.xy*pe*u_R;
  vec2 dm=scr-u_m;float dd=length(dm),f=exp(-dd*dd/(u_mr*u_mr))*u_mp;scr+=dm/(dd+1.)*f*u_mr*.382;
  gl_Position=vec4(scr/u_res*2.-1.,0.,1.);
- float bok=step(.955,h3);float sz=mix(mix(1.6,5.2,rr)*(.8+.4*h1),12.+16.*h2,bok)*(1.+f*.9);
+ float bok=step(.955,h3),glw=step(.9,h3)*(1.-bok);
+ float sz=mix(mix(1.4,5.,rr)*(.55+.9*h1*h1),12.+16.*h2,bok)*(1.+glw*1.8)*(1.+f*.9)*(1.+2.2*str);
  gl_PointSize=max(1.,sz*u_dpr*pe);
- float tw=.72+.28*sin(u_t*1.4+h1*TAU),ain=smoothstep(0.,1.,clamp(u_in*1.618-k*.618,0.,1.));
- v_al=ain*tw*mix(.9,.12,bok)*u_fade*mix(u_lo,1.,smoothstep(.3,.62,scr.y/u_res.y+u_sc*1.618));v_soft=bok;v_mix=clamp(1.-mix(rr,sqrt(rs),mm)+(h2-.5)*.2,0.,1.);}`;
-  const FS_P=`precision mediump float;uniform vec3 k0,k1,k2;varying float v_al,v_mix,v_soft;
-void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),smoothstep(1.,0.,d)*.8,v_soft)*v_al;
- vec3 c=v_mix<.618?mix(k0,k1,v_mix/.618):mix(k1,k2,(v_mix-.618)/.382);gl_FragColor=vec4(c*a,a);}`;
+ float tw=.55+.45*pow(.5+.5*sin(u_t*(.7+h4*2.3)+h1*TAU),2.);
+ v_al=tw*mix(.9,.14,bok)*mix(u_lo,1.,smoothstep(.3,.62,scr.y/u_res.y))*smoothstep(0.,.03,u_bang)*(1.+boost);
+ v_soft=bok;v_glow=glw;v_gold=step(.86,h4);v_str=str;v_dir=normalize(vec2(dir.x,-dir.y)+1e-5);
+ v_mix=clamp(1.-sqrt(rs)+(h2-.5)*.2,0.,1.);}`;
+  const FS_P=`precision mediump float;uniform vec3 k0,k1,k2;varying float v_al,v_mix,v_soft,v_gold,v_str,v_glow;varying vec2 v_dir;
+void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(-v_dir.y,v_dir.x))*(1.+2.2*v_str));
+ float d=length(q)*2.,a=mix(smoothstep(1.,.5,d),smoothstep(1.,0.,d)*.8,v_soft);
+ if(v_glow>.5){float h=1.-d;a=smoothstep(.42,.1,d)+.4*max(h,0.)*max(h,0.);}
+ a*=v_al;vec3 c=v_mix<.618?mix(k0,k1,v_mix/.618):mix(k1,k2,(v_mix-.618)/.382);c=mix(c,vec3(1.,.86,.6),v_gold*.7);gl_FragColor=vec4(c*a,a);}`;
   let pA,pB,pP,uA,uB,uP,tri,idx,fbo,tex,fw=0,fh=0;
   const mk=(vs,fs,attr)=>{const sh=(t,s)=>{const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw new Error(gl.getShaderInfoLog(o)||'shader');return o};
     const p=gl.createProgram();gl.attachShader(p,sh(gl.VERTEX_SHADER,vs));gl.attachShader(p,sh(gl.FRAGMENT_SHADER,fs));gl.bindAttribLocation(p,0,attr);gl.linkProgram(p);
@@ -347,9 +374,9 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   const U=(p,names)=>{const o={};names.split(' ').forEach(k=>o[k]=gl.getUniformLocation(p,k));return o};
   const build=()=>{
     pA=mk(VS,FS_A,'a');pB=mk(VS,FS_B,'a');pP=mk(VS_P,FS_P,'a_i');
-    uA=U(pA,'r m ctr t sc c0 c1 c2 c3');uB=U(pB,'tx r');uP=U(pP,'u_br u_n u_t u_morph u_in u_dpr u_R u_mr u_mp u_fade u_rot u_lo u_ss u_sc u_res u_ctr u_m u_tilt k0 k1 k2');
+    uA=U(pA,'r m ctr t sc c0 c1 c2 c3');uB=U(pB,'tx r ctr fl');uP=U(pP,'u_br u_n u_t u_bang u_dpr u_R u_mr u_mp u_rot u_lo u_ss u_res u_ctr u_m u_tilt k0 k1 k2');
     tri=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
-    const ia=new Float32Array(N);for(let i=0;i<N;i++)ia[i]=i;idx=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.bufferData(gl.ARRAY_BUFFER,ia,gl.STATIC_DRAW);
+    const ia=new Float32Array(N+DN);for(let i=0;i<N+DN;i++)ia[i]=i;idx=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.bufferData(gl.ARRAY_BUFFER,ia,gl.STATIC_DRAW);
     gl.enableVertexAttribArray(0);tex=gl.createTexture();fbo=gl.createFramebuffer();fw=fh=0;
   };
   try{build()}catch(e){console.info('[hero] WebGL không dựng được, chuyển sang Canvas2D');fallback();return}
@@ -364,7 +391,7 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   /* trạng thái */
   let dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.25,ema=16.7,warm=0,lowQ=false;
   let W=0,H=0,cw=0,ch=0,t=20,rot=0,spd=0,fc=0,fresh=true,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
-  const st={in:RM?1:0,morph:RM?1:0}; // mở đầu: hạt hiện ra rồi xếp thành hình xoắn ốc
+  let bang=RM?1:0,bangAt=null;const smoothstep01=x=>{x=clamp(x);return x*x*(3-2*x)}; // mở đầu: sao bung ra rồi bị hút về hình xoắn ốc (giảm chuyển động: bỏ qua)
   /* mắt xoắn ốc = tâm khung #heroArt (cột 61.8% của hero). Đo bằng offsetLeft/Top, chỉ khi đổi kích thước;
      bán kính theo khung #heroArt. Không đọc layout trong vòng vẽ. */
   const box=$('#heroArt'),art={x:.67,y:.5,r:0};
@@ -379,24 +406,23 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
       gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.framebufferTexture2D(gl.FRAMEBUFFER,gl.COLOR_ATTACHMENT0,gl.TEXTURE_2D,tex,0)}};
   const draw=()=>{if(lost||!cw)return;size();
     const narrow=cw<760,cxn=art.x,cyn=art.y,R=(art.r?art.r*.96:narrow?cw*.66:Math.min(ch*.42,cw*.36))*dpr;
-    const sm=clamp(sc/.3);const morph=Math.max(st.morph,sm*sm*(3-2*sm)),fade=1-clamp((sc-.618)/.382)*.618;
     /* nền aurora đổi rất chậm: vẽ lại vào FBO cách một khung (đỡ một nửa tải GPU), vòng hạt vẫn vẽ mỗi khung */
     gl.disable(gl.BLEND);gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
     if(!running||(fc++&1)===0||fresh){fresh=false;gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.useProgram(pA);
     gl.uniform2f(uA.r,fw,fh);gl.uniform2f(uA.m,mx-.5,.5-my);gl.uniform2f(uA.ctr,cxn,1-cyn);gl.uniform1f(uA.t,t);gl.uniform1f(uA.sc,sc);
     gl.uniform3fv(uA.c0,col.c0);gl.uniform3fv(uA.c1,col.c1);gl.uniform3fv(uA.c2,col.c2);gl.uniform3fv(uA.c3,col.c3);gl.drawArrays(gl.TRIANGLES,0,3)}
-    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.useProgram(pB);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(uB.tx,0);gl.uniform2f(uB.r,W,H);gl.drawArrays(gl.TRIANGLES,0,3);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.useProgram(pB);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);gl.uniform1i(uB.tx,0);gl.uniform2f(uB.r,W,H);gl.uniform2f(uB.ctr,cxn*W,(1-cyn)*H);gl.uniform1f(uB.fl,(dark?.18:.3)*smoothstep01(bang/.025)*(1-smoothstep01(bang/.22)));gl.drawArrays(gl.TRIANGLES,0,3);
     gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,dark?gl.ONE:gl.ONE_MINUS_SRC_ALPHA);gl.useProgram(pP);
     gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.vertexAttribPointer(0,1,gl.FLOAT,false,0,0);
-    gl.uniform1f(uP.u_br,RM?0:1);gl.uniform1f(uP.u_n,N);gl.uniform1f(uP.u_t,t);gl.uniform1f(uP.u_morph,morph);gl.uniform1f(uP.u_in,st.in);gl.uniform1f(uP.u_dpr,dpr);gl.uniform1f(uP.u_R,R);
-    gl.uniform1f(uP.u_mr,110*dpr);gl.uniform1f(uP.u_mp,mp);gl.uniform1f(uP.u_fade,fade);gl.uniform1f(uP.u_rot,rot);gl.uniform1f(uP.u_lo,narrow?.82:.78);gl.uniform1f(uP.u_ss,narrow?1.05:1.2);gl.uniform1f(uP.u_sc,sc);
+    gl.uniform1f(uP.u_br,RM?0:1);gl.uniform1f(uP.u_n,N);gl.uniform1f(uP.u_t,t);gl.uniform1f(uP.u_bang,bang);gl.uniform1f(uP.u_dpr,dpr);gl.uniform1f(uP.u_R,R);
+    gl.uniform1f(uP.u_mr,110*dpr);gl.uniform1f(uP.u_mp,mp);gl.uniform1f(uP.u_rot,rot);gl.uniform1f(uP.u_lo,narrow?.82:.78);gl.uniform1f(uP.u_ss,narrow?1.05:1.2);
     gl.uniform2f(uP.u_res,W,H);gl.uniform2f(uP.u_ctr,cxn*W,(1-cyn)*H);gl.uniform2f(uP.u_m,mx*W,(1-my)*H);gl.uniform2f(uP.u_tilt,.3+(my-.5)*.382,(mx-.5)*.5);
-    gl.uniform3fv(uP.k0,col.k0);gl.uniform3fv(uP.k1,col.k1);gl.uniform3fv(uP.k2,col.k2);gl.drawArrays(gl.POINTS,0,N);
+    gl.uniform3fv(uP.k0,col.k0);gl.uniform3fv(uP.k1,col.k1);gl.uniform3fv(uP.k2,col.k2);gl.drawArrays(gl.POINTS,0,N+DN);
   };
   const loop=now=>{raf=0;if(!running)return;const dt=Math.min(.05,(now-last)/1000||.016);last=now;
     /* máy yếu: sau 2 giây nếu khung trung bình > 20ms thì hạ độ phân giải nền + mật độ điểm ảnh một lần */
     ema+=(dt*1000-ema)*.08;if(!lowQ&&(warm+=dt)>2&&ema>20){lowQ=true;fq*=.6;dpr=Math.min(dpr,1)*.75;fresh=true}
-    t+=dt;spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
+    t+=dt;if(bang<1&&bangAt!=null)bang=clamp((t-bangAt)/4.6);spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
   const setRun=()=>{const on=vis&&!covered&&!document.hidden&&!lost;if(on===running)return;running=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
   /* Hình nền tự chuyển động, không phụ thuộc thao tác cuộn (tránh giật khi vuốt) */
   if(fine)addEventListener('pointermove',e=>{const r=sec.getBoundingClientRect();if(e.clientY>r.bottom){mpt=0;return}tx=clamp((e.clientX-r.left)/r.width);ty=clamp((e.clientY-r.top)/r.height);mpt=1},{passive:true});
@@ -409,9 +435,8 @@ void main(){float d=length(gl_PointCoord-.5)*2.;float a=mix(smoothstep(1.,.5,d),
   cv.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;running=false;fallback()});
   cv.addEventListener('webglcontextrestored',()=>{try{build();lost=false;fb2&&fb2.stop();sec.classList.remove('no-gl');sec.classList.add('gl-on');fresh=true;setRun()}catch(e){fallback()}});
   draw();sec.classList.add('gl-on');setRun();
-  if(!sec.classList.contains('no-gl'))D.heroState=()=>({rot:+rot.toFixed(3),morph:+st.morph.toFixed(3),lowQ,mode:'webgl'}); /* để kiểm thử */
-  heroIntro=delay=>{if(RM||!g){st.in=1;st.morph=1;return}
-    g.to(st,{in:1,duration:1.6,ease:'power2.out',delay});g.to(st,{morph:1,duration:2.9,ease:'power3.inOut',delay:delay+.5})};
+  if(!sec.classList.contains('no-gl'))D.heroState=()=>({rot:+rot.toFixed(3),bang:+bang.toFixed(3),lowQ,mode:'webgl'}); /* để kiểm thử */
+  heroIntro=delay=>{if(RM){bang=1;return}bangAt=t+(delay||0)};
 });
 safe('hero-intro',()=>{
   const pre=$('#pre'),h1=$('#heroTitle');let left=0;
