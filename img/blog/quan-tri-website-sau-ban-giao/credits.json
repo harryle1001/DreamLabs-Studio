@@ -1,0 +1,34 @@
+{
+ "cover": {
+  "author": "Lukas Blazek",
+  "page": "https://www.pexels.com/photo/577210/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg",
+  "w": 6144,
+  "h": 4069
+ },
+ "a1": {
+  "author": "MART PRODUCTION",
+  "page": "https://www.pexels.com/photo/7679733/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7679733/pexels-photo-7679733.jpeg",
+  "w": 4000,
+  "h": 6000
+ },
+ "a2": {
+  "author": "weCare Media",
+  "page": "https://www.pexels.com/photo/10020092/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/10020092/pexels-photo-10020092.jpeg",
+  "w": 6000,
+  "h": 4000
+ },
+ "a3": {
+  "author": "RDNE Stock project",
+  "page": "https://www.pexels.com/photo/8068691/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8068691/pexels-photo-8068691.jpeg",
+  "w": 6720,
+  "h": 4480
+ }
+}

@@ -18,10 +18,30 @@
 | [Bảo mật website doanh nghiệp](https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/) | a2 | Andrea Piacquadio | Pexels | https://www.pexels.com/photo/3915760/ |
 | [Bảo mật website doanh nghiệp](https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/) | cover | Antoni Shkraba | Pexels | https://www.pexels.com/photo/5475752/ |
 | [Bảo mật website doanh nghiệp](https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/) | a3 | panumas nikhomkhai | Pexels | https://www.pexels.com/photo/17489163/ |
+| [Chọn tên miền, hosting, email doanh nghiệp](https://dreamlabs.vn/blog/chon-ten-mien-hosting-email-doanh-nghiep/) | cover | Brett Sayles | Pexels | https://www.pexels.com/photo/4508751/ |
+| [Chọn tên miền, hosting, email doanh nghiệp](https://dreamlabs.vn/blog/chon-ten-mien-hosting-email-doanh-nghiep/) | a1 | Miguel Á. Padriñán | Pexels | https://www.pexels.com/photo/1591062/ |
+| [Chọn tên miền, hosting, email doanh nghiệp](https://dreamlabs.vn/blog/chon-ten-mien-hosting-email-doanh-nghiep/) | a2 | Kaboompics.com | Pexels | https://www.pexels.com/photo/5386485/ |
+| [Chọn tên miền, hosting, email doanh nghiệp](https://dreamlabs.vn/blog/chon-ten-mien-hosting-email-doanh-nghiep/) | a3 | Kampus Production | Pexels | https://www.pexels.com/photo/8815843/ |
+| [Brief thiết kế website](https://dreamlabs.vn/blog/brief-thiet-ke-website/) | cover | Leeloo The First | Pexels | https://www.pexels.com/photo/7598009/ |
+| [Brief thiết kế website](https://dreamlabs.vn/blog/brief-thiet-ke-website/) | a1 | picjumbo.com | Pexels | https://www.pexels.com/photo/196645/ |
+| [Brief thiết kế website](https://dreamlabs.vn/blog/brief-thiet-ke-website/) | a2 | Polina Zimmerman | Pexels | https://www.pexels.com/photo/3747300/ |
+| [Brief thiết kế website](https://dreamlabs.vn/blog/brief-thiet-ke-website/) | a3 | Ketut Subiyanto | Pexels | https://www.pexels.com/photo/4623365/ |
 | [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | cover | AlphaTradeZone | Pexels | https://www.pexels.com/photo/5833245/ |
 | [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | a1 | RDNE Stock project | Pexels | https://www.pexels.com/photo/7841502/ |
 | [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | a2 | Gustavo Fring | Pexels | https://www.pexels.com/photo/6285071/ |
 | [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | a3 | Kaboompics.com | Pexels | https://www.pexels.com/photo/5387258/ |
+| [Thiết kế website chuẩn mobile](https://dreamlabs.vn/blog/thiet-ke-website-chuan-mobile/) | cover | Dalila Dalprat | Pexels | https://www.pexels.com/photo/5689440/ |
+| [Thiết kế website chuẩn mobile](https://dreamlabs.vn/blog/thiet-ke-website-chuan-mobile/) | a1 | MART PRODUCTION | Pexels | https://www.pexels.com/photo/8217435/ |
+| [Thiết kế website chuẩn mobile](https://dreamlabs.vn/blog/thiet-ke-website-chuan-mobile/) | a2 | Engin Akyurt | Pexels | https://www.pexels.com/photo/3228682/ |
+| [Thiết kế website chuẩn mobile](https://dreamlabs.vn/blog/thiet-ke-website-chuan-mobile/) | a3 | Towfiqu barbhuiya | Pexels | https://www.pexels.com/photo/11341268/ |
+| [Quản trị website sau bàn giao](https://dreamlabs.vn/blog/quan-tri-website-sau-ban-giao/) | cover | Lukas Blazek | Pexels | https://www.pexels.com/photo/577210/ |
+| [Quản trị website sau bàn giao](https://dreamlabs.vn/blog/quan-tri-website-sau-ban-giao/) | a1 | MART PRODUCTION | Pexels | https://www.pexels.com/photo/7679733/ |
+| [Quản trị website sau bàn giao](https://dreamlabs.vn/blog/quan-tri-website-sau-ban-giao/) | a2 | weCare Media | Pexels | https://www.pexels.com/photo/10020092/ |
+| [Quản trị website sau bàn giao](https://dreamlabs.vn/blog/quan-tri-website-sau-ban-giao/) | a3 | RDNE Stock project | Pexels | https://www.pexels.com/photo/8068691/ |
+| [Thiết kế website sang trọng (luxury)](https://dreamlabs.vn/blog/thiet-ke-website-sang-trong-luxury/) | cover | The Glorious Studio | Pexels | https://www.pexels.com/photo/5370644/ |
+| [Thiết kế website sang trọng (luxury)](https://dreamlabs.vn/blog/thiet-ke-website-sang-trong-luxury/) | a1 | Ahimsa - OM | Pexels | https://www.pexels.com/photo/34089129/ |
+| [Thiết kế website sang trọng (luxury)](https://dreamlabs.vn/blog/thiet-ke-website-sang-trong-luxury/) | a2 | Quang Nguyen Vinh | Pexels | https://www.pexels.com/photo/14036253/ |
+| [Thiết kế website sang trọng (luxury)](https://dreamlabs.vn/blog/thiet-ke-website-sang-trong-luxury/) | a3 | Essentia Media | Pexels | https://www.pexels.com/photo/33685861/ |
 | [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | cover | Ketut Subiyanto | Pexels | https://www.pexels.com/photo/busy-asian-waitress-working-with-cashier-at-desk-in-cozy-cafe-4473492/ |
 | [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | a1 | Amina Filkins | Pexels | https://www.pexels.com/photo/ethnic-florist-working-in-floral-shop-5409672/ |
 | [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | a2 | Mikhail Nilov | Pexels | https://www.pexels.com/photo/colleagues-sitting-by-table-at-office-8101931/ |

@@ -1,0 +1,161 @@
+<!--meta {
+ "order": 48,
+ "date": "2026-11-22",
+ "title": "Thiết kế website chuẩn mobile: hướng dẫn cho doanh nghiệp",
+ "h1": "Thiết kế website chuẩn mobile: responsive, vùng chạm, chữ, form, nút Zalo và tốc độ trên 4G",
+ "short": "Thiết kế website chuẩn mobile",
+ "description": "Website chuẩn mobile là gì, responsive khác mobile-first ra sao, kích thước nút bấm theo WCAG, menu, form, nút Zalo, tốc độ 4G và cách tự kiểm tra.",
+ "lead": "Khách của bạn phần lớn mở website bằng điện thoại, một tay, trên mạng di động, giữa lúc làm việc khác. Bài này đi qua những gì một website chuẩn mobile cần có, từ cách Google đọc trang trên điện thoại đến kích thước nút bấm, chữ, form, nút Zalo và cách tự kiểm tra trong 15 phút.",
+ "cat": "Website",
+ "cat_id": "web",
+ "keywords": ["thiết kế website chuẩn mobile","website chuẩn mobile","website responsive","mobile-first indexing","website thân thiện với điện thoại"],
+ "imageAlt": "Hai người đứng cạnh nhau, một người cầm điện thoại, người kia chỉ tay vào màn hình",
+ "imageCaption": "Ảnh minh họa: phần lớn khách đánh giá website của bạn trên màn hình điện thoại.",
+ "related": ["thiet-ke-website-chuan-seo-2026","landing-page-ban-hang-chuyen-doi-cao","cach-chon-cong-ty-thiet-ke-website-uy-tin"],
+ "ctaTitle": "Website của bạn dùng trên điện thoại có ổn không?",
+ "ctaText": "Gửi đường dẫn website qua Zalo cho Dream Labs. Chúng tôi mở thử trên điện thoại, chỉ ra những chỗ khó bấm, khó đọc, tải chậm và gợi ý thứ tự sửa hợp lý."
+} -->
+<p><strong>Website chuẩn mobile</strong> là website mà người dùng điện thoại đọc được chữ không cần phóng to, bấm trúng nút bằng ngón cái, điền form nhanh và liên hệ được ngay qua nút gọi hoặc Zalo, kể cả khi đang dùng mạng 4G. Điều này quan trọng không chỉ với khách: Google dùng phiên bản điện thoại của website để lập chỉ mục và xếp hạng, nên thứ gì chỉ hiện trên máy tính coi như Google không thấy.</p>
+<p>Bài <a href="../thiet-ke-website-chuan-seo-2026/">thiết kế website chuẩn SEO</a> đã nhắc ngắn việc thiết kế cho điện thoại trước; bài này đi vào chi tiết từng phần và cách bạn tự kiểm tra.</p>
+
+<h2 id="responsive-mobile-first">Responsive và mobile-first khác nhau thế nào</h2>
+<p>Hai khái niệm này hay bị dùng lẫn, nhưng một cái là kỹ thuật, một cái là cách tư duy:</p>
+<ul>
+ <li><strong>Responsive (thiết kế đáp ứng):</strong> một website, một đường dẫn, bố cục tự co giãn theo chiều rộng màn hình. Cột ba trên máy tính xếp thành một cột trên điện thoại.</li>
+ <li><strong>Mobile-first (điện thoại trước):</strong> thiết kế và viết mã bắt đầu từ màn hình nhỏ, rồi mới mở rộng cho máy tính. Câu hỏi đầu tiên không phải "trang chủ máy tính trông thế nào" mà "người cầm điện thoại cần thấy gì trong màn hình đầu tiên".</li>
+</ul>
+<p>Một website có thể responsive mà không mobile-first: thiết kế cho máy tính trước, sau đó "ép" xuống điện thoại. Kết quả thường gặp là ảnh banner nặng, chữ quá nhỏ, nút liên hệ nằm tận cuối trang. Ngược lại, website mobile-first thường gọn hơn trên mọi thiết bị vì buộc phải chọn thứ quan trọng nhất.</p>
+<div class="bl-table" role="region" aria-label="So sánh các cách làm website cho điện thoại" tabindex="0"><table><caption>Ba cách phục vụ người dùng điện thoại</caption>
+<thead><tr><th>Cách làm</th><th>Mô tả</th><th>Ưu điểm</th><th>Hạn chế</th></tr></thead>
+<tbody>
+<tr><td>Responsive, thiết kế cho máy tính trước</td><td>Một website, bố cục co lại trên điện thoại</td><td>Quen thuộc, dễ làm từ giao diện có sẵn</td><td>Dễ nặng, rối, nút quan trọng bị đẩy xuống dưới</td></tr>
+<tr><td>Responsive, mobile-first</td><td>Một website, thiết kế từ màn hình nhỏ rồi mở rộng</td><td>Gọn, nhanh, ưu tiên đúng hành động của khách</td><td>Cần thời gian chọn lọc nội dung ngay từ đầu</td></tr>
+<tr><td>Website riêng cho điện thoại (m.tenmien)</td><td>Hai phiên bản, hai bộ đường dẫn</td><td>Tùy biến sâu cho từng thiết bị</td><td>Tốn công duy trì hai nơi, dễ lệch nội dung, khó cho SEO</td></tr>
+</tbody></table></div>
+<p>Google cũng nói rõ họ khuyến nghị thiết kế responsive vì đây là cách dễ triển khai và duy trì nhất (<a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" target="_blank" rel="noopener">Google Search Central</a>).</p>
+
+<h2 id="mobile-first-indexing">Mobile-first indexing: Google đọc website trên điện thoại</h2>
+<p>Theo tài liệu <a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing" target="_blank" rel="noopener">Mobile-first indexing best practices</a> của Google Search Central, Google dùng phiên bản điện thoại của nội dung, thu thập bằng trình thu thập dữ liệu cho điện thoại thông minh, để lập chỉ mục và xếp hạng. Từ đó có mấy hệ quả thực tế:</p>
+<ul>
+ <li><strong>Nội dung trên điện thoại phải tương đương máy tính.</strong> Bạn được phép đưa nội dung vào tab hoặc khối thu gọn cho gọn mắt, nhưng đừng cắt bỏ đoạn mô tả dịch vụ chỉ vì "điện thoại dài quá".</li>
+ <li><strong>Tiêu đề trang, mô tả, dữ liệu có cấu trúc giống nhau</strong> trên hai phiên bản.</li>
+ <li><strong>Ảnh đủ chất lượng và có văn bản thay thế (alt)</strong> như trên máy tính, không dùng đường dẫn ảnh thay đổi mỗi lần tải.</li>
+ <li><strong>Không để nội dung chính chỉ tải khi người dùng vuốt, bấm hay gõ.</strong> Google cho biết họ không tải nội dung cần tương tác mới hiện.</li>
+</ul>
+<p>Website responsive phần lớn tự đáp ứng các yêu cầu này vì chỉ có một mã HTML; rủi ro nằm ở chỗ xóa hẳn nội dung trên điện thoại.</p>
+
+<h2 id="vung-cham">Vùng chạm: nút phải đủ lớn để bấm bằng ngón cái</h2>
+<p>Trên máy tính, con trỏ chuột chính xác đến từng điểm ảnh. Trên điện thoại, đầu ngón tay che cả vùng nút. Nút nhỏ hoặc đặt sát nhau khiến khách bấm nhầm, bấm lại, rồi bỏ đi. Ba hướng dẫn chính thức về kích thước vùng chạm:</p>
+<div class="bl-table" role="region" aria-label="Kích thước vùng chạm theo các hướng dẫn" tabindex="0"><table><caption>Kích thước vùng chạm theo các hướng dẫn chính thức (tra cứu 11/2026)</caption>
+<thead><tr><th>Nguồn</th><th>Mức đề xuất</th><th>Ghi chú</th></tr></thead>
+<tbody>
+<tr><td><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html" target="_blank" rel="noopener">WCAG 2.2, tiêu chí 2.5.8</a> (mức AA)</td><td>Tối thiểu 24 × 24 px CSS</td><td>Nút nhỏ hơn được chấp nhận nếu có đủ khoảng trống xung quanh; tiêu chí nâng cao 2.5.5 đặt mức 44 × 44 px CSS</td></tr>
+<tr><td><a href="https://support.google.com/accessibility/android/answer/7101858" target="_blank" rel="noopener">Google, trợ năng Android</a></td><td>Ít nhất 48 × 48 dp</td><td>Các vùng chạm cách nhau từ 8 dp trở lên</td></tr>
+<tr><td><a href="https://developer.apple.com/design/human-interface-guidelines/accessibility" target="_blank" rel="noopener">Apple Human Interface Guidelines</a></td><td>Mặc định 44 × 44 pt, tối thiểu 28 × 28 pt (iOS)</td><td>Cùng trang hướng dẫn cỡ chữ mặc định 17 pt, tối thiểu 11 pt</td></tr>
+</tbody></table></div>
+<p>Trên web, 1 px CSS, 1 dp và 1 pt xấp xỉ cùng một kích thước hiển thị, nên cách làm an toàn là: nút chính (gọi, Zalo, đặt lịch, mua) cao khoảng 44 đến 48 px, rộng gần hết màn hình hoặc ít nhất bằng chiều cao; liên kết trong menu có khoảng đệm đủ để không chạm nhầm mục bên cạnh. Mức 24 px của WCAG là mức sàn cho mọi phần tử bấm được, không phải mục tiêu cho nút quan trọng.</p>
+<p>Ngoài kích thước, hãy để ý vị trí. Khi cầm điện thoại một tay, ngón cái với tới nửa dưới màn hình dễ hơn góc trên cùng. Đó là lý do nhiều website đặt thanh liên hệ cố định ở cạnh dưới.</p>
+{{anh:a1|Hai bàn tay cầm ngang chiếc điện thoại màn hình trắng, ngón cái đặt gần mép màn hình|Ảnh minh họa: vùng chạm phải đủ lớn để ngón cái bấm trúng ngay lần đầu.}}
+
+<h2 id="chu">Chữ: đọc được mà không cần phóng to</h2>
+<ul>
+ <li><strong>Cỡ chữ nội dung khoảng 16 px trở lên</strong> trên điện thoại. Chữ nhỏ trông "sang" trên bản thiết kế máy tính nhưng mỏi mắt trên màn hình 6 inch ngoài trời nắng.</li>
+ <li><strong>Dòng chữ không quá dài, khoảng cách dòng thoáng</strong> (khoảng 1,5 lần cỡ chữ) để mắt không lạc dòng.</li>
+ <li><strong>Độ tương phản đủ:</strong> chữ xám nhạt trên nền trắng hoặc chữ trên ảnh không có lớp phủ rất khó đọc khi độ sáng màn hình thấp.</li>
+ <li><strong>Phông tiếng Việt đầy đủ dấu,</strong> tải gọn (chỉ các độ đậm thực sự dùng), có phông dự phòng để chữ hiện ngay cả khi phông chính chưa tải xong.</li>
+ <li><strong>Không chặn phóng to.</strong> Người lớn tuổi hay người thị lực kém cần chụm hai ngón để phóng to; đừng tắt quyền này trong thẻ viewport.</li>
+</ul>
+
+<h2 id="menu">Menu và điều hướng trên màn hình nhỏ</h2>
+<p>Menu nằm ngang nhiều mục của bản máy tính không thể giữ nguyên trên điện thoại. Cách phổ biến là gom vào nút menu ba gạch, nhưng làm đúng mới dễ dùng:</p>
+<ul>
+ <li>Nút mở menu đủ lớn, có nhãn hoặc biểu tượng quen thuộc, nằm cố định ở đầu trang.</li>
+ <li>Menu mở ra không quá năm, sáu mục chính; mục con xổ xuống khi bấm, không đòi rê chuột.</li>
+ <li>Hành động quan trọng nhất (gọi, Zalo, đặt lịch) không giấu trong menu mà luôn hiện ngoài.</li>
+ <li>Thanh đầu trang cố định nên mỏng, tránh chiếm một phần lớn màn hình khi cuộn.</li>
+</ul>
+
+{{zalo}}
+
+<h2 id="form">Form trên điện thoại: ngắn, đúng bàn phím, dễ sửa lỗi</h2>
+<p>Form là nơi khách hàng tiềm năng rời đi nhiều nhất trên điện thoại, vì gõ phím ảo chậm và dễ sai. Một vài nguyên tắc:</p>
+<ul>
+ <li><strong>Hỏi ít nhất có thể.</strong> Form đặt lịch spa chỉ cần tên, số điện thoại, dịch vụ và khung giờ; địa chỉ email, nghề nghiệp để sau.</li>
+ <li><strong>Gọi đúng bàn phím:</strong> ô số điện thoại dùng kiểu <code>tel</code> để hiện bàn phím số, ô email dùng kiểu <code>email</code>. Bật gợi ý tự điền để trình duyệt điền sẵn tên, số điện thoại.</li>
+ <li><strong>Nhãn luôn hiện phía trên ô,</strong> không chỉ dùng chữ mờ bên trong ô (biến mất khi bắt đầu gõ).</li>
+ <li><strong>Cỡ chữ trong ô nhập không nhỏ hơn 16 px,</strong> vì trên iPhone, Safari tự phóng to trang khi chạm vào ô có chữ nhỏ hơn mức này, làm lệch bố cục.</li>
+ <li><strong>Báo lỗi ngay cạnh ô sai</strong> bằng chữ rõ ràng, không xóa hết dữ liệu khách đã nhập.</li>
+ <li><strong>Sau khi gửi, hiện xác nhận</strong> và bước tiếp theo: "Chúng tôi sẽ gọi lại trong giờ làm việc" hoặc nút mở Zalo để trao đổi ngay.</li>
+</ul>
+<p>Nếu website dùng cho quảng cáo, bài <a href="../landing-page-ban-hang-chuyen-doi-cao/">landing page bán hàng chuyển đổi cao</a> có thêm phần cấu trúc trang và đo lường form.</p>
+
+<h2 id="nut-lien-he">Nút gọi điện và nút Zalo</h2>
+<p>Với khách Việt, gọi điện và nhắn Zalo thường nhanh hơn điền form. Một thanh liên hệ cố định ở cạnh dưới màn hình điện thoại, gồm nút "Gọi ngay" và "Nhắn Zalo", là chi tiết nhỏ nhưng hiệu quả:</p>
+<ul>
+ <li>Nút gọi dùng liên kết <code>tel:</code> để bấm là mở trình quay số với số đã điền sẵn.</li>
+ <li>Nút Zalo dẫn tới đường dẫn zalo.me của số điện thoại hoặc Zalo OA, mở thẳng ứng dụng.</li>
+ <li>Thanh liên hệ không che nội dung, không che nút "Gửi" của form, và chừa khoảng an toàn cho thanh vuốt của điện thoại.</li>
+ <li>Gắn sự kiện đo lường cho từng nút trong GA4 để biết khách liên hệ bằng kênh nào.</li>
+</ul>
+<p>Khi khách đã nhắn Zalo, việc trả lời nhanh quyết định nhiều hơn thiết kế; bài <a href="../tu-dong-tra-loi-khach-zalo-oa-facebook/">tự động trả lời khách trên Zalo OA và Facebook</a> hướng dẫn phần này.</p>
+
+<h2 id="toc-do">Tốc độ trên mạng 4G</h2>
+<p>Khách mở website khi đang ở quán cà phê, trên xe, trong thang máy, với kết nối di động lúc mạnh lúc yếu. Khi bạn kiểm tra bằng PageSpeed Insights, chế độ điện thoại mặc định mô phỏng điều kiện này: theo <a href="https://github.com/GoogleChrome/lighthouse/blob/main/docs/throttling.md" target="_blank" rel="noopener">tài liệu Lighthouse</a>, công cụ giả lập mạng "Slow 4G" với độ trễ 150 ms, băng thông khoảng 1,6 Mbps và CPU chậm hơn 4 lần, giống cấu hình mặc định của PageSpeed Insights. Website chạy mượt trên Wi-Fi văn phòng chưa chắc mượt trong điều kiện đó.</p>
+<p>Những việc ảnh hưởng nhiều nhất đến tốc độ trên điện thoại:</p>
+<ul>
+ <li><strong>Ảnh đúng cỡ cho từng màn hình,</strong> định dạng hiện đại như WebP hoặc AVIF, khai báo kích thước để bố cục không nhảy. Ảnh banner 4000 px gửi xuống điện thoại là lãng phí lớn nhất thường gặp.</li>
+ <li><strong>Ảnh dưới màn hình đầu tiên tải chậm (lazy-load),</strong> nhưng ảnh chính ở đầu trang tải ngay.</li>
+ <li><strong>Hạn chế mã bên thứ ba:</strong> mỗi widget chat, pixel quảng cáo, plugin mạng xã hội đều cộng thêm thời gian tải và xử lý.</li>
+ <li><strong>Hiệu ứng nhẹ:</strong> chuyển động dùng các thuộc tính trình duyệt xử lý nhẹ, video nền chỉ dùng khi thực sự cần và có ảnh thay thế.</li>
+ <li><strong>Phông chữ tải gọn</strong> như đã nói ở phần chữ.</li>
+</ul>
+<p>Ba chỉ số Core Web Vitals trong PageSpeed Insights là thước đo tốt cho phần này. Theo <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener">web.dev</a>, mức "tốt" là LCP không quá 2,5 giây, INP không quá 200 mili giây và CLS không quá 0,1. Hãy xem kết quả ở tab điện thoại trước; cách đo và cải thiện chi tiết có trong bài <a href="../toc-do-website-core-web-vitals/">Core Web Vitals là gì</a>.</p>
+{{anh:a3|Bàn tay chạm vào màn hình điện thoại phát sáng trong bóng tối, phía sau là ánh đèn thành phố|Ảnh minh họa: khách thường mở website bằng mạng di động, ở bất cứ đâu, nên tốc độ trên 4G mới là thước đo thật.}}
+
+<h2 id="vi-du">Ví dụ minh họa: website spa trước và sau khi làm lại cho điện thoại</h2>
+<p>Tình huống giả định, không phải khách hàng thật: một spa ở Đà Nẵng có website dựng từ giao diện có sẵn. Trên điện thoại, màn hình đầu tiên là ảnh trình chiếu nặng, số điện thoại nằm ở chân trang, form đặt lịch có tám ô và bàn phím chữ hiện ra khi nhập số điện thoại.</p>
+<p>Khi làm lại theo hướng mobile-first, màn hình đầu tiên chỉ còn một ảnh đã nén, tên spa, một câu mô tả và hai nút "Đặt lịch" và "Nhắn Zalo". Thanh liên hệ cố định ở cạnh dưới. Form rút còn bốn ô, ô số điện thoại hiện bàn phím số. Bảng giá dịch vụ chuyển thành các khối thu gọn theo nhóm, nội dung vẫn đầy đủ như bản máy tính. Trang ngành <a href="../../thiet-ke-website/spa/">thiết kế website spa</a> có gợi ý cấu trúc chi tiết cho loại hình này.</p>
+
+<h2 id="tu-kiem-tra">Cách tự kiểm tra website trên điện thoại</h2>
+<p>Bạn không cần là lập trình viên để kiểm tra. Dành 15 phút với chiếc điện thoại của mình:</p>
+<ol class="bl-steps">
+ <li><strong>Mở trang chủ bằng 4G, tắt Wi-Fi.</strong> Đếm xem bao lâu thì thấy nội dung và bấm được.</li>
+ <li><strong>Cầm một tay, chỉ dùng ngón cái.</strong> Mở menu, vào một trang dịch vụ, quay lại. Có chỗ nào phải với hoặc bấm nhầm không?</li>
+ <li><strong>Đọc một đoạn văn không phóng to.</strong> Nếu phải nheo mắt, chữ quá nhỏ hoặc tương phản kém.</li>
+ <li><strong>Bấm nút gọi và nút Zalo.</strong> Có mở đúng ứng dụng, đúng số không?</li>
+ <li><strong>Điền thử form.</strong> Bàn phím có đúng loại không, nhập sai có báo rõ không, gửi xong có xác nhận không?</li>
+ <li><strong>Xoay ngang điện thoại, cuộn hết trang.</strong> Có phần nào tràn ra ngoài màn hình, phải vuốt ngang không?</li>
+ <li><strong>Chạy PageSpeed Insights ở chế độ điện thoại</strong> cho trang chủ và một trang dịch vụ, ghi lại điểm và các gợi ý.</li>
+ <li><strong>Vào Google Search Console</strong> (nếu đã cài) xem báo cáo Core Web Vitals và các trang có vấn đề.</li>
+</ol>
+{{anh:a2|Bàn tay cầm điện thoại bên cạnh laptop trên bàn làm việc, nhiều thiết bị mở cùng lúc|Ảnh minh họa: kiểm tra website trên cả điện thoại và máy tính, nhưng ưu tiên điện thoại trước.}}
+
+<h2 id="sai-lam">Sai lầm thường gặp</h2>
+<ul>
+ <li><strong>Duyệt thiết kế trên màn hình máy tính.</strong> Hãy yêu cầu xem bản điện thoại trước, trên điện thoại thật chứ không phải ảnh thu nhỏ.</li>
+ <li><strong>Ẩn bớt nội dung trên điện thoại</strong> cho gọn, vô tình làm Google không thấy phần đó.</li>
+ <li><strong>Cửa sổ bật lên che kín màn hình</strong> ngay khi khách vừa vào trang, với nút đóng nhỏ xíu ở góc.</li>
+ <li><strong>Nút liên hệ quá nhỏ hoặc chồng chất</strong> nhiều bong bóng chat ở góc màn hình.</li>
+ <li><strong>Bảng giá dạng bảng rộng</strong> bị bóp nhỏ hoặc tràn ngang thay vì chuyển thành khối dọc dễ đọc.</li>
+ <li><strong>Chỉ đo tốc độ trên máy tính</strong> rồi kết luận website nhanh.</li>
+</ul>
+
+<h2 id="chi-phi">Website chuẩn mobile tại Dream Labs</h2>
+<p>Ở Dream Labs, mọi website được thiết kế cho điện thoại trước rồi mới mở rộng ra máy tính: nút liên hệ trong tầm ngón cái, chữ đọc được không cần phóng to, ảnh nhiều cỡ cho từng màn hình. Bạn có thể tự kiểm tra bằng cách mở các <a href="../../mau-website/">mẫu website chạy thật</a> trên điện thoại, ví dụ <a href="../../mau-website/my-pham/">mẫu website mỹ phẩm</a> hay <a href="../../mau-website/trang-suc/">mẫu website trang sức</a>; đây là các website concept do chúng tôi tự dựng.</p>
+<p>Gói Cơ bản {{p:web:0}} gồm 5 trang theo mẫu tinh chỉnh, hoàn thành trong 7–10 ngày. Gói Chuyên nghiệp {{p:web:1}} thiết kế riêng đến 10 trang, viết nội dung chuẩn SEO và cam kết điểm Lighthouse từ 90. Gói Cao cấp {{p:web:2}} dành cho website nhiều trang, đa ngôn ngữ, có thanh toán hoặc trợ lý AI.</p>
+{{gia:web}}
+<p>Xem thêm tại <a href="../../bang-gia/">bảng giá</a> và trang <a href="../../thiet-ke-website/">dịch vụ thiết kế website</a>. Nếu đang cân nhắc đơn vị làm web, bài <a href="../cach-chon-cong-ty-thiet-ke-website-uy-tin/">cách chọn công ty thiết kế website uy tín</a> có checklist để bạn so sánh. Muốn chúng tôi xem thử website hiện tại trên điện thoại, nhắn <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a>.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Website chuẩn mobile là gì?</h3>
+<p>Là website hiển thị và dùng tốt trên điện thoại: chữ đọc được không cần phóng to, nút đủ lớn để bấm, không tràn ngang, form dễ điền, tải nhanh trên mạng di động và có nội dung tương đương bản máy tính.</p>
+<h3>Responsive có phải là chuẩn mobile không?</h3>
+<p>Responsive là điều kiện cần, chưa đủ. Một website co giãn được theo màn hình vẫn có thể chậm, chữ nhỏ, nút khó bấm. Chuẩn mobile đòi hỏi thiết kế có chủ đích cho người dùng điện thoại.</p>
+<h3>Google có xếp hạng website theo phiên bản điện thoại không?</h3>
+<p>Có. Theo Google Search Central, Google dùng phiên bản điện thoại của nội dung để lập chỉ mục và xếp hạng. Vì vậy nội dung, tiêu đề, dữ liệu có cấu trúc trên điện thoại nên tương đương bản máy tính.</p>
+<h3>Nút bấm trên điện thoại nên lớn bao nhiêu?</h3>
+<p>WCAG 2.2 đặt mức tối thiểu 24 × 24 px CSS cho mọi phần tử bấm được. Google khuyến nghị ít nhất 48 × 48 dp, Apple mặc định 44 × 44 pt. Với nút quan trọng như gọi, Zalo, đặt lịch, nên làm cao khoảng 44 đến 48 px.</p>
+<h3>Làm sao kiểm tra website có thân thiện với điện thoại không?</h3>
+<p>Tự mở trên điện thoại bằng 4G, dùng một tay, đọc, bấm, điền form; sau đó chạy PageSpeed Insights ở chế độ điện thoại và xem báo cáo Core Web Vitals trong Google Search Console.</p>
+<h3>Có cần làm website riêng cho điện thoại không?</h3>
+<p>Thường không. Một website responsive thiết kế theo hướng mobile-first đáp ứng được cả hai, dễ duy trì hơn và được Google khuyến nghị. Website riêng cho điện thoại chỉ hợp lý trong vài trường hợp đặc thù.</p>

@@ -1,0 +1,34 @@
+{
+ "cover": {
+  "author": "The Glorious Studio",
+  "page": "https://www.pexels.com/photo/5370644/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5370644/pexels-photo-5370644.jpeg",
+  "w": 6878,
+  "h": 4582
+ },
+ "a1": {
+  "author": "Ahimsa - OM",
+  "page": "https://www.pexels.com/photo/34089129/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/34089129/pexels-photo-34089129.jpeg",
+  "w": 4130,
+  "h": 2626
+ },
+ "a2": {
+  "author": "Quang Nguyen Vinh",
+  "page": "https://www.pexels.com/photo/14036253/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/14036253/pexels-photo-14036253.jpeg",
+  "w": 7952,
+  "h": 5304
+ },
+ "a3": {
+  "author": "Essentia Media",
+  "page": "https://www.pexels.com/photo/33685861/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/33685861/pexels-photo-33685861.jpeg",
+  "w": 3960,
+  "h": 6000
+ }
+}
