@@ -23,12 +23,12 @@ const CATS=[
   tiers:[
    {g:'Có ngay trang đích để chạy quảng cáo và biết mỗi khách tiềm năng đến từ đâu.',n:'Cơ bản',p:3000000,t:'3–5 ngày',r:'4 vòng sửa',f:['1 trang, 6–8 khối nội dung','Form thu lead về Google Sheets','Gắn Facebook Pixel, GA4',{x:'Viết nội dung bán hàng'}]},
    {g:'Nội dung bán hàng viết sẵn, khách để lại số được báo về Zalo để gọi lại khi còn nóng: tận dụng tốt hơn từng đồng quảng cáo.',n:'Chuyên nghiệp',p:6000000,t:'5–7 ngày',r:'9 vòng sửa',hot:1,f:['Thiết kế riêng, 10–12 khối','Viết nội dung bán hàng','Hiệu ứng cuộn, đếm ngược ưu đãi','Thông báo lead qua Zalo/Email']},
-   {g:'Quyết định bằng số liệu thật: thử hai phiên bản, theo dõi hằng tuần, tối ưu lại sau 30 ngày.',n:'Cao cấp',p:12000000,t:'7–10 ngày',r:'5 vòng sửa',f:['2 phiên bản để A/B test','Motion graphic trên trang','Báo cáo chuyển đổi hằng tuần','Tối ưu lại sau 30 ngày']}]},
+   {g:'Quyết định bằng số liệu thật: thử hai phiên bản, theo dõi hằng tuần, tối ưu lại sau 30 ngày.',n:'Cao cấp',p:12000000,t:'7–10 ngày',r:'18 vòng sửa',f:['2 phiên bản để A/B test','Motion graphic trên trang','Báo cáo chuyển đổi hằng tuần','Tối ưu lại sau 30 ngày']}]},
  {id:'video',name:'Edit Video',desc:'Dựng video quảng cáo, TikTok, Reels, YouTube từ footage của bạn.',tag:'Reels · TikTok · YouTube',
   tiers:[
    {g:'Video gọn gàng, có phụ đề để đăng đều đặn mà không mất thời gian tự dựng.',n:'Cơ bản',p:800000,u:'/video',t:'2 ngày',r:'4 vòng sửa',f:['Video ngắn ≤ 60 giây','Cắt ghép, nhạc nền, phụ đề','Chỉnh màu cơ bản',{x:'Motion text & hiệu ứng'}]},
    {g:'Video giữ người xem tới cuối, dựng một lần dùng được cho TikTok, Reels và YouTube.',n:'Chuyên nghiệp',p:2000000,u:'/video',t:'3–4 ngày',r:'9 vòng sửa',hot:1,f:['Video ≤ 3 phút','Phụ đề động, motion text','Color grading điện ảnh','Xuất 3 tỷ lệ 9:16, 1:1, 16:9']},
-   {g:'Video quảng cáo chỉn chu kèm 5 clip ngắn: đủ nội dung cho cả một chiến dịch.',n:'Cao cấp',p:5000000,u:'/video',t:'5–7 ngày',r:'3 vòng sửa',f:['Video ≤ 10 phút hoặc TVC','Kịch bản dựng + sound design','VFX, chèn đồ họa 3D','Bộ 5 clip cắt ngắn đi kèm']}]},
+   {g:'Video quảng cáo chỉn chu kèm 5 clip ngắn: đủ nội dung cho cả một chiến dịch.',n:'Cao cấp',p:5000000,u:'/video',t:'5–7 ngày',r:'18 vòng sửa',f:['Video ≤ 10 phút hoặc TVC','Kịch bản dựng + sound design','VFX, chèn đồ họa 3D','Bộ 5 clip cắt ngắn đi kèm']}]},
  {id:'product',name:'Thiết kế sản phẩm',desc:'Bao bì, nhãn mác, nhận diện và mockup 3D sẵn sàng in ấn.',tag:'Bao bì · Logo · 3D mockup',
   tiers:[
    {g:'Nhãn, bao bì đủ chuẩn để in ngay, sản phẩm trông đáng tin hơn trên kệ và trên ảnh.',n:'Cơ bản',p:2000000,t:'3–5 ngày',r:'4 vòng sửa',f:['1 mẫu nhãn hoặc bao bì','2 phương án ý tưởng','File in ấn chuẩn CMYK',{x:'Mockup 3D'}]},
@@ -37,10 +37,10 @@ const CATS=[
   tiers:[
    {g:'Logo chuyển động hoặc intro ngắn giúp mọi video của thương hiệu trông chuyên nghiệp.',n:'Cơ bản',p:3000000,u:'/video',t:'4–5 ngày',r:'4 vòng sửa',f:['Logo animation hoặc video ≤ 15 giây','Nhạc nền bản quyền','Xuất 2 tỷ lệ',{x:'Lồng tiếng'}]},
    {g:'Giải thích sản phẩm khó hiểu trong 60 giây, khách nắm được giá trị mà không phải đọc dài.',n:'Chuyên nghiệp',p:7000000,u:'/video',t:'7–10 ngày',r:'9 vòng sửa',hot:1,f:['Video ≤ 60 giây','Kịch bản + storyboard','Minh họa nhân vật 2D','Lồng tiếng AI hoặc giọng thật']},
-   {g:'Video thương hiệu có art direction riêng, kèm bản cắt ngắn dùng cho nhiều kênh.',n:'Cao cấp',p:15000000,u:'/video',t:'14–21 ngày',r:'4 vòng sửa',f:['Video ≤ 2 phút, 2D + 3D','Art direction riêng','Sound design đầy đủ','Bộ cắt ngắn cho mạng xã hội']}]}
+   {g:'Video thương hiệu có art direction riêng, kèm bản cắt ngắn dùng cho nhiều kênh.',n:'Cao cấp',p:15000000,u:'/video',t:'14–21 ngày',r:'18 vòng sửa',f:['Video ≤ 2 phút, 2D + 3D','Art direction riêng','Sound design đầy đủ','Bộ cắt ngắn cho mạng xã hội']}]}
 ];
 // gói Cao cấp cho Thiết kế sản phẩm
-CATS.find(c=>c.id==='product').tiers.push({g:'Cả dòng sản phẩm chung một nhận diện, có brand guideline để mọi ấn phẩm sau này nhất quán.',n:'Cao cấp',p:12000000,t:'14 ngày',r:'5 vòng sửa',f:['Nhận diện thương hiệu đầy đủ + logo','Bộ bao bì cả dòng sản phẩm','Render 3D quảng cáo chất lượng cao','Brand guideline PDF']});
+CATS.find(c=>c.id==='product').tiers.push({g:'Cả dòng sản phẩm chung một nhận diện, có brand guideline để mọi ấn phẩm sau này nhất quán.',n:'Cao cấp',p:12000000,t:'14 ngày',r:'18 vòng sửa',f:['Nhận diện thương hiệu đầy đủ + logo','Bộ bao bì cả dòng sản phẩm','Render 3D quảng cáo chất lượng cao','Brand guideline PDF']});
 const STEPS=[
  ['Khám phá','Gọi 30 phút để hiểu thương hiệu, khách hàng và mục tiêu. Bạn nhận bản brief tóm tắt.','1–2 ngày'],
  ['Ý tưởng & moodboard','Hai đến ba hướng thẩm mỹ để bạn chọn trước khi bắt tay thiết kế chi tiết.','2–4 ngày'],
