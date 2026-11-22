@@ -364,7 +364,7 @@ safe('hero',()=>{
       /* hai sao khổng lồ + va chạm (bản đơn giản của WebGL): quầng nhiều lớp, chớp sáng, sóng xung kích, rung khung */
       {const S=starState(at2==null?null:t-at2,W,H,cx,H-cy);shake(S.shake);
         const big=(X,Y,rr,c1,a)=>{if(a<=0)return;const g1=x.createRadialGradient(X,Y,0,X,Y,rr*4.5);g1.addColorStop(0,`rgba(255,250,240,${a})`);g1.addColorStop(.2,`rgba(255,250,240,${a})`);g1.addColorStop(.32,`rgba(${c1},${.8*a})`);g1.addColorStop(1,`rgba(${c1},0)`);x.fillStyle=g1;x.beginPath();x.arc(X,Y,rr*4.5,0,6.2832);x.fill()};
-        big(S.x1,H-S.y1,S.rs,'143,128,255',S.sa);big(S.x2,H-S.y2,S.rs,'255,148,173',S.sa);big(cx,cy,S.rs*1.5,'255,209,148',S.ma);
+        big(S.x1,H-S.y1,S.rs,'236,234,242',S.sa);big(S.x2,H-S.y2,S.rs,'40,36,50',S.sa);big(cx,cy,S.rs*1.5,'255,209,148',S.ma);
         if(S.sha>.002){x.strokeStyle=`rgba(255,242,214,${.9*S.sha})`;x.lineWidth=Math.max(W,H)*.02;x.beginPath();x.arc(cx,cy,S.shr,0,6.2832);x.stroke()}
         if(S.fl>.002){x.fillStyle=`rgba(255,247,230,${Math.min(1,S.fl*(RM?.5:1))})`;x.fillRect(0,0,W,H)}}
       if(at2!=null&&b2>0)for(let j=0;j<3;j++){x.fillStyle=cols[j];x.beginPath();
@@ -436,7 +436,7 @@ vec4 star(vec2 p,vec2 c,float R,vec3 deep,vec3 mid,vec3 lite,float ph,vec2 ld,ve
  return vec4(gc,g);}
 float tail(vec2 p,vec2 a,vec2 b,float R){vec2 ab=b-a;float k=clamp(dot(p-a,ab)/max(dot(ab,ab),1.),0.,1.),ds=length(p-a-ab*k)/R,w=mix(.85,.12,k);return exp(-ds*ds/(w*w))*(1.-k)*.6;}
 void main(){vec2 p=gl_FragCoord.xy;vec3 c=texture2D(tx,p/r).rgb;float mxr=max(r.x,r.y);
- if(sa>0.){vec3 dA=vec3(.36,.25,.66),cA=vec3(.74,.66,.9),lA=vec3(.97,.94,.99),dB=vec3(.74,.44,.5),cB=vec3(.95,.75,.66),lB=vec3(1.,.96,.9);vec2 l12=normalize(s2-s1+1e-3);
+ if(sa>0.){vec3 dA=vec3(.74,.72,.79),cA=vec3(.93,.92,.95),lA=vec3(1.),dB=vec3(.045,.04,.07),cB=vec3(.17,.15,.21),lB=vec3(.46,.42,.52);vec2 l12=normalize(s2-s1+1e-3);
   c=mix(c,cA,tail(p,s1,s1b,sr)*sa);c=mix(c,cB,tail(p,s2,s2b,sr)*sa);
   float br=smoothstep(9.,2.5,length(s1-s2)/sr)*sa;
   if(br>.01){vec2 ab=s2-s1;float k=clamp(dot(p-s1,ab)/max(dot(ab,ab),1.),0.,1.),ds=length(p-s1-ab*k)/sr,wv=fbm(vec2(k*5.-tm*.9,ds*2.));
