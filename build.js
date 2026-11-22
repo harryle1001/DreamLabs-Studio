@@ -53,7 +53,7 @@ const lab=full.replace(frag,()=>labHead+'\n'+assets(labBody)).replace('<head>\n'
 /* ── bản tiếng Anh /en/ và tiếng Nhật /ja/: chỉ trang chủ. Chữ tĩnh dịch bằng cặp thay thế trong i18n/<lang>.json (html), chữ do JS dựng
    dịch lúc chạy qua window.DL_I18N (t, cats, cmp) — xem js/i18n.js. Dùng chung CSS/JS/ảnh với bản tiếng Việt qua <base href="../">.
    Khác bản tiếng Việt: thêm Bảng giá đầy đủ, FAQ (các trang riêng chưa dịch). */
-const LANG_PARTS=['00-chrome.html','10-hero.html','12-ai.html','15-showroom.html','12-pricing.html.off','55-steps.html','80-faq.html.off','90-contact.html','95-footer.html'];
+const LANG_PARTS=['00-chrome.html','10-hero.html','15-showroom.html','12-pricing.html.off','55-steps.html','80-faq.html.off','90-contact.html','95-footer.html'];
 const langMiss=[];
 function langPage(L){
   const J=JSON.parse(fs.readFileSync(path.join(R,'i18n',L+'.json'),'utf8')),url='https://dreamlabs.vn/'+L+'/';
