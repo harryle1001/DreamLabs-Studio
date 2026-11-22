@@ -279,7 +279,7 @@ safe('hero',()=>{
      2,5–7,1s sao bung ra rồi bị hút xoáy về hình xoắn ốc → xoay liên tục.
      Chỉ bắt đầu khi trang thật sự hiển thị: đã load + font sẵn sàng + màn che #pre xong + tab đang hiển thị.
      Xem lại: thêm ?intro vào URL (bỏ chờ màn che), hoặc bấm đúp vào nền hero trên máy tính. Chạy cả khi giảm chuyển động. */
-  const INTRO_BIN=3.4,INTRO_BANG=4.6,replayQ=new URLSearchParams(location.search).has('intro');
+  const INTRO_BIN=3.4,INTRO_BANG=4.6,replayQ=new URLSearchParams(location.search).has('intro'),frz=parseFloat(new URLSearchParams(location.search).get('intro')); /* ?intro=0.7: đứng hình ở 70% đoạn hai sao bay vào (để kiểm tra hình) */
   const preDone=()=>{const pre=$('#pre');if(!pre||replayQ)return Promise.resolve();let an=[];try{an=pre.getAnimations({subtree:true})}catch(e){}
     return Promise.race([Promise.all(an.map(a=>a.finished.catch(()=>0))),new Promise(r=>setTimeout(r,2500))])};
   const loaded=()=>document.readyState==='complete'?Promise.resolve():Promise.race([new Promise(r=>addEventListener('load',r,{once:true})),new Promise(r=>setTimeout(r,6000))]);
@@ -402,28 +402,41 @@ void main(){vec2 uv=gl_FragCoord.xy/r;float asp=r.x/r.y;vec2 p=uv*vec2(asp,1.)*1
 float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
 float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<3;i++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}
-vec4 star(vec2 p,vec2 c,float R,vec3 hot,vec3 cool,float ph){vec2 v=(p-c)/R;float d=length(v);if(d>10.)return vec4(0.);
- float ang=atan(v.y,v.x);vec2 dir=v/max(d,1e-4);float o=max(d-1.,0.);
- float halo=exp(-d*.6)*.62+.1/(d*d+.35);
- float cn=fbm(dir*2.6+vec2(d*1.1-tm*.55,ph)),cor=exp(-o*2.1)*(.35+1.1*cn);
- float wsp=fbm(dir*1.4+vec2(ph,tm*.12))*exp(-o*.42)*.34; /* quầng khí mềm, không tia nhọn */
- float g=clamp(halo+cor+wsp+exp(-d*d*.045)*.16,0.,1.);g=g*g*(3.-2.*g);
- vec3 gc=mix(cool,mix(hot,vec3(1.),.45),clamp(cor*.8+exp(-d*1.1),0.,1.));
- float disk=smoothstep(1.03,.95,d);
- if(disk>0.){float cs=cos(tm*.35+ph),sn=sin(tm*.35+ph);vec2 u=mat2(cs,-sn,sn,cs)*v;float z=sqrt(max(1.-d*d,0.));u/=(.6+.4*z);
-  float gr=fbm(u*3.2+ph*7.),cell=fbm(u*7.+vec2(tm*.25,-tm*.2)+gr*1.5);
-  vec3 sf=mix(cool,hot,.35+.65*z);sf=mix(sf,vec3(1.,.99,.95),z*z*.75);sf*=.8+.4*gr;sf+=hot*pow(cell,3.)*.9;
-  float spot=smoothstep(.62,.7,fbm(u*1.6+ph*3.+5.))*.35;sf=mix(sf,cool*.55,spot*z);
-  sf=mix(sf,vec3(1.),.3*pow(1.-z,3.));gc=mix(gc,sf,disk);g=max(g,disk);}
+float hs(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
+vec3 h3(vec3 p){return fract(sin(vec3(dot(p,vec3(127.1,311.7,74.7)),dot(p,vec3(269.5,183.3,246.1)),dot(p,vec3(113.5,271.9,124.6))))*43758.5453);}
+float n3(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+ return mix(mix(mix(hs(i),hs(i+vec3(1,0,0)),f.x),mix(hs(i+vec3(0,1,0)),hs(i+vec3(1,1,0)),f.x),f.y),mix(mix(hs(i+vec3(0,0,1)),hs(i+vec3(1,0,1)),f.x),mix(hs(i+vec3(0,1,1)),hs(i+vec3(1,1,1)),f.x),f.y),f.z);}
+float fb3(vec3 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n3(p);p=p*2.02+vec3(3.1,1.7,5.3);a*=.5;}return v;}
+float cell(vec3 p){vec3 i=floor(p),f=fract(p);float d=1.;for(int x=-1;x<=1;x++)for(int y=-1;y<=1;y++)for(int z=-1;z<=1;z++){vec3 g=vec3(float(x),float(y),float(z)),r=g+h3(i+g)-f;d=min(d,dot(r,r));}return sqrt(d);}
+/* Ngôi sao dựng như khối cầu 3D thật: pháp tuyến cầu xoay quanh trục nghiêng, bề mặt hạt đối lưu (nhiễu tế bào 3D),
+   mảng sáng tối lớn, vết sao, viền tối dần, lớp khí quyển mỏng, bắt ánh màu của sao bạn. Quầng dịu, không chói. */
+vec4 star(vec2 p,vec2 c,float R,vec3 deep,vec3 mid,vec3 lite,float ph,vec2 ld,vec3 lc){vec2 v=(p-c)/R;float d=length(v);if(d>3.4)return vec4(0.);
+ float o=max(d-1.,0.);vec2 dir=v/max(d,1e-4);
+ float prom=smoothstep(.52,.8,fb3(vec3(dir*2.6,tm*.14+ph)))*exp(-o*6.)*.55;
+ float g=clamp(exp(-o*10.)*.7+exp(-o*2.6)*.26+exp(-d*d*.55)*.1+prom,0.,1.);
+ vec3 gc=mix(mid,lite,exp(-o*8.));
+ float disk=smoothstep(1.012,.988,d);
+ if(disk>0.){float z=sqrt(max(1.-d*d,0.));vec3 nr=vec3(v,z);
+  float a=tm*.2+ph,ca=cos(a),sn=sin(a);vec3 q=vec3(nr.x*ca+nr.z*sn,nr.y,-nr.x*sn+nr.z*ca);q=vec3(q.x*.92-q.y*.39,q.x*.39+q.y*.92,q.z);
+  vec3 w=q+(fb3(q*2.+vec3(0.,tm*.07,ph))-.5)*.3;
+  float c1=cell(w*6.5+ph*11.),c2=cell(w*14.+3.+ph);
+  float gr=1.-smoothstep(.08,.62,c1),gr2=1.-smoothstep(.1,.7,c2),big=fb3(q*2.2+ph*5.);
+  float spot=smoothstep(.69,.76,fb3(q*1.6+ph*9.+4.));
+  float heat=clamp(.16+.52*big+.34*gr+.14*gr2,0.,1.);heat=mix(heat,.04,spot*.9);
+  vec3 sf=heat<.5?mix(deep,mid,heat*2.):mix(mid,lite,heat*2.-1.);
+  sf*=mix(.5,1.,pow(z,.6));
+  sf+=lc*max(dot(normalize(vec3(ld,.3)),nr),0.)*.2;
+  sf=mix(sf,lite,pow(1.-z,4.)*.4);
+  gc=mix(gc,sf,disk);g=max(g,disk);}
  return vec4(gc,g);}
 float tail(vec2 p,vec2 a,vec2 b,float R){vec2 ab=b-a;float k=clamp(dot(p-a,ab)/max(dot(ab,ab),1.),0.,1.),ds=length(p-a-ab*k)/R,w=mix(.85,.12,k);return exp(-ds*ds/(w*w))*(1.-k)*.6;}
 void main(){vec2 p=gl_FragCoord.xy;vec3 c=texture2D(tx,p/r).rgb;float mxr=max(r.x,r.y);
- if(sa>0.){vec3 hA=vec3(.88,.89,1.),cA=vec3(.56,.5,1.),hB=vec3(1.,.9,.84),cB=vec3(1.,.58,.68);
+ if(sa>0.){vec3 dA=vec3(.36,.25,.66),cA=vec3(.74,.66,.9),lA=vec3(.97,.94,.99),dB=vec3(.74,.44,.5),cB=vec3(.95,.75,.66),lB=vec3(1.,.96,.9);vec2 l12=normalize(s2-s1+1e-3);
   c=mix(c,cA,tail(p,s1,s1b,sr)*sa);c=mix(c,cB,tail(p,s2,s2b,sr)*sa);
   float br=smoothstep(9.,2.5,length(s1-s2)/sr)*sa;
-  if(br>.01){vec2 ab=s2-s1;float k=clamp(dot(p-s1,ab)/max(dot(ab,ab),1.),0.,1.),ds=length(p-s1-ab*k)/sr,wv=.5+.5*sin(k*40.-tm*14.);
-   c=mix(c,mix(vec3(.62,.5,1.),vec3(1.,.9,.8),wv),exp(-ds*ds*9.)*br*(.55+.45*wv));}
-  vec4 a=star(p,s1,sr,hA,cA,0.),b=star(p,s2,sr,hB,cB,2.);c=mix(c,a.rgb,a.a*sa);c=mix(c,b.rgb,b.a*sa);}
+  if(br>.01){vec2 ab=s2-s1;float k=clamp(dot(p-s1,ab)/max(dot(ab,ab),1.),0.,1.),ds=length(p-s1-ab*k)/sr,wv=fbm(vec2(k*5.-tm*.9,ds*2.));
+   c=mix(c,mix(cA,cB,smoothstep(.15,.85,k)),exp(-ds*ds*(5.+16.*sin(k*3.14159)))*br*(.3+.35*wv));}
+  vec4 a=star(p,s1,sr,dA,cA,lA,0.,l12,cB),b=star(p,s2,sr,dB,cB,lB,2.,-l12,cA);c=mix(c,a.rgb,a.a*sa);c=mix(c,b.rgb,b.a*sa);}
  vec2 v=p-ctr;float dl=length(v),dn=dl/mxr;
  if(tc>=0.){float ang=atan(v.y,v.x),e1=exp(-tc/.55);
   if(e1>.004){vec2 dv=v/max(dl,1e-3);float ry=fbm(dv*1.8+vec2(3.1,tm*.1));ry=smoothstep(.25,.85,ry);
@@ -526,7 +539,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
     if(!running||(fc++&1)===0||fresh){fresh=false;gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.useProgram(pA);
     gl.uniform2f(uA.r,fw,fh);gl.uniform2f(uA.m,mx-.5,.5-my);gl.uniform2f(uA.ctr,cxn,1-cyn);gl.uniform1f(uA.t,t);gl.uniform1f(uA.sc,sc);
     gl.uniform3fv(uA.c0,col.c0);gl.uniform3fv(uA.c1,col.c1);gl.uniform3fv(uA.c2,col.c2);gl.uniform3fv(uA.c3,col.c3);gl.drawArrays(gl.TRIANGLES,0,3)}
-    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);const S=starState(introAt==null?null:ti-introAt,W,H,cxn*W,(1-cyn)*H);shake(S.shake);const fx=S.sa>0||S.ma>.002||S.sha>.002||S.fl>.002||(S.tc>=0&&S.tc<3);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);const S=starState(introAt==null?null:(frz>=0?frz*INTRO_BIN:ti-introAt),W,H,cxn*W,(1-cyn)*H);shake(S.shake);const fx=S.sa>0||S.ma>.002||S.sha>.002||S.fl>.002||(S.tc>=0&&S.tc<3);
     if(!fx){gl.useProgram(pB0);gl.uniform1i(uB0.tx,0);gl.uniform2f(uB0.r,W,H)}else{gl.useProgram(pB);gl.uniform1i(uB.tx,0);gl.uniform2f(uB.r,W,H);gl.uniform2f(uB.ctr,cxn*W,(1-cyn)*H);
     gl.uniform2f(uB.s1,S.x1,S.y1);gl.uniform2f(uB.s2,S.x2,S.y2);gl.uniform2f(uB.s1b,S.bx1,S.by1);gl.uniform2f(uB.s2b,S.bx2,S.by2);gl.uniform1f(uB.tc,S.tc);gl.uniform1f(uB.sr,S.rs);gl.uniform1f(uB.sa,S.sa);gl.uniform1f(uB.ma,S.ma);gl.uniform1f(uB.shr,S.shr);gl.uniform1f(uB.sha,S.sha);gl.uniform1f(uB.tm,t);
     gl.uniform1f(uB.fl,(dark?.75:1)*(RM?.5:1)*S.fl);}gl.drawArrays(gl.TRIANGLES,0,3);
@@ -540,7 +553,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
   const loop=now=>{raf=0;if(!running)return;const raw=(now-last)/1000||.016,dt=Math.min(.05,raw);last=now;ti+=Math.min(.25,raw);
     /* máy yếu: sau 2 giây nếu khung trung bình > 20ms thì hạ độ phân giải nền + mật độ điểm ảnh một lần */
     ema+=(dt*1000-ema)*.08;if(!lowQ&&(warm+=dt)>2&&ema>20){lowQ=true;fq*=.6;dpr=Math.min(dpr,1)*.75;fresh=true}
-    t+=dt;if(introAt!=null){const it=ti-introAt;bin=clamp(it/INTRO_BIN);bang=clamp((it-INTRO_BIN)/INTRO_BANG)}spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
+    t+=dt;if(introAt!=null){const it=frz>=0?frz*INTRO_BIN:ti-introAt;bin=clamp(it/INTRO_BIN);bang=clamp((it-INTRO_BIN)/INTRO_BANG)}spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
   const setRun=()=>{const on=vis&&!covered&&!document.hidden&&!lost;if(on===running)return;running=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
   /* Hình nền tự chuyển động, không phụ thuộc thao tác cuộn (tránh giật khi vuốt) */
   if(fine)addEventListener('pointermove',e=>{const r=sec.getBoundingClientRect();if(e.clientY>r.bottom){mpt=0;return}tx=clamp((e.clientX-r.left)/r.width);ty=clamp((e.clientY-r.top)/r.height);mpt=1},{passive:true});
