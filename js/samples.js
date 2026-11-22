@@ -32,7 +32,7 @@ function tierOf(pkg,catId){
   if(k)for(const c of CATS)for(const t of c.tiers||[])if(nk(c.name+' '+t.n)===k)hit={c,t};
   if(!hit){const c=CATS.find(x=>x.id===catId);if(c&&c.tiers&&c.tiers.length)hit={c,t:c.tiers.find(t=>t.hot)||c.tiers[0]}}
   if(!hit)return null;
-  return{...hit,label:hit.c.name+' — '+hit.t.n,price:D.vnd(hit.t.p),fx:FXs(hit.t.p),unit:(hit.t.u||'')+(hit.t.plus?' '+T('trở lên'):'')};
+  return{...hit,label:hit.c.name+' — '+hit.t.n,price:D.pv(hit.t.p),fx:D.ask(hit.t.p)?'':FXs(hit.t.p),unit:D.ask(hit.t.p)?'':(hit.t.u||'')+(hit.t.plus?' '+T('trở lên'):'')};
 }
 function norm(r,cat,i){
   const vars=(Array.isArray(r.variants)?r.variants:[]).filter(v=>v&&str(v.img)).map((v,j)=>({name:str(v.name)||T('Mẫu')+' '+pad(j+1),swatch:str(v.swatch),img:str(v.img)}));
@@ -120,7 +120,7 @@ function renderHero(){
   heroBox.innerHTML=`<div class="sm-hero-t"><p class="eyebrow">${T('Phòng mẫu')} · ${pad(CATS.indexOf(c)+1)} / ${pad(CATS.length)}</p>
     <h2><span class="sm-l"><span>${esc(ln[0])}</span></span> <span class="sm-l"><span><em>${esc(ln[1])}</em></span></span></h2></div>
    <div class="sm-hero-s"><p class="lead">${T('{n} mẫu concept cho hàng xa xỉ: mỗi mẫu một thế giới riêng. Bấm vào mẫu để xem kỹ, thử trực tiếp và chọn làm điểm khởi đầu cho thương hiệu của bạn.',{n})}</p>
-    <dl class="sm-hero-m"><div><dt>${T('Số mẫu')}</dt><dd>${pad(n)}</dd></div>${from?`<div><dt>${esc(T('Giá {c} từ',{c:c.name}))}</dt><dd>${D.vnd(from.p)}${from.u?`<small>${esc(from.u)}</small>`:''}${FXs(from.p)}</dd></div>`:''}</dl></div>`;
+    <dl class="sm-hero-m"><div><dt>${T('Số mẫu')}</dt><dd>${pad(n)}</dd></div>${from?`<div><dt>${esc(T('Giá {c} từ',{c:c.name}))}</dt><dd>${D.pv(from.p)}${from.u&&!D.ask(from.p)?`<small>${esc(from.u)}</small>`:''}${FXs(from.p)}</dd></div>`:''}</dl></div>`;
 }
 function renderFilter(){
   const all=items(cat),m=new Map();all.forEach(it=>m.set(it.industry,(m.get(it.industry)||0)+1));

@@ -22,6 +22,7 @@
   "fmt": "≈ US${v}"
  },
  "t": {
+  "Liên hệ": "Contact us",
   "Amaurelle": "Amaurelle",
   "Website nhẫn cưới tông kem và vàng hồng, khung ảnh hình vòm: trình tạo nhẫn đổi kim loại, kiểu ổ, dáng viên chủ, carat ngay trên hình vẽ, cặp nhẫn cưới chọn size riêng, công cụ đo size và đặt lịch thử nhẫn.": "Ivory and rose-gold wedding ring website with arched frames: a ring builder that redraws metal, setting, stone shape and carat live, a wedding band pair with separate sizes, a ring-size tool and fitting bookings.",
   "Tạo nhẫn": "Ring builder",
@@ -1381,8 +1382,8 @@
    "<h1 class=\"hero-title\" id=\"heroTitle\">AI business process <em>automation.</em></h1>"
   ],
   [
-   "<p class=\"lead\">Cùng website, video, bao bì đẹp: xem mẫu thật và giá ngay bên dưới.</p>",
-   "<p class=\"lead\">Plus premium websites, video and packaging. See real work and every price below.</p>"
+   "<p class=\"lead\">Cùng website, video, design sản phẩm, motion graphic: xem mẫu thật và giá ngay bên dưới.</p>",
+   "<p class=\"lead\">Plus premium websites, video, product design and motion graphics. See real work and every price below.</p>"
   ],
   [
    "Xem mẫu &amp; giá <svg",

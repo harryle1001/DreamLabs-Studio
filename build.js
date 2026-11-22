@@ -43,7 +43,7 @@ const ld=(()=>{try{
     contactPoint:{'@type':'ContactPoint',telephone:'+84934246420',contactType:'customer service',areaServed:'VN',availableLanguage:['vi']},
     knowsAbout:['Tự động hóa quy trình doanh nghiệp','AI agent','Tự động hóa bán hàng','n8n','Thiết kế website','Landing page','Motion graphic'],
     hasOfferCatalog:{'@type':'OfferCatalog',name:'Dịch vụ Dream Labs',itemListElement:D.CATS.map(c=>({'@type':'OfferCatalog',name:c.name,description:c.desc,
-      itemListElement:c.tiers.map(t=>({'@type':'Offer',name:c.name+' — '+t.n,price:t.p,priceCurrency:'VND',itemOffered:{'@type':'Service',name:c.name+' — '+t.n,description:(t.f||[]).filter(x=>typeof x==='string').join('; ')}}))}))}};
+      itemListElement:c.tiers.map(t=>({'@type':'Offer',name:c.name+' — '+t.n,...(t.p>20e6?{}:{price:t.p,priceCurrency:'VND'}),itemOffered:{'@type':'Service',name:c.name+' — '+t.n,description:(t.f||[]).filter(x=>typeof x==='string').join('; ')}}))}))}};
   const graph=[{'@type':'WebSite','@id':site+'#web',url:site,name:'Dream Labs',inLanguage:'vi',publisher:{'@id':site+'#org'}},org];
   return '<script type="application/ld+json">'+JSON.stringify({'@context':'https://schema.org','@graph':graph}).replace(/</g,'\\u003c')+'</script>\n';
 }catch(e){console.warn('JSON-LD lỗi:',e.message);return ''}})();
@@ -81,7 +81,7 @@ function langPage(L){
        address:{'@type':'PostalAddress',addressLocality:'Ho Chi Minh City',addressCountry:'VN'},
        contactPoint:{'@type':'ContactPoint',telephone:'+84934246420',contactType:'customer service',availableLanguage:['vi','en','ja']},
        knowsAbout:m.knowsAbout,hasOfferCatalog:{'@type':'OfferCatalog',name:m.catalog,itemListElement:cats.map(c=>({'@type':'OfferCatalog',name:c.name,description:c.desc,
-         itemListElement:c.tiers.map(t=>({'@type':'Offer',name:c.name+' — '+t.n,price:t.p,priceCurrency:'VND',itemOffered:{'@type':'Service',name:c.name+' — '+t.n,description:t.f.join('; ')}}))}))}}]}})();
+         itemListElement:c.tiers.map(t=>({'@type':'Offer',name:c.name+' — '+t.n,...(t.p>20e6?{}:{price:t.p,priceCurrency:'VND'}),itemOffered:{'@type':'Service',name:c.name+' — '+t.n,description:t.f.join('; ')}}))}))}}]}})();
   const I={lang:L,fx:{cur,rate,fmt:J.fx.fmt},t:J.t,cats:J.cats,cmp:J.cmp};
   const m=J.meta,esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;');
   return full.replace(frag,()=>body+'\n'+assets([]).trimEnd()+'\n')

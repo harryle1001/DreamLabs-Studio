@@ -71,7 +71,7 @@ safe('render-pricing',()=>{
   const CLOCK='<svg viewBox="0 0 13 13" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5.2"/><path d="M6.5 3.6v3l2 1.2"/></svg>',LOOP='<svg viewBox="0 0 13 13" aria-hidden="true"><path d="M11 6.5a4.5 4.5 0 1 1-1.4-3.2M11 1.6v2.6H8.4"/></svg>';
   const cell=v=>v===1||v===true?'<i class="y" role="img" aria-label="'+T('Có')+'"></i>':v===0||v===false||v==null?'<i class="no" role="img" aria-label="'+T('Không')+'"></i>':String(v);
   const cmpRows=c=>{
-    const rows=[[T('Giá'),...c.tiers.map(t=>`<b>${vnd(t.p)}</b>${t.u||''}${t.plus?' '+T('trở lên'):''}${FX(t.p)}`)],[T('Thời gian'),...c.tiers.map(t=>t.t)],[T('Chỉnh sửa / hỗ trợ'),...c.tiers.map(t=>t.r)]];
+    const rows=[[T('Giá'),...c.tiers.map(t=>D.ask(t.p)?`<b>${D.pv(t.p)}</b>`:`<b>${vnd(t.p)}</b>${t.u||''}${t.plus?' '+T('trở lên'):''}${FX(t.p)}`)],[T('Thời gian'),...c.tiers.map(t=>t.t)],[T('Chỉnh sửa / hỗ trợ'),...c.tiers.map(t=>t.r)]];
     if(CMP[c.id])rows.push(...CMP[c.id]);
     else{const all=[];c.tiers.forEach(t=>t.f.forEach(f=>{const s=typeof f==='string'?f:f.x;if(!all.includes(s))all.push(s)}));all.forEach(s=>rows.push([s,...c.tiers.map(t=>t.f.includes(s)?1:0)]))}
     return rows};
@@ -80,7 +80,7 @@ safe('render-pricing',()=>{
    <div class="pcat-h" data-reveal><h3>${icoPlain(c.id)}${c.name}</h3><p>${c.desc}</p></div>
    <div class="tiers" data-stagger>${c.tiers.map(t=>`<article class="tier${t.hot?' hot':''}" data-tilt>
      ${t.hot?'<span class="badge">'+T('Phổ biến nhất')+'</span>':''}<span class="tn">${t.n}</span>
-     <div class="tprice"><span data-count="${t.p}" data-format="vnd">${vnd(t.p)}</span>${t.plus?'<small>'+T('trở lên')+'</small>':''}${t.u?`<small>${t.u}</small>`:''}${FX(t.p)}</div>
+     <div class="tprice">${D.ask(t.p)?`<span>${D.pv(t.p)}</span>`:`<span data-count="${t.p}" data-format="vnd">${vnd(t.p)}</span>${t.plus?'<small>'+T('trở lên')+'</small>':''}${t.u?`<small>${t.u}</small>`:''}${FX(t.p)}`}</div>
      <div class="sub"><span>${CLOCK}${t.t}</span><span>${LOOP}${t.r}</span></div>
      ${t.g?`<p class="tgain"><b>${T('Doanh nghiệp được gì')}</b>${t.g}</p>`:''}<ul>${t.f.map(f=>typeof f==='string'?`<li>${f}</li>`:`<li class="no">${f.x}</li>`).join('')}</ul>
      <a class="btn${t.hot?' primary':''}" href="#lien-he" data-pick="${c.name} — ${t.n}">${T('Chọn gói này')}</a></article>`).join('')}</div>
@@ -120,7 +120,7 @@ D.go=go;
 
 /* ═════════ data-pick → form liên hệ ═════════ */
 const norm=s=>String(s||'').normalize('NFC').toLowerCase().replace(/[‐-―\-·:|/,]+/g,' ').replace(/\s+/g,' ').trim();
-const priceOf=name=>{for(const c of CATS)for(const t of c.tiers)if(norm(c.name+' '+t.n)===norm(name))return D.vndx(t.p)+(t.u||'')+(t.plus?' '+T('trở lên'):'');return ''};
+const priceOf=name=>{for(const c of CATS)for(const t of c.tiers)if(norm(c.name+' '+t.n)===norm(name))return D.ask(t.p)?D.pv(t.p):D.vndx(t.p)+(t.u||'')+(t.plus?' '+T('trở lên'):'');return ''};
 function pickBanner(text,flash){
   const b=$('#cfPick');if(!b)return;
   if(!text){b.hidden=true;return}
@@ -707,15 +707,15 @@ safe('pricing',()=>{
   const list=$('#estList'),total=$('#estTotal'),lines=$('#estLines'),save=$('#estSave'),goBtn=$('#estGo'),combo=$$('#estCombo i');if(!list||!total)return;
   const est={};let shown=0;
   const render=()=>{
-    const picked=CATS.filter(c=>est[c.id]>=0).map(c=>({c,t:c.tiers[est[c.id]]})),sum=picked.reduce((a,x)=>a+x.t.p,0),disc=picked.length>=3?Math.round(sum*.1):0,tot=sum-disc;
-    lines.innerHTML=picked.length?picked.map(x=>`<div><span>${x.c.name} · ${x.t.n}</span><span>${vnd(x.t.p)}</span></div>`).join('')+(disc?`<div class="disc"><span>${T('Combo {n} hạng mục −10%',{n:picked.length})}</span><span>−${vnd(disc)}</span></div>`:'')+(D.fx(tot)?`<div class="fxl"><span>${T('Quy đổi tham khảo')}</span><span>${D.fx(tot)}</span></div>`:''):'<div><span>'+T('Chưa chọn hạng mục nào')+'</span></div>';
+    const picked=CATS.filter(c=>est[c.id]>=0).map(c=>({c,t:c.tiers[est[c.id]]})),askAny=picked.some(x=>D.ask(x.t.p)),sum=picked.reduce((a,x)=>a+x.t.p,0),disc=picked.length>=3?Math.round(sum*.1):0,tot=sum-disc;
+    lines.innerHTML=picked.length?picked.map(x=>`<div><span>${x.c.name} · ${x.t.n}</span><span>${D.pv(x.t.p)}</span></div>`).join('')+(disc?`<div class="disc"><span>${T('Combo {n} hạng mục −10%',{n:picked.length})}</span><span>−${vnd(disc)}</span></div>`:'')+(D.fx(tot)&&!askAny?`<div class="fxl"><span>${T('Quy đổi tham khảo')}</span><span>${D.fx(tot)}</span></div>`:''):'<div><span>'+T('Chưa chọn hạng mục nào')+'</span></div>';
     save.textContent=disc?T('Đã giảm combo 10%: tiết kiệm {v}',{v:vnd(disc)}):T('Combo từ 3 hạng mục: giảm 10%')+(picked.length?' '+T('(chọn thêm {n})',{n:3-picked.length}):'');
     combo.forEach((d,i)=>d.classList.toggle('on',i<picked.length));
     $$('.est-row',list).forEach(r=>r.classList.toggle('sel',est[r.dataset.c]>=0));
-    if(g&&!RM){const o={v:shown};g.killTweensOf(total);g.to(o,{v:tot,duration:.686,ease:'power3.out',onUpdate:()=>{total.textContent=vnd(Math.round(o.v/1000)*1000)}});
+    if(askAny||D.ask(tot)){if(g)g.killTweensOf(total);total.textContent=D.pv(Infinity)}else if(g&&!RM){const o={v:shown};g.killTweensOf(total);g.to(o,{v:tot,duration:.686,ease:'power3.out',onUpdate:()=>{total.textContent=vnd(Math.round(o.v/1000)*1000)}});
       g.fromTo(total,{scale:1.062},{scale:1,duration:.424,ease:'power3.out',transformOrigin:'0 50%'})}else total.textContent=vnd(tot);
     shown=tot;
-    if(goBtn)goBtn.dataset.summary=picked.length?picked.map(x=>`${x.c.name} (${x.t.n})`).join(', ')+' — '+T('tổng dự kiến')+' '+D.vndx(tot)+(disc?' '+T('(đã giảm combo 10%)'):''):'';
+    if(goBtn)goBtn.dataset.summary=picked.length?picked.map(x=>`${x.c.name} (${x.t.n})`).join(', ')+' — '+T('tổng dự kiến')+' '+(askAny||D.ask(tot)?D.pv(Infinity):D.vndx(tot))+(disc&&!askAny&&!D.ask(tot)?' '+T('(đã giảm combo 10%)'):''):'';
   };
   const choose=(c,i)=>{est[c]=i;const s=$(`.seg[data-c="${c}"]`,list);if(s)$$('button',s).forEach(x=>{const on=+x.dataset.i===i;x.classList.toggle('on',on);x.setAttribute('aria-pressed',String(on))})};
   list.addEventListener('click',e=>{const b=e.target.closest('.seg button');if(!b)return;choose(b.parentElement.dataset.c,+b.dataset.i);render()});

@@ -18,6 +18,7 @@ D.vnd=n=>Math.round(n).toLocaleString(loc)+' VND';
 const nice=v=>{const s=v<100?5:v<1e3?10:v<1e4?100:v<1e5?1e3:1e4;return Math.max(s,Math.round(v/s)*s)};
 D.fx=n=>F.rate?fill(F.fmt||'≈ {v}',{v:nice(n/F.rate).toLocaleString(loc)}):'';
 D.vndx=n=>{const f=D.fx(n);return D.vnd(n)+(f?' ('+f+')':'')};
+{const fx0=D.fx;D.fx=n=>D.ask&&D.ask(n)?'':fx0(n)}
 
 /* dữ liệu giá: thay tên, mô tả, gói, tính năng; giữ tên gốc (name0, n0) để khớp trường pkg của mẫu */
 const DATA=window.DL_DATA||{},C=L.cats||{};

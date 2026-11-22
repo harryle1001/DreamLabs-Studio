@@ -10,6 +10,8 @@ const g=window.gsap, ST=window.ScrollTrigger;
 if(g&&ST)g.registerPlugin(ST); if(g&&window.SplitText)g.registerPlugin(window.SplitText);
 const DL=window.DL={PHI,RM,fine,gsap:g,lenis:null,_ready:[],_done:false};
 DL.vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ';
+/* Gói trên 20 triệu: không ghi số, hiện "Liên hệ" (DL.ask(p) đúng thì ẩn đơn vị, "trở lên" và quy đổi ngoại tệ) */
+DL.ASK=20e6;DL.ask=p=>+p>DL.ASK;DL.pv=p=>DL.ask(p)?(DL.t?DL.t('Liên hệ'):'Liên hệ'):DL.vnd(p);
 DL.ready=fn=>{DL._done?fn(DL):DL._ready.push(fn)};
 const loaded={};
 DL.load=src=>loaded[src]||(loaded[src]=new Promise((ok,no)=>{const s=document.createElement('script');s.src=new URL(src,document.baseURI).href;s.onload=ok;s.onerror=no;document.head.append(s)}));

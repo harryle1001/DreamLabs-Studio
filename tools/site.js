@@ -15,7 +15,9 @@ const countWords=html=>strip(html).split(' ').filter(w=>/[\p{L}\p{N}]/u.test(w))
 const W={};new Function('window',rd('js/data.js'))(W);const {CATS,STEPS,CMP={}}=W.DL_DATA;
 const cat=id=>{const c=CATS.find(x=>x.id===id);if(!c)throw new Error('Không có hạng mục '+id);return c};
 const vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ';
-const priceText=t=>vnd(t.p)+(t.u||'')+(t.plus?' trở lên':'');
+/* gói trên 20 triệu: hiện "Liên hệ" thay cho giá */
+const ASK=20e6,ask=p=>+p>ASK;
+const priceText=t=>ask(t.p)?'Liên hệ':vnd(t.p)+(t.u||'')+(t.plus?' trở lên':'');
 const contact=rd('src/partials/90-contact.html');
 const EMAIL=(contact.match(/<dt>Email<\/dt><dd>([^<]+)<\/dd>/)||[])[1]||'';
 const PHONE=(contact.match(/<dt>Zalo \/ Điện thoại<\/dt><dd>([^<]+)<\/dd>/)||[])[1]||'0934 246 420';
@@ -34,7 +36,7 @@ function tierCards(id,h='h3'){
   const c=cat(id);
   return `<div class="sv-tiers" role="list" aria-label="Các gói ${esc(c.name)}">${c.tiers.map(t=>`<div class="sv-tier${t.hot?' hot':''}" role="listitem">
  <div class="sv-tier-n"><${h}>Gói ${esc(t.n)}</${h}>${t.hot?'<span class="sv-badge">Phổ biến nhất</span>':''}</div>
- <p class="sv-tier-p">${vnd(t.p)}<small>${esc((t.u||'')+(t.plus?' trở lên':''))}</small></p>
+ <p class="sv-tier-p">${ask(t.p)?'Liên hệ':vnd(t.p)}<small>${ask(t.p)?'':esc((t.u||'')+(t.plus?' trở lên':''))}</small></p>
  <p class="sv-tier-t">${esc(t.t)} · ${esc(t.r)}</p>
  ${t.g?`<p class="sv-tier-g"><b>Doanh nghiệp được gì</b>${esc(t.g)}</p>`:''}
  <ul>${t.f.map(f=>typeof f==='string'?`<li>${esc(f)}</li>`:`<li class="no"><span class="sr-only">Không gồm: </span>${esc(f.x)}</li>`).join('')}</ul>

@@ -208,13 +208,13 @@ grid.addEventListener('click',e=>{const b=e.target.closest('.wk-open');if(!b)ret
 let liveOff=null;
 function caseNode(id){
   const p=P[id],tt=tierOf(p),pick=tt?`${tt.c.name} — ${tt.t.n}`:'',el=document.createElement('div');el.className='wk-cs';
-  const price=tt?`<div class="wk-price card"><p class="eyebrow">Gói tương ứng</p><b>${esc(pick)}</b><p class="wk-amt">${DL.vnd(tt.t.p)}<small>${tt.t.u||''}${tt.t.plus?' trở lên':''}</small></p><span class="wk-fbnote" style="text-align:left">${esc(tt.t.t)} · ${esc(tt.t.r)}</span><ul>${tt.t.f.filter(f=>typeof f==='string').map(f=>`<li>${esc(f)}</li>`).join('')}</ul><a class="btn primary" href="#lien-he" data-pick="${esc(pick)}">Làm dự án tương tự ${ARROW}</a><a class="btn sm" href="#p-${tt.c.id}">Xem các gói ${esc(tt.c.name)}</a></div>`:'';
+  const price=tt?`<div class="wk-price card"><p class="eyebrow">Gói tương ứng</p><b>${esc(pick)}</b><p class="wk-amt">${DL.pv(tt.t.p)}<small>${DL.ask(tt.t.p)?'':(tt.t.u||'')+(tt.t.plus?' trở lên':'')}</small></p><span class="wk-fbnote" style="text-align:left">${esc(tt.t.t)} · ${esc(tt.t.r)}</span><ul>${tt.t.f.filter(f=>typeof f==='string').map(f=>`<li>${esc(f)}</li>`).join('')}</ul><a class="btn primary" href="#lien-he" data-pick="${esc(pick)}">Làm dự án tương tự ${ARROW}</a><a class="btn sm" href="#p-${tt.c.id}">Xem các gói ${esc(tt.c.name)}</a></div>`:'';
   el.innerHTML=`
   <div class="wk-cs-top">
     <div>
       <div class="wk-cs-tags"><span class="tag-concept">Concept</span><span class="chip">${esc(p.catName)}</span><span class="chip">${esc(p.ind)}</span></div>
       <h3>${esc(p.name)}</h3><p class="lead">${esc(p.lead)}</p>
-      <ul class="wk-cs-meta"><li><small>Ngành</small><b>${esc(p.ind)}</b></li><li><small>Dịch vụ</small><b>${esc(p.catName)}</b></li>${tt?`<li><small>Thời gian</small><b>${esc(tt.t.t)}</b></li><li><small>Gói giá</small><b>${esc(tt.t.n)} · ${DL.vnd(tt.t.p)}</b></li>`:''}</ul>
+      <ul class="wk-cs-meta"><li><small>Ngành</small><b>${esc(p.ind)}</b></li><li><small>Dịch vụ</small><b>${esc(p.catName)}</b></li>${tt?`<li><small>Thời gian</small><b>${esc(tt.t.t)}</b></li><li><small>Gói giá</small><b>${esc(tt.t.n)} · ${DL.pv(tt.t.p)}</b></li>`:''}</ul>
       <div class="wk-cs-act">${p.demo?`<button class="btn primary" type="button" data-live>Mở demo trực tiếp ${ARROW}</button><a class="btn" href="demos/${p.demo}.html">Mở trang demo riêng</a>`:`<button class="btn primary" type="button" data-view>Xoay thử bản 3D ${ARROW}</button>`}</div>
     </div>
     <div class="wk-cs-img"><img src="${p.img}" width="1280" height="791" alt="${esc(p.name)}"></div>

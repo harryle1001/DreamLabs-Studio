@@ -22,6 +22,7 @@
   "fmt": "約{v}円"
  },
  "t": {
+  "Liên hệ": "お問い合わせ",
   "Amaurelle": "Amaurelle",
   "Website nhẫn cưới tông kem và vàng hồng, khung ảnh hình vòm: trình tạo nhẫn đổi kim loại, kiểu ổ, dáng viên chủ, carat ngay trên hình vẽ, cặp nhẫn cưới chọn size riêng, công cụ đo size và đặt lịch thử nhẫn.": "アイボリーとローズゴールドのアーチ型ブライダルリングサイト。地金・枠・石の形・カラットで指輪の絵が変わるリングビルダー、サイズを別々に選べるペアリング、サイズ計測ツール、試着予約。",
   "Tạo nhẫn": "リングビルダー",
@@ -1360,8 +1361,8 @@
    "<h1 class=\"hero-title\" id=\"heroTitle\">AIによる<wbr><em>業務プロセス<wbr>自動化。</em></h1>"
   ],
   [
-   "<p class=\"lead\">Cùng website, video, bao bì đẹp: xem mẫu thật và giá ngay bên dưới.</p>",
-   "<p class=\"lead\">上質なWebサイト、動画、パッケージも。実際の作品と全プランの料金を下にまとめています。</p>"
+   "<p class=\"lead\">Cùng website, video, design sản phẩm, motion graphic: xem mẫu thật và giá ngay bên dưới.</p>",
+   "<p class=\"lead\">上質なWebサイト、動画、プロダクトデザイン、モーショングラフィックも。実際の作品と料金を下にまとめています。</p>"
   ],
   [
    "Xem mẫu &amp; giá <svg",

@@ -65,7 +65,7 @@ function initLab(){
     t.addEventListener('keydown',e=>{const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(!d)return;e.preventDefault();select(tabs[(i+d+tabs.length)%tabs.length].dataset.lab,true)})});
   /* giá "từ …" lấy từ DL_DATA để luôn khớp bảng giá */
   const cats=(window.DL_DATA&&window.DL_DATA.CATS)||[];
-  $$('[data-lab-price]',sec).forEach(b=>{const [id,i]=b.dataset.labPrice.split(':'),c=cats.find(x=>x.id===id),t=c&&c.tiers[+i];if(t)b.textContent='Từ '+DL.vnd(t.p)+(t.u||'')});
+  $$('[data-lab-price]',sec).forEach(b=>{const [id,i]=b.dataset.labPrice.split(':'),c=cats.find(x=>x.id===id),t=c&&c.tiers[+i];if(t)b.textContent=DL.ask(t.p)?DL.pv(t.p):'Từ '+DL.vnd(t.p)+(t.u||'')});
   inView($('.lab-stage',sec),on=>{vis=on;apply()},{threshold:.08});
   document.addEventListener('visibilitychange',()=>{const was=vis;if(document.hidden){vis=false;apply();vis=was}else apply()});
 }

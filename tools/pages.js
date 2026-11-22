@@ -60,13 +60,13 @@ const fill=s=>s
 function estimator(){
   const D=CATS.map(c=>({n:c.name,t:c.tiers.map(t=>[t.n,t.p,t.u||''])}));
   return `<div class="tg" id="tinh-gia">
- <div class="tg-rows">${CATS.map((c,ci)=>`<fieldset class="tg-row"><legend>${esc(c.name)}</legend><div class="tg-seg"><label><input type="radio" name="tg${ci}" value="-1" checked><span>Không</span></label>${c.tiers.map((t,i)=>`<label><input type="radio" name="tg${ci}" value="${i}"><span>${esc(t.n)}<small>${vnd(t.p)}${esc(t.u||'')}</small></span></label>`).join('')}</div></fieldset>`).join('')}</div>
+ <div class="tg-rows">${CATS.map((c,ci)=>`<fieldset class="tg-row"><legend>${esc(c.name)}</legend><div class="tg-seg"><label><input type="radio" name="tg${ci}" value="-1" checked><span>Không</span></label>${c.tiers.map((t,i)=>`<label><input type="radio" name="tg${ci}" value="${i}"><span>${esc(t.n)}<small>${+t.p>20e6?'Liên hệ':vnd(t.p)+esc(t.u||'')}</small></span></label>`).join('')}</div></fieldset>`).join('')}</div>
  <aside class="tg-sum" aria-live="polite"><small>Tổng dự kiến</small><b class="tg-total">0đ</b><ul class="tg-lines"><li>Chưa chọn dịch vụ nào</li></ul><p class="tg-save">Chọn từ 3 dịch vụ: giảm 10%</p>
   <a class="btn primary tg-go" href="../#lien-he">Gửi cấu hình này ${ICON.arrow}</a><p class="tg-note">Giá tham khảo, chưa gồm VAT.</p></aside>
 </div>
-<script>(function(){var D=${JSON.stringify(D)},r=document.getElementById('tinh-gia');if(!r)return;var f=function(n){return Math.round(n).toLocaleString('vi-VN')+'đ'};
-function up(){var L=[],s=0;D.forEach(function(c,i){var x=r.querySelector('input[name="tg'+i+'"]:checked'),v=x?+x.value:-1;r.querySelectorAll('.tg-row')[i].classList.toggle('on',v>=0);if(v>=0){var t=c.t[v];s+=t[1];L.push([c.n+' — '+t[0],f(t[1])+t[2]])}});
-var d=L.length>=3?Math.round(s*.1):0;r.querySelector('.tg-total').textContent=f(s-d);r.querySelector('.tg-lines').innerHTML=L.length?L.map(function(l){return '<li><span>'+l[0]+'</span><b>'+l[1]+'</b></li>'}).join('')+(d?'<li class="d"><span>Giảm combo 10%</span><b>−'+f(d)+'</b></li>':''):'<li>Chưa chọn dịch vụ nào</li>';
+<script>(function(){var D=${JSON.stringify(D)},r=document.getElementById('tinh-gia');if(!r)return;var f=function(n){return Math.round(n).toLocaleString('vi-VN')+'đ'},A=20e6;
+function up(){var L=[],s=0;D.forEach(function(c,i){var x=r.querySelector('input[name="tg'+i+'"]:checked'),v=x?+x.value:-1;r.querySelectorAll('.tg-row')[i].classList.toggle('on',v>=0);if(v>=0){var t=c.t[v];s+=t[1];L.push([c.n+' — '+t[0],t[1]>A?'Liên hệ':f(t[1])+t[2],t[1]>A])}});
+var ak=L.some(function(l){return l[2]}),d=L.length>=3&&!ak?Math.round(s*.1):0;r.querySelector('.tg-total').textContent=ak||s-d>A?'Liên hệ':f(s-d);r.querySelector('.tg-lines').innerHTML=L.length?L.map(function(l){return '<li><span>'+l[0]+'</span><b>'+l[1]+'</b></li>'}).join('')+(d?'<li class="d"><span>Giảm combo 10%</span><b>−'+f(d)+'</b></li>':''):'<li>Chưa chọn dịch vụ nào</li>';
 r.querySelector('.tg-save').classList.toggle('on',!!d);var g=r.querySelector('.tg-go');g.href='../'+(L.length?'?cau-hinh='+encodeURIComponent(L.map(function(l){return l[0]+' ('+l[1]+')'}).join('; ')+(d?'; tổng sau giảm 10%: '+f(s-d):'')):'')+'#lien-he'}
 r.addEventListener('change',up);up()})();</script>`;
 }
@@ -92,8 +92,8 @@ function lint(m,words){
 }
 const service=(c,url)=>({'@type':'Service','@id':url+'#'+c.id,name:c.name,serviceType:c.name,description:c.desc,url,
   provider:{'@id':SITE+'#org'},areaServed:{'@type':'Country',name:'Việt Nam'},
-  offers:c.tiers.map(t=>({'@type':'Offer',name:c.name+' — Gói '+t.n,price:t.p,priceCurrency:'VND',url,
-    ...(t.plus||t.u?{priceSpecification:{'@type':'UnitPriceSpecification',price:t.p,priceCurrency:'VND',...(t.plus?{minPrice:t.p}:{}),...(t.u?{unitText:t.u.replace('/','')}:{})}}:{}),
+  offers:c.tiers.map(t=>({'@type':'Offer',name:c.name+' — Gói '+t.n,...(t.p>20e6?{}:{price:t.p,priceCurrency:'VND'}),url,
+    ...(t.p<=20e6&&(t.plus||t.u)?{priceSpecification:{'@type':'UnitPriceSpecification',price:t.p,priceCurrency:'VND',...(t.plus?{minPrice:t.p}:{}),...(t.u?{unitText:t.u.replace('/','')}:{})}}:{}),
     description:t.f.filter(f=>typeof f==='string').join('; ')}))});
 
 const built=[];let bad=0;

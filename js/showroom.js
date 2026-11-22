@@ -37,12 +37,12 @@ box.innerHTML=rows.map(({c,items},ri)=>{
   return `<div class="srow${ri%2?' flip':''}" id="${VI?'p-':'sr-'}${c.id}" data-cat="${c.id}">
   <div class="wrap srow-h">
     <div class="srow-t"><span class="srow-n">${pad(ri+1)}</span><h3>${esc(sh)}</h3></div>
-    <p class="srow-from">${T('Từ')} <b>${vnd(min.p)}</b>${min.u?`<small>${esc(min.u)}</small>`:''}${FX(min.p)}</p>
+    <p class="srow-from">${T('Từ')} <b>${D.pv(min.p)}</b>${min.u&&!D.ask(min.p)?`<small>${esc(min.u)}</small>`:''}${FX(min.p)}</p>
     <a class="btn sm srow-go" href="${VI?PAGE[c.id]||'bang-gia/':'#p-'+c.id}">${T('Xem bảng giá')} ${AR}</a>
     <div class="srow-nav"><button class="sn" type="button" data-d="-1" aria-label="${esc(T('Mẫu {c} trước',{c:sh}))}">${CH(-1)}</button><button class="sn" type="button" data-d="1" aria-label="${esc(T('Mẫu {c} tiếp theo',{c:sh}))}">${CH(1)}</button></div>
   </div>
   <div class="srail" tabindex="0" role="region" aria-label="${esc(T('Mẫu {c}: vuốt ngang hoặc dùng phím mũi tên',{c:sh}))}">
-    <ul class="strack">${items.map((r,i)=>{const t=tierOf(r.pkg,c),b=badge(r),price=vnd(t.p)+(t.u||''),pfx=D.fx?D.fx(t.p):'',ind=r.industry&&r.industry!=='Khác'&&r.industry!==T('Khác')?r.industry:'Concept';
+    <ul class="strack">${items.map((r,i)=>{const t=tierOf(r.pkg,c),b=badge(r),price=D.ask(t.p)?D.pv(t.p):vnd(t.p)+(t.u||''),pfx=D.fx?D.fx(t.p):'',ind=r.industry&&r.industry!=='Khác'&&r.industry!==T('Khác')?r.industry:'Concept';
       return `<li class="sc${i?'':' sc-f'}" style="--i:${Math.min(i,5)}"><button class="sc-b" type="button" data-sm-open="${c.id}" data-sm-id="${esc(r.id)}" data-cursor="Xem" aria-label="${esc(T('{t}, {i}: {c} gói {n}, {p}. Xem chi tiết',{t:r.prod?T(r.prod)+' · '+r.title:r.title,i:ind,c:sh,n:t.n,p:price+(pfx?' ('+pfx+')':'')}))}">
         <span class="sc-img"><span class="sc-par">${pic(r,!i,ri<1||(ri<2&&!i))}</span>${vid(r,!i)}${b?`<span class="sc-tag${r.spin?' s360':''}">${b}</span>`:''}<span class="sc-more" aria-hidden="true"><span>${esc(r.prod?r.title:ind)} · ${esc(t.n)}</span><span class="sc-view">${T('Xem chi tiết')} ${AR}</span></span></span>
         <span class="sc-cap"><span class="sc-t">${esc(r.prod?T(r.prod):r.title)}</span><b>${price}${FX(t.p)}</b></span></button></li>`}).join('')}</ul>
