@@ -598,3 +598,14 @@ form.cf>.btn{grid-column:1/-1;justify-content:center;min-height:var(--t3h)}
   .cmp td b{font-size:var(--t0h)}
 }
 @media (max-width:640px){.cmp td b{white-space:nowrap;font-size:12px}}
+
+/* nút âm thanh cảnh mở đầu (góc dưới phải hero) */
+.hero-snd{position:absolute;right:max(16px,calc((100vw - var(--wrap))/2));bottom:26px;z-index:3;display:inline-flex;align-items:center;gap:6px;height:42px;padding:0 16px 0 12px;border:1px solid var(--line);border-radius:999px;background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--ink);font:500 13px/1 var(--f-body);cursor:pointer;transition:background 262ms var(--ease),transform 262ms var(--ease)}
+.hero-snd svg{width:16px;height:16px;flex:none}
+.hero-snd .w{display:none}.hero-snd.on .w{display:block}.hero-snd.on .x{display:none}
+.hero-snd:hover{transform:translateY(-1px)}
+.hero-snd:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.hero-snd:not(.on){animation:heroSnd 2.6s var(--ease-io) 3}
+@keyframes heroSnd{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 16%,transparent)}}
+@media (max-width:640px){.hero-snd{bottom:16px;right:16px;padding:0 12px}.hero-snd span{display:none}}
+@media (prefers-reduced-motion:reduce){.hero-snd{animation:none}}

@@ -298,7 +298,45 @@ safe('hero',()=>{
     return o};
   /* rung khung: chỉ transform lớp nền hero, 300ms sau va chạm */
   const bgEl=$('.hero-bg');let shook=false;const shake=v=>{if(!bgEl)return;if(v>0){shook=true;bgEl.style.transform=`translate3d(${((Math.random()-.5)*2*v).toFixed(1)}px,${((Math.random()-.5)*2*v).toFixed(1)}px,0)`}else if(shook){shook=false;bgEl.style.transform=''}};
-  const introHooks=[];let introFired=false;const replay=()=>{introFired=true;introHooks.forEach(f=>f())};D.heroReplay=replay;
+  /* Âm thanh cảnh mở đầu: tổng hợp trực tiếp bằng Web Audio (không tải file). Nền trầm dâng cao dần khi hai sao áp sát,
+     tiếng nổ trầm lúc va chạm, chuông pha lê khi sao thu về, hợp âm êm lúc xoắn ốc thành hình.
+     Trình duyệt chỉ cho phát tiếng sau khi người xem đã chạm/bấm: chưa có thì cảnh chạy im lặng, nút loa ở góc hero bật tiếng và phát lại. */
+  const sfx=(()=>{const AC=window.AudioContext||window.webkitAudioContext,KS='dl-hero-sound';let ctx=null,master=null,noise=null,cur=null,live=[],btn=null;
+    const pref=()=>{try{return localStorage.getItem(KS)!=='off'}catch(e){return true}},save=v=>{try{localStorage.setItem(KS,v?'on':'off')}catch(e){}};
+    let on=pref();const active=()=>!!(navigator.userActivation?navigator.userActivation.hasBeenActive:ctx);
+    const audible=()=>!!(on&&ctx&&ctx.state==='running');
+    const sync=()=>{if(!btn)return;const a=audible(),l=D.t?D.t(a?'Tắt tiếng':'Bật tiếng'):(a?'Tắt tiếng':'Bật tiếng');btn.classList.toggle('on',a);btn.setAttribute('aria-pressed',a);btn.setAttribute('aria-label',l);btn.title=l;const sp=btn.querySelector('span');if(sp)sp.textContent=l};
+    const init=()=>{if(ctx||!AC)return;ctx=new AC();master=ctx.createGain();master.gain.value=.7;const cp=ctx.createDynamicsCompressor();cp.threshold.value=-14;cp.ratio.value=5;master.connect(cp);cp.connect(ctx.destination);
+      const nb=ctx.createBuffer(1,ctx.sampleRate*2,ctx.sampleRate),d=nb.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;noise=nb;ctx.onstatechange=sync};
+    const halt=()=>{const o=cur,l=live;cur=null;live=[];if(o&&ctx){try{o.gain.cancelScheduledValues(ctx.currentTime);o.gain.setTargetAtTime(0,ctx.currentTime,.06)}catch(e){}setTimeout(()=>{l.forEach(n=>{try{n.stop()}catch(e){}});try{o.disconnect()}catch(e){}},400)}};
+    const sched=t0=>{const c=ctx,B=INTRO_BIN,G=INTRO_BANG,out=c.createGain();out.connect(master);cur=out;
+      const gn=v=>{const n=c.createGain();n.gain.value=v;return n},osc=(ty,f)=>{const o=c.createOscillator();o.type=ty;o.frequency.value=f;live.push(o);return o};
+      const nz=()=>{const n=c.createBufferSource();n.buffer=noise;n.loop=true;live.push(n);return n},bq=(ty,f,q)=>{const b=c.createBiquadFilter();b.type=ty;b.frequency.value=f;if(q)b.Q.value=q;return b};
+      /* vang không gian: delay hồi tiếp */
+      const dl=c.createDelay(1),fb=gn(.46),dlp=bq('lowpass',2400),wet=gn(.5);dl.delayTime.value=.31;out.connect(dl);dl.connect(dlp);dlp.connect(fb);fb.connect(dl);dlp.connect(wet);wet.connect(master);
+      setTimeout(()=>{try{wet.disconnect();fb.disconnect()}catch(e){}},(B+G+9)*1000);
+      /* 1 · nền trầm dâng dần, cao độ trượt lên theo một tỷ lệ cố định khi hai sao áp sát */
+      const lp=bq('lowpass',180),dg=gn(0);lp.frequency.setValueAtTime(180,t0);lp.frequency.exponentialRampToValueAtTime(2200,t0+B);
+      dg.gain.setValueAtTime(.0001,t0);dg.gain.exponentialRampToValueAtTime(.24,t0+B);dg.gain.exponentialRampToValueAtTime(.0001,t0+B+.5);lp.connect(dg);dg.connect(out);
+      [[54,'sine',1],[81,'sine',.6],[108,'triangle',.35],[162.3,'sawtooth',.1]].forEach(([f,ty,a])=>{const o=osc(ty,f),og=gn(a);o.frequency.setValueAtTime(f,t0);o.frequency.exponentialRampToValueAtTime(f*1.61803399,t0+B);o.connect(og);og.connect(lp);o.start(t0);o.stop(t0+B+.6)});
+      /* 2 · tiếng gió lướt tăng dần */
+      {const n=nz(),b=bq('bandpass',300,1.1),g=gn(0);b.frequency.setValueAtTime(300,t0);b.frequency.exponentialRampToValueAtTime(3200,t0+B);g.gain.setValueAtTime(.0001,t0);g.gain.exponentialRampToValueAtTime(.13,t0+B);g.gain.exponentialRampToValueAtTime(.0001,t0+B+.25);n.connect(b);b.connect(g);g.connect(out);n.start(t0);n.stop(t0+B+.4)}
+      /* 3 · va chạm: tiếng nổ trầm + ù lan */
+      {const ti=t0+B,o=osc('sine',110),g=gn(0);o.frequency.setValueAtTime(110,ti);o.frequency.exponentialRampToValueAtTime(30,ti+.9);g.gain.setValueAtTime(.0001,ti-.01);g.gain.exponentialRampToValueAtTime(.95,ti+.02);g.gain.exponentialRampToValueAtTime(.0001,ti+2.4);o.connect(g);g.connect(out);o.start(ti-.01);o.stop(ti+2.5);
+        const n=nz(),b=bq('lowpass',3200),ng=gn(0);b.frequency.setValueAtTime(3200,ti);b.frequency.exponentialRampToValueAtTime(140,ti+1.5);ng.gain.setValueAtTime(.0001,ti-.01);ng.gain.exponentialRampToValueAtTime(.5,ti+.015);ng.gain.exponentialRampToValueAtTime(.0001,ti+1.8);n.connect(b);b.connect(ng);ng.connect(out);n.start(ti-.01);n.stop(ti+1.9)}
+      /* 4 · sao thu về: chuông pha lê rải dần lên cao */
+      [1,1.25,1.5,1.875,2,2.5,3,3.75].forEach((m,i)=>{const ti=t0+B+1.3+i*.36,o=osc('sine',432*m),g=gn(0);g.gain.setValueAtTime(.0001,ti);g.gain.exponentialRampToValueAtTime(.075,ti+.012);g.gain.exponentialRampToValueAtTime(.0001,ti+2.6);o.connect(g);g.connect(out);o.start(ti);o.stop(ti+2.7)});
+      /* 5 · xoắn ốc thành hình: hợp âm êm, tan dần */
+      {const ti=t0+B+2.2,te=t0+B+G,pg=gn(0);pg.gain.setValueAtTime(.0001,ti);pg.gain.exponentialRampToValueAtTime(.085,te);pg.gain.setTargetAtTime(0,te+1.5,1.6);pg.connect(out);
+        [[216,'sine',1],[270,'sine',.7],[324,'triangle',.45],[432,'sine',.4]].forEach(([f,ty,a])=>{const o=osc(ty,f),og=gn(a);o.detune.value=(f%7)-3;o.connect(og);og.connect(pg);o.start(ti);o.stop(te+9)})}};
+    const play=()=>{if(!AC||!on||!active())return sync();init();if(!ctx)return;const go=()=>{if(ctx.state!=='running')return sync();halt();sched(ctx.currentTime+.04);sync()};
+      if(ctx.state==='running')go();else ctx.resume().then(go).catch(()=>{})};
+    const mount=()=>{if(!AC||btn)return;btn=document.createElement('button');btn.type='button';btn.className='hero-snd';
+      btn.innerHTML='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6h2.2L8 3.2v9.6L4.7 10H2.5z" fill="currentColor"/><path class="x" d="M10.6 6.1l3.8 3.8m0-3.8l-3.8 3.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/><path class="w" d="M10.6 5.6a3.4 3.4 0 010 4.8M12.3 4a5.7 5.7 0 010 8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/></svg><span></span>';
+      btn.addEventListener('click',()=>{if(audible()){on=false;save(false);halt();sync()}else{on=true;save(true);init();replay()}});sec.appendChild(btn);sync()};
+    document.addEventListener('visibilitychange',()=>{if(!ctx)return;if(document.hidden)ctx.suspend&&ctx.suspend().catch(()=>{});else if(on&&cur)ctx.resume().catch(()=>{})});
+    return{play,mount,halt}})();
+  const introHooks=[];let introFired=false;const replay=()=>{introFired=true;introHooks.forEach(f=>f());sfx.play()};D.heroReplay=replay;sfx.mount();
   introReady.then(replay);
   if(fine)sec.addEventListener('dblclick',e=>{if(e.target.closest('a,button,input,select,textarea,h1,p,.hero-cta'))return;replay()});
   const fallback=()=>{sec.classList.add('no-gl');sec.classList.remove('gl-on');const fb=$('#heroFb');if(!fb)return;
@@ -368,11 +406,9 @@ vec4 star(vec2 p,vec2 c,float R,vec3 hot,vec3 cool,float ph){vec2 v=(p-c)/R;floa
  float ang=atan(v.y,v.x);vec2 dir=v/max(d,1e-4);float o=max(d-1.,0.);
  float halo=exp(-d*.6)*.62+.1/(d*d+.35);
  float cn=fbm(dir*2.6+vec2(d*1.1-tm*.55,ph)),cor=exp(-o*2.1)*(.35+1.1*cn);
- float st=pow(.5+.5*sin(ang*6.+sin(ang*2.+ph)*2.5+ph+tm*.4),5.)*exp(-o*.75)*.55;
- vec2 q=vec2(v.x+v.y,v.x-v.y)*.7071;
- float sp=(exp(-abs(q.y)*16.)*exp(-abs(q.x)*.26)+exp(-abs(q.x)*16.)*exp(-abs(q.y)*.26))*.6+exp(-abs(v.y)*26.)*exp(-abs(v.x)*.13)*.5;
- float g=clamp(halo+cor+st+sp,0.,1.);
- vec3 gc=mix(cool,mix(hot,vec3(1.),.45),clamp(cor*.8+sp+exp(-d*1.1),0.,1.));
+ float wsp=fbm(dir*1.4+vec2(ph,tm*.12))*exp(-o*.42)*.34; /* quầng khí mềm, không tia nhọn */
+ float g=clamp(halo+cor+wsp+exp(-d*d*.045)*.16,0.,1.);g=g*g*(3.-2.*g);
+ vec3 gc=mix(cool,mix(hot,vec3(1.),.45),clamp(cor*.8+exp(-d*1.1),0.,1.));
  float disk=smoothstep(1.03,.95,d);
  if(disk>0.){float cs=cos(tm*.35+ph),sn=sin(tm*.35+ph);vec2 u=mat2(cs,-sn,sn,cs)*v;float z=sqrt(max(1.-d*d,0.));u/=(.6+.4*z);
   float gr=fbm(u*3.2+ph*7.),cell=fbm(u*7.+vec2(tm*.25,-tm*.2)+gr*1.5);
@@ -390,8 +426,8 @@ void main(){vec2 p=gl_FragCoord.xy;vec3 c=texture2D(tx,p/r).rgb;float mxr=max(r.
   vec4 a=star(p,s1,sr,hA,cA,0.),b=star(p,s2,sr,hB,cB,2.);c=mix(c,a.rgb,a.a*sa);c=mix(c,b.rgb,b.a*sa);}
  vec2 v=p-ctr;float dl=length(v),dn=dl/mxr;
  if(tc>=0.){float ang=atan(v.y,v.x),e1=exp(-tc/.55);
-  if(e1>.004){float ry=pow(.5+.5*sin(ang*17.+sin(ang*3.)*3.+sin(ang*5.+1.)*2.),5.)+.6*pow(.5+.5*sin(ang*41.+sin(ang*7.)*2.),9.);
-   c=mix(c,vec3(1.,.92,.74),clamp(ry*e1*exp(-dn*2.4)*1.5,0.,1.));}
+  if(e1>.004){vec2 dv=v/max(dl,1e-3);float ry=fbm(dv*1.8+vec2(3.1,tm*.1));ry=smoothstep(.25,.85,ry);
+   c=mix(c,vec3(1.,.93,.78),clamp((.35+.65*ry)*e1*exp(-dn*2.2)*.85,0.,1.));}
   if(ma>.004){float fr=sr*(1.4+5.5*(1.-exp(-tc*2.2))),fd=dl/fr,tb=fbm(v/fr*2.5+tm*.3);
    vec3 fc=mix(vec3(.62,.5,1.),vec3(1.,.5,.45),exp(-fd*1.3));fc=mix(fc,vec3(1.,.8,.5),exp(-fd*fd*2.2));fc=mix(fc,vec3(1.,.98,.92),exp(-fd*fd*7.));
    c=mix(c,fc,clamp(exp(-fd*fd*1.25)*(.75+.5*tb)*ma*1.2,0.,1.));}
