@@ -281,7 +281,7 @@ safe('hero',()=>{
     for(let i=0;i<n;i++){const k=(i+.5)/n,h1=hh(i),h2=hh(i*1.7+3),h3=hh(i*2.3+7),rs=.012+.988*k;
       const dist=.3+1.75*Math.pow(h2,.75);P.push({b:Math.log(rs)/Math.log(PH)*Math.PI/2+.227,r:rs*(1+(h1+h2-1)*.09),jx:(h2-.5)*.012,jy:(h3-.5)*.012,sz:(1.6+3.6*Math.sqrt(k))*(.8+.4*h1),a:.35+.5*(1-k*.6),m:Math.min(1,Math.max(0,1-Math.sqrt(rs)+(h2-.5)*.2)),tw:h1*6.283,ea:h1*6.2832,ed:dist,dn:(dist-.3)/1.75})}
     const DU=[];for(let i=0;i<(small?120:240);i++)DU.push([hh(i+5e3),hh(i*1.3+7e3),.6+1.4*hh(i*2.1+9e3),hh(i*3.7+1e4)*6.283]);
-    let W=0,H=0,cx=0,cy=0,R=0,rot=0,spd=0,last=0,t=0,b2=RM?1:0,raf=0,vis=true,run=false,cols=['#5E43A8','#8C7BC8','#C08A9A'];
+    let W=0,H=0,cx=0,cy=0,R=0,rot=0,spd=0,last=0,t=0,b2=0,raf=0,vis=true,run=false,cols=['#5E43A8','#8C7BC8','#C08A9A'];
     const dpr2=Math.min(devicePixelRatio||1,1.5);
     const fit=()=>{const w=sec.offsetWidth,h=sec.offsetHeight;W=c.width=Math.round(w*dpr2);H=c.height=Math.round(h*dpr2);
       let ex=w*.67,ey=h*.5,r=Math.min(w,h)*.3;if(art2d){let e=art2d,ox=art2d.offsetWidth/2,oy=art2d.offsetHeight/2;while(e&&e!==sec){ox+=e.offsetLeft;oy+=e.offsetTop;e=e.offsetParent}
@@ -391,7 +391,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
   /* trạng thái */
   let dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.25,ema=16.7,warm=0,lowQ=false;
   let W=0,H=0,cw=0,ch=0,t=20,rot=0,spd=0,fc=0,fresh=true,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
-  let bang=RM?1:0,bangAt=null;const smoothstep01=x=>{x=clamp(x);return x*x*(3-2*x)}; // mở đầu: sao bung ra rồi bị hút về hình xoắn ốc (giảm chuyển động: bỏ qua)
+  let bang=0,bangAt=null;const smoothstep01=x=>{x=clamp(x);return x*x*(3-2*x)}; // mở đầu: sao bung ra rồi bị hút về hình xoắn ốc (giảm chuyển động: bỏ qua)
   /* mắt xoắn ốc = tâm khung #heroArt (cột 61.8% của hero). Đo bằng offsetLeft/Top, chỉ khi đổi kích thước;
      bán kính theo khung #heroArt. Không đọc layout trong vòng vẽ. */
   const box=$('#heroArt'),art={x:.67,y:.5,r:0};
@@ -436,7 +436,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
   cv.addEventListener('webglcontextrestored',()=>{try{build();lost=false;fb2&&fb2.stop();sec.classList.remove('no-gl');sec.classList.add('gl-on');fresh=true;setRun()}catch(e){fallback()}});
   draw();sec.classList.add('gl-on');setRun();
   if(!sec.classList.contains('no-gl'))D.heroState=()=>({rot:+rot.toFixed(3),bang:+bang.toFixed(3),lowQ,mode:'webgl'}); /* để kiểm thử */
-  heroIntro=delay=>{if(RM){bang=1;return}bangAt=t+(delay||0)};
+  heroIntro=delay=>{bangAt=t+(delay||0)};
 });
 safe('hero-intro',()=>{
   const pre=$('#pre'),h1=$('#heroTitle');let left=0;
