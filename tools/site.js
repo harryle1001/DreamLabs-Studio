@@ -87,6 +87,10 @@ const ICON={arrow:'<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M
   zalo:'<svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 4.2c-5.2 0-9.4 3.5-9.4 7.9 0 2.5 1.4 4.7 3.5 6.2l-.8 3.5 3.8-2.1c.9.2 1.9.3 2.9.3 5.2 0 9.4-3.5 9.4-7.9S18.2 4.2 13 4.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>'};
 const CSS=['css/fonts.css','css/tokens.css','css/base.css','css/blog.css'];
 const VER=f=>require('crypto').createHash('md5').update(require('fs').readFileSync(require('path').join(__dirname,'..',f))).digest('hex').slice(0,8);
+/* Gộp + nén CSS của trang bài viết / dịch vụ / ngành thành css/blog.min.css (1 file thay cho 4). Thiếu lightningcss hoặc DL_NOBUNDLE=1: dùng file gốc. */
+const BCSS=(()=>{if(process.env.DL_NOBUNDLE)return null;try{const fs=require('fs'),path=require('path'),R=path.join(__dirname,'..'),{transform}=require('lightningcss');
+  const out=transform({filename:'blog.css',code:Buffer.from(CSS.map(c=>fs.readFileSync(path.join(R,c),'utf8')).join('\n')),minify:true,errorRecovery:true}).code,q=path.join(R,'css/blog.min.css');
+  if(!fs.existsSync(q)||fs.readFileSync(q,'utf8')!==String(out))fs.writeFileSync(q,out);return'css/blog.min.css'}catch(e){console.warn('Không gộp được CSS trang bài viết:',e.message);return null}})();
 const org={'@type':'Organization','@id':SITE+'#org',name:'Dream Labs',url:SITE,logo:SITE+'img/icon-512.png'};
 const crumbs=list=>({'@type':'BreadcrumbList',itemListElement:list.map(([name,item],i)=>({'@type':'ListItem',position:i+1,name,item}))});
 const faqLd=(url,faq)=>({'@type':'FAQPage','@id':url+'#cau-hoi',mainEntity:faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))});
@@ -119,7 +123,7 @@ function page({up,cur='',title,desc,canonical,ogType='website',image,imageAlt,js
 <meta property="og:image:alt" content="${esc(imageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
 ${verifyTag}${extraHead}<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
-${CSS.map(c=>`<link rel="stylesheet" href="${up}${c}?v=${VER(c)}">`).join('\n')}
+${(BCSS?[BCSS]:CSS).map(c=>`<link rel="stylesheet" href="${up}${c}?v=${VER(c)}">`).join('\n')}
 <script src="${up}js/track.js?v=${VER('js/track.js')}" defer></script>
 ${jsonld}
 </head>
