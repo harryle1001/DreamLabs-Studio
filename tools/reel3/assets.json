@@ -1,0 +1,446 @@
+{
+ "video-lamky": {
+  "W": 1080,
+  "H": 1920,
+  "m": 1.0,
+  "clips": {
+   "a": {
+    "f": "srcB/lamky/7815883.mp4",
+    "ss": 4,
+    "t": 2.2
+   },
+   "b": {
+    "f": "srcB/lamky/7815884.mp4",
+    "ss": 6,
+    "t": 2.2
+   },
+   "c": {
+    "f": "srcB/lamky/7815962.mp4",
+    "ss": 3,
+    "t": 2.2
+   },
+   "d": {
+    "f": "srcB/lamky/7815967.mp4",
+    "ss": 8,
+    "t": 2.2
+   },
+   "e": {
+    "f": "srcB/lamky/7815973.mp4",
+    "ss": 5,
+    "t": 2.8
+   }
+  }
+ },
+ "video-belmora": {
+  "W": 1920,
+  "H": 1080,
+  "clips": {
+   "a": {
+    "f": "srcB/belmora/6653242.mp4",
+    "ss": 3.5,
+    "t": 1.8
+   },
+   "b": {
+    "f": "srcB/belmora/6653244.mp4",
+    "ss": 2,
+    "t": 1.6
+   },
+   "c": {
+    "f": "srcB/belmora/6661923.mp4",
+    "ss": 0.5,
+    "t": 1.8
+   },
+   "d": {
+    "f": "srcB/belmora/6661931.mp4",
+    "ss": 9,
+    "t": 1.6
+   },
+   "e": {
+    "f": "srcB/belmora/6649895.mp4",
+    "ss": 0.5,
+    "t": 1.8
+   },
+   "f": {
+    "f": "srcB/belmora/6649430.mp4",
+    "ss": 0.5,
+    "t": 2.2
+   },
+   "g": {
+    "f": "srcB/belmora/6651199.mp4",
+    "ss": 6,
+    "t": 2.8
+   }
+  }
+ },
+ "video-nere": {
+  "W": 1080,
+  "H": 1920,
+  "clips": {
+   "a": {
+    "f": "srcB/nere/34213025.mp4",
+    "ss": 1,
+    "t": 2.4
+   },
+   "b": {
+    "f": "srcB/nere/34213071.mp4",
+    "ss": 0.5,
+    "t": 2.4,
+    "crop": [
+     500,
+     1900,
+     1090,
+     1938
+    ]
+   },
+   "c": {
+    "f": "srcB/nere/34213028.mp4",
+    "ss": 0.5,
+    "t": 2.2
+   },
+   "d": {
+    "f": "srcB/nere/38798531.mp4",
+    "ss": 0.4,
+    "t": 2.6
+   },
+   "e": {
+    "f": "srcB/nere/34213123.mp4",
+    "ss": 1,
+    "t": 2.8
+   },
+   "g": {
+    "f": "srcB/nere/34213038.mp4",
+    "ss": 1,
+    "t": 2.4
+   }
+  }
+ },
+ "video-halden": {
+  "W": 1080,
+  "H": 1080,
+  "m": 1.0,
+  "clips": {
+   "a": {
+    "f": "srcB/halden/8477382.mp4",
+    "ss": 3.2,
+    "t": 2.4,
+    "crop": [
+     420,
+     0,
+     1080,
+     1080
+    ]
+   },
+   "b": {
+    "f": "srcB/halden/6328382.mp4",
+    "ss": 3,
+    "t": 2.2,
+    "crop": [
+     2150,
+     760,
+     1300,
+     1300
+    ]
+   },
+   "c": {
+    "f": "srcB/halden/15291803.mp4",
+    "ss": 5,
+    "t": 2.2,
+    "crop": [
+     700,
+     0,
+     2160,
+     2160
+    ]
+   },
+   "d": {
+    "f": "srcB/halden/6913975.mp4",
+    "ss": 2,
+    "t": 1.8,
+    "crop": [
+     500,
+     0,
+     2160,
+     2160
+    ]
+   },
+   "e": {
+    "f": "srcB/halden/6328385.mp4",
+    "ss": 28.5,
+    "t": 2.2,
+    "crop": [
+     1700,
+     0,
+     2160,
+     2160
+    ]
+   },
+   "f": {
+    "f": "srcB/halden/6328383.mp4",
+    "ss": 2,
+    "t": 2.6,
+    "crop": [
+     1100,
+     0,
+     2160,
+     2160
+    ]
+   }
+  }
+ },
+ "video-vandinh": {
+  "W": 1920,
+  "H": 1080,
+  "clips": {
+   "a": {
+    "f": "srcB/vandinh/7578540.mp4",
+    "ss": 2,
+    "t": 2.2
+   },
+   "b": {
+    "f": "srcB/vandinh/7578554.mp4",
+    "ss": 1,
+    "t": 2
+   },
+   "c": {
+    "f": "srcB/vandinh/7578552.mp4",
+    "ss": 4,
+    "t": 2
+   },
+   "d": {
+    "f": "srcB/vandinh/7578542.mp4",
+    "ss": 1,
+    "t": 1.8
+   },
+   "e": {
+    "f": "srcB/vandinh/7578550.mp4",
+    "ss": 0.3,
+    "t": 2
+   },
+   "f": {
+    "f": "srcB/vandinh/28872831.mp4",
+    "ss": 4.2,
+    "t": 3.2
+   }
+  }
+ },
+ "video-serac": {
+  "W": 1920,
+  "H": 1080,
+  "m": 1.0,
+  "clips": {
+   "a": {
+    "f": "srcB/serac/6396243.mp4",
+    "ss": 3,
+    "t": 1.4,
+    "crop": [
+     320,
+     0,
+     1920,
+     1080
+    ]
+   },
+   "b": {
+    "f": "srcB/serac/6396290.mp4",
+    "ss": 5.5,
+    "t": 1.6,
+    "crop": [
+     320,
+     0,
+     1920,
+     1080
+    ]
+   },
+   "c": {
+    "f": "srcB/serac/6396177.mp4",
+    "ss": 1.5,
+    "t": 1.8,
+    "crop": [
+     320,
+     0,
+     1920,
+     1080
+    ]
+   },
+   "d": {
+    "f": "srcB/serac/6396288.mp4",
+    "ss": 6,
+    "t": 1.4
+   },
+   "e": {
+    "f": "srcB/serac/6396173.mp4",
+    "ss": 1.2,
+    "t": 2.2,
+    "crop": [
+     0,
+     0,
+     1920,
+     1080
+    ]
+   },
+   "f": {
+    "f": "srcB/serac/6396257.mp4",
+    "ss": 3,
+    "t": 1.8,
+    "crop": [
+     640,
+     0,
+     1920,
+     1080
+    ]
+   },
+   "g": {
+    "f": "srcB/serac/6396218.mp4",
+    "ss": 7,
+    "t": 2.2,
+    "crop": [
+     320,
+     0,
+     1920,
+     1080
+    ]
+   }
+  }
+ },
+ "motion-orvele": {
+  "W": 1920,
+  "H": 1080,
+  "photos": {
+   "p1": "srcC/orvele/7702669.jpg",
+   "p2": "srcC/orvele/5790458.jpg",
+   "p3": "srcC/orvele/7253971.jpg",
+   "p4": "srcC/orvele/7253705.jpg"
+  },
+  "clips": {
+   "smoke": {
+    "f": "srcC/orvele/3051360.mp4",
+    "ss": 4,
+    "t": 8.2,
+    "W": 960,
+    "H": 540
+   }
+  }
+ },
+ "motion-talvere": {
+  "W": 1080,
+  "H": 1920,
+  "photos": {
+   "p1": "srcC/talvere/8502482.jpg",
+   "p2": "srcC/talvere/8502484.jpg"
+  },
+  "clips": {
+   "a": {
+    "f": "srcC/talvere/8798158.mp4",
+    "ss": 0.5,
+    "t": 2.8
+   },
+   "b": {
+    "f": "srcC/talvere/8798149.mp4",
+    "ss": 5,
+    "t": 2.8
+   },
+   "c": {
+    "f": "srcC/talvere/8798155.mp4",
+    "ss": 2,
+    "t": 2.8
+   }
+  }
+ },
+ "motion-valmere": {
+  "W": 1080,
+  "H": 1080,
+  "photos": {
+   "p1": "srcC/valmere/34182730.jpg",
+   "p2": "srcC/valmere/2535386.jpg"
+  },
+  "clips": {
+   "a": {
+    "f": "srcC/valmere/8322057.mp4",
+    "ss": 6,
+    "t": 3.2,
+    "crop": [
+     968,
+     0,
+     2160,
+     2160
+    ]
+   },
+   "b": {
+    "f": "srcC/valmere/31592458.mp4",
+    "ss": 2,
+    "t": 3.2,
+    "crop": [
+     420,
+     0,
+     1080,
+     1080
+    ]
+   }
+  }
+ },
+ "motion-calvente": {
+  "W": 1080,
+  "H": 1920,
+  "photos": {
+   "p1": "srcC/calvente/13524735.jpg",
+   "p2": "srcC/calvente/5894242.jpg",
+   "p3": "srcC/calvente/9965910.jpg",
+   "p4": "srcC/calvente/4161710.jpg",
+   "p5": "srcC/calvente/19165536.jpg"
+  },
+  "clips": {
+   "a": {
+    "f": "srcC/calvente/5756315.mp4",
+    "ss": 5,
+    "t": 2.2
+   }
+  }
+ },
+ "motion-thaverine": {
+  "W": 1920,
+  "H": 1080,
+  "photos": {
+   "p1": "srcC/thaverine/13307186.jpg",
+   "p2": "srcC/thaverine/5442447.jpg",
+   "p3": "srcC/thaverine/15955333.jpg",
+   "p4": "srcC/thaverine/34551568.jpg"
+  },
+  "clips": {
+   "a": {
+    "f": "srcC/thaverine/6263749.mp4",
+    "ss": 6,
+    "t": 2.8
+   },
+   "b": {
+    "f": "srcC/thaverine/6262755.mp4",
+    "ss": 2,
+    "t": 2.6
+   }
+  }
+ },
+ "motion-navelia": {
+  "W": 1920,
+  "H": 1080,
+  "photos": {
+   "p1": "srcC/navelia/17860921.jpg",
+   "p2": "srcC/navelia/8013863.jpg",
+   "p3": "srcC/navelia/30271774.jpg"
+  },
+  "clips": {
+   "a": {
+    "f": "srcC/navelia/8303143.mp4",
+    "ss": 0.2,
+    "t": 3.2
+   },
+   "b": {
+    "f": "srcC/navelia/8303144.mp4",
+    "ss": 5,
+    "t": 3.2
+   },
+   "c": {
+    "f": "srcC/navelia/39426135.mp4",
+    "ss": 2,
+    "t": 3.2
+   }
+  }
+ }
+}

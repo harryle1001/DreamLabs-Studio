@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8">
+<title>reel3 — phim mẫu dựng từ ảnh / clip thật</title>
+<link rel="stylesheet" href="../../css/fonts.css"><link rel="stylesheet" href="lib.css">
+</head><body>
+<div id="stage"></div>
+<script src="../../vendor/gsap.min.js"></script>
+<script src="engine.js"></script>
+<script>
+/* film.html?n=<tên phim>  -> nạp films/<tên>.js */
+const n=new URLSearchParams(location.search).get('n');document.title=n;
+const s=document.createElement('script');s.src='films/'+n+'.js';document.body.appendChild(s);
+</script>
+</body></html>
