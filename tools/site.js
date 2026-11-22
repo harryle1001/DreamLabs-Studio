@@ -110,8 +110,7 @@ function page({up,cur='',title,desc,canonical,ogType='website',image,imageAlt,js
 <meta name="description" content="${esc(desc)}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="${canonical}">
-<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15121C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#15121C">
 <meta name="format-detection" content="telephone=no">
 <link rel="icon" type="image/png" href="${up}img/icon-192.png">
 <link rel="apple-touch-icon" href="${up}img/icon-180.png">
@@ -124,7 +123,7 @@ function page({up,cur='',title,desc,canonical,ogType='website',image,imageAlt,js
 <meta property="og:image" content="${SITE}${image}">
 <meta property="og:image:alt" content="${esc(imageAlt)}">
 <meta name="twitter:card" content="summary_large_image">
-${verifyTag}${extraHead}<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+${verifyTag}${extraHead}<script>/* mặc định nền tối; khách đã chọn sáng thì giữ sáng */var t=null;try{t=localStorage.getItem('dl-theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')</script>
 ${(BCSS?[BCSS]:CSS).map(c=>`<link rel="stylesheet" href="${up}${c}?v=${VER(c)}">`).join('\n')}
 <script src="${up}js/track.js?v=${VER('js/track.js')}" defer></script>
 ${jsonld}

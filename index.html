@@ -4,8 +4,7 @@
 <script>(function(){try{var c=localStorage.getItem("dl-lang"),n=navigator,u=n.userAgent||"";if(c==="vi"||/bot|crawl|spider|slurp|preview|lighthouse|headless/i.test(u))return;var go=c==="en"||c==="ja"?c:null;if(!go){var l=(n.languages&&n.languages.length?n.languages:[n.language||""]).join(","),z="";try{z=Intl.DateTimeFormat().resolvedOptions().timeZone||""}catch(e){}if(/(^|,)vi\b/i.test(l)||/Ho_Chi_Minh|Saigon/.test(z))return;go="en"}location.replace(go+"/"+location.search+location.hash)}catch(e){}})()</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15121C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#15121C">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -36,7 +35,7 @@
 <meta name="description" content="Dream Labs triển khai AI tự động hóa quy trình doanh nghiệp: bán hàng, chăm sóc khách hàng, kế toán, báo cáo. Kèm thiết kế website, landing page, video.">
 <meta name="keywords" content="tự động hóa quy trình doanh nghiệp, tự động hóa bằng AI, AI cho doanh nghiệp, AI agent, n8n, tự động hóa bán hàng, chuyển đổi số doanh nghiệp, thiết kế website, landing page, Dream Labs">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script>/* mặc định nền tối; khách đã chọn sáng thì giữ sáng */var t=null;try{t=localStorage.getItem('dl-theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')</script>
 <link rel="stylesheet" href="css/app.min.css?v=dc52f3a8">
 <!-- 00-chrome.html -->
 <svg class="sr-only" width="0" height="0" aria-hidden="true" focusable="false"><defs>

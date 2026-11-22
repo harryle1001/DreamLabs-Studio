@@ -4,8 +4,7 @@
 <base href="../">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#15121C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#15121C">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -38,7 +37,7 @@
 <meta name="description" content="Dream Labs builds AI business process automation for sales, customer care, accounting and reporting, plus premium websites, landing pages, video and packaging. Transparent pricing in VND.">
 <meta name="keywords" content="AI business process automation, AI automation agency Vietnam, AI agents, n8n, sales automation, web design Vietnam, landing page design, motion graphics, Dream Labs">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<script>try{var t=localStorage.getItem('dl-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script>/* mặc định nền tối; khách đã chọn sáng thì giữ sáng */var t=null;try{t=localStorage.getItem('dl-theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')</script>
 <!-- 00-chrome.html -->
 <svg class="sr-only" width="0" height="0" aria-hidden="true" focusable="false"><defs>
   <symbol id="dl-arrow" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
