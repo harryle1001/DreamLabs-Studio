@@ -294,10 +294,11 @@ safe('hero',()=>{
   const starPos=(it,w,h,cx,cy,rsb)=>{const T1=INTRO_BIN*.618,T2=INTRO_BIN-T1,TH=Math.PI*2.6,g1=Math.pow(1.61803399,-5.2),r0=small?Math.max(w,h)*.55:w*.6,rc=rsb*1.3;let th,r,wh=0;
     if(it<T1){const q=Math.max(0,it/T1),sq=.146*q+.854*Math.pow(q,2.618),g=Math.pow(1.61803399,-TH*sq/(Math.PI/2));th=Math.PI-.22+TH*sq;r=rc+(r0-rc)*(g-g1)/(1-g1)}
     else{const ta=Math.min(T2,it-T1),k=Math.log(6.5)/T2,w0=TH*2.382/T1;wh=ta/T2;th=Math.PI-.22+TH+w0/k*(Math.exp(k*ta)-1);r=rc*(1-.22*wh*wh)}
-    return[cx+Math.cos(th)*r,cy+Math.sin(th)*r,cx-Math.cos(th)*r,cy-Math.sin(th)*r,wh,th,r]};
-  const starState=(it,w,h,cx,cy)=>{const rsb=small?w*.13:h*.085,o={sa:0,ma:0,fl:0,shr:0,sha:0,shake:0,tc:-1,wh:0,th:0,orr:0,rs:rsb,x1:0,y1:0,x2:0,y2:0,bx1:0,by1:0,bx2:0,by2:0};if(it==null)return o;
+    const X=Math.cos(th)*r,Y=Math.sin(th)*r*.5403,Z=Math.sin(th)*r*.8415; /* nghiêng 1 rad quanh trục ngang: Y dẹt lại, Z là độ sâu (dương = gần người xem) */
+    return[cx+X,cy+Y,cx-X,cy-Y,wh,th,r,Z]};
+  const starState=(it,w,h,cx,cy)=>{const rsb=small?w*.085:h*.056,o={pz:0,sa:0,ma:0,fl:0,shr:0,sha:0,shake:0,tc:-1,wh:0,th:0,orr:0,rs:rsb,x1:0,y1:0,x2:0,y2:0,bx1:0,by1:0,bx2:0,by2:0};if(it==null)return o;
     const a=starPos(it,w,h,cx,cy,rsb),wh=a[4],b=starPos(Math.max(0,it-(wh>0?.05:.3)),w,h,cx,cy,rsb),q=Math.min(1,it/INTRO_BIN);o.x1=a[0];o.y1=a[1];o.x2=a[2];o.y2=a[3];o.bx1=b[0];o.by1=b[1];o.bx2=b[2];o.by2=b[3];
-    o.wh=wh;o.th=a[5];o.orr=a[6];o.rs=rsb*(.85+.35*Math.min(1,q/.618))*(1-.18*wh*wh);
+    o.wh=wh;o.th=a[5];o.orr=a[6];o.pz=Math.max(-.42,Math.min(.42,a[7]/(rsb*11)));o.rs=rsb*(.85+.35*Math.min(1,q/.618))*(1-.18*wh*wh);
     if(it<INTRO_BIN){o.sa=Math.min(1,it/.35);o.fl=.32*wh*wh*wh;o.shake=!RM?wh*wh*wh*2.5:0}
     else{const tc=it-INTRO_BIN;o.tc=tc;o.fl=tc<1.6?1.05*Math.exp(-tc/.17):0;o.ma=tc<5?Math.exp(-tc/.95):0;o.shr=tc*Math.max(w,h)*1.15;o.sha=tc<1.3?Math.pow(1-tc/1.3,1.3):0;o.shake=!RM&&tc<.45?(1-tc/.45)*7:0}
     return o};
@@ -320,20 +321,26 @@ safe('hero',()=>{
       /* vang không gian: delay hồi tiếp */
       const dl=c.createDelay(1),fb=gn(.46),dlp=bq('lowpass',2400),wet=gn(.5);dl.delayTime.value=.31;out.connect(dl);dl.connect(dlp);dlp.connect(fb);fb.connect(dl);dlp.connect(wet);wet.connect(master);
       setTimeout(()=>{try{wet.disconnect();fb.disconnect()}catch(e){}},(B+G+9)*1000);
-      /* 1 · nền trầm dâng dần, cao độ trượt lên theo một tỷ lệ cố định khi hai sao áp sát */
-      const lp=bq('lowpass',180),dg=gn(0);lp.frequency.setValueAtTime(180,t0);lp.frequency.exponentialRampToValueAtTime(2200,t0+B);
-      dg.gain.setValueAtTime(.0001,t0);dg.gain.exponentialRampToValueAtTime(.24,t0+B);dg.gain.exponentialRampToValueAtTime(.0001,t0+B+.5);lp.connect(dg);dg.connect(out);
-      [[54,'sine',1],[81,'sine',.6],[108,'triangle',.35],[162.3,'sawtooth',.1]].forEach(([f,ty,a])=>{const o=osc(ty,f),og=gn(a);o.frequency.setValueAtTime(f,t0);o.frequency.exponentialRampToValueAtTime(f*1.61803399,t0+B);o.connect(og);og.connect(lp);o.start(t0);o.stop(t0+B+.6)});
-      /* 2 · tiếng gió lướt tăng dần */
-      {const n=nz(),b=bq('bandpass',300,1.1),g=gn(0);b.frequency.setValueAtTime(300,t0);b.frequency.exponentialRampToValueAtTime(3200,t0+B);g.gain.setValueAtTime(.0001,t0);g.gain.exponentialRampToValueAtTime(.13,t0+B);g.gain.exponentialRampToValueAtTime(.0001,t0+B+.25);n.connect(b);b.connect(g);g.connect(out);n.start(t0);n.stop(t0+B+.4)}
-      /* 3 · va chạm: tiếng nổ trầm + ù lan */
-      {const ti=t0+B,o=osc('sine',110),g=gn(0);o.frequency.setValueAtTime(110,ti);o.frequency.exponentialRampToValueAtTime(30,ti+.9);g.gain.setValueAtTime(.0001,ti-.01);g.gain.exponentialRampToValueAtTime(.95,ti+.02);g.gain.exponentialRampToValueAtTime(.0001,ti+2.4);o.connect(g);g.connect(out);o.start(ti-.01);o.stop(ti+2.5);
-        const n=nz(),b=bq('lowpass',3200),ng=gn(0);b.frequency.setValueAtTime(3200,ti);b.frequency.exponentialRampToValueAtTime(140,ti+1.5);ng.gain.setValueAtTime(.0001,ti-.01);ng.gain.exponentialRampToValueAtTime(.5,ti+.015);ng.gain.exponentialRampToValueAtTime(.0001,ti+1.8);n.connect(b);b.connect(ng);ng.connect(out);n.start(ti-.01);n.stop(ti+1.9)}
-      /* 4 · sao thu về: chuông pha lê rải dần lên cao */
-      [1,1.25,1.5,1.875,2,2.5,3,3.75].forEach((m,i)=>{const ti=t0+B+1.3+i*.36,o=osc('sine',432*m),g=gn(0);g.gain.setValueAtTime(.0001,ti);g.gain.exponentialRampToValueAtTime(.075,ti+.012);g.gain.exponentialRampToValueAtTime(.0001,ti+2.6);o.connect(g);g.connect(out);o.start(ti);o.stop(ti+2.7)});
-      /* 5 · xoắn ốc thành hình: hợp âm êm, tan dần */
-      {const ti=t0+B+2.2,te=t0+B+G,pg=gn(0);pg.gain.setValueAtTime(.0001,ti);pg.gain.exponentialRampToValueAtTime(.085,te);pg.gain.setTargetAtTime(0,te+1.5,1.6);pg.connect(out);
-        [[216,'sine',1],[270,'sine',.7],[324,'triangle',.45],[432,'sine',.4]].forEach(([f,ty,a])=>{const o=osc(ty,f),og=gn(a);o.detune.value=(f%7)-3;o.connect(og);og.connect(pg);o.start(ti);o.stop(te+9)})}};
+      /* Nhạc tự soạn theo phong cách organ phim vũ trụ: hợp âm organ ngân dài, nhịp rải nốt đều dày dần, tiếng tích tắc,
+         cao trào khi va chạm rồi organ mở lớn và tan chậm. Không dùng giai điệu của tác phẩm có sẵn. */
+      const organ=(f,t,dur,vol,att)=>{const g=gn(0),a=att||Math.min(.3,dur*.3);g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+a);g.gain.setValueAtTime(vol,t+dur*.72);g.gain.exponentialRampToValueAtTime(.0001,t+dur);g.connect(out);
+        [[.5,.35],[1,1],[2,.5],[3,.26],[4,.16],[6,.07],[8,.04]].forEach(([m,v],k)=>{const o=osc('sine',f*m),og=gn(v);o.detune.value=(k%3-1)*4;o.connect(og);og.connect(g);o.start(t);o.stop(t+dur+.05)})};
+      const N={D2:73.42,F2:87.31,G2:98,A1:55,A2:110,C3:130.81,D3:146.83,E3:164.81,F3:174.61,G3:196,A3:220,B3:246.94,C4:261.63,D4:293.66,E4:329.63,F4:349.23,G4:392,A4:440,C5:523.25,D5:587.33,E5:659.25,F5:698.46,G5:783.99,A5:880};
+      /* 1 · hai sao bay vào: hợp âm nền ngân, dâng dần */
+      [[N.D2,N.A2,N.D3,N.F3],[N.F2,N.C3,N.F3,N.A3]].forEach((ch,ci)=>{const t=t0+ci*B*.5,d=B*.5+.4;ch.forEach(f=>organ(f,t,d,.028+.022*ci,.5))});
+      /* 2 · nhịp rải nốt đều (nốt móc đơn), to dần tới lúc va chạm */
+      {const step=B/14,pat=[N.D5,N.A4,N.F5,N.A4,N.E5,N.A4,N.F5,N.C5,N.G5,N.C5,N.F5,N.C5,N.A5,N.E5];pat.forEach((f,k)=>organ(f,t0+k*step,step*2.2,.012+.03*Math.pow(k/13,1.6),.02))}
+      /* 3 · tiếng tích tắc, dày dần ở đoạn quay xoáy */
+      {let tt=t0+.2,gap=.62;while(tt<t0+B-.05){const n=nz(),b=bq('highpass',4200),g=gn(0);g.gain.setValueAtTime(.05,tt);g.gain.exponentialRampToValueAtTime(.0001,tt+.045);n.connect(b);b.connect(g);g.connect(out);n.start(tt);n.stop(tt+.06);tt+=gap;if(tt>t0+B*.618)gap*=.78}}
+      /* 4 · gió lướt + nền trầm dồn lên ở đoạn quay xoáy */
+      {const n=nz(),b=bq('bandpass',300,1.1),g=gn(0);b.frequency.setValueAtTime(300,t0+B*.5);b.frequency.exponentialRampToValueAtTime(3600,t0+B);g.gain.setValueAtTime(.0001,t0+B*.5);g.gain.exponentialRampToValueAtTime(.14,t0+B);g.gain.exponentialRampToValueAtTime(.0001,t0+B+.25);n.connect(b);b.connect(g);g.connect(out);n.start(t0+B*.5);n.stop(t0+B+.4);
+        const o=osc('sawtooth',55),lp=bq('lowpass',120),og=gn(0);o.frequency.setValueAtTime(55,t0+B*.618);o.frequency.exponentialRampToValueAtTime(55*1.61803399,t0+B);lp.frequency.setValueAtTime(120,t0+B*.618);lp.frequency.exponentialRampToValueAtTime(1500,t0+B);og.gain.setValueAtTime(.0001,t0+B*.618);og.gain.exponentialRampToValueAtTime(.16,t0+B);og.gain.exponentialRampToValueAtTime(.0001,t0+B+.3);o.connect(lp);lp.connect(og);og.connect(out);o.start(t0+B*.618);o.stop(t0+B+.4)}
+      /* 5 · va chạm: tiếng nổ trầm + ù lan */
+      {const ti=t0+B,o=osc('sine',110),g=gn(0);o.frequency.setValueAtTime(110,ti);o.frequency.exponentialRampToValueAtTime(30,ti+.9);g.gain.setValueAtTime(.0001,ti-.01);g.gain.exponentialRampToValueAtTime(.9,ti+.02);g.gain.exponentialRampToValueAtTime(.0001,ti+2.4);o.connect(g);g.connect(out);o.start(ti-.01);o.stop(ti+2.5);
+        const n=nz(),b=bq('lowpass',3200),ng=gn(0);b.frequency.setValueAtTime(3200,ti);b.frequency.exponentialRampToValueAtTime(140,ti+1.5);ng.gain.setValueAtTime(.0001,ti-.01);ng.gain.exponentialRampToValueAtTime(.45,ti+.015);ng.gain.exponentialRampToValueAtTime(.0001,ti+1.8);n.connect(b);b.connect(ng);ng.connect(out);n.start(ti-.01);n.stop(ti+1.9)}
+      /* 6 · sau va chạm: organ mở lớn rồi tan chậm; nốt rải đi lên khi dải sao thành hình */
+      {const ti=t0+B+.05;[N.A1,N.A2,N.E3,N.A3,N.C4,N.E4].forEach(f=>organ(f,ti,5.2,.05,.06));[N.F2,N.C3,N.F3,N.A3,N.C4].forEach(f=>organ(f,ti+3.6,3.4,.034,.9));[N.C3,N.G3,N.C4,N.E4,N.G4].forEach(f=>organ(f,ti+6.2,5.5,.03,1.2));
+        [N.E5,N.A4,N.C5,N.E5,N.A5,N.E5,N.C5,N.A4,N.F5,N.C5,N.A4,N.F5,N.G5,N.E5,N.C5,N.G5].forEach((f,k)=>organ(f,ti+1.2+k*.3,.75,.02*(1-k/26),.02))}};
     const play=()=>{if(!AC||!on||!active())return sync();init();if(!ctx)return;const go=()=>{if(ctx.state!=='running')return sync();halt();sched(ctx.currentTime+.04);sync()};
       if(ctx.state==='running')go();else ctx.resume().then(go).catch(()=>{})};
     const mount=()=>{if(!AC||btn)return;btn=document.createElement('button');btn.type='button';btn.className='hero-snd';
@@ -349,7 +356,7 @@ safe('hero',()=>{
     const c=document.createElement('canvas');c.setAttribute('aria-hidden','true');fb.appendChild(c);const x=c.getContext('2d');if(!x)return;
     const n=small?700:1400,PH=1.61803399,P=[];const hh=v=>{const q=Math.sin(v*12.9898+4.1414)*43758.5453;return q-Math.floor(q)};
     for(let i=0;i<n;i++){const k=(i+.5)/n,h1=hh(i),h2=hh(i*1.7+3),h3=hh(i*2.3+7),rs=.012+3.588*k*k;
-      const dist=.3+1.75*Math.pow(h2,.75);P.push({b:Math.log(rs)/Math.log(PH)*Math.PI/2+.227,r:rs*(1+(h1+h2-1)*.09),jx:(h2-.5)*.012,jy:(h3-.5)*.012,sz:(1.6+3.6*Math.sqrt(k))*(.8+.4*h1),a:.35+.5*(1-k*.6),m:Math.min(1,Math.max(0,1-Math.sqrt(rs)+(h2-.5)*.2)),tw:h1*6.283,ea:h1*6.2832,ed:dist,dn:(dist-.3)/1.75})}
+      const dist=.3+1.75*Math.pow(h2,.75);P.push({b:Math.log(rs)/Math.log(PH)*Math.PI/2+.227+(i%3?0:Math.PI)+(h3+h1-1)*.2,r:rs*(1+(h1+h2-1)*.09),jx:(h2-.5)*.012,jy:(h3-.5)*.012,sz:(1.6+3.6*Math.sqrt(k))*(.8+.4*h1),a:.35+.5*(1-k*.6),m:Math.min(1,Math.max(0,1-Math.sqrt(rs)+(h2-.5)*.2)),tw:h1*6.283,ea:h1*6.2832,ed:dist,dn:(dist-.3)/1.75})}
     const DU=[];for(let i=0;i<(small?120:240);i++)DU.push([hh(i+5e3),hh(i*1.3+7e3),.6+1.4*hh(i*2.1+9e3),hh(i*3.7+1e4)*6.283]);
     let W=0,H=0,cx=0,cy=0,R=0,rot=0,spd=0,last=0,t=0,b2=0,bi2=0,at2=null,raf=0,vis=true,run=false,cols=['#5E43A8','#8C7BC8','#C08A9A'];
     const dpr2=Math.min(devicePixelRatio||1,1.5);
@@ -364,7 +371,7 @@ safe('hero',()=>{
       /* hai sao khổng lồ + va chạm (bản đơn giản của WebGL): quầng nhiều lớp, chớp sáng, sóng xung kích, rung khung */
       {const S=starState(at2==null?null:t-at2,W,H,cx,H-cy);shake(S.shake);
         const big=(X,Y,rr,c1,a)=>{if(a<=0)return;const g1=x.createRadialGradient(X,Y,0,X,Y,rr*4.5);g1.addColorStop(0,`rgba(255,250,240,${a})`);g1.addColorStop(.2,`rgba(255,250,240,${a})`);g1.addColorStop(.32,`rgba(${c1},${.8*a})`);g1.addColorStop(1,`rgba(${c1},0)`);x.fillStyle=g1;x.beginPath();x.arc(X,Y,rr*4.5,0,6.2832);x.fill()};
-        big(S.x1,H-S.y1,S.rs,'236,234,242',S.sa);big(S.x2,H-S.y2,S.rs,'40,36,50',S.sa);big(cx,cy,S.rs*1.5,'255,209,148',S.ma);
+        big(S.x1,H-S.y1,S.rs*(1+S.pz),'222,178,107',S.sa);big(S.x2,H-S.y2,S.rs*(1-S.pz),'41,59,140',S.sa);big(cx,cy,S.rs*1.5,'255,209,148',S.ma);
         if(S.sha>.002){x.strokeStyle=`rgba(255,242,214,${.9*S.sha})`;x.lineWidth=Math.max(W,H)*.02;x.beginPath();x.arc(cx,cy,S.shr,0,6.2832);x.stroke()}
         if(S.fl>.002){x.fillStyle=`rgba(255,247,230,${Math.min(1,S.fl*(RM?.5:1))})`;x.fillRect(0,0,W,H)}}
       if(at2!=null&&b2>0)for(let j=0;j<3;j++){x.fillStyle=cols[j];x.beginPath();
@@ -399,11 +406,12 @@ void main(){vec2 uv=gl_FragCoord.xy/r;float asp=r.x/r.y;vec2 p=uv*vec2(asp,1.)*1
  vec2 d=(uv-ctr)*vec2(asp,1.);col=mix(col,c0,exp(-dot(d,d)*3.)*.382);
  col=mix(col,c0,smoothstep(.55,1.,uv.y)*.35);
  gl_FragColor=vec4(col,1.);}`;
-  const FS_B0=HP+`uniform sampler2D tx;uniform vec2 r;void main(){vec3 c=texture2D(tx,gl_FragCoord.xy/r).rgb;
+  const FS_B0=HP+`uniform sampler2D tx;uniform vec2 r,ctr;uniform float gr,ga;void main(){vec3 c=texture2D(tx,gl_FragCoord.xy/r).rgb;
+ if(ga>.002){vec2 v=(gl_FragCoord.xy-ctr)/gr;v.y/=.955;float d=dot(v,v);c=mix(c,vec3(.8,.72,.96),exp(-d*1.1)*.2*ga);c=mix(c,vec3(1.,.95,.84),exp(-d*11.)*.6*ga);}
  float g=fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233)))*43758.5453);gl_FragColor=vec4(c+(g-.5)/96.,1.);}`;
   /* Lớp hiệu ứng mở đầu: hai ngôi sao (bề mặt sôi, viền tối dần, vành nhật hoa, tia nhiễu xạ, đuôi sáng, cầu vật chất khi áp sát)
      → va chạm: chớp sáng, quả cầu lửa, tia sáng tỏa, hai vành sóng xung kích. Chỉ chạy trong cảnh mở đầu. */
-  const FS_B=HP+`uniform sampler2D tx;uniform vec2 r,ctr,s1,s2,s1b,s2b;uniform float fl,sr,sa,ma,shr,sha,tm,tc,wh,sth,orr;
+  const FS_B=HP+`uniform sampler2D tx;uniform vec2 r,ctr,s1,s2,s1b,s2b;uniform float fl,sr,sa,ma,shr,sha,tm,tc,wh,sth,orr,pz;
 float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
 float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<3;i++){v+=a*n(p);p=p*2.03+vec2(1.7,9.2);a*=.5;}return v;}
@@ -436,18 +444,19 @@ vec4 star(vec2 p,vec2 c,float R,vec3 deep,vec3 mid,vec3 lite,float ph,vec2 ld,ve
  return vec4(gc,g);}
 float tail(vec2 p,vec2 a,vec2 b,float R){vec2 ab=b-a;float k=clamp(dot(p-a,ab)/max(dot(ab,ab),1.),0.,1.),ds=length(p-a-ab*k)/R,w=mix(.85,.12,k);return exp(-ds*ds/(w*w))*(1.-k)*.6;}
 void main(){vec2 p=gl_FragCoord.xy;vec3 c=texture2D(tx,p/r).rgb;float mxr=max(r.x,r.y);
- if(sa>0.){vec3 dA=vec3(.74,.72,.79),cA=vec3(.93,.92,.95),lA=vec3(1.),dB=vec3(.045,.04,.07),cB=vec3(.17,.15,.21),lB=vec3(.46,.42,.52);vec2 l12=normalize(s2-s1+1e-3);
-  c=mix(c,cA,tail(p,s1,s1b,sr)*sa);c=mix(c,cB,tail(p,s2,s2b,sr)*sa);
+ if(sa>0.){vec3 dA=vec3(.56,.39,.2),cA=vec3(.87,.7,.42),lA=vec3(1.,.95,.8),dB=vec3(.05,.07,.22),cB=vec3(.16,.23,.55),lB=vec3(.6,.7,.98);float r1=sr*(1.+pz),r2=sr*(1.-pz);vec2 l12=normalize(s2-s1+1e-3);
+  c=mix(c,cA,tail(p,s1,s1b,r1)*sa);c=mix(c,cB,tail(p,s2,s2b,r2)*sa);
   float br=smoothstep(9.,2.5,length(s1-s2)/sr)*sa;
   if(br>.01){vec2 ab=s2-s1;float k=clamp(dot(p-s1,ab)/max(dot(ab,ab),1.),0.,1.),ds=length(p-s1-ab*k)/sr,wv=fbm(vec2(k*5.-tm*.9,ds*2.));
    c=mix(c,mix(cA,cB,smoothstep(.15,.85,k)),exp(-ds*ds*(5.+16.*sin(k*3.14159)))*br*(.3+.35*wv));}
-  if(wh>.001){vec2 v0=p-ctr;float d0=length(v0)/sr,an=atan(v0.y,v0.x),sp=an-sth+2.4*log(max(d0,.06)),w2=wh*wh;
+  if(wh>.001){vec2 v0=p-ctr;v0.y/=.5403;float d0=length(v0)/sr,an=atan(v0.y,v0.x),sp=an-sth+2.4*log(max(d0,.06)),w2=wh*wh;
    float arm=pow(abs(cos(sp)),2.5),env=smoothstep(.15,.9,d0)*exp(-pow(max(d0-1.6,0.)/(1.2+2.2*wh),2.));
    c=mix(c,mix(cB,cA,.5+.5*cos(sp)),arm*env*wh*(.8+.3*fbm(vec2(sp*1.3,d0*2.-tm*2.5))));
    float od=(d0-orr/sr)/.6;c=mix(c,mix(cA,cB,.5+.5*sin(an+tm*2.)),exp(-od*od)*w2*.5);
    c=mix(c,vec3(1.,.95,.9),exp(-d0*d0*1.8)*w2*.75);}
   float sv=sa*(1.-.5*wh*wh);
-  vec4 a=star(p,s1,sr,dA,cA,lA,0.,l12,cB),b=star(p,s2,sr,dB,cB,lB,2.,-l12,cA);c=mix(c,a.rgb,a.a*sv);c=mix(c,b.rgb,b.a*sv);}
+  vec4 a=star(p,s1,r1,dA,cA,lA,0.,l12,cB),b=star(p,s2,r2,dB,cB,lB,2.,-l12,cA);
+  if(pz>0.){c=mix(c,b.rgb,b.a*sv);c=mix(c,a.rgb,a.a*sv);}else{c=mix(c,a.rgb,a.a*sv);c=mix(c,b.rgb,b.a*sv);}}
  vec2 v=p-ctr;float dl=length(v),dn=dl/mxr;
  if(tc>=0.){float ang=atan(v.y,v.x),e1=exp(-tc/.55);
   if(e1>.004){vec2 dv=v/max(dl,1e-3);float ry=fbm(dv*1.8+vec2(3.1,tm*.1));ry=smoothstep(.25,.85,ry);
@@ -480,8 +489,10 @@ void main(){float h1=hh(a_i),h2=hh(a_i*1.7+3.),h3=hh(a_i*2.3+7.),h4=hh(a_i*3.1+1
   float tw=.5+.5*sin(u_t*(.5+h4*1.8)+h1*TAU);v_al=(.2+.35*h4)*(.45+.55*tw)*clamp(u_bang*4.+u_bin*2.+.15,0.,1.);
   v_soft=0.;v_mix=h2;v_gold=step(.78,h4);v_str=0.;v_glow=0.;v_dir=vec2(1.,0.);return;}
  float k=(a_i+.5)/u_n,rr=sqrt(k);
- float rs=mix(.012,3.6,k*k),ths=log(rs)/log(PHI)*(TAU*.25)+.227+u_rot+sin(u_t*.2)*.06,br=1.+.04*u_br*sin(u_t*1.3-rs*7.);
- vec2 sp=(vec2(cos(ths),sin(ths))*rs*br*(1.+(h1+h2-1.)*.09)+(vec2(h2,h3)-.5)*.012)*u_ss;
+ float arm2=mod(a_i,3.)<1.?1.:0.,h5=hh(a_i*5.3+1.),bul=step(h5,.14);
+ float rs=mix(.012,3.6,k*k),ths=log(rs)/log(PHI)*(TAU*.25)+.227+u_rot+sin(u_t*.2)*.06+arm2*3.14159265+(h3+h4-1.)*.11,br=1.+.04*u_br*sin(u_t*1.3-rs*7.);
+ vec2 sp=(vec2(cos(ths),sin(ths))*rs*br*(1.+(h1+h2-1.)*.15)+(vec2(h2,h3)-.5)*.012)*u_ss;
+ if(bul>.5){float ba=h1*TAU+u_rot*1.6,brd=.03+.3*h2*h2;sp=vec2(cos(ba),sin(ba)*.8)*brd*u_ss;}
  vec2 p=sp,dir=vec2(1.,0.);float str=0.,boost=0.;
  if(u_bang<1.){float ang=h1*TAU,dist=.3+2.3*pow(h2,.75),dn=(dist-.3)/2.3;vec2 dv=vec2(cos(ang)*1.45,sin(ang));
   float b1=eo(u_bang/.16);vec2 ex=dv*dist*b1+vec2(sin(u_t*.9+h3*TAU),cos(u_t*.7+h4*TAU))*.05*smoothstep(.1,.3,u_bang);
@@ -498,7 +509,7 @@ void main(){float h1=hh(a_i),h2=hh(a_i*1.7+3.),h3=hh(a_i*2.3+7.),h4=hh(a_i*3.1+1
  float sz=mix(mix(1.4,5.,rr)*(.55+.9*h1*h1),12.+16.*h2,bok)*(1.+glw*1.8)*(1.+f*.9)*(1.+2.2*str);
  gl_PointSize=max(1.,sz*u_dpr*pe);
  float tw=.55+.45*pow(.5+.5*sin(u_t*(.7+h4*2.3)+h1*TAU),2.);
- v_al=tw*mix(.9,.14,bok)*mix(u_lo,1.,smoothstep(.3,.62,scr.y/u_res.y))*smoothstep(0.,.03,u_bang)*(1.+boost)*mix(1.,.6,smoothstep(1.,2.6,rs));
+ v_al=tw*mix(.9,.14,bok)*mix(u_lo,1.,smoothstep(.3,.62,scr.y/u_res.y))*smoothstep(0.,.03,u_bang)*(1.+boost)*mix(1.,.6,smoothstep(1.,2.6,rs))*mix(1.,.72,arm2);
  v_soft=bok;v_glow=glw;v_gold=step(.86,h4);v_str=str;v_dir=normalize(vec2(dir.x,-dir.y)+1e-5);
  v_mix=clamp(mix(h4,1.-sqrt(min(rs,1.)),.3),0.,1.);}`;
   const FS_P=`precision mediump float;uniform vec3 k0,k1,k2;varying float v_al,v_mix,v_soft,v_gold,v_str,v_glow;varying vec2 v_dir;
@@ -513,7 +524,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
   const U=(p,names)=>{const o={};names.split(' ').forEach(k=>o[k]=gl.getUniformLocation(p,k));return o};
   const build=()=>{
     pA=mk(VS,FS_A,'a');pB=mk(VS,FS_B,'a');pB0=mk(VS,FS_B0,'a');pP=mk(VS_P,FS_P,'a_i');
-    uA=U(pA,'r m ctr t sc c0 c1 c2 c3');uB=U(pB,'tx r ctr s1 s2 s1b s2b fl sr sa ma shr sha tm tc wh sth orr');uB0=U(pB0,'tx r');uP=U(pP,'u_br u_n u_dn u_bin u_t u_bang u_dpr u_R u_mr u_mp u_rot u_lo u_ss u_res u_ctr u_m u_tilt k0 k1 k2');
+    uA=U(pA,'r m ctr t sc c0 c1 c2 c3');uB=U(pB,'tx r ctr s1 s2 s1b s2b fl sr sa ma shr sha tm tc wh sth orr pz');uB0=U(pB0,'tx r ctr gr ga');uP=U(pP,'u_br u_n u_dn u_bin u_t u_bang u_dpr u_R u_mr u_mp u_rot u_lo u_ss u_res u_ctr u_m u_tilt k0 k1 k2');
     tri=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,tri);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
     const ia=new Float32Array(N+DN+2*TR);for(let i=0;i<N+DN+2*TR;i++)ia[i]=i;idx=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.bufferData(gl.ARRAY_BUFFER,ia,gl.STATIC_DRAW);
     gl.enableVertexAttribArray(0);tex=gl.createTexture();fbo=gl.createFramebuffer();fw=fh=0;
@@ -551,8 +562,8 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
     gl.uniform2f(uA.r,fw,fh);gl.uniform2f(uA.m,mx-.5,.5-my);gl.uniform2f(uA.ctr,cxn,1-cyn);gl.uniform1f(uA.t,t);gl.uniform1f(uA.sc,sc);
     gl.uniform3fv(uA.c0,col.c0);gl.uniform3fv(uA.c1,col.c1);gl.uniform3fv(uA.c2,col.c2);gl.uniform3fv(uA.c3,col.c3);gl.drawArrays(gl.TRIANGLES,0,3)}
     gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);const S=starState(introAt==null?null:(frz>=0?frz*INTRO_BIN:ti-introAt),W,H,cxn*W,(1-cyn)*H);shake(S.shake);const fx=S.sa>0||S.ma>.002||S.sha>.002||S.fl>.002||(S.tc>=0&&S.tc<3);
-    if(!fx){gl.useProgram(pB0);gl.uniform1i(uB0.tx,0);gl.uniform2f(uB0.r,W,H)}else{gl.useProgram(pB);gl.uniform1i(uB.tx,0);gl.uniform2f(uB.r,W,H);gl.uniform2f(uB.ctr,cxn*W,(1-cyn)*H);
-    gl.uniform2f(uB.s1,S.x1,S.y1);gl.uniform2f(uB.s2,S.x2,S.y2);gl.uniform2f(uB.s1b,S.bx1,S.by1);gl.uniform2f(uB.s2b,S.bx2,S.by2);gl.uniform1f(uB.tc,S.tc);gl.uniform1f(uB.wh,S.wh);gl.uniform1f(uB.sth,S.th%6.2831853);gl.uniform1f(uB.orr,S.orr);gl.uniform1f(uB.sr,S.rs);gl.uniform1f(uB.sa,S.sa);gl.uniform1f(uB.ma,S.ma);gl.uniform1f(uB.shr,S.shr);gl.uniform1f(uB.sha,S.sha);gl.uniform1f(uB.tm,t);
+    if(!fx){gl.useProgram(pB0);gl.uniform1i(uB0.tx,0);gl.uniform2f(uB0.r,W,H);gl.uniform2f(uB0.ctr,cxn*W,(1-cyn)*H);gl.uniform1f(uB0.gr,R*(narrow?1.05:1.2));gl.uniform1f(uB0.ga,smoothstep01((bang-.62)/.38))}else{gl.useProgram(pB);gl.uniform1i(uB.tx,0);gl.uniform2f(uB.r,W,H);gl.uniform2f(uB.ctr,cxn*W,(1-cyn)*H);
+    gl.uniform2f(uB.s1,S.x1,S.y1);gl.uniform2f(uB.s2,S.x2,S.y2);gl.uniform2f(uB.s1b,S.bx1,S.by1);gl.uniform2f(uB.s2b,S.bx2,S.by2);gl.uniform1f(uB.tc,S.tc);gl.uniform1f(uB.wh,S.wh);gl.uniform1f(uB.sth,S.th%6.2831853);gl.uniform1f(uB.orr,S.orr);gl.uniform1f(uB.pz,S.pz);gl.uniform1f(uB.sr,S.rs);gl.uniform1f(uB.sa,S.sa);gl.uniform1f(uB.ma,S.ma);gl.uniform1f(uB.shr,S.shr);gl.uniform1f(uB.sha,S.sha);gl.uniform1f(uB.tm,t);
     gl.uniform1f(uB.fl,(dark?.75:1)*(RM?.5:1)*S.fl);}gl.drawArrays(gl.TRIANGLES,0,3);
     gl.enable(gl.BLEND);gl.blendFunc(gl.ONE,dark?gl.ONE:gl.ONE_MINUS_SRC_ALPHA);gl.useProgram(pP);
     gl.bindBuffer(gl.ARRAY_BUFFER,idx);gl.vertexAttribPointer(0,1,gl.FLOAT,false,0,0);
