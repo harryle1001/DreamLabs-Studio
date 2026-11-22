@@ -506,7 +506,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
   /* trạng thái */
   let dpr=Math.min(devicePixelRatio||1,1.5),fq=small?.3:.25,ema=16.7,warm=0,lowQ=false;
   let W=0,H=0,cw=0,ch=0,t=20,rot=0,spd=0,fc=0,fresh=true,last=0,mx=.618,my=.382,tx=.618,ty=.382,mp=0,mpt=0,sc=0,running=false,vis=true,raf=0,lost=false,covered=false;
-  let bang=0,bin=0,introAt=null;const smoothstep01=x=>{x=clamp(x);return x*x*(3-2*x)}; // mở đầu: sao bung ra rồi bị hút về hình xoắn ốc (giảm chuyển động: bỏ qua)
+  let bang=0,bin=0,introAt=null,ti=0; /* ti: đồng hồ cảnh mở đầu theo thời gian thật (để khớp âm thanh cả trên máy chậm) */const smoothstep01=x=>{x=clamp(x);return x*x*(3-2*x)}; // mở đầu: sao bung ra rồi bị hút về hình xoắn ốc (giảm chuyển động: bỏ qua)
   /* mắt xoắn ốc = tâm khung #heroArt (cột 61.8% của hero). Đo bằng offsetLeft/Top, chỉ khi đổi kích thước;
      bán kính theo khung #heroArt. Không đọc layout trong vòng vẽ. */
   const box=$('#heroArt'),art={x:.67,y:.5,r:0};
@@ -526,7 +526,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
     if(!running||(fc++&1)===0||fresh){fresh=false;gl.bindFramebuffer(gl.FRAMEBUFFER,fbo);gl.viewport(0,0,fw,fh);gl.useProgram(pA);
     gl.uniform2f(uA.r,fw,fh);gl.uniform2f(uA.m,mx-.5,.5-my);gl.uniform2f(uA.ctr,cxn,1-cyn);gl.uniform1f(uA.t,t);gl.uniform1f(uA.sc,sc);
     gl.uniform3fv(uA.c0,col.c0);gl.uniform3fv(uA.c1,col.c1);gl.uniform3fv(uA.c2,col.c2);gl.uniform3fv(uA.c3,col.c3);gl.drawArrays(gl.TRIANGLES,0,3)}
-    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);const S=starState(introAt==null?null:t-introAt,W,H,cxn*W,(1-cyn)*H);shake(S.shake);const fx=S.sa>0||S.ma>.002||S.sha>.002||S.fl>.002||(S.tc>=0&&S.tc<3);
+    gl.bindFramebuffer(gl.FRAMEBUFFER,null);gl.viewport(0,0,W,H);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,tex);const S=starState(introAt==null?null:ti-introAt,W,H,cxn*W,(1-cyn)*H);shake(S.shake);const fx=S.sa>0||S.ma>.002||S.sha>.002||S.fl>.002||(S.tc>=0&&S.tc<3);
     if(!fx){gl.useProgram(pB0);gl.uniform1i(uB0.tx,0);gl.uniform2f(uB0.r,W,H)}else{gl.useProgram(pB);gl.uniform1i(uB.tx,0);gl.uniform2f(uB.r,W,H);gl.uniform2f(uB.ctr,cxn*W,(1-cyn)*H);
     gl.uniform2f(uB.s1,S.x1,S.y1);gl.uniform2f(uB.s2,S.x2,S.y2);gl.uniform2f(uB.s1b,S.bx1,S.by1);gl.uniform2f(uB.s2b,S.bx2,S.by2);gl.uniform1f(uB.tc,S.tc);gl.uniform1f(uB.sr,S.rs);gl.uniform1f(uB.sa,S.sa);gl.uniform1f(uB.ma,S.ma);gl.uniform1f(uB.shr,S.shr);gl.uniform1f(uB.sha,S.sha);gl.uniform1f(uB.tm,t);
     gl.uniform1f(uB.fl,(dark?.75:1)*(RM?.5:1)*S.fl);}gl.drawArrays(gl.TRIANGLES,0,3);
@@ -537,10 +537,10 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
     gl.uniform2f(uP.u_res,W,H);gl.uniform2f(uP.u_ctr,cxn*W,(1-cyn)*H);gl.uniform2f(uP.u_m,mx*W,(1-my)*H);gl.uniform2f(uP.u_tilt,.3+(my-.5)*.382,(mx-.5)*.5);
     gl.uniform3fv(uP.k0,col.k0);gl.uniform3fv(uP.k1,col.k1);gl.uniform3fv(uP.k2,col.k2);gl.drawArrays(gl.POINTS,0,N+DN);
   };
-  const loop=now=>{raf=0;if(!running)return;const dt=Math.min(.05,(now-last)/1000||.016);last=now;
+  const loop=now=>{raf=0;if(!running)return;const raw=(now-last)/1000||.016,dt=Math.min(.05,raw);last=now;ti+=Math.min(.25,raw);
     /* máy yếu: sau 2 giây nếu khung trung bình > 20ms thì hạ độ phân giải nền + mật độ điểm ảnh một lần */
     ema+=(dt*1000-ema)*.08;if(!lowQ&&(warm+=dt)>2&&ema>20){lowQ=true;fq*=.6;dpr=Math.min(dpr,1)*.75;fresh=true}
-    t+=dt;if(introAt!=null){const it=t-introAt;bin=clamp(it/INTRO_BIN);bang=clamp((it-INTRO_BIN)/INTRO_BANG)}spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
+    t+=dt;if(introAt!=null){const it=ti-introAt;bin=clamp(it/INTRO_BIN);bang=clamp((it-INTRO_BIN)/INTRO_BANG)}spd+=((RM?.157:.25)-spd)*Math.min(1,dt*.4);rot+=dt*spd;mx+=(tx-mx)*.06;my+=(ty-my)*.06;mp+=(mpt-mp)*.08;draw();raf=requestAnimationFrame(loop)};
   const setRun=()=>{const on=vis&&!covered&&!document.hidden&&!lost;if(on===running)return;running=on;if(on&&!raf){last=performance.now();raf=requestAnimationFrame(loop)}};
   /* Hình nền tự chuyển động, không phụ thuộc thao tác cuộn (tránh giật khi vuốt) */
   if(fine)addEventListener('pointermove',e=>{const r=sec.getBoundingClientRect();if(e.clientY>r.bottom){mpt=0;return}tx=clamp((e.clientX-r.left)/r.width);ty=clamp((e.clientY-r.top)/r.height);mpt=1},{passive:true});
@@ -553,7 +553,7 @@ void main(){vec2 q=gl_PointCoord-.5;if(v_str>.01)q=vec2(dot(q,v_dir),dot(q,vec2(
   cv.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;running=false;fallback()});
   cv.addEventListener('webglcontextrestored',()=>{try{build();lost=false;fb2&&fb2.stop();sec.classList.remove('no-gl');sec.classList.add('gl-on');fresh=true;setRun()}catch(e){fallback()}});
   draw();sec.classList.add('gl-on');setRun();
-  if(!sec.classList.contains('no-gl'))D.heroState=()=>({rot:+rot.toFixed(3),bin:+bin.toFixed(3),bang:+bang.toFixed(3),lowQ,mode:'webgl'});diag('webgl');introHooks.push(()=>{if(lost)return;introAt=t;bin=0;bang=0;fresh=true;setRun()});if(introFired){introAt=t-INTRO_BIN-INTRO_BANG;bin=bang=1} /* để kiểm thử */
+  if(!sec.classList.contains('no-gl'))D.heroState=()=>({rot:+rot.toFixed(3),bin:+bin.toFixed(3),bang:+bang.toFixed(3),lowQ,mode:'webgl'});diag('webgl');introHooks.push(()=>{if(lost)return;introAt=ti;bin=0;bang=0;fresh=true;setRun()});if(introFired){introAt=ti-INTRO_BIN-INTRO_BANG;bin=bang=1} /* để kiểm thử */
 });
 safe('hero-intro',()=>{
   const pre=$('#pre'),h1=$('#heroTitle');let left=0;
