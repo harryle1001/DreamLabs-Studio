@@ -203,12 +203,14 @@ function stageSite(it){
 }
 
 /* product: ảnh lớn đổi mẫu mã có crossfade + dải ảnh bấm xem lớn */
+/* ảnh chụp thật (img/real/…-p.webp) có sẵn các cỡ 640 / 1280 / 1920 và bản 4K: ảnh nhỏ dùng cỡ 640, khung lớn dùng srcset, bản 4K chỉ tải khi bấm phóng to */
+const hiRes=s=>{const m=/^(img\/real\/.+)-p\.webp$/.exec(s);return m?{th:m[1]+'-p-640.webp',set:`${m[1]}-p-640.webp 640w, ${s} 1280w, ${m[1]}-p-1920.webp 1920w`,big:m[1]+'-4k.webp'}:null};
 function stageProduct(it){
-  const all=[...it.vars.map((v,i)=>({src:v.img,cap:v.name,vi:i})),...it.gal.map((s,i)=>({src:s,cap:T('Ảnh bộ sưu tập')+' '+pad(i+1),vi:-1}))];
+  const all=[...it.vars.map((v,i)=>({src:v.img,cap:v.name,vi:i})),...it.gal.map((s,i)=>({src:s,cap:T('Ảnh bộ sưu tập')+' '+pad(i+1),vi:-1}))].map(a=>({...a,hi:hiRes(a.src)}));
   let at=0,tok=0,spin=null;const sp=it.spin;
   const node=el('div','sm-prod',`${sp?'<div class="sm-spinbox"></div>':''}<div class="sm-pstage" data-imgbox style="--a:${((it.i*137.5)%360).toFixed(1)}deg"><span class="sm-mono" aria-hidden="true">${mono(it.title)}</span><img class="sm-pi" alt="" decoding="async"><img class="sm-pi" alt="" decoding="async">
      <span class="sm-pcap" aria-live="polite"></span><button class="sm-ib sm-zoomb" type="button" data-zoom aria-label="${T('Phóng to ảnh')}" data-cursor="Phóng to"><svg class="sm-ar" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 2.5h4v4M13.5 2.5L9 7M6.5 13.5h-4v-4M2.5 13.5L7 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
-   ${all.length>1||sp?`<div class="sm-gal" role="group" aria-label="${T('Ảnh của mẫu này')}">${sp?`<button class="sm-th sm-th-spin" type="button" data-spin aria-pressed="false" aria-label="${T(sp.depth?'Xem ảnh thật 2.5D':sp.loop===false?'Xem xoay nhiều góc':'Xem xoay 360 độ')}"><b>${sp.depth?'2.5D':sp.loop===false?T('Xoay'):'360°'}</b></button>`:''}${all.map((a,i)=>`<button class="sm-th" type="button" data-at="${i}" data-imgbox aria-pressed="false" aria-label="${esc(a.cap)}"><img src="${esc(a.src)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:''}`);
+   ${all.length>1||sp?`<div class="sm-gal" role="group" aria-label="${T('Ảnh của mẫu này')}">${sp?`<button class="sm-th sm-th-spin" type="button" data-spin aria-pressed="false" aria-label="${T(sp.depth?'Xem ảnh thật 2.5D':sp.loop===false?'Xem xoay nhiều góc':'Xem xoay 360 độ')}"><b>${sp.depth?'2.5D':sp.loop===false?T('Xoay'):'360°'}</b></button>`:''}${all.map((a,i)=>`<button class="sm-th" type="button" data-at="${i}" data-imgbox aria-pressed="false" aria-label="${esc(a.cap)}"><img src="${esc(a.hi?a.hi.th:a.src)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:''}`);
   const box=$('.sm-pstage',node),layers=$$('.sm-pi',node),cap=$('.sm-pcap',node);
   const picker=it.vars.length>1?el('div','sm-var',`<p class="sm-var-l">${T('Mẫu mã')} <b></b><small>${T('{n} lựa chọn',{n:pad(it.vars.length)})}</small></p><div class="sm-sws" role="group" aria-label="${T('Chọn mẫu mã')}">${it.vars.map((v,i)=>`<button class="sm-sw" type="button" data-v="${i}" aria-pressed="false"><i${v.swatch?` style="background:${esc(v.swatch)}"`:''}></i><span>${esc(v.name)}</span></button>`).join('')}</div>`):null;
   const sbox=$('.sm-spinbox',node),sth=$('.sm-th-spin',node);
@@ -229,9 +231,9 @@ function stageProduct(it){
       if(!bad&&nx.naturalWidth)box.style.setProperty('--ar',Math.min(PHI,Math.max(.8,nx.naturalWidth/nx.naturalHeight)).toFixed(4));
       nx.classList.add('is-on');on&&on.classList.remove('is-on')};
     if(on&&on.getAttribute('src')===a.src)return;
-    nx.onload=()=>done(false);nx.onerror=()=>done(true);nx.removeAttribute('src');nx.src=a.src};
+    nx.onload=()=>done(false);nx.onerror=()=>done(true);nx.removeAttribute('src');nx.removeAttribute('srcset');if(a.hi){nx.sizes='(min-width: 1000px) 62vw, 100vw';nx.srcset=a.hi.set}nx.src=a.src};
   node.addEventListener('click',e=>{if(e.target.closest('[data-spin]')){mode(true);return}const b=e.target.closest('[data-at]');if(b){show(+b.dataset.at);return}
-    if(e.target.closest('.sm-pstage')&&all[at]&&!box.classList.contains('is-noimg'))zoom(all[at].src,it.title+', '+all[at].cap)});
+    if(e.target.closest('.sm-pstage')&&all[at]&&!box.classList.contains('is-noimg'))zoom(all[at].hi?all[at].hi.big:all[at].src,it.title+', '+all[at].cap)});
   if(picker)picker.addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;const v=+b.dataset.v;sp&&dirOf(v)?mode(true,v):show(v)});
   return{node,picker,start(){sp?mode(true):show(0)},destroy(){tok++;spin&&spin.destroy();spin=null}};
 }

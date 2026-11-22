@@ -1,4 +1,263 @@
 {
+ "perfume-amber": {
+  "still": "photo",
+  "fill": 0.66,
+  "shots": [
+   {
+    "id": 12146870,
+    "name": "Chính diện"
+   },
+   {
+    "id": 12146871,
+    "name": "Nằm nghiêng"
+   }
+  ],
+  "soft": 8
+ },
+ "bag-noir": {
+  "still": "photo",
+  "fill": 0.62,
+  "shots": [
+   {
+    "id": 22434770,
+    "name": "Chính diện"
+   },
+   {
+    "id": 22434774,
+    "name": "Mặt bên"
+   },
+   {
+    "id": 22434769,
+    "name": "Đen & đỏ"
+   },
+   {
+    "id": 22434764,
+    "name": "Đỏ rượu vang"
+   },
+   {
+    "id": 22434768,
+    "name": "Đỏ, nằm ngang"
+   }
+  ]
+ },
+ "shoe-tan": {
+  "still": "photo",
+  "fill": 0.7,
+  "shots": [
+   {
+    "id": 36589770,
+    "name": "Một đôi"
+   },
+   {
+    "id": 36589768,
+    "name": "Dựng gót"
+   },
+   {
+    "id": 36589769,
+    "name": "Đối xứng"
+   },
+   {
+    "id": 36589772,
+    "name": "Từ trên xuống"
+   },
+   {
+    "id": 36589774,
+    "name": "Mặt bên"
+   }
+  ]
+ },
+ "watch-leather": {
+  "still": "photo",
+  "fill": 0.72,
+  "shots": [
+   {
+    "id": 31050001,
+    "name": "Nằm chéo",
+    "fix": [
+     {
+      "box": [
+       0.316,
+       0.527,
+       0.376,
+       0.563
+      ]
+     },
+     {
+      "box": [
+       0.7,
+       0,
+       0.97,
+       0.15
+      ],
+      "mode": "blur",
+      "r": 5
+     },
+     {
+      "box": [
+       0.68,
+       0.4,
+       0.86,
+       0.48
+      ],
+      "mode": "blur",
+      "r": 5
+     }
+    ]
+   },
+   {
+    "id": 31050002,
+    "name": "Bên cuốn sách",
+    "fix": [
+     {
+      "box": [
+       0.348,
+       0.513,
+       0.4,
+       0.546
+      ]
+     },
+     {
+      "box": [
+       0.36,
+       0.21,
+       0.72,
+       0.43
+      ],
+      "mode": "blur",
+      "r": 5
+     }
+    ]
+   },
+   {
+    "id": 31049998,
+    "name": "Treo đứng",
+    "fix": [
+     {
+      "box": [
+       0.476,
+       0.351,
+       0.554,
+       0.381
+      ]
+     },
+     {
+      "box": [
+       0.24,
+       0.35,
+       0.33,
+       0.67
+      ],
+      "mode": "blur",
+      "r": 5
+     }
+    ]
+   }
+  ]
+ },
+ "ring-rose": {
+  "still": "photo",
+  "fill": 0.5,
+  "shots": [
+   {
+    "id": 29107751,
+    "name": "Nhẫn chủ"
+   },
+   {
+    "id": 29107752,
+    "name": "Nhẫn halo"
+   },
+   {
+    "id": 29107750,
+    "name": "Cặp nhẫn"
+   }
+  ]
+ },
+ "decanter": {
+  "still": "photo",
+  "fill": 0.8,
+  "shots": [
+   {
+    "id": 7253970,
+    "name": "Bình & ly",
+    "full": [
+     0.5,
+     0.667,
+     1.0
+    ]
+   },
+   {
+    "id": 7253972,
+    "name": "Chính diện",
+    "full": [
+     0.5,
+     0.667,
+     1.0
+    ]
+   }
+  ],
+  "extras": [
+   {
+    "id": 7253702,
+    "name": "Cận cảnh nút bình"
+   },
+   {
+    "id": 7253969,
+    "name": "Vai bình"
+   },
+   {
+    "id": 7253821,
+    "name": "Từ trên xuống"
+   }
+  ]
+ },
+ "candle-green": {
+  "still": "photo",
+  "fill": 0.6,
+  "shots": [
+   {
+    "id": 6311847,
+    "name": "Trên bàn gỗ"
+   },
+   {
+    "id": 6311806,
+    "name": "Góc rộng"
+   },
+   {
+    "id": 6311973,
+    "name": "Nền gạch men"
+   },
+   {
+    "id": 6311830,
+    "name": "Từ trên xuống"
+   }
+  ]
+ },
+ "skin-white": {
+  "still": "photo",
+  "fill": 0.66,
+  "shots": [
+   {
+    "id": 8015780,
+    "name": "Bộ đôi"
+   },
+   {
+    "id": 8015764,
+    "name": "Trên khăn"
+   },
+   {
+    "id": 8015765,
+    "name": "Trọn bộ"
+   },
+   {
+    "id": 8015774,
+    "name": "Cùng hộp"
+   },
+   {
+    "id": 8015790,
+    "name": "Nằm ngang"
+   }
+  ]
+ },
  "perfume-pink": {
   "fill": 0.6,
   "shots": [
