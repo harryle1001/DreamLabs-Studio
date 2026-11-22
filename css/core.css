@@ -607,5 +607,5 @@ form.cf>.btn{grid-column:1/-1;justify-content:center;min-height:var(--t3h)}
 .hero-snd:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .hero-snd:not(.on){animation:heroSnd 2.6s var(--ease-io) 3}
 @keyframes heroSnd{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent) 16%,transparent)}}
-@media (max-width:640px){.hero-snd{bottom:16px;right:16px;padding:0 12px}.hero-snd span{display:none}}
+@media (max-width:760px){.hero-snd{bottom:auto;top:56%;right:14px;padding:0 12px}.hero-snd span{display:none}}
 @media (prefers-reduced-motion:reduce){.hero-snd{animation:none}}
