@@ -8,7 +8,7 @@ D.ready(()=>{
 const box=document.getElementById('showRows');if(!box)return;
 const CATS=((window.DL_DATA||{}).CATS||[]),S=window.DL_SAMPLES||{},RM=D.RM;
 const T=D.t||(s=>s),VI=!D.lang||D.lang==='vi',FX=p=>{const f=D.fx?D.fx(p):'';return f?'<small class="fx">'+f+'</small>':''};
-const ORDER=['ai','web','landing','product','motion','video'];
+const ORDER=['motion','web','landing','product','ai','video'];
 const SHORT={ai:T('Tự động hóa AI'),web:T('Website'),landing:T('Landing Page'),product:T('Thiết kế sản phẩm'),motion:T('Motion Graphic'),video:T('Edit Video')};
 const PAGE={ai:'tu-dong-hoa-quy-trinh-doanh-nghiep/',web:'thiet-ke-website/',landing:'thiet-ke-landing-page/',product:'thiet-ke-bao-bi/',motion:'video-motion-graphic/',video:'edit-video/'};
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
