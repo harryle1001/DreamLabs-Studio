@@ -883,11 +883,11 @@
     {
      "n": "Essential",
      "u": "/video",
-     "g": "A logo animation or short intro that makes every brand video look professional.",
+     "g": "One logo animation or short intro that makes every brand video look professional.",
      "t": "4–5 days",
      "r": "4 revision rounds",
      "f": [
-      "Logo animation or video ≤ 15 seconds",
+      "1 video: logo animation or ≤ 15 seconds",
       "Licensed background music",
       "Exported in 2 aspect ratios",
       "Voice-over"
@@ -895,28 +895,16 @@
     },
     {
      "n": "Professional",
-     "u": "/video",
-     "g": "Explain a complex product in 60 seconds: customers grasp the value without reading a wall of text.",
+     "u": "/3 videos",
+     "g": "A set of 3 short videos for ads and social media in one style: customers get the product's value in seconds.",
      "t": "7–10 days",
      "r": "9 revision rounds",
      "f": [
-      "Video ≤ 60 seconds",
+      "3 videos, each ≤ 30 seconds",
       "Script + storyboard",
-      "2D character illustration",
-      "AI or human voice-over"
-     ]
-    },
-    {
-     "n": "Premium",
-     "u": "/video",
-     "g": "A brand film with its own art direction, plus cut-downs for every channel.",
-     "t": "14–21 days",
-     "r": "18 revision rounds",
-     "f": [
-      "Video ≤ 2 minutes, 2D + 3D",
-      "Bespoke art direction",
-      "Full sound design",
-      "Social media cut-downs"
+      "Licensed background music",
+      "AI voice-over",
+      "Exported in 3 aspect ratios (9:16, 1:1, 16:9)"
      ]
     }
    ]
@@ -1167,46 +1155,39 @@
   ],
   "motion": [
    [
+    "Videos",
+    "1",
+    "3"
+   ],
+   [
     "Length",
     "Logo animation or ≤ 15 seconds",
-    "≤ 60 seconds",
-    "≤ 2 minutes"
+    "≤ 30 seconds each"
    ],
    [
     "Style",
     "2D",
-    "2D, character illustration",
-    "2D + 3D, bespoke art direction"
+    "2D, illustration"
    ],
    [
     "Licensed music",
-    1,
     1,
     1
    ],
    [
     "Script + storyboard",
     0,
-    1,
     1
    ],
    [
     "Voice-over",
     0,
-    "AI or human voice",
-    "AI or human voice"
-   ],
-   [
-    "Full sound design",
-    0,
-    0,
-    1
+    "AI"
    ],
    [
     "Aspect ratios",
     "2 ratios",
-    "2 ratios",
-    "Social media cut-downs"
+    "3 ratios"
    ]
   ],
   "ai": [

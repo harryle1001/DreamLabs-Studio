@@ -37,7 +37,7 @@
     id: 'motion-thaverine', title: 'Thavérine — Hành trình một viên đá', industry: 'Trang sức',
     desc: 'Infographic 4 chặng chế tác trên ảnh và cảnh quay thật: đá thô, đá đã cắt giác, thợ đính đá trên bàn nghề, chiếc nhẫn hoàn thiện. Số liệu đếm lên, thanh tiến trình chạy theo từng bước. Hình từ thư viện Pexels; đồ họa, dựng và màu do Dream Labs làm. Số liệu minh họa.',
     tags: ['Infographic', 'Explainer', 'Số liệu động'],
-    pkg: 'Motion Graphic — Cao cấp',
+    pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-thaverine.webp', kind: 'video',
     src: 'media/sm-motion-thaverine.mp4?v=r1', poster: 'media/sm-motion-thaverine.webp', ratio: '16:9', duration: 9.6
   },
@@ -53,7 +53,7 @@
     id: 'motion-studio3d', title: 'Dream Labs 3D Studio — Sáu vật thật', industry: 'Nội thất',
     desc: 'Phim sản phẩm 3D 17 giây: sáu món đồ quét 3D từ vật thật (Poly Haven, CC0) đặt trên bệ đá viền đồng, máy quay lượn và đẩy sát, ánh sáng lướt qua bề mặt đồng, gốm, sứ, gỗ; chữ tên sản phẩm hiện theo nhịp. Toàn bộ dựng bằng Three.js trong trình duyệt.',
     tags: ['Phim sản phẩm 3D', 'Quét 3D vật thật', 'Ánh sáng studio'],
-    pkg: 'Motion Graphic — Cao cấp',
+    pkg: 'Motion Graphic — Chuyên nghiệp',
     cover: 'img/sm-motion-studio3d.webp', kind: 'video',
     src: 'media/sm-motion-studio3d.mp4?v=a1', poster: 'media/sm-motion-studio3d.webp', ratio: '16:9', duration: 17
   }
