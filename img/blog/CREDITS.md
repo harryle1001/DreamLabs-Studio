@@ -4,6 +4,24 @@
 
 | Bài | Ảnh | Tác giả | Nguồn | Link |
 |---|---|---|---|---|
+| [Website doanh nghiệp cần những trang gì](https://dreamlabs.vn/blog/website-doanh-nghiep-can-nhung-trang-gi/) | a2 | Christina Morillo | Pexels | https://www.pexels.com/photo/1181310/ |
+| [Website doanh nghiệp cần những trang gì](https://dreamlabs.vn/blog/website-doanh-nghiep-can-nhung-trang-gi/) | cover | picjumbo.com | Pexels | https://www.pexels.com/photo/196644/ |
+| [Website doanh nghiệp cần những trang gì](https://dreamlabs.vn/blog/website-doanh-nghiep-can-nhung-trang-gi/) | a1 | Kaboompics.com | Pexels | https://www.pexels.com/photo/7680058/ |
+| [Thiết kế UX/UI website doanh nghiệp](https://dreamlabs.vn/blog/thiet-ke-ux-ui-website-doanh-nghiep/) | cover | Pixabay | Pexels | https://www.pexels.com/photo/273230/ |
+| [Thiết kế UX/UI website doanh nghiệp](https://dreamlabs.vn/blog/thiet-ke-ux-ui-website-doanh-nghiep/) | a1 | Fabian Wiktor | Pexels | https://www.pexels.com/photo/3471423/ |
+| [Thiết kế UX/UI website doanh nghiệp](https://dreamlabs.vn/blog/thiet-ke-ux-ui-website-doanh-nghiep/) | a2 | fauxels | Pexels | https://www.pexels.com/photo/3184455/ |
+| [Tốc độ website và Core Web Vitals](https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/) | cover | Mian Rizwan | Pexels | https://www.pexels.com/photo/1699588/ |
+| [Tốc độ website và Core Web Vitals](https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/) | a2 | Mikhail Nilov | Pexels | https://www.pexels.com/photo/7988113/ |
+| [Tốc độ website và Core Web Vitals](https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/) | a1 | Gustavo Fring | Pexels | https://www.pexels.com/photo/6699479/ |
+| [Tốc độ website và Core Web Vitals](https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/) | a3 | Brett Sayles | Pexels | https://www.pexels.com/photo/4373998/ |
+| [Bảo mật website doanh nghiệp](https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/) | a1 | indra projects | Pexels | https://www.pexels.com/photo/27742642/ |
+| [Bảo mật website doanh nghiệp](https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/) | a2 | Andrea Piacquadio | Pexels | https://www.pexels.com/photo/3915760/ |
+| [Bảo mật website doanh nghiệp](https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/) | cover | Antoni Shkraba | Pexels | https://www.pexels.com/photo/5475752/ |
+| [Bảo mật website doanh nghiệp](https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/) | a3 | panumas nikhomkhai | Pexels | https://www.pexels.com/photo/17489163/ |
+| [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | cover | AlphaTradeZone | Pexels | https://www.pexels.com/photo/5833245/ |
+| [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | a1 | RDNE Stock project | Pexels | https://www.pexels.com/photo/7841502/ |
+| [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | a2 | Gustavo Fring | Pexels | https://www.pexels.com/photo/6285071/ |
+| [Chọn công ty thiết kế website uy tín](https://dreamlabs.vn/blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/) | a3 | Kaboompics.com | Pexels | https://www.pexels.com/photo/5387258/ |
 | [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | cover | Ketut Subiyanto | Pexels | https://www.pexels.com/photo/busy-asian-waitress-working-with-cashier-at-desk-in-cozy-cafe-4473492/ |
 | [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | a1 | Amina Filkins | Pexels | https://www.pexels.com/photo/ethnic-florist-working-in-floral-shop-5409672/ |
 | [Doanh nghiệp nhỏ có nên dùng AI](https://dreamlabs.vn/blog/doanh-nghiep-nho-co-nen-dung-ai/) | a2 | Mikhail Nilov | Pexels | https://www.pexels.com/photo/colleagues-sitting-by-table-at-office-8101931/ |

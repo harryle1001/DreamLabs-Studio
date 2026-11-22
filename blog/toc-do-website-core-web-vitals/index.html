@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Core Web Vitals là gì? Cách đo và tăng tốc độ website</title>
+<meta name="description" content="Core Web Vitals gồm LCP, INP, CLS: ngưỡng tốt theo web.dev, cách đo bằng PageSpeed Insights, Search Console và các bước tăng tốc website cụ thể.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/">
+<meta name="theme-color" content="#15121C">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="../../img/icon-192.png">
+<link rel="apple-touch-icon" href="../../img/icon-180.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dream Labs">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Core Web Vitals là gì? Cách đo và tăng tốc độ website">
+<meta property="og:description" content="Core Web Vitals gồm LCP, INP, CLS: ngưỡng tốt theo web.dev, cách đo bằng PageSpeed Insights, Search Console và các bước tăng tốc website cụ thể.">
+<meta property="og:url" content="https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/">
+<meta property="og:image" content="https://dreamlabs.vn/img/blog/toc-do-website-core-web-vitals/og.jpg">
+<meta property="og:image:alt" content="Vệt đèn xe đỏ trắng uốn cong trên đường cao tốc ban đêm, chụp phơi sáng dài">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-11-22">
+<meta property="article:modified_time" content="2026-11-22">
+<meta property="article:section" content="Website">
+<meta name="keywords" content="tốc độ website, core web vitals là gì, cách tăng tốc độ website, kiểm tra tốc độ website, LCP INP CLS">
+<script>/* mặc định nền tối; khách đã chọn sáng thì giữ sáng */var t=null;try{t=localStorage.getItem('dl-theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')</script>
+<link rel="stylesheet" href="../../css/blog.min.css?v=d4223ed2">
+<script src="../../js/track.js?v=6353123f" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://dreamlabs.vn/#org","name":"Dream Labs","url":"https://dreamlabs.vn/","logo":"https://dreamlabs.vn/img/icon-512.png"},{"@type":"BlogPosting","@id":"https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/#bai","headline":"Tốc độ website và Core Web Vitals: vì sao web chậm làm mất khách, cách đo và cải thiện","description":"Core Web Vitals gồm LCP, INP, CLS: ngưỡng tốt theo web.dev, cách đo bằng PageSpeed Insights, Search Console và các bước tăng tốc website cụ thể.","inLanguage":"vi","url":"https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/","mainEntityOfPage":"https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/","image":["https://dreamlabs.vn/img/blog/toc-do-website-core-web-vitals/cover-1280.webp","https://dreamlabs.vn/img/blog/toc-do-website-core-web-vitals/og.jpg"],"datePublished":"2026-11-22","dateModified":"2026-11-22","wordCount":2675,"keywords":"tốc độ website, core web vitals là gì, cách tăng tốc độ website, kiểm tra tốc độ website, LCP INP CLS","articleSection":"Website","author":{"@id":"https://dreamlabs.vn/#org"},"publisher":{"@id":"https://dreamlabs.vn/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://dreamlabs.vn/"},{"@type":"ListItem","position":2,"name":"Bài viết","item":"https://dreamlabs.vn/blog/"},{"@type":"ListItem","position":3,"name":"Tốc độ website và Core Web Vitals: vì sao web chậm làm mất khách, cách đo và cải thiện","item":"https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/"}]},{"@type":"FAQPage","@id":"https://dreamlabs.vn/blog/toc-do-website-core-web-vitals/#cau-hoi","mainEntity":[{"@type":"Question","name":"Core Web Vitals là gì?","acceptedAnswer":{"@type":"Answer","text":"Là ba chỉ số Google dùng để đo trải nghiệm thật trên trang web: LCP đo tốc độ hiện nội dung chính, INP đo độ nhạy khi thao tác, CLS đo độ ổn định bố cục. Mức tốt là LCP từ 2,5 giây, INP từ 200 mili giây và CLS từ 0,1 trở xuống."}},{"@type":"Question","name":"Website tải bao nhiêu giây là chậm?","acceptedAnswer":{"@type":"Answer","text":"Theo ngưỡng của web.dev, nội dung chính nên hiện trong 2,5 giây trở xuống với ít nhất 75% lượt truy cập. Vượt mức này, khách bắt đầu cảm thấy phải chờ, đặc biệt trên điện thoại."}},{"@type":"Question","name":"Làm sao kiểm tra tốc độ website miễn phí?","acceptedAnswer":{"@type":"Answer","text":"Dùng PageSpeed Insights để kiểm tra từng trang, báo cáo Core Web Vitals trong Google Search Console để xem toàn bộ website, và Lighthouse trong Chrome DevTools để thử nhanh khi đang sửa."}},{"@type":"Question","name":"Vì sao điểm PageSpeed cao mà Search Console vẫn báo kém?","acceptedAnswer":{"@type":"Answer","text":"Điểm PageSpeed (Lighthouse) là dữ liệu phòng thí nghiệm trong một lần tải mô phỏng, còn Search Console dùng dữ liệu người dùng thật trong 28 ngày. Khách dùng điện thoại yếu, mạng chậm hoặc tương tác nhiều sẽ cho kết quả khác."}},{"@type":"Question","name":"Tốc độ website có ảnh hưởng đến thứ hạng Google không?","acceptedAnswer":{"@type":"Answer","text":"Có, Google cho biết Core Web Vitals và các yếu tố trải nghiệm trang phù hợp với những gì hệ thống xếp hạng muốn khen thưởng. Tuy vậy, nội dung hữu ích vẫn là yếu tố quan trọng hơn; tốc độ tốt giúp bạn không bị thiệt, không tự đưa trang lên top."}},{"@type":"Question","name":"INP khác FID thế nào?","acceptedAnswer":{"@type":"Answer","text":"FID chỉ đo độ trễ của lần tương tác đầu tiên, còn INP xét các lần tương tác trong suốt lượt xem nên phản ánh đúng hơn cảm giác \"bấm không ăn\". INP thay FID trong Core Web Vitals từ ngày 12/3/2024."}},{"@type":"Question","name":"Có cần đổi hosting để website nhanh hơn không?","acceptedAnswer":{"@type":"Answer","text":"Chưa chắc. Hãy tối ưu ảnh, font, JavaScript trước vì đó thường là nguyên nhân lớn nhất. Nếu thời gian phản hồi máy chủ vẫn chậm sau khi bật bộ nhớ đệm và CDN, lúc đó mới nên nâng cấp hoặc đổi hosting."}}]}]}</script>
+</head>
+<body class="bl">
+<a class="bl-skip" href="#noi-dung">Bỏ qua tới nội dung</a>
+<header class="bl-head">
+ <div class="bl-wrap bl-head-in">
+  <a class="bl-logo" href="../../" aria-label="Dream Labs, trang chủ"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+  <nav class="bl-nav" aria-label="Chính">
+   <a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa AI</a><a href="../../thiet-ke-website/">Website</a><a href="../../lab/">Lab</a><a href="../../blog/" aria-current="page">Bài viết</a><a href="../../#lien-he">Liên hệ</a>
+  </nav>
+  <div class="bl-act">
+   <button class="bl-ib" type="button" data-theme-toggle aria-label="Đổi giao diện sáng hoặc tối"><svg viewBox="0 0 26 26" aria-hidden="true"><g class="sun"><circle cx="13" cy="13" r="4.6"/><path d="M13 3v2.4M13 20.6V23M3 13h2.4M20.6 13H23M5.9 5.9l1.7 1.7M18.4 18.4l1.7 1.7M5.9 20.1l1.7-1.7M18.4 7.6l1.7-1.7"/></g><path class="moon" d="M19.6 15.4A7.6 7.6 0 0 1 10.6 6.4a7.6 7.6 0 1 0 9 9z"/></svg></button>
+   <a class="btn primary sm bl-zalo" href="https://zalo.me/0934246420" target="_blank" rel="noopener"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 4.2c-5.2 0-9.4 3.5-9.4 7.9 0 2.5 1.4 4.7 3.5 6.2l-.8 3.5 3.8-2.1c.9.2 1.9.3 2.9.3 5.2 0 9.4-3.5 9.4-7.9S18.2 4.2 13 4.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Zalo 0934 246 420</span></a>
+  </div>
+ </div>
+</header>
+<main id="noi-dung">
+<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="../../">Trang chủ</a><span aria-hidden="true">/</span><a href="../">Bài viết</a><span aria-hidden="true">/</span><span aria-current="page">Tốc độ website và Core Web Vitals</span></nav>
+<article class="bl-post">
+ <header class="bl-wrap bl-post-h">
+  <p class="eyebrow">Website</p>
+  <h1>Tốc độ website và Core Web Vitals: vì sao web chậm làm mất khách, cách đo và cải thiện</h1>
+  <p class="bl-lead">Website chậm vài giây là đủ để khách bấm quay lại. Bài này giải thích ba chỉ số Core Web Vitals bằng ngôn ngữ dễ hiểu, cách tự đo tốc độ website trong 10 phút, đọc đúng dữ liệu thực tế và dữ liệu phòng thí nghiệm, rồi đi vào từng cách cải thiện: ảnh, font, JavaScript, hosting và CDN.</p>
+  <p class="bl-meta"><span>Dream Labs</span><time datetime="2026-11-22">22 tháng 11, 2026</time><span>13 phút đọc</span></p>
+ </header>
+ <figure class="bl-wrap bl-hero"><picture><source type="image/avif" srcset="../../img/blog/toc-do-website-core-web-vitals/cover-640.avif 640w, ../../img/blog/toc-do-website-core-web-vitals/cover-1280.avif 1280w, ../../img/blog/toc-do-website-core-web-vitals/cover-1920.avif 1920w, ../../img/blog/toc-do-website-core-web-vitals/cover-3840.avif 3840w" sizes="(min-width:1280px) 1240px, 100vw"><source type="image/webp" srcset="../../img/blog/toc-do-website-core-web-vitals/cover-640.webp 640w, ../../img/blog/toc-do-website-core-web-vitals/cover-1280.webp 1280w, ../../img/blog/toc-do-website-core-web-vitals/cover-1920.webp 1920w, ../../img/blog/toc-do-website-core-web-vitals/cover-3840.webp 3840w" sizes="(min-width:1280px) 1240px, 100vw"><img src="../../img/blog/toc-do-website-core-web-vitals/cover-1280.webp" width="1280" height="791" alt="Vệt đèn xe đỏ trắng uốn cong trên đường cao tốc ban đêm, chụp phơi sáng dài" fetchpriority="high" decoding="async"></picture><figcaption>Ảnh minh họa: tốc độ website quyết định khách ở lại hay rời đi chỉ trong vài giây đầu.</figcaption></figure>
+ <div class="bl-wrap bl-grid">
+  <aside class="bl-toc" aria-label="Mục lục"><details open><summary>Mục lục</summary><ol><li><a href="#vi-sao">Vì sao website chậm làm mất khách</a></li><li><a href="#core-web-vitals">Core Web Vitals là gì: ba chỉ số LCP, INP, CLS</a></li><li><a href="#cach-do">Cách kiểm tra tốc độ website: công cụ miễn phí</a></li><li><a href="#du-lieu">Dữ liệu thực tế và dữ liệu phòng thí nghiệm: đọc sao cho đúng</a></li><li><a href="#cai-thien">Cách tăng tốc độ website: việc cụ thể theo từng nhóm</a></li><li><a href="#vi-du">Ví dụ minh họa: website nhà hàng tải chậm trên điện thoại</a></li><li><a href="#sai-lam">Sai lầm thường gặp khi tối ưu tốc độ website</a></li><li><a href="#checklist">Checklist tốc độ website làm được ngay</a></li><li><a href="#chi-phi">Website tải nhanh ngay từ khi thiết kế tại Dream Labs</a></li><li><a href="#cau-hoi">Câu hỏi thường gặp</a></li></ol></details></aside>
+  <div class="bl-body">
+<p><strong>Tốc độ website</strong> là thời gian từ lúc khách bấm vào đường dẫn đến lúc họ thấy nội dung và thao tác được. Google đo trải nghiệm này bằng bộ chỉ số <strong>Core Web Vitals</strong> gồm ba chỉ số: LCP (nội dung chính hiện nhanh đến đâu), INP (bấm vào có phản hồi ngay không) và CLS (bố cục có bị xô lệch không). Mức tốt theo web.dev là LCP từ 2,5 giây trở xuống, INP từ 200 mili giây trở xuống và CLS từ 0,1 trở xuống.</p>
+<p>Bài <a href="../thiet-ke-website-chuan-seo-2026/">thiết kế website chuẩn SEO</a> đã nhắc Core Web Vitals như một mục trong checklist. Bài này đi sâu hơn: vì sao website chậm làm mất khách, từng chỉ số đo cái gì, cách tự kiểm tra tốc độ website, cách đọc kết quả cho đúng và những việc cụ thể giúp trang nhanh hơn.</p>
+
+<h2 id="vi-sao">Vì sao website chậm làm mất khách</h2>
+<p>Khách tìm thấy bạn trên Google hoặc qua quảng cáo thường đang so sánh vài lựa chọn cùng lúc. Nếu trang trắng xóa vài giây, nút bấm không phản hồi hoặc nội dung nhảy lung tung khiến họ bấm nhầm, họ quay lại và chọn đối thủ. Bạn vẫn trả tiền cho lượt bấm quảng cáo đó, nhưng không có cuộc gọi hay tin nhắn nào.</p>
+<p>Ảnh hưởng của tốc độ đến doanh thu đã được đo trong thực tế. Một nghiên cứu điển hình do <a href="https://web.dev/case-studies/vodafone" target="_blank" rel="noopener">web.dev công bố</a> mô tả thử nghiệm A/B của nhà mạng Vodafone: hai phiên bản trang đích giống hệt nhau về giao diện và chức năng, chỉ khác ở chỗ một bản được tối ưu Web Vitals. Bản tối ưu có LCP tốt hơn 31% và mang lại thêm 8% doanh số. Đây là số liệu của một doanh nghiệp viễn thông lớn, không thể áp nguyên cho mọi website, nhưng cho thấy tốc độ không chỉ là chuyện kỹ thuật.</p>
+<p>Về phía Google, tài liệu <a href="https://developers.google.com/search/docs/appearance/core-web-vitals" target="_blank" rel="noopener">Google Search Central về Core Web Vitals</a> cho biết đạt Core Web Vitals tốt, cùng các yếu tố trải nghiệm trang khác, phù hợp với những gì hệ thống xếp hạng của Google muốn khen thưởng. Nói cách khác, tốc độ là một yếu tố được tính đến, nhưng không thay thế được nội dung hữu ích. Trang nhanh mà nội dung sơ sài vẫn khó lên top.</p>
+
+<h2 id="core-web-vitals">Core Web Vitals là gì: ba chỉ số LCP, INP, CLS</h2>
+<p>Core Web Vitals là ba chỉ số do Google định nghĩa để đo trải nghiệm thật của người dùng trên một trang web. Từ ngày 12/3/2024, INP chính thức <a href="https://web.dev/blog/inp-cwv-march-12" target="_blank" rel="noopener">thay thế FID</a> trong bộ chỉ số này, nên nếu bạn đọc tài liệu cũ còn nhắc FID thì đó là thông tin đã lỗi thời.</p>
+<div class="bl-table" role="region" aria-label="Ba chỉ số Core Web Vitals và ngưỡng tốt" tabindex="0"><table><caption>Ba chỉ số Core Web Vitals và ngưỡng "tốt" theo web.dev</caption>
+<thead><tr><th>Chỉ số</th><th>Đo điều gì</th><th>Ngưỡng tốt</th><th>Khách cảm nhận khi chỉ số kém</th></tr></thead>
+<tbody>
+<tr><td>LCP (Largest Contentful Paint)</td><td>Thời gian hiện phần nội dung lớn nhất trong màn hình đầu: ảnh bìa, khối tiêu đề lớn</td><td>Từ 2,5 giây trở xuống</td><td>Trang trắng hoặc chỉ hiện khung, phải chờ mới thấy nội dung chính</td></tr>
+<tr><td>INP (Interaction to Next Paint)</td><td>Độ trễ từ lúc bấm, chạm, gõ đến lúc màn hình phản hồi, tính trên các lần tương tác trong suốt lượt xem</td><td>Từ 200 mili giây trở xuống</td><td>Bấm nút "Đặt lịch" mà không thấy gì xảy ra, bấm thêm lần nữa</td></tr>
+<tr><td>CLS (Cumulative Layout Shift)</td><td>Mức xô lệch bố cục bất ngờ khi trang đang tải</td><td>Từ 0,1 trở xuống</td><td>Đang đọc thì chữ tụt xuống, định bấm nút này lại bấm trúng nút khác</td></tr>
+</tbody></table></div>
+<p>Theo <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener">tài liệu Web Vitals trên web.dev</a>, mỗi chỉ số được đánh giá ở <strong>phân vị thứ 75</strong> của các lượt truy cập, tách riêng điện thoại và máy tính. Hiểu đơn giản: một trang được xem là đạt khi ít nhất 75% lượt xem có trải nghiệm ở mức tốt. Vì vậy, website chạy nhanh trên máy tính văn phòng của bạn chưa chắc đạt, nếu phần lớn khách xem bằng điện thoại tầm trung qua mạng 4G.</p>
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/toc-do-website-core-web-vitals/a1-640.avif 640w, ../../img/blog/toc-do-website-core-web-vitals/a1-1280.avif 1280w, ../../img/blog/toc-do-website-core-web-vitals/a1-1920.avif 1920w, ../../img/blog/toc-do-website-core-web-vitals/a1-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/toc-do-website-core-web-vitals/a1-640.webp 640w, ../../img/blog/toc-do-website-core-web-vitals/a1-1280.webp 1280w, ../../img/blog/toc-do-website-core-web-vitals/a1-1920.webp 1920w, ../../img/blog/toc-do-website-core-web-vitals/a1-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/toc-do-website-core-web-vitals/a1-1280.webp" width="1280" height="791" alt="Người phụ nữ mỉm cười xem điện thoại trong quán cà phê, bên cạnh tách cà phê trên bàn gỗ" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: phần lớn khách xem website bằng điện thoại, nên hãy đo và tối ưu cho điện thoại trước.</figcaption></figure>
+
+<h2 id="cach-do">Cách kiểm tra tốc độ website: công cụ miễn phí</h2>
+<p>Bạn không cần là lập trình viên để biết website nhanh hay chậm. Ba công cụ miễn phí của Google đủ cho hầu hết doanh nghiệp:</p>
+<h3>PageSpeed Insights</h3>
+<p>Vào <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">PageSpeed Insights</a>, dán đường dẫn trang cần kiểm tra và bấm phân tích. Kết quả có hai phần. Phần trên là dữ liệu từ người dùng Chrome thật (nếu trang có đủ lượt truy cập), cho biết trang có đạt Core Web Vitals hay không. Phần dưới là điểm hiệu suất do Lighthouse chấm trong một lần tải mô phỏng, kèm danh sách gợi ý cụ thể như ảnh quá nặng, mã JavaScript chặn hiển thị. Hãy xem tab điện thoại trước, vì đó thường là nơi website chậm nhất.</p>
+<h3>Báo cáo Core Web Vitals trong Google Search Console</h3>
+<p>Nếu website đã được xác minh trong Google Search Console, mục Core Web Vitals sẽ gom các URL thành nhóm "tốt", "cần cải thiện", "kém" theo dữ liệu người dùng thật. Ưu điểm là nhìn được toàn bộ website thay vì từng trang, và biết lỗi nằm ở nhóm trang nào (ví dụ tất cả trang sản phẩm cùng bị LCP chậm do dùng chung một mẫu). Website mới hoặc ít truy cập có thể chưa có dữ liệu trong báo cáo này.</p>
+<h3>Lighthouse trong Chrome DevTools</h3>
+<p>Dành cho người làm kỹ thuật: mở Chrome, bấm F12, chọn tab Lighthouse để chạy kiểm tra ngay trên máy, kể cả với trang chưa xuất bản. Đây là cách nhanh để kiểm tra trước và sau mỗi lần sửa.</p>
+
+<h2 id="du-lieu">Dữ liệu thực tế và dữ liệu phòng thí nghiệm: đọc sao cho đúng</h2>
+<p>Nhiều chủ doanh nghiệp bối rối vì PageSpeed Insights cho điểm 95 nhưng Search Console vẫn báo "kém", hoặc ngược lại. Lý do là hai loại dữ liệu khác nhau, như web.dev giải thích trong bài <a href="https://web.dev/articles/lab-and-field-data-differences" target="_blank" rel="noopener">vì sao dữ liệu phòng thí nghiệm và thực tế khác nhau</a>:</p>
+<ul>
+ <li><strong>Dữ liệu phòng thí nghiệm (lab data):</strong> đo trong môi trường cố định, một thiết bị và tốc độ mạng giả lập. Kết quả lặp lại được, hợp để tìm lỗi và kiểm tra sau khi sửa. Điểm hiệu suất Lighthouse thuộc loại này.</li>
+ <li><strong>Dữ liệu thực tế (field data):</strong> thu từ người dùng thật với đủ loại điện thoại, mạng và vị trí. Dữ liệu của Chrome (CrUX) mà PageSpeed Insights và Search Console dùng được tổng hợp trong 28 ngày gần nhất. Đây là con số Google dùng để đánh giá Core Web Vitals.</li>
+</ul>
+<p>Hệ quả thực tế: sau khi sửa website, điểm Lighthouse tăng ngay, nhưng dữ liệu thực tế cần vài tuần mới phản ánh đủ. Ngoài ra, INP đo tương tác thật của người dùng nên chỉ có trong dữ liệu thực tế; bài kiểm tra phòng thí nghiệm dùng chỉ số khác như Total Blocking Time để ước lượng. Đừng chạy theo con số 100 điểm; hãy ưu tiên để dữ liệu thực tế của cả ba chỉ số nằm trong vùng tốt.</p>
+
+<aside class="bl-mid" aria-label="Liên hệ Dream Labs"><p><b>Cần người xem giúp trường hợp của bạn?</b> Nhắn Zalo <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">0934 246 420</a> cho Dream Labs: mô tả ngắn việc bạn đang làm, chúng tôi trả lời trong giờ làm việc, tư vấn miễn phí.</p><a class="btn primary sm" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo 0934 246 420</a></aside>
+
+<h2 id="cai-thien">Cách tăng tốc độ website: việc cụ thể theo từng nhóm</h2>
+<p>Phần lớn website doanh nghiệp chậm vì vài nguyên nhân lặp đi lặp lại. Dưới đây là cách xử lý theo thứ tự thường mang lại hiệu quả lớn nhất.</p>
+<h3>Ảnh: nguyên nhân số một khiến LCP chậm</h3>
+<ul>
+ <li><strong>Dùng định dạng hiện đại:</strong> WebP hoặc AVIF thường nhẹ hơn nhiều so với JPG, PNG cùng chất lượng hiển thị.</li>
+ <li><strong>Đúng kích thước:</strong> không tải ảnh 4000 px cho khung hiển thị 400 px trên điện thoại. Dùng thuộc tính srcset để trình duyệt tự chọn cỡ phù hợp.</li>
+ <li><strong>Ưu tiên ảnh đầu trang:</strong> ảnh bìa (thường là phần tử LCP) không đặt chế độ tải chậm (lazy) mà nên đánh dấu ưu tiên cao bằng fetchpriority="high"; các ảnh phía dưới mới dùng loading="lazy".</li>
+ <li><strong>Luôn khai báo chiều rộng, chiều cao</strong> cho ảnh và video để trình duyệt giữ chỗ trước, tránh xô lệch bố cục (CLS).</li>
+</ul>
+<h3>Font chữ: đẹp nhưng đừng để chờ</h3>
+<ul>
+ <li>Chỉ tải những độ đậm thực sự dùng, thay vì cả họ font với chín độ đậm.</li>
+ <li>Ưu tiên tự lưu font trên cùng máy chủ hoặc tải trước (preload) font dùng cho tiêu đề đầu trang.</li>
+ <li>Dùng font-display: swap để chữ hiện ngay bằng font dự phòng, tránh màn hình không chữ trong lúc chờ font.</li>
+ <li>Với tiếng Việt, kiểm tra font có đủ dấu; font thiếu dấu khiến trình duyệt ghép font khác, vừa xấu vừa có thể gây xô lệch.</li>
+</ul>
+<h3>JavaScript: thủ phạm chính của INP kém</h3>
+<ul>
+ <li>Gỡ plugin, tiện ích, mã theo dõi không còn dùng. Mỗi đoạn mã chat, bản đồ, pixel quảng cáo đều tốn thời gian xử lý trên điện thoại.</li>
+ <li>Trì hoãn mã không cần ngay (defer, async), chỉ tải khung chat hay bản đồ khi khách cuộn tới hoặc bấm vào.</li>
+ <li>Tránh thanh trượt (slider) nặng và hiệu ứng chạy liên tục ở đầu trang; chúng làm chậm cả LCP lẫn INP.</li>
+ <li>Với website WordPress, công cụ kéo thả và nhiều plugin thường là nguồn mã thừa lớn nhất. Bài <a href="../website-wordpress-hay-code-tay/">nên làm website bằng WordPress hay code tay</a> phân tích kỹ khác biệt về tốc độ giữa hai cách làm.</li>
+</ul>
+<h3>Hosting và CDN: nền móng của tốc độ</h3>
+<ul>
+ <li><strong>Thời gian phản hồi máy chủ</strong> chậm thì mọi tối ưu phía trên đều bị kéo lùi. Hosting quá yếu hoặc đặt quá xa khách hàng là nguyên nhân thường gặp.</li>
+ <li><strong>CDN (mạng phân phối nội dung)</strong> như Cloudflare lưu bản sao ảnh, CSS, JavaScript ở nhiều điểm gần người xem, giúp trang tải nhanh hơn với khách ở xa máy chủ.</li>
+ <li><strong>Bộ nhớ đệm (cache):</strong> trang được dựng sẵn hoặc lưu đệm trả về gần như tức thì, thay vì máy chủ phải xử lý lại mỗi lượt xem.</li>
+ <li>Bật nén (gzip hoặc Brotli) và HTTP/2 hoặc HTTP/3; phần lớn hosting và CDN hiện đại có sẵn.</li>
+</ul>
+<p>Hosting cũng là khoản chi lặp lại hằng năm; cách dự trù nằm trong bài <a href="../chi-phi-duy-tri-website-hang-nam/">chi phí duy trì website hằng năm</a>.</p>
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/toc-do-website-core-web-vitals/a3-640.avif 640w, ../../img/blog/toc-do-website-core-web-vitals/a3-1280.avif 1280w, ../../img/blog/toc-do-website-core-web-vitals/a3-1920.avif 1920w, ../../img/blog/toc-do-website-core-web-vitals/a3-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/toc-do-website-core-web-vitals/a3-640.webp 640w, ../../img/blog/toc-do-website-core-web-vitals/a3-1280.webp 1280w, ../../img/blog/toc-do-website-core-web-vitals/a3-1920.webp 1920w, ../../img/blog/toc-do-website-core-web-vitals/a3-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/toc-do-website-core-web-vitals/a3-1280.webp" width="1280" height="791" alt="Thiết bị cáp quang với hàng trăm sợi cáp màu xanh và vàng cắm vào bảng đấu nối" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: hosting tốt và CDN đặt gần khách hàng là nền móng để website tải nhanh.</figcaption></figure>
+
+<h2 id="vi-du">Ví dụ minh họa: website nhà hàng tải chậm trên điện thoại</h2>
+<p>Tình huống giả định, không phải khách hàng thật: một nhà hàng ở Đà Nẵng chạy quảng cáo dẫn về trang menu. Khách phản ánh trang "load mãi không lên". Kiểm tra bằng PageSpeed Insights cho thấy LCP trên điện thoại vượt xa 2,5 giây, nguyên nhân chính là ba ảnh món ăn ở đầu trang, mỗi ảnh vài MB, đặt trong thanh trượt tự chạy, cùng font chữ tải năm độ đậm và một khung chat bên thứ ba.</p>
+<p>Cách xử lý theo thứ tự: thay thanh trượt bằng một ảnh bìa duy nhất xuất WebP đúng cỡ và đánh dấu ưu tiên; ảnh menu bên dưới tải chậm; giữ hai độ đậm font; chỉ tải khung chat khi khách bấm biểu tượng. Sau khi sửa, điểm Lighthouse cải thiện ngay; dữ liệu thực tế trong Search Console được theo dõi thêm khoảng bốn tuần để xác nhận. Nếu bạn làm website cho ngành ăn uống, xem thêm trang <a href="../../thiet-ke-website/nha-hang/">thiết kế website nhà hàng</a>.</p>
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/toc-do-website-core-web-vitals/a2-640.avif 640w, ../../img/blog/toc-do-website-core-web-vitals/a2-1280.avif 1280w, ../../img/blog/toc-do-website-core-web-vitals/a2-1920.avif 1920w, ../../img/blog/toc-do-website-core-web-vitals/a2-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/toc-do-website-core-web-vitals/a2-640.webp 640w, ../../img/blog/toc-do-website-core-web-vitals/a2-1280.webp 1280w, ../../img/blog/toc-do-website-core-web-vitals/a2-1920.webp 1920w, ../../img/blog/toc-do-website-core-web-vitals/a2-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/toc-do-website-core-web-vitals/a2-1280.webp" width="1280" height="791" alt="Lập trình viên mặc áo sơ mi trắng ngồi trước màn hình lớn hiển thị mã HTML trong văn phòng" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: tối ưu tốc độ là việc đo, sửa, rồi đo lại sau mỗi thay đổi.</figcaption></figure>
+
+<h2 id="sai-lam">Sai lầm thường gặp khi tối ưu tốc độ website</h2>
+<ul>
+ <li><strong>Chỉ nhìn điểm PageSpeed trên máy tính.</strong> Khách của bạn phần lớn dùng điện thoại, và Google đánh giá riêng từng loại thiết bị.</li>
+ <li><strong>Chạy theo 100 điểm Lighthouse.</strong> Điểm phòng thí nghiệm là công cụ tìm lỗi, còn mục tiêu là dữ liệu thực tế nằm trong vùng tốt.</li>
+ <li><strong>Cài thêm plugin "tăng tốc" chồng lên nhau.</strong> Nhiều plugin tối ưu cùng làm một việc có thể xung đột, làm vỡ giao diện hoặc chậm hơn.</li>
+ <li><strong>Đặt ảnh bìa ở chế độ tải chậm.</strong> Ảnh quan trọng nhất lại được tải sau cùng, khiến LCP tệ đi.</li>
+ <li><strong>Thêm mã theo dõi, chat, pop-up mà không đo lại.</strong> Mỗi thứ thêm vào đều có giá về tốc độ, nhất là INP.</li>
+ <li><strong>Tối ưu một lần rồi bỏ.</strong> Mỗi bài viết, banner, khuyến mãi mới đều có thể làm trang chậm lại nếu ảnh không được xử lý.</li>
+</ul>
+
+<h2 id="checklist">Checklist tốc độ website làm được ngay</h2>
+<ol class="bl-steps">
+ <li>Chạy PageSpeed Insights cho trang chủ và một trang quan trọng nhất (trang dịch vụ hoặc sản phẩm), xem tab điện thoại.</li>
+ <li>Ghi lại LCP, INP, CLS trong phần dữ liệu thực tế; nếu chưa có, ghi điểm và các gợi ý của Lighthouse.</li>
+ <li>Mở báo cáo Core Web Vitals trong Search Console, xem nhóm URL nào bị "kém" hoặc "cần cải thiện".</li>
+ <li>Kiểm tra ảnh đầu trang: định dạng, dung lượng, có bị đặt tải chậm không.</li>
+ <li>Liệt kê mọi plugin, mã chat, mã theo dõi; gỡ thứ không dùng.</li>
+ <li>Kiểm tra font: bao nhiêu độ đậm, có font-display: swap không.</li>
+ <li>Hỏi nhà cung cấp hosting về bộ nhớ đệm, nén, HTTP/2 và CDN.</li>
+ <li>Sau khi sửa, đo lại bằng Lighthouse ngay và theo dõi dữ liệu thực tế trong 28 ngày tiếp theo.</li>
+</ol>
+
+<h2 id="chi-phi">Website tải nhanh ngay từ khi thiết kế tại Dream Labs</h2>
+<p>Sửa tốc độ cho một website đã làm sẵn thường tốn công hơn làm đúng từ đầu, vì nhiều nguyên nhân nằm ở cấu trúc giao diện và nền tảng. Ở Dream Labs, website được dựng gọn, ảnh xuất nhiều cỡ AVIF và WebP, font tối ưu cho tiếng Việt, hạn chế mã bên thứ ba. Gói Chuyên nghiệp 18.000.000đ cam kết điểm Lighthouse từ 90 trở lên, gói Cơ bản 8.000.000đ phù hợp website giới thiệu theo mẫu tinh chỉnh, còn gói Cao cấp Liên hệ dành cho website đa ngôn ngữ, hiệu ứng 3D và tích hợp thanh toán vẫn giữ tốc độ tốt.</p>
+<div class="bl-price" role="region" aria-label="Bảng giá Website" tabindex="0"><table>
+<caption>Bảng giá Website tại Dream Labs (chưa gồm VAT)</caption>
+<thead><tr><th scope="col">Gói</th><th scope="col">Giá</th><th scope="col">Thời gian</th><th scope="col">Bao gồm</th></tr></thead>
+<tbody><tr><th scope="row">Cơ bản</th><td class="p">8.000.000đ</td><td>7–10 ngày<small>4 vòng sửa</small></td><td><p class="g">Có mặt chuyên nghiệp trên Google và điện thoại trong khoảng 10 ngày, khách tìm thấy và liên hệ được ngay.</p><ul><li>5 trang, giao diện theo mẫu tinh chỉnh</li><li>Responsive mọi thiết bị</li><li>Form liên hệ + nút Zalo</li><li>SEO cơ bản, Google Analytics</li></ul></td></tr>
+<tr class="hot"><th scope="row">Chuyên nghiệp<small>Phổ biến nhất</small></th><td class="p">18.000.000đ</td><td>14–21 ngày<small>9 vòng sửa</small></td><td><p class="g">Website riêng đúng tầm thương hiệu, tự đăng bài để có khách từ Google lâu dài, không phụ thuộc người làm.</p><ul><li>Đến 10 trang, thiết kế riêng 100%</li><li>Motion &amp; chuyển cảnh mượt</li><li>CMS tự sửa nội dung, blog</li><li>Viết nội dung chuẩn SEO</li><li>Tốc độ Lighthouse ≥ 90</li></ul></td></tr>
+<tr><th scope="row">Cao cấp</th><td class="p">Liên hệ</td><td>30–45 ngày<small>Không giới hạn trong phạm vi</small></td><td><p class="g">Trải nghiệm đủ khác biệt để định vị cao cấp, bán hàng và tiếp khách trực tuyến, phục vụ cả khách nước ngoài.</p><ul><li>Không giới hạn trang, đa ngôn ngữ</li><li>3D / WebGL, nhận diện thương hiệu số</li><li>Tích hợp thanh toán, CRM</li><li>Trợ lý AI tiếp khách trên website</li><li>Bảo trì 12 tháng</li></ul></td></tr></tbody></table></div>
+<p>Bạn có thể mở các <a href="../../mau-website/">mẫu website demo</a> của Dream Labs trên điện thoại và tự đo bằng PageSpeed Insights. Xem thêm <a href="../../thiet-ke-website/">dịch vụ thiết kế website</a> và <a href="../../bang-gia/">bảng giá</a> đầy đủ. Tốc độ đi đôi với an toàn, nên bạn cũng nên đọc bài <a href="../bao-mat-website-doanh-nghiep/">bảo mật website doanh nghiệp</a>. Muốn kiểm tra website hiện tại, nhắn <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a>.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Core Web Vitals là gì?</h3>
+<p>Là ba chỉ số Google dùng để đo trải nghiệm thật trên trang web: LCP đo tốc độ hiện nội dung chính, INP đo độ nhạy khi thao tác, CLS đo độ ổn định bố cục. Mức tốt là LCP từ 2,5 giây, INP từ 200 mili giây và CLS từ 0,1 trở xuống.</p>
+<h3>Website tải bao nhiêu giây là chậm?</h3>
+<p>Theo ngưỡng của web.dev, nội dung chính nên hiện trong 2,5 giây trở xuống với ít nhất 75% lượt truy cập. Vượt mức này, khách bắt đầu cảm thấy phải chờ, đặc biệt trên điện thoại.</p>
+<h3>Làm sao kiểm tra tốc độ website miễn phí?</h3>
+<p>Dùng PageSpeed Insights để kiểm tra từng trang, báo cáo Core Web Vitals trong Google Search Console để xem toàn bộ website, và Lighthouse trong Chrome DevTools để thử nhanh khi đang sửa.</p>
+<h3>Vì sao điểm PageSpeed cao mà Search Console vẫn báo kém?</h3>
+<p>Điểm PageSpeed (Lighthouse) là dữ liệu phòng thí nghiệm trong một lần tải mô phỏng, còn Search Console dùng dữ liệu người dùng thật trong 28 ngày. Khách dùng điện thoại yếu, mạng chậm hoặc tương tác nhiều sẽ cho kết quả khác.</p>
+<h3>Tốc độ website có ảnh hưởng đến thứ hạng Google không?</h3>
+<p>Có, Google cho biết Core Web Vitals và các yếu tố trải nghiệm trang phù hợp với những gì hệ thống xếp hạng muốn khen thưởng. Tuy vậy, nội dung hữu ích vẫn là yếu tố quan trọng hơn; tốc độ tốt giúp bạn không bị thiệt, không tự đưa trang lên top.</p>
+<h3>INP khác FID thế nào?</h3>
+<p>FID chỉ đo độ trễ của lần tương tác đầu tiên, còn INP xét các lần tương tác trong suốt lượt xem nên phản ánh đúng hơn cảm giác "bấm không ăn". INP thay FID trong Core Web Vitals từ ngày 12/3/2024.</p>
+<h3>Có cần đổi hosting để website nhanh hơn không?</h3>
+<p>Chưa chắc. Hãy tối ưu ảnh, font, JavaScript trước vì đó thường là nguyên nhân lớn nhất. Nếu thời gian phản hồi máy chủ vẫn chậm sau khi bật bộ nhớ đệm và CDN, lúc đó mới nên nâng cấp hoặc đổi hosting.</p>
+   <p class="bl-src"><b>Nguồn ảnh:</b> ảnh bìa: <a href="https://www.pexels.com/photo/1699588/" target="_blank" rel="noopener nofollow">Mian Rizwan / Pexels</a> · ảnh 2: <a href="https://www.pexels.com/photo/7988113/" target="_blank" rel="noopener nofollow">Mikhail Nilov / Pexels</a> · ảnh 1: <a href="https://www.pexels.com/photo/6699479/" target="_blank" rel="noopener nofollow">Gustavo Fring / Pexels</a> · ảnh 3: <a href="https://www.pexels.com/photo/4373998/" target="_blank" rel="noopener nofollow">Brett Sayles / Pexels</a>. Ảnh dùng theo giấy phép miễn phí của Pexels, chỉ mang tính minh họa.</p>
+   <section class="bl-cta" aria-label="Liên hệ Dream Labs">
+    <p class="eyebrow">Bắt đầu cùng Dream Labs</p>
+    <h2 class="bl-cta-h">Website của bạn đang chậm?</h2>
+    <p>Gửi đường dẫn website qua Zalo cho Dream Labs. Chúng tôi đo Core Web Vitals, chỉ ra nguyên nhân chính khiến trang chậm và gợi ý việc nên làm trước, miễn phí.</p>
+    <div class="bl-cta-act"><a class="btn primary" href="../../thiet-ke-website/">Xem gói Website <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="../../bang-gia/">Toàn bộ bảng giá</a><a class="btn" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a></div>
+   </section>
+  </div>
+ </div>
+</article>
+<section class="bl-wrap bl-more" aria-labelledby="bl-more-h"><h2 id="bl-more-h">Bài viết liên quan</h2><div class="bl-cards"><article class="bl-card"><a href="../thiet-ke-website-chuan-seo-2026/"><span class="bl-card-img"><img src="../../img/svc-web.webp" width="1280" height="791" alt="Hình minh họa dịch vụ thiết kế website: một trang web trên màn hình lớn và giao diện tương ứng trên điện thoại" loading="lazy" decoding="async"></span>
+ <span class="bl-card-t"><small>Website</small><h3>Thiết kế website chuẩn SEO 2026: checklist kỹ thuật và nội dung</h3><span class="bl-card-d">Thiết kế website chuẩn SEO 2026: checklist URL, tiêu đề, heading, Core Web Vitals, mobile, schema, sitemap, Search Console và nội dung hữu ích.</span><span class="bl-card-m">19 tháng 11, 2026 · 9 phút đọc</span></span></a></article><article class="bl-card"><a href="../website-wordpress-hay-code-tay/"><span class="bl-card-img"><picture><source type="image/avif" srcset="../../img/blog/website-wordpress-hay-code-tay/cover-640.avif 640w, ../../img/blog/website-wordpress-hay-code-tay/cover-1280.avif 1280w, ../../img/blog/website-wordpress-hay-code-tay/cover-1920.avif 1920w, ../../img/blog/website-wordpress-hay-code-tay/cover-3840.avif 3840w" sizes="(min-width:860px) 33vw, 100vw"><source type="image/webp" srcset="../../img/blog/website-wordpress-hay-code-tay/cover-640.webp 640w, ../../img/blog/website-wordpress-hay-code-tay/cover-1280.webp 1280w, ../../img/blog/website-wordpress-hay-code-tay/cover-1920.webp 1920w, ../../img/blog/website-wordpress-hay-code-tay/cover-3840.webp 3840w" sizes="(min-width:860px) 33vw, 100vw"><img src="../../img/blog/website-wordpress-hay-code-tay/cover-1280.webp" width="1280" height="791" alt="Màn hình máy tính trong phòng tối hiển thị nhiều dòng mã lập trình màu xanh lá" loading="lazy" decoding="async"></picture></span>
+ <span class="bl-card-t"><small>Website</small><h3>Làm website bằng WordPress hay code tay? So sánh công bằng để chọn đúng</h3><span class="bl-card-d">Làm website bằng WordPress hay code tay: so sánh chi phí, tốc độ, bảo mật, cập nhật plugin, chi phí lâu dài, quyền sở hữu và khi nào nên chọn cách nào.</span><span class="bl-card-m">19 tháng 11, 2026 · 10 phút đọc</span></span></a></article><article class="bl-card"><a href="../bao-mat-website-doanh-nghiep/"><span class="bl-card-img"><picture><source type="image/avif" srcset="../../img/blog/bao-mat-website-doanh-nghiep/cover-640.avif 640w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1280.avif 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1920.avif 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-3840.avif 3840w" sizes="(min-width:860px) 33vw, 100vw"><source type="image/webp" srcset="../../img/blog/bao-mat-website-doanh-nghiep/cover-640.webp 640w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1280.webp 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1920.webp 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-3840.webp 3840w" sizes="(min-width:860px) 33vw, 100vw"><img src="../../img/blog/bao-mat-website-doanh-nghiep/cover-1280.webp" width="1280" height="791" alt="Bàn tay gõ bàn phím laptop trong ánh sáng tím, màn hình hiển thị đồ họa an ninh mạng màu xanh lá" loading="lazy" decoding="async"></picture></span>
+ <span class="bl-card-t"><small>Website</small><h3>Bảo mật website doanh nghiệp: HTTPS, sao lưu, phân quyền và cách xử lý khi bị hack</h3><span class="bl-card-d">Bảo mật website doanh nghiệp: HTTPS, sao lưu 3-2-1, cập nhật, mật khẩu và 2FA, phân quyền, chống brute force, DDoS và các bước xử lý khi bị hack.</span><span class="bl-card-m">22 tháng 11, 2026 · 13 phút đọc</span></span></a></article></div></section>
+</main>
+<footer class="bl-foot">
+ <div class="bl-wrap bl-foot-in">
+  <div class="bl-foot-brand"><a class="bl-logo" href="../../"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+   <p>Tự động hóa quy trình doanh nghiệp bằng AI, thiết kế website, landing page, video, bao bì cho doanh nghiệp Việt Nam.</p></div>
+  <nav aria-label="Dịch vụ"><b>Dịch vụ</b><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa quy trình doanh nghiệp</a><a href="../../thiet-ke-website/">Thiết kế website</a><a href="../../thiet-ke-landing-page/">Thiết kế landing page</a><a href="../../edit-video/">Edit video quảng cáo</a><a href="../../thiet-ke-bao-bi/">Thiết kế bao bì</a><a href="../../video-motion-graphic/">Video motion graphic</a><a href="../../bang-gia/">Bảng giá dịch vụ</a><a href="../../mau-website/">Mẫu website</a><a href="../../mau-landing-page/">Mẫu landing page</a></nav>
+  <nav aria-label="Khám phá"><b>Khám phá</b><a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../bang-gia/">Bảng giá, tự tính giá, hỏi đáp</a><a href="../../lab/">Lab: demo tương tác</a><a href="../../giai-phap-theo-nganh/">Giải pháp theo ngành</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <nav aria-label="Bài viết"><b>Bài viết</b><a href="../../blog/website-doanh-nghiep-can-nhung-trang-gi/">Website doanh nghiệp cần những trang gì</a><a href="../../blog/thiet-ke-ux-ui-website-doanh-nghiep/">Thiết kế UX/UI website doanh nghiệp</a><a href="../../blog/toc-do-website-core-web-vitals/">Tốc độ website và Core Web Vitals</a><a href="../../blog/bao-mat-website-doanh-nghiep/">Bảo mật website doanh nghiệp</a><a href="../../blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/">Chọn công ty thiết kế website uy tín</a><a href="../../blog/tu-dong-hoa-ke-toan-bang-ai/">Tự động hóa kế toán bằng AI</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <div><b>Liên hệ</b><a href="tel:+84934246420">Gọi 0934 246 420</a><span class="sel">harryle1010@gmail.com</span><a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
+ </div>
+ <div class="bl-wrap bl-foot-bot"><span>© 2026 Dream Labs</span><a href="../../">dreamlabs.vn</a></div>
+</footer>
+<script>(function(){var c=document.querySelector('.bl-toc details');if(c&&innerWidth<1024)c.open=false;var r=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function d(){return r.dataset.theme?r.dataset.theme==='dark':m.matches}
+document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttribute('aria-pressed',String(d()));b.addEventListener('click',function(){var t=d()?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('dl-theme',t)}catch(e){}b.setAttribute('aria-pressed',String(t==='dark'))})})})();</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+ "a2": {
+  "author": "Christina Morillo",
+  "page": "https://www.pexels.com/photo/1181310/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/1181310/pexels-photo-1181310.jpeg",
+  "w": 6016,
+  "h": 4016
+ },
+ "cover": {
+  "author": "picjumbo.com",
+  "page": "https://www.pexels.com/photo/196644/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg",
+  "w": 4000,
+  "h": 2667
+ },
+ "a1": {
+  "author": "Kaboompics.com",
+  "page": "https://www.pexels.com/photo/7680058/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7680058/pexels-photo-7680058.jpeg",
+  "w": 6720,
+  "h": 4480
+ }
+}

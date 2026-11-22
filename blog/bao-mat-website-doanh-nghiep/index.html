@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bảo mật website doanh nghiệp: checklist và cách xử lý</title>
+<meta name="description" content="Bảo mật website doanh nghiệp: HTTPS, sao lưu 3-2-1, cập nhật, mật khẩu và 2FA, phân quyền, chống brute force, DDoS và các bước xử lý khi bị hack.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/">
+<meta name="theme-color" content="#15121C">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="../../img/icon-192.png">
+<link rel="apple-touch-icon" href="../../img/icon-180.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dream Labs">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Bảo mật website doanh nghiệp: checklist và cách xử lý">
+<meta property="og:description" content="Bảo mật website doanh nghiệp: HTTPS, sao lưu 3-2-1, cập nhật, mật khẩu và 2FA, phân quyền, chống brute force, DDoS và các bước xử lý khi bị hack.">
+<meta property="og:url" content="https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/">
+<meta property="og:image" content="https://dreamlabs.vn/img/blog/bao-mat-website-doanh-nghiep/og.jpg">
+<meta property="og:image:alt" content="Bàn tay gõ bàn phím laptop trong ánh sáng tím, màn hình hiển thị đồ họa an ninh mạng màu xanh lá">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-11-22">
+<meta property="article:modified_time" content="2026-11-22">
+<meta property="article:section" content="Website">
+<meta name="keywords" content="bảo mật website, bảo mật website doanh nghiệp, website bị hack phải làm sao, sao lưu website 3-2-1, chống tấn công website">
+<script>/* mặc định nền tối; khách đã chọn sáng thì giữ sáng */var t=null;try{t=localStorage.getItem('dl-theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')</script>
+<link rel="stylesheet" href="../../css/blog.min.css?v=d4223ed2">
+<script src="../../js/track.js?v=6353123f" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://dreamlabs.vn/#org","name":"Dream Labs","url":"https://dreamlabs.vn/","logo":"https://dreamlabs.vn/img/icon-512.png"},{"@type":"BlogPosting","@id":"https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/#bai","headline":"Bảo mật website doanh nghiệp: HTTPS, sao lưu, phân quyền và cách xử lý khi bị hack","description":"Bảo mật website doanh nghiệp: HTTPS, sao lưu 3-2-1, cập nhật, mật khẩu và 2FA, phân quyền, chống brute force, DDoS và các bước xử lý khi bị hack.","inLanguage":"vi","url":"https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/","mainEntityOfPage":"https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/","image":["https://dreamlabs.vn/img/blog/bao-mat-website-doanh-nghiep/cover-1280.webp","https://dreamlabs.vn/img/blog/bao-mat-website-doanh-nghiep/og.jpg"],"datePublished":"2026-11-22","dateModified":"2026-11-22","wordCount":2689,"keywords":"bảo mật website, bảo mật website doanh nghiệp, website bị hack phải làm sao, sao lưu website 3-2-1, chống tấn công website","articleSection":"Website","author":{"@id":"https://dreamlabs.vn/#org"},"publisher":{"@id":"https://dreamlabs.vn/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://dreamlabs.vn/"},{"@type":"ListItem","position":2,"name":"Bài viết","item":"https://dreamlabs.vn/blog/"},{"@type":"ListItem","position":3,"name":"Bảo mật website doanh nghiệp: HTTPS, sao lưu, phân quyền và cách xử lý khi bị hack","item":"https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/"}]},{"@type":"FAQPage","@id":"https://dreamlabs.vn/blog/bao-mat-website-doanh-nghiep/#cau-hoi","mainEntity":[{"@type":"Question","name":"Website nhỏ có cần quan tâm bảo mật không?","acceptedAnswer":{"@type":"Answer","text":"Có. Phần lớn tấn công vào website nhỏ là tự động, nhắm vào lỗ hổng và mật khẩu yếu chứ không chọn theo quy mô doanh nghiệp."}},{"@type":"Question","name":"Có SSL rồi thì website đã an toàn chưa?","acceptedAnswer":{"@type":"Answer","text":"Chưa. SSL bảo vệ dữ liệu trên đường truyền, còn các lớp khác như cập nhật, mật khẩu, phân quyền, sao lưu vẫn cần làm."}},{"@type":"Question","name":"Quy tắc sao lưu 3-2-1 là gì?","acceptedAnswer":{"@type":"Answer","text":"Giữ ít nhất 3 bản dữ liệu, trên 2 loại lưu trữ khác nhau, trong đó 1 bản đặt ở nơi khác, tách khỏi máy chủ website. Với website, nên sao lưu cả mã nguồn, cơ sở dữ liệu và ảnh tải lên."}},{"@type":"Question","name":"Website bị hack phải làm sao?","acceptedAnswer":{"@type":"Answer","text":"Cô lập website, đổi toàn bộ mật khẩu, tìm và đóng lỗ hổng, khôi phục từ bản sao lưu sạch hoặc làm sạch mã độc, rồi gửi yêu cầu xem xét trong báo cáo Vấn đề bảo mật của Google Search Console."}},{"@type":"Question","name":"Google mất bao lâu để gỡ cảnh báo website bị hack?","acceptedAnswer":{"@type":"Answer","text":"Theo hướng dẫn của Google, việc xem xét có thể mất từ vài ngày đến vài tuần. Khi được xác nhận sạch, cảnh báo được gỡ trong vòng 72 giờ."}},{"@type":"Question","name":"Cloudflare có chống được DDoS không?","acceptedAnswer":{"@type":"Answer","text":"CDN như Cloudflare giúp hấp thụ và lọc phần lớn lưu lượng tấn công cơ bản, đồng thời che địa chỉ máy chủ thật. Với các cuộc tấn công quy mô lớn hoặc có chủ đích, cần cấu hình và gói dịch vụ chuyên sâu hơn."}},{"@type":"Question","name":"Website code tay có an toàn hơn WordPress không?","acceptedAnswer":{"@type":"Answer","text":"Website lập trình riêng dựng thành trang tĩnh có ít thành phần bị dò quét theo mẫu, nhưng độ an toàn vẫn phụ thuộc tay nghề người làm và việc cập nhật thư viện. WordPress vẫn an toàn nếu ít plugin, cập nhật đều và được quản trị tốt."}}]}]}</script>
+</head>
+<body class="bl">
+<a class="bl-skip" href="#noi-dung">Bỏ qua tới nội dung</a>
+<header class="bl-head">
+ <div class="bl-wrap bl-head-in">
+  <a class="bl-logo" href="../../" aria-label="Dream Labs, trang chủ"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+  <nav class="bl-nav" aria-label="Chính">
+   <a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa AI</a><a href="../../thiet-ke-website/">Website</a><a href="../../lab/">Lab</a><a href="../../blog/" aria-current="page">Bài viết</a><a href="../../#lien-he">Liên hệ</a>
+  </nav>
+  <div class="bl-act">
+   <button class="bl-ib" type="button" data-theme-toggle aria-label="Đổi giao diện sáng hoặc tối"><svg viewBox="0 0 26 26" aria-hidden="true"><g class="sun"><circle cx="13" cy="13" r="4.6"/><path d="M13 3v2.4M13 20.6V23M3 13h2.4M20.6 13H23M5.9 5.9l1.7 1.7M18.4 18.4l1.7 1.7M5.9 20.1l1.7-1.7M18.4 7.6l1.7-1.7"/></g><path class="moon" d="M19.6 15.4A7.6 7.6 0 0 1 10.6 6.4a7.6 7.6 0 1 0 9 9z"/></svg></button>
+   <a class="btn primary sm bl-zalo" href="https://zalo.me/0934246420" target="_blank" rel="noopener"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 4.2c-5.2 0-9.4 3.5-9.4 7.9 0 2.5 1.4 4.7 3.5 6.2l-.8 3.5 3.8-2.1c.9.2 1.9.3 2.9.3 5.2 0 9.4-3.5 9.4-7.9S18.2 4.2 13 4.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Zalo 0934 246 420</span></a>
+  </div>
+ </div>
+</header>
+<main id="noi-dung">
+<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="../../">Trang chủ</a><span aria-hidden="true">/</span><a href="../">Bài viết</a><span aria-hidden="true">/</span><span aria-current="page">Bảo mật website doanh nghiệp</span></nav>
+<article class="bl-post">
+ <header class="bl-wrap bl-post-h">
+  <p class="eyebrow">Website</p>
+  <h1>Bảo mật website doanh nghiệp: HTTPS, sao lưu, phân quyền và cách xử lý khi bị hack</h1>
+  <p class="bl-lead">Phần lớn website doanh nghiệp bị tấn công không phải vì kẻ xấu nhắm riêng vào bạn, mà vì công cụ dò tự động tìm thấy một lỗ hổng chưa vá hoặc một mật khẩu yếu. Bài này đi qua từng lớp bảo vệ cơ bản mà doanh nghiệp nào cũng làm được, kèm checklist và các bước cần làm ngay khi website bị hack.</p>
+  <p class="bl-meta"><span>Dream Labs</span><time datetime="2026-11-22">22 tháng 11, 2026</time><span>13 phút đọc</span></p>
+ </header>
+ <figure class="bl-wrap bl-hero"><picture><source type="image/avif" srcset="../../img/blog/bao-mat-website-doanh-nghiep/cover-640.avif 640w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1280.avif 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1920.avif 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-3840.avif 3840w" sizes="(min-width:1280px) 1240px, 100vw"><source type="image/webp" srcset="../../img/blog/bao-mat-website-doanh-nghiep/cover-640.webp 640w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1280.webp 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-1920.webp 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/cover-3840.webp 3840w" sizes="(min-width:1280px) 1240px, 100vw"><img src="../../img/blog/bao-mat-website-doanh-nghiep/cover-1280.webp" width="1280" height="791" alt="Bàn tay gõ bàn phím laptop trong ánh sáng tím, màn hình hiển thị đồ họa an ninh mạng màu xanh lá" fetchpriority="high" decoding="async"></picture><figcaption>Ảnh minh họa: bảo mật website là nhiều lớp bảo vệ nhỏ cộng lại, không phải một phần mềm duy nhất.</figcaption></figure>
+ <div class="bl-wrap bl-grid">
+  <aside class="bl-toc" aria-label="Mục lục"><details open><summary>Mục lục</summary><ol><li><a href="#vi-sao">Vì sao website nhỏ cũng bị tấn công</a></li><li><a href="#https">SSL và HTTPS: lớp bảo vệ đầu tiên</a></li><li><a href="#sao-luu">Sao lưu theo quy tắc 3-2-1</a></li><li><a href="#cap-nhat">Cập nhật phần mềm, plugin và thư viện</a></li><li><a href="#mat-khau">Mật khẩu, 2FA và phân quyền</a></li><li><a href="#chong-tan-cong">Chống các kiểu tấn công cơ bản</a></li><li><a href="#bi-hack">Website bị hack phải làm sao: các bước xử lý</a></li><li><a href="#vi-du">Ví dụ minh họa: website phòng khám bị chèn trang rác</a></li><li><a href="#sai-lam">Sai lầm thường gặp về bảo mật website</a></li><li><a href="#checklist">Checklist bảo mật website hằng tháng</a></li><li><a href="#chi-phi">Website an toàn từ khi bàn giao tại Dream Labs</a></li><li><a href="#cau-hoi">Câu hỏi thường gặp</a></li></ol></details></aside>
+  <div class="bl-body">
+<p><strong>Bảo mật website doanh nghiệp</strong> là tập hợp những việc giúp website không bị chiếm quyền, chèn mã độc, mất dữ liệu hay ngừng hoạt động. Với đa số doanh nghiệp vừa và nhỏ, chỉ cần làm đều tay sáu việc cơ bản là đã chặn được phần lớn rủi ro: chạy HTTPS, sao lưu theo quy tắc 3-2-1, cập nhật phần mềm, dùng mật khẩu mạnh kèm xác thực hai lớp (2FA), phân quyền đúng người và đặt website sau một lớp CDN, tường lửa.</p>
+<p>Bài <a href="../website-wordpress-hay-code-tay/">WordPress hay code tay</a> đã so sánh mức độ an toàn của hai nền tảng. Bài này không bàn chọn nền tảng mà đi vào việc vận hành: dù website làm bằng gì, doanh nghiệp cần làm gì để giữ nó an toàn, và phải làm gì khi chẳng may bị hack.</p>
+
+<h2 id="vi-sao">Vì sao website nhỏ cũng bị tấn công</h2>
+<p>Nhiều chủ doanh nghiệp nghĩ "website của mình nhỏ, ai thèm tấn công". Thực tế, phần lớn vụ tấn công vào website nhỏ diễn ra tự động: phần mềm dò quét hàng loạt địa chỉ trên Internet, tìm trang đăng nhập để thử mật khẩu, tìm phiên bản plugin hoặc phần mềm có lỗ hổng đã công bố. Website của bạn bị nhắm vì nó có lỗ hổng, không phải vì nó nổi tiếng.</p>
+<p>Hậu quả thường gặp không phải là màn hình "bạn đã bị hack" mà kín đáo hơn: trang bị chèn liên kết quảng cáo cờ bạc, thuốc; khách bị chuyển hướng sang trang lừa đảo; máy chủ bị dùng gửi thư rác; dữ liệu khách hàng trong form liên hệ bị lấy. Khi Google phát hiện, kết quả tìm kiếm và trình duyệt có thể hiện cảnh báo, khách mất niềm tin ngay lập tức.</p>
+<p>Danh sách <a href="https://owasp.org/Top10/2025/0x00_2025-Introduction/" target="_blank" rel="noopener">OWASP Top 10:2025</a>, tài liệu tham chiếu phổ biến nhất về rủi ro ứng dụng web, xếp kiểm soát truy cập kém (Broken Access Control) ở vị trí số một, tiếp theo là cấu hình bảo mật sai (Security Misconfiguration) và lỗi chuỗi cung ứng phần mềm (Software Supply Chain Failures), tức rủi ro đến từ thư viện, plugin, thành phần bên thứ ba. Ba mục này tương ứng gần như trực tiếp với các việc trong bài: phân quyền, cấu hình đúng và cập nhật thành phần.</p>
+
+<h2 id="https">SSL và HTTPS: lớp bảo vệ đầu tiên</h2>
+<p>HTTPS mã hóa dữ liệu giữa trình duyệt của khách và máy chủ, để thông tin khách điền vào form không bị đọc trộm trên đường truyền. Website không có HTTPS bị trình duyệt đánh dấu "không bảo mật", và Google đã dùng HTTPS làm <a href="https://developers.google.com/search/blog/2014/08/https-as-ranking-signal" target="_blank" rel="noopener">một tín hiệu xếp hạng từ năm 2014</a>.</p>
+<ul>
+ <li>Chứng chỉ miễn phí của <a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let's Encrypt</a> đủ cho phần lớn website doanh nghiệp; nhiều hosting và CDN tự cài và gia hạn.</li>
+ <li>Chuyển hướng toàn bộ địa chỉ http sang https, kể cả bản có và không có "www".</li>
+ <li>Kiểm tra không còn ảnh, mã nhúng tải qua http (lỗi "nội dung hỗn hợp") khiến ổ khóa biến mất.</li>
+ <li>Theo dõi ngày hết hạn chứng chỉ; chứng chỉ hết hạn làm trình duyệt chặn khách bằng trang cảnh báo đỏ.</li>
+</ul>
+<p>HTTPS chỉ bảo vệ đường truyền. Nó không ngăn được việc kẻ xấu đăng nhập vào trang quản trị bằng mật khẩu yếu, nên đây chỉ là lớp đầu tiên.</p>
+
+<h2 id="sao-luu">Sao lưu theo quy tắc 3-2-1</h2>
+<p>Sao lưu là lưới an toàn cuối cùng: khi mọi lớp bảo vệ khác thất bại, bản sao lưu sạch giúp bạn khôi phục website trong vài giờ thay vì làm lại từ đầu. Cơ quan an ninh mạng Hoa Kỳ (CISA) khuyến nghị <a href="https://www.cisa.gov/back-business-data" target="_blank" rel="noopener">quy tắc 3-2-1</a> cho dữ liệu doanh nghiệp:</p>
+<ul>
+ <li><strong>3</strong> bản sao dữ liệu quan trọng (bản đang chạy và ít nhất hai bản sao lưu).</li>
+ <li><strong>2</strong> loại phương tiện lưu trữ khác nhau, ví dụ ổ cứng và lưu trữ đám mây.</li>
+ <li><strong>1</strong> bản đặt ở nơi khác, tách khỏi máy chủ website, để sự cố tại một chỗ không cuốn theo tất cả.</li>
+</ul>
+<p>Áp dụng cho website: bật sao lưu tự động hằng ngày của hosting (bản thứ nhất), đẩy thêm bản sao lưu sang một dịch vụ lưu trữ đám mây khác nhà cung cấp hosting (bản thứ hai), và định kỳ tải một bản về lưu nội bộ doanh nghiệp. Sao lưu phải gồm cả mã nguồn, cơ sở dữ liệu và thư mục ảnh tải lên.</p>
+<div class="bl-note"><p><strong>Bản sao lưu chưa từng khôi phục thử thì chưa chắc dùng được.</strong> Mỗi quý, hãy khôi phục thử một bản lên môi trường thử nghiệm. Đồng thời giữ nhiều bản theo thời gian (ví dụ 7 bản ngày, 4 bản tuần), vì mã độc có thể nằm im nhiều ngày trước khi bị phát hiện; nếu chỉ giữ bản mới nhất, có thể bạn đang sao lưu luôn cả mã độc.</p></div>
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/bao-mat-website-doanh-nghiep/a2-640.avif 640w, ../../img/blog/bao-mat-website-doanh-nghiep/a2-1280.avif 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/a2-1920.avif 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/a2-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/bao-mat-website-doanh-nghiep/a2-640.webp 640w, ../../img/blog/bao-mat-website-doanh-nghiep/a2-1280.webp 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/a2-1920.webp 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/a2-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/bao-mat-website-doanh-nghiep/a2-1280.webp" width="1280" height="791" alt="Bàn tay cắm ổ cứng di động màu đen vào laptop trên bàn gỗ" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: một bản sao lưu đặt tách khỏi máy chủ giúp website khôi phục được khi có sự cố.</figcaption></figure>
+
+<h2 id="cap-nhat">Cập nhật phần mềm, plugin và thư viện</h2>
+<p>Khi một lỗ hổng được công bố, bản vá thường có ngay, nhưng công cụ dò quét cũng bắt đầu tìm các website chưa vá. Khoảng thời gian giữa hai việc đó chính là lúc website dễ bị tấn công nhất.</p>
+<ul>
+ <li>Cập nhật lõi hệ thống, giao diện, plugin, thư viện mã nguồn mở và cả phiên bản PHP, Node.js trên máy chủ.</li>
+ <li>Gỡ hẳn plugin, giao diện không dùng thay vì chỉ tắt; mã còn nằm trên máy chủ vẫn có thể bị khai thác.</li>
+ <li>Không dùng giao diện, plugin trả phí bản "bẻ khóa" tải từ nguồn không chính thức.</li>
+ <li>Ưu tiên plugin còn được tác giả cập nhật đều; plugin bị bỏ rơi nhiều năm là rủi ro lâu dài.</li>
+ <li>Sao lưu trước khi cập nhật lớn và kiểm tra form, giỏ hàng, nút liên hệ sau khi cập nhật.</li>
+</ul>
+<p>Website WordPress nên làm thêm theo <a href="https://developer.wordpress.org/advanced-administration/security/hardening/" target="_blank" rel="noopener">hướng dẫn tăng cường bảo mật chính thức của WordPress</a>. Website dựng thành trang tĩnh có ít thành phần chạy trên máy chủ hơn nên ít việc cập nhật hơn, nhưng thư viện dùng khi xây dựng vẫn cần được giữ mới.</p>
+
+<h2 id="mat-khau">Mật khẩu, 2FA và phân quyền</h2>
+<p>Tài khoản quản trị là chìa khóa của cả website. Một mật khẩu yếu hoặc dùng lại từ dịch vụ khác có thể làm vô nghĩa mọi lớp bảo vệ còn lại.</p>
+<h3>Mật khẩu và xác thực hai lớp</h3>
+<ul>
+ <li>Mật khẩu dài, ngẫu nhiên, riêng cho từng tài khoản; dùng trình quản lý mật khẩu thay vì ghi vào file Excel hay nhóm chat.</li>
+ <li>Bật xác thực hai lớp (2FA) bằng ứng dụng tạo mã hoặc khóa bảo mật cho trang quản trị website, tài khoản hosting, nhà đăng ký tên miền, email quản trị và Cloudflare hoặc CDN.</li>
+ <li>Không dùng tên đăng nhập dễ đoán như "admin".</li>
+</ul>
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/bao-mat-website-doanh-nghiep/a1-640.avif 640w, ../../img/blog/bao-mat-website-doanh-nghiep/a1-1280.avif 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/a1-1920.avif 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/a1-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/bao-mat-website-doanh-nghiep/a1-640.webp 640w, ../../img/blog/bao-mat-website-doanh-nghiep/a1-1280.webp 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/a1-1920.webp 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/a1-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/bao-mat-website-doanh-nghiep/a1-1280.webp" width="1280" height="791" alt="Ngón tay nhập mã PIN trên màn hình khóa của máy tính bảng" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: mật khẩu mạnh cộng xác thực hai lớp chặn phần lớn kiểu tấn công dò mật khẩu.</figcaption></figure>
+<h3>Phân quyền theo nguyên tắc tối thiểu</h3>
+<p>Mỗi người chỉ nên có đúng quyền cần cho công việc. Nhân viên viết bài chỉ cần quyền biên tập nội dung, không cần quyền cài plugin hay sửa cấu hình. Mỗi người một tài khoản riêng, không dùng chung một tài khoản quản trị cho cả phòng, để biết ai đã làm gì. Khi nhân viên hoặc đơn vị bên ngoài thôi việc, thu hồi quyền ngay trong ngày.</p>
+<p>Đặc biệt, tên miền và hosting phải đứng tên doanh nghiệp, email nhận thông báo là email chung của công ty. Mất quyền tên miền là sự cố nghiêm trọng hơn nhiều so với một lần bị chèn mã độc. Xem thêm phần đứng tên tài khoản trong bài <a href="../chi-phi-duy-tri-website-hang-nam/">chi phí duy trì website hằng năm</a>.</p>
+
+<aside class="bl-mid" aria-label="Liên hệ Dream Labs"><p><b>Cần người xem giúp trường hợp của bạn?</b> Nhắn Zalo <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">0934 246 420</a> cho Dream Labs: mô tả ngắn việc bạn đang làm, chúng tôi trả lời trong giờ làm việc, tư vấn miễn phí.</p><a class="btn primary sm" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo 0934 246 420</a></aside>
+
+<h2 id="chong-tan-cong">Chống các kiểu tấn công cơ bản</h2>
+<div class="bl-table" role="region" aria-label="Các kiểu tấn công website phổ biến và cách phòng" tabindex="0"><table><caption>Các kiểu tấn công website thường gặp với doanh nghiệp nhỏ và cách phòng cơ bản</caption>
+<thead><tr><th>Kiểu tấn công</th><th>Cách hoạt động</th><th>Cách phòng cơ bản</th></tr></thead>
+<tbody>
+<tr><td>Dò mật khẩu (brute force)</td><td>Phần mềm thử hàng nghìn tổ hợp tên đăng nhập, mật khẩu vào trang quản trị</td><td>Mật khẩu mạnh, 2FA, giới hạn số lần đăng nhập sai, đổi hoặc ẩn đường dẫn trang quản trị, CAPTCHA</td></tr>
+<tr><td>Khai thác plugin, phần mềm lỗi thời</td><td>Tìm phiên bản có lỗ hổng đã công bố rồi tấn công tự động</td><td>Cập nhật đều, gỡ thành phần không dùng, chỉ cài từ nguồn chính thức</td></tr>
+<tr><td>Chèn mã, spam SEO</td><td>Chèn liên kết, trang ẩn hoặc mã chuyển hướng vào website</td><td>Phân quyền chặt, theo dõi báo cáo Bảo mật trong Search Console, quét mã độc định kỳ</td></tr>
+<tr><td>Spam form liên hệ</td><td>Gửi hàng loạt nội dung rác hoặc liên kết độc qua form</td><td>CAPTCHA hoặc trường ẩn chống bot, kiểm tra dữ liệu đầu vào ở máy chủ</td></tr>
+<tr><td>Từ chối dịch vụ (DDoS) cơ bản</td><td>Gửi lượng truy cập lớn bất thường làm website chậm hoặc sập</td><td>Đặt website sau CDN có chống DDoS (ví dụ Cloudflare), bật bộ nhớ đệm, giới hạn tần suất truy cập</td></tr>
+</tbody></table></div>
+<h3>CDN và tường lửa ứng dụng web</h3>
+<p>Đặt website sau một CDN như Cloudflare mang lại ba lợi ích cùng lúc: che địa chỉ máy chủ thật, hấp thụ phần lớn lưu lượng tấn công từ chối dịch vụ ở mức cơ bản, và cho phép bật tường lửa ứng dụng web (WAF) để chặn các mẫu tấn công phổ biến trước khi chúng chạm tới website. Lợi ích phụ là website tải nhanh hơn, như đã phân tích trong bài <a href="../toc-do-website-core-web-vitals/">tốc độ website và Core Web Vitals</a>. Các cuộc tấn công DDoS quy mô lớn cần giải pháp chuyên sâu hơn, nhưng với website doanh nghiệp thông thường, gói CDN cơ bản đã là bước tiến lớn.</p>
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/bao-mat-website-doanh-nghiep/a3-640.avif 640w, ../../img/blog/bao-mat-website-doanh-nghiep/a3-1280.avif 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/a3-1920.avif 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/a3-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/bao-mat-website-doanh-nghiep/a3-640.webp 640w, ../../img/blog/bao-mat-website-doanh-nghiep/a3-1280.webp 1280w, ../../img/blog/bao-mat-website-doanh-nghiep/a3-1920.webp 1920w, ../../img/blog/bao-mat-website-doanh-nghiep/a3-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/bao-mat-website-doanh-nghiep/a3-1280.webp" width="1280" height="791" alt="Máy chủ dạng tháp đặt trong phòng dữ liệu chiếu sáng màu xanh dương" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: che địa chỉ máy chủ sau CDN giúp giảm rủi ro bị tấn công trực tiếp.</figcaption></figure>
+
+<h2 id="bi-hack">Website bị hack phải làm sao: các bước xử lý</h2>
+<p>Dấu hiệu thường gặp: Google hiện cảnh báo "trang web này có thể đã bị tấn công", khách bị chuyển sang trang lạ, xuất hiện trang rác bằng tiếng nước ngoài khi tìm "site:tenmien.vn", hosting báo gửi thư rác hoặc tạm khóa tài khoản. Khi đó, làm theo thứ tự:</p>
+<ol class="bl-steps">
+ <li><strong>Giữ bình tĩnh, ghi lại hiện trạng:</strong> chụp màn hình cảnh báo, ghi thời điểm phát hiện, lưu nhật ký truy cập nếu hosting cung cấp.</li>
+ <li><strong>Cô lập:</strong> bật chế độ bảo trì hoặc tạm ngắt website nếu đang chuyển hướng khách sang trang độc hại.</li>
+ <li><strong>Đổi toàn bộ mật khẩu:</strong> trang quản trị, hosting, FTP/SSH, cơ sở dữ liệu, tên miền, email; rà soát và xóa tài khoản lạ.</li>
+ <li><strong>Tìm lỗ hổng đã bị khai thác:</strong> plugin lỗi thời, mật khẩu bị lộ, quyền thư mục sai. Không đóng được lỗ hổng thì website sẽ bị nhiễm lại.</li>
+ <li><strong>Làm sạch hoặc khôi phục:</strong> khôi phục từ bản sao lưu sạch trước thời điểm bị nhiễm, rồi cập nhật ngay; nếu không có bản sạch, cần người kỹ thuật rà và xóa mã độc trên toàn bộ website.</li>
+ <li><strong>Yêu cầu Google xem xét lại:</strong> vào báo cáo <a href="https://support.google.com/webmasters/answer/9044101" target="_blank" rel="noopener">Vấn đề bảo mật trong Search Console</a>, xác nhận đã xử lý mọi URL được liệt kê và gửi yêu cầu xem xét, kèm mô tả việc đã làm.</li>
+ <li><strong>Thông báo khi cần:</strong> nếu dữ liệu khách hàng có thể đã bị lộ, thông báo cho khách và làm theo quy định về bảo vệ dữ liệu cá nhân hiện hành.</li>
+</ol>
+<p>Theo <a href="https://web.dev/articles/request-a-review" target="_blank" rel="noopener">hướng dẫn của Google về yêu cầu xem xét lại</a>, quá trình xem xét có thể mất từ vài ngày đến vài tuần; khi website được xác nhận sạch, cảnh báo trên trình duyệt và kết quả tìm kiếm được gỡ trong vòng 72 giờ. Google cũng lưu ý chỉ làm sạch một phần trang sẽ không được khôi phục một phần, nên hãy xử lý triệt để trước khi gửi.</p>
+
+<h2 id="vi-du">Ví dụ minh họa: website phòng khám bị chèn trang rác</h2>
+<p>Tình huống giả định, không phải khách hàng thật: một phòng khám nha khoa ở TP.HCM phát hiện khi tìm tên miền trên Google xuất hiện hàng trăm trang lạ quảng cáo sản phẩm không liên quan. Nguyên nhân: một plugin form liên hệ đã ba năm không cập nhật và tài khoản quản trị dùng chung của nhân viên cũ vẫn còn hoạt động. Hosting chỉ giữ bản sao lưu 7 ngày gần nhất, đều đã nhiễm.</p>
+<p>Cách xử lý: tạm khóa website, đổi mọi mật khẩu, xóa tài khoản cũ, rà và xóa mã độc thủ công, thay plugin form, cập nhật toàn bộ, bật 2FA và đặt website sau CDN; sau đó gửi yêu cầu xem xét trong Search Console. Bài học lớn nhất là thiếu một bản sao lưu dài hạn đặt ngoài hosting, đúng phần "1" trong quy tắc 3-2-1. Ngành y tế còn giữ thông tin nhạy cảm của bệnh nhân; nếu bạn làm website cho lĩnh vực này, xem thêm trang <a href="../../thiet-ke-website/nha-khoa/">thiết kế website nha khoa</a>.</p>
+
+<h2 id="sai-lam">Sai lầm thường gặp về bảo mật website</h2>
+<ul>
+ <li><strong>Nghĩ có SSL là an toàn.</strong> Ổ khóa chỉ cho biết đường truyền được mã hóa, không nói gì về lỗ hổng bên trong website.</li>
+ <li><strong>Dùng chung một tài khoản quản trị</strong> cho cả công ty và đơn vị bên ngoài, không ai thu hồi khi nghỉ việc.</li>
+ <li><strong>Chỉ dựa vào sao lưu của hosting.</strong> Nếu tài khoản hosting bị khóa hoặc bị chiếm, bản sao lưu cũng mất theo.</li>
+ <li><strong>Cài plugin bảo mật rồi bỏ đó,</strong> không đọc cảnh báo, không cập nhật.</li>
+ <li><strong>Tên miền, hosting đứng tên cá nhân</strong> nhân viên hoặc bên làm web.</li>
+ <li><strong>Xóa mã độc nhưng không tìm lỗ hổng,</strong> để rồi website bị nhiễm lại sau vài ngày.</li>
+</ul>
+
+<h2 id="checklist">Checklist bảo mật website hằng tháng</h2>
+<ol class="bl-steps">
+ <li>Kiểm tra website chạy HTTPS, chứng chỉ còn hạn, không có cảnh báo nội dung hỗn hợp.</li>
+ <li>Xác nhận sao lưu tự động chạy, có bản đặt ngoài hosting; mỗi quý khôi phục thử một lần.</li>
+ <li>Cập nhật lõi, giao diện, plugin, thư viện; gỡ thứ không dùng.</li>
+ <li>Rà danh sách tài khoản quản trị, xóa tài khoản không còn cần, kiểm tra 2FA đã bật.</li>
+ <li>Xem báo cáo Bảo mật và mục Trang trong Google Search Console.</li>
+ <li>Tìm "site:tenmien-cua-ban" trên Google để phát hiện trang lạ.</li>
+ <li>Kiểm tra ngày hết hạn tên miền, hosting và email nhận thông báo.</li>
+</ol>
+
+<h2 id="chi-phi">Website an toàn từ khi bàn giao tại Dream Labs</h2>
+<p>Ở Dream Labs, website được bàn giao với HTTPS, tài khoản quản trị riêng cho từng người, hướng dẫn bật 2FA, tên miền và hosting đứng tên doanh nghiệp. Website thiết kế riêng hạn chế plugin bên thứ ba và có thể dựng thành trang tĩnh, nên bề mặt tấn công nhỏ và ít việc cập nhật. Gói Cơ bản 8.000.000đ và Chuyên nghiệp 18.000.000đ có bảo hành 6 tháng; gói Cao cấp Liên hệ kèm bảo trì 12 tháng, phù hợp website có thanh toán, CRM cần theo dõi thường xuyên.</p>
+<div class="bl-price" role="region" aria-label="Bảng giá Website" tabindex="0"><table>
+<caption>Bảng giá Website tại Dream Labs (chưa gồm VAT)</caption>
+<thead><tr><th scope="col">Gói</th><th scope="col">Giá</th><th scope="col">Thời gian</th><th scope="col">Bao gồm</th></tr></thead>
+<tbody><tr><th scope="row">Cơ bản</th><td class="p">8.000.000đ</td><td>7–10 ngày<small>4 vòng sửa</small></td><td><p class="g">Có mặt chuyên nghiệp trên Google và điện thoại trong khoảng 10 ngày, khách tìm thấy và liên hệ được ngay.</p><ul><li>5 trang, giao diện theo mẫu tinh chỉnh</li><li>Responsive mọi thiết bị</li><li>Form liên hệ + nút Zalo</li><li>SEO cơ bản, Google Analytics</li></ul></td></tr>
+<tr class="hot"><th scope="row">Chuyên nghiệp<small>Phổ biến nhất</small></th><td class="p">18.000.000đ</td><td>14–21 ngày<small>9 vòng sửa</small></td><td><p class="g">Website riêng đúng tầm thương hiệu, tự đăng bài để có khách từ Google lâu dài, không phụ thuộc người làm.</p><ul><li>Đến 10 trang, thiết kế riêng 100%</li><li>Motion &amp; chuyển cảnh mượt</li><li>CMS tự sửa nội dung, blog</li><li>Viết nội dung chuẩn SEO</li><li>Tốc độ Lighthouse ≥ 90</li></ul></td></tr>
+<tr><th scope="row">Cao cấp</th><td class="p">Liên hệ</td><td>30–45 ngày<small>Không giới hạn trong phạm vi</small></td><td><p class="g">Trải nghiệm đủ khác biệt để định vị cao cấp, bán hàng và tiếp khách trực tuyến, phục vụ cả khách nước ngoài.</p><ul><li>Không giới hạn trang, đa ngôn ngữ</li><li>3D / WebGL, nhận diện thương hiệu số</li><li>Tích hợp thanh toán, CRM</li><li>Trợ lý AI tiếp khách trên website</li><li>Bảo trì 12 tháng</li></ul></td></tr></tbody></table></div>
+<p>Xem thêm <a href="../../thiet-ke-website/tron-goi/">thiết kế website trọn gói</a>, <a href="../../thiet-ke-website/ban-hang/">thiết kế website bán hàng</a> và <a href="../../bang-gia/">bảng giá</a> đầy đủ. Cần người xem giúp website đang có dấu hiệu lạ, nhắn <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a>.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Website nhỏ có cần quan tâm bảo mật không?</h3>
+<p>Có. Phần lớn tấn công vào website nhỏ là tự động, nhắm vào lỗ hổng và mật khẩu yếu chứ không chọn theo quy mô doanh nghiệp.</p>
+<h3>Có SSL rồi thì website đã an toàn chưa?</h3>
+<p>Chưa. SSL bảo vệ dữ liệu trên đường truyền, còn các lớp khác như cập nhật, mật khẩu, phân quyền, sao lưu vẫn cần làm.</p>
+<h3>Quy tắc sao lưu 3-2-1 là gì?</h3>
+<p>Giữ ít nhất 3 bản dữ liệu, trên 2 loại lưu trữ khác nhau, trong đó 1 bản đặt ở nơi khác, tách khỏi máy chủ website. Với website, nên sao lưu cả mã nguồn, cơ sở dữ liệu và ảnh tải lên.</p>
+<h3>Website bị hack phải làm sao?</h3>
+<p>Cô lập website, đổi toàn bộ mật khẩu, tìm và đóng lỗ hổng, khôi phục từ bản sao lưu sạch hoặc làm sạch mã độc, rồi gửi yêu cầu xem xét trong báo cáo Vấn đề bảo mật của Google Search Console.</p>
+<h3>Google mất bao lâu để gỡ cảnh báo website bị hack?</h3>
+<p>Theo hướng dẫn của Google, việc xem xét có thể mất từ vài ngày đến vài tuần. Khi được xác nhận sạch, cảnh báo được gỡ trong vòng 72 giờ.</p>
+<h3>Cloudflare có chống được DDoS không?</h3>
+<p>CDN như Cloudflare giúp hấp thụ và lọc phần lớn lưu lượng tấn công cơ bản, đồng thời che địa chỉ máy chủ thật. Với các cuộc tấn công quy mô lớn hoặc có chủ đích, cần cấu hình và gói dịch vụ chuyên sâu hơn.</p>
+<h3>Website code tay có an toàn hơn WordPress không?</h3>
+<p>Website lập trình riêng dựng thành trang tĩnh có ít thành phần bị dò quét theo mẫu, nhưng độ an toàn vẫn phụ thuộc tay nghề người làm và việc cập nhật thư viện. WordPress vẫn an toàn nếu ít plugin, cập nhật đều và được quản trị tốt.</p>
+   <p class="bl-src"><b>Nguồn ảnh:</b> ảnh 1: <a href="https://www.pexels.com/photo/27742642/" target="_blank" rel="noopener nofollow">indra projects / Pexels</a> · ảnh 2: <a href="https://www.pexels.com/photo/3915760/" target="_blank" rel="noopener nofollow">Andrea Piacquadio / Pexels</a> · ảnh bìa: <a href="https://www.pexels.com/photo/5475752/" target="_blank" rel="noopener nofollow">Antoni Shkraba / Pexels</a> · ảnh 3: <a href="https://www.pexels.com/photo/17489163/" target="_blank" rel="noopener nofollow">panumas nikhomkhai / Pexels</a>. Ảnh dùng theo giấy phép miễn phí của Pexels, chỉ mang tính minh họa.</p>
+   <section class="bl-cta" aria-label="Liên hệ Dream Labs">
+    <p class="eyebrow">Bắt đầu cùng Dream Labs</p>
+    <h2 class="bl-cta-h">Lo website của bạn chưa an toàn?</h2>
+    <p>Nhắn Zalo cho Dream Labs đường dẫn website và nền tảng đang dùng. Chúng tôi rà nhanh các điểm yếu cơ bản như HTTPS, cập nhật, sao lưu, tài khoản quản trị và gợi ý việc nên làm trước.</p>
+    <div class="bl-cta-act"><a class="btn primary" href="../../thiet-ke-website/">Xem gói Website <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="../../bang-gia/">Toàn bộ bảng giá</a><a class="btn" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a></div>
+   </section>
+  </div>
+ </div>
+</article>
+<section class="bl-wrap bl-more" aria-labelledby="bl-more-h"><h2 id="bl-more-h">Bài viết liên quan</h2><div class="bl-cards"><article class="bl-card"><a href="../toc-do-website-core-web-vitals/"><span class="bl-card-img"><picture><source type="image/avif" srcset="../../img/blog/toc-do-website-core-web-vitals/cover-640.avif 640w, ../../img/blog/toc-do-website-core-web-vitals/cover-1280.avif 1280w, ../../img/blog/toc-do-website-core-web-vitals/cover-1920.avif 1920w, ../../img/blog/toc-do-website-core-web-vitals/cover-3840.avif 3840w" sizes="(min-width:860px) 33vw, 100vw"><source type="image/webp" srcset="../../img/blog/toc-do-website-core-web-vitals/cover-640.webp 640w, ../../img/blog/toc-do-website-core-web-vitals/cover-1280.webp 1280w, ../../img/blog/toc-do-website-core-web-vitals/cover-1920.webp 1920w, ../../img/blog/toc-do-website-core-web-vitals/cover-3840.webp 3840w" sizes="(min-width:860px) 33vw, 100vw"><img src="../../img/blog/toc-do-website-core-web-vitals/cover-1280.webp" width="1280" height="791" alt="Vệt đèn xe đỏ trắng uốn cong trên đường cao tốc ban đêm, chụp phơi sáng dài" loading="lazy" decoding="async"></picture></span>
+ <span class="bl-card-t"><small>Website</small><h3>Tốc độ website và Core Web Vitals: vì sao web chậm làm mất khách, cách đo và cải thiện</h3><span class="bl-card-d">Core Web Vitals gồm LCP, INP, CLS: ngưỡng tốt theo web.dev, cách đo bằng PageSpeed Insights, Search Console và các bước tăng tốc website cụ thể.</span><span class="bl-card-m">22 tháng 11, 2026 · 13 phút đọc</span></span></a></article><article class="bl-card"><a href="../website-wordpress-hay-code-tay/"><span class="bl-card-img"><picture><source type="image/avif" srcset="../../img/blog/website-wordpress-hay-code-tay/cover-640.avif 640w, ../../img/blog/website-wordpress-hay-code-tay/cover-1280.avif 1280w, ../../img/blog/website-wordpress-hay-code-tay/cover-1920.avif 1920w, ../../img/blog/website-wordpress-hay-code-tay/cover-3840.avif 3840w" sizes="(min-width:860px) 33vw, 100vw"><source type="image/webp" srcset="../../img/blog/website-wordpress-hay-code-tay/cover-640.webp 640w, ../../img/blog/website-wordpress-hay-code-tay/cover-1280.webp 1280w, ../../img/blog/website-wordpress-hay-code-tay/cover-1920.webp 1920w, ../../img/blog/website-wordpress-hay-code-tay/cover-3840.webp 3840w" sizes="(min-width:860px) 33vw, 100vw"><img src="../../img/blog/website-wordpress-hay-code-tay/cover-1280.webp" width="1280" height="791" alt="Màn hình máy tính trong phòng tối hiển thị nhiều dòng mã lập trình màu xanh lá" loading="lazy" decoding="async"></picture></span>
+ <span class="bl-card-t"><small>Website</small><h3>Làm website bằng WordPress hay code tay? So sánh công bằng để chọn đúng</h3><span class="bl-card-d">Làm website bằng WordPress hay code tay: so sánh chi phí, tốc độ, bảo mật, cập nhật plugin, chi phí lâu dài, quyền sở hữu và khi nào nên chọn cách nào.</span><span class="bl-card-m">19 tháng 11, 2026 · 10 phút đọc</span></span></a></article><article class="bl-card"><a href="../chi-phi-duy-tri-website-hang-nam/"><span class="bl-card-img"><picture><source type="image/avif" srcset="../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-640.avif 640w, ../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-1280.avif 1280w, ../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-1920.avif 1920w, ../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-3840.avif 3840w" sizes="(min-width:860px) 33vw, 100vw"><source type="image/webp" srcset="../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-640.webp 640w, ../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-1280.webp 1280w, ../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-1920.webp 1920w, ../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-3840.webp 3840w" sizes="(min-width:860px) 33vw, 100vw"><img src="../../img/blog/chi-phi-duy-tri-website-hang-nam/cover-1280.webp" width="1280" height="791" alt="Người phụ nữ cầm bút chì tính toán hóa đơn bên chiếc máy tính cầm tay màu hồng trên bàn làm việc" loading="lazy" decoding="async"></picture></span>
+ <span class="bl-card-t"><small>Website</small><h3>Duy trì website mỗi năm tốn bao nhiêu? Tên miền, hosting, SSL, email và bảo trì</h3><span class="bl-card-d">Chi phí duy trì website hằng năm gồm tên miền, hosting, SSL, email, bảo trì. Phí .vn theo Thông tư 10/2025/TT-BTC, bảng dự trù và cách tránh phí ẩn.</span><span class="bl-card-m">19 tháng 11, 2026 · 12 phút đọc</span></span></a></article></div></section>
+</main>
+<footer class="bl-foot">
+ <div class="bl-wrap bl-foot-in">
+  <div class="bl-foot-brand"><a class="bl-logo" href="../../"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+   <p>Tự động hóa quy trình doanh nghiệp bằng AI, thiết kế website, landing page, video, bao bì cho doanh nghiệp Việt Nam.</p></div>
+  <nav aria-label="Dịch vụ"><b>Dịch vụ</b><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa quy trình doanh nghiệp</a><a href="../../thiet-ke-website/">Thiết kế website</a><a href="../../thiet-ke-landing-page/">Thiết kế landing page</a><a href="../../edit-video/">Edit video quảng cáo</a><a href="../../thiet-ke-bao-bi/">Thiết kế bao bì</a><a href="../../video-motion-graphic/">Video motion graphic</a><a href="../../bang-gia/">Bảng giá dịch vụ</a><a href="../../mau-website/">Mẫu website</a><a href="../../mau-landing-page/">Mẫu landing page</a></nav>
+  <nav aria-label="Khám phá"><b>Khám phá</b><a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../bang-gia/">Bảng giá, tự tính giá, hỏi đáp</a><a href="../../lab/">Lab: demo tương tác</a><a href="../../giai-phap-theo-nganh/">Giải pháp theo ngành</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <nav aria-label="Bài viết"><b>Bài viết</b><a href="../../blog/website-doanh-nghiep-can-nhung-trang-gi/">Website doanh nghiệp cần những trang gì</a><a href="../../blog/thiet-ke-ux-ui-website-doanh-nghiep/">Thiết kế UX/UI website doanh nghiệp</a><a href="../../blog/toc-do-website-core-web-vitals/">Tốc độ website và Core Web Vitals</a><a href="../../blog/bao-mat-website-doanh-nghiep/">Bảo mật website doanh nghiệp</a><a href="../../blog/cach-chon-cong-ty-thiet-ke-website-uy-tin/">Chọn công ty thiết kế website uy tín</a><a href="../../blog/tu-dong-hoa-ke-toan-bang-ai/">Tự động hóa kế toán bằng AI</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <div><b>Liên hệ</b><a href="tel:+84934246420">Gọi 0934 246 420</a><span class="sel">harryle1010@gmail.com</span><a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
+ </div>
+ <div class="bl-wrap bl-foot-bot"><span>© 2026 Dream Labs</span><a href="../../">dreamlabs.vn</a></div>
+</footer>
+<script>(function(){var c=document.querySelector('.bl-toc details');if(c&&innerWidth<1024)c.open=false;var r=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function d(){return r.dataset.theme?r.dataset.theme==='dark':m.matches}
+document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttribute('aria-pressed',String(d()));b.addEventListener('click',function(){var t=d()?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('dl-theme',t)}catch(e){}b.setAttribute('aria-pressed',String(t==='dark'))})})})();</script>
+</body>
+</html>

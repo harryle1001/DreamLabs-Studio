@@ -1,0 +1,34 @@
+{
+ "cover": {
+  "author": "AlphaTradeZone",
+  "page": "https://www.pexels.com/photo/5833245/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5833245/pexels-photo-5833245.jpeg",
+  "w": 4241,
+  "h": 2829
+ },
+ "a1": {
+  "author": "RDNE Stock project",
+  "page": "https://www.pexels.com/photo/7841502/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7841502/pexels-photo-7841502.jpeg",
+  "w": 5637,
+  "h": 3758
+ },
+ "a2": {
+  "author": "Gustavo Fring",
+  "page": "https://www.pexels.com/photo/6285071/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6285071/pexels-photo-6285071.jpeg",
+  "w": 5760,
+  "h": 3840
+ },
+ "a3": {
+  "author": "Kaboompics.com",
+  "page": "https://www.pexels.com/photo/5387258/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5387258/pexels-photo-5387258.jpeg",
+  "w": 6720,
+  "h": 4480
+ }
+}
