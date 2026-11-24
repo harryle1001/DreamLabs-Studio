@@ -135,8 +135,8 @@ Cách dễ nhất: **bấm đúp** `render_4k_logo.bat` hoặc `render_4k_stars.
 Bằng lệnh (Command Prompt, đứng ở thư mục dự án):
 
 ```
-"C:\Program Files\Blender Foundation\Blender 4.5lender.exe" -b -P toolslender\dl_logo.py -- --4k
-"C:\Program Files\Blender Foundation\Blender 4.5lender.exe" -b -P toolslender\dl_stars.py -- --4k
+"C:\Program Files\Blender Foundation\Blender 4.5\blender.exe" -b -P tools\blender\dl_logo.py -- --4k
+"C:\Program Files\Blender Foundation\Blender 4.5\blender.exe" -b -P tools\blender\dl_stars.py -- --4k
 ```
 
 | Tùy chọn (sau `--`) | Ý nghĩa |
@@ -144,7 +144,7 @@ Bằng lệnh (Command Prompt, đứng ở thư mục dự án):
 | `--4k` / `--preview` | 3840×2160 30 fps / 960×540 24 fps |
 | `--aspect 16x9` / `--aspect 9x16` / `--aspect both` | khổ hình (4K mặc định cả hai) |
 | `--stills 3.2,8.6,15` | chỉ render ảnh tại các giây đó |
-| `--frames 1-120`, `--samples 512`, `--device CUDA`, `--exr`, `--overwrite`, `--no-encode`, `--out D:ender` | như tên |
+| `--frames 1-120`, `--samples 512`, `--device CUDA`, `--exr`, `--overwrite`, `--no-encode`, `--out D:\render` | như tên |
 
 ### Thời gian (đo thật, RTX 4060 Ti 8 GB, OptiX)
 
@@ -157,7 +157,7 @@ RTX 4070/3080 trở lên nhanh hơn ~1,5–2 lần. Bản `--preview`: ~3 phút 
 
 ### Kết quả
 
-Trong `toolslender\out\dl_logo\` (tương tự `dl_stars\`):
+Trong `tools\blender\out\dl_logo\` (tương tự `dl_stars\`):
 
 | File | Là gì |
 |---|---|
@@ -165,7 +165,7 @@ Trong `toolslender\out\dl_logo\` (tương tự `dl_stars\`):
 | `…_h265.mp4` | H.265 10-bit, nhẹ hơn |
 | `…_4k.wav` | nhạc riêng |
 | `…_grid.jpg` | lưới 20 khung để duyệt |
-| `4k_16x9rames 1.png …` | từng khung (xóa được sau khi có mp4) |
+| `4k_16x9\frames\0001.png …` | từng khung (xóa được sau khi có mp4) |
 
 Bản B cần **ffmpeg** để ghép mp4 (`winget install Gyan.FFmpeg`); thiếu ffmpeg thì vẫn ra ảnh từng khung, cài xong chạy lại lệnh là chỉ ghép.
 
