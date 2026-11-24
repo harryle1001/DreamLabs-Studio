@@ -368,7 +368,7 @@ def update(t, f):
         sweep.data.energy = 2600 * math.sin(sw * math.pi)
     elif 0 < sw2 < 1:
         sweep.location = (-9 + 18 * float(C.ease_io(sw2, 2)), -4, 0)
-        sweep.data.energy = 1800 * math.sin(sw2 * math.pi)
+        sweep.data.energy = 320 * math.sin(sw2 * math.pi)
     else:
         sweep.data.energy = 0
 
