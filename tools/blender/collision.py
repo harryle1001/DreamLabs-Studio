@@ -24,7 +24,7 @@ BG = '#15121C'
 
 a = C.args()
 sc = C.reset()
-C.setup_render(sc, a, 'collision', samples_preview=24, samples_4k=128, duration=DUR)
+C.setup_render(sc, a, 'collision', samples_preview=14, samples_4k=128, duration=DUR)
 # cảnh chỉ có vật thể tự phát sáng -> hầu như không nhiễu; tắt khử nhiễu để không xóa mất các đốm sao li ti
 sc.cycles.use_denoising = False
 sc.cycles.use_adaptive_sampling = False

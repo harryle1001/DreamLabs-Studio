@@ -5,6 +5,7 @@ Không dùng mẫu âm thanh hay nhạc có bản quyền. Chỉ cần numpy (c�
   python tools/blender/audio.py collision out.wav 16
 """
 import os, sys, wave
+sys.dont_write_bytecode = True        # không để lại __pycache__ trong tools/music
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
