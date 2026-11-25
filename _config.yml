@@ -1,0 +1,10 @@
+# GitHub Pages: phục vụ tĩnh nguyên trạng, chỉ loại các thư mục/tệp không phát hành.
+# File không có front matter được chép nguyên; tắt các plugin tự đổi .md thành trang.
+exclude:
+  - tools/
+  - node_modules/
+  - dist/
+require_front_matter: true
+readme_index:
+  enabled: false
+  with_frontmatter: false

@@ -19,7 +19,7 @@ Font chung: `fonts/PlayfairDisplay-*.ttf`. Mục 1 (chuẩn bị) dùng cho cả
 | Video | File kịch bản | Thời lượng | Nội dung |
 |---|---|---|---|
 | 1. Logo 3D | `logo.py` | 11 giây | Hạt sáng vàng xoáy trôn ốc hội tụ → logo đĩa ngọc trai tím oải hương → hồng đào với trăng khuyết vàng champagne hình thành, xoay chậm, vệt sáng lướt qua, chữ "Dream *Labs*" hiện dần, kết bằng logo tĩnh trên nền sao. |
-| 2. Hai ngôi sao va chạm | `collision.py` | 16 giây | Sao vàng champagne và sao xanh sapphire bay vào theo xoắn ốc → chạm nhau, quay quanh nhau thành vòng xoáy → nổ (chớp sáng, quả cầu lửa, 2 vành sóng xung kích, hàng nghìn mảnh sao) → mảnh sao bị hút về thành thiên hà xoắn ốc vàng hai nhánh, xoay chậm. |
+| 2. Hai ngôi sao va chạm | `collision.py` | 16 giây | Sao vàng champagne và sao xanh sapphire bay vào theo xoắn ốc → chạm nhau, quay quanh nhau thành vòng xoáy → nổ (chớp sáng, quả cầu lửa, 2 vành sóng xung kích, hàng nghìn mảnh sao) → mảnh sao bị hút về thành thiên hà xoắn ốc logarit hai nhánh, xoay chậm. |
 
 Mỗi video có bản ngang **16:9** (3840×2160) và bản dọc **9:16** (2160×3840), 30 khung/giây, có nhạc nền tự tổng hợp (AAC).
 

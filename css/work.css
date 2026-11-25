@@ -1,4 +1,4 @@
-/* Dream Labs — Session B "Showroom": phần Dự án (#du-an). Tiền tố wk-. Mọi số đo lấy từ tokens (thang φ). */
+/* Dream Labs — Session B "Showroom": phần Dự án (#du-an). Tiền tố wk-. Mọi số đo lấy từ tokens (thang chuẩn). */
 .wk{overflow:clip;
   /* nền phông chụp của trình xem 3D: màu nhận diện của thương hiệu concept (giống ảnh sản phẩm, không đổi theo sáng/tối) */
   --wk-bd-bottle:radial-gradient(70% 60% at 50% 30%,#eef2e8 0%,#dfe7d6 60%,#cdd8c2 100%);
@@ -28,10 +28,10 @@
 .wk-grid.is-filtered .wk-card{grid-column:auto}
 .wk-grid.is-filtered .wk-cta{display:none}
 .wk-open{appearance:none;-webkit-appearance:none;border:0;background:none;padding:0;margin:0;font:inherit;color:inherit;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:var(--s3);width:100%;border-radius:var(--r3)}
-.wk-media{position:relative;display:block;flex:1 1 auto;aspect-ratio:var(--golden);border-radius:var(--r3);overflow:hidden;background:var(--paper);border:1px solid var(--line);isolation:isolate;
+.wk-media{position:relative;display:block;flex:1 1 auto;aspect-ratio:var(--ar-k);border-radius:var(--r3);overflow:hidden;background:var(--paper);border:1px solid var(--line);isolation:isolate;
   box-shadow:0 var(--s4) var(--s5) calc(var(--s4)*-1) var(--shadow);transition:box-shadow var(--d4) var(--ease)}
 .wk-card:nth-child(4n+2) .wk-media,.wk-card:nth-child(4n+3) .wk-media{aspect-ratio:1/1}
-.wk-grid.is-filtered .wk-media{aspect-ratio:var(--golden)}
+.wk-grid.is-filtered .wk-media{aspect-ratio:var(--ar-k)}
 .wk-open:hover .wk-media{box-shadow:0 var(--s5) var(--s6) calc(var(--s4)*-1) var(--shadow)}
 .wk-par{position:absolute;inset:0;transform:scale(1.08);transition:transform var(--d5) var(--ease)}
 .wk-open:hover .wk-par,.wk-open:focus-visible .wk-par{transform:scale(1.146)}
@@ -58,14 +58,14 @@
 
 /* ── xưởng bao bì: trình xem 3D + trước/sau ── */
 .wk-studio{margin-top:var(--s7)}
-.wk-studio-head{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s5);align-items:end;margin-bottom:var(--s5)}
+.wk-studio-head{display:grid;grid-template-columns:var(--cols-k);gap:var(--s5);align-items:end;margin-bottom:var(--s5)}
 .wk-studio-head>*{min-width:0}
 .wk-studio-head .eyebrow{margin-bottom:var(--s3)}
 .wk-studio-head h3{font-size:clamp(var(--t2),4vw,var(--t3h))}
-.wk-studio-grid{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s4);align-items:stretch}
+.wk-studio-grid{display:grid;grid-template-columns:var(--cols-k);gap:var(--s4);align-items:stretch}
 .wk-studio-grid>*{min-width:0}
 .wk-view,.wk-bacard{overflow:hidden;display:flex;flex-direction:column;margin:0}
-.wk-stage{position:relative;aspect-ratio:var(--golden);overflow:hidden;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-user-select:none;background:var(--wk-bd-bottle);transition:background var(--d4)}
+.wk-stage{position:relative;aspect-ratio:var(--ar-k);overflow:hidden;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-user-select:none;background:var(--wk-bd-bottle);transition:background var(--d4)}
 .wk-stage[data-p="bag"]{background:var(--wk-bd-bag)}.wk-stage[data-p="tub"]{background:var(--wk-bd-tub)}
 .wk-stage.is-drag{cursor:grabbing}
 .wk-stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity var(--d4) var(--ease)}
@@ -103,18 +103,18 @@
 /* ── case study trong DL.modal ── */
 .wk-cs{display:grid;gap:var(--s5)}
 .wk-cs h4{font-family:var(--f-display);font-weight:400;font-size:var(--t2);line-height:var(--lh-tight);margin:0 0 var(--s3)}
-.wk-cs-top{display:grid;grid-template-columns:var(--cols-golden-r);gap:var(--s5);align-items:center}
+.wk-cs-top{display:grid;grid-template-columns:var(--cols-kr);gap:var(--s5);align-items:center}
 .wk-cs-top>*{min-width:0}
 .wk-cs-top h3{font-size:clamp(var(--t2h),4.4vw,var(--t3h));margin:var(--s3) 0}
 .wk-cs-top .lead{font-size:var(--t1)}
 .wk-cs-tags{display:flex;flex-wrap:wrap;gap:var(--s1);align-items:center}
-.wk-cs-img{border-radius:var(--r3);overflow:hidden;border:1px solid var(--line);aspect-ratio:var(--golden);background:var(--paper)}
+.wk-cs-img{border-radius:var(--r3);overflow:hidden;border:1px solid var(--line);aspect-ratio:var(--ar-k);background:var(--paper)}
 .wk-cs-img img{width:100%;height:100%;object-fit:cover}
 .wk-cs-meta{list-style:none;margin:var(--s4) 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
 .wk-cs-meta small{display:block;font-size:var(--t0);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .wk-cs-meta b{font-weight:500;font-size:15px}
 .wk-cs-act{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center}
-.wk-cs-main{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s5);align-items:start}
+.wk-cs-main{display:grid;grid-template-columns:var(--cols-k);gap:var(--s5);align-items:start}
 .wk-cs-main>*{min-width:0}
 .wk-cs-main p{color:var(--muted)}
 .wk-did{list-style:none;margin:0;padding:0;counter-reset:d}
@@ -122,7 +122,7 @@
 .wk-did li::before{content:counter(d,decimal-leading-zero);font-family:var(--f-display);font-style:italic;color:var(--accent)}
 .wk-side{display:grid;gap:var(--s4)}
 .wk-pal{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s1)}
-.wk-pal span{aspect-ratio:var(--golden-v);border-radius:var(--r1);border:1px solid var(--line);background:var(--c);display:flex;align-items:flex-end;padding:var(--s1);font-size:var(--t0);letter-spacing:.02em;overflow:hidden}
+.wk-pal span{aspect-ratio:var(--ar-kv);border-radius:var(--r1);border:1px solid var(--line);background:var(--c);display:flex;align-items:flex-end;padding:var(--s1);font-size:var(--t0);letter-spacing:.02em;overflow:hidden}
 .wk-fonts{display:grid;gap:var(--s2)}
 .wk-font{display:flex;align-items:center;gap:var(--s3);padding:var(--s2) var(--s3);border:1px solid var(--line);border-radius:var(--r2);background:var(--paper)}
 .wk-font>span{font-size:var(--t3);line-height:1.2;min-width:var(--s6);text-align:center}
@@ -159,7 +159,7 @@
   .wk-chips::-webkit-scrollbar{display:none}
   .wk-grid,.wk-grid.is-filtered,.wk-grid.is-filtered[data-n="3"]{grid-template-columns:1fr;gap:var(--s4)}
   .wk-grid .wk-card{grid-column:auto}
-  .wk-grid .wk-media,.wk-grid .wk-card:nth-child(n) .wk-media{aspect-ratio:var(--sqrt-phi)/1}
+  .wk-grid .wk-media,.wk-grid .wk-card:nth-child(n) .wk-media{aspect-ratio:var(--sqrt-kr)/1}
   .wk-cta{order:9}
   .wk-cap b{font-size:var(--t1h)}
   .wk-studio{margin-top:var(--s6)}

@@ -6,7 +6,7 @@
 (()=>{
 const D=window.DL;if(!D)return;
 D.ready(()=>{
-const g=D.gsap,ST=window.ScrollTrigger,PHI=D.PHI,RM=D.RM,fine=D.fine;
+const g=D.gsap,ST=window.ScrollTrigger,K_RATIO=D.K_RATIO,RM=D.RM,fine=D.fine;
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const DATA=window.DL_DATA||{},CATS=DATA.CATS||[],STEPS=DATA.STEPS||[],CMP=DATA.CMP||{};
 const vnd=D.vnd,T=D.t||(s=>s),FX=p=>{const f=D.fx?D.fx(p):'';return f?'<small class="fx">'+f+'</small>':''},root=document.documentElement,head=$('#head');
@@ -105,7 +105,7 @@ const veil=$('#veil');let veilBusy=false;
 function go(target,o={}){
   const el=typeof target==='string'?$(target):target;if(!el)return;
   const tabsBar=$('.ptabs'),extra=o.extra!=null?o.extra:(el.classList.contains('pcat')&&tabsBar?tabsBar.offsetHeight:0);
-  const far=Math.abs(el.getBoundingClientRect().top)>innerHeight*PHI*PHI;
+  const far=Math.abs(el.getBoundingClientRect().top)>innerHeight*K_RATIO*K_RATIO;
   if(RM||!g||!veil||!far){D.scrollTo(el,{extra});return}
   if(veilBusy)return;veilBusy=true;
   g.timeline({onComplete:()=>{veilBusy=false}})
@@ -291,8 +291,8 @@ safe('hero',()=>{
   /* quỹ đạo: xoắn ốc log thu dần (bán kính giảm theo bội số cố định mỗi 1/4 vòng), chậm lúc đầu rồi nhanh dần (mũ 2,618) */
   /* Hai pha: (1) bay vào theo xoắn ốc log, chậm rồi nhanh dần, tới lúc hai sao chạm nhau (không chồng lên nhau);
      (2) chạm nhau → quay quanh nhau thành vòng xoáy, tốc độ góc tăng theo hàm mũ (gấp ~6,5 lần) → phát nổ. */
-  const starPos=(it,w,h,cx,cy,rsb)=>{const T1=INTRO_BIN*.618,T2=INTRO_BIN-T1,TH=Math.PI*2.6,g1=Math.pow(1.61803399,-5.2),r0=small?Math.max(w,h)*.55:w*.6,rc=rsb*1.3;let th,r,wh=0;
-    if(it<T1){const q=Math.max(0,it/T1),sq=.146*q+.854*Math.pow(q,2.618),g=Math.pow(1.61803399,-TH*sq/(Math.PI/2));th=Math.PI-.22+TH*sq;r=rc+(r0-rc)*(g-g1)/(1-g1)}
+  const starPos=(it,w,h,cx,cy,rsb)=>{const T1=INTRO_BIN*.618,T2=INTRO_BIN-T1,TH=Math.PI*2.6,g1=Math.pow(((1+Math.sqrt(5))/2),-5.2),r0=small?Math.max(w,h)*.55:w*.6,rc=rsb*1.3;let th,r,wh=0;
+    if(it<T1){const q=Math.max(0,it/T1),sq=.146*q+.854*Math.pow(q,2.618),g=Math.pow(((1+Math.sqrt(5))/2),-TH*sq/(Math.PI/2));th=Math.PI-.22+TH*sq;r=rc+(r0-rc)*(g-g1)/(1-g1)}
     else{const ta=Math.min(T2,it-T1),k=Math.log(6.5)/T2,w0=TH*2.382/T1;wh=ta/T2;th=Math.PI-.22+TH+w0/k*(Math.exp(k*ta)-1);r=rc*(1-.22*wh*wh)}
     const X=Math.cos(th)*r,Y=Math.sin(th)*r*.5403,Z=Math.sin(th)*r*.8415; /* nghiêng 1 rad quanh trục ngang: Y dẹt lại, Z là độ sâu (dương = gần người xem) */
     return[cx+X,cy+Y,cx-X,cy-Y,wh,th,r,Z]};
@@ -334,7 +334,7 @@ safe('hero',()=>{
       {let tt=t0+.2,gap=.62;while(tt<t0+B-.05){const n=nz(),b=bq('highpass',4200),g=gn(0);g.gain.setValueAtTime(.05,tt);g.gain.exponentialRampToValueAtTime(.0001,tt+.045);n.connect(b);b.connect(g);g.connect(out);n.start(tt);n.stop(tt+.06);tt+=gap;if(tt>t0+B*.618)gap*=.78}}
       /* 4 · gió lướt + nền trầm dồn lên ở đoạn quay xoáy */
       {const n=nz(),b=bq('bandpass',300,1.1),g=gn(0);b.frequency.setValueAtTime(300,t0+B*.5);b.frequency.exponentialRampToValueAtTime(3600,t0+B);g.gain.setValueAtTime(.0001,t0+B*.5);g.gain.exponentialRampToValueAtTime(.14,t0+B);g.gain.exponentialRampToValueAtTime(.0001,t0+B+.25);n.connect(b);b.connect(g);g.connect(out);n.start(t0+B*.5);n.stop(t0+B+.4);
-        const o=osc('sawtooth',55),lp=bq('lowpass',120),og=gn(0);o.frequency.setValueAtTime(55,t0+B*.618);o.frequency.exponentialRampToValueAtTime(55*1.61803399,t0+B);lp.frequency.setValueAtTime(120,t0+B*.618);lp.frequency.exponentialRampToValueAtTime(1500,t0+B);og.gain.setValueAtTime(.0001,t0+B*.618);og.gain.exponentialRampToValueAtTime(.16,t0+B);og.gain.exponentialRampToValueAtTime(.0001,t0+B+.3);o.connect(lp);lp.connect(og);og.connect(out);o.start(t0+B*.618);o.stop(t0+B+.4)}
+        const o=osc('sawtooth',55),lp=bq('lowpass',120),og=gn(0);o.frequency.setValueAtTime(55,t0+B*.618);o.frequency.exponentialRampToValueAtTime(55*((1+Math.sqrt(5))/2),t0+B);lp.frequency.setValueAtTime(120,t0+B*.618);lp.frequency.exponentialRampToValueAtTime(1500,t0+B);og.gain.setValueAtTime(.0001,t0+B*.618);og.gain.exponentialRampToValueAtTime(.16,t0+B);og.gain.exponentialRampToValueAtTime(.0001,t0+B+.3);o.connect(lp);lp.connect(og);og.connect(out);o.start(t0+B*.618);o.stop(t0+B+.4)}
       /* 5 · va chạm: tiếng nổ trầm + ù lan */
       {const ti=t0+B,o=osc('sine',110),g=gn(0);o.frequency.setValueAtTime(110,ti);o.frequency.exponentialRampToValueAtTime(30,ti+.9);g.gain.setValueAtTime(.0001,ti-.01);g.gain.exponentialRampToValueAtTime(.9,ti+.02);g.gain.exponentialRampToValueAtTime(.0001,ti+2.4);o.connect(g);g.connect(out);o.start(ti-.01);o.stop(ti+2.5);
         const n=nz(),b=bq('lowpass',3200),ng=gn(0);b.frequency.setValueAtTime(3200,ti);b.frequency.exponentialRampToValueAtTime(140,ti+1.5);ng.gain.setValueAtTime(.0001,ti-.01);ng.gain.exponentialRampToValueAtTime(.45,ti+.015);ng.gain.exponentialRampToValueAtTime(.0001,ti+1.8);n.connect(b);b.connect(ng);ng.connect(out);n.start(ti-.01);n.stop(ti+1.9)}
@@ -354,7 +354,7 @@ safe('hero',()=>{
   const fallback=()=>{sec.classList.add('no-gl');sec.classList.remove('gl-on');const fb=$('#heroFb');if(!fb)return;
     if(fb2){fb2.start();return}
     const c=document.createElement('canvas');c.setAttribute('aria-hidden','true');fb.appendChild(c);const x=c.getContext('2d');if(!x)return;
-    const n=small?700:1400,PH=1.61803399,P=[];const hh=v=>{const q=Math.sin(v*12.9898+4.1414)*43758.5453;return q-Math.floor(q)};
+    const n=small?700:1400,PH=((1+Math.sqrt(5))/2),P=[];const hh=v=>{const q=Math.sin(v*12.9898+4.1414)*43758.5453;return q-Math.floor(q)};
     for(let i=0;i<n;i++){const k=(i+.5)/n,h1=hh(i),h2=hh(i*1.7+3),h3=hh(i*2.3+7),rs=.012+3.588*k*k;
       const dist=.3+1.75*Math.pow(h2,.75);P.push({b:Math.log(rs)/Math.log(PH)*Math.PI/2+.227+(i%3?0:Math.PI)+(h3+h1-1)*.2,r:rs*(1+(h1+h2-1)*.09),jx:(h2-.5)*.012,jy:(h3-.5)*.012,sz:(1.6+3.6*Math.sqrt(k))*(.8+.4*h1),a:.35+.5*(1-k*.6),m:Math.min(1,Math.max(0,1-Math.sqrt(rs)+(h2-.5)*.2)),tw:h1*6.283,ea:h1*6.2832,ed:dist,dn:(dist-.3)/1.75})}
     const DU=[];for(let i=0;i<(small?120:240);i++)DU.push([hh(i+5e3),hh(i*1.3+7e3),.6+1.4*hh(i*2.1+9e3),hh(i*3.7+1e4)*6.283]);
@@ -394,14 +394,14 @@ safe('hero',()=>{
 float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
 float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n(p);p=p*2.+vec2(1.7,9.2);a*=.5;}return v;}
-void main(){vec2 uv=gl_FragCoord.xy/r;float asp=r.x/r.y;vec2 p=uv*vec2(asp,1.)*1.618;float s=t*.045;p.y+=sc*.618;
+void main(){vec2 uv=gl_FragCoord.xy/r;float asp=r.x/r.y;vec2 p=uv*vec2(asp,1.)*1.62;float s=t*.045;p.y+=sc*.618;
  vec2 q=vec2(fbm(p+s),fbm(p+vec2(5.2,1.3)-s));
- vec2 w=vec2(fbm(p+1.618*q+vec2(1.7,9.2)+s*1.5+m*.382),fbm(p+1.618*q+vec2(8.3,2.8)-s));
+ vec2 w=vec2(fbm(p+1.62*q+vec2(1.7,9.2)+s*1.5+m*.382),fbm(p+1.62*q+vec2(8.3,2.8)-s));
  float f=fbm(p+2.*w);
  vec3 col=mix(c0,c1,smoothstep(.25,.85,f));
  col=mix(col,c2,smoothstep(.35,.95,length(q))*.7);
  col=mix(col,c3,smoothstep(.55,1.,w.x)*.7);
- float band=pow(sin(p.x*1.618+w.y*4.+s*2.)*.5+.5,3.)*smoothstep(.1,.9,uv.y);
+ float band=pow(sin(p.x*1.62+w.y*4.+s*2.)*.5+.5,3.)*smoothstep(.1,.9,uv.y);
  col=mix(col,mix(c1,c3,.382),band*.382);
  vec2 d=(uv-ctr)*vec2(asp,1.);col=mix(col,c0,exp(-dot(d,d)*3.)*.382);
  col=mix(col,c0,smoothstep(.55,1.,uv.y)*.35);
@@ -473,7 +473,7 @@ void main(){vec2 p=gl_FragCoord.xy;vec3 c=texture2D(tx,p/r).rgb;float mxr=max(r.
      u_bang 0→1 (~4,6 giây): bung từ tâm (vệt sáng theo hướng bay) → lơ lửng → bị hút xoáy về hình xoắn ốc (đường cong, sao xa vào sau).
      u_bang = 1: đúng hình xoắn ốc đang xoay (u_rot), không đổi so với trước. */
   const VS_P=`attribute float a_i;uniform float u_br,u_n,u_dn,u_bin,u_t,u_bang,u_dpr,u_R,u_mr,u_mp,u_rot,u_lo,u_ss;uniform vec2 u_res,u_ctr,u_m,u_tilt;
-varying float v_al,v_mix,v_soft,v_gold,v_str,v_glow;varying vec2 v_dir;const float PHI=1.61803399,TAU=6.28318531;
+varying float v_al,v_mix,v_soft,v_gold,v_str,v_glow;varying vec2 v_dir;const float K_RATIO=(1.+sqrt(5.))*.5,TAU=6.28318531;
 float hh(float n){return fract(sin(n*12.9898+4.1414)*43758.5453);}
 float eo(float x){x=clamp(x,0.,1.);return 1.-(1.-x)*(1.-x)*(1.-x);}
 float eio(float x){x=clamp(x,0.,1.);return x<.5?4.*x*x*x:1.-pow(-2.*x+2.,3.)*.5;}
@@ -490,7 +490,7 @@ void main(){float h1=hh(a_i),h2=hh(a_i*1.7+3.),h3=hh(a_i*2.3+7.),h4=hh(a_i*3.1+1
   v_soft=0.;v_mix=h2;v_gold=step(.78,h4);v_str=0.;v_glow=0.;v_dir=vec2(1.,0.);return;}
  float k=(a_i+.5)/u_n,rr=sqrt(k);
  float arm2=mod(a_i,3.)<1.?1.:0.,h5=hh(a_i*5.3+1.),bul=step(h5,.14);
- float rs=mix(.012,3.6,k*k),ths=log(rs)/log(PHI)*(TAU*.25)+.227+u_rot+sin(u_t*.2)*.06+arm2*3.14159265+(h3+h4-1.)*.11,br=1.+.04*u_br*sin(u_t*1.3-rs*7.);
+ float rs=mix(.012,3.6,k*k),ths=log(rs)/log(K_RATIO)*(TAU*.25)+.227+u_rot+sin(u_t*.2)*.06+arm2*3.14159265+(h3+h4-1.)*.11,br=1.+.04*u_br*sin(u_t*1.3-rs*7.);
  vec2 sp=(vec2(cos(ths),sin(ths))*rs*br*(1.+(h1+h2-1.)*.15)+(vec2(h2,h3)-.5)*.012)*u_ss;
  if(bul>.5){float ba=h1*TAU+u_rot*1.6,brd=.03+.3*h2*h2;sp=vec2(cos(ba),sin(ba)*.8)*brd*u_ss;}
  vec2 p=sp,dir=vec2(1.,0.);float str=0.,boost=0.;
@@ -622,8 +622,8 @@ safe('marquee',()=>{
   const remeasure=()=>rows.forEach(r=>r.measure());
   addEventListener('resize',remeasure,{passive:true});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(remeasure);
   g.ticker.add((_,dms)=>{const dt=Math.min(100,Math.max(1,dms))/1000,y=scrollY,v=(y-lastY)/dt;lastY=y;vel+=(v-vel)*(1-Math.exp(-dt*6.18));if(!vis)return;
-    const boost=clamp(Math.abs(vel)/1110,0,PHI*PHI*PHI),sign=vel<-26?-1:1,skew=(clamp(vel/2906,-1,1)*-6.18).toFixed(2);
-    rows.forEach((r,i)=>{r.x+=r.dir*sign*(i?42:68)*(1+boost*PHI)*dt;
+    const boost=clamp(Math.abs(vel)/1110,0,K_RATIO*K_RATIO*K_RATIO),sign=vel<-26?-1:1,skew=(clamp(vel/2906,-1,1)*-6.18).toFixed(2);
+    rows.forEach((r,i)=>{r.x+=r.dir*sign*(i?42:68)*(1+boost*K_RATIO)*dt;
       if(r.x<=-r.w)r.x+=r.w;if(r.x>0)r.x-=r.w;r.tr.style.transform=`translate3d(${r.x.toFixed(2)}px,0,0) skewX(${skew}deg)`})});
 });
 
@@ -640,7 +640,7 @@ safe('services',()=>{
   cards.forEach(c=>io.observe(c));
 });
 
-/* ═════════ QUY TRÌNH: ghim + cuộn ngang (sticky), đường nối tự vẽ, kết bằng xoắn ốc vàng ═════════ */
+/* ═════════ QUY TRÌNH: ghim + cuộn ngang (sticky), đường nối tự vẽ, kết bằng xoắn ốc logarit ═════════ */
 safe('process',()=>{
   const sec=$('#quy-trinh'),pin=$('#procPin'),view=$('#procView'),track=$('#procTrack'),svg=$('#procLine');if(!sec||!track||!svg)return;
   const steps=$$('.step',track),end=$('.proc-end',track),fg=$('.fg',svg),bg=$('.bg',svg),now=$('#procNow'),bar=$('#procBar');if(!steps.length)return;
@@ -760,7 +760,7 @@ safe('contact',()=>{
   const zl=$('#cfZalo');if(zl)zl.addEventListener('click',()=>{const r=$('#cfReq');r&&copyText(r.textContent,null)});
 });
 
-/* ═════════ FOOTER: chữ khổng lồ parallax + xoắn ốc vàng vẽ theo cuộn ═════════ */
+/* ═════════ FOOTER: chữ khổng lồ parallax + xoắn ốc logarit vẽ theo cuộn ═════════ */
 safe('footer',()=>{
   const ft=$('.foot');if(!ft||!g||!ST||RM)return;
   if($('#giant'))g.fromTo('#giant',{xPercent:0},{xPercent:-38.2,ease:'none',scrollTrigger:{trigger:ft,start:'top bottom',end:'bottom bottom',scrub:true}});

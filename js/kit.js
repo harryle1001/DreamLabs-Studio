@@ -1,14 +1,14 @@
 /* Dream Labs kit — API dùng chung + motion khai báo. Nạp sau GSAP/ScrollTrigger/SplitText/Lenis, trước core/work/lab.
    Owner: Session A (được mở rộng; KHÔNG đổi/xoá API đã có vì B và C phụ thuộc).
-   API: DL.PHI, DL.RM, DL.fine, DL.vnd(n), DL.ready(fn), DL.load(src), DL.scrollTo(target,{offset,immediate}), DL.modal.open({title,node|html,narrow,onClose}), DL.modal.close(), DL.scan(root), DL.refresh(), DL.lenis
+   API: DL.K_RATIO, DL.RM, DL.fine, DL.vnd(n), DL.ready(fn), DL.load(src), DL.scrollTo(target,{offset,immediate}), DL.modal.open({title,node|html,narrow,onClose}), DL.modal.close(), DL.scan(root), DL.refresh(), DL.lenis
         (core.js thêm: DL.go(target) cuộn có màn chuyển cảnh khi nhảy xa · DL.pick(text) điền form liên hệ · DL.isDark() · DL.setTheme('light'|'dark') · sự kiện document 'dl:theme')
    HTML: data-reveal[=up|left|right|scale|clip] data-delay · data-stagger (con trực tiếp lần lượt hiện) · data-split (tiêu đề hiện theo dòng) · data-parallax="0.1"
          data-magnetic · data-tilt · data-count="18000000" data-format="vnd|int" · data-cursor="Xem" (nhãn con trỏ, do core.js hiển thị) */
 (()=>{
-const PHI=1.61803, RM=matchMedia('(prefers-reduced-motion: reduce)').matches, fine=matchMedia('(pointer:fine)').matches;
+const K_RATIO=(1+Math.sqrt(5))/2, RM=matchMedia('(prefers-reduced-motion: reduce)').matches, fine=matchMedia('(pointer:fine)').matches;
 const g=window.gsap, ST=window.ScrollTrigger;
 if(g&&ST)g.registerPlugin(ST); if(g&&window.SplitText)g.registerPlugin(window.SplitText);
-const DL=window.DL={PHI,RM,fine,gsap:g,lenis:null,_ready:[],_done:false};
+const DL=window.DL={K_RATIO,RM,fine,gsap:g,lenis:null,_ready:[],_done:false};
 DL.vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ';
 /* Gói trên 20 triệu: không ghi số, hiện "Liên hệ" (DL.ask(p) đúng thì ẩn đơn vị, "trở lên" và quy đổi ngoại tệ) */
 DL.ASK=20e6;DL.ask=p=>+p>DL.ASK;DL.pv=p=>DL.ask(p)?(DL.t?DL.t('Liên hệ'):'Liên hệ'):DL.vnd(p);
@@ -19,7 +19,7 @@ DL.refresh=()=>{if(!ST)return;try{ST.sort()}catch(e){}ST.refresh()};
 DL.scrollTo=(target,o={})=>{
   const el=typeof target==='string'?document.querySelector(target):target; if(el==null)return;
   const head=document.querySelector('.head'), off=o.offset!=null?o.offset:-((head?head.offsetHeight:0)+(o.extra||0));
-  if(DL.lenis&&!RM)DL.lenis.scrollTo(el,{offset:off,immediate:!!o.immediate,force:true,duration:o.duration||PHI});
+  if(DL.lenis&&!RM)DL.lenis.scrollTo(el,{offset:off,immediate:!!o.immediate,force:true,duration:o.duration||K_RATIO});
   else{const y=(typeof el==='number'?el:el.getBoundingClientRect().top+scrollY)+off;scrollTo({top:y,behavior:o.immediate||RM?'auto':'smooth'})}
 };
 /* modal */
@@ -46,7 +46,7 @@ DL.scan=(root=document)=>{
       const from={up:{y:42},left:{x:-42},right:{x:42},scale:{scale:.9},clip:{clipPath:'inset(0 0 100% 0)'}}[k]||{y:42};
       if(fade&&k!=='clip')from.opacity=0;
       g.from(el,{...from,duration:1.11,ease:'expo.out',delay:d,scrollTrigger:el.closest('dialog')?undefined:{trigger:el,start:'top 92%'}})});
-    q('[data-stagger]').forEach(el=>{const fade=below(el);g.from(el.children,{y:42,opacity:fade?0:1,duration:.9,ease:'expo.out',stagger:.1/PHI,scrollTrigger:{trigger:el,start:'top 88%'}})});
+    q('[data-stagger]').forEach(el=>{const fade=below(el);g.from(el.children,{y:42,opacity:fade?0:1,duration:.9,ease:'expo.out',stagger:.1/K_RATIO,scrollTrigger:{trigger:el,start:'top 88%'}})});
     q('[data-split]').forEach(el=>{if(!window.SplitText)return;const run=()=>{const s=window.SplitText.create(el,{type:'lines',mask:'lines',linesClass:'dl-line'});
       g.from(s.lines,{yPercent:110,duration:1.11,ease:'expo.out',stagger:.1,scrollTrigger:{trigger:el,start:'top 90%'}})};
       (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run)});

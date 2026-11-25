@@ -8,7 +8,7 @@
 const D=window.DL;if(!D)return;
 const S=window.DL_SAMPLES=window.DL_SAMPLES||{};
 const T=D.t||(s=>s),FXs=p=>{const f=D.fx?D.fx(p):'';return f?'<small class="fx">'+f+'</small>':''};D.i18nSamples&&D.i18nSamples(S);
-const g=D.gsap,RM=D.RM,PHI=D.PHI;
+const g=D.gsap,RM=D.RM,K_RATIO=D.K_RATIO;
 const CATS=((window.DL_DATA||{}).CATS||[]).filter(c=>c&&c.id);
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -105,7 +105,7 @@ function build(){
 }
 
 /* ───────── lưới ───────── */
-/* bố cục vàng trên lưới 24 cột: hàng đôi 15/9 (≈61.8/38.2) xen hàng ba 8/8/8, đảo chiều mỗi chu kỳ 5 thẻ (Fibonacci 2+3) */
+/* bố cục trên lưới 24 cột: hàng đôi 15/9 xen hàng ba 8/8/8, đảo chiều mỗi chu kỳ 5 thẻ */
 function spans(n){const out=[];let flip=false,left=n;
   while(left>0){
     if(left===1){out.push(flip?'maj r':'maj');break}
@@ -178,7 +178,7 @@ function stageSite(it){
   const shotSrc=()=>(mode==='m'?L.m||L.d:L.d||L.m)||it.cover;
   img.addEventListener('error',()=>{if(it.cover&&img.getAttribute('src')!==it.cover){img.classList.remove('sm-err');frame.classList.remove('is-noimg');img.src=it.cover}});
   const fit=()=>{const cw=port.clientWidth;if(!cw)return;const m=mode==='m',vh=Math.max(377,innerHeight*.68);
-    const w=m?Math.min(390,cw):cw,h=Math.round(m?Math.min(754,vh):Math.min(vh,Math.max(377,w/PHI)));
+    const w=m?Math.min(390,cw):cw,h=Math.round(m?Math.min(754,vh):Math.min(vh,Math.max(377,w/K_RATIO)));
     frame.classList.toggle('is-m',m);frame.style.width=w+'px';frame.style.height=h+'px';
     if(ifr){const iw=m?390:w>=1180?w:1440,k=w/iw;ifr.style.width=iw+'px';ifr.style.height=Math.ceil(h/k)+'px';ifr.style.transform=k===1?'none':`scale(${k})`}};
   const paint=()=>{segSet(node,'m',mode);const s=shotSrc();frame.classList.remove('is-noimg');img.classList.remove('sm-err');
@@ -228,7 +228,7 @@ function stageProduct(it){
     cap.textContent=a.cap;
     const on=layers.find(l=>l.classList.contains('is-on')),nx=layers.find(l=>l!==on);
     const done=bad=>{if(t!==tok)return;nx.onload=nx.onerror=null;box.classList.toggle('is-noimg',!!bad);nx.classList.toggle('sm-err',!!bad);nx.alt=it.title+', '+a.cap;
-      if(!bad&&nx.naturalWidth)box.style.setProperty('--ar',Math.min(PHI,Math.max(.8,nx.naturalWidth/nx.naturalHeight)).toFixed(4));
+      if(!bad&&nx.naturalWidth)box.style.setProperty('--ar',Math.min(K_RATIO,Math.max(.8,nx.naturalWidth/nx.naturalHeight)).toFixed(4));
       nx.classList.add('is-on');on&&on.classList.remove('is-on')};
     if(on&&on.getAttribute('src')===a.src)return;
     nx.onload=()=>done(false);nx.onerror=()=>done(true);nx.removeAttribute('src');nx.removeAttribute('srcset');if(a.hi){nx.sizes='(min-width: 1000px) 62vw, 100vw';nx.srcset=a.hi.set}nx.src=a.src};

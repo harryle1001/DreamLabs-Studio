@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <title>DreamLab showreel — nguồn dựng phim (GSAP timeline)</title>
 <!-- Phim dựng 100% bằng code. Mọi chuyển động nằm trong window.__tl (paused) để render.js nhảy từng khung hình.
-     reel.html      -> bản ngang 1280×792 (1.618:1)
+     reel.html      -> bản ngang 1280×792
      reel.html?v    -> bản dọc 720×1280 (9:16)
      thêm &play     -> phát thử trực tiếp trong trình duyệt -->
 <link rel="stylesheet" href="../../css/fonts.css">
 <style>
-:root{--phi:1.61803;--bg:#F4EFE6;--paper:#FBF8F3;--ink:#221C2A;--muted:#6C6373;--lav:#BCA8E6;--peach:#F2C0A8;--mist:#AACBE0;--accent:#5E43A8;
+:root{--bg:#F4EFE6;--paper:#FBF8F3;--ink:#221C2A;--muted:#6C6373;--lav:#BCA8E6;--peach:#F2C0A8;--mist:#AACBE0;--accent:#5E43A8;
   --f-display:"Fraunces",Georgia,serif;--f-body:"Be Vietnam Pro",system-ui,sans-serif;--grad:linear-gradient(135deg,var(--lav),var(--peach) 61.8%,var(--mist))}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#111;overflow:hidden}
@@ -62,7 +62,7 @@ em{font-style:italic;font-weight:300}
 .s-web .nav b{width:16px;height:16px;border-radius:50%;background:var(--grad);margin-right:auto}
 .s-web .nav i{width:36px;height:5px;border-radius:3px;background:rgba(34,28,42,.22)}
 .s-web .nav em{width:58px;height:18px;border-radius:9px;background:var(--ink)}
-.s-web .hero{display:grid;grid-template-columns:1.618fr 1fr;gap:26px;padding:10px 26px 0}
+.s-web .hero{display:grid;grid-template-columns:1.62fr 1fr;gap:26px;padding:10px 26px 0}
 .s-web .b{display:block;border-radius:5px;background:var(--ink);transform-origin:0 50%}
 .s-web .b.e{width:68px;height:6px;background:var(--lav);margin-bottom:14px}
 .s-web .b.h1{width:260px;height:22px;margin-bottom:9px} .s-web .b.h2{width:178px;height:22px;margin-bottom:16px;background:var(--accent)}
@@ -372,11 +372,11 @@ em{font-style:italic;font-weight:300}
 (()=>{
 gsap.registerPlugin(MotionPathPlugin);
 const Q=new URLSearchParams(location.search),V=Q.has('v');
-const PHI=(1+Math.sqrt(5))/2,s=1/PHI,S=792,WW=S*PHI,GA=Math.PI*(3-Math.sqrt(5)); // góc vàng 137.5°
+const K_RATIO=(1+Math.sqrt(5))/2,s=1/K_RATIO,S=792,WW=S*K_RATIO,GA=Math.PI*(3-Math.sqrt(5)); // góc phân bố 137.5°
 const W=V?720:1280,H=V?1280:792,f=V?720/792:1,y0=V?115:0;
 const stage=document.getElementById('stage');stage.style.setProperty('--W',W+'px');stage.style.setProperty('--H',H+'px');stage.classList.toggle('V',V);
 const $=(q,r=document)=>r.querySelector(q),$$=(q,r=document)=>[...r.querySelectorAll(q)];
-/* tâm xoắn ốc (điểm bất động của phép đồng dạng quay 90° + thu 1/φ) */
+/* tâm xoắn ốc (điểm bất động của phép đồng dạng quay 90° + thu 1/K) */
 const E={x:WW/(1+s*s),y:s*WW/(1+s*s)};
 const ES=V?{x:720-f*E.y,y:y0+f*E.x}:{x:E.x,y:E.y};
 const rig=$('#rig'),world=$('#world');
@@ -543,7 +543,7 @@ tl.to(cam,{u:10.4,duration:1.5,ease:'power2.in'},TE-.5)
   .set({}, {}, DUR);
 
 function render(){const u=cam.u,tt=tl.time();
-  world.style.transform=`rotate(${-90*u}deg) scale(${Math.pow(PHI,u)})`;
+  world.style.transform=`rotate(${-90*u}deg) scale(${Math.pow(K_RATIO,u)})`;
   for(let k=0;k<sq.length;k++)sq[k].style.visibility=(k<u-2.2)?'hidden':'visible';
   seeds1(tt);seeds2(tt,TE+.62)}
 tl.eventCallback('onUpdate',render);

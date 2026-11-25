@@ -6,7 +6,7 @@
 Đồng bộ với cảnh mở đầu trang chủ (js/core.js, safe('hero')): sao vàng champagne + sao xanh sapphire đêm, bề mặt hạt
 đối lưu, viền tối dần, quầng dịu (không tia nhọn), bay vào theo xoắn ốc nghiêng chậm rồi nhanh dần (mũ 2,618) ->
 chạm -> quay quanh nhau tăng tốc, vật chất kéo thành 2 cánh -> nổ (chớp, quả cầu lửa, 2 vành sóng, hàng nghìn mảnh có vệt)
--> mảnh bị hút xoáy về thiên hà xoắn ốc vàng 2 nhánh, lõi kem, nhánh tràn khung -> thiên hà xoay chậm.
+-> mảnh bị hút xoáy về thiên hà xoắn ốc logarit 2 nhánh, lõi kem, nhánh tràn khung -> thiên hà xoay chậm.
 
 Nhịp: 0–6,2 s bay vào · 6,2–8,6 s xoáy · 8,6 s nổ · 9,2–13 s hút về thiên hà · 13–16 s xoay chậm.
 """
@@ -21,13 +21,13 @@ import dl_audio as A
 
 NAME = 'dl_stars'
 DUR = 16.0
-PHI = (1 + 5 ** .5) / 2
+K_RATIO = (1 + 5 ** .5) / 2
 BG = '#15121C'
 
 T_IN, T_BANG = 6.2, 8.6           # hết bay vào (hai sao chạm) · nổ
 RS = 0.55                          # bán kính sao
 R0 = 6.4                           # bán kính quỹ đạo lúc đầu
-B_GOLD = math.log(PHI) / (math.pi / 2)
+SPIRAL_B = math.log(K_RATIO) / (math.pi / 2)
 
 # màu sao lấy từ shader hero (core.js): A vàng champagne, B xanh sapphire đêm (deep / mid / lite)
 STAR_A = ((.56, .39, .2), (.87, .7, .42), (1., .95, .8))
@@ -41,16 +41,16 @@ def lin3(c):   # màu sRGB 0..1 -> tuyến tính
 
 # ------------------------------------------------------------------ quỹ đạo hai sao
 def make_orbit():
-    """Bảng góc/bán kính theo thời gian 0..T_BANG (bước 1/600 s). Bay vào: xoắn ốc vàng, tiến độ u^2.618;
+    """Bảng góc/bán kính theo thời gian 0..T_BANG (bước 1/600 s). Bay vào: xoắn ốc logarit, tiến độ u^k;
     sau khi chạm: khoảng cách co lại, vận tốc góc tăng mạnh."""
     dt = 1 / 600
     T = np.arange(0, T_BANG + 1e-9, dt)
     th = np.zeros_like(T); rr = np.zeros_like(T)
-    total = math.log(R0 / RS) / B_GOLD                         # tổng góc quay đoạn bay vào
+    total = math.log(R0 / RS) / SPIRAL_B                         # tổng góc quay đoạn bay vào
     m = T <= T_IN
     p = (T[m] / T_IN) ** 2.618
     th[m] = total * p
-    rr[m] = R0 * np.exp(-B_GOLD * total * p)
+    rr[m] = R0 * np.exp(-SPIRAL_B * total * p)
     w_c = (th[m][-1] - th[m][-2]) / dt                         # vận tốc góc lúc chạm
     k = ~m
     x = (T[k] - T_IN) / (T_BANG - T_IN)
@@ -330,13 +330,13 @@ def build(sc, a, ar):
     dmix = rng.uniform(size=ND)
     dcol = np.where(dmix[:, None] < .42, gold, np.where(dmix[:, None] < .62, colB2, np.where(dmix[:, None] < .8, cream, peach)))
 
-    # đích thiên hà: 2 nhánh xoắn ốc log (bước xoắn vàng), lõi phình
+    # đích thiên hà: 2 nhánh xoắn ốc log (bước xoắn cố định), lõi phình
     def galaxy_targets(n, bulge=.14, rmax=14.0):
         isb = rng.uniform(size=n) < bulge
         arm = rng.integers(0, 2, n)
         u = rng.uniform(size=n)
         r = .35 + rmax * u ** 1.35
-        th = arm * np.pi + np.log(r / .35) / (B_GOLD * 1.1) + rng.normal(0, .16 + .05 * r / rmax, n)
+        th = arm * np.pi + np.log(r / .35) / (SPIRAL_B * 1.1) + rng.normal(0, .16 + .05 * r / rmax, n)
         sc_ = rng.normal(0, 1, n) * (.06 + .05 * r)
         x = r * np.cos(th) - sc_ * np.sin(th); y = r * np.sin(th) + sc_ * np.cos(th)
         z = rng.normal(0, .05 + .02 * r / rmax, n)

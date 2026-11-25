@@ -2,7 +2,7 @@
    Chỉ demo đang mở và đang nằm trong khung nhìn mới chạy; ra khỏi khung nhìn là dừng mọi vòng lặp. */
 (()=>{
 const DL=window.DL;if(!DL)return;
-const g=DL.gsap,RM=DL.RM,GA=Math.PI*(3-Math.sqrt(5)); // góc vàng 137.5°
+const g=DL.gsap,RM=DL.RM,GA=Math.PI*(3-Math.sqrt(5)); // góc phân bố 137.5°
 const $=(q,r=document)=>r.querySelector(q),$$=(q,r=document)=>[...r.querySelectorAll(q)];
 const el=(tag,cls,html)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -284,7 +284,7 @@ function gradeDemo(root){
   const ambient=on=>{loops.forEach(t=>t.kill());loops=[];if(!on||RM||!g)return;
     loops.push(g.fromTo($$('.cl',frame),{x:-26},{x:26,duration:6.854,ease:'sine.inOut',yoyo:true,repeat:-1}),
       g.fromTo($$('.gl',frame),{scale:1,transformOrigin:'50% 50%'},{scale:1.1,duration:2.618,ease:'sine.inOut',yoyo:true,repeat:-1}),
-      g.fromTo($$('.rf',frame),{opacity:.42},{opacity:.7,duration:1.618,ease:'sine.inOut',yoyo:true,repeat:-1}))};
+      g.fromTo($$('.rf',frame),{opacity:.42},{opacity:.7,duration:1.62,ease:'sine.inOut',yoyo:true,repeat:-1}))};
   return{enter(){fit(false);ambient(true)},leave(){ambient(false)}};
 }
 

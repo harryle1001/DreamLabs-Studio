@@ -1,8 +1,8 @@
-/* Dream Labs — Session C: #showreel (reel-) và #lab (lab-). Mọi số đo lấy từ tokens.css (thang φ). */
+/* Dream Labs — Session C: #showreel (reel-) và #lab (lab-). Mọi số đo lấy từ tokens.css (thang chuẩn). */
 
 /* ================= SHOWREEL ================= */
 .reel-stage{margin-bottom:var(--s6)}
-.reel-frame{position:relative;aspect-ratio:var(--golden);border-radius:var(--r3);overflow:hidden;background:var(--paper);border:1px solid var(--line);
+.reel-frame{position:relative;aspect-ratio:var(--ar-k);border-radius:var(--r3);overflow:hidden;background:var(--paper);border:1px solid var(--line);
   box-shadow:0 var(--s5) var(--s7) calc(var(--s5)*-1) var(--shadow);transform-origin:50% 61.8%;cursor:pointer;will-change:transform}
 .reel-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .reel-toggle{position:absolute;right:var(--s3);bottom:var(--s4);width:var(--s6);height:var(--s6);border-radius:50%;border:1px solid var(--line);background:var(--glass);color:var(--ink);
@@ -64,7 +64,7 @@
 .lab-tab.is-on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .lab-stage{position:relative;padding:var(--s4);overflow:hidden;
   background:radial-gradient(61.8% 61.8% at 0% 0%,color-mix(in oklab,var(--lav) 26%,transparent),transparent 61.8%),radial-gradient(61.8% 61.8% at 100% 100%,color-mix(in oklab,var(--peach) 26%,transparent),transparent 61.8%),var(--paper)}
-.lab-panel{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s5);align-items:start}
+.lab-panel{display:grid;grid-template-columns:var(--cols-k);gap:var(--s5);align-items:start}
 .lab-panel[hidden]{display:none}
 .lab-panel>*{min-width:0}
 .lab-side{display:grid;gap:var(--s3);align-content:start;justify-items:start;padding:var(--s3) 0}
@@ -97,7 +97,7 @@
 .lab-range::-moz-range-thumb{width:var(--s4);height:var(--s4);border-radius:50%;background:var(--paper);border:2px solid var(--accent);box-shadow:0 var(--s0) var(--s2) var(--shadow)}
 
 /* ================= 1. Trợ lý AI bán hàng ================= */
-.lab-chatwrap{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s3);align-items:stretch}
+.lab-chatwrap{display:grid;grid-template-columns:var(--cols-k);gap:var(--s3);align-items:stretch}
 .lab-chatwrap>*{min-width:0}
 .lab-chat{display:flex;flex-direction:column;height:calc(var(--s8)*3);border-radius:var(--r3);border:1px solid var(--line);background:var(--bg);overflow:hidden;box-shadow:0 var(--s4) var(--s5) calc(var(--s4)*-1) var(--shadow)}
 .lab-chat-head{display:flex;align-items:center;gap:var(--s2);padding:var(--s2) var(--s3);background:var(--glass);border-bottom:1px solid var(--line)}
@@ -173,7 +173,7 @@
 .lab-run:disabled{opacity:var(--op-major);cursor:progress}
 .lab-flow-msg{font-size:var(--t0h);color:var(--muted);min-height:calc(var(--t0h)*var(--lh)*2)}
 .lab-flow-msg b{color:var(--ink);font-weight:600}
-.lab-flow-data{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s3);align-items:start}
+.lab-flow-data{display:grid;grid-template-columns:var(--cols-k);gap:var(--s3);align-items:start}
 .lab-flow-data>*{min-width:0}
 .lab-sheet-wrap{border-radius:var(--r1);border:1px solid var(--line);background:var(--paper);overflow-x:auto}
 .lab-sheet{width:100%;border-collapse:collapse;font-size:var(--t0h);line-height:var(--lh)}
@@ -188,7 +188,7 @@
 
 /* ================= 3. Motion graphic ================= */
 .lab-motion .lab-seg{margin-bottom:var(--s3)}
-.lab-mo-stage{position:relative;aspect-ratio:var(--golden);border-radius:var(--r2);overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 var(--s4) var(--s5) calc(var(--s4)*-1) var(--shadow)}
+.lab-mo-stage{position:relative;aspect-ratio:var(--ar-k);border-radius:var(--r2);overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 var(--s4) var(--s5) calc(var(--s4)*-1) var(--shadow)}
 .lab-mo-stage>.lab-badge{position:absolute;right:var(--s2);top:var(--s2)}
 .lab-mo-canvas{position:absolute;left:0;top:0;width:600px;height:371px;transform-origin:0 0;overflow:hidden;color:var(--ink)}
 .lab-mo-ctl{display:grid;grid-template-columns:var(--s5) 1fr auto;gap:var(--s3);align-items:center;margin-top:var(--s3)}
@@ -238,7 +238,7 @@
 
 /* ================= 4. Chỉnh màu ================= */
 .lab-gr-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s2);margin-bottom:var(--s3)}
-.lab-gr-stage{position:relative;aspect-ratio:var(--golden);display:grid;place-items:center;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line);
+.lab-gr-stage{position:relative;aspect-ratio:var(--ar-k);display:grid;place-items:center;border-radius:var(--r2);overflow:hidden;border:1px solid var(--line);
   background:repeating-linear-gradient(90deg,color-mix(in oklab,var(--ink) 6%,transparent) 0 1px,transparent 1px var(--s4)),repeating-linear-gradient(0deg,color-mix(in oklab,var(--ink) 6%,transparent) 0 1px,transparent 1px var(--s4)),color-mix(in oklab,var(--ink) 10%,var(--paper))}
 .lab-gr-frame{position:relative;width:80%;aspect-ratio:16/9;border-radius:var(--r1);overflow:hidden;background:#1E1A30;box-shadow:0 var(--s4) var(--s6) calc(var(--s4)*-1) var(--shadow);cursor:ew-resize;touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-user-select:none}
 .lab-gr-layer{position:absolute;inset:0}
@@ -279,7 +279,7 @@
 .lab-bd-code{font:var(--t0h)/var(--lh) ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--muted);padding:var(--s2) var(--s3);border-radius:var(--r1);background:var(--glass);border:1px dashed var(--line);overflow-wrap:anywhere}
 .lab-bd-view{display:grid;justify-items:center;gap:var(--s3)}
 .lab-bd-phone{--pb:#FBF8F3;--pi:#221C2A;--pm:#6C6373;--pl:rgba(34,28,42,.12);--btn:var(--b);--tint:color-mix(in oklab,var(--b) 10%,var(--pb));
-  width:min(100%,288px);aspect-ratio:var(--golden-v);border-radius:var(--r4);padding:var(--s1);background:#17141E;box-shadow:0 var(--s5) var(--s6) calc(var(--s4)*-1) var(--shadow)}
+  width:min(100%,288px);aspect-ratio:var(--ar-kv);border-radius:var(--r4);padding:var(--s1);background:#17141E;box-shadow:0 var(--s5) var(--s6) calc(var(--s4)*-1) var(--shadow)}
 .lab-bd-phone[data-m="dark"]{--pb:#17141E;--pi:#F4EFE6;--pm:#B1A8BB;--pl:rgba(244,239,230,.16);--btn:color-mix(in oklab,var(--b) 61.8%,#fff);--tint:color-mix(in oklab,var(--b) 26%,var(--pb))}
 .lab-bd-screen{height:100%;border-radius:calc(var(--r4) - var(--s1));background:var(--tint);color:var(--pi);padding:var(--s3);overflow:hidden;display:flex;flex-direction:column;gap:var(--s2)}
 .lab-bd-nav{display:flex;justify-content:space-between;align-items:center}

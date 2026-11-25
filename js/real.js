@@ -108,7 +108,7 @@ D.real=function(host,o){
       if(nxt>=0){if(ok(nxt)){mixT=Math.min(1,mixT+dt/(RM?1:SWAP_MS));const e=ease(mixT);ry=(e<.5?e*2:(e-1)*2)*turn*-34;
           if(e>=.5)ground(nxt);if(mixT>=1){cur=nxt;nxt=-1;mixT=0}}moving=true}
       /* bồng bềnh: hai sóng sin lệch pha; bóng nhỏ và nhạt dần khi vật lên cao */
-      const upv=RM?.5:.5+.5*(Math.sin(t*TAU/FLOAT_MS)*.72+Math.sin(t*TAU/(FLOAT_MS*1.618)+1.3)*.28),lift=(RM?0:-1.1-upv*2.3)*(zoomMode?0:1);
+      const upv=RM?.5:.5+.5*(Math.sin(t*TAU/FLOAT_MS)*.72+Math.sin(t*TAU/(FLOAT_MS*1.62)+1.3)*.28),lift=(RM?0:-1.1-upv*2.3)*(zoomMode?0:1);
       if(!RM&&!zoomMode)moving=true;
       cv.style.transform=`perspective(${zoomMode?4000:900}px) translate3d(${(tx*-.6).toFixed(3)}cqw,${lift.toFixed(3)}cqw,0) rotateY(${(tx*7+ry).toFixed(2)}deg) rotateX(${(-ty*6).toFixed(2)}deg)`;
       shd.style.transform=`translate(${(-50+tx*5).toFixed(2)}%,-50%) scale(${(1-.16*upv).toFixed(3)})`;shd.style.opacity=zoomMode?0:(.9-.34*upv).toFixed(3);
