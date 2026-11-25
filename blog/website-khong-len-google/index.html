@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Website không lên Google? Nguyên nhân và cách kiểm tra</title>
+<meta name="description" content="Vì sao website không hiện trên Google: chưa được lập chỉ mục, dính noindex, robots.txt, thiếu sitemap, nội dung mỏng, trùng lặp. Cách kiểm tra từng bước.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://dreamlabs.vn/blog/website-khong-len-google/">
+<meta name="theme-color" content="#15121C">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="../../img/icon-192.png">
+<link rel="apple-touch-icon" href="../../img/icon-180.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Dream Labs">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:title" content="Website không lên Google? Nguyên nhân và cách kiểm tra">
+<meta property="og:description" content="Vì sao website không hiện trên Google: chưa được lập chỉ mục, dính noindex, robots.txt, thiếu sitemap, nội dung mỏng, trùng lặp. Cách kiểm tra từng bước.">
+<meta property="og:url" content="https://dreamlabs.vn/blog/website-khong-len-google/">
+<meta property="og:image" content="https://dreamlabs.vn/img/blog/website-khong-len-google/og.jpg">
+<meta property="og:image:alt" content="Kính lúp đặt trên cuốn sổ mở trang trắng, bên cạnh là laptop gập lại trên bàn gỗ">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="article:published_time" content="2026-11-25">
+<meta property="article:modified_time" content="2026-11-25">
+<meta property="article:section" content="Website">
+<meta name="keywords" content="website không lên google, website không được index, cách đưa website lên google, google không index trang, kiểm tra website trên google search console">
+<script>/* mặc định nền tối; khách đã chọn sáng thì giữ sáng */var t=null;try{t=localStorage.getItem('dl-theme')}catch(e){}document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark')</script>
+<link rel="stylesheet" href="../../css/blog.min.css?v=d4223ed2">
+<script src="../../js/track.js?v=9b40e66f" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://dreamlabs.vn/#org","name":"Dream Labs","url":"https://dreamlabs.vn/","logo":"https://dreamlabs.vn/img/icon-512.png"},{"@type":"BlogPosting","@id":"https://dreamlabs.vn/blog/website-khong-len-google/#bai","headline":"Website không lên Google: những nguyên nhân thường gặp và cách kiểm tra từng bước","description":"Vì sao website không hiện trên Google: chưa được lập chỉ mục, dính noindex, robots.txt, thiếu sitemap, nội dung mỏng, trùng lặp. Cách kiểm tra từng bước.","inLanguage":"vi","url":"https://dreamlabs.vn/blog/website-khong-len-google/","mainEntityOfPage":"https://dreamlabs.vn/blog/website-khong-len-google/","image":["https://dreamlabs.vn/img/blog/website-khong-len-google/cover-1280.webp","https://dreamlabs.vn/img/blog/website-khong-len-google/og.jpg"],"datePublished":"2026-11-25","dateModified":"2026-11-25","wordCount":2305,"keywords":"website không lên google, website không được index, cách đưa website lên google, google không index trang, kiểm tra website trên google search console","articleSection":"Website","author":{"@id":"https://dreamlabs.vn/#org"},"publisher":{"@id":"https://dreamlabs.vn/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Trang chủ","item":"https://dreamlabs.vn/"},{"@type":"ListItem","position":2,"name":"Bài viết","item":"https://dreamlabs.vn/blog/"},{"@type":"ListItem","position":3,"name":"Website không lên Google: những nguyên nhân thường gặp và cách kiểm tra từng bước","item":"https://dreamlabs.vn/blog/website-khong-len-google/"}]},{"@type":"FAQPage","@id":"https://dreamlabs.vn/blog/website-khong-len-google/#cau-hoi","mainEntity":[{"@type":"Question","name":"Làm sao biết website đã được Google lập chỉ mục chưa?","acceptedAnswer":{"@type":"Answer","text":"Gõ site:tên miền trên Google để xem nhanh. Muốn biết chính xác từng trang, dùng công cụ Kiểm tra URL trong Google Search Console."}},{"@type":"Question","name":"Website mới bao lâu thì lên Google?","acceptedAnswer":{"@type":"Answer","text":"Thường từ vài ngày đến vài tuần nếu không có lỗi chặn và đã gửi sitemap. Google không cam kết thời gian, các trang con có thể lâu hơn trang chủ."}},{"@type":"Question","name":"Bấm Yêu cầu lập chỉ mục nhiều lần có nhanh hơn không?","acceptedAnswer":{"@type":"Answer","text":"Không. Một lần là đủ sau khi đã sửa lỗi. Nút này giúp Google thu thập lại sớm hơn nhưng không bảo đảm trang được đưa vào chỉ mục."}},{"@type":"Question","name":"Robots.txt có ngăn trang hiện trên Google không?","acceptedAnswer":{"@type":"Answer","text":"Không hoàn toàn. Robots.txt chặn việc thu thập, trang vẫn có thể hiện dạng chỉ có đường dẫn nếu nơi khác liên kết tới. Muốn trang không xuất hiện, dùng thẻ noindex và để Google đọc được trang."}},{"@type":"Question","name":"Trả tiền cho Google có giúp website lên nhanh hơn không?","acceptedAnswer":{"@type":"Answer","text":"Không, với kết quả tìm kiếm tự nhiên. Trả tiền chỉ áp dụng cho quảng cáo Google Ads, hiển thị ở vị trí có nhãn quảng cáo và dừng khi hết ngân sách."}},{"@type":"Question","name":"Vì sao Google đã thu thập mà vẫn không lập chỉ mục trang?","acceptedAnswer":{"@type":"Answer","text":"Thường do nội dung mỏng, trùng lặp với trang khác hoặc canonical trỏ sang trang khác. Hãy viết lại nội dung cho đủ khác biệt, gộp các trang gần giống nhau rồi yêu cầu lập chỉ mục lại."}},{"@type":"Question","name":"Đơn vị làm web có phải chịu trách nhiệm việc website không lên Google không?","acceptedAnswer":{"@type":"Answer","text":"Họ chịu trách nhiệm các lỗi kỹ thuật như noindex sót lại, robots.txt chặn nhầm, thiếu sitemap. Còn xếp hạng cho từ khóa phụ thuộc nội dung và cạnh tranh, không ai bảo đảm được vị trí."}}]}]}</script>
+</head>
+<body class="bl">
+<a class="bl-skip" href="#noi-dung">Bỏ qua tới nội dung</a>
+<header class="bl-head">
+ <div class="bl-wrap bl-head-in">
+  <a class="bl-logo" href="../../" aria-label="Dream Labs, trang chủ"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+  <nav class="bl-nav" aria-label="Chính">
+   <a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa AI</a><a href="../../thiet-ke-website/">Website</a><a href="../../lab/">Lab</a><a href="../../blog/" aria-current="page">Bài viết</a><a href="../../#lien-he">Liên hệ</a>
+  </nav>
+  <div class="bl-act">
+   <button class="bl-ib" type="button" data-theme-toggle aria-label="Đổi giao diện sáng hoặc tối"><svg viewBox="0 0 26 26" aria-hidden="true"><g class="sun"><circle cx="13" cy="13" r="4.6"/><path d="M13 3v2.4M13 20.6V23M3 13h2.4M20.6 13H23M5.9 5.9l1.7 1.7M18.4 18.4l1.7 1.7M5.9 20.1l1.7-1.7M18.4 7.6l1.7-1.7"/></g><path class="moon" d="M19.6 15.4A7.6 7.6 0 0 1 10.6 6.4a7.6 7.6 0 1 0 9 9z"/></svg></button>
+   <a class="btn primary sm bl-zalo" href="https://zalo.me/0934246420" target="_blank" rel="noopener"><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 4.2c-5.2 0-9.4 3.5-9.4 7.9 0 2.5 1.4 4.7 3.5 6.2l-.8 3.5 3.8-2.1c.9.2 1.9.3 2.9.3 5.2 0 9.4-3.5 9.4-7.9S18.2 4.2 13 4.2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><span>Zalo 0934 246 420</span></a>
+  </div>
+ </div>
+</header>
+<main id="noi-dung">
+<nav class="bl-wrap bl-crumb" aria-label="Đường dẫn"><a href="../../">Trang chủ</a><span aria-hidden="true">/</span><a href="../">Bài viết</a><span aria-hidden="true">/</span><span aria-current="page">Website không lên Google</span></nav>
+<article class="bl-post">
+ <header class="bl-wrap bl-post-h">
+  <p class="eyebrow">Website</p>
+  <h1>Website không lên Google: những nguyên nhân thường gặp và cách kiểm tra từng bước</h1>
+  <p class="bl-lead">Website đã chạy vài tuần, gõ tên công ty lên Google vẫn không thấy đâu. Trước khi nghĩ đến chạy quảng cáo hay thuê SEO, hãy kiểm tra những lỗi cơ bản khiến Google không thể hoặc không muốn đưa trang của bạn vào kết quả. Bài này đi từng bước, từ lệnh tìm nhanh đến Google Search Console.</p>
+  <p class="bl-meta"><span>Dream Labs</span><time datetime="2026-11-25">25 tháng 11, 2026</time><span>12 phút đọc</span></p>
+ </header>
+ <figure class="bl-wrap bl-hero"><picture><source type="image/avif" srcset="../../img/blog/website-khong-len-google/cover-640.avif 640w, ../../img/blog/website-khong-len-google/cover-1280.avif 1280w, ../../img/blog/website-khong-len-google/cover-1920.avif 1920w, ../../img/blog/website-khong-len-google/cover-3840.avif 3840w" sizes="(min-width:1280px) 1240px, 100vw"><source type="image/webp" srcset="../../img/blog/website-khong-len-google/cover-640.webp 640w, ../../img/blog/website-khong-len-google/cover-1280.webp 1280w, ../../img/blog/website-khong-len-google/cover-1920.webp 1920w, ../../img/blog/website-khong-len-google/cover-3840.webp 3840w" sizes="(min-width:1280px) 1240px, 100vw"><img src="../../img/blog/website-khong-len-google/cover-1280.webp" width="1280" height="791" alt="Kính lúp đặt trên cuốn sổ mở trang trắng, bên cạnh là laptop gập lại trên bàn gỗ" fetchpriority="high" decoding="async"></picture><figcaption>Ảnh minh họa: tìm lý do website không lên Google nên đi từng bước, từ lỗi kỹ thuật đến nội dung.</figcaption></figure>
+ <div class="bl-wrap bl-grid">
+  <aside class="bl-toc" aria-label="Mục lục"><details open><summary>Mục lục</summary><ol><li><a href="#ba-nghia">&quot;Không lên Google&quot; có ba nghĩa khác nhau</a></li><li><a href="#lenh-site">Bước 1: kiểm tra nhanh bằng lệnh site:</a></li><li><a href="#search-console">Bước 2: mở Google Search Console</a></li><li><a href="#bi-chan">Bước 3: kiểm tra trang có đang bị chặn không</a></li><li><a href="#sitemap">Bước 4: sitemap và liên kết nội bộ</a></li><li><a href="#noi-dung">Bước 5: nội dung mỏng và trang trùng lặp</a></li><li><a href="#thuong-hieu">Tìm đúng tên công ty mà không ra</a></li><li><a href="#bao-lau">Mất bao lâu để website lên Google</a></li><li><a href="#checklist">Checklist kiểm tra theo thứ tự</a></li><li><a href="#chi-phi">Website chuẩn lập chỉ mục từ đầu tại Dream Labs</a></li><li><a href="#cau-hoi">Câu hỏi thường gặp</a></li></ol></details></aside>
+  <div class="bl-body">
+<p><strong>Website không lên Google</strong> thường rơi vào một trong bốn nhóm lý do: Google chưa biết đến trang (website mới, chưa có liên kết trỏ về, chưa gửi sitemap), trang đang bị chặn (thẻ noindex, robots.txt, mật khẩu, lỗi máy chủ), Google đã thấy nhưng chọn không lập chỉ mục (nội dung mỏng, trùng lặp, thẻ canonical trỏ sang trang khác), hoặc trang đã có trong chỉ mục nhưng xếp hạng quá thấp với từ khóa bạn gõ. Cách kiểm tra nhanh nhất là gõ <code>site:tenmiencuaban.vn</code> trên Google, sau đó dùng công cụ Kiểm tra URL trong Google Search Console để biết chính xác trạng thái từng trang.</p>
+<p>Bài này đi theo đúng thứ tự một người làm kỹ thuật sẽ kiểm tra. Bạn không cần biết lập trình để làm các bước đầu; đến bước cần sửa mã, bạn sẽ biết chính xác phải nhờ đơn vị làm web sửa chỗ nào. Nếu website của bạn đang được xây mới, bài <a href="../thiet-ke-website-chuan-seo-2026/">thiết kế website chuẩn SEO 2026</a> giúp tránh các lỗi này ngay từ đầu.</p>
+
+<h2 id="ba-nghia">"Không lên Google" có ba nghĩa khác nhau</h2>
+<p>Trước khi sửa, hãy xác định bạn đang gặp tình huống nào, vì cách xử lý khác nhau hoàn toàn:</p>
+<div class="bl-table" role="region" aria-label="Ba tình huống website không lên Google và cách kiểm tra" tabindex="0"><table><caption>Ba tình huống "không lên Google"</caption>
+<thead><tr><th>Tình huống</th><th>Dấu hiệu</th><th>Nguyên nhân thường gặp</th><th>Kiểm tra bằng</th></tr></thead>
+<tbody>
+<tr><td>Chưa được lập chỉ mục</td><td>Gõ site:tên miền không ra trang nào, hoặc thiếu trang quan trọng</td><td>Website mới, bị chặn, thiếu sitemap, không có liên kết</td><td>Lệnh site:, Kiểm tra URL trong Search Console</td></tr>
+<tr><td>Đã lập chỉ mục nhưng không xếp hạng</td><td>Site: có ra trang, nhưng gõ từ khóa dịch vụ thì không thấy</td><td>Cạnh tranh cao, nội dung chưa đủ tốt, ít liên kết</td><td>Báo cáo Hiệu suất trong Search Console</td></tr>
+<tr><td>Tìm tên thương hiệu không ra</td><td>Gõ đúng tên công ty, Google hiện doanh nghiệp khác</td><td>Tên trùng từ phổ biến, website mới, thiếu hồ sơ doanh nghiệp trên Google</td><td>Tìm tên kèm thành phố, kiểm tra Google Business Profile</td></tr>
+</tbody></table></div>
+<p>Phần lớn bài này xử lý tình huống thứ nhất, vì đó là lỗi kỹ thuật sửa được nhanh. Tình huống thứ hai là chuyện SEO dài hạn, còn tình huống thứ ba có phần riêng ở cuối bài.</p>
+
+<h2 id="lenh-site">Bước 1: kiểm tra nhanh bằng lệnh site:</h2>
+<p>Mở Google, gõ <code>site:tenmiencuaban.vn</code> (không có khoảng trắng sau dấu hai chấm, không cần https). Google sẽ liệt kê các trang thuộc tên miền mà nó đang có trong chỉ mục.</p>
+<ul>
+ <li><strong>Không ra kết quả nào:</strong> Google chưa lập chỉ mục trang nào. Có thể website quá mới, hoặc đang bị chặn toàn bộ. Chuyển sang bước 2 và 3.</li>
+ <li><strong>Ra trang chủ nhưng thiếu trang dịch vụ, bài viết:</strong> Google chưa tìm thấy hoặc chưa muốn lập chỉ mục các trang con. Kiểm tra sitemap và liên kết nội bộ.</li>
+ <li><strong>Ra cả những trang lạ:</strong> trang thử nghiệm, trang tìm kiếm nội bộ, trang có tham số. Đây là dấu hiệu trùng lặp, cần dọn dẹp.</li>
+</ul>
+<p>Lệnh site: chỉ cho con số ước lượng, không chính xác tuyệt đối. Nó hữu ích để phát hiện vấn đề lớn, còn chẩn đoán từng trang phải dùng Search Console.</p>
+
+<h2 id="search-console">Bước 2: mở Google Search Console</h2>
+<p>Google Search Console là công cụ miễn phí của Google cho chủ website. Nếu chưa có, hãy thêm tài sản (property) và xác minh quyền sở hữu: tài sản loại Miền chỉ xác minh được bằng bản ghi DNS, còn tài sản loại Tiền tố URL có thêm các cách như thẻ HTML, tệp HTML, Google Analytics hoặc Google Tag Manager. Nếu đơn vị làm web đã cài giúp, hãy chắc chắn tài khoản Google của chính doanh nghiệp được thêm với quyền chủ sở hữu, không chỉ email của người làm web. Bài <a href="../quan-tri-website-sau-ban-giao/">quản trị website sau bàn giao</a> có hướng dẫn những báo cáo nên xem định kỳ.</p>
+<h3>Công cụ Kiểm tra URL</h3>
+<p>Dán đường dẫn của trang bạn muốn kiểm tra vào ô trên cùng. Kết quả cho biết trang có nằm trong chỉ mục của Google không, nếu không thì vì sao: bị chặn bởi robots.txt, có thẻ noindex, trang trả lỗi, hay Google chọn một trang khác làm bản chính. Khi đã sửa lỗi, bạn có thể bấm Yêu cầu lập chỉ mục để Google thu thập lại trang sớm hơn. Nút này không đảm bảo trang được lập chỉ mục, và bấm nhiều lần cũng không nhanh hơn.</p>
+<h3>Báo cáo lập chỉ mục trang</h3>
+<p>Trong mục Lập chỉ mục, báo cáo Trang liệt kê các trang đã và chưa được lập chỉ mục, nhóm theo lý do. Hai trạng thái hay gặp nhất với website nhỏ là "Đã phát hiện, hiện chưa được lập chỉ mục" (Discovered, currently not indexed: Google biết trang tồn tại nhưng chưa ghé thu thập) và "Đã thu thập dữ liệu, hiện chưa được lập chỉ mục" (Crawled, currently not indexed: Google đã đọc nhưng chưa đưa vào chỉ mục, thường liên quan chất lượng hoặc trùng lặp nội dung).</p>
+
+<h2 id="bi-chan">Bước 3: kiểm tra trang có đang bị chặn không</h2>
+<h3>Thẻ noindex sót lại từ bản thử nghiệm</h3>
+<p>Đây là lỗi rất hay gặp ở website mới bàn giao. Trong lúc làm, bên thiết kế thường chặn Google để bản dở dang không bị lập chỉ mục, rồi quên gỡ khi ra mắt. Với WordPress, hãy vào Cài đặt, mục Đọc, xem ô yêu cầu công cụ tìm kiếm không lập chỉ mục có đang được đánh dấu không. Với website khác, mở trang, xem mã nguồn và tìm chữ <code>noindex</code> trong thẻ meta robots.</p>
+<h3>File robots.txt chặn nhầm</h3>
+<p>Mở <code>tenmiencuaban.vn/robots.txt</code>. Nếu thấy dòng <code>Disallow: /</code> dưới <code>User-agent: *</code>, toàn bộ website đang cấm máy tìm kiếm thu thập. Lưu ý một điểm hay bị hiểu sai: robots.txt chặn việc thu thập, không phải chặn lập chỉ mục. Trang bị chặn bằng robots.txt vẫn có thể hiện trên Google dạng chỉ có đường dẫn nếu có nơi khác liên kết tới, và Google cũng không đọc được thẻ noindex trên trang đó. Muốn trang không xuất hiện thì dùng noindex và để Google thu thập được.</p>
+<h3>Mật khẩu, lỗi máy chủ, chuyển hướng vòng</h3>
+<p>Trang yêu cầu đăng nhập, trang trả lỗi 5xx khi máy chủ quá tải, hoặc chuyển hướng qua lại giữa http và https, có www và không www, đều khiến Google bỏ qua. Công cụ Kiểm tra URL sẽ báo các lỗi này. Hosting quá yếu, thường xuyên chập chờn cũng làm Google giảm tần suất ghé thăm.</p>
+<h3>Nội dung chỉ hiện sau khi chạy JavaScript</h3>
+<p>Một số website dựng toàn bộ nội dung bằng JavaScript phía trình duyệt. Google có xử lý JavaScript, nhưng nếu nội dung tải chậm, cần bấm mới hiện, hoặc liên kết không phải thẻ <code>&lt;a href&gt;</code> thật, Google có thể không thấy. Trong Kiểm tra URL, chọn xem trang đã thu thập để biết Google thực sự nhìn thấy gì.</p>
+
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/website-khong-len-google/a1-640.avif 640w, ../../img/blog/website-khong-len-google/a1-1280.avif 1280w, ../../img/blog/website-khong-len-google/a1-1920.avif 1920w, ../../img/blog/website-khong-len-google/a1-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/website-khong-len-google/a1-640.webp 640w, ../../img/blog/website-khong-len-google/a1-1280.webp 1280w, ../../img/blog/website-khong-len-google/a1-1920.webp 1920w, ../../img/blog/website-khong-len-google/a1-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/website-khong-len-google/a1-1280.webp" width="1280" height="791" alt="Tủ máy chủ nhỏ với các đèn tín hiệu xanh trong một phòng kỹ thuật gọn gàng" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: hosting chập chờn và lỗi máy chủ cũng khiến Google bỏ qua trang.</figcaption></figure>
+
+<h2 id="sitemap">Bước 4: sitemap và liên kết nội bộ</h2>
+<p>Google tìm trang mới chủ yếu bằng cách đi theo liên kết. Một trang không có liên kết nào trỏ tới (trang mồ côi) rất khó được tìm thấy, kể cả khi nằm trong sitemap.</p>
+<ul>
+ <li><strong>Sitemap.xml:</strong> danh sách các trang bạn muốn Google biết. Hầu hết hệ thống quản trị nội dung tự tạo file này. Gửi đường dẫn sitemap trong Search Console, mục Sơ đồ trang web, rồi theo dõi số trang Google đọc được.</li>
+ <li><strong>Sitemap chỉ chứa trang thật:</strong> không đưa trang đã chuyển hướng, trang noindex, trang lỗi vào sitemap. Sitemap lẫn lộn làm Google kém tin vào nó.</li>
+ <li><strong>Liên kết từ menu và trang liên quan:</strong> mỗi trang dịch vụ nên được liên kết từ menu hoặc trang tổng; mỗi bài viết nên liên kết tới trang dịch vụ liên quan và ngược lại.</li>
+ <li><strong>Liên kết từ bên ngoài:</strong> trang mạng xã hội của doanh nghiệp, hồ sơ trên Google, danh bạ ngành, báo chí. Với website hoàn toàn mới, vài liên kết thật giúp Google phát hiện trang nhanh hơn.</li>
+</ul>
+
+<h2 id="noi-dung">Bước 5: nội dung mỏng và trang trùng lặp</h2>
+<p>Google không cam kết lập chỉ mục mọi trang nó thu thập. Khi đã đọc trang mà vẫn không đưa vào chỉ mục, nguyên nhân thường nằm ở nội dung:</p>
+<ul>
+ <li><strong>Nội dung mỏng:</strong> trang dịch vụ chỉ có vài dòng khẩu hiệu và một ảnh, trang sản phẩm chỉ có tên và giá. Không có gì đủ khác để Google thấy đáng hiển thị.</li>
+ <li><strong>Nội dung chép:</strong> mô tả sản phẩm chép từ nhà cung cấp, bài viết chép từ trang khác. Google thường chỉ giữ một bản và bỏ qua các bản giống.</li>
+ <li><strong>Nhiều trang gần giống nhau:</strong> hàng chục trang "dịch vụ tại quận X" chỉ khác tên quận. Hãy gộp lại hoặc viết riêng thật sự cho từng nơi.</li>
+ <li><strong>Trùng lặp kỹ thuật:</strong> cùng một trang mở được bằng http và https, có và không có www, có tham số lọc. Cần chuyển hướng 301 về một phiên bản và đặt thẻ canonical đúng.</li>
+ <li><strong>Canonical trỏ nhầm:</strong> mọi trang đều khai báo canonical về trang chủ, khiến Google hiểu các trang con là bản sao.</li>
+</ul>
+
+<aside class="bl-mid" aria-label="Liên hệ Dream Labs"><p><b>Cần người xem giúp trường hợp của bạn?</b> Nhắn Zalo <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">0934 246 420</a> cho Dream Labs: mô tả ngắn việc bạn đang làm, chúng tôi trả lời trong giờ làm việc, tư vấn miễn phí.</p><a class="btn primary sm" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo 0934 246 420</a></aside>
+
+<h2 id="thuong-hieu">Tìm đúng tên công ty mà không ra</h2>
+<p>Nếu tên doanh nghiệp là từ phổ biến (ví dụ "Hoa Mai", "Phương Nam"), Google sẽ ưu tiên kết quả quen thuộc hơn. Hãy thử gõ tên kèm ngành và thành phố. Để Google hiểu tên đó là một doanh nghiệp cụ thể, cần sự nhất quán: cùng tên, địa chỉ, số điện thoại trên website, trang mạng xã hội và hồ sơ Google Business Profile. Hồ sơ này còn giúp doanh nghiệp hiện trên Google Maps; xem hướng dẫn trong bài <a href="../dua-doanh-nghiep-len-google-maps/">đưa doanh nghiệp lên Google Maps</a>.</p>
+
+<h2 id="bao-lau">Mất bao lâu để website lên Google</h2>
+<p>Google không công bố thời gian cố định. Với website mới, đã gửi sitemap và không có lỗi chặn, trang chủ thường được lập chỉ mục trong vài ngày đến vài tuần; các trang con có thể lâu hơn. Không có cách trả tiền cho Google để được lập chỉ mục nhanh hơn trong kết quả tự nhiên, và cũng không ai có thể đảm bảo trang lên top một từ khóa trong thời gian cụ thể. Nếu ai đó hứa như vậy, hãy hỏi kỹ họ định làm gì.</p>
+<p>Sau khi trang đã có trong chỉ mục, việc xếp hạng cho từ khóa dịch vụ phụ thuộc chất lượng nội dung, tốc độ tải, trải nghiệm trên điện thoại và mức cạnh tranh của ngành. Bài <a href="../toc-do-website-core-web-vitals/">Core Web Vitals và tốc độ website</a> giải thích phần tốc độ.</p>
+
+<figure class="bl-fig"><picture><source type="image/avif" srcset="../../img/blog/website-khong-len-google/a2-640.avif 640w, ../../img/blog/website-khong-len-google/a2-1280.avif 1280w, ../../img/blog/website-khong-len-google/a2-1920.avif 1920w, ../../img/blog/website-khong-len-google/a2-3840.avif 3840w" sizes="(min-width:1024px) 760px, 100vw"><source type="image/webp" srcset="../../img/blog/website-khong-len-google/a2-640.webp 640w, ../../img/blog/website-khong-len-google/a2-1280.webp 1280w, ../../img/blog/website-khong-len-google/a2-1920.webp 1920w, ../../img/blog/website-khong-len-google/a2-3840.webp 3840w" sizes="(min-width:1024px) 760px, 100vw"><img src="../../img/blog/website-khong-len-google/a2-1280.webp" width="1280" height="791" alt="Người đứng quay lưng vẽ sơ đồ các ô vuông nối với nhau bằng mũi tên trên bảng trắng" loading="lazy" decoding="async"></picture><figcaption>Ảnh minh họa: liên kết nội bộ giống một sơ đồ, trang nào cũng phải có đường dẫn tới.</figcaption></figure>
+
+<h2 id="checklist">Checklist kiểm tra theo thứ tự</h2>
+<ol class="bl-steps">
+ <li>Gõ <code>site:tenmien</code> để biết Google đang có bao nhiêu trang.</li>
+ <li>Xác minh website trong Search Console bằng tài khoản của doanh nghiệp.</li>
+ <li>Dùng Kiểm tra URL cho trang chủ và hai, ba trang dịch vụ quan trọng nhất.</li>
+ <li>Tìm thẻ noindex trong mã nguồn và tùy chọn chặn công cụ tìm kiếm trong phần quản trị.</li>
+ <li>Mở robots.txt, bảo đảm không có dòng chặn toàn bộ website.</li>
+ <li>Kiểm tra website chỉ mở bằng một phiên bản: https, có hoặc không có www.</li>
+ <li>Gửi sitemap.xml trong Search Console, bảo đảm sitemap chỉ chứa trang thật.</li>
+ <li>Thêm liên kết từ menu, trang tổng và bài viết tới các trang chưa được lập chỉ mục.</li>
+ <li>Viết lại các trang chỉ có vài dòng, bỏ nội dung chép.</li>
+ <li>Yêu cầu lập chỉ mục cho trang đã sửa, chờ một đến hai tuần rồi xem lại báo cáo.</li>
+</ol>
+
+<h2 id="chi-phi">Website chuẩn lập chỉ mục từ đầu tại Dream Labs</h2>
+<p>Mọi website Dream Labs bàn giao đều có sitemap, robots.txt đúng, một phiên bản https duy nhất và các thẻ cơ bản cho máy tìm kiếm. Gói Cơ bản 8.000.000đ có SEO cơ bản và gắn Google Analytics. Gói Chuyên nghiệp 18.000.000đ thêm blog, trang quản trị để tự đăng bài và phần viết nội dung chuẩn SEO, hợp với doanh nghiệp muốn có khách từ Google lâu dài. Gói Cao cấp Liên hệ dành cho website nhiều trang, đa ngôn ngữ.</p>
+<div class="bl-price" role="region" aria-label="Bảng giá Website" tabindex="0"><table>
+<caption>Bảng giá Website tại Dream Labs (chưa gồm VAT)</caption>
+<thead><tr><th scope="col">Gói</th><th scope="col">Giá</th><th scope="col">Thời gian</th><th scope="col">Bao gồm</th></tr></thead>
+<tbody><tr><th scope="row">Cơ bản</th><td class="p">8.000.000đ</td><td>7–10 ngày<small>4 vòng sửa</small></td><td><p class="g">Có mặt chuyên nghiệp trên Google và điện thoại trong khoảng 10 ngày, khách tìm thấy và liên hệ được ngay.</p><ul><li>5 trang, giao diện theo mẫu tinh chỉnh</li><li>Responsive mọi thiết bị</li><li>Form liên hệ + nút Zalo</li><li>SEO cơ bản, Google Analytics</li></ul></td></tr>
+<tr class="hot"><th scope="row">Chuyên nghiệp<small>Phổ biến nhất</small></th><td class="p">18.000.000đ</td><td>14–21 ngày<small>9 vòng sửa</small></td><td><p class="g">Website riêng đúng tầm thương hiệu, tự đăng bài để có khách từ Google lâu dài, không phụ thuộc người làm.</p><ul><li>Đến 10 trang, thiết kế riêng 100%</li><li>Motion &amp; chuyển cảnh mượt</li><li>CMS tự sửa nội dung, blog</li><li>Viết nội dung chuẩn SEO</li><li>Tốc độ Lighthouse ≥ 90</li></ul></td></tr>
+<tr><th scope="row">Cao cấp</th><td class="p">Liên hệ</td><td>30–45 ngày<small>Không giới hạn trong phạm vi</small></td><td><p class="g">Trải nghiệm đủ khác biệt để định vị cao cấp, bán hàng và tiếp khách trực tuyến, phục vụ cả khách nước ngoài.</p><ul><li>Không giới hạn trang, đa ngôn ngữ</li><li>3D / WebGL, nhận diện thương hiệu số</li><li>Tích hợp thanh toán, CRM</li><li>Trợ lý AI tiếp khách trên website</li><li>Bảo trì 12 tháng</li></ul></td></tr></tbody></table></div>
+<p>Xem chi tiết tại trang <a href="../../thiet-ke-website/">dịch vụ thiết kế website</a> và <a href="../../bang-gia/">bảng giá</a>. Nếu website hiện tại của bạn do bên khác làm và đang không lên Google, hãy gửi tên miền qua <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a>, Dream Labs xem nhanh các lỗi cơ bản giúp bạn.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Làm sao biết website đã được Google lập chỉ mục chưa?</h3>
+<p>Gõ site:tên miền trên Google để xem nhanh. Muốn biết chính xác từng trang, dùng công cụ Kiểm tra URL trong Google Search Console.</p>
+<h3>Website mới bao lâu thì lên Google?</h3>
+<p>Thường từ vài ngày đến vài tuần nếu không có lỗi chặn và đã gửi sitemap. Google không cam kết thời gian, các trang con có thể lâu hơn trang chủ.</p>
+<h3>Bấm Yêu cầu lập chỉ mục nhiều lần có nhanh hơn không?</h3>
+<p>Không. Một lần là đủ sau khi đã sửa lỗi. Nút này giúp Google thu thập lại sớm hơn nhưng không bảo đảm trang được đưa vào chỉ mục.</p>
+<h3>Robots.txt có ngăn trang hiện trên Google không?</h3>
+<p>Không hoàn toàn. Robots.txt chặn việc thu thập, trang vẫn có thể hiện dạng chỉ có đường dẫn nếu nơi khác liên kết tới. Muốn trang không xuất hiện, dùng thẻ noindex và để Google đọc được trang.</p>
+<h3>Trả tiền cho Google có giúp website lên nhanh hơn không?</h3>
+<p>Không, với kết quả tìm kiếm tự nhiên. Trả tiền chỉ áp dụng cho quảng cáo Google Ads, hiển thị ở vị trí có nhãn quảng cáo và dừng khi hết ngân sách.</p>
+<h3>Vì sao Google đã thu thập mà vẫn không lập chỉ mục trang?</h3>
+<p>Thường do nội dung mỏng, trùng lặp với trang khác hoặc canonical trỏ sang trang khác. Hãy viết lại nội dung cho đủ khác biệt, gộp các trang gần giống nhau rồi yêu cầu lập chỉ mục lại.</p>
+<h3>Đơn vị làm web có phải chịu trách nhiệm việc website không lên Google không?</h3>
+<p>Họ chịu trách nhiệm các lỗi kỹ thuật như noindex sót lại, robots.txt chặn nhầm, thiếu sitemap. Còn xếp hạng cho từ khóa phụ thuộc nội dung và cạnh tranh, không ai bảo đảm được vị trí.</p>
+   <p class="bl-src"><b>Nguồn ảnh:</b> ảnh minh họa do Dream Labs tạo bằng AI (ComfyUI · Z-Image Turbo), không phải ảnh chụp khách hàng hay dự án thật.</p>
+   <section class="bl-cta" aria-label="Liên hệ Dream Labs">
+    <p class="eyebrow">Bắt đầu cùng Dream Labs</p>
+    <h2 class="bl-cta-h">Website của bạn vẫn chưa thấy trên Google?</h2>
+    <p>Gửi tên miền qua Zalo cho Dream Labs. Chúng tôi xem nhanh các lỗi lập chỉ mục cơ bản và nói rõ cần sửa gì trước, miễn phí.</p>
+    <div class="bl-cta-act"><a class="btn primary" href="../../thiet-ke-website/">Xem gói Website <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="btn" href="../../bang-gia/">Toàn bộ bảng giá</a><a class="btn" href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a></div>
+   </section>
+  </div>
+ </div>
+</article>
+<section class="bl-wrap bl-more" aria-labelledby="bl-more-h"><h2 id="bl-more-h">Bài viết liên quan</h2><div class="bl-cards"><article class="bl-card"><a href="../quan-tri-website-sau-ban-giao/"><span class="bl-card-img"><picture><source type="image/avif" srcset="../../img/blog/quan-tri-website-sau-ban-giao/cover-640.avif 640w, ../../img/blog/quan-tri-website-sau-ban-giao/cover-1280.avif 1280w, ../../img/blog/quan-tri-website-sau-ban-giao/cover-1920.avif 1920w, ../../img/blog/quan-tri-website-sau-ban-giao/cover-3840.avif 3840w" sizes="(min-width:860px) 33vw, 100vw"><source type="image/webp" srcset="../../img/blog/quan-tri-website-sau-ban-giao/cover-640.webp 640w, ../../img/blog/quan-tri-website-sau-ban-giao/cover-1280.webp 1280w, ../../img/blog/quan-tri-website-sau-ban-giao/cover-1920.webp 1920w, ../../img/blog/quan-tri-website-sau-ban-giao/cover-3840.webp 3840w" sizes="(min-width:860px) 33vw, 100vw"><img src="../../img/blog/quan-tri-website-sau-ban-giao/cover-1280.webp" width="1280" height="791" alt="Laptop đặt trên ghế sofa xám, màn hình hiển thị bảng điều khiển với biểu đồ cột, bản đồ và biểu đồ tròn" loading="lazy" decoding="async"></picture></span>
+ <span class="bl-card-t"><small>Website</small><h3>Quản trị website sau bàn giao: nhận gì, cập nhật thế nào và đo bằng GA4, Search Console</h3><span class="bl-card-d">Quản trị website sau bàn giao: danh sách cần nhận, lịch cập nhật nội dung, sự kiện GA4 nên đo, báo cáo Search Console và lịch kiểm tra tuần, tháng, quý.</span><span class="bl-card-m">22 tháng 11, 2026 · 13 phút đọc</span></span></a></article><article class="bl-card"><a href="../thiet-ke-website-chuan-seo-2026/"><span class="bl-card-img"><img src="../../img/svc-web.webp" width="1280" height="791" alt="Hình minh họa dịch vụ thiết kế website: một trang web trên màn hình lớn và giao diện tương ứng trên điện thoại" loading="lazy" decoding="async"></span>
+ <span class="bl-card-t"><small>Website</small><h3>Thiết kế website chuẩn SEO 2026: checklist kỹ thuật và nội dung</h3><span class="bl-card-d">Thiết kế website chuẩn SEO 2026: checklist URL, tiêu đề, heading, Core Web Vitals, mobile, schema, sitemap, Search Console và nội dung hữu ích.</span><span class="bl-card-m">19 tháng 11, 2026 · 9 phút đọc</span></span></a></article><article class="bl-card"><a href="../toc-do-website-core-web-vitals/"><span class="bl-card-img"><picture><source type="image/avif" srcset="../../img/blog/toc-do-website-core-web-vitals/cover-640.avif 640w, ../../img/blog/toc-do-website-core-web-vitals/cover-1280.avif 1280w, ../../img/blog/toc-do-website-core-web-vitals/cover-1920.avif 1920w, ../../img/blog/toc-do-website-core-web-vitals/cover-3840.avif 3840w" sizes="(min-width:860px) 33vw, 100vw"><source type="image/webp" srcset="../../img/blog/toc-do-website-core-web-vitals/cover-640.webp 640w, ../../img/blog/toc-do-website-core-web-vitals/cover-1280.webp 1280w, ../../img/blog/toc-do-website-core-web-vitals/cover-1920.webp 1920w, ../../img/blog/toc-do-website-core-web-vitals/cover-3840.webp 3840w" sizes="(min-width:860px) 33vw, 100vw"><img src="../../img/blog/toc-do-website-core-web-vitals/cover-1280.webp" width="1280" height="791" alt="Vệt đèn xe đỏ trắng uốn cong trên đường cao tốc ban đêm, chụp phơi sáng dài" loading="lazy" decoding="async"></picture></span>
+ <span class="bl-card-t"><small>Website</small><h3>Tốc độ website và Core Web Vitals: vì sao web chậm làm mất khách, cách đo và cải thiện</h3><span class="bl-card-d">Core Web Vitals gồm LCP, INP, CLS: ngưỡng tốt theo web.dev, cách đo bằng PageSpeed Insights, Search Console và các bước tăng tốc website cụ thể.</span><span class="bl-card-m">22 tháng 11, 2026 · 13 phút đọc</span></span></a></article></div></section>
+</main>
+<footer class="bl-foot">
+ <div class="bl-wrap bl-foot-in">
+  <div class="bl-foot-brand"><a class="bl-logo" href="../../"><svg viewBox="0 0 26 26" aria-hidden="true"><defs><linearGradient id="bl-lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--lav)"/><stop offset=".62" style="stop-color:var(--peach)"/><stop offset="1" style="stop-color:var(--mist)"/></linearGradient></defs><circle cx="13" cy="13" r="12" fill="url(#bl-lg)"/><path d="M17.3593 7.0000A7.4164 7.4164 0 1 0 20.0534 15.2918A4.5836 4.5836 0 0 1 17.3593 7.0000z" style="fill:var(--paper)" opacity=".85"/></svg><span>Dream <i>Labs</i></span></a>
+   <p>Tự động hóa quy trình doanh nghiệp bằng AI, thiết kế website, landing page, video, bao bì cho doanh nghiệp Việt Nam.</p></div>
+  <nav aria-label="Dịch vụ"><b>Dịch vụ</b><a href="../../tu-dong-hoa-quy-trinh-doanh-nghiep/">Tự động hóa quy trình doanh nghiệp</a><a href="../../thiet-ke-website/">Thiết kế website</a><a href="../../thiet-ke-landing-page/">Thiết kế landing page</a><a href="../../edit-video/">Edit video quảng cáo</a><a href="../../thiet-ke-bao-bi/">Thiết kế bao bì</a><a href="../../video-motion-graphic/">Video motion graphic</a><a href="../../bang-gia/">Bảng giá dịch vụ</a><a href="../../mau-website/">Mẫu website</a><a href="../../mau-landing-page/">Mẫu landing page</a></nav>
+  <nav aria-label="Khám phá"><b>Khám phá</b><a href="../../#mau-gia">Mẫu &amp; giá</a><a href="../../bang-gia/">Bảng giá, tự tính giá, hỏi đáp</a><a href="../../lab/">Lab: demo tương tác</a><a href="../../giai-phap-theo-nganh/">Giải pháp theo ngành</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <nav aria-label="Bài viết"><b>Bài viết</b><a href="../../blog/thiet-ke-website-ban-hang/">Thiết kế website bán hàng</a><a href="../../blog/website-khong-len-google/">Website không lên Google</a><a href="../../blog/dua-doanh-nghiep-len-google-maps/">Đưa doanh nghiệp lên Google Maps</a><a href="../../blog/cau-truc-landing-page-ban-hang/">Cấu trúc landing page bán hàng</a><a href="../../blog/bo-nhan-dien-thuong-hieu-gom-nhung-gi/">Bộ nhận diện thương hiệu gồm những gì</a><a href="../../blog/thiet-ke-ho-so-nang-luc-cong-ty/">Thiết kế hồ sơ năng lực công ty</a><a href="../../blog/">Tất cả bài viết</a></nav>
+  <div><b>Liên hệ</b><a href="tel:+84934246420">Gọi 0934 246 420</a><span class="sel">harryle1010@gmail.com</span><a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Nhắn Zalo</a><span>T2–T7 · 8:30–18:00</span><span>TP. Hồ Chí Minh</span></div>
+ </div>
+ <div class="bl-wrap bl-foot-bot"><span>© 2026 Dream Labs</span><a href="../../">dreamlabs.vn</a></div>
+</footer>
+<script>(function(){var c=document.querySelector('.bl-toc details');if(c&&innerWidth<1024)c.open=false;var r=document.documentElement,m=matchMedia('(prefers-color-scheme: dark)');function d(){return r.dataset.theme?r.dataset.theme==='dark':m.matches}
+document.querySelectorAll('[data-theme-toggle]').forEach(function(b){b.setAttribute('aria-pressed',String(d()));b.addEventListener('click',function(){var t=d()?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('dl-theme',t)}catch(e){}b.setAttribute('aria-pressed',String(t==='dark'))})})})();</script>
+</body>
+</html>

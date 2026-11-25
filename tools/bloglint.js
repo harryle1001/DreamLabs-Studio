@@ -24,7 +24,7 @@ for(const slug of process.argv.slice(2)){
   const fi=body.indexOf('<h2 id="cau-hoi">');const nq=fi<0?0:(body.slice(fi).match(/<h3>/g)||[]).length;
   if(nq<5||nq>8)E.push(`FAQ ${nq} câu (cần 5–8)`);
   for(const [,h] of body.matchAll(/href="(\.\.\/[^"#]*)/g)){
-    const p=path.normalize(path.join('blog',slug,h));                    /* blog/<slug>/ + ../../x/ */
+    const p=path.posix.normalize(path.posix.join("blog",slug,h));                    /* blog/<slug>/ + ../../x/ */
     const s=p.replace(/\/$/,'');
     const ok=s.startsWith('blog/')?fs.existsSync(path.join(R,'src',s+'.html')):(fs.existsSync(path.join(R,'src/pages',s+'.html'))||fs.existsSync(path.join(R,s)));
     if(!ok)E.push('liên kết hỏng: '+h);

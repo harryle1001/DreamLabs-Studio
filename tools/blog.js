@@ -33,6 +33,7 @@ for(const p of posts){
   }).replace(/\{\{zalo\}\}/g,ZALO_BOX);
 }
 const creditLine=p=>{const e=Object.entries(p.credits);if(!e.length)return'';
+  if(e.every(([,c])=>c.ai))return `<p class="bl-src"><b>Nguồn ảnh:</b> ảnh minh họa do Dream Labs tạo bằng AI (${esc(e[0][1].site)}), không phải ảnh chụp khách hàng hay dự án thật.</p>`;
   return `<p class="bl-src"><b>Nguồn ảnh:</b> ${e.map(([k,c])=>`${k==='cover'?'ảnh bìa':'ảnh '+k.replace(/^a/,'')}: <a href="${esc(c.page)}" target="_blank" rel="noopener nofollow">${esc(c.author)} / ${esc(c.site)}</a>`).join(' · ')}. Ảnh dùng theo giấy phép miễn phí của ${[...new Set(e.map(([,c])=>c.site))].join(', ')}, chỉ mang tính minh họa.</p>`};
 for(const p of posts)checkLen(p.slug,p.title,p.description);
 
@@ -123,6 +124,6 @@ ${posts.map(p=>`  <url><loc>${p.url}</loc><lastmod>${p.updated||p.date}</lastmod
 `);
 /* tổng hợp nguồn ảnh bài viết */
 {const rows=posts.filter(p=>Object.keys(p.credits).length).flatMap(p=>Object.entries(p.credits).map(([k,c])=>`| [${p.short||p.h1}](${p.url}) | ${k} | ${c.author} | ${c.site} | ${c.page} |`));
- if(rows.length)fs.writeFileSync(path.join(R,'img/blog/CREDITS.md'),`# Nguồn ảnh bài viết\n\nẢnh tải từ Pexels / Unsplash theo giấy phép miễn phí cho mục đích thương mại (https://www.pexels.com/license/ , https://unsplash.com/license). Tự sinh bởi tools/blog.js từ img/blog/<slug>/credits.json.\n\n| Bài | Ảnh | Tác giả | Nguồn | Link |\n|---|---|---|---|---|\n${rows.join('\n')}\n`)}
+ if(rows.length)fs.writeFileSync(path.join(R,'img/blog/CREDITS.md'),`# Nguồn ảnh bài viết\n\nẢnh tải từ Pexels / Unsplash theo giấy phép miễn phí cho mục đích thương mại (https://www.pexels.com/license/ , https://unsplash.com/license). Ảnh có nguồn ghi \"AI\" do Dream Labs tự tạo bằng ComfyUI (mô hình Z-Image Turbo), chỉ để minh họa. Tự sinh bởi tools/blog.js từ img/blog/<slug>/credits.json.\n\n| Bài | Ảnh | Tác giả | Nguồn | Link |\n|---|---|---|---|---|\n${rows.join('\n')}\n`)}
 if(require.main===module)console.log('blog:',posts.map(p=>`${p.slug} (${p.words} chữ)`).join(' · '));
 module.exports={posts};

@@ -1,0 +1,123 @@
+<!--meta {
+ "order": 52,
+ "date": "2026-11-25",
+ "title": "Website không lên Google? Nguyên nhân và cách kiểm tra",
+ "h1": "Website không lên Google: những nguyên nhân thường gặp và cách kiểm tra từng bước",
+ "short": "Website không lên Google",
+ "description": "Vì sao website không hiện trên Google: chưa được lập chỉ mục, dính noindex, robots.txt, thiếu sitemap, nội dung mỏng, trùng lặp. Cách kiểm tra từng bước.",
+ "lead": "Website đã chạy vài tuần, gõ tên công ty lên Google vẫn không thấy đâu. Trước khi nghĩ đến chạy quảng cáo hay thuê SEO, hãy kiểm tra những lỗi cơ bản khiến Google không thể hoặc không muốn đưa trang của bạn vào kết quả. Bài này đi từng bước, từ lệnh tìm nhanh đến Google Search Console.",
+ "cat": "Website",
+ "cat_id": "web",
+ "keywords": ["website không lên google","website không được index","cách đưa website lên google","google không index trang","kiểm tra website trên google search console"],
+ "imageAlt": "Kính lúp đặt trên cuốn sổ mở trang trắng, bên cạnh là laptop gập lại trên bàn gỗ",
+ "imageCaption": "Ảnh minh họa: tìm lý do website không lên Google nên đi từng bước, từ lỗi kỹ thuật đến nội dung.",
+ "related": ["quan-tri-website-sau-ban-giao","thiet-ke-website-chuan-seo-2026","toc-do-website-core-web-vitals"],
+ "ctaTitle": "Website của bạn vẫn chưa thấy trên Google?",
+ "ctaText": "Gửi tên miền qua Zalo cho Dream Labs. Chúng tôi xem nhanh các lỗi lập chỉ mục cơ bản và nói rõ cần sửa gì trước, miễn phí."
+} -->
+<p><strong>Website không lên Google</strong> thường rơi vào một trong bốn nhóm lý do: Google chưa biết đến trang (website mới, chưa có liên kết trỏ về, chưa gửi sitemap), trang đang bị chặn (thẻ noindex, robots.txt, mật khẩu, lỗi máy chủ), Google đã thấy nhưng chọn không lập chỉ mục (nội dung mỏng, trùng lặp, thẻ canonical trỏ sang trang khác), hoặc trang đã có trong chỉ mục nhưng xếp hạng quá thấp với từ khóa bạn gõ. Cách kiểm tra nhanh nhất là gõ <code>site:tenmiencuaban.vn</code> trên Google, sau đó dùng công cụ Kiểm tra URL trong Google Search Console để biết chính xác trạng thái từng trang.</p>
+<p>Bài này đi theo đúng thứ tự một người làm kỹ thuật sẽ kiểm tra. Bạn không cần biết lập trình để làm các bước đầu; đến bước cần sửa mã, bạn sẽ biết chính xác phải nhờ đơn vị làm web sửa chỗ nào. Nếu website của bạn đang được xây mới, bài <a href="../thiet-ke-website-chuan-seo-2026/">thiết kế website chuẩn SEO 2026</a> giúp tránh các lỗi này ngay từ đầu.</p>
+
+<h2 id="ba-nghia">"Không lên Google" có ba nghĩa khác nhau</h2>
+<p>Trước khi sửa, hãy xác định bạn đang gặp tình huống nào, vì cách xử lý khác nhau hoàn toàn:</p>
+<div class="bl-table" role="region" aria-label="Ba tình huống website không lên Google và cách kiểm tra" tabindex="0"><table><caption>Ba tình huống "không lên Google"</caption>
+<thead><tr><th>Tình huống</th><th>Dấu hiệu</th><th>Nguyên nhân thường gặp</th><th>Kiểm tra bằng</th></tr></thead>
+<tbody>
+<tr><td>Chưa được lập chỉ mục</td><td>Gõ site:tên miền không ra trang nào, hoặc thiếu trang quan trọng</td><td>Website mới, bị chặn, thiếu sitemap, không có liên kết</td><td>Lệnh site:, Kiểm tra URL trong Search Console</td></tr>
+<tr><td>Đã lập chỉ mục nhưng không xếp hạng</td><td>Site: có ra trang, nhưng gõ từ khóa dịch vụ thì không thấy</td><td>Cạnh tranh cao, nội dung chưa đủ tốt, ít liên kết</td><td>Báo cáo Hiệu suất trong Search Console</td></tr>
+<tr><td>Tìm tên thương hiệu không ra</td><td>Gõ đúng tên công ty, Google hiện doanh nghiệp khác</td><td>Tên trùng từ phổ biến, website mới, thiếu hồ sơ doanh nghiệp trên Google</td><td>Tìm tên kèm thành phố, kiểm tra Google Business Profile</td></tr>
+</tbody></table></div>
+<p>Phần lớn bài này xử lý tình huống thứ nhất, vì đó là lỗi kỹ thuật sửa được nhanh. Tình huống thứ hai là chuyện SEO dài hạn, còn tình huống thứ ba có phần riêng ở cuối bài.</p>
+
+<h2 id="lenh-site">Bước 1: kiểm tra nhanh bằng lệnh site:</h2>
+<p>Mở Google, gõ <code>site:tenmiencuaban.vn</code> (không có khoảng trắng sau dấu hai chấm, không cần https). Google sẽ liệt kê các trang thuộc tên miền mà nó đang có trong chỉ mục.</p>
+<ul>
+ <li><strong>Không ra kết quả nào:</strong> Google chưa lập chỉ mục trang nào. Có thể website quá mới, hoặc đang bị chặn toàn bộ. Chuyển sang bước 2 và 3.</li>
+ <li><strong>Ra trang chủ nhưng thiếu trang dịch vụ, bài viết:</strong> Google chưa tìm thấy hoặc chưa muốn lập chỉ mục các trang con. Kiểm tra sitemap và liên kết nội bộ.</li>
+ <li><strong>Ra cả những trang lạ:</strong> trang thử nghiệm, trang tìm kiếm nội bộ, trang có tham số. Đây là dấu hiệu trùng lặp, cần dọn dẹp.</li>
+</ul>
+<p>Lệnh site: chỉ cho con số ước lượng, không chính xác tuyệt đối. Nó hữu ích để phát hiện vấn đề lớn, còn chẩn đoán từng trang phải dùng Search Console.</p>
+
+<h2 id="search-console">Bước 2: mở Google Search Console</h2>
+<p>Google Search Console là công cụ miễn phí của Google cho chủ website. Nếu chưa có, hãy thêm tài sản (property) và xác minh quyền sở hữu: tài sản loại Miền chỉ xác minh được bằng bản ghi DNS, còn tài sản loại Tiền tố URL có thêm các cách như thẻ HTML, tệp HTML, Google Analytics hoặc Google Tag Manager. Nếu đơn vị làm web đã cài giúp, hãy chắc chắn tài khoản Google của chính doanh nghiệp được thêm với quyền chủ sở hữu, không chỉ email của người làm web. Bài <a href="../quan-tri-website-sau-ban-giao/">quản trị website sau bàn giao</a> có hướng dẫn những báo cáo nên xem định kỳ.</p>
+<h3>Công cụ Kiểm tra URL</h3>
+<p>Dán đường dẫn của trang bạn muốn kiểm tra vào ô trên cùng. Kết quả cho biết trang có nằm trong chỉ mục của Google không, nếu không thì vì sao: bị chặn bởi robots.txt, có thẻ noindex, trang trả lỗi, hay Google chọn một trang khác làm bản chính. Khi đã sửa lỗi, bạn có thể bấm Yêu cầu lập chỉ mục để Google thu thập lại trang sớm hơn. Nút này không đảm bảo trang được lập chỉ mục, và bấm nhiều lần cũng không nhanh hơn.</p>
+<h3>Báo cáo lập chỉ mục trang</h3>
+<p>Trong mục Lập chỉ mục, báo cáo Trang liệt kê các trang đã và chưa được lập chỉ mục, nhóm theo lý do. Hai trạng thái hay gặp nhất với website nhỏ là "Đã phát hiện, hiện chưa được lập chỉ mục" (Discovered, currently not indexed: Google biết trang tồn tại nhưng chưa ghé thu thập) và "Đã thu thập dữ liệu, hiện chưa được lập chỉ mục" (Crawled, currently not indexed: Google đã đọc nhưng chưa đưa vào chỉ mục, thường liên quan chất lượng hoặc trùng lặp nội dung).</p>
+
+<h2 id="bi-chan">Bước 3: kiểm tra trang có đang bị chặn không</h2>
+<h3>Thẻ noindex sót lại từ bản thử nghiệm</h3>
+<p>Đây là lỗi rất hay gặp ở website mới bàn giao. Trong lúc làm, bên thiết kế thường chặn Google để bản dở dang không bị lập chỉ mục, rồi quên gỡ khi ra mắt. Với WordPress, hãy vào Cài đặt, mục Đọc, xem ô yêu cầu công cụ tìm kiếm không lập chỉ mục có đang được đánh dấu không. Với website khác, mở trang, xem mã nguồn và tìm chữ <code>noindex</code> trong thẻ meta robots.</p>
+<h3>File robots.txt chặn nhầm</h3>
+<p>Mở <code>tenmiencuaban.vn/robots.txt</code>. Nếu thấy dòng <code>Disallow: /</code> dưới <code>User-agent: *</code>, toàn bộ website đang cấm máy tìm kiếm thu thập. Lưu ý một điểm hay bị hiểu sai: robots.txt chặn việc thu thập, không phải chặn lập chỉ mục. Trang bị chặn bằng robots.txt vẫn có thể hiện trên Google dạng chỉ có đường dẫn nếu có nơi khác liên kết tới, và Google cũng không đọc được thẻ noindex trên trang đó. Muốn trang không xuất hiện thì dùng noindex và để Google thu thập được.</p>
+<h3>Mật khẩu, lỗi máy chủ, chuyển hướng vòng</h3>
+<p>Trang yêu cầu đăng nhập, trang trả lỗi 5xx khi máy chủ quá tải, hoặc chuyển hướng qua lại giữa http và https, có www và không www, đều khiến Google bỏ qua. Công cụ Kiểm tra URL sẽ báo các lỗi này. Hosting quá yếu, thường xuyên chập chờn cũng làm Google giảm tần suất ghé thăm.</p>
+<h3>Nội dung chỉ hiện sau khi chạy JavaScript</h3>
+<p>Một số website dựng toàn bộ nội dung bằng JavaScript phía trình duyệt. Google có xử lý JavaScript, nhưng nếu nội dung tải chậm, cần bấm mới hiện, hoặc liên kết không phải thẻ <code>&lt;a href&gt;</code> thật, Google có thể không thấy. Trong Kiểm tra URL, chọn xem trang đã thu thập để biết Google thực sự nhìn thấy gì.</p>
+
+{{anh:a1|Tủ máy chủ nhỏ với các đèn tín hiệu xanh trong một phòng kỹ thuật gọn gàng|Ảnh minh họa: hosting chập chờn và lỗi máy chủ cũng khiến Google bỏ qua trang.}}
+
+<h2 id="sitemap">Bước 4: sitemap và liên kết nội bộ</h2>
+<p>Google tìm trang mới chủ yếu bằng cách đi theo liên kết. Một trang không có liên kết nào trỏ tới (trang mồ côi) rất khó được tìm thấy, kể cả khi nằm trong sitemap.</p>
+<ul>
+ <li><strong>Sitemap.xml:</strong> danh sách các trang bạn muốn Google biết. Hầu hết hệ thống quản trị nội dung tự tạo file này. Gửi đường dẫn sitemap trong Search Console, mục Sơ đồ trang web, rồi theo dõi số trang Google đọc được.</li>
+ <li><strong>Sitemap chỉ chứa trang thật:</strong> không đưa trang đã chuyển hướng, trang noindex, trang lỗi vào sitemap. Sitemap lẫn lộn làm Google kém tin vào nó.</li>
+ <li><strong>Liên kết từ menu và trang liên quan:</strong> mỗi trang dịch vụ nên được liên kết từ menu hoặc trang tổng; mỗi bài viết nên liên kết tới trang dịch vụ liên quan và ngược lại.</li>
+ <li><strong>Liên kết từ bên ngoài:</strong> trang mạng xã hội của doanh nghiệp, hồ sơ trên Google, danh bạ ngành, báo chí. Với website hoàn toàn mới, vài liên kết thật giúp Google phát hiện trang nhanh hơn.</li>
+</ul>
+
+<h2 id="noi-dung">Bước 5: nội dung mỏng và trang trùng lặp</h2>
+<p>Google không cam kết lập chỉ mục mọi trang nó thu thập. Khi đã đọc trang mà vẫn không đưa vào chỉ mục, nguyên nhân thường nằm ở nội dung:</p>
+<ul>
+ <li><strong>Nội dung mỏng:</strong> trang dịch vụ chỉ có vài dòng khẩu hiệu và một ảnh, trang sản phẩm chỉ có tên và giá. Không có gì đủ khác để Google thấy đáng hiển thị.</li>
+ <li><strong>Nội dung chép:</strong> mô tả sản phẩm chép từ nhà cung cấp, bài viết chép từ trang khác. Google thường chỉ giữ một bản và bỏ qua các bản giống.</li>
+ <li><strong>Nhiều trang gần giống nhau:</strong> hàng chục trang "dịch vụ tại quận X" chỉ khác tên quận. Hãy gộp lại hoặc viết riêng thật sự cho từng nơi.</li>
+ <li><strong>Trùng lặp kỹ thuật:</strong> cùng một trang mở được bằng http và https, có và không có www, có tham số lọc. Cần chuyển hướng 301 về một phiên bản và đặt thẻ canonical đúng.</li>
+ <li><strong>Canonical trỏ nhầm:</strong> mọi trang đều khai báo canonical về trang chủ, khiến Google hiểu các trang con là bản sao.</li>
+</ul>
+
+{{zalo}}
+
+<h2 id="thuong-hieu">Tìm đúng tên công ty mà không ra</h2>
+<p>Nếu tên doanh nghiệp là từ phổ biến (ví dụ "Hoa Mai", "Phương Nam"), Google sẽ ưu tiên kết quả quen thuộc hơn. Hãy thử gõ tên kèm ngành và thành phố. Để Google hiểu tên đó là một doanh nghiệp cụ thể, cần sự nhất quán: cùng tên, địa chỉ, số điện thoại trên website, trang mạng xã hội và hồ sơ Google Business Profile. Hồ sơ này còn giúp doanh nghiệp hiện trên Google Maps; xem hướng dẫn trong bài <a href="../dua-doanh-nghiep-len-google-maps/">đưa doanh nghiệp lên Google Maps</a>.</p>
+
+<h2 id="bao-lau">Mất bao lâu để website lên Google</h2>
+<p>Google không công bố thời gian cố định. Với website mới, đã gửi sitemap và không có lỗi chặn, trang chủ thường được lập chỉ mục trong vài ngày đến vài tuần; các trang con có thể lâu hơn. Không có cách trả tiền cho Google để được lập chỉ mục nhanh hơn trong kết quả tự nhiên, và cũng không ai có thể đảm bảo trang lên top một từ khóa trong thời gian cụ thể. Nếu ai đó hứa như vậy, hãy hỏi kỹ họ định làm gì.</p>
+<p>Sau khi trang đã có trong chỉ mục, việc xếp hạng cho từ khóa dịch vụ phụ thuộc chất lượng nội dung, tốc độ tải, trải nghiệm trên điện thoại và mức cạnh tranh của ngành. Bài <a href="../toc-do-website-core-web-vitals/">Core Web Vitals và tốc độ website</a> giải thích phần tốc độ.</p>
+
+{{anh:a2|Người đứng quay lưng vẽ sơ đồ các ô vuông nối với nhau bằng mũi tên trên bảng trắng|Ảnh minh họa: liên kết nội bộ giống một sơ đồ, trang nào cũng phải có đường dẫn tới.}}
+
+<h2 id="checklist">Checklist kiểm tra theo thứ tự</h2>
+<ol class="bl-steps">
+ <li>Gõ <code>site:tenmien</code> để biết Google đang có bao nhiêu trang.</li>
+ <li>Xác minh website trong Search Console bằng tài khoản của doanh nghiệp.</li>
+ <li>Dùng Kiểm tra URL cho trang chủ và hai, ba trang dịch vụ quan trọng nhất.</li>
+ <li>Tìm thẻ noindex trong mã nguồn và tùy chọn chặn công cụ tìm kiếm trong phần quản trị.</li>
+ <li>Mở robots.txt, bảo đảm không có dòng chặn toàn bộ website.</li>
+ <li>Kiểm tra website chỉ mở bằng một phiên bản: https, có hoặc không có www.</li>
+ <li>Gửi sitemap.xml trong Search Console, bảo đảm sitemap chỉ chứa trang thật.</li>
+ <li>Thêm liên kết từ menu, trang tổng và bài viết tới các trang chưa được lập chỉ mục.</li>
+ <li>Viết lại các trang chỉ có vài dòng, bỏ nội dung chép.</li>
+ <li>Yêu cầu lập chỉ mục cho trang đã sửa, chờ một đến hai tuần rồi xem lại báo cáo.</li>
+</ol>
+
+<h2 id="chi-phi">Website chuẩn lập chỉ mục từ đầu tại Dream Labs</h2>
+<p>Mọi website Dream Labs bàn giao đều có sitemap, robots.txt đúng, một phiên bản https duy nhất và các thẻ cơ bản cho máy tìm kiếm. Gói Cơ bản {{p:web:0}} có SEO cơ bản và gắn Google Analytics. Gói Chuyên nghiệp {{p:web:1}} thêm blog, trang quản trị để tự đăng bài và phần viết nội dung chuẩn SEO, hợp với doanh nghiệp muốn có khách từ Google lâu dài. Gói Cao cấp {{p:web:2}} dành cho website nhiều trang, đa ngôn ngữ.</p>
+{{gia:web}}
+<p>Xem chi tiết tại trang <a href="../../thiet-ke-website/">dịch vụ thiết kế website</a> và <a href="../../bang-gia/">bảng giá</a>. Nếu website hiện tại của bạn do bên khác làm và đang không lên Google, hãy gửi tên miền qua <a href="https://zalo.me/0934246420" target="_blank" rel="noopener">Zalo 0934 246 420</a>, Dream Labs xem nhanh các lỗi cơ bản giúp bạn.</p>
+
+<h2 id="cau-hoi">Câu hỏi thường gặp</h2>
+<h3>Làm sao biết website đã được Google lập chỉ mục chưa?</h3>
+<p>Gõ site:tên miền trên Google để xem nhanh. Muốn biết chính xác từng trang, dùng công cụ Kiểm tra URL trong Google Search Console.</p>
+<h3>Website mới bao lâu thì lên Google?</h3>
+<p>Thường từ vài ngày đến vài tuần nếu không có lỗi chặn và đã gửi sitemap. Google không cam kết thời gian, các trang con có thể lâu hơn trang chủ.</p>
+<h3>Bấm Yêu cầu lập chỉ mục nhiều lần có nhanh hơn không?</h3>
+<p>Không. Một lần là đủ sau khi đã sửa lỗi. Nút này giúp Google thu thập lại sớm hơn nhưng không bảo đảm trang được đưa vào chỉ mục.</p>
+<h3>Robots.txt có ngăn trang hiện trên Google không?</h3>
+<p>Không hoàn toàn. Robots.txt chặn việc thu thập, trang vẫn có thể hiện dạng chỉ có đường dẫn nếu nơi khác liên kết tới. Muốn trang không xuất hiện, dùng thẻ noindex và để Google đọc được trang.</p>
+<h3>Trả tiền cho Google có giúp website lên nhanh hơn không?</h3>
+<p>Không, với kết quả tìm kiếm tự nhiên. Trả tiền chỉ áp dụng cho quảng cáo Google Ads, hiển thị ở vị trí có nhãn quảng cáo và dừng khi hết ngân sách.</p>
+<h3>Vì sao Google đã thu thập mà vẫn không lập chỉ mục trang?</h3>
+<p>Thường do nội dung mỏng, trùng lặp với trang khác hoặc canonical trỏ sang trang khác. Hãy viết lại nội dung cho đủ khác biệt, gộp các trang gần giống nhau rồi yêu cầu lập chỉ mục lại.</p>
+<h3>Đơn vị làm web có phải chịu trách nhiệm việc website không lên Google không?</h3>
+<p>Họ chịu trách nhiệm các lỗi kỹ thuật như noindex sót lại, robots.txt chặn nhầm, thiếu sitemap. Còn xếp hạng cho từ khóa phụ thuộc nội dung và cạnh tranh, không ai bảo đảm được vị trí.</p>

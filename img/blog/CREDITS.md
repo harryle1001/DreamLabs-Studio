@@ -1,9 +1,39 @@
 # Nguồn ảnh bài viết
 
-Ảnh tải từ Pexels / Unsplash theo giấy phép miễn phí cho mục đích thương mại (https://www.pexels.com/license/ , https://unsplash.com/license). Tự sinh bởi tools/blog.js từ img/blog/<slug>/credits.json.
+Ảnh tải từ Pexels / Unsplash theo giấy phép miễn phí cho mục đích thương mại (https://www.pexels.com/license/ , https://unsplash.com/license). Ảnh có nguồn ghi "AI" do Dream Labs tự tạo bằng ComfyUI (mô hình Z-Image Turbo), chỉ để minh họa. Tự sinh bởi tools/blog.js từ img/blog/<slug>/credits.json.
 
 | Bài | Ảnh | Tác giả | Nguồn | Link |
 |---|---|---|---|---|
+| [Thiết kế website bán hàng](https://dreamlabs.vn/blog/thiet-ke-website-ban-hang/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Thiết kế website bán hàng](https://dreamlabs.vn/blog/thiet-ke-website-ban-hang/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Thiết kế website bán hàng](https://dreamlabs.vn/blog/thiet-ke-website-ban-hang/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Website không lên Google](https://dreamlabs.vn/blog/website-khong-len-google/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Website không lên Google](https://dreamlabs.vn/blog/website-khong-len-google/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Website không lên Google](https://dreamlabs.vn/blog/website-khong-len-google/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Đưa doanh nghiệp lên Google Maps](https://dreamlabs.vn/blog/dua-doanh-nghiep-len-google-maps/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Đưa doanh nghiệp lên Google Maps](https://dreamlabs.vn/blog/dua-doanh-nghiep-len-google-maps/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Đưa doanh nghiệp lên Google Maps](https://dreamlabs.vn/blog/dua-doanh-nghiep-len-google-maps/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Cấu trúc landing page bán hàng](https://dreamlabs.vn/blog/cau-truc-landing-page-ban-hang/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Cấu trúc landing page bán hàng](https://dreamlabs.vn/blog/cau-truc-landing-page-ban-hang/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Cấu trúc landing page bán hàng](https://dreamlabs.vn/blog/cau-truc-landing-page-ban-hang/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Bộ nhận diện thương hiệu gồm những gì](https://dreamlabs.vn/blog/bo-nhan-dien-thuong-hieu-gom-nhung-gi/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Bộ nhận diện thương hiệu gồm những gì](https://dreamlabs.vn/blog/bo-nhan-dien-thuong-hieu-gom-nhung-gi/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Bộ nhận diện thương hiệu gồm những gì](https://dreamlabs.vn/blog/bo-nhan-dien-thuong-hieu-gom-nhung-gi/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Thiết kế hồ sơ năng lực công ty](https://dreamlabs.vn/blog/thiet-ke-ho-so-nang-luc-cong-ty/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Thiết kế hồ sơ năng lực công ty](https://dreamlabs.vn/blog/thiet-ke-ho-so-nang-luc-cong-ty/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Thiết kế hồ sơ năng lực công ty](https://dreamlabs.vn/blog/thiet-ke-ho-so-nang-luc-cong-ty/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Video giới thiệu doanh nghiệp](https://dreamlabs.vn/blog/video-gioi-thieu-doanh-nghiep/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Video giới thiệu doanh nghiệp](https://dreamlabs.vn/blog/video-gioi-thieu-doanh-nghiep/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Video giới thiệu doanh nghiệp](https://dreamlabs.vn/blog/video-gioi-thieu-doanh-nghiep/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Kịch bản video ngắn bán hàng](https://dreamlabs.vn/blog/kich-ban-video-ngan-ban-hang/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Kịch bản video ngắn bán hàng](https://dreamlabs.vn/blog/kich-ban-video-ngan-ban-hang/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Kịch bản video ngắn bán hàng](https://dreamlabs.vn/blog/kich-ban-video-ngan-ban-hang/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Chatbot AI tư vấn bán hàng trên website](https://dreamlabs.vn/blog/chatbot-ai-tu-van-ban-hang-tren-website/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Chatbot AI tư vấn bán hàng trên website](https://dreamlabs.vn/blog/chatbot-ai-tu-van-ban-hang-tren-website/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Chatbot AI tư vấn bán hàng trên website](https://dreamlabs.vn/blog/chatbot-ai-tu-van-ban-hang-tren-website/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Chăm sóc khách sau mua tự động](https://dreamlabs.vn/blog/cham-soc-khach-hang-sau-mua-tu-dong/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Chăm sóc khách sau mua tự động](https://dreamlabs.vn/blog/cham-soc-khach-hang-sau-mua-tu-dong/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
+| [Chăm sóc khách sau mua tự động](https://dreamlabs.vn/blog/cham-soc-khach-hang-sau-mua-tu-dong/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
 | [Website doanh nghiệp cần những trang gì](https://dreamlabs.vn/blog/website-doanh-nghiep-can-nhung-trang-gi/) | a2 | Christina Morillo | Pexels | https://www.pexels.com/photo/1181310/ |
 | [Website doanh nghiệp cần những trang gì](https://dreamlabs.vn/blog/website-doanh-nghiep-can-nhung-trang-gi/) | cover | picjumbo.com | Pexels | https://www.pexels.com/photo/196644/ |
 | [Website doanh nghiệp cần những trang gì](https://dreamlabs.vn/blog/website-doanh-nghiep-can-nhung-trang-gi/) | a1 | Kaboompics.com | Pexels | https://www.pexels.com/photo/7680058/ |
