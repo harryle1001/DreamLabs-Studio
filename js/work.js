@@ -2,7 +2,7 @@
    Phần 1: WK3D — bộ dựng bao bì 3D bằng Three.js (dùng chung cho trình xem trên trang và công cụ render ảnh tĩnh).
    Phần 2: giao diện #du-an (xem cuối file). */
 window.WK3D=(()=>{
-const PHI=1.61803,GA=137.508*Math.PI/180;
+const K_RATIO=(1+Math.sqrt(5))/2,GA=137.508*Math.PI/180;
 const cv=(w,h)=>{const c=document.createElement('canvas');c.width=w;c.height=h;return c};
 const phy=(x,cx,cy,n,c,r0,r1)=>{for(let i=1;i<=n;i++){const r=c*Math.sqrt(i),t=i*GA;x.beginPath();x.arc(cx+r*Math.cos(t),cy+r*Math.sin(t),r0+(r1-r0)*i/n,0,7);x.fill()}};
 /* chữ canh giữa, tự co cho vừa bề ngang mw (tính cả giãn chữ) */
@@ -71,7 +71,7 @@ function build(T,kind,o={}){
  const tex=c=>{const t=new T.CanvasTexture(c);t.colorSpace=T.SRGBColorSpace;t.anisotropy=8;return t};
  const mat=p=>new T.MeshStandardMaterial(p),gloss=(col,r=.2)=>new T.MeshPhysicalMaterial({color:col,roughness:r,metalness:0,clearcoat:1,clearcoatRoughness:.1});
  const add=(geo,m,y=0)=>{const me=new T.Mesh(geo,m);me.position.y=y;g.add(me);return me};
- const wrap=(r,h,y,canvas,frac=1/PHI,r2=r)=>{const len=Math.PI*2*frac;return add(new T.CylinderGeometry(r,r2,h,96,1,true,-len/2,len),mat({map:tex(canvas),roughness:.72}),y)};
+ const wrap=(r,h,y,canvas,frac=1/K_RATIO,r2=r)=>{const len=Math.PI*2*frac;return add(new T.CylinderGeometry(r,r2,h,96,1,true,-len/2,len),mat({map:tex(canvas),roughness:.72}),y)};
  if(kind==='bottle'){
   add(new T.LatheGeometry([[0,0],[.44,0],[.5,.02],[.52,.07],[.52,1.12],[.5,1.2],[.44,1.28],[.33,1.36],[.24,1.41],[.2,1.45],[.2,1.52]].map(p=>V(p[0],p[1])),72),gloss(o.color||'#C98F73',.16));
   wrap(.524,.64,.62,o.label);
@@ -121,7 +121,7 @@ function studio(T,renderer,scene,o={}){
 function shadow(T,r=1.2,op=.5,col='#1b1612'){const c=cv(256,256),x=c.getContext('2d'),gr=x.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,col);gr.addColorStop(.45,col+'88');gr.addColorStop(1,col+'00');x.fillStyle=gr;x.fillRect(0,0,256,256);
  const m=new T.Mesh(new T.PlaneGeometry(r*2,r*2),new T.MeshBasicMaterial({map:new T.CanvasTexture(c),transparent:true,opacity:op,depthWrite:false}));m.rotation.x=-Math.PI/2;m.position.y=.002;m.renderOrder=-1;return m}
 function dispose(obj){obj.traverse(n=>{if(n.geometry)n.geometry.dispose();const ms=n.material?(Array.isArray(n.material)?n.material:[n.material]):[];ms.forEach(m=>{m.map&&m.map.dispose();m.dispose()})})}
-return{PHI,L,build,studio,shadow,dispose}})();
+return{K_RATIO,L,build,studio,shadow,dispose}})();
 
 /* ═════════ Phần 2: giao diện #du-an ═════════ */
 (()=>{DL.ready(()=>{
@@ -248,7 +248,7 @@ function liveNode(p,back){
   ifr.title='Demo '+p.name;ifr.setAttribute('loading','eager');
   const fit=()=>{const cw=el.clientWidth;if(!cw)return;const vh=innerHeight*.68,m=mode==='m';frame.classList.toggle('is-m',m);
     el.querySelectorAll('[data-m]').forEach(b=>{const on=b.dataset.m===mode;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
-    const iw=m?390:1440,w=m?Math.min(390,cw-12):cw-2,k=w/iw,h=m?Math.min(760,Math.max(377,vh)):Math.min(w/1.618,Math.max(377,vh));
+    const iw=m?390:1440,w=m?Math.min(390,cw-12):cw-2,k=w/iw,h=m?Math.min(760,Math.max(377,vh)):Math.min(w/1.62,Math.max(377,vh));
     frame.style.width=w+'px';frame.style.height=h+'px';ifr.style.width=iw+'px';ifr.style.height=(h/k)+'px';ifr.style.transform=`scale(${k})`;
     const fb=frame.querySelector('.wk-fb img');if(fb)fb.src=`img/wk-${p.demo}-long${m?'-m':''}.webp`};
   const setOk=()=>{if(ok)return;ok=true;clearTimeout(timer);frame.classList.add('is-ok');const fb=frame.querySelector('.wk-fb');fb&&fb.remove();note.hidden=true};
@@ -289,7 +289,7 @@ async function rebuild(spin){if(!V)return;const d=PROD[S.p],T=V.T;await Promise.
 async function init3D(){if(V||vBusy||vFail)return;vBusy=true;
   try{const T=await import(url('vendor/three.module.js'));
     const r=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});r.setPixelRatio(Math.min(window.devicePixelRatio||1,1.5));
-    const sc=new T.Scene(),cam=new T.PerspectiveCamera(26,1.618,.1,60),piv=new T.Group(),sh=WK3D.shadow(T,1.3,.5);sc.add(piv,sh);WK3D.studio(T,r,sc,{});
+    const sc=new T.Scene(),cam=new T.PerspectiveCamera(26,1.62,.1,60),piv=new T.Group(),sh=WK3D.shadow(T,1.3,.5);sc.add(piv,sh);WK3D.studio(T,r,sc,{});
     r.domElement.setAttribute('aria-hidden','true');stage.insertBefore(r.domElement,poster.nextSibling);
     r.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();stage.classList.remove('is-3d')});
     V={T,r,sc,cam,piv,shadow:sh,obj:null,ry:-.36,rx:.06,vy:0,drag:false,vis:true,raf:0,tw:0};

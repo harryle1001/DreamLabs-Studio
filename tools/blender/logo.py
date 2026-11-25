@@ -21,7 +21,7 @@ BG = '#15121C'
 GOLD = '#F3D7A2'
 CHAMP = '#E9D3A8'
 CREAM = '#F1E8D8'
-PHI = (1 + 5 ** .5) / 2
+K_RATIO = (1 + 5 ** .5) / 2
 
 a = C.args()
 sc = C.reset()
@@ -294,7 +294,7 @@ cam_d.dof.focus_object = aim
 NP = 5200 if a.uhd else 2600
 rng = np.random.default_rng(1618)
 arm = rng.integers(0, 2, NP)
-B = math.log(PHI) / (math.pi / 2)                       # xoắn ốc vàng: bán kính x phi mỗi 1/4 vòng
+B = math.log(K_RATIO) / (math.pi / 2)                       # xoắn ốc logarit: bán kính x K mỗi 1/4 vòng
 t_arr = 1.15 + 2.0 * rng.random(NP) ** .8                 # thời điểm chạm tâm
 t_dep = t_arr - (1.5 + 1.2 * rng.random(NP))             # thời điểm xuất hiện
 r_start = rng.uniform(3.2, 9.0, NP)
@@ -322,8 +322,8 @@ def spiral_pos(t):
     e = 1 - (1 - s) ** 1.0
     e = e ** 1.6                                           # chậm lúc đầu, nhanh dần khi vào tâm
     r = r_start * (1 - e) + .02
-    phi = np.log(r_start / r) / B                          # góc quét theo xoắn ốc log
-    th = th_off - phi * .62 + .35 * t                      # quay ngược chiều kim đồng hồ
+    ang = np.log(r_start / r) / B                          # góc quét theo xoắn ốc log
+    th = th_off - ang * .62 + .35 * t                      # quay ngược chiều kim đồng hồ
     x = np.cos(th) * r; z = np.sin(th) * r * .92
     y = yz * (1 - e) * 1.6
     p = np.c_[x, y, z] + lat * (1 - e)[:, None] * r[:, None] * .6

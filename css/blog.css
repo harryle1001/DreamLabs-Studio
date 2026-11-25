@@ -128,7 +128,7 @@ body.bl{overflow-x:clip}
 .bl-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5) var(--s4)}
 .bl-cards.big{grid-template-columns:repeat(2,minmax(0,1fr))}
 .bl-cards.big .bl-card:first-child{grid-column:1/-1}
-.bl-cards.big .bl-card:first-child a{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s5);align-items:center}
+.bl-cards.big .bl-card:first-child a{display:grid;grid-template-columns:1.62fr 1fr;gap:var(--s5);align-items:center}
 .bl-card a{display:grid;gap:var(--s3);text-decoration:none;color:inherit}
 .bl-card-img{display:block;border-radius:var(--r2);overflow:hidden;background:var(--grad-dream);aspect-ratio:1280/791}
 .bl-card-img img{width:100%;height:100%;object-fit:cover;transition:transform var(--d5) var(--ease)}
@@ -227,7 +227,7 @@ body.bl{overflow-x:clip}
 .ind-list .ind-g h2{font-size:clamp(var(--t1h),2.6vw,var(--t2h));margin-bottom:var(--s3);padding-top:var(--s4)}
 
 /* công cụ tự tính giá ({{tinh-gia}} trong src/pages/bang-gia.html) */
-.tg{display:grid;grid-template-columns:minmax(0,1.618fr) minmax(0,1fr);gap:var(--s4);margin-block:var(--s4) var(--s5);align-items:start}
+.tg{display:grid;grid-template-columns:minmax(0,1.62fr) minmax(0,1fr);gap:var(--s4);margin-block:var(--s4) var(--s5);align-items:start}
 .tg-rows{display:flex;flex-direction:column;gap:var(--s2)}
 .tg-row{border:1px solid var(--line);border-radius:var(--r2);padding:var(--s3);margin:0;background:var(--paper);transition:border-color var(--d2)}
 .tg-row.on{border-color:color-mix(in oklab,var(--accent) 55%,var(--line))}

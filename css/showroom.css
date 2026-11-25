@@ -122,7 +122,7 @@
 
 /* hero: chữ 38.2% · mẫu chủ lực 61.8% */
 .hero{min-height:min(100svh,980px);align-items:center;padding-top:calc(var(--head) + var(--s5));padding-bottom:var(--s5)}
-.hero .hero-grid{grid-template-columns:var(--cols-golden-r);gap:var(--s5);align-items:center}
+.hero .hero-grid{grid-template-columns:var(--cols-kr);gap:var(--s5);align-items:center}
 .hero-main{display:flex;flex-direction:column;gap:var(--s4)}
 .hero .hero-title{font-size:clamp(var(--t3),4.6vw,var(--t4));max-width:12ch}
 .hero-main .lead{margin:0;max-width:34ch}

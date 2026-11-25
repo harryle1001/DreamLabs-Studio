@@ -1,5 +1,5 @@
 /* Dream Labs — "Phòng mẫu" (Atelier). Session F (v3). Tiền tố sm- (khung) và smai- (6 mẫu Tự động hóa AI, cuối file).
-   Mọi số đo lấy từ tokens.css (thang φ) + bậc mở rộng --s9…--s11, --hit trong core.css. */
+   Mọi số đo lấy từ tokens.css (thang chuẩn) + bậc mở rộng --s9…--s11, --hit trong core.css. */
 :root{--sm-night:#15121C;--sm-wrap:calc(var(--wrap) + var(--s8))} /* --sm-night: nền "màn hình" luôn tối (khung phim), không đổi theo theme */
 .sm-room [hidden],.sm-slot[hidden],.sm-strip[hidden],[data-sm-open][hidden]{display:none!important}
 .sm-ar{width:var(--s3);height:var(--s3);flex:none}
@@ -89,7 +89,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-wrap,.sm-d{width:100%;max-width:var(--sm-wrap);margin-inline:auto;padding-inline:max(var(--s4),env(safe-area-inset-left,0px)) max(var(--s4),env(safe-area-inset-right,0px))}
 
 /* đầu phòng */
-.sm-hero{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s5);align-items:end;padding-block:var(--s6) var(--s5)}
+.sm-hero{display:grid;grid-template-columns:var(--cols-k);gap:var(--s5);align-items:end;padding-block:var(--s6) var(--s5)}
 .sm-hero>*{min-width:0}
 .sm-hero .eyebrow{margin-bottom:var(--s3)}
 .sm-hero h2{font-size:clamp(var(--t3),6.18vw,var(--t5));letter-spacing:-.02em;text-wrap:initial}
@@ -109,14 +109,14 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-chip:hover{color:var(--ink);border-color:color-mix(in oklab,var(--accent) 38.2%,transparent)}
 .sm-chip[aria-pressed="true"]{color:var(--ink);border-color:var(--accent);background:color-mix(in oklab,var(--lav) 26%,var(--paper))}
 
-/* lưới thẻ: 24 cột, hàng đôi 15/9 (≈ 61.8/38.2) xen hàng ba 8/8/8 */
+/* lưới thẻ: 24 cột, hàng đôi 15/9 xen hàng ba 8/8/8 */
 .sm-grid{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));row-gap:var(--s6);align-items:end;margin-inline:calc(var(--s4)/-2);padding-block:var(--s5) var(--s6)}
 .sm-card{grid-column:span 8;min-width:0;padding-inline:calc(var(--s4)/2)}
 .sm-card.maj{grid-column:span 15}
 .sm-card.min{grid-column:span 9}
 .sm-card.maj.r{grid-column:10/span 15}
 .sm-card-b{display:block;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:pointer;border-radius:var(--r3)}
-.sm-cover{position:relative;display:block;aspect-ratio:var(--golden);border-radius:var(--r3);overflow:hidden;isolation:isolate;
+.sm-cover{position:relative;display:block;aspect-ratio:var(--ar-k);border-radius:var(--r3);overflow:hidden;isolation:isolate;
   background:linear-gradient(var(--a,135deg),var(--lav),var(--peach) 61.8%,var(--mist));box-shadow:0 var(--s4) var(--s6) calc(var(--s4)*-1) var(--shadow);
   transition:box-shadow var(--d4) var(--ease),transform var(--d4) var(--ease)}
 .sm-cover img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;transition:transform var(--d5) var(--ease)}
@@ -140,7 +140,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-desc{color:var(--muted);font-size:var(--t0h);line-height:var(--lh);max-width:56ch;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
 .sm-cap .chips{margin-top:var(--s0)}
 .sm-empty{grid-column:1/-1;padding:var(--s6) var(--s3);text-align:center;color:var(--muted)}
-.sm-foot{position:relative;display:grid;grid-template-columns:auto minmax(0,1.618fr) minmax(0,1fr);gap:var(--s4);align-items:center;padding-block:var(--s5) var(--s7);border-top:1px solid var(--line)}
+.sm-foot{position:relative;display:grid;grid-template-columns:auto minmax(0,1.62fr) minmax(0,1fr);gap:var(--s4);align-items:center;padding-block:var(--s5) var(--s7);border-top:1px solid var(--line)}
 .sm-bg{width:var(--s7);height:auto;fill:none;overflow:visible}
 .sm-bg path{vector-effect:non-scaling-stroke}
 .sm-bg .g{stroke:var(--line);stroke-width:1}
@@ -150,7 +150,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-foot .btn{justify-self:end}
 
 /* ───────── trang chi tiết ───────── */
-.sm-d{display:grid;grid-template-columns:var(--cols-golden);gap:var(--s5) var(--s6);padding-block:var(--s5) var(--s7)}
+.sm-d{display:grid;grid-template-columns:var(--cols-k);gap:var(--s5) var(--s6);padding-block:var(--s5) var(--s7)}
 .sm-d>*{min-width:0}
 .sm-d[data-layout="split"]{grid-template-areas:"stage head" "stage pkg" "nav nav";grid-template-rows:auto 1fr auto;align-items:start}
 .sm-d[data-layout="wide"]{grid-template-areas:"head pkg" "stage stage" "nav nav";align-items:center}
@@ -187,7 +187,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
   transition:border-color var(--d2) var(--ease),background var(--d2) var(--ease)}
 .sm-nb.n{flex-direction:row-reverse;text-align:right}
 .sm-nb:hover{border-color:color-mix(in oklab,var(--accent) 61.8%,transparent);background:var(--paper)}
-.sm-nb-i{position:relative;flex:none;width:var(--s7);aspect-ratio:var(--golden);border-radius:var(--r1);overflow:hidden;background:var(--grad-dream)}
+.sm-nb-i{position:relative;flex:none;width:var(--s7);aspect-ratio:var(--ar-k);border-radius:var(--r1);overflow:hidden;background:var(--grad-dream)}
 .sm-nb-i img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover}
 .sm-nb-i .sm-mono{font-size:var(--t1h)}
 .sm-nb-t{display:grid;gap:var(--s0);min-width:0}
@@ -236,7 +236,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 
 /* ── product: ảnh lớn, mẫu mã, dải ảnh ── */
 .sm-prod{display:grid;gap:var(--s3)}
-.sm-pstage{position:relative;aspect-ratio:var(--ar,1.618);max-height:72vh;width:100%;border-radius:var(--r3);overflow:hidden;isolation:isolate;cursor:zoom-in;
+.sm-pstage{position:relative;aspect-ratio:var(--ar,1.62);max-height:72vh;width:100%;border-radius:var(--r3);overflow:hidden;isolation:isolate;cursor:zoom-in;
   background:linear-gradient(var(--a,135deg),color-mix(in oklab,var(--lav) 61.8%,var(--paper)),color-mix(in oklab,var(--peach) 61.8%,var(--paper)) 61.8%,color-mix(in oklab,var(--mist) 61.8%,var(--paper)));
   box-shadow:0 var(--s4) var(--s6) calc(var(--s4)*-1) var(--shadow)}
 .sm-d[data-kind="image"] .sm-pstage{cursor:default}
@@ -249,7 +249,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-zoomb{position:absolute;z-index:3;right:var(--s3);bottom:var(--s3);cursor:zoom-in}
 .sm-gal{display:flex;gap:var(--s2);overflow-x:auto;padding:var(--s0);margin:calc(var(--s0)*-1);scrollbar-width:none;overscroll-behavior-x:contain}
 .sm-gal::-webkit-scrollbar{display:none}
-.sm-th{position:relative;flex:none;width:var(--s6);aspect-ratio:var(--golden);padding:0;border-radius:var(--r1);overflow:hidden;border:1px solid var(--line);background:var(--grad-dream);cursor:pointer;opacity:var(--op-major);
+.sm-th{position:relative;flex:none;width:var(--s6);aspect-ratio:var(--ar-k);padding:0;border-radius:var(--r1);overflow:hidden;border:1px solid var(--line);background:var(--grad-dream);cursor:pointer;opacity:var(--op-major);
   transition:opacity var(--d2) var(--ease),outline-color var(--d2) var(--ease);outline:2px solid transparent;outline-offset:1px}
 .sm-th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .sm-th:hover,.sm-th[aria-pressed="true"]{opacity:1}
@@ -279,7 +279,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
   transition:transform var(--d3) var(--ease-spring),background var(--d2) var(--ease)}
 .sm-play svg{width:var(--t2h);height:var(--t2h)}
 .sm-play::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--on-img,#FBF8F3);opacity:0;animation:sm-ping var(--d6) var(--ease) infinite}
-@keyframes sm-ping{0%{opacity:var(--op-major);transform:scale(1)}100%{opacity:0;transform:scale(1.618)}}
+@keyframes sm-ping{0%{opacity:var(--op-major);transform:scale(1)}100%{opacity:0;transform:scale(1.62)}}
 .sm-play:hover{transform:scale(1.062);background:color-mix(in oklab,var(--sm-night) 61.8%,transparent)}
 .sm-vframe.is-on .sm-play,.sm-vframe.is-cmp .sm-play,.sm-vframe.is-bad .sm-play{display:none}
 .sm-vmsg{position:absolute;z-index:3;left:var(--s3);right:var(--s3);bottom:var(--s3);padding:var(--s2) var(--s3);border-radius:var(--r1);text-align:center;font-size:var(--t0h);background:color-mix(in oklab,var(--sm-night) 61.8%,transparent);color:var(--on-img,#FBF8F3)}
@@ -309,7 +309,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-live-bar .btn{flex:none;margin-left:auto;min-height:var(--hit)}
 .sm-live-box{position:relative;container-type:inline-size;min-height:var(--s9);border-radius:var(--r3);overflow:hidden;border:1px solid var(--line);background:var(--paper);box-shadow:0 var(--s4) var(--s6) calc(var(--s4)*-1) var(--shadow)}
 .sm-live-box .smai-sim{display:none} /* khung đã có nhãn "Demo mô phỏng" */
-.sm-live-bad{position:relative;aspect-ratio:var(--golden);display:grid;place-items:end center;background:var(--grad-dream)}
+.sm-live-bad{position:relative;aspect-ratio:var(--ar-k);display:grid;place-items:end center;background:var(--grad-dream)}
 .sm-live-bad img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover}
 .sm-live-bad p{position:relative;z-index:2;margin:var(--s3);padding:var(--s2) var(--s3);border-radius:999px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:var(--t0h)}
 
@@ -358,7 +358,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 
 /* ═══════════════════════════════════════════════════════════════════════════════════════════════
    6 mẫu Tự động hóa AI (js/samples-ai.js) — tiền tố smai-. Mỗi mẫu là "màn hình" của một thương hiệu concept nên có bảng màu riêng,
-   khai báo bằng biến cục bộ: --b nền · --p mặt thẻ · --k chữ · --m chữ phụ · --a nhấn · --l đường kẻ. Kích thước vẫn theo thang φ.
+   khai báo bằng biến cục bộ: --b nền · --p mặt thẻ · --k chữ · --m chữ phụ · --a nhấn · --l đường kẻ. Kích thước vẫn theo thang chuẩn.
    ═══════════════════════════════════════════════════════════════════════════════════════════════ */
 .smai{--b:#151210;--p:#1E1A17;--k:#EFE6D6;--m:#A89B88;--a:#C9A46A;--l:rgba(239,230,214,.14);
   container-type:inline-size;display:grid;gap:var(--s3);padding:clamp(var(--s3),3.6cqi,var(--s4));background:var(--b);color:var(--k);font-size:var(--t0h);line-height:1.5;text-align:left}
@@ -376,7 +376,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .smai-lk .smai-brand,.smai-td .smai-brand,.smai-vn .smai-brand{font-size:var(--t1);letter-spacing:.3em;text-transform:uppercase;font-weight:400}
 .smai-sub{flex:1 1 var(--s9);color:var(--m)}
 .smai-sim{font-size:var(--t0);letter-spacing:.14em;text-transform:uppercase;line-height:1.4;padding:var(--s0) var(--s2);border-radius:999px;border:1px solid var(--a);color:var(--a);white-space:nowrap}
-.smai-g{display:grid;grid-template-columns:1.618fr 1fr;gap:var(--s3);align-items:start}
+.smai-g{display:grid;grid-template-columns:1.62fr 1fr;gap:var(--s3);align-items:start}
 .smai-side{display:grid;gap:var(--s3);align-content:start}
 .smai-card{display:grid;gap:var(--s2);padding:var(--s3);border-radius:var(--r2);border:1px solid var(--l);background:var(--p)}
 .smai-cap{font-size:var(--t0);letter-spacing:.14em;text-transform:uppercase;color:var(--m);line-height:1.4}
@@ -480,7 +480,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .smai-td-dial .gmt .h4{fill:none;stroke:var(--x);stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
 .smai-td-cal{display:grid;grid-template-columns:auto repeat(7,minmax(0,1fr));gap:var(--s0);align-items:center}
 .smai-td-cal .h{font-style:normal;font-size:var(--t0);color:var(--m);text-align:center;font-variant-numeric:tabular-nums;padding-right:var(--s0)}
-.smai-td-cal .s,.smai-legend .s{display:block;aspect-ratio:1.618;border-radius:var(--s0);border:1px solid var(--l)}
+.smai-td-cal .s,.smai-legend .s{display:block;aspect-ratio:1.62;border-radius:var(--s0);border:1px solid var(--l)}
 .smai-td-cal .busy,.smai-legend .busy{background:repeating-linear-gradient(135deg,var(--l) 0 2px,transparent 2px 5px)}
 .smai-td-cal .free,.smai-legend .free{border-color:var(--a);background:color-mix(in oklab,var(--a) 20%,transparent)}
 .smai-td-cal .free.dim{background:none;border-color:var(--l)}
@@ -510,7 +510,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .smai-hm-tot span{font-size:var(--t0);letter-spacing:.14em;text-transform:uppercase;color:var(--m)}
 .smai-hm-tot b{font-family:var(--f-display);font-weight:400;font-size:var(--t2);font-variant-numeric:tabular-nums;white-space:nowrap}
 /* 5 · Vọng Nguyệt */
-.smai-vn-flow{position:relative;display:grid;grid-template-columns:1fr 1fr 1.618fr;gap:var(--s5);align-items:center;padding:var(--s3);border-radius:var(--r2);border:1px solid var(--l);background:var(--p)}
+.smai-vn-flow{position:relative;display:grid;grid-template-columns:1fr 1fr 1.62fr;gap:var(--s5);align-items:center;padding:var(--s3);border-radius:var(--r2);border:1px solid var(--l);background:var(--p)}
 .smai-vn-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .smai-vn-svg path{fill:none;stroke:var(--l);stroke-width:1.5;transition:stroke var(--d2) var(--ease)}
 .smai-vn-svg path.on{stroke:var(--a);stroke-dasharray:4 6;animation:smai-dash var(--d4) linear infinite}
@@ -529,7 +529,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .smai-vn-flow .hot{border-left:var(--s0) solid #E67A52}.smai-vn-flow .warm{border-left:var(--s0) solid #DDB86C}.smai-vn-flow .cold{border-left:var(--s0) solid #8CA7B5}
 .smai-vn-q{font-family:var(--f-display);font-style:italic;font-size:var(--t1);line-height:1.5;min-height:3em}
 .smai-vn-bars,.smai-ny-b{display:grid;gap:var(--s2)}
-.smai-vn-bars>div,.smai-ny-b>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.618fr) auto;align-items:center;gap:var(--s2)}
+.smai-vn-bars>div,.smai-ny-b>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.62fr) auto;align-items:center;gap:var(--s2)}
 .smai-vn-bars span,.smai-ny-b span{color:var(--m)}
 .smai-vn-bars i,.smai-ny-b i{display:block;height:var(--s1);border-radius:999px;background:var(--l);overflow:hidden}
 .smai-vn-bars u,.smai-ny-b u{display:block;height:100%;border-radius:999px;background:var(--a);transform:scaleX(0);transform-origin:0 50%;transition:transform var(--d4) var(--ease)}
@@ -597,7 +597,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-card-mini{appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:var(--paper);border-radius:var(--r2);padding:0 0 var(--s2);text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:var(--s0);overflow:hidden;min-width:0;color:inherit;font:inherit;
   transition:transform var(--d3) var(--ease),border-color var(--d3) var(--ease)}
 .sm-card-mini:hover{transform:translateY(calc(var(--s1)*-1));border-color:color-mix(in oklab,var(--accent) 38.2%,transparent)}
-.sm-mini-img{display:block;aspect-ratio:1.618/1;background:linear-gradient(135deg,var(--lav),var(--peach));overflow:hidden}
+.sm-mini-img{display:block;aspect-ratio:1.62/1;background:linear-gradient(135deg,var(--lav),var(--peach));overflow:hidden}
 .sm-mini-img img{width:100%;height:100%;object-fit:cover;display:block}
 .sm-mini-t{padding:var(--s1) var(--s3) 0;font-weight:500;font-size:15px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sm-mini-i{padding:0 var(--s3);color:var(--muted);font-size:13px}
@@ -677,7 +677,7 @@ dialog.sm-room::backdrop{background:color-mix(in oklab,var(--sm-night) 61.8%,tra
 .sm-th-spin b{font-weight:600}
 
 /* khối "xoay 360" trên trang chủ, trong hạng mục Thiết kế sản phẩm */
-.sm-spinfeat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.618fr);gap:var(--s5);align-items:center;margin-bottom:var(--s5);padding:var(--s4);border-radius:var(--r4);background:var(--paper);border:1px solid var(--line)}
+.sm-spinfeat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.62fr);gap:var(--s5);align-items:center;margin-bottom:var(--s5);padding:var(--s4);border-radius:var(--r4);background:var(--paper);border:1px solid var(--line)}
 .sm-spinfeat-v{min-width:0}
 .sm-spinfeat-c{display:grid;gap:var(--s3);justify-items:start;min-width:0}
 .sm-spinfeat-c h4{margin:0;font:400 var(--fz-h3)/1.15 var(--f-display);letter-spacing:-.01em;text-wrap:balance}

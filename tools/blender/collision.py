@@ -7,7 +7,7 @@
 Nhịp: 0–3,9 s hai sao (vàng champagne / xanh sapphire đêm) bay vào theo xoắn ốc log nghiêng, chậm rồi nhanh dần
 -> chạm nhau -> 3,9–6,4 s quay quanh nhau, tốc độ góc tăng theo hàm mũ, vật chất bị kéo thành 2 cánh
 -> 6,4 s nổ: chớp sáng, quả cầu lửa, 2 vành sóng xung kích, hàng nghìn mảnh sao văng ra có vệt
--> mảnh sao bị hút xoáy về thành thiên hà xoắn ốc vàng hai nhánh, lõi kem -> thiên hà xoay chậm tới hết.
+-> mảnh sao bị hút xoáy về thành thiên hà xoắn ốc logarit hai nhánh, lõi kem -> thiên hà xoay chậm tới hết.
 """
 import os, sys, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -18,8 +18,8 @@ import common as C
 
 DUR = 16.0
 T_APP, T_BANG = 3.9, 6.4            # chạm nhau / phát nổ
-PHI = (1 + 5 ** .5) / 2
-B = math.log(PHI) / (math.pi / 2)  # xoắn ốc vàng
+K_RATIO = (1 + 5 ** .5) / 2
+B = math.log(K_RATIO) / (math.pi / 2)  # xoắn ốc logarit
 BG = '#15121C'
 
 a = C.args()
@@ -325,11 +325,11 @@ W_GROW = 6.5
 def star_pos(t):
     """Trả về (vị trí sao 1, sao 2, tiến độ xoáy 0..1, góc)."""
     T1, T2 = T_APP, T_BANG - T_APP
-    g1 = PHI ** (-TH / (math.pi / 2))
+    g1 = K_RATIO ** (-TH / (math.pi / 2))
     if t < T1:
         q = max(0, t / T1)
         sq = .146 * q + .854 * q ** 2.618
-        g = PHI ** (-TH * sq / (math.pi / 2))
+        g = K_RATIO ** (-TH * sq / (math.pi / 2))
         th = math.pi - .22 + TH * sq
         r = RC + (R0 - RC) * (g - g1) / (1 - g1)
         wh = 0
@@ -379,7 +379,7 @@ spd = (rng.random(NF) ** 1.8 * 7.5 + .6)
 dirv = plane(np.cos(ang0) * np.cos(elev), np.sin(ang0) * np.cos(elev), np.sin(elev))
 p0f = rng.normal(0, RS * .5, (NF, 3))
 DRAG = 1.3
-# mục tiêu trên thiên hà: 2 nhánh xoắn ốc vàng
+# mục tiêu trên thiên hà: 2 nhánh xoắn ốc logarit
 def galaxy_targets(n, seed, rmin=.25, rmax=15.0):
     r_ = np.random.default_rng(seed)
     u = r_.random(n)

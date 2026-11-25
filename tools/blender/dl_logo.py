@@ -19,7 +19,7 @@ import dl_audio as A
 
 NAME = 'dl_logo'
 DUR = 12.0
-PHI = (1 + 5 ** .5) / 2
+K_RATIO = (1 + 5 ** .5) / 2
 FONT_DIR = os.path.join(C.HERE, 'fonts')
 
 # màu thương hiệu (src/partials/00-chrome.html: gradient dl-lg = lav -> peach (0.618) -> mist)
@@ -290,7 +290,7 @@ def build(sc, a, ar):
     e0 = rng.uniform(2.45, 3.2, NP)                            # lúc tới tâm
     r0 = rng.uniform(5.0, 9.0, NP)
     THETA = 3.25 * math.pi
-    B = math.log(PHI) / (math.pi / 2)                          # xoắn ốc vàng: r nhân 1/φ mỗi 1/4 vòng
+    B = math.log(K_RATIO) / (math.pi / 2)                          # xoắn ốc logarit: r nhân 1/K mỗi 1/4 vòng
     zj = rng.normal(0, .12, NP)
     size0 = rng.uniform(.010, .026, NP) * (1 + 1.5 * (rng.uniform(size=NP) < .06))
     gold = np.array([C.srgb('#FFD8A0')[:3], C.srgb('#F6C77E')[:3], C.srgb('#FFF0D8')[:3], C.srgb('#F2C0A8')[:3]])
