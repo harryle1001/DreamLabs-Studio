@@ -1,0 +1,88 @@
+{
+ "hero": {
+  "author": "Hoàng Anh Nguyễn",
+  "page": "https://www.pexels.com/photo/close-up-of-elegant-watch-gears-and-mechanisms-34182727/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/34182727/pexels-photo-34182727.jpeg",
+  "w": 1968,
+  "h": 2624,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.12,
+    0.56,
+    0.56,
+    0.08
+   ]
+  ]
+ },
+ "skeleton": {
+  "author": "Pixabay",
+  "page": "https://www.pexels.com/photo/round-skeleton-watch-277319/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/277319/pexels-photo-277319.jpeg",
+  "w": 3000,
+  "h": 2000,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.36,
+    0.42,
+    0.11,
+    0.17
+   ]
+  ]
+ },
+ "tho": {
+  "author": "Tima Miroshnichenko",
+  "page": "https://www.pexels.com/photo/a-man-repairing-a-pocket-watch-8327542/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8327542/pexels-photo-8327542.jpeg",
+  "w": 5229,
+  "h": 3486,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "bo-tui": {
+  "author": "Felix Mittermeier",
+  "page": "https://www.pexels.com/photo/close-up-of-watch-against-black-background-325845/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/325845/pexels-photo-325845.jpeg",
+  "w": 3275,
+  "h": 2465,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "cau-noi": {
+  "author": "Hoàng Anh Nguyễn",
+  "page": "https://www.pexels.com/photo/close-up-of-intricate-mechanical-watch-gears-34182730/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/34182730/pexels-photo-34182730.jpeg",
+  "w": 3072,
+  "h": 4096,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

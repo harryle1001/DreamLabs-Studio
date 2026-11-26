@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Marcenne — đồng hồ cổ điển đã qua sử dụng, có kiểm định (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho boutique đồng hồ cổ điển đã qua sử dụng: lọc bộ sưu tập theo cỡ mặt, chất liệu, bộ máy, khoảng giá; ướm cỡ mặt theo chu vi cổ tay trên hình vẽ và đặt lịch xem.">
+<style>
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/eb-garamond-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/eb-garamond-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/eb-garamond-vietnamese-400-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/eb-garamond-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Archivo";font-weight:100 900;font-style:normal;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-vietnamese-wdth-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Archivo";font-weight:100 900;font-style:normal;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.25,1,.5,1);
+--pp:#F4EEE2;--pp2:#EAE2D2;--ink:#2B211A;--mu:rgba(43,33,26,.62);--ln:rgba(43,33,26,.18);--bu:#7A2230;--ol:#5E6B47;
+--fs:"EB Garamond",Georgia,serif;--fa:"Archivo",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--pp);color:var(--ink);font-family:var(--fs);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}ul,ol{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+:focus-visible{outline:2px solid var(--bu);outline-offset:2px}
+.w{width:100%;max-width:1240px;margin:0 auto;padding:0 max(21px,4vw)}
+.sm{font-family:var(--fa);font-stretch:78%;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.mu{color:var(--mu)}.bu{color:var(--bu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.h2{font-weight:400;font-size:clamp(42px,5.2vw,68px);line-height:1;letter-spacing:-.01em}
+.h2 em,.h1 em{font-style:italic;color:var(--bu)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--s4);background:var(--ink);color:var(--pp);font-family:var(--fa);font-stretch:78%;font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;border-radius:2px;transition:background .4s}
+.btn:hover{background:var(--bu)}
+.btn.gh{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}.btn.gh:hover{background:var(--ink);color:var(--pp)}
+/* masthead */
+.top{border-bottom:1px solid var(--ink)}
+.top .w{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:62px;gap:var(--s3)}
+.back{font-family:var(--fa);font-stretch:78%;font-size:12px;letter-spacing:.08em;color:var(--mu);min-height:44px;display:flex;align-items:center}.emb .back{visibility:hidden}
+.lo{font-size:28px;letter-spacing:.2em;text-transform:uppercase;min-height:44px;display:flex;align-items:center;padding-left:.2em}
+.top .r{justify-self:end;display:flex;gap:var(--s3);align-items:center}
+.wl{min-height:44px;display:inline-flex;align-items:center;gap:6px}
+.wl b{min-width:22px;height:22px;border-radius:11px;background:var(--bu);color:var(--pp);font-family:var(--fa);font-size:11px;display:grid;place-items:center;padding:0 6px}
+.nvb{border-bottom:1px solid var(--ln);position:sticky;top:0;z-index:30;background:rgba(244,238,226,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nvb .w{display:flex;justify-content:center;gap:var(--s5);overflow-x:auto;scrollbar-width:none}
+.nvb a{min-height:44px;display:flex;align-items:center;white-space:nowrap}
+/* hero */
+.hero{padding:var(--s6) 0 var(--s7)}
+.hh{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s5);align-items:end;margin-bottom:var(--s5)}
+.h1{font-weight:400;font-size:clamp(46px,7vw,110px);line-height:.95;letter-spacing:-.02em}
+.h1 .l{display:block;overflow:hidden;padding-bottom:.06em}.h1 .l>span{display:inline-block}
+.hph{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--pp2)}
+.hph picture{position:absolute;inset:-5% 0;height:auto}
+.hcap{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);border-bottom:1px solid var(--ln);padding:var(--s3) 0;align-items:baseline}
+.hcap i{font-style:italic}
+/* section */
+.sec{padding:var(--s8) 0;border-top:1px solid var(--ink)}
+.sh{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s5);margin-bottom:var(--s6);align-items:end}
+.sh p.d{color:var(--mu);max-width:44ch;margin-top:var(--s3)}
+/* filters */
+.flt{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);border-top:1px solid var(--ink);border-bottom:1px solid var(--ln);padding:var(--s4) 0;margin-bottom:var(--s4)}
+.fg h3{margin-bottom:var(--s2)}
+.ch{display:flex;flex-wrap:wrap;gap:6px}
+.ch button{min-height:40px;padding:0 var(--s3);border:1px solid var(--ln);border-radius:99px;font-size:16px;transition:background .3s,color .3s,border-color .3s}
+.ch button[aria-pressed=true]{background:var(--ink);color:var(--pp);border-color:var(--ink)}
+.fbar{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);margin-bottom:var(--s5);flex-wrap:wrap}
+.fbar select{min-height:44px;border:1px solid var(--ln);background:var(--pp);padding:0 var(--s5) 0 var(--s3);border-radius:2px;-webkit-appearance:none;appearance:none;font-size:16px;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.rs{font-family:var(--fa);font-stretch:78%;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.rs b{color:var(--bu)}
+.clr{min-height:44px;border-bottom:1px solid currentColor;font-size:16px}
+.gd{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5) var(--s4)}
+.cd{display:flex;flex-direction:column;gap:var(--s2);transition:opacity .4s,transform .6s var(--e)}
+.cd.hide{display:none}
+.cd .im{position:relative;aspect-ratio:1/1;background:var(--pp2);display:grid;place-items:center;overflow:hidden}
+.cd .im svg{width:78%;height:auto;transition:transform 1s var(--e)}
+.cd:hover .im svg{transform:rotate(-6deg) scale(1.04)}
+.cd .lot{position:absolute;left:var(--s2);top:var(--s2)}
+.cd .gr{position:absolute;right:var(--s2);top:var(--s2);font-family:var(--fa);font-stretch:78%;font-size:11px;font-weight:600;border:1px solid var(--ol);color:var(--ol);padding:1px 6px;border-radius:2px}
+.cd .hrt{position:absolute;right:var(--s1);bottom:var(--s1);width:44px;height:44px;display:grid;place-items:center}
+.cd .hrt svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.5;transition:fill .3s}
+.cd .hrt[aria-pressed=true] svg{fill:var(--bu);stroke:var(--bu)}
+.cd h3{font-weight:400;font-size:23px;line-height:1.15}
+.cd .mt{font-family:var(--fa);font-stretch:78%;font-size:12px;letter-spacing:.06em;color:var(--mu);text-transform:uppercase}
+.cd .ft{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--ln);padding-top:var(--s2);margin-top:auto;gap:var(--s2)}
+.cd .ft b{font-weight:500;font-size:18px}
+.cd .try{min-height:40px;font-size:15px;font-style:italic;color:var(--bu)}
+.empty{grid-column:1/-1;padding:var(--s6) 0;text-align:center;font-style:italic;color:var(--mu);display:none}
+/* sizer */
+.sz{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s6);align-items:center}
+.szc{display:grid;gap:var(--s4)}
+.szc label{display:block}
+.wr{display:flex;align-items:baseline;gap:var(--s2)}
+.wr input[type=number]{width:120px;font-size:42px;border:0;border-bottom:1px solid var(--ink);background:transparent;padding:0;outline:0;-moz-appearance:textfield;font-family:var(--fs)}
+.wr input::-webkit-inner-spin-button{-webkit-appearance:none}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--ink)}
+input[type=range]::-moz-range-track{height:2px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--pp);border:2px solid var(--bu);margin-top:-10px}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--pp);border:2px solid var(--bu)}
+.szc select{width:100%;min-height:48px;border:1px solid var(--ln);background:var(--pp);padding:0 var(--s3);font-size:17px;border-radius:2px}
+.rec{background:var(--ink);color:var(--pp);padding:var(--s4);display:grid;gap:var(--s2)}
+.rec .big{font-size:42px;line-height:1}
+.rec .vd{font-style:italic;color:#E9B7BE;font-size:20px}
+.rec p{color:rgba(244,238,226,.72);font-size:16px}
+.stg{background:var(--pp2);aspect-ratio:4/3;position:relative}
+.stg svg{width:100%;height:100%;display:block}
+.stg .lg{position:absolute;left:var(--s3);top:var(--s3);display:flex;gap:var(--s4)}
+@media(max-width:560px){.stg .lg{position:static;padding:var(--s2) 0}.stg{aspect-ratio:auto}.stg svg{aspect-ratio:4/3;height:auto}}
+/* inspection */
+.ins{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:start}
+.ins figure{position:relative;aspect-ratio:4/5;overflow:hidden}
+.ins figure picture{position:absolute;inset:0}
+.ins ol{counter-reset:k;border-top:1px solid var(--ink)}
+.ins li{display:grid;grid-template-columns:55px 1fr;gap:var(--s3);padding:var(--s4) 0;border-bottom:1px solid var(--ln)}
+.ins li b{font-size:42px;font-weight:400;font-style:italic;color:var(--bu);line-height:.9}
+.ins li h3{font-weight:500;font-size:22px}
+.ins li p{color:var(--mu);font-size:17px}
+.gl{display:grid;grid-template-columns:1.62fr 1fr 1fr;gap:var(--s3);margin-top:var(--s6)}
+.gl figure{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--pp2)}
+.gl figure:first-child{aspect-ratio:auto}
+.gl picture{position:absolute;inset:0}
+.gl figcaption{position:absolute;left:0;bottom:0;background:var(--pp);padding:4px 10px;font-style:italic;font-size:15px}
+/* booking */
+.bk{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s6)}
+.wls{border-top:1px solid var(--ink);margin-top:var(--s4)}
+.wls li{display:flex;justify-content:space-between;gap:var(--s3);padding:var(--s2) 0;border-bottom:1px solid var(--ln);align-items:center}
+.wls li button{min-height:40px;min-width:40px;color:var(--mu)}
+.wls .no{font-style:italic;color:var(--mu);padding:var(--s3) 0}
+form.f{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.f .full{grid-column:1/-1}
+.f label{display:block;margin-bottom:4px}
+.f input,.f select,.f textarea{width:100%;min-height:48px;background:transparent;border:0;border-bottom:1px solid var(--ink);padding:var(--s2) 0;font-size:18px;outline:0;border-radius:0;-webkit-appearance:none;appearance:none}
+.f textarea{min-height:89px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--bu)}
+.msg{font-style:italic;color:var(--bu);min-height:1.5em}.msg.err{color:#a3241a}
+footer{background:var(--ink);color:rgba(244,238,226,.7);padding:var(--s7) 0 var(--s6)}
+footer .w{display:grid;grid-template-columns:1.62fr 1fr;gap:var(--s5);align-items:end}
+footer .lo{color:var(--pp);font-size:clamp(42px,8vw,110px);letter-spacing:.14em;grid-column:1/-1;padding:0}
+footer p{font-size:15px;max-width:62ch}footer a{text-decoration:underline;color:var(--pp)}
+@media(max-width:1060px){.gd{grid-template-columns:repeat(3,1fr)}.flt{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+ .hh,.sh,.sz,.ins,.bk,footer .w{grid-template-columns:1fr}
+ .gd{grid-template-columns:1fr 1fr;gap:var(--s5) var(--s3)}
+ .sec{padding:var(--s7) 0}
+ .nvb .w{justify-content:flex-start}
+ .top .r .sm{display:none}
+ .gl{grid-template-columns:1fr 1fr}.gl figure:first-child{grid-column:1/-1;aspect-ratio:3/2}
+}
+@media(max-width:560px){
+ .top .w{grid-template-columns:auto 1fr auto}.lo{font-size:21px;justify-self:center}
+ .flt{grid-template-columns:1fr}
+ .hcap{grid-template-columns:1fr}
+ form.f{grid-template-columns:1fr}
+ .cd h3{font-size:20px}.cd .ft b{font-size:16px}
+ .hph{aspect-ratio:4/3.4}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top">Marcenne</a>
+ <div class="r"><span class="sm mu">Concept · Hội An</span><a class="wl" href="#hen-xem" aria-label="Danh sách chờ xem"><span class="sm">Chờ xem</span><b id="wlN">0</b></a></div>
+</div></header>
+<nav class="nvb" aria-label="Chính"><div class="w"><a href="#bo-suu-tap">Bộ sưu tập</a><a href="#uom-co">Ướm cỡ</a><a href="#kiem-dinh">Kiểm định</a><a href="#hen-xem">Hẹn xem</a></div></nav>
+
+<main id="top">
+<section class="hero"><div class="w">
+ <div class="hh">
+  <p class="sm mu">Catalogue mùa đông · Đồng hồ cổ điển đã qua sử dụng, có kiểm định · Concept</p>
+  <h1 class="h1"><span class="l"><span>Chiếc đồng hồ</span></span><span class="l"><span>đã sống <em>một đời,</em></span></span><span class="l"><span>sẵn sàng đời nữa.</span></span></h1>
+ </div>
+ <div class="hph"><picture><source type="image/avif" srcset="../img/demo/marcenne/hero-640.avif 640w, ../img/demo/marcenne/hero-1280.avif 1280w, ../img/demo/marcenne/hero-1920.avif 1920w, ../img/demo/marcenne/hero-2560.avif 2560w" sizes="(max-width:1240px) 100vw, 1180px"><img src="../img/demo/marcenne/hero-1280.webp" srcset="../img/demo/marcenne/hero-640.webp 640w, ../img/demo/marcenne/hero-1280.webp 1280w, ../img/demo/marcenne/hero-1920.webp 1920w, ../img/demo/marcenne/hero-2560.webp 2560w" sizes="(max-width:1240px) 100vw, 1180px" width="1280" height="853" alt="Đồng hồ vỏ vàng mặt số La Mã, dây da đen cá sấu vân, đặt trên bàn trắng" fetchpriority="high" decoding="async"></picture></div>
+ <div class="hcap"><span class="sm bu">Lô 110</span><span><i>Gala Or Rose</i>, 1966 · vỏ vàng 18K, 37 mm · lên dây tay · đã đại tu</span><a class="sm" href="#bo-suu-tap" style="min-height:44px;display:flex;align-items:center">Xem 12 lô →</a></div>
+</div></section>
+
+<section class="sec" id="bo-suu-tap"><div class="w">
+ <div class="sh rv"><p class="sm"><span class="bu">I.</span> Bộ sưu tập</p><div><h2 class="h2">Mười hai lô, <em>lọc theo cổ tay</em> và túi tiền</h2><p class="d">Mọi chiếc đều đã qua kiểm định 32 điểm và có phiếu xếp hạng tình trạng từ A đến B.</p></div></div>
+ <div class="flt" id="flt">
+  <div class="fg"><h3 class="sm mu">Cỡ mặt</h3><div class="ch" data-f="sz"><button type="button" data-v="s" aria-pressed="false">Dưới 36 mm</button><button type="button" data-v="m" aria-pressed="false">36–39 mm</button><button type="button" data-v="l" aria-pressed="false">Từ 40 mm</button></div></div>
+  <div class="fg"><h3 class="sm mu">Chất liệu</h3><div class="ch" data-f="mat"><button type="button" data-v="Thép" aria-pressed="false">Thép</button><button type="button" data-v="Vàng 18K" aria-pressed="false">Vàng 18K</button><button type="button" data-v="Mạ vàng" aria-pressed="false">Mạ vàng</button><button type="button" data-v="Titan" aria-pressed="false">Titan</button></div></div>
+  <div class="fg"><h3 class="sm mu">Bộ máy</h3><div class="ch" data-f="mv"><button type="button" data-v="Lên dây tay" aria-pressed="false">Lên dây tay</button><button type="button" data-v="Tự động" aria-pressed="false">Tự động</button></div></div>
+  <div class="fg"><h3 class="sm mu">Khoảng giá</h3><div class="ch" data-f="pr"><button type="button" data-v="a" aria-pressed="false">Dưới 10 triệu</button><button type="button" data-v="b" aria-pressed="false">10–20 triệu</button><button type="button" data-v="c" aria-pressed="false">Trên 20 triệu</button></div></div>
+ </div>
+ <div class="fbar"><p class="rs" aria-live="polite" id="rs"></p><div style="display:flex;gap:var(--s4);align-items:center"><button type="button" class="clr" id="clr">Bỏ lọc</button><label class="vh" for="so">Sắp xếp</label><select id="so"><option value="lot">Theo số lô</option><option value="y">Cũ nhất trước</option><option value="d">Cỡ mặt nhỏ → lớn</option><option value="p">Giá thấp → cao</option></select></div></div>
+ <div class="gd" id="gd"></div>
+ <p class="empty" id="empty">Không có lô nào khớp. Thử bỏ bớt một điều kiện lọc.</p>
+</div></section>
+
+<section class="sec" id="uom-co"><div class="w">
+ <div class="sh rv"><p class="sm"><span class="bu">II.</span> Ướm cỡ</p><div><h2 class="h2">Đo cổ tay, <em>thấy ngay</em> chiếc nào vừa</h2><p class="d">Quấn thước dây hoặc sợi chỉ quanh cổ tay, ngay dưới xương cổ tay. Hình vẽ theo đúng tỉ lệ milimét.</p></div></div>
+ <div class="sz">
+  <div class="szc">
+   <div><label class="sm mu" for="wc">Chu vi cổ tay</label><div class="wr"><input type="number" id="wc" min="13" max="22" step="0.5" value="16.5" inputmode="decimal"><span class="sm">cm</span></div><input type="range" id="wcr" min="13" max="22" step="0.5" value="16.5" aria-label="Chu vi cổ tay bằng thanh trượt"></div>
+   <div><label class="sm mu" for="ws">Ướm lô</label><select id="ws"></select></div>
+   <div class="rec" aria-live="polite"><span class="sm" style="color:#E9B7BE">Cỡ mặt gợi ý</span><span class="big" id="rcR"></span><span class="vd" id="rcV"></span><p id="rcP"></p></div>
+  </div>
+  <div class="stg"><svg id="wsvg" viewBox="0 0 640 480" role="img" aria-label="Hình vẽ cổ tay và đồng hồ theo tỉ lệ"></svg><div class="lg"><span class="sm mu" id="lgW"></span><span class="sm mu" id="lgL"></span></div></div>
+ </div>
+</div></section>
+
+<section class="sec" id="kiem-dinh"><div class="w">
+ <div class="sh rv"><p class="sm"><span class="bu">III.</span> Kiểm định</p><div><h2 class="h2">Ba mươi hai điểm, <em>bốn bước</em></h2></div></div>
+ <div class="ins">
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/marcenne/chrono-be-640.avif 640w, ../img/demo/marcenne/chrono-be-1280.avif 1280w" sizes="(max-width:900px) 100vw, 48vw"><img src="../img/demo/marcenne/chrono-be-1280.webp" srcset="../img/demo/marcenne/chrono-be-640.webp 640w, ../img/demo/marcenne/chrono-be-1280.webp 1280w" sizes="(max-width:900px) 100vw, 48vw" width="1280" height="1600" alt="Đồng hồ chronograph mặt trắng vỏ thép đặt trên nền đá, phía sau là chiếc xe đạp mờ" loading="lazy" decoding="async"></picture></figure>
+  <ol class="rv">
+   <li><b>1</b><div><h3>Nguồn gốc</h3><p>Đối chiếu số máy và số vỏ, kiểm tra giấy tờ đi kèm nếu có.</p></div></li>
+   <li><b>2</b><div><h3>Bộ máy</h3><p>Đo biên độ và sai số trên máy đo nhịp ở năm tư thế, ghi vào phiếu.</p></div></li>
+   <li><b>3</b><div><h3>Vỏ, mặt số, kim</h3><p>Ghi rõ chi tiết nguyên bản và chi tiết thay thế. Không đánh bóng lại vỏ nếu bạn không yêu cầu.</p></div></li>
+   <li><b>4</b><div><h3>Đại tu và bảo hành</h3><p>Lau dầu toàn bộ, thay gioăng; bảo hành bộ máy 12 tháng tại boutique.</p></div></li>
+  </ol>
+ </div>
+ <div class="gl">
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/marcenne/bo-tui-640.avif 640w, ../img/demo/marcenne/bo-tui-1280.avif 1280w, ../img/demo/marcenne/bo-tui-1920.avif 1920w" sizes="(max-width:900px) 100vw, 50vw"><img src="../img/demo/marcenne/bo-tui-1280.webp" srcset="../img/demo/marcenne/bo-tui-640.webp 640w, ../img/demo/marcenne/bo-tui-1280.webp 1280w, ../img/demo/marcenne/bo-tui-1920.webp 1920w" sizes="(max-width:900px) 100vw, 50vw" width="1280" height="853" alt="Nhiều chiếc đồng hồ bỏ túi cổ treo trên dây xích" loading="lazy" decoding="async"></picture><figcaption>Tủ bỏ túi, tầng hai</figcaption></figure>
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/marcenne/rider-640.avif 640w, ../img/demo/marcenne/rider-1280.avif 1280w, ../img/demo/marcenne/rider-1920.avif 1920w" sizes="(max-width:900px) 50vw, 25vw"><img src="../img/demo/marcenne/rider-1280.webp" srcset="../img/demo/marcenne/rider-640.webp 640w, ../img/demo/marcenne/rider-1280.webp 1280w, ../img/demo/marcenne/rider-1920.webp 1920w" sizes="(max-width:900px) 50vw, 25vw" width="1280" height="1600" alt="Đồng hồ mặt trắng tối giản, dây da nâu, phản chiếu trên mặt bàn bóng" loading="lazy" decoding="async"></picture><figcaption>Mặt trắng tối giản</figcaption></figure>
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/marcenne/chrono-xam-640.avif 640w, ../img/demo/marcenne/chrono-xam-1280.avif 1280w" sizes="(max-width:900px) 50vw, 25vw"><img src="../img/demo/marcenne/chrono-xam-1280.webp" srcset="../img/demo/marcenne/chrono-xam-640.webp 640w, ../img/demo/marcenne/chrono-xam-1280.webp 1280w" sizes="(max-width:900px) 50vw, 25vw" width="1280" height="1600" alt="Đồng hồ chronograph mặt trắng dây da đen trên nền xám" loading="lazy" decoding="async"></picture><figcaption>Chronograph</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="sec" id="hen-xem"><div class="w bk">
+ <div class="rv">
+  <p class="sm"><span class="bu">IV.</span> Hẹn xem</p>
+  <h2 class="h2" style="margin-top:var(--s3)">Đeo thử <em>tận tay</em></h2>
+  <p class="mu" style="margin-top:var(--s3);max-width:36ch">Bấm tim trên các lô để thêm vào danh sách. Boutique sẽ đặt sẵn trên khay khi bạn đến.</p>
+  <ul class="wls" id="wls"></ul>
+ </div>
+ <form class="f" id="bf" novalidate>
+  <div><label class="sm mu" for="fD">Ngày</label><input id="fD" type="date" required></div>
+  <div><label class="sm mu" for="fH">Giờ</label><select id="fH"><option>10:00</option><option>14:00</option><option>16:00</option><option>18:30</option></select></div>
+  <div><label class="sm mu" for="fN">Họ tên</label><input id="fN" required autocomplete="name"></div>
+  <div><label class="sm mu" for="fT">Điện thoại</label><input id="fT" type="tel" inputmode="tel" required autocomplete="tel"></div>
+  <div class="full"><label class="sm mu" for="fG">Ghi chú (chu vi cổ tay đã đo sẽ tự điền)</label><textarea id="fG"></textarea></div>
+  <div class="full"><button class="btn" style="width:100%">Đặt lịch xem</button><p class="msg" id="msg" role="status" style="margin-top:var(--s3)"></p></div>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="lo">Marcenne</p>
+ <p>Marcenne là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, giá, địa chỉ chỉ để minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo). Boutique: phố Nguyễn Thái Học, Hội An (địa chỉ minh họa) · 0235 000 1966 (số minh họa).</p>
+ <p class="sm">© Marcenne · Concept</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-marcenne',smDemo:'lux-marcenne'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+/* danh mục concept, giá minh họa */
+const L=[[101,'Ardent Chronographe',1968,38,'Thép','Lên dây tay',46e6,'A','#ECE6D8','chr'],[102,'Petite Seconde Lune',1952,34,'Vàng 18K','Lên dây tay',38e6,'B+','#E8D6B0','sec'],[103,'Calatrè Dress',1961,35,'Mạ vàng','Lên dây tay',14.5e6,'A-','#F1ECE2','plain'],
+ [104,'Marin 200',1974,40,'Thép','Tự động',28e6,'B+','#1E2A3A','dive'],[105,'Aviateur Triple',1981,41,'Thép','Tự động',19.8e6,'A','#2A2A28','chr'],[106,'Rêve Classique',1979,32,'Vàng 18K','Lên dây tay',52e6,'A','#F3EBDA','plain'],
+ [107,'Navette Date',1985,36,'Thép','Tự động',12.9e6,'A-','#DDE3E6','date'],[108,'Opaline Médecin',1958,36,'Mạ vàng','Lên dây tay',9.5e6,'B','#EFE5CF','sec'],[109,'Titane Sport',1992,39,'Titan','Tự động',17.5e6,'A','#3B3F3D','date'],
+ [110,'Gala Or Rose',1966,37,'Vàng 18K','Lên dây tay',64e6,'A-','#F4ECE0','roman'],[111,'Régate GMT',1989,40,'Thép','Tự động',33e6,'B+','#5A2028','dive'],[112,'Écolier',1970,33,'Mạ vàng','Lên dây tay',6.8e6,'B','#F2EEE6','roman']]
+ .map(([lot,n,y,d,mat,mv,p,g,dc,st])=>({lot,n,y,d,mat,mv,p,g,dc,st}));
+const caseC={'Thép':['#e5e3de','#8d8a84'],'Vàng 18K':['#f1d58c','#a77a2a'],'Mạ vàng':['#e8cf8f','#9c7d3b'],'Titan':['#b9bcbd','#5d6062']};
+const dark=c=>parseInt(c.slice(1,3),16)<120;
+const face=(w,uid)=>{const [c1,c2]=caseC[w.mat],ink=dark(w.dc)?'#F1ECE2':'#2B211A',acc=w.mat==='Thép'||w.mat==='Titan'?ink:'#9c7d3b';let s=`<svg viewBox="-110 -110 220 220" aria-hidden="true"><defs><linearGradient id="c${uid}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>`;
+ s+=`<rect x="-34" y="-110" width="68" height="44" rx="6" fill="#4a3426"/><rect x="-34" y="66" width="68" height="44" rx="6" fill="#4a3426"/>`;
+ s+=`<circle r="${w.st==='dive'?84:80}" fill="url(#c${uid})"/>`;
+ if(w.st==='dive'){s+=`<circle r="80" fill="#1a1a1a"/>`;for(let i=0;i<12;i++)s+=`<rect x="-1.5" y="-79" width="3" height="${i%3?6:10}" fill="#eee" transform="rotate(${i*30})"/>`}
+ s+=`<circle r="${w.st==='dive'?66:72}" fill="${w.dc}"/>`;
+ for(let i=0;i<12;i++){const r=w.st==='dive'?62:68;if(w.st==='roman'){const R=['XII','I','II','III','IIII','V','VI','VII','VIII','IX','X','XI'][i],a=i*Math.PI/6;s+=`<text x="${(Math.sin(a)*54).toFixed(1)}" y="${(-Math.cos(a)*54+4).toFixed(1)}" text-anchor="middle" font-size="11" font-family="EB Garamond, serif" fill="${ink}">${R}</text>`}else s+=`<rect x="-1.5" y="${-r}" width="3" height="${i%3?7:12}" fill="${i%3?ink:acc}" transform="rotate(${i*30})"/>`}
+ if(w.st==='chr')[-26,26].forEach(x=>s+=`<circle cx="${x}" cy="6" r="13" fill="none" stroke="${ink}" stroke-opacity=".5"/>`);
+ if(w.st==='sec')s+=`<circle cy="30" r="14" fill="none" stroke="${ink}" stroke-opacity=".5"/><line x1="0" y1="30" x2="0" y2="20" stroke="${ink}"/>`;
+ if(w.st==='date')s+=`<rect x="36" y="-6" width="16" height="12" fill="#fff" stroke="${ink}" stroke-opacity=".4"/>`;
+ s+=`<text y="${w.st==="roman"?-22:-26}" text-anchor="middle" font-size="9" letter-spacing="2" font-family="EB Garamond, serif" fill="${ink}">MARCENNE</text>`;
+ s+=`<g fill="${ink}"><rect x="-2.5" y="-40" width="5" height="44" rx="2" transform="rotate(-50)"/><rect x="-2" y="-58" width="4" height="62" rx="2" transform="rotate(62)"/></g><circle r="4" fill="${acc}"/><rect x="${w.st==='dive'?84:80}" y="-8" width="10" height="16" rx="2" fill="url(#c${uid})"/></svg>`;return s};
+const bucket=d=>d<36?'s':d<40?'m':'l',pb=p=>p<10e6?'a':p<=20e6?'b':'c';
+const F={sz:new Set,mat:new Set,mv:new Set,pr:new Set};let fav=new Set;
+$('#gd').innerHTML=L.map((w,i)=>`<article class="cd" data-i="${i}"><div class="im">${face(w,i)}<span class="lot sm">Lô ${w.lot}</span><span class="gr" title="Hạng tình trạng">${w.g}</span><button type="button" class="hrt" data-fav="${i}" aria-pressed="false" aria-label="Thêm lô ${w.lot} vào danh sách chờ xem"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></button></div><h3>${w.n}</h3><p class="mt">${w.y} · ${w.d} mm · ${w.mat} · ${w.mv}</p><div class="ft"><b>${pv(w.p)}</b><button type="button" class="try" data-try="${i}">Ướm thử →</button></div></article>`).join('');
+const apply=()=>{let n=0;const ok=w=>(!F.sz.size||F.sz.has(bucket(w.d)))&&(!F.mat.size||F.mat.has(w.mat))&&(!F.mv.size||F.mv.has(w.mv))&&(!F.pr.size||F.pr.has(pb(w.p)));
+ const so=$('#so').value,cards=$$('.cd');cards.sort((a,b)=>{const A=L[a.dataset.i],B=L[b.dataset.i];return so==='y'?A.y-B.y:so==='d'?A.d-B.d||A.lot-B.lot:so==='p'?A.p-B.p:A.lot-B.lot}).forEach(c=>{$('#gd').appendChild(c);const v=ok(L[c.dataset.i]);c.classList.toggle('hide',!v);if(v)n++});
+ $('#rs').innerHTML=`Đang hiện <b>${n}</b> / ${L.length} lô`;$('#empty').style.display=n?'none':'block';
+ $$('#flt .ch').forEach(g=>$$('button',g).forEach(b=>b.setAttribute('aria-pressed',F[g.dataset.f].has(b.dataset.v))));
+ if(!RM&&window.gsap)gsap.fromTo($$('.cd:not(.hide)'),{opacity:0,y:13},{opacity:1,y:0,duration:.6,stagger:.03,ease:'power2.out',overwrite:true})};
+$('#flt').addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b)return;const s=F[b.closest('.ch').dataset.f],v=b.dataset.v;s.has(v)?s.delete(v):s.add(v);apply()});
+$('#clr').addEventListener('click',()=>{Object.values(F).forEach(s=>s.clear());apply()});$('#so').addEventListener('change',apply);
+/* danh sách chờ xem */
+const wl=()=>{$('#wlN').textContent=fav.size;$$('[data-fav]').forEach(b=>b.setAttribute('aria-pressed',fav.has(+b.dataset.fav)));
+ $('#wls').innerHTML=fav.size?[...fav].map(i=>`<li><span><span class="sm bu">Lô ${L[i].lot}</span> ${L[i].n}</span><button type="button" data-rm="${i}" aria-label="Bỏ lô ${L[i].lot}">✕</button></li>`).join(''):'<li class="no">Chưa có lô nào. Bấm tim trên thẻ để thêm (tối đa 4).</li>'};
+$('#gd').addEventListener('click',e=>{const f=e.target.closest('[data-fav]');if(f){const i=+f.dataset.fav;if(fav.has(i))fav.delete(i);else if(fav.size<4)fav.add(i);wl();return}
+ const t=e.target.closest('[data-try]');if(t){$('#ws').value=t.dataset.try;size();const y=$('#uom-co').getBoundingClientRect().top+scrollY-44;scrollTo({top:y,behavior:RM?'auto':'smooth'})}});
+$('#wls').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(b){fav.delete(+b.dataset.rm);wl()}});
+/* ướm cỡ */
+$('#ws').innerHTML=L.map((w,i)=>`<option value="${i}">Lô ${w.lot} · ${w.n} · ${w.d} mm</option>`).join('');$('#ws').value=9;
+const REC=[[15,34,36,'Cổ tay nhỏ'],[16.5,36,38,'Cổ tay thon'],[18,38,40,'Cổ tay trung bình'],[19.5,40,42,'Cổ tay khá lớn'],[99,42,44,'Cổ tay lớn']];
+const size=()=>{let c=parseFloat(String($('#wc').value).replace(',','.'));if(!isFinite(c))return;c=Math.min(22,Math.max(13,c));
+ const r=REC.find(x=>c<x[0]),w=L[+$('#ws').value],ww=c*10/Math.PI*1.18,lug=w.d*1.22,ratio=lug/ww;
+ $('#rcR').textContent=`${r[1]}–${r[2]} mm`;
+ const vd=ratio>1?'Càng dây vượt mép cổ tay':ratio>.88?'Hơi lớn, hợp phong cách thể thao':ratio<.62?'Hơi nhỏ, nét cổ điển':'Vừa vặn';
+ $('#rcV').textContent=`Lô ${w.lot}, ${w.d} mm: ${vd}`;
+ $('#rcP').textContent=`${r[3]} (${c.toLocaleString('vi-VN')} cm). Bề ngang mặt trên cổ tay khoảng ${Math.round(ww)} mm; đầu càng tới đầu càng của lô này khoảng ${Math.round(lug)} mm, chiếm ${Math.round(ratio*100)}%.`;
+ $('#lgW').textContent=`Cổ tay ${Math.round(ww)} mm`;$('#lgL').textContent=`Càng ${Math.round(lug)} mm`;
+ const k=6.4,cx=320,cy=240,hw=ww*k/2,rr=w.d*k/2,lg=lug*k/2,[c1,c2]=caseC[w.mat];
+ let s=`<defs><linearGradient id="sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9B99B"/><stop offset=".5" stop-color="#E8CDB2"/><stop offset="1" stop-color="#C9A585"/></linearGradient><linearGradient id="cs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>`;
+ s+=`<path d="M-20 ${cy-hw*1.12} C200 ${cy-hw*1.02} 440 ${cy-hw} 660 ${cy-hw*.9} L660 ${cy+hw*.9} C440 ${cy+hw} 200 ${cy+hw*1.02} -20 ${cy+hw*1.12}Z" fill="url(#sk)"/>`;
+ s+=`<path d="M-20 ${cy-hw*1.12} C200 ${cy-hw*1.02} 440 ${cy-hw} 660 ${cy-hw*.9}" fill="none" stroke="#B48B6A" stroke-width="2"/><path d="M-20 ${cy+hw*1.12} C200 ${cy+hw*1.02} 440 ${cy+hw} 660 ${cy+hw*.9}" fill="none" stroke="#B48B6A" stroke-width="2"/>`;
+ s+=`<rect x="${cx-rr*.42}" y="${cy-hw*1.2}" width="${rr*.84}" height="${hw*2.4}" fill="#4a3426"/>`;
+ s+=`<rect x="${cx-rr*.5}" y="${cy-lg}" width="${rr}" height="${lg*2}" rx="10" fill="url(#cs)"/><circle cx="${cx}" cy="${cy}" r="${rr}" fill="url(#cs)"/><circle cx="${cx}" cy="${cy}" r="${rr*.88}" fill="${w.dc}"/>`;
+ const ink=dark(w.dc)?'#F1ECE2':'#2B211A';for(let i=0;i<12;i++)s+=`<rect x="${cx-1.5}" y="${cy-rr*.84}" width="3" height="${i%3?8:14}" fill="${ink}" transform="rotate(${i*30} ${cx} ${cy})"/>`;
+ s+=`<rect x="${cx+rr-2}" y="${cy-9}" width="14" height="18" rx="3" fill="url(#cs)"/>`;
+ s+=`<g stroke="#7A2230" stroke-width="1.2" fill="#7A2230" font-family="Archivo, sans-serif" font-size="20"><line x1="${cx+rr+50}" y1="${cy-lg}" x2="${cx+rr+50}" y2="${cy+lg}"/><line x1="${cx+rr+42}" y1="${cy-lg}" x2="${cx+rr+58}" y2="${cy-lg}"/><line x1="${cx+rr+42}" y1="${cy+lg}" x2="${cx+rr+58}" y2="${cy+lg}"/><text x="${cx+rr+62}" y="${cy+4}" stroke="none">${Math.round(lug)} mm</text>`;
+ s+=`<line x1="40" y1="${cy-hw}" x2="40" y2="${cy+hw}" stroke="#2B211A"/><line x1="32" y1="${cy-hw}" x2="48" y2="${cy-hw}" stroke="#2B211A"/><line x1="32" y1="${cy+hw}" x2="48" y2="${cy+hw}" stroke="#2B211A"/><text x="54" y="${cy+4}" fill="#2B211A" stroke="none">${Math.round(ww)} mm</text></g>`;
+ $('#wsvg').innerHTML=s;$('#fG').value=`Chu vi cổ tay ${c.toLocaleString('vi-VN')} cm, muốn ướm lô ${w.lot}.`};
+$('#wc').addEventListener('input',()=>{$('#wcr').value=$('#wc').value;size()});$('#wcr').addEventListener('input',()=>{$('#wc').value=$('#wcr').value;size()});$('#ws').addEventListener('change',size);
+apply();wl();size();
+/* form */
+const pad=n=>String(n).padStart(2,'0'),t=new Date();t.setDate(t.getDate()+1);const iso=`${t.getFullYear()}-${pad(t.getMonth()+1)}-${pad(t.getDate())}`;$('#fD').min=iso;$('#fD').value=iso;
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg'),ok=$$('#bf [required]').every(i=>i.value.trim()),tel=/^[0-9 +.]{9,}$/.test($('#fT').value.trim());m.classList.toggle('err',!(ok&&tel));
+ if(!ok){m.textContent='Bạn điền giúp các ô còn trống nhé.';return}if(!tel){m.textContent='Số điện thoại chưa đúng.';return}
+ const lots=[...fav].map(i=>'lô '+L[i].lot).join(', ');
+ m.textContent=`Đã ghi lịch ${$('#fH').value} ngày ${$('#fD').value.split('-').reverse().join('/')}${lots?', khay xem: '+lots:''}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+/* chuyển động */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.h1 .l>span',{yPercent:105,duration:1.4,ease:'expo.out',stagger:.12,delay:.1});
+ gsap.from('.hph',{clipPath:'inset(0 50% 0 50%)',duration:1.8,ease:'expo.inOut',delay:.2});
+ gsap.to('.hph picture',{yPercent:4,ease:'none',scrollTrigger:{trigger:'.hph',start:'top top',end:'bottom top',scrub:true}});
+ $$('.rv').forEach(el=>gsap.from(el,{y:30,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
+}
+})();
+</script>
+</body>
+</html>

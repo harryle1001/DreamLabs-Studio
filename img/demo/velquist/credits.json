@@ -1,0 +1,109 @@
+{
+ "hero": {
+  "author": "Castorly Stock",
+  "page": "https://www.pexels.com/photo/chronograph-watch-3829441/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/3829441/pexels-photo-3829441.jpeg",
+  "w": 6000,
+  "h": 4000,
+  "ar": "16:9",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ],
+  "blur": [
+   [
+    0.4,
+    0.45,
+    0.09,
+    0.15
+   ]
+  ]
+ },
+ "co-tay": {
+  "author": "Malte Luk",
+  "page": "https://www.pexels.com/photo/black-chronograph-watch-at-1-05-2010018/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/2010018/pexels-photo-2010018.jpeg",
+  "w": 5184,
+  "h": 3456,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.29,
+    0.37,
+    0.1,
+    0.12
+   ],
+   [
+    0.45,
+    0.19,
+    0.1,
+    0.12
+   ],
+   [
+    0.29,
+    0.61,
+    0.08,
+    0.08
+   ]
+  ]
+ },
+ "day-da": {
+  "author": "Max Avans",
+  "page": "https://www.pexels.com/photo/round-gold-analog-watch-with-brown-leather-strap-5058216/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5058216/pexels-photo-5058216.jpeg",
+  "w": 3555,
+  "h": 4600,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "hop": {
+  "author": "Ilyas Chabli",
+  "page": "https://www.pexels.com/photo/a-watch-with-a-leather-strap-6813126/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6813126/pexels-photo-6813126.jpeg",
+  "w": 2551,
+  "h": 4532,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.43,
+    0.43,
+    0.14,
+    0.09
+   ]
+  ]
+ },
+ "banh-rang": {
+  "author": "Hoàng Anh Nguyễn",
+  "page": "https://www.pexels.com/photo/close-up-of-intricate-mechanical-watch-gears-34182730/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/34182730/pexels-photo-34182730.jpeg",
+  "w": 3072,
+  "h": 4096,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

@@ -324,5 +324,44 @@
     demo: 'demos/lux-oriselle.html',
     long: 'img/sm-web-oriselle-long.webp',
     longM: 'img/sm-web-oriselle-long-m.webp'
+  },
+  {
+    id: 'web-velquist',
+    title: 'Velquist',
+    industry: 'Đồng hồ',
+    desc: 'Website nhà chế tác đồng hồ tông xanh chai và vàng sâm banh: kéo để xoay chiếc đồng hồ trọn 360° thấy cả bộ máy sau kính, đổi năm màu mặt số, thay dây da, cá sấu vân, thép, cao su ngay trên hình, hẹn xem riêng.',
+    tags: ['Xoay 360°', 'Chọn dây', 'Đặt lịch xem'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-velquist.webp',
+    kind: 'site',
+    demo: 'demos/lux-velquist.html',
+    long: 'img/sm-web-velquist-long.webp',
+    longM: 'img/sm-web-velquist-long-m.webp'
+  },
+  {
+    id: 'web-thalmere',
+    title: 'Thalmère',
+    industry: 'Đồng hồ',
+    desc: 'Website xưởng bộ máy đồng hồ theo phong cách bản vẽ kỹ thuật trên giấy kẻ ô: so sánh hai đến ba calibre theo tần số, trữ cót, chân kính, độ dày; kim trữ cót chạy theo giờ và sơ đồ sáu tầng tách lớp.',
+    tags: ['Bản vẽ kỹ thuật', 'So sánh calibre', 'Tách lớp'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-thalmere.webp',
+    kind: 'site',
+    demo: 'demos/lux-thalmere.html',
+    long: 'img/sm-web-thalmere-long.webp',
+    longM: 'img/sm-web-thalmere-long-m.webp'
+  },
+  {
+    id: 'web-marcenne',
+    title: 'Marcenne',
+    industry: 'Đồng hồ',
+    desc: 'Website boutique đồng hồ cổ điển đã qua kiểm định, trình bày như catalogue đấu giá: lọc mười hai lô theo cỡ mặt, chất liệu, bộ máy, khoảng giá; nhập chu vi cổ tay để ướm cỡ trên hình vẽ đúng tỉ lệ và hẹn xem.',
+    tags: ['Catalogue', 'Bộ lọc', 'Ướm cỡ cổ tay'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-marcenne.webp',
+    kind: 'site',
+    demo: 'demos/lux-marcenne.html',
+    long: 'img/sm-web-marcenne-long.webp',
+    longM: 'img/sm-web-marcenne-long-m.webp'
   }
 ];

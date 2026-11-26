@@ -25,8 +25,9 @@ const [w,h]=execFileSync('identify',['-format','%w %h',src+'[0]']).toString().sp
 if(w<O.min&&h<O.min){console.error(`Ảnh gốc chỉ ${w}×${h}px (< ${O.min}px). Chọn ảnh khác.`);process.exit(3)}
 let base=src;
 if(O.blur.length){const b=path.join(tmp,'blur.png');const args=[src,'-auto-orient'];
-  for(const [x,y,bw,bh] of O.blur){const gw=Math.round(bw*w),gh=Math.round(bh*h),gx=Math.round(x*w),gy=Math.round(y*h);
-    args.push('(','+clone','-crop',`${gw}x${gh}+${gx}+${gy}`,'+repage','-scale','4%','-scale',`${gw}x${gh}!`,'-blur','0x'+Math.max(6,Math.round(Math.min(gw,gh)/6)),')','-geometry',`+${gx}+${gy}`,'-composite')}
+  /* làm mờ mềm: vùng elip phủ kín khung, mép chuyển dần để không thành mảng vuông */
+  for(const [x,y,bw,bh] of O.blur){const gw=bw*w,gh=bh*h,cx=Math.round(x*w+gw/2),cy=Math.round(y*h+gh/2),f=Math.max(4,Math.round(Math.min(gw,gh)*.14));
+    args.push('(','+clone','-resize','3%','-resize',`${w}x${h}!`,'-blur','0x12',')','(','-size',`${w}x${h}`,'xc:black','-fill','white','-draw',`ellipse ${cx},${cy} ${Math.round(gw*.74)},${Math.round(gh*.74)} 0,360`,'-blur','0x'+f,')','-composite')}
   args.push(b);execFileSync('convert',args);base=b}
 const big=Math.max(...O.sizes),W=Math.min(big,w),H=Math.round(W*ah/aw),master=path.join(tmp,'m.png');
 execFileSync('convert',[base,'-auto-orient','-colorspace','sRGB','-resize',`${W}x${H}^`,'-gravity',O.g,'-extent',`${W}x${H}`,...(O.mono?['-colorspace','Gray','-colorspace','sRGB']:[]),'-strip',master]);

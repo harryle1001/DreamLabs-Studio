@@ -225,5 +225,31 @@
     demo: 'demos/lux-lp-lumaive.html',
     long: 'img/sm-landing-lumaive-long.webp',
     longM: 'img/sm-landing-lumaive-long-m.webp'
+  },
+  {
+    id: 'landing-ostrel',
+    title: 'Ostrel · Abyssal 188',
+    industry: 'Đồng hồ',
+    desc: 'Landing ra mắt đồng hồ lặn giới hạn 188 chiếc trên nền đen than và cam đất: đồng hồ đếm ngược ngày mở bán, chọn cỡ vỏ và bốn kiểu dây đổi ngay trên hình, đăng ký giữ suất nhận mã đặt trước.',
+    tags: ['Đếm ngược', 'Giới hạn', 'Mã giữ suất'],
+    pkg: 'Landing Page — Cao cấp',
+    cover: 'img/sm-landing-ostrel.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-ostrel.html',
+    long: 'img/sm-landing-ostrel-long.webp',
+    longM: 'img/sm-landing-ostrel-long-m.webp'
+  },
+  {
+    id: 'landing-kaelune',
+    title: 'Kaelune · Bảo dưỡng đồng hồ cơ',
+    industry: 'Đồng hồ',
+    desc: 'Landing xưởng bảo dưỡng đồng hồ cơ tông xanh xám và đồng: chọn loại bộ máy, tình trạng để ra báo giá ước tính và thời gian, tra tiến trình bảy bước theo mã phiếu, đặt lịch mang đến hoặc nhận tận nơi.',
+    tags: ['Báo giá nhanh', 'Tra cứu phiếu', 'Nhận tận nơi'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-kaelune.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-kaelune.html',
+    long: 'img/sm-landing-kaelune-long.webp',
+    longM: 'img/sm-landing-kaelune-long-m.webp'
   }
 ];

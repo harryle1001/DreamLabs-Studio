@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kaelune — bảo dưỡng và đại tu đồng hồ cơ (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho xưởng bảo dưỡng, đại tu đồng hồ cơ: chọn loại bộ máy và tình trạng để nhận báo giá ước tính và thời gian, tra tiến trình sửa theo mã phiếu, đặt lịch nhận đồng hồ.">
+<style>
+@font-face{font-family:"Unbounded";font-weight:200 900;font-style:normal;font-display:swap;src:url(fonts/unbounded-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Unbounded";font-weight:200 900;font-style:normal;font-display:swap;src:url(fonts/unbounded-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.22,1,.36,1);
+--bg:#E7EAE3;--pp:#F4F5F0;--ink:#16201B;--mu:rgba(22,32,27,.62);--ln:rgba(22,32,27,.14);--cu:#B4643C;--cu2:#D98A5F;--gn:#2F5D4A;
+--fu:"Unbounded",system-ui,sans-serif;--fm:"Manrope",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fm);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}ul,ol{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+:focus-visible{outline:2px solid var(--cu);outline-offset:2px}
+.w{width:100%;max-width:1240px;margin:0 auto;padding:0 max(21px,4vw)}
+.lb{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.mu{color:var(--mu)}.cu{color:var(--cu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.un{font-family:var(--fu);font-weight:500;letter-spacing:-.02em;line-height:1.02}
+.h2{font-size:clamp(26px,4vw,42px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:50px;padding:0 var(--s5);border-radius:99px;background:var(--ink);color:var(--pp);font-weight:700;font-size:14px;transition:background .4s,transform .4s var(--e)}
+.btn:hover{background:var(--cu)}
+.btn.gh{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}.btn.gh:hover{background:var(--ink);color:var(--pp)}
+/* top */
+.tp{position:sticky;top:0;z-index:30;background:rgba(231,234,227,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.tp .w{display:flex;align-items:center;gap:var(--s4);height:64px}
+.back{font-size:13px;color:var(--mu);min-height:44px;display:flex;align-items:center}.emb .back{visibility:hidden}
+.lo{font-family:var(--fu);font-weight:600;font-size:18px;letter-spacing:.06em;margin-right:auto;min-height:44px;display:flex;align-items:center;gap:var(--s2)}
+.lo i{width:21px;height:21px;border-radius:50%;border:2px solid var(--ink);position:relative}.lo i::after{content:"";position:absolute;left:50%;top:3px;width:2px;height:7px;background:var(--cu);transform:translateX(-50%)}
+.tp nav{display:flex;gap:var(--s4)}.tp nav a{font-weight:600;font-size:14px;min-height:44px;display:flex;align-items:center}
+/* hero */
+.hero{padding:var(--s6) 0 var(--s7)}
+.hg{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--s6);align-items:center}
+.h1{font-family:var(--fu);font-weight:500;font-size:clamp(34px,5.6vw,68px);line-height:1.02;letter-spacing:-.03em}
+.h1 span{color:var(--cu)}
+.pill{display:inline-flex;gap:var(--s2);align-items:center;background:var(--pp);border-radius:99px;padding:6px var(--s3);font-size:13px;font-weight:600;margin-bottom:var(--s4)}
+.pill b{background:var(--cu);color:#fff;border-radius:99px;padding:1px 8px;font-size:11px;letter-spacing:.08em}
+.lead{font-size:18px;color:var(--mu);max-width:42ch;margin:var(--s4) 0 var(--s5)}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s3)}
+.hs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-top:var(--s6)}
+.hs div{background:var(--pp);border-radius:var(--s3);padding:var(--s3) var(--s4)}
+.hs b{display:block;font-family:var(--fu);font-weight:500;font-size:21px}
+.hf{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:4/5;background:var(--ink)}
+.hf picture{position:absolute;inset:0}
+.hf .chip{position:absolute;left:var(--s3);right:var(--s3);bottom:var(--s3);background:rgba(244,245,240,.94);border-radius:var(--s4);padding:var(--s3) var(--s4);display:flex;justify-content:space-between;gap:var(--s3);align-items:center}
+.hf .chip b{font-family:var(--fu);font-weight:500;font-size:16px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--gn);box-shadow:0 0 0 4px rgba(47,93,74,.18);flex:none;animation:pl 2s infinite}
+@keyframes pl{50%{box-shadow:0 0 0 8px rgba(47,93,74,0)}}
+/* sec */
+.sec{padding:var(--s8) 0}
+.sh{max-width:720px;margin-bottom:var(--s6)}
+.sh p{color:var(--mu);margin-top:var(--s3);max-width:52ch}
+.card{background:var(--pp);border-radius:34px;padding:var(--s5);min-width:0}
+/* estimator */
+.es{display:grid;grid-template-columns:1.62fr 1fr;gap:var(--s4);align-items:start}
+.st{margin-bottom:var(--s5)}
+.st h3{display:flex;align-items:center;gap:var(--s3);font-size:15px;font-weight:800;margin-bottom:var(--s3)}
+.st h3 i{font-style:normal;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--pp);display:grid;place-items:center;font-size:12px;font-family:var(--fu)}
+.mv{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+.mv button{min-height:72px;border-radius:var(--s4);border:1.5px solid var(--ln);background:var(--bg);text-align:left;padding:var(--s3);display:flex;flex-direction:column;justify-content:center;transition:border-color .3s,background .3s,color .3s}
+.mv button b{font-weight:800;font-size:15px;line-height:1.25}.mv button small{color:var(--mu);font-size:12px}
+.mv button[aria-pressed=true]{background:var(--ink);color:var(--pp);border-color:var(--ink)}.mv button[aria-pressed=true] small{color:rgba(244,245,240,.65)}
+.cn{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.cn button{min-height:44px;padding:0 var(--s4);border-radius:99px;border:1.5px solid var(--ln);background:var(--bg);font-weight:600;font-size:14px;transition:all .3s}
+.cn button[aria-pressed=true]{background:var(--cu);border-color:var(--cu);color:#fff}
+.cn button[aria-pressed=true]::before{content:"✓ "}
+.out{background:var(--ink);color:var(--pp);border-radius:34px;padding:var(--s5);position:sticky;top:84px;display:grid;gap:var(--s3)}
+.out .lv{display:inline-block;background:var(--cu);color:#fff;border-radius:99px;padding:2px var(--s3);font-size:12px;font-weight:700;justify-self:start}
+.out .pr{font-family:var(--fu);font-weight:500;font-size:clamp(26px,3.4vw,42px);line-height:1.05}
+.out .tm{font-size:15px;color:rgba(244,245,240,.75)}
+.out .tm b{color:#fff}
+.out ul{border-top:1px solid rgba(244,245,240,.16);padding-top:var(--s3);display:grid;gap:6px;font-size:14px}
+.out li{display:flex;justify-content:space-between;gap:var(--s3);color:rgba(244,245,240,.75)}
+.out li b{color:#fff;font-weight:600;text-align:right;white-space:nowrap}
+.out .btn{background:var(--cu)}.out .btn:hover{background:var(--pp);color:var(--ink)}
+.out .nt{font-size:12px;color:rgba(244,245,240,.5)}
+/* process */
+.pc{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s3);counter-reset:p}
+.pc li{background:var(--pp);border-radius:var(--s4);padding:var(--s4);counter-increment:p}
+.pc li::before{content:"0" counter(p);font-family:var(--fu);font-size:13px;color:var(--cu);display:block;margin-bottom:var(--s3)}
+.pc h3{font-size:16px;font-weight:800;margin-bottom:var(--s1)}
+.pc p{font-size:14px;color:var(--mu)}
+.ph2{display:grid;grid-template-columns:1.62fr 1fr;gap:var(--s3);margin-top:var(--s3)}
+.ph2 figure{position:relative;border-radius:34px;overflow:hidden;aspect-ratio:3/2;background:var(--ink)}
+.ph2 figure:last-child{aspect-ratio:auto}
+.ph2 picture{position:absolute;inset:0}
+.ph2 figcaption{position:absolute;left:var(--s3);bottom:var(--s3);background:rgba(244,245,240,.94);border-radius:99px;padding:4px var(--s3);font-size:13px;font-weight:600}
+/* tracking */
+.trk{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s4);align-items:start}
+.tf{display:flex;gap:var(--s2);margin:var(--s3) 0}
+.tf input{flex:1;min-width:0;min-height:50px;border-radius:99px;border:1.5px solid var(--ln);background:var(--bg);padding:0 var(--s4);font-family:var(--fu);font-size:16px;letter-spacing:.06em;text-transform:uppercase;outline:0}
+.tf input:focus{border-color:var(--cu)}
+.smp{display:flex;flex-wrap:wrap;gap:var(--s2);font-size:13px}
+.smp button{min-height:40px;padding:0 var(--s3);border-radius:99px;background:var(--bg);font-family:var(--fu);font-size:12px}
+.terr{color:#a33a1a;font-size:14px;min-height:1.5em;margin-top:var(--s2)}
+.tr .hdr{display:flex;justify-content:space-between;gap:var(--s3);flex-wrap:wrap;align-items:baseline;margin-bottom:var(--s3)}
+.tr .hdr b{font-family:var(--fu);font-weight:500;font-size:21px}
+.bar{height:8px;border-radius:8px;background:var(--bg);overflow:hidden;margin-bottom:var(--s4)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gn),var(--cu));border-radius:8px;width:0;transition:width 1.2s var(--e)}
+.tl{display:grid;gap:0}
+.tl li{display:grid;grid-template-columns:28px 1fr auto;gap:var(--s3);align-items:start;padding:var(--s2) 0;position:relative}
+.tl li::after{content:"";position:absolute;left:13px;top:34px;bottom:-6px;width:2px;background:var(--ln)}
+.tl li:last-child::after{display:none}
+.tl li i{width:28px;height:28px;border-radius:50%;border:2px solid var(--ln);background:var(--pp);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:800;position:relative;z-index:1}
+.tl li.dn i{background:var(--gn);border-color:var(--gn);color:#fff}
+.tl li.dn::after{background:var(--gn)}
+.tl li.cur i{border-color:var(--cu);background:var(--cu);color:#fff;box-shadow:0 0 0 5px rgba(180,100,60,.2)}
+.tl li b{font-weight:700;display:block;line-height:1.3}
+.tl li small{color:var(--mu);font-size:13px}
+.tl li time{font-size:12px;color:var(--mu);white-space:nowrap;padding-top:4px}
+.tl li.cur b{color:var(--cu)}
+/* booking */
+.bk{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s5);align-items:start}
+.bk figure{border-radius:34px;overflow:hidden;aspect-ratio:1/1;margin-top:var(--s5)}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);grid-column:1/-1}
+.mode button{min-height:64px;border-radius:var(--s4);border:1.5px solid var(--ln);background:var(--bg);text-align:left;padding:var(--s2) var(--s4)}
+.mode button b{display:block;font-weight:800}.mode button small{color:var(--mu)}
+.mode button[aria-pressed=true]{border-color:var(--cu);background:#fff}
+form.f{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.f .full{grid-column:1/-1}
+.f label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;min-height:50px;border-radius:var(--s3);border:1.5px solid var(--ln);background:var(--bg);padding:0 var(--s3);font-size:16px;outline:0;-webkit-appearance:none;appearance:none}
+.f textarea{padding:var(--s3);min-height:89px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--cu)}
+.f .hid{display:none}
+.msg{font-weight:600;color:var(--gn);min-height:1.5em}.msg.err{color:#a33a1a}
+footer{padding:var(--s7) 0 var(--s6)}
+footer .w{display:grid;grid-template-columns:1.62fr 1fr;gap:var(--s5);align-items:end}
+footer .bg{grid-column:1/-1;font-family:var(--fu);font-weight:600;font-size:clamp(55px,13vw,178px);line-height:.9;letter-spacing:-.04em;color:var(--pp)}
+footer p{font-size:14px;color:var(--mu);max-width:62ch}footer a{text-decoration:underline}
+@media(max-width:980px){
+ .tp nav{display:none}
+ .hg,.es,.trk,.bk,footer .w{grid-template-columns:minmax(0,1fr)}
+ .hf{max-width:560px}
+ .out{position:static}
+ .pc{grid-template-columns:1fr 1fr}
+ .ph2{grid-template-columns:1fr}.ph2 figure:last-child{aspect-ratio:3/2}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:560px){
+ .mv{grid-template-columns:1fr 1fr}
+ .card,.out{padding:var(--s4);border-radius:var(--s4)}
+ .hs b{font-size:14px}.hs div{padding:var(--s3) var(--s2)}.hs span{font-size:13px}
+ .pc{grid-template-columns:1fr 1fr}
+ form.f{grid-template-columns:1fr}
+ .mode{grid-template-columns:1fr}
+
+ .tl li{grid-template-columns:28px 1fr}.tl li time{grid-column:2;padding:0}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="tp"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top"><i></i>Kaelune</a>
+ <nav aria-label="Chính"><a href="#bao-gia">Báo giá</a><a href="#tra-cuu">Tra cứu phiếu</a><a href="#dat-lich">Đặt lịch nhận</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w hg">
+ <div>
+  <p class="pill"><b>Concept</b>Xưởng bảo dưỡng đồng hồ cơ · TP.HCM</p>
+  <h1 class="h1">Ba đến năm năm, đồng hồ cơ cần <span>một lần nghỉ.</span></h1>
+  <p class="lead">Chọn loại bộ máy và tình trạng, nhận ngay báo giá ước tính và thời gian. Gửi đồng hồ rồi theo dõi từng bước qua mã phiếu.</p>
+  <div class="cta"><a class="btn" href="#bao-gia">Báo giá trong 30 giây</a><a class="btn gh" href="#tra-cuu">Tra cứu mã phiếu</a></div>
+  <div class="hs"><div><b>7 bước</b><span class="mu">cập nhật theo mã</span></div><div><b>12 tháng</b><span class="mu">bảo hành bộ máy</span></div><div><b>Tận nơi</b><span class="mu">nhận và giao nội thành</span></div></div>
+ </div>
+ <div class="hf"><picture><source type="image/avif" srcset="../img/demo/kaelune/hero-640.avif 640w, ../img/demo/kaelune/hero-1280.avif 1280w, ../img/demo/kaelune/hero-1920.avif 1920w" sizes="(max-width:980px) 92vw, 46vw"><img src="../img/demo/kaelune/hero-1280.webp" srcset="../img/demo/kaelune/hero-640.webp 640w, ../img/demo/kaelune/hero-1280.webp 1280w, ../img/demo/kaelune/hero-1920.webp 1920w" sizes="(max-width:980px) 92vw, 46vw" width="1280" height="1600" alt="Thợ đồng hồ trẻ đeo kính lúp lắp ráp bộ máy dưới đèn bàn" fetchpriority="high" decoding="async"></picture>
+  <div class="chip"><span><span class="lb mu">Phiếu KL-24820</span><br><b>Đang chỉnh sai số</b></span><span class="dot" aria-hidden="true"></span></div>
+ </div>
+</div></section>
+
+<section class="sec" id="bao-gia" style="padding-top:var(--s6)"><div class="w">
+ <div class="sh rv"><p class="lb cu">Báo giá ước tính</p><h2 class="un h2" style="margin-top:var(--s3)">Bộ máy nào, tình trạng ra sao?</h2><p>Giá cuối cùng chốt sau khi thợ mở máy kiểm tra, luôn gửi bạn duyệt trước khi làm.</p></div>
+ <div class="es">
+  <div class="card">
+   <div class="st"><h3><i>1</i>Loại bộ máy</h3><div class="mv" id="gM"></div></div>
+   <div class="st"><h3><i>2</i>Tình trạng hiện tại <span class="mu" style="font-weight:500">(chọn nhiều)</span></h3><div class="cn" id="gC"></div></div>
+   <div class="st" style="margin:0"><h3><i>3</i>Làm thêm</h3><div class="cn" id="gX"></div></div>
+  </div>
+  <div class="out" aria-live="polite">
+   <span class="lv" id="oL"></span>
+   <p class="pr" id="oP"></p>
+   <p class="tm">Thời gian dự kiến: <b id="oT"></b></p>
+   <ul id="oB"></ul>
+   <a class="btn" href="#dat-lich" id="toBk">Đặt lịch gửi đồng hồ</a>
+   <p class="nt">Giá minh họa, làm tròn, đã gồm thay gioăng và kiểm tra chống nước. Linh kiện thay thế báo riêng nếu cần.</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w">
+ <div class="sh rv"><p class="lb cu">Quy trình</p><h2 class="un h2" style="margin-top:var(--s3)">Mỗi chiếc đi qua năm bàn</h2></div>
+ <ol class="pc rv">
+  <li><h3>Tiếp nhận</h3><p>Chụp ảnh hiện trạng, đo biên độ, ghi phiếu.</p></li>
+  <li><h3>Tháo và làm sạch</h3><p>Tháo rời từng chi tiết, rửa siêu âm.</p></li>
+  <li><h3>Lắp và tra dầu</h3><p>Năm loại dầu cho từng điểm ma sát.</p></li>
+  <li><h3>Chỉnh sai số</h3><p>Năm tư thế, theo dõi bảy ngày.</p></li>
+  <li><h3>Kiểm tra cuối</h3><p>Chống nước, lên dây, đóng hộp giao.</p></li>
+ </ol>
+ <div class="ph2">
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/kaelune/xuong-640.avif 640w, ../img/demo/kaelune/xuong-1280.avif 1280w, ../img/demo/kaelune/xuong-1920.avif 1920w" sizes="(max-width:980px) 100vw, 60vw"><img src="../img/demo/kaelune/xuong-1280.webp" srcset="../img/demo/kaelune/xuong-640.webp 640w, ../img/demo/kaelune/xuong-1280.webp 1280w, ../img/demo/kaelune/xuong-1920.webp 1920w" sizes="(max-width:980px) 100vw, 60vw" width="1280" height="853" alt="Thợ sửa đồng hồ cúi làm việc trong xưởng nhỏ, tường treo nhiều dây đồng hồ" loading="lazy" decoding="async"></picture><figcaption>Bàn tiếp nhận</figcaption></figure>
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/kaelune/tho-640.avif 640w, ../img/demo/kaelune/tho-1280.avif 1280w, ../img/demo/kaelune/tho-1920.avif 1920w" sizes="(max-width:980px) 100vw, 38vw"><img src="../img/demo/kaelune/tho-1280.webp" srcset="../img/demo/kaelune/tho-640.webp 640w, ../img/demo/kaelune/tho-1280.webp 1280w, ../img/demo/kaelune/tho-1920.webp 1920w" sizes="(max-width:980px) 100vw, 38vw" width="1280" height="853" alt="Thợ đồng hồ tóc bạc đeo kính lúp tháo bộ máy" loading="lazy" decoding="async"></picture><figcaption>Bàn chỉnh sai số</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="sec" id="tra-cuu" style="padding-top:0"><div class="w">
+ <div class="sh rv"><p class="lb cu">Tra cứu</p><h2 class="un h2" style="margin-top:var(--s3)">Đồng hồ của bạn đang ở bàn nào?</h2></div>
+ <div class="trk">
+  <div class="card">
+   <label class="lb" for="tc">Mã phiếu</label>
+   <form class="tf" id="tfm" novalidate><input id="tc" placeholder="KL-00000" autocomplete="off" maxlength="9" aria-describedby="terr"><button class="btn" style="padding:0 var(--s4)">Tra</button></form>
+   <div class="smp"><span class="mu" style="align-self:center">Thử mã mẫu:</span><button type="button" data-c="KL-24820">KL-24820</button><button type="button" data-c="KL-30562">KL-30562</button><button type="button" data-c="KL-11903">KL-11903</button></div>
+   <p class="terr" id="terr" role="alert"></p>
+   <figure style="border-radius:var(--s4);overflow:hidden;aspect-ratio:3/2;margin-top:var(--s3)"><picture><source type="image/avif" srcset="../img/demo/kaelune/thep-640.avif 640w, ../img/demo/kaelune/thep-1280.avif 1280w, ../img/demo/kaelune/thep-1920.avif 1920w" sizes="(max-width:980px) 92vw, 36vw"><img src="../img/demo/kaelune/thep-1280.webp" srcset="../img/demo/kaelune/thep-640.webp 640w, ../img/demo/kaelune/thep-1280.webp 1280w, ../img/demo/kaelune/thep-1920.webp 1920w" sizes="(max-width:980px) 92vw, 36vw" width="1280" height="853" alt="Đồng hồ chronograph dây thép mắt xích đặt trên mặt gỗ" loading="lazy" decoding="async"></picture></figure>
+  </div>
+  <div class="card tr" aria-live="polite" id="tr">
+   <div class="hdr"><b id="trC">KL-24820</b><span class="mu" id="trW"></span></div>
+   <div class="bar"><i id="trB"></i></div>
+   <ol class="tl" id="trL"></ol>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="dat-lich" style="padding-top:0"><div class="w bk">
+ <div class="rv">
+  <p class="lb cu">Đặt lịch nhận</p>
+  <h2 class="un h2" style="margin-top:var(--s3)">Mang đến, hoặc chúng tôi đến lấy</h2>
+  <p class="mu" style="margin-top:var(--s3)">Nhận tận nơi trong nội thành bằng hộp chống sốc niêm phong, có biên nhận ảnh chụp.</p>
+  <figure><picture><source type="image/avif" srcset="../img/demo/kaelune/hop-xoay-640.avif 640w, ../img/demo/kaelune/hop-xoay-1280.avif 1280w, ../img/demo/kaelune/hop-xoay-1920.avif 1920w" sizes="(max-width:980px) 92vw, 36vw"><img src="../img/demo/kaelune/hop-xoay-1280.webp" srcset="../img/demo/kaelune/hop-xoay-640.webp 640w, ../img/demo/kaelune/hop-xoay-1280.webp 1280w, ../img/demo/kaelune/hop-xoay-1920.webp 1920w" sizes="(max-width:980px) 92vw, 36vw" width="1280" height="1280" alt="Hộp lên dây đồng hồ màu đen bóng mở cửa, bên trong có một chiếc đồng hồ" loading="lazy" decoding="async"></picture></figure>
+ </div>
+ <div class="card">
+  <form class="f" id="bf" novalidate>
+   <div class="mode" id="md" role="group" aria-label="Cách gửi đồng hồ"><button type="button" data-m="0" aria-pressed="true"><b>Mang đến xưởng</b><small>Quận 3 (minh họa)</small></button><button type="button" data-m="1" aria-pressed="false"><b>Nhận tận nơi</b><small>Nội thành, phí 150.000đ</small></button></div>
+   <div><label for="fD">Ngày</label><input id="fD" type="date" required></div>
+   <div><label for="fH">Khung giờ</label><select id="fH"><option>09:00 – 11:00</option><option>13:30 – 15:30</option><option>16:00 – 18:00</option></select></div>
+   <div class="full hid" id="adr"><label for="fA">Địa chỉ nhận</label><input id="fA" autocomplete="street-address" placeholder="Số nhà, đường, phường"></div>
+   <div><label for="fN">Họ tên</label><input id="fN" required autocomplete="name"></div>
+   <div><label for="fT">Điện thoại</label><input id="fT" type="tel" inputmode="tel" required autocomplete="tel"></div>
+   <div class="full"><label for="fG">Đồng hồ và tình trạng</label><textarea id="fG"></textarea></div>
+   <div class="full"><button class="btn" style="width:100%">Xác nhận lịch</button><p class="msg" id="msg" role="status" style="margin-top:var(--s3)"></p></div>
+  </form>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <div class="bg" aria-hidden="true">Kaelune</div>
+ <p>Kaelune là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; dịch vụ, giá, địa chỉ chỉ để minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo). Xưởng: Quận 3, TP.HCM (địa chỉ minh họa) · 028 0000 7171 (số minh họa).</p>
+ <p class="lb mu">© Kaelune · Concept</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-kaelune',smDemo:'lux-lp-kaelune'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const pad=n=>String(n).padStart(2,'0'),fd=d=>`${pad(d.getDate())}/${pad(d.getMonth()+1)}`;
+/* bảng giá minh họa */
+const MV=[{n:'Lên dây tay',s:'3 kim',p:2.8e6,d:10},{n:'Tự động',s:'3 kim',p:3.6e6,d:12},{n:'Tự động',s:'có lịch ngày',p:4.4e6,d:14},{n:'Chronograph',s:'bấm giờ',p:7.9e6,d:21},{n:'Phức tạp',s:'GMT, tuần trăng',p:12.5e6,d:28},{n:'Tourbillon',s:'hoặc lặp giờ',p:26e6,d:45}];
+const CN=[{n:'Chạy nhanh / chậm',k:0,p:0,d:0},{n:'Dừng hẳn',k:1,p:.6e6,d:3},{n:'Vào nước, hơi ẩm',k:2,p:1.8e6,d:7},{n:'Rơi, va đập',k:2,p:1.2e6,d:5},{n:'Hơn 5 năm chưa bảo dưỡng',k:1,p:0,d:2},{n:'Lên dây nặng, kẹt núm',k:1,p:.8e6,d:2}];
+const XT=[{n:'Đánh bóng vỏ và dây',p:1.5e6,d:3},{n:'Thay kính sapphire',p:2.4e6,d:5},{n:'Thay dây da mới',p:1.2e6,d:0}];
+const S={m:1,c:new Set([4]),x:new Set};
+$('#gM').innerHTML=MV.map((m,i)=>`<button type="button" data-v="${i}" aria-pressed="false"><b>${m.n}</b><small>${m.s}</small></button>`).join('');
+$('#gC').innerHTML=CN.map((c,i)=>`<button type="button" data-v="${i}" aria-pressed="false">${c.n}</button>`).join('');
+$('#gX').innerHTML=XT.map((c,i)=>`<button type="button" data-v="${i}" aria-pressed="false">${c.n}</button>`).join('');
+const LV=['Bảo dưỡng định kỳ','Đại tu toàn phần','Đại tu và phục hồi'];
+let est={};
+const calc=()=>{const m=MV[S.m],cs=[...S.c].map(i=>CN[i]),xs=[...S.x].map(i=>XT[i]),lvl=Math.max(0,...cs.map(c=>c.k));
+ const base=m.p*(lvl===0?1:lvl===1?1.35:1.6),rows=[[LV[lvl]+' · '+m.n+' '+m.s,base]];
+ cs.filter(c=>c.p).forEach(c=>rows.push([c.n,c.p]));xs.forEach(x=>rows.push([x.n,x.p]));
+ const tot=Math.round(rows.reduce((a,r)=>a+r[1],0)/1e5)*1e5,days=m.d+cs.reduce((a,c)=>a+c.d,0)+xs.reduce((a,x)=>a+x.d,0);
+ const wk=d=>d<14?`${d}–${d+3} ngày`:`${Math.round(d/7)}–${Math.round(d/7)+1} tuần`;
+ $('#oL').textContent=LV[lvl];$('#oP').textContent=pv(tot);$('#oT').textContent=wk(days);
+ $('#oB').innerHTML=rows.map(r=>`<li><span>${r[0]}</span><b>${pv(r[1])}</b></li>`).join('');
+ $$('#gM button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===S.m));$$('#gC button').forEach(b=>b.setAttribute('aria-pressed',S.c.has(+b.dataset.v)));$$('#gX button').forEach(b=>b.setAttribute('aria-pressed',S.x.has(+b.dataset.v)));
+ est={lvl,days,txt:`${m.n} ${m.s} · ${LV[lvl].toLowerCase()}${cs.length?' · '+cs.map(c=>c.n.toLowerCase()).join(', '):''}`,tot}};
+$('#gM').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;S.m=+b.dataset.v;calc()});
+const tg=(id,set)=>$(id).addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;const v=+b.dataset.v;set.has(v)?set.delete(v):set.add(v);calc()});tg('#gC',S.c);tg('#gX',S.x);
+calc();
+$('#toBk').addEventListener('click',()=>{$('#fG').value=`${est.txt}. Báo giá ước tính: ${est.tot>ASK?'Liên hệ':pv(est.tot)}.`});
+/* tra cứu phiếu: trạng thái mô phỏng theo mã */
+const STG=[['Tiếp nhận','Chụp ảnh, đo biên độ'],['Kiểm tra và báo giá','Gửi báo giá qua điện thoại'],['Khách duyệt','Đã xác nhận làm'],['Tháo và làm sạch','Rửa siêu âm từng chi tiết'],['Lắp và tra dầu','Thay gioăng, tra năm loại dầu'],['Chỉnh sai số','Theo dõi bảy ngày, năm tư thế'],['Sẵn sàng giao','Hẹn giờ nhận hoặc giao tận nơi']];
+const OFF=[0,1,2,3,6,9,16];
+const track=code=>{const c=code.trim().toUpperCase().replace(/\s/g,'');const er=$('#terr');
+ if(!/^KL-?\d{5}$/.test(c)){er.textContent='Mã phiếu có dạng KL-12345 (in trên biên nhận).';return}er.textContent='';
+ const n=+c.replace(/\D/g,''),cur=n%7,start=new Date();start.setDate(start.getDate()-OFF[cur]-1);
+ $('#trC').textContent='KL-'+pad(n).padStart(5,'0');$('#trW').textContent=['Tự động 3 kim','Chronograph','Lên dây tay','Tự động có lịch'][n%4]+' · nhận '+fd(start);
+ $('#trL').innerHTML=STG.map((s,i)=>{const d=new Date(start);d.setDate(start.getDate()+OFF[i]);const st=i<cur?'dn':i===cur?'cur':'';return `<li class="${st}"><i>${i<cur?'✓':i+1}</i><div><b>${s[0]}</b><small>${i===cur?'Đang làm · ':''}${s[1]}</small></div><time>${i<=cur?fd(d):'dự kiến '+fd(d)}</time></li>`}).join('');
+ requestAnimationFrame(()=>{$('#trB').style.width=((cur+.5)/7*100).toFixed(1)+'%'})};
+$('#tfm').addEventListener('submit',e=>{e.preventDefault();track($('#tc').value)});
+$('.smp').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;$('#tc').value=b.dataset.c;track(b.dataset.c)});
+track('KL-24820');
+/* đặt lịch */
+let mode=0;$('#md').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(!b)return;mode=+b.dataset.m;$$('#md button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#adr').classList.toggle('hid',!mode);$('#fA').required=!!mode});
+const t=new Date();t.setDate(t.getDate()+1);$('#fD').min=$('#fD').value=`${t.getFullYear()}-${pad(t.getMonth()+1)}-${pad(t.getDate())}`;
+$('#fG').value=`${est.txt}.`;
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg'),ok=$$('#bf [required]').every(i=>i.value.trim()),tel=/^[0-9 +.]{9,}$/.test($('#fT').value.trim());m.classList.toggle('err',!(ok&&tel));
+ if(!ok){m.textContent='Bạn điền giúp các ô còn trống nhé.';return}if(!tel){m.textContent='Số điện thoại chưa đúng.';return}
+ const code='KL-'+String(10000+Math.floor(Math.random()*89999));
+ m.textContent=`Đã xếp lịch ${mode?'nhận tận nơi':'mang đến xưởng'} ${$('#fH').value} ngày ${$('#fD').value.split('-').reverse().join('/')}. Mã phiếu tạm: ${code}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+/* chuyển động */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.h1',{y:34,opacity:0,duration:1.2,ease:'expo.out',delay:.1});
+ gsap.from('.hf',{scale:.94,opacity:0,duration:1.4,ease:'expo.out',delay:.2});
+ gsap.from('.hf .chip',{y:21,opacity:0,duration:1,ease:'expo.out',delay:1});
+ $$('.rv').forEach(el=>gsap.from(el,{y:30,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
+ gsap.from('.pc li',{y:21,opacity:0,duration:.9,stagger:.08,ease:'expo.out',scrollTrigger:{trigger:'.pc',start:'top 85%',once:true}});
+}
+})();
+</script>
+</body>
+</html>
