@@ -246,5 +246,44 @@
     demo: 'demos/lux-orlanne.html',
     long: 'img/sm-web-orlanne-long.webp',
     longM: 'img/sm-web-orlanne-long-m.webp'
+  },
+  {
+    id: 'web-ky-van',
+    title: 'Kỳ Vân Resort',
+    industry: 'Nghỉ dưỡng',
+    desc: 'Website resort biển chữ serif mảnh trên ảnh vịnh tràn màn hình: lịch chọn khoảng ngày nhận và trả phòng, số người lớn và trẻ em, hạng phòng còn trống theo từng đêm, thêm gói lặn, du thuyền, spa, bữa tối và nhận mã đặt.',
+    tags: ['Đặt phòng trực tiếp', 'Lịch chọn ngày', 'Gói trải nghiệm'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-ky-van.webp',
+    kind: 'site',
+    demo: 'demos/lux-ky-van.html',
+    long: 'img/sm-web-ky-van-long.webp',
+    longM: 'img/sm-web-ky-van-long-m.webp'
+  },
+  {
+    id: 'web-saranel',
+    title: 'Saranel Hotel',
+    industry: 'Nghỉ dưỡng',
+    desc: 'Website khách sạn 5 sao trung tâm tông than chì và đồng thau, chữ Garamond: đặt phòng kèm bữa sáng và xe đón sân bay, so sánh tối đa ba hạng phòng, đặt bàn nhà hàng theo khung giờ và gửi yêu cầu hội nghị, sự kiện.',
+    tags: ['Khách sạn thành phố', 'So sánh hạng phòng', 'Đặt bàn nhà hàng'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-saranel.webp',
+    kind: 'site',
+    demo: 'demos/lux-saranel.html',
+    long: 'img/sm-web-saranel-long.webp',
+    longM: 'img/sm-web-saranel-long-m.webp'
+  },
+  {
+    id: 'web-lang-suong',
+    title: 'Làng Sương Retreat',
+    industry: 'Nghỉ dưỡng',
+    desc: 'Website retreat trên núi tông sương xám và xanh rêu, chữ Spectral thanh mảnh: chọn chương trình wellness 3, 5 hoặc 7 đêm để lịch hoạt động từng ngày hiện ra, chọn kiểu nhà gỗ, nhà sàn hay villa bồn nóng rồi giữ chỗ.',
+    tags: ['Wellness retreat', 'Lịch từng ngày', 'Chọn chương trình'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-lang-suong.webp',
+    kind: 'site',
+    demo: 'demos/lux-lang-suong.html',
+    long: 'img/sm-web-lang-suong-long.webp',
+    longM: 'img/sm-web-lang-suong-long-m.webp'
   }
 ];

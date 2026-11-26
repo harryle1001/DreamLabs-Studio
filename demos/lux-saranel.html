@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Saranel Hotel — khách sạn trung tâm thành phố (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một khách sạn 5 sao giữa trung tâm: đặt phòng kèm bữa sáng và đưa đón sân bay, so sánh hạng phòng, đặt bàn nhà hàng, gửi yêu cầu hội nghị và sự kiện.">
+<style>
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/eb-garamond-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/eb-garamond-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/eb-garamond-vietnamese-400-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"EB Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/eb-garamond-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Grotesk";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Grotesk";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-vietnamese-500-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/space-grotesk-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.19,1,.22,1);
+--bg:#13110E;--bg2:#1B1814;--bg3:#24201A;--iv:#EDE6DA;--mu:rgba(237,230,218,.58);--ln:rgba(237,230,218,.14);--br:#B8975E;--br2:#D6BC8A;--fs:"EB Garamond",Georgia,serif;--fg:"Space Grotesk",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--iv);font-family:var(--fg);font-weight:300;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,h4,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1280px;margin:0 auto;padding:0 max(16px,4vw)}
+.lb{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase}
+.mu{color:var(--mu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.sr{font-family:var(--fs);font-weight:400;line-height:1.04;letter-spacing:-.01em}
+.sr em{color:var(--br2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);min-height:50px;padding:0 var(--s5);background:var(--br);color:#15120d;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;transition:background .5s var(--e),color .5s}
+.btn:hover{background:var(--iv)}
+.btn.gh{background:transparent;color:var(--iv);box-shadow:inset 0 0 0 1px var(--ln)}.btn.gh:hover{box-shadow:inset 0 0 0 1px var(--br);color:var(--br2)}
+/* header */
+.hd{position:sticky;top:0;z-index:40;background:rgba(19,17,14,.88);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
+.hd .w{display:flex;align-items:center;gap:var(--s5);height:64px}
+.back{white-space:nowrap;font-size:12px;color:var(--mu);min-height:44px;display:flex;align-items:center}
+.emb .back{display:none}
+.lg{font-family:var(--fs);font-size:24px;letter-spacing:.32em;text-transform:uppercase;margin-right:auto;min-height:44px;display:flex;align-items:center;gap:var(--s2)}
+.lg i{width:8px;height:8px;border:1px solid var(--br);transform:rotate(45deg)}
+.nv{display:flex;gap:var(--s5)}.nv a{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);min-height:44px;display:flex;align-items:center;gap:6px;transition:color .3s}.nv a:hover{color:var(--iv)}
+.nv a span{font-family:var(--fs);font-style:italic;color:var(--br);letter-spacing:0;text-transform:none;font-size:14px}
+/* hero */
+.hero{padding:var(--s6) 0 var(--s7)}
+.hg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:end}
+.hl h1{font-size:clamp(46px,7.4vw,110px);margin:var(--s4) 0 var(--s5)}
+.hl h1 .l{display:block;overflow:hidden}.hl h1 .l>span{display:inline-block}
+.hl p.ld{max-width:40ch;color:var(--mu);font-size:17px}
+.hl .cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s5)}
+.hm{display:grid;grid-template-columns:repeat(3,auto);gap:var(--s5);margin-top:var(--s6);border-top:1px solid var(--ln);padding-top:var(--s4);justify-content:start}
+.hm b{display:block;font-family:var(--fs);font-size:26px;font-weight:400;color:var(--br2)}.hm span{font-size:12px;color:var(--mu)}
+.hp{position:relative;aspect-ratio:4/5;max-height:78svh;justify-self:end;width:100%;max-width:560px}
+.hp .fm{position:absolute;inset:0;overflow:hidden}
+.hp::before{content:"";position:absolute;inset:var(--s4) calc(-1*var(--s4)) calc(-1*var(--s4)) var(--s4);border:1px solid var(--br);opacity:.6}
+.hp .tag{position:absolute;left:calc(-1*var(--s5));top:var(--s6);background:var(--bg);padding:var(--s3) var(--s4);border:1px solid var(--ln);font-family:var(--fs);font-style:italic;font-size:18px;z-index:2}
+.tick{border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);overflow:hidden;white-space:nowrap;padding:var(--s3) 0}
+.tick div{display:inline-flex;gap:var(--s6);animation:mq 40s linear infinite;font-family:var(--fs);font-size:26px;font-style:italic;color:var(--mu)}
+.tick span::after{content:"◇";font-style:normal;font-size:12px;color:var(--br);margin-left:var(--s6);vertical-align:middle}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+.sec{padding:var(--s8) 0;border-bottom:1px solid var(--ln)}
+.sh{display:grid;grid-template-columns:200px 1fr auto;gap:var(--s5);align-items:end;margin-bottom:var(--s6)}
+.sh .no{font-family:var(--fs);font-size:68px;line-height:.8;color:var(--br);font-style:italic}
+.sh h2{font-size:clamp(36px,5vw,68px)}
+.sh p{max-width:36ch;color:var(--mu);font-size:15px}
+/* rooms */
+.rc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.rcd{display:flex;flex-direction:column;gap:var(--s3)}
+.rcd figure{aspect-ratio:4/5;overflow:hidden;background:var(--bg3)}
+.rcd img{transition:transform 1.4s var(--e)}.rcd:hover img{transform:scale(1.05)}
+.rcd h3{font-family:var(--fs);font-weight:400;font-size:26px;line-height:1.1}
+.rcd p{font-size:13px;color:var(--mu)}
+.rcd .ft{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);margin-top:auto;border-top:1px solid var(--ln);padding-top:var(--s3)}
+.rcd .ft b{font-weight:500}
+.ck{min-height:44px;display:inline-flex;align-items:center;gap:var(--s2);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+.ck i{width:18px;height:18px;border:1px solid var(--mu);display:grid;place-items:center;transition:background .3s,border-color .3s}
+.ck[aria-pressed=true]{color:var(--br2)}.ck[aria-pressed=true] i{background:var(--br);border-color:var(--br)}
+.ck[aria-pressed=true] i::after{content:"";width:8px;height:4px;border:solid #15120d;border-width:0 0 1.5px 1.5px;transform:rotate(-45deg) translate(1px,-1px)}
+.cmp{margin-top:var(--s6);border:1px solid var(--ln);overflow-x:auto}
+.cmp table{width:100%;border-collapse:collapse;min-width:520px}
+.cmp th,.cmp td{padding:var(--s3) var(--s4);text-align:left;border-bottom:1px solid var(--ln);font-size:14px;vertical-align:top}
+.cmp thead th{font-family:var(--fs);font-weight:400;font-size:22px;background:var(--bg2)}
+.cmp tbody th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);font-weight:500;width:22%}
+.cmp tr:last-child td,.cmp tr:last-child th{border-bottom:0}
+.cmp .y{color:var(--br2)}.cmp .n{color:var(--mu)}
+.cmpn{font-size:13px;color:var(--mu);margin-top:var(--s3)}
+/* booking */
+.bk{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s6);align-items:start}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.fd{display:grid;gap:6px}.fd.full{grid-column:1/-1}
+.fd>label:not(.opt),.fd>.l{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.in{width:100%;min-height:50px;background:var(--bg2);border:1px solid var(--ln);padding:0 var(--s3);font-size:16px;outline:0;border-radius:0;-webkit-appearance:none;appearance:none;color-scheme:dark}
+.in:focus{border-color:var(--br)}
+select.in{background-image:linear-gradient(45deg,transparent 50%,var(--br) 50%),linear-gradient(135deg,var(--br) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+textarea.in{min-height:96px;padding:var(--s3);resize:vertical}
+.opt{display:flex;align-items:center;gap:var(--s3);min-height:56px;border:1px solid var(--ln);padding:var(--s2) var(--s4);cursor:pointer;transition:border-color .3s,background .3s}
+.opt:hover{border-color:var(--mu)}
+.opt input{position:absolute;opacity:0;width:1px;height:1px}
+.opt i{flex:none;width:20px;height:20px;border:1px solid var(--mu);transition:background .3s,border-color .3s;display:grid;place-items:center}
+.opt input:checked+i{background:var(--br);border-color:var(--br)}
+.opt input:checked+i::after{content:"";width:9px;height:4px;border:solid #15120d;border-width:0 0 1.5px 1.5px;transform:rotate(-45deg) translate(1px,-1px)}
+.opt input:focus-visible+i{outline:2px solid var(--br2);outline-offset:2px}
+.opt span{flex:1}.opt small{display:block;font-size:12px;color:var(--mu)}
+.opt b{font-weight:500;font-size:13px;white-space:nowrap}
+.seg{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.seg button{min-height:44px;padding:0 var(--s4);border:1px solid var(--ln);font-size:13px;transition:background .3s,border-color .3s,color .3s}
+.seg button:hover:not(:disabled){border-color:var(--mu)}
+.seg button[aria-pressed=true]{background:var(--iv);color:var(--bg);border-color:var(--iv)}
+.seg button:disabled{opacity:.35;cursor:default;text-decoration:line-through}
+.sum{background:var(--bg2);border:1px solid var(--ln);padding:var(--s5);display:grid;gap:var(--s3);position:sticky;top:89px}
+.sum h3{font-family:var(--fs);font-weight:400;font-size:30px;line-height:1.1}
+.sum .rw{display:flex;justify-content:space-between;gap:var(--s3);font-size:14px;color:var(--mu)}
+.sum .rw b{font-weight:400;color:var(--iv);text-align:right}
+.sum .tt{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ln);padding-top:var(--s3)}
+.sum .tt b{font-family:var(--fs);font-size:42px;font-weight:400;color:var(--br2);line-height:1}
+.fine{font-size:12px;color:var(--mu);line-height:1.55}
+.msg{font-size:13px;min-height:1.4em;color:var(--br2)}.msg.err{color:#E8A08F}
+.stp{display:flex;align-items:center;border:1px solid var(--ln);width:max-content}
+.stp button{width:50px;height:48px;font-size:18px;transition:background .3s}.stp button:hover{background:var(--bg3)}
+.stp output{min-width:56px;text-align:center;font-variant-numeric:tabular-nums}
+/* dining */
+.dn{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center}
+.dn figure{aspect-ratio:3/2;overflow:hidden;position:relative}
+.dn figcaption{position:absolute;left:0;bottom:0;background:var(--bg);padding:var(--s3) var(--s4);font-family:var(--fs);font-style:italic;font-size:18px}
+.dnf{display:grid;gap:var(--s4)}
+/* events */
+.ev{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s6);align-items:start}
+.ev figure{aspect-ratio:3/2;overflow:hidden;margin-bottom:var(--s5)}
+.hl2{display:grid;gap:0;border-top:1px solid var(--ln)}
+.hl2 li{display:grid;grid-template-columns:1fr auto auto;gap:var(--s4);padding:var(--s3) 0;border-bottom:1px solid var(--ln);font-size:14px;align-items:baseline;transition:color .4s,padding .5s var(--e)}
+.hl2 li b{font-family:var(--fs);font-weight:400;font-size:20px}
+.hl2 li.on{color:var(--br2);padding-left:var(--s3)}
+.hl2 li span{color:var(--mu);font-size:13px;white-space:nowrap}
+.rec{border:1px solid var(--br);padding:var(--s3) var(--s4);font-size:14px;color:var(--br2)}
+footer{padding:var(--s7) 0 var(--s6)}
+footer .w{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s5)}
+footer .big{grid-column:1/-1;font-family:var(--fs);font-size:clamp(56px,13vw,190px);line-height:.85;letter-spacing:.14em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px rgba(184,151,94,.55)}
+footer p{font-size:14px;color:var(--mu);max-width:62ch}footer a{text-decoration:underline}
+@media(max-width:1000px){
+ .nv{display:none}
+ .hg,.bk,.dn,.ev{grid-template-columns:1fr}
+ .hp{justify-self:start;max-width:440px;width:calc(100% - var(--s4))}.hp .tag{left:var(--s3);top:auto;bottom:var(--s5)}
+ .rc{grid-template-columns:1fr 1fr}
+ .sh{grid-template-columns:1fr;gap:var(--s3)}.sh .no{font-size:42px}
+ .sum{position:relative;top:0}
+ footer .w{grid-template-columns:1fr}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:560px){
+ .fg{grid-template-columns:1fr}
+ .hd .btn{display:none}
+ .opt{flex-wrap:wrap}.opt b{width:100%;padding-left:34px}
+ .rc{gap:var(--s4) var(--s3)}.rcd h3{font-size:20px}.rcd p{display:none}.rcd .ft{flex-direction:column;align-items:flex-start;gap:0}
+ .hm{gap:var(--s4)}.hm b{font-size:20px}
+ .sum{padding:var(--s4)}
+ .hl2 li{grid-template-columns:1fr auto}.hl2 li span:last-child{grid-column:1/-1}
+ .tick div{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lg" href="#top" aria-label="Saranel Hotel"><i></i>Saranel</a>
+ <nav class="nv" aria-label="Chính"><a href="#phong"><span>i</span>Phòng</a><a href="#dat-phong"><span>ii</span>Đặt phòng</a><a href="#nha-hang"><span>iii</span>Nhà hàng</a><a href="#su-kien"><span>iv</span>Sự kiện</a></nav>
+ <a class="btn" href="#dat-phong" style="min-height:42px;padding:0 var(--s4)">Đặt phòng</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w hg">
+ <div class="hl">
+  <p class="lb mu">Khách sạn trung tâm thành phố · Concept</p>
+  <h1 class="sr"><span class="l"><span>Giữa phố,</span></span><span class="l"><span><em>một nhịp chậm.</em></span></span></h1>
+  <p class="ld">Sảnh đá cẩm thạch, đèn pha lê và những căn phòng nhìn xuống đại lộ. Đặt phòng, đặt bàn hay một buổi hội nghị, tất cả ở một nơi.</p>
+  <div class="cta"><a class="btn" href="#dat-phong">Đặt phòng</a><a class="btn gh" href="#nha-hang">Đặt bàn tối nay</a></div>
+  <div class="hm"><div><b>14:00</b><span>nhận phòng</span></div><div><b>4</b><span>hạng phòng</span></div><div><b>3</b><span>sảnh sự kiện</span></div></div>
+ </div>
+ <div class="hp"><div class="fm"><picture><source type="image/avif" srcset="../img/demo/saranel/sanh-640.avif 640w, ../img/demo/saranel/sanh-1280.avif 1280w, ../img/demo/saranel/sanh-1920.avif 1920w" sizes="(max-width:1000px) 90vw, 40vw"><img src="../img/demo/saranel/sanh-1280.webp" srcset="../img/demo/saranel/sanh-640.webp 640w, ../img/demo/saranel/sanh-1280.webp 1280w, ../img/demo/saranel/sanh-1920.webp 1920w" sizes="(max-width:1000px) 90vw, 40vw" width="1280" height="1600" alt="Hành lang sảnh khách sạn với đèn chùm pha lê và sàn đá bóng" fetchpriority="high" decoding="async"></picture></div><p class="tag">Sảnh Đại Lộ</p></div>
+</div></section>
+<div class="tick" aria-hidden="true"><div><span>Đặt phòng trực tiếp</span><span>Bữa sáng gọi món</span><span>Đưa đón sân bay</span><span>Nhà hàng tầng trệt</span><span>Ba sảnh hội nghị</span><span>Đặt phòng trực tiếp</span><span>Bữa sáng gọi món</span><span>Đưa đón sân bay</span><span>Nhà hàng tầng trệt</span><span>Ba sảnh hội nghị</span></div></div>
+
+<section class="sec" id="phong"><div class="w">
+ <div class="sh rv"><p class="no">i.</p><h2 class="sr">Bốn hạng phòng, <em>đặt cạnh nhau.</em></h2><p>Đánh dấu hai hoặc ba hạng để so sánh. Giá theo đêm là số minh họa.</p></div>
+ <div class="rc" id="rc">
+  <article class="rcd rv"><figure><picture><source type="image/avif" srcset="../img/demo/saranel/phong-2-640.avif 640w, ../img/demo/saranel/phong-2-1280.avif 1280w, ../img/demo/saranel/phong-2-1920.avif 1920w" sizes="(max-width:1000px) 50vw, 25vw"><img src="../img/demo/saranel/phong-2-1280.webp" srcset="../img/demo/saranel/phong-2-640.webp 640w, ../img/demo/saranel/phong-2-1280.webp 1280w, ../img/demo/saranel/phong-2-1920.webp 1920w" sizes="(max-width:1000px) 50vw, 25vw" width="1280" height="1600" alt="Phòng Deluxe tông trắng với đầu giường bọc nệm và ghế bành" loading="lazy" decoding="async"></picture></figure><h3>Deluxe Thành Phố</h3><p>32 m² · giường King hoặc hai giường đơn</p><div class="ft"><b data-p="0"></b><button type="button" class="ck" data-c="0" aria-pressed="true"><i></i>So sánh</button></div></article>
+  <article class="rcd rv"><figure><picture><source type="image/avif" srcset="../img/demo/saranel/phong-640.avif 640w, ../img/demo/saranel/phong-1280.avif 1280w, ../img/demo/saranel/phong-1920.avif 1920w" sizes="(max-width:1000px) 50vw, 25vw"><img src="../img/demo/saranel/phong-1280.webp" srcset="../img/demo/saranel/phong-640.webp 640w, ../img/demo/saranel/phong-1280.webp 1280w, ../img/demo/saranel/phong-1920.webp 1920w" sizes="(max-width:1000px) 50vw, 25vw" width="1280" height="1600" alt="Phòng Premier với giường bốn cột và rèm voan sáng" loading="lazy" decoding="async"></picture></figure><h3>Premier Đại Lộ</h3><p>44 m² · giường bốn cột · nhìn xuống đại lộ</p><div class="ft"><b data-p="1"></b><button type="button" class="ck" data-c="1" aria-pressed="true"><i></i>So sánh</button></div></article>
+  <article class="rcd rv"><figure><picture><source type="image/avif" srcset="../img/demo/saranel/phong-3-640.avif 640w, ../img/demo/saranel/phong-3-1280.avif 1280w, ../img/demo/saranel/phong-3-1920.avif 1920w" sizes="(max-width:1000px) 50vw, 25vw"><img src="../img/demo/saranel/phong-3-1280.webp" srcset="../img/demo/saranel/phong-3-640.webp 640w, ../img/demo/saranel/phong-3-1280.webp 1280w, ../img/demo/saranel/phong-3-1920.webp 1920w" sizes="(max-width:1000px) 50vw, 25vw" width="1280" height="1600" alt="Suite có phòng khách sofa cong và bàn đá đen" loading="lazy" decoding="async"></picture></figure><h3>Executive Suite</h3><p>78 m² · phòng khách riêng · quyền vào lounge</p><div class="ft"><b data-p="2"></b><button type="button" class="ck" data-c="2" aria-pressed="false"><i></i>So sánh</button></div></article>
+  <article class="rcd rv"><figure><picture><source type="image/avif" srcset="../img/demo/saranel/sanh-640.avif 640w, ../img/demo/saranel/sanh-1280.avif 1280w, ../img/demo/saranel/sanh-1920.avif 1920w" sizes="(max-width:1000px) 50vw, 25vw"><img src="../img/demo/saranel/sanh-1280.webp" srcset="../img/demo/saranel/sanh-640.webp 640w, ../img/demo/saranel/sanh-1280.webp 1280w, ../img/demo/saranel/sanh-1920.webp 1920w" sizes="(max-width:1000px) 50vw, 25vw" width="1280" height="1600" alt="Không gian sảnh với đèn chùm" loading="lazy" decoding="async"></picture></figure><h3>Suite Saranel</h3><p>140 m² · tầng cao nhất · bàn ăn tám chỗ</p><div class="ft"><b data-p="3"></b><button type="button" class="ck" data-c="3" aria-pressed="false"><i></i>So sánh</button></div></article>
+ </div>
+ <div class="cmp rv" id="cmp" aria-live="polite"></div>
+ <p class="cmpn" id="cmpn"></p>
+</div></section>
+
+<section class="sec" id="dat-phong"><div class="w">
+ <div class="sh rv"><p class="no">ii.</p><h2 class="sr">Đặt phòng, <em>thêm vài tiện ích.</em></h2><p>Chọn ngày và hạng phòng, thêm bữa sáng hoặc xe đón sân bay. Tổng cập nhật ngay.</p></div>
+ <div class="bk">
+  <form class="fg" id="bf" novalidate>
+   <div class="fd"><label for="bI">Nhận phòng</label><input class="in" type="date" id="bI" required></div>
+   <div class="fd"><label for="bO">Trả phòng</label><input class="in" type="date" id="bO" required></div>
+   <div class="fd"><label for="bR">Hạng phòng</label><select class="in" id="bR"></select></div>
+   <div class="fd"><span class="l">Số khách</span><div class="stp"><button type="button" id="gM" aria-label="Bớt khách">−</button><output id="gV">2</output><button type="button" id="gP" aria-label="Thêm khách">+</button></div></div>
+   <div class="fd full"><span class="l">Tiện ích</span>
+    <label class="opt"><input type="checkbox" id="xB" checked><i></i><span>Bữa sáng gọi món<small>Nhà hàng tầng trệt, 6:30 – 10:30</small></span><b>420.000đ / khách / đêm</b></label>
+   </div>
+   <div class="fd full"><span class="l">Đưa đón sân bay</span><div class="seg" id="aP"><button type="button" data-v="0" aria-pressed="true">Không cần</button><button type="button" data-v="1" aria-pressed="false">Một chiều · 950.000đ</button><button type="button" data-v="2" aria-pressed="false">Khứ hồi · 1.750.000đ</button></div></div>
+   <div class="fd"><label for="bN">Họ tên</label><input class="in" id="bN" required autocomplete="name"></div>
+   <div class="fd"><label for="bT">Điện thoại</label><input class="in" id="bT" type="tel" inputmode="tel" required autocomplete="tel"></div>
+   <div class="fd full"><button class="btn" style="width:100%">Gửi yêu cầu đặt phòng</button><p class="msg" id="bMsg" role="status"></p></div>
+  </form>
+  <aside class="sum" aria-live="polite">
+   <p class="lb" style="color:var(--br)">Tóm tắt</p>
+   <h3 id="sR"></h3>
+   <div class="rw">Ngày <b id="sD"></b></div>
+   <div class="rw">Tiền phòng <b id="sP"></b></div>
+   <div class="rw">Bữa sáng <b id="sB"></b></div>
+   <div class="rw">Đưa đón <b id="sA"></b></div>
+   <div class="tt"><span class="lb mu">Tổng</span><b id="sT"></b></div>
+   <p class="fine">Giá minh họa, đã gồm thuế phí. Tổng trên 20 triệu đồng hiển thị “Liên hệ” để lễ tân gửi báo giá.</p>
+  </aside>
+ </div>
+</div></section>
+
+<section class="sec" id="nha-hang"><div class="w">
+ <div class="sh rv"><p class="no">iii.</p><h2 class="sr">Nhà hàng <em>Hiên Sảnh.</em></h2><p>Bếp Pháp – Việt dưới mái vòm cao. Tối thứ Ba đến Chủ nhật.</p></div>
+ <div class="dn">
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/saranel/nha-hang-640.avif 640w, ../img/demo/saranel/nha-hang-1280.avif 1280w, ../img/demo/saranel/nha-hang-1920.avif 1920w" sizes="(max-width:1000px) 100vw, 50vw"><img src="../img/demo/saranel/nha-hang-1280.webp" srcset="../img/demo/saranel/nha-hang-640.webp 640w, ../img/demo/saranel/nha-hang-1280.webp 1280w, ../img/demo/saranel/nha-hang-1920.webp 1920w" sizes="(max-width:1000px) 100vw, 50vw" width="1280" height="853" alt="Phòng ăn mái vòm với đèn thả và bàn trải khăn trắng" loading="lazy" decoding="async"></picture><figcaption>Tầng trệt · 64 chỗ</figcaption></figure>
+  <form class="dnf rv" id="df" novalidate>
+   <div class="fg">
+    <div class="fd"><label for="dD">Ngày</label><input class="in" type="date" id="dD" required></div>
+    <div class="fd"><span class="l">Số khách</span><div class="stp"><button type="button" id="dM" aria-label="Bớt khách">−</button><output id="dV">2</output><button type="button" id="dP" aria-label="Thêm khách">+</button></div></div>
+   </div>
+   <div class="fd"><span class="l">Giờ (<span id="dLeft"></span>)</span><div class="seg" id="dT"></div></div>
+   <div class="fd"><span class="l">Chỗ ngồi</span><div class="seg" id="dS"><button type="button" data-v="Trong sảnh" aria-pressed="true">Trong sảnh</button><button type="button" data-v="Cạnh cửa sổ" aria-pressed="false">Cạnh cửa sổ</button><button type="button" data-v="Phòng riêng" aria-pressed="false">Phòng riêng (từ 6 khách)</button></div></div>
+   <div class="fg"><div class="fd"><label for="dN">Họ tên</label><input class="in" id="dN" required autocomplete="name"></div><div class="fd"><label for="dTel">Điện thoại</label><input class="in" id="dTel" type="tel" inputmode="tel" required autocomplete="tel"></div></div>
+   <button class="btn">Giữ bàn</button>
+   <p class="msg" id="dMsg" role="status"></p>
+  </form>
+ </div>
+</div></section>
+
+<section class="sec" id="su-kien"><div class="w">
+ <div class="sh rv"><p class="no">iv.</p><h2 class="sr">Hội nghị <em>&amp; sự kiện.</em></h2><p>Ba sảnh linh hoạt, từ buổi họp hội đồng quản trị đến tiệc ba trăm khách.</p></div>
+ <div class="ev">
+  <div class="rv">
+   <figure><picture><source type="image/avif" srcset="../img/demo/saranel/hoi-nghi-640.avif 640w, ../img/demo/saranel/hoi-nghi-1280.avif 1280w, ../img/demo/saranel/hoi-nghi-1920.avif 1920w" sizes="(max-width:1000px) 100vw, 45vw"><img src="../img/demo/saranel/hoi-nghi-1280.webp" srcset="../img/demo/saranel/hoi-nghi-640.webp 640w, ../img/demo/saranel/hoi-nghi-1280.webp 1280w, ../img/demo/saranel/hoi-nghi-1920.webp 1920w" sizes="(max-width:1000px) 100vw, 45vw" width="1280" height="853" alt="Sảnh hội nghị với bục phát biểu và các hàng ghế" loading="lazy" decoding="async"></picture></figure>
+   <ul class="hl2" id="hl2"></ul>
+  </div>
+  <form class="fg rv" id="ef" novalidate>
+   <div class="fd full"><span class="l">Loại sự kiện</span><div class="seg" id="eT"><button type="button" data-v="Hội nghị" aria-pressed="true">Hội nghị</button><button type="button" data-v="Ra mắt sản phẩm" aria-pressed="false">Ra mắt sản phẩm</button><button type="button" data-v="Tiệc cưới" aria-pressed="false">Tiệc cưới</button><button type="button" data-v="Họp kín" aria-pressed="false">Họp kín</button></div></div>
+   <div class="fd full"><span class="l">Kiểu bố trí</span><div class="seg" id="eL"><button type="button" data-v="th" aria-pressed="true">Rạp hát</button><button type="button" data-v="cl" aria-pressed="false">Lớp học</button><button type="button" data-v="bq" aria-pressed="false">Bàn tròn tiệc</button><button type="button" data-v="u" aria-pressed="false">Chữ U</button></div></div>
+   <div class="fd"><label for="eG">Số khách dự kiến</label><input class="in" id="eG" type="number" inputmode="numeric" min="8" max="400" value="120"></div>
+   <div class="fd"><label for="eD">Ngày tổ chức</label><input class="in" type="date" id="eD" required></div>
+   <div class="fd full"><p class="rec" id="eRec" aria-live="polite"></p></div>
+   <div class="fd"><label for="eN">Người liên hệ</label><input class="in" id="eN" required autocomplete="name"></div>
+   <div class="fd"><label for="eC">Công ty / đơn vị</label><input class="in" id="eC" autocomplete="organization"></div>
+   <div class="fd"><label for="eTel">Điện thoại</label><input class="in" id="eTel" type="tel" inputmode="tel" required autocomplete="tel"></div>
+   <div class="fd"><label for="eBud">Hạng mục cần</label><select class="in" id="eBud"><option>Chỉ thuê sảnh</option><option>Sảnh và tiệc trà giữa giờ</option><option>Sảnh, ăn trưa và âm thanh ánh sáng</option></select></div>
+   <div class="fd full"><label for="eM">Ghi chú</label><textarea class="in" id="eM" placeholder="Chương trình, giờ bắt đầu, yêu cầu riêng"></textarea></div>
+   <div class="fd full"><button class="btn" style="width:100%">Gửi yêu cầu báo giá</button><p class="msg" id="eMsg" role="status"></p></div>
+  </form>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="big" aria-hidden="true">Saranel</p>
+ <p>Saranel Hotel là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, giá, địa chỉ chỉ để minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+ <p class="fine">Số 18 Đại lộ Trung Tâm, Quận 1 (địa chỉ minh họa)<br>Lễ tân: 028 0000 1818 (số minh họa)<br>© Saranel Hotel · Concept</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-saranel',smDemo:'lux-saranel'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const go=s=>{const el=$(s);el&&scrollTo({top:el.getBoundingClientRect().top+scrollY-70,behavior:RM?'auto':'smooth'})};
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1&&$(h)){e.preventDefault();go(h)}}));
+const pad=n=>String(n).padStart(2,'0'),iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`,add=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const t0=new Date();t0.setHours(0,0,0,0);
+/* rooms — số liệu minh họa */
+const R=[
+ {n:'Deluxe Thành Phố',p:3600000,m:32,bed:'King / hai giường đơn',v:'Phố nội khu',fl:'5 – 12',bath:0,lg:0,cap:2},
+ {n:'Premier Đại Lộ',p:5200000,m:44,bed:'King bốn cột',v:'Đại lộ',fl:'12 – 20',bath:1,lg:0,cap:3},
+ {n:'Executive Suite',p:9800000,m:78,bed:'King + sofa giường',v:'Đại lộ, góc hai mặt',fl:'20 – 26',bath:1,lg:1,cap:3},
+ {n:'Suite Saranel',p:26000000,m:140,bed:'Hai phòng ngủ King',v:'Toàn cảnh thành phố',fl:'27',bath:1,lg:1,cap:4}];
+$$('[data-p]').forEach(b=>b.textContent=pv(R[b.dataset.p].p)+(R[b.dataset.p].p>ASK?'':' / đêm'));
+const CS=new Set([0,1]);
+const ROWS=[['Giá / đêm',r=>pv(r.p)],['Diện tích',r=>r.m+' m²'],['Giường',r=>r.bed],['Hướng nhìn',r=>r.v],['Tầng',r=>r.fl],['Bồn tắm',r=>r.bath?'<span class="y">Có, cạnh cửa sổ</span>':'<span class="n">Vòi sen</span>'],['Executive Lounge',r=>r.lg?'<span class="y">Có, trà chiều và cocktail</span>':'<span class="n">Không</span>'],['Tối đa',r=>r.cap+' khách']];
+const cmp=()=>{const s=[...CS].sort();$$('.ck').forEach(b=>b.setAttribute('aria-pressed',CS.has(+b.dataset.c)));
+ $('#cmp').innerHTML=s.length<2?'<p style="padding:var(--s4)" class="mu">Chọn ít nhất hai hạng phòng để so sánh.</p>':`<table><thead><tr><th scope="col"><span class="vh">Tiêu chí</span></th>${s.map(i=>`<th scope="col">${R[i].n}</th>`).join('')}</tr></thead><tbody>${ROWS.map(([l,f])=>`<tr><th scope="row">${l}</th>${s.map(i=>`<td>${f(R[i])}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+ $('#cmpn').textContent=`Đang so sánh ${s.length} / tối đa 3 hạng.`};
+$('#rc').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const i=+b.dataset.c;if(CS.has(i))CS.delete(i);else{if(CS.size>=3)CS.delete([...CS][0]);CS.add(i)}cmp()});
+cmp();
+/* booking */
+$('#bR').innerHTML=R.map((r,i)=>`<option value="${i}">${r.n} · ${pv(r.p)}${r.p>ASK?'':' / đêm'}</option>`).join('');$('#bR').value=1;
+$('#bI').min=iso(t0);$('#bI').value=iso(add(t0,7));$('#bO').value=iso(add(t0,9));
+let G=2,AP=0;const APP=[0,950000,1750000],APN=['Không','Một chiều','Khứ hồi'];
+const nights=()=>{const a=new Date($('#bI').value),b=new Date($('#bO').value);return isNaN(a)||isNaN(b)?0:Math.max(0,Math.round((b-a)/864e5))};
+const bk=()=>{const r=R[$('#bR').value],n=nights();G=Math.min(G,r.cap);$('#gV').textContent=G;$('#bO').min=$('#bI').value;
+ const rp=r.p*n,bf=$('#xB').checked?420000*G*n:0,ap=APP[AP];
+ $('#sR').textContent=r.n;$('#sD').textContent=n?`${$('#bI').value.split('-').reverse().slice(0,2).join('/')} – ${$('#bO').value.split('-').reverse().slice(0,2).join('/')} · ${n} đêm`:'Ngày chưa hợp lệ';
+ $('#sP').textContent=n?pv(rp):'—';$('#sB').textContent=bf?pv(bf):'Không';$('#sA').textContent=ap?`${APN[AP]} · ${pv(ap)}`:'Không';$('#sT').textContent=n?pv(rp+bf+ap):'—'};
+['#bI','#bO','#bR','#xB'].forEach(s=>$(s).addEventListener('change',bk));
+$('#gM').addEventListener('click',()=>{G=Math.max(1,G-1);bk()});$('#gP').addEventListener('click',()=>{G=Math.min(R[$('#bR').value].cap,G+1);bk()});
+const seg=(id,cb)=>$(id).addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b||b.disabled)return;$$('button',$(id)).forEach(x=>x.setAttribute('aria-pressed',x===b));cb(b.dataset.v)});
+seg('#aP',v=>{AP=+v;bk()});bk();
+const tel=v=>/^[0-9 +.]{9,}$/.test(v.trim());
+const done=(m,ok,t)=>{m.classList.toggle('err',!ok);m.textContent=t};
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#bMsg');if(!nights())return done(m,0,'Ngày trả phòng cần sau ngày nhận phòng.');if(!$('#bN').value.trim()||!tel($('#bT').value))return done(m,0,'Họ tên và số điện thoại chưa đủ.');
+ done(m,1,`Đã nhận yêu cầu: ${R[$('#bR').value].n}, ${nights()} đêm, tổng ${$('#sT').textContent}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`)});
+/* dining */
+const TS=['18:00','18:30','19:00','19:30','20:00','20:30','21:00','21:30'];let DG=2,DT=null,DS='Trong sảnh';
+const hs=s=>[...s].reduce((a,c)=>(a*31+c.charCodeAt(0))|0,7);
+const dTimes=()=>{const d=$('#dD').value,wd=new Date(d).getDay();if(wd===1){$('#dT').innerHTML='<p class="mu" style="font-size:14px">Nhà hàng nghỉ thứ Hai. Bạn chọn ngày khác giúp nhé.</p>';$('#dLeft').textContent='đóng cửa';DT=null;return}
+ const full=TS.map(t=>Math.abs(hs(d+t+DG))%5===0||(DG>6&&Math.abs(hs(t+d))%3===0));if(DT&&full[TS.indexOf(DT)])DT=null;
+ $('#dT').innerHTML=TS.map((t,i)=>`<button type="button" data-v="${t}" aria-pressed="${t===DT}" ${full[i]?'disabled aria-label="'+t+', đã kín"':''}>${t}</button>`).join('');
+ $('#dLeft').textContent=`còn ${full.filter(x=>!x).length} khung giờ cho ${DG} khách`};
+$('#dD').min=iso(t0);$('#dD').value=iso(add(t0,new Date().getDay()===0?2:1));
+$('#dD').addEventListener('change',dTimes);
+$('#dT').addEventListener('click',e=>{const b=e.target.closest('button[data-v]');if(!b||b.disabled)return;DT=b.dataset.v;$$('#dT button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+const dS=()=>{const pr=$('#dS [data-v="Phòng riêng"]');pr.disabled=DG<6;if(pr.disabled&&DS==='Phòng riêng'){DS='Trong sảnh';$$('#dS button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v===DS))}};
+$('#dM').addEventListener('click',()=>{DG=Math.max(1,DG-1);$('#dV').textContent=DG;dS();dTimes()});$('#dP').addEventListener('click',()=>{DG=Math.min(12,DG+1);$('#dV').textContent=DG;dS();dTimes()});
+seg('#dS',v=>DS=v);dS();dTimes();
+$('#df').addEventListener('submit',e=>{e.preventDefault();const m=$('#dMsg');if(!DT)return done(m,0,'Bạn chọn giúp một khung giờ còn trống.');if(!$('#dN').value.trim()||!tel($('#dTel').value))return done(m,0,'Họ tên và số điện thoại chưa đủ.');
+ done(m,1,`Đã giữ bàn ${DG} khách, ${DS.toLowerCase()}, ${DT} ngày ${$('#dD').value.split('-').reverse().join('/')}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`)});
+/* events */
+const HL=[{n:'Phòng Thư Viện',m:96,c:{th:40,cl:24,bq:30,u:20}},{n:'Sảnh Mái Vòm',m:310,c:{th:220,cl:130,bq:160,u:50}},{n:'Sảnh Đại Lộ',m:520,c:{th:400,cl:240,bq:300,u:70}}];
+const LN={th:'rạp hát',cl:'lớp học',bq:'bàn tròn tiệc',u:'chữ U'};let EL='th',ET='Hội nghị';
+const ev=()=>{const g=+$('#eG').value||0,fit=HL.findIndex(h=>h.c[EL]>=g);
+ $('#hl2').innerHTML=HL.map((h,i)=>`<li class="${i===fit?'on':''}"><b>${h.n}</b><span>${h.m} m²</span><span>${LN[EL]}: tối đa ${h.c[EL]} khách</span></li>`).join('');
+ $('#eRec').textContent=g<8?'Số khách tối thiểu là 8.':fit<0?`${g} khách vượt sức chứa kiểu ${LN[EL]}. Thử kiểu bố trí khác hoặc liên hệ để ghép sảnh.`:`Gợi ý: ${HL[fit].n} (${HL[fit].m} m²) cho ${ET.toLowerCase()} ${g} khách, bố trí ${LN[EL]}.`};
+seg('#eT',v=>{ET=v;if(v==='Tiệc cưới'){EL='bq';$$('#eL button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.v==='bq'))}ev()});seg('#eL',v=>{EL=v;ev()});$('#eG').addEventListener('input',ev);
+$('#eD').min=iso(add(t0,7));$('#eD').value=iso(add(t0,45));ev();
+$('#ef').addEventListener('submit',e=>{e.preventDefault();const m=$('#eMsg');if(!$('#eN').value.trim()||!tel($('#eTel').value))return done(m,0,'Người liên hệ và số điện thoại chưa đủ.');
+ done(m,1,`Đã nhận yêu cầu ${ET.toLowerCase()} cho ${$('#eG').value} khách. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`)});
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ $$('.hl h1 .l>span').forEach((s,i)=>gsap.from(s,{yPercent:110,duration:1.5,ease:'expo.out',delay:.15+i*.15}));
+ gsap.from('.hp .fm',{clipPath:'inset(100% 0 0 0)',duration:1.8,ease:'expo.inOut'});
+ gsap.from('.hp img',{scale:1.25,duration:2.4,ease:'expo.out'});
+ gsap.to('.hp img',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.rv').forEach(el=>gsap.from(el,{y:40,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
+}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kỳ Vân Resort — resort biển, đặt phòng trực tiếp (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một resort biển: lịch chọn ngày nhận và trả phòng, hạng phòng và villa còn trống, gói trải nghiệm lặn ngắm san hô, du thuyền hoàng hôn, spa, bữa tối trên bãi biển.">
+<style>
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/noto-serif-display-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/noto-serif-display-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:italic;font-display:swap;src:url(fonts/noto-serif-display-vietnamese-wght-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:italic;font-display:swap;src:url(fonts/noto-serif-display-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.16,1,.3,1);
+--sand:#F4F1EA;--shell:#FBFAF6;--ink:#0F2A2D;--sea:#2C7A80;--sea2:#1D5B60;--sun:#D99A55;--mu:rgba(15,42,45,.6);--ln:rgba(15,42,45,.13);--fd:"Noto Serif Display",Georgia,serif;--fb:"Manrope",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1320px;margin:0 auto;padding:0 max(16px,4vw)}
+.ey{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+.mu{color:var(--mu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.sf{font-family:var(--fd);font-weight:300;letter-spacing:-.015em;line-height:1.02}
+.sf em{font-style:italic;color:var(--sea)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:48px;padding:0 var(--s5);border-radius:999px;background:var(--ink);color:var(--shell);font-size:13px;font-weight:600;letter-spacing:.06em;transition:background .5s var(--e),transform .5s var(--e)}
+.btn:hover{background:var(--sea)}
+.btn.lt{background:var(--shell);color:var(--ink)}.btn.lt:hover{background:var(--sun)}
+/* header */
+.hd{position:fixed;inset:0 0 auto;z-index:50;transition:background .5s,box-shadow .5s,color .5s;color:#fff}
+.hd.sc{background:rgba(244,241,234,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--ln);color:var(--ink)}
+.hd .w{display:flex;align-items:center;gap:var(--s4);height:68px}
+.back{font-size:12px;opacity:.75;min-height:44px;display:flex;align-items:center}
+.emb .back{display:none}
+.lg{display:flex;align-items:center;gap:10px;font-family:var(--fd);font-size:22px;letter-spacing:.18em;text-transform:uppercase;margin-right:auto;min-height:44px}
+.lg svg{width:26px;height:26px}
+.nv{display:flex;gap:var(--s5)}.nv a{font-size:13px;font-weight:500;min-height:44px;display:flex;align-items:center;opacity:.85}.nv a:hover{opacity:1}
+.hd .btn{min-height:42px;padding:0 var(--s4);background:var(--shell);color:var(--ink)}
+.hd.sc .btn{background:var(--ink);color:var(--shell)}
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;max-height:980px;color:#fff;overflow:hidden;background:#0d2a2c}
+.hero picture{position:absolute;inset:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,24,26,.55) 0,rgba(8,24,26,0) 62%),linear-gradient(180deg,rgba(8,24,26,.45) 0,rgba(8,24,26,0) 30%,rgba(8,24,26,0) 45%,rgba(8,24,26,.78) 100%)}
+.hc{position:absolute;inset:auto 0 0;z-index:2;padding-bottom:var(--s5)}
+.hc .ey{opacity:.85}
+.hc h1{font-size:clamp(42px,8.2vw,118px);margin:var(--s3) 0 var(--s5);max-width:12ch}
+.hc h1 .l{display:block;overflow:hidden;padding-bottom:.06em}.hc h1 .l>span{display:inline-block}
+.hc h1 em{font-style:italic;color:#F3D3AC}
+.qb{display:grid;grid-template-columns:1.2fr 1.2fr 1fr auto;background:rgba(251,250,246,.96);color:var(--ink);border-radius:21px;padding:var(--s2);gap:var(--s2);max-width:880px;box-shadow:0 34px 89px -34px rgba(0,0,0,.5)}
+.qb button.f{display:flex;flex-direction:column;align-items:flex-start;padding:var(--s2) var(--s4);border-radius:13px;text-align:left;min-height:56px;justify-content:center;transition:background .3s}
+.qb button.f:hover{background:var(--sand)}
+.qb small{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);font-weight:600}
+.qb b{font-weight:600;font-size:15px}
+.qb .btn{border-radius:13px;min-height:56px}
+/* intro */
+.sec{padding:var(--s8) 0}
+.it{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center}
+.it h2{font-size:clamp(34px,4.6vw,68px)}
+.it p{color:var(--mu);max-width:44ch;margin-top:var(--s4)}
+.it dl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-top:var(--s5);border-top:1px solid var(--ln);padding-top:var(--s4)}
+.it dt{font-family:var(--fd);font-size:26px;font-weight:300}.it dd{font-size:12px;color:var(--mu)}
+.fr{position:relative;aspect-ratio:4/5;border-radius:200px 200px 21px 21px;overflow:hidden}
+.fr2{position:absolute;width:44%;aspect-ratio:3/2;right:-8%;bottom:-8%;border-radius:13px;overflow:hidden;border:5px solid var(--sand)}
+.itp{position:relative;max-width:520px;justify-self:end;width:100%}
+/* booking */
+.bk{background:var(--shell);border-radius:34px 34px 0 0}
+.bh{display:flex;justify-content:space-between;align-items:end;gap:var(--s5);margin-bottom:var(--s6);flex-wrap:wrap}
+.bh h2{font-size:clamp(34px,5vw,68px)}
+.bh p{max-width:40ch;color:var(--mu)}
+.bg{display:grid;grid-template-columns:1fr 360px;gap:var(--s6);align-items:start}
+.step{border-top:1px solid var(--ln);padding:var(--s5) 0}
+.step:first-child{border:0;padding-top:0}
+.sth{display:flex;align-items:baseline;gap:var(--s3);margin-bottom:var(--s4)}
+.sth i{font-family:var(--fd);font-style:italic;color:var(--sea);font-size:26px}
+.sth h3{font-family:var(--fd);font-weight:400;font-size:26px}
+.sth span{margin-left:auto;font-size:13px;color:var(--mu);text-align:right}
+/* calendar */
+.cal{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5)}
+.cnav{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s3)}
+.cnav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);font-size:16px;transition:background .3s}
+.cnav button:hover:not(:disabled){background:var(--sand)}.cnav button:disabled{opacity:.3;cursor:default}
+.mh{font-family:var(--fd);font-size:20px;text-align:center;margin-bottom:var(--s3)}
+.dw,.dg{display:grid;grid-template-columns:repeat(7,1fr)}
+.dw span{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu);text-align:center;padding-bottom:var(--s2)}
+.dg button{aspect-ratio:1;min-height:40px;font-size:14px;position:relative;font-variant-numeric:tabular-nums;transition:color .3s}
+.dg button::before{content:"";position:absolute;inset:3px;border-radius:50%;transition:background .3s}
+.dg button span{position:relative}
+.dg button:hover:not(:disabled)::before{background:var(--sand)}
+.dg button:disabled{color:rgba(15,42,45,.25);cursor:default;text-decoration:line-through}
+.dg button.in{background:rgba(44,122,128,.1)}
+.dg button.st,.dg button.en{color:#fff}
+.dg button.st::before,.dg button.en::before{background:var(--sea2)!important}
+.dg button.st{background:linear-gradient(90deg,transparent 50%,rgba(44,122,128,.1) 50%)}
+.dg button.en{background:linear-gradient(90deg,rgba(44,122,128,.1) 50%,transparent 50%)}
+.dg button.st.en{background:none}
+.cnote{font-size:13px;color:var(--mu);margin-top:var(--s3)}
+/* guests */
+.gs{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.gc{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--ln);border-radius:13px;padding:var(--s2) var(--s2) var(--s2) var(--s4)}
+.gc b{display:block;font-weight:600}.gc small{font-size:12px;color:var(--mu)}
+.stp{display:flex;align-items:center;gap:var(--s2)}
+.stp button{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln);font-size:18px;transition:background .3s}
+.stp button:hover:not(:disabled){background:var(--sand)}.stp button:disabled{opacity:.3}
+.stp output{min-width:22px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+/* rooms */
+.rl{display:grid;gap:var(--s3)}
+.rm{display:grid;grid-template-columns:120px 1fr auto;gap:var(--s4);align-items:center;border:1px solid var(--ln);border-radius:21px;padding:var(--s3);text-align:left;width:100%;transition:border-color .4s,background .4s,transform .5s var(--e)}
+.rm:hover:not(:disabled){border-color:var(--ink)}
+.rm[aria-pressed=true]{border-color:var(--sea2);background:rgba(44,122,128,.06);box-shadow:inset 0 0 0 1px var(--sea2)}
+.rm:disabled{opacity:.5;cursor:default}
+.rm .th{aspect-ratio:1;border-radius:13px;overflow:hidden;background:var(--sand)}
+.rm .n{display:block;font-family:var(--fd);font-weight:400;font-size:22px;line-height:1.15}
+.rm .d{display:block;font-size:13px;color:var(--mu);margin-top:4px}
+.rm .av{display:inline-block;margin-top:var(--s2);font-size:11px;font-weight:600;letter-spacing:.06em;padding:3px 10px;border-radius:99px;background:rgba(44,122,128,.12);color:var(--sea2)}
+.rm .av.lo{background:rgba(217,154,85,.18);color:#94591d}.rm .av.no{background:rgba(15,42,45,.08);color:var(--mu)}
+.rm .pr{text-align:right;white-space:nowrap}.rm .pr b{display:block;font-family:var(--fd);font-size:22px;font-weight:400}.rm .pr small{font-size:12px;color:var(--mu)}
+/* experiences */
+.xl{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
+.xp{position:relative;border-radius:21px;overflow:hidden;aspect-ratio:4/5;color:#fff;text-align:left;display:block;width:100%}
+.xp picture{position:absolute;inset:0}.xp img{transition:transform 1.2s var(--e)}.xp:hover img{transform:scale(1.05)}
+.xp::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,22,24,0) 35%,rgba(6,22,24,.82));transition:background .5s}
+.xp .tx{position:absolute;inset:auto 0 0;z-index:2;padding:var(--s4)}
+.xp .n{display:block;font-family:var(--fd);font-weight:400;font-size:21px;line-height:1.1}
+.xp .d{display:block;font-size:13px;opacity:.85;margin-top:5px}
+.xp .tg{position:absolute;top:var(--s3);right:var(--s3);z-index:2;height:40px;padding:0 var(--s3);border-radius:99px;background:rgba(251,250,246,.92);color:var(--ink);font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px;transition:background .4s,color .4s}
+.xp .tg i{font-style:normal;font-size:16px;line-height:1;transition:transform .4s var(--e)}
+.xp[aria-pressed=true] .tg{background:var(--sun);color:var(--ink)}.xp[aria-pressed=true] .tg i{transform:rotate(45deg)}
+.xp[aria-pressed=true]::after{background:linear-gradient(180deg,rgba(6,22,24,.1) 0,rgba(29,91,96,.88))}
+/* summary */
+.sm{position:sticky;top:89px;background:var(--ink);color:var(--shell);border-radius:21px;padding:var(--s5) var(--s4);display:grid;gap:var(--s3)}
+.sm .ey{color:var(--sun)}
+.sm h3{font-family:var(--fd);font-weight:300;font-size:26px;line-height:1.15}
+.sm .rw{display:flex;justify-content:space-between;gap:var(--s3);font-size:13px;color:rgba(251,250,246,.7)}
+.sm .rw b{font-weight:500;color:var(--shell);text-align:right}
+.sm .ttl{border-top:1px solid rgba(251,250,246,.18);padding-top:var(--s3);display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3)}
+.sm .ttl b{font-family:var(--fd);font-size:34px;font-weight:300;line-height:1}
+.sm .fine{font-size:11px;color:rgba(251,250,246,.55);line-height:1.5}
+.sm label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,250,246,.6)}
+.sm input{width:100%;min-height:48px;border-radius:13px;border:1px solid rgba(251,250,246,.2);background:rgba(251,250,246,.06);padding:0 var(--s3);font-size:16px;color:var(--shell);outline:0;margin-top:4px}
+.sm input:focus{border-color:var(--sun)}
+.sm .btn{background:var(--sun);color:var(--ink);width:100%}.sm .btn:hover{background:var(--shell)}
+.msg{font-size:13px;min-height:1.4em;color:#F3D3AC}.msg.err{color:#FFB4A8}
+.cf{display:none;border:1px dashed rgba(251,250,246,.35);border-radius:13px;padding:var(--s3);text-align:center}
+.cf.on{display:block}
+.cf b{display:block;font-family:var(--fd);font-size:30px;letter-spacing:.1em;color:var(--sun);font-weight:400}
+/* gallery */
+.gl{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s3)}
+.gl figure{border-radius:21px;overflow:hidden;position:relative}
+.gl figure:first-child{grid-row:span 2}
+.gl figcaption{position:absolute;left:var(--s4);bottom:var(--s3);color:#fff;font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 13px rgba(0,0,0,.5)}
+footer{background:var(--ink);color:rgba(251,250,246,.75);padding:var(--s7) 0 var(--s6)}
+footer .w{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s5)}
+footer .big{font-family:var(--fd);font-weight:300;font-size:clamp(54px,11vw,160px);line-height:.9;color:var(--shell);letter-spacing:.02em;grid-column:1/-1}
+footer p{font-size:14px;max-width:62ch}footer a{text-decoration:underline}
+.rv{opacity:1}
+@media(max-width:1080px){.bg{grid-template-columns:1fr}.sm{position:relative;top:0}}
+@media(max-width:860px){
+ .nv{display:none}
+ .qb{grid-template-columns:1fr 1fr;border-radius:21px}.qb .btn{grid-column:1/-1}.qb .gb{grid-column:1/-1}
+ .fr2{right:-3%}.it{grid-template-columns:1fr}.itp{justify-self:start;max-width:420px;margin-bottom:var(--s5)}
+ .cal{grid-template-columns:1fr}.cal .m2{display:none}
+ .gs{grid-template-columns:1fr}.xl{grid-template-columns:1fr 1fr}
+ .gl{grid-template-columns:1fr 1fr}.gl figure:first-child{grid-column:1/-1;grid-row:auto}
+ footer .w{grid-template-columns:1fr}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:560px){
+ .hd .btn{display:none}.sth span{display:none}
+ .hc h1{margin-bottom:var(--s4)}
+ .qb button.f{padding:var(--s2) var(--s3)}
+ .rm{grid-template-columns:72px 1fr;gap:var(--s3)}.rm .pr{grid-column:1/-1;text-align:left;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ln);padding-top:var(--s2)}
+ .xl{grid-template-columns:1fr 1fr;gap:var(--s2)}.xp .tx{padding:var(--s3)}.xp .n{font-size:18px}.xp .d{display:none}.xp .tg{top:var(--s2);right:var(--s2);height:34px;font-size:11px;padding:0 10px}
+ .it dl{grid-template-columns:1fr 1fr 1fr;gap:var(--s3)}.it dt{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hd" id="hd"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lg" href="#top" aria-label="Kỳ Vân Resort"><svg viewBox="0 0 26 26" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="13" cy="10" r="5"/><path d="M2 17q2.75-3 5.5 0t5.5 0 5.5 0 5.5 0M2 21q2.75-3 5.5 0t5.5 0 5.5 0 5.5 0"/></svg>Kỳ Vân</a>
+ <nav class="nv" aria-label="Chính"><a href="#gioi-thieu">Vịnh</a><a href="#dat-phong">Phòng &amp; villa</a><a href="#trai-nghiem">Trải nghiệm</a><a href="#hinh-anh">Hình ảnh</a></nav>
+ <a class="btn" href="#dat-phong">Đặt phòng</a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <picture><source type="image/avif" srcset="../img/demo/ky-van/hero-640.avif 640w, ../img/demo/ky-van/hero-1280.avif 1280w, ../img/demo/ky-van/hero-1920.avif 1920w, ../img/demo/ky-van/hero-2560.avif 2560w" sizes="100vw"><img src="../img/demo/ky-van/hero-1280.webp" srcset="../img/demo/ky-van/hero-640.webp 640w, ../img/demo/ky-van/hero-1280.webp 1280w, ../img/demo/ky-van/hero-1920.webp 1920w, ../img/demo/ky-van/hero-2560.webp 2560w" sizes="100vw" width="1280" height="853" alt="Những căn villa mái ngói trên sườn đồi nhìn xuống bãi biển và hồ bơi" fetchpriority="high" decoding="async"></picture>
+ <div class="hc"><div class="w">
+  <p class="ey">Resort biển · miền Trung · Concept</p>
+  <h1 class="sf"><span class="l"><span>Một vịnh nhỏ,</span></span><span class="l"><span><em>riêng một mùa.</em></span></span></h1>
+  <div class="qb" role="group" aria-label="Tìm phòng nhanh">
+   <button class="f" type="button" data-go="cal"><small>Nhận phòng</small><b id="qIn">—</b></button>
+   <button class="f" type="button" data-go="cal"><small>Trả phòng</small><b id="qOut">—</b></button>
+   <button class="f gb" type="button" data-go="guest"><small>Khách</small><b id="qG">2 người lớn</b></button>
+   <a class="btn" href="#dat-phong">Xem phòng trống</a>
+  </div>
+ </div></div>
+</section>
+
+<section class="sec" id="gioi-thieu"><div class="w it">
+ <div class="itp rv"><div class="fr"><picture><source type="image/avif" srcset="../img/demo/ky-van/ho-boi-640.avif 640w, ../img/demo/ky-van/ho-boi-1280.avif 1280w, ../img/demo/ky-van/ho-boi-1920.avif 1920w" sizes="(max-width:860px) 90vw, 40vw"><img src="../img/demo/ky-van/ho-boi-1280.webp" srcset="../img/demo/ky-van/ho-boi-640.webp 640w, ../img/demo/ky-van/ho-boi-1280.webp 1280w, ../img/demo/ky-van/ho-boi-1920.webp 1920w" sizes="(max-width:860px) 90vw, 40vw" width="1280" height="853" alt="Hồ bơi phản chiếu dãy ô lá và nhà gỗ hai tầng giữa vườn nhiệt đới" loading="lazy" decoding="async"></picture></div><div class="fr2"><picture><source type="image/avif" srcset="../img/demo/ky-van/villa-640.avif 640w, ../img/demo/ky-van/villa-1280.avif 1280w, ../img/demo/ky-van/villa-1920.avif 1920w" sizes="(max-width:860px) 40vw, 20vw"><img src="../img/demo/ky-van/villa-1280.webp" srcset="../img/demo/ky-van/villa-640.webp 640w, ../img/demo/ky-van/villa-1280.webp 1280w, ../img/demo/ky-van/villa-1920.webp 1920w" sizes="(max-width:860px) 40vw, 20vw" width="1280" height="853" alt="Hiên villa có hồ bơi nhìn ra biển xanh" loading="lazy" decoding="async"></picture></div></div>
+ <div class="rv">
+  <p class="ey" style="color:var(--sea)">Vịnh Kỳ Vân</p>
+  <h2 class="sf" style="margin-top:var(--s3)">Rừng xuống tận cát, <em>biển lên tận hiên.</em></h2>
+  <p>Hai mươi tám phòng và villa tựa lưng vào đồi, mặt nhìn một vịnh nước trong. Đặt trực tiếp ở đây để chọn đúng căn còn trống, thêm trải nghiệm vào cùng một hóa đơn.</p>
+  <dl><div><dt>28</dt><dd>phòng &amp; villa</dd></div><div><dt>4</dt><dd>hạng lưu trú</dd></div><div><dt>15:00</dt><dd>giờ nhận phòng</dd></div></dl>
+ </div>
+</div></section>
+
+<section class="sec bk" id="dat-phong"><div class="w">
+ <div class="bh rv"><div><p class="ey" style="color:var(--sea)">Đặt phòng trực tiếp</p><h2 class="sf" style="margin-top:var(--s3)">Chọn ngày, <em>chọn căn.</em></h2></div><p>Giá theo đêm đã gồm bữa sáng, thuế và phí. Mọi giá trên trang là số minh họa.</p></div>
+ <div class="bg">
+  <div>
+   <div class="step" id="s-cal">
+    <div class="sth"><i>i.</i><h3>Ngày lưu trú</h3><span id="nN" aria-live="polite"></span></div>
+    <div class="cnav"><button type="button" id="cP" aria-label="Tháng trước">←</button><span class="cnote" id="cHint" aria-live="polite">Chọn ngày nhận phòng</span><button type="button" id="cN" aria-label="Tháng sau">→</button></div>
+    <div class="cal" id="cal"></div>
+   </div>
+   <div class="step" id="s-guest">
+    <div class="sth"><i>ii.</i><h3>Khách</h3></div>
+    <div class="gs">
+     <div class="gc"><div><b>Người lớn</b><small>Từ 12 tuổi</small></div><div class="stp"><button type="button" data-g="a" data-d="-1" aria-label="Bớt người lớn">−</button><output id="gA">2</output><button type="button" data-g="a" data-d="1" aria-label="Thêm người lớn">+</button></div></div>
+     <div class="gc"><div><b>Trẻ em</b><small>2 – 11 tuổi</small></div><div class="stp"><button type="button" data-g="c" data-d="-1" aria-label="Bớt trẻ em">−</button><output id="gC">0</output><button type="button" data-g="c" data-d="1" aria-label="Thêm trẻ em">+</button></div></div>
+    </div>
+   </div>
+   <div class="step">
+    <div class="sth"><i>iii.</i><h3>Hạng phòng còn trống</h3><span id="rH"></span></div>
+    <div class="rl" id="rl"></div>
+   </div>
+   <div class="step" id="trai-nghiem">
+    <div class="sth"><i>iv.</i><h3>Gói trải nghiệm</h3><span>Thêm vào đặt phòng</span></div>
+    <div class="xl" id="xl">
+     <button type="button" class="xp" data-x="0" aria-pressed="false"><picture><source type="image/avif" srcset="../img/demo/ky-van/lan-640.avif 640w, ../img/demo/ky-van/lan-1280.avif 1280w, ../img/demo/ky-van/lan-1920.avif 1920w" sizes="(max-width:560px) 50vw, 25vw"><img src="../img/demo/ky-van/lan-1280.webp" srcset="../img/demo/ky-van/lan-640.webp 640w, ../img/demo/ky-van/lan-1280.webp 1280w, ../img/demo/ky-van/lan-1920.webp 1920w" sizes="(max-width:560px) 50vw, 25vw" width="1280" height="1600" alt="Người lặn với chân vịt bơi trên rạn san hô" loading="lazy" decoding="async"></picture><span class="tg"><i>+</i><span>Thêm</span></span><span class="tx"><span class="n">Lặn ngắm san hô</span><span class="d">Ca sáng, xuồng ra rạn phía bắc vịnh</span></span></button>
+     <button type="button" class="xp" data-x="1" aria-pressed="false"><picture><source type="image/avif" srcset="../img/demo/ky-van/thuyen-640.avif 640w, ../img/demo/ky-van/thuyen-1280.avif 1280w, ../img/demo/ky-van/thuyen-1920.avif 1920w" sizes="(max-width:560px) 50vw, 25vw"><img src="../img/demo/ky-van/thuyen-1280.webp" srcset="../img/demo/ky-van/thuyen-640.webp 640w, ../img/demo/ky-van/thuyen-1280.webp 1280w, ../img/demo/ky-van/thuyen-1920.webp 1920w" sizes="(max-width:560px) 50vw, 25vw" width="1280" height="1600" alt="Thuyền buồm trên mặt biển lúc hoàng hôn" loading="lazy" decoding="async"></picture><span class="tg"><i>+</i><span>Thêm</span></span><span class="tx"><span class="n">Du thuyền hoàng hôn</span><span class="d">Hai giờ quanh vịnh, có đồ uống nhẹ</span></span></button>
+     <button type="button" class="xp" data-x="2" aria-pressed="false"><picture><source type="image/avif" srcset="../img/demo/ky-van/spa-640.avif 640w, ../img/demo/ky-van/spa-1280.avif 1280w, ../img/demo/ky-van/spa-1920.avif 1920w" sizes="(max-width:560px) 50vw, 25vw"><img src="../img/demo/ky-van/spa-1280.webp" srcset="../img/demo/ky-van/spa-640.webp 640w, ../img/demo/ky-van/spa-1280.webp 1280w, ../img/demo/ky-van/spa-1920.webp 1920w" sizes="(max-width:560px) 50vw, 25vw" width="1280" height="1600" alt="Phòng trị liệu vòm trắng với giường đá và khăn gấp" loading="lazy" decoding="async"></picture><span class="tg"><i>+</i><span>Thêm</span></span><span class="tx"><span class="n">Spa 90 phút</span><span class="d">Đá nóng và tinh dầu, phòng đôi</span></span></button>
+     <button type="button" class="xp" data-x="3" aria-pressed="false"><picture><source type="image/avif" srcset="../img/demo/ky-van/toi-640.avif 640w, ../img/demo/ky-van/toi-1280.avif 1280w, ../img/demo/ky-van/toi-1920.avif 1920w" sizes="(max-width:560px) 50vw, 25vw"><img src="../img/demo/ky-van/toi-1280.webp" srcset="../img/demo/ky-van/toi-640.webp 640w, ../img/demo/ky-van/toi-1280.webp 1280w, ../img/demo/ky-van/toi-1920.webp 1920w" sizes="(max-width:560px) 50vw, 25vw" width="1280" height="1600" alt="Bàn tối dựng trên bãi cát với đèn lồng và cánh hoa" loading="lazy" decoding="async"></picture><span class="tg"><i>+</i><span>Thêm</span></span><span class="tx"><span class="n">Bữa tối trên bãi biển</span><span class="d">Riêng hai người, đầu bếp phục vụ tại chỗ</span></span></button>
+    </div>
+   </div>
+  </div>
+  <aside class="sm" aria-live="polite">
+   <p class="ey">Đặt phòng của bạn</p>
+   <h3 id="sR">Chưa chọn phòng</h3>
+   <div class="rw">Ngày <b id="sD">—</b></div>
+   <div class="rw">Khách <b id="sG"></b></div>
+   <div class="rw">Tiền phòng <b id="sRm">—</b></div>
+   <div id="sX"></div>
+   <div class="ttl"><span class="ey" style="color:rgba(251,250,246,.6)">Tổng</span><b id="sT">—</b></div>
+   <p class="fine">Giá minh họa. Tổng trên 20 triệu đồng hiển thị “Liên hệ”, bộ phận đặt phòng sẽ gửi báo giá riêng.</p>
+   <form id="bf" novalidate style="display:grid;gap:var(--s3)">
+    <div><label for="fN">Họ tên</label><input id="fN" required autocomplete="name"></div>
+    <div><label for="fT">Điện thoại</label><input id="fT" type="tel" required inputmode="tel" autocomplete="tel"></div>
+    <button class="btn">Xác nhận đặt phòng</button>
+    <p class="msg" id="msg" role="status"></p>
+   </form>
+   <div class="cf" id="cf"><span class="ey" style="color:rgba(251,250,246,.6)">Mã đặt phòng (minh họa)</span><b id="code"></b><p class="fine" style="margin-top:6px">Đây là trang mẫu nên chưa có thông tin nào được gửi đi.</p></div>
+  </aside>
+ </div>
+</div></section>
+
+<section class="sec" id="hinh-anh"><div class="w">
+ <div class="bh rv"><div><p class="ey" style="color:var(--sea)">Hình ảnh</p><h2 class="sf" style="margin-top:var(--s3)">Một ngày <em>ở vịnh</em></h2></div><p>Sáng lặn ở rạn bắc, trưa nằm hồ bơi dưới tán lá, chiều ra khơi đón mặt trời lặn.</p></div>
+ <div class="gl">
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/ky-van/hero-640.avif 640w, ../img/demo/ky-van/hero-1280.avif 1280w, ../img/demo/ky-van/hero-1920.avif 1920w, ../img/demo/ky-van/hero-2560.avif 2560w" sizes="(max-width:860px) 100vw, 60vw"><img src="../img/demo/ky-van/hero-1280.webp" srcset="../img/demo/ky-van/hero-640.webp 640w, ../img/demo/ky-van/hero-1280.webp 1280w, ../img/demo/ky-van/hero-1920.webp 1920w, ../img/demo/ky-van/hero-2560.webp 2560w" sizes="(max-width:860px) 100vw, 60vw" width="1280" height="853" alt="Toàn cảnh villa trên đồi và bãi biển" loading="lazy" decoding="async"></picture><figcaption>Villa đồi · hồ bơi riêng</figcaption></figure>
+  <figure class="rv" style="aspect-ratio:3/2"><picture><source type="image/avif" srcset="../img/demo/ky-van/ho-boi-640.avif 640w, ../img/demo/ky-van/ho-boi-1280.avif 1280w, ../img/demo/ky-van/ho-boi-1920.avif 1920w" sizes="(max-width:860px) 50vw, 36vw"><img src="../img/demo/ky-van/ho-boi-1280.webp" srcset="../img/demo/ky-van/ho-boi-640.webp 640w, ../img/demo/ky-van/ho-boi-1280.webp 1280w, ../img/demo/ky-van/ho-boi-1920.webp 1920w" sizes="(max-width:860px) 50vw, 36vw" width="1280" height="853" alt="Hồ bơi chung giữa vườn" loading="lazy" decoding="async"></picture><figcaption>Hồ bơi vườn</figcaption></figure>
+  <figure class="rv" style="aspect-ratio:3/2"><picture><source type="image/avif" srcset="../img/demo/ky-van/villa-640.avif 640w, ../img/demo/ky-van/villa-1280.avif 1280w, ../img/demo/ky-van/villa-1920.avif 1920w" sizes="(max-width:860px) 50vw, 36vw"><img src="../img/demo/ky-van/villa-1280.webp" srcset="../img/demo/ky-van/villa-640.webp 640w, ../img/demo/ky-van/villa-1280.webp 1280w, ../img/demo/ky-van/villa-1920.webp 1920w" sizes="(max-width:860px) 50vw, 36vw" width="1280" height="853" alt="Hiên gỗ và hồ bơi nhìn ra biển" loading="lazy" decoding="async"></picture><figcaption>Hiên nhìn biển</figcaption></figure>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="big" aria-hidden="true">Kỳ Vân</p>
+ <p>Kỳ Vân Resort là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, giá, địa chỉ chỉ để minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+ <p>Vịnh Kỳ Vân, miền Trung (địa chỉ minh họa)<br>Đặt phòng: 0236 000 0000 (số minh họa)<br>© Kỳ Vân Resort · Concept</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-ky-van',smDemo:'lux-ky-van'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const go=s=>{const el=$(s);if(!el)return;scrollTo({top:el.getBoundingClientRect().top+scrollY-80,behavior:RM?'auto':'smooth'})};
+/* header */
+const hd=$('#hd'),onS=()=>hd.classList.toggle('sc',scrollY>innerHeight*.6);addEventListener('scroll',onS,{passive:true});onS();
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1&&$(h)){e.preventDefault();go(h)}}));
+$$('[data-go]').forEach(b=>b.addEventListener('click',()=>go('#s-'+b.dataset.go)));
+/* data — giá minh họa */
+const RO=[
+ {n:'Phòng Hướng Vườn',d:'38 m² · giường King · ban công vườn',cap:3,ad:2,p:4800000,img:'ho-boi'},
+ {n:'Suite Hướng Biển',d:'62 m² · phòng khách riêng · bồn tắm nhìn biển',cap:4,ad:3,p:7900000,img:'villa'},
+ {n:'Villa Đồi Có Hồ Bơi',d:'140 m² · hai phòng ngủ · hồ bơi 9 m',cap:6,ad:4,p:14500000,img:'hero'},
+ {n:'Villa Bãi Biển',d:'260 m² · ba phòng ngủ · lối thẳng xuống cát',cap:8,ad:6,p:24000000,img:'toi'}];
+const XP=[{n:'Lặn ngắm san hô',p:1650000,u:'người lớn'},{n:'Du thuyền hoàng hôn',p:1900000,u:'người lớn'},{n:'Spa 90 phút',p:2400000,u:'người lớn'},{n:'Bữa tối trên bãi biển',p:6800000,u:'cặp',pair:1}];
+const S={a:2,c:0,in:null,out:null,r:-1,x:new Set(),m:0};
+const thumb=k=>`<picture><source type="image/avif" srcset="../img/demo/ky-van/${k}-640.avif 640w" sizes="120px"><img src="../img/demo/ky-van/${k}-640.webp" width="640" height="427" alt="" loading="lazy" decoding="async"></picture>`;
+/* dates */
+const DAY=864e5,t0=new Date();t0.setHours(0,0,0,0);
+const dn=d=>Math.round(d/DAY),fmt=d=>d.toLocaleDateString('vi-VN',{day:'numeric',month:'numeric'}),fmtL=d=>d.toLocaleDateString('vi-VN',{weekday:'short',day:'numeric',month:'numeric'});
+const hash=(a,b)=>{let h=(a*374761393+b*668265263)|0;h=(h^(h>>>13))*1274126177|0;return((h^(h>>>16))>>>0)%100};
+/* số phòng còn lại mỗi đêm, giả lập */
+const left=(ri,day)=>{const v=hash(ri+3,day),wk=new Date(day*DAY).getDay();let n=[5,3,2,1][ri];if(v<[8,14,20,30][ri]+(wk===5||wk===6?12:0))n=0;else if(v<40)n=Math.min(n,1);return n};
+const nights=()=>S.in&&S.out?dn(S.out-S.in):0;
+const avail=ri=>{if(!nights())return null;let m=9;for(let d=dn(S.in);d<dn(S.out);d++)m=Math.min(m,left(ri,d));return m};
+const MN=['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+const month=(y,m,cls)=>{const f=new Date(y,m,1),off=(f.getDay()+6)%7,len=new Date(y,m+1,0).getDate();let g='';
+ for(let i=0;i<off;i++)g+='<span></span>';
+ for(let d=1;d<=len;d++){const dt=new Date(y,m,d),past=dt<t0,k=+dt;let c='';
+  if(S.in&&k===+S.in)c+=' st';if(S.out&&k===+S.out)c+=' en';if(S.in&&S.out&&k>+S.in&&k<+S.out)c+=' in';
+  g+=`<button type="button" class="${c.trim()}" data-d="${k}" ${past?'disabled':''} aria-pressed="${c.includes('st')||c.includes('en')}" aria-label="${fmtL(dt)}"><span>${d}</span></button>`}
+ return `<div class="${cls}"><p class="mh">${MN[m]} ${y}</p><div class="dw">${['T2','T3','T4','T5','T6','T7','CN'].map(x=>`<span>${x}</span>`).join('')}</div><div class="dg">${g}</div></div>`};
+const drawCal=()=>{const b=new Date(t0.getFullYear(),t0.getMonth()+S.m,1),b2=new Date(b.getFullYear(),b.getMonth()+1,1);
+ $('#cal').innerHTML=month(b.getFullYear(),b.getMonth(),'m1')+month(b2.getFullYear(),b2.getMonth(),'m2');$('#cP').disabled=S.m<=0;$('#cN').disabled=S.m>=10};
+$('#cal').addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b||b.disabled)return;const d=new Date(+b.dataset.d);
+ if(!S.in||S.out||d<=S.in){S.in=d;S.out=null}else{if(dn(d-S.in)>21){$('#cHint').textContent='Tối đa 21 đêm cho đặt phòng trực tuyến';return}S.out=d}
+ drawCal();up()});
+$('#cP').addEventListener('click',()=>{S.m=Math.max(0,S.m-1);drawCal()});$('#cN').addEventListener('click',()=>{S.m=Math.min(10,S.m+1);drawCal()});
+/* guests */
+$$('[data-g]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.g;S[k]=Math.max(k==='a'?1:0,Math.min(k==='a'?8:4,S[k]+ +b.dataset.d));up()}));
+/* rooms */
+const drawRooms=()=>{const n=nights();
+ $('#rl').innerHTML=RO.map((r,i)=>{const av=avail(i),fit=S.a<=r.ad&&S.a+S.c<=r.cap,ok=fit&&(av===null||av>0);
+  const tag=!fit?`<span class="av no">Tối đa ${r.ad} người lớn, ${r.cap} khách</span>`:av===null?`<span class="av">Chọn ngày để xem chỗ trống</span>`:av===0?`<span class="av no">Đã kín trong khoảng ngày này</span>`:av===1?`<span class="av lo">Chỉ còn 1 căn</span>`:`<span class="av">Còn ${av} căn</span>`;
+  return `<button type="button" class="rm" data-r="${i}" aria-pressed="${S.r===i}" ${ok?'':'disabled'}><span class="th">${thumb(r.img)}</span><span><span class="n">${r.n}</span><span class="d">${r.d}</span>${tag}</span><span class="pr"><b>${pv(r.p)}</b><small>mỗi đêm${n?' · '+n+' đêm: '+pv(r.p*n):''}</small></span></button>`}).join('');
+ $('#rH').textContent=n?`${fmt(S.in)} – ${fmt(S.out)}`:''};
+$('#rl').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(!b||b.disabled)return;S.r=+b.dataset.r;up()});
+$('#xl').addEventListener('click',e=>{const b=e.target.closest('[data-x]');if(!b)return;const i=+b.dataset.x;S.x.has(i)?S.x.delete(i):S.x.add(i);b.setAttribute('aria-pressed',S.x.has(i));$('span span',b).textContent=S.x.has(i)?'Đã thêm':'Thêm';up()});
+/* summary */
+const xCost=i=>XP[i].pair?XP[i].p:XP[i].p*S.a;
+const up=()=>{const n=nights();
+ if(S.r>=0){const r=RO[S.r],av=avail(S.r);if(S.a>r.ad||S.a+S.c>r.cap||(av!==null&&av===0))S.r=-1}
+ drawRooms();
+ $('#nN').textContent=n?`${n} đêm`:'';$('#cHint').textContent=!S.in?'Chọn ngày nhận phòng':!S.out?'Chọn ngày trả phòng':`${fmtL(S.in)} → ${fmtL(S.out)}`;
+ $('#qIn').textContent=S.in?fmtL(S.in):'Chọn ngày';$('#qOut').textContent=S.out?fmtL(S.out):'Chọn ngày';
+ const gl=`${S.a} người lớn${S.c?`, ${S.c} trẻ em`:''}`;$('#qG').textContent=gl;$('#sG').textContent=gl;$('#gA').textContent=S.a;$('#gC').textContent=S.c;
+ $$('[data-g]').forEach(b=>{const k=b.dataset.g,v=S[k];b.disabled=+b.dataset.d<0?v<=(k==='a'?1:0):v>=(k==='a'?8:4)});
+ $('#sD').textContent=n?`${fmt(S.in)} – ${fmt(S.out)} · ${n} đêm`:'Chưa chọn';
+ const rm=S.r>=0&&n?RO[S.r].p*n:0;$('#sR').textContent=S.r>=0?RO[S.r].n:'Chưa chọn phòng';$('#sRm').textContent=rm?pv(rm):'—';
+ let xs=0;$('#sX').innerHTML=[...S.x].sort().map(i=>{const c=xCost(i);xs+=c;return `<div class="rw" style="margin-top:6px">${XP[i].n}${XP[i].pair?'':' × '+S.a} <b>${pv(c)}</b></div>`}).join('');
+ $('#sT').textContent=rm?pv(rm+xs):'—'};
+/* form */
+const code=()=>'KV-'+Math.random().toString(36).slice(2,8).toUpperCase();
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg');m.classList.add('err');
+ if(!nights()){m.textContent='Bạn chọn giúp ngày nhận và trả phòng.';go('#s-cal');return}
+ if(S.r<0){m.textContent='Bạn chọn giúp một hạng phòng còn trống.';return}
+ if(!$('#fN').value.trim()||!/^[0-9 +.]{9,}$/.test($('#fT').value.trim())){m.textContent='Họ tên và số điện thoại chưa đủ.';return}
+ m.classList.remove('err');m.textContent='Đã giữ chỗ tạm thời 15 phút.';$('#code').textContent=code();$('#cf').classList.add('on')});
+/* init: mặc định 2 đêm, cuối tuần sau */
+const di=new Date(t0);di.setDate(di.getDate()+14);const de=new Date(di);de.setDate(de.getDate()+2);S.in=di;S.out=de;S.m=(di.getFullYear()-t0.getFullYear())*12+di.getMonth()-t0.getMonth();S.r=0;
+drawCal();up();
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero picture',{scale:1.14,duration:2.4,ease:'expo.out'});
+ gsap.to('.hero picture',{yPercent:10,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.hc h1 .l>span').forEach((s,i)=>gsap.from(s,{yPercent:110,duration:1.4,ease:'expo.out',delay:.2+i*.14}));
+ gsap.from('.qb',{y:34,opacity:0,duration:1.3,ease:'expo.out',delay:.6});
+ $$('.rv').forEach(el=>gsap.from(el,{y:55,opacity:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 88%',once:true}}));
+ gsap.fromTo('.fr img',{scale:1.15},{scale:1,ease:'none',scrollTrigger:{trigger:'.it',start:'top bottom',end:'bottom top',scrub:true}});
+}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Elmorra · Pool villa riêng — chọn ngày trống và đặt trực tiếp (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho một pool villa riêng: lịch ngày trống (ngày đã kín bị khóa), số khách, ưu đãi lưu trú dài ngày và đặt trực tiếp nhận mã xác nhận.">
+<style>
+@font-face{font-family:"Prata";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/prata-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Prata";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/prata-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Space Mono";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/space-mono-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Space Mono";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/space-mono-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.16,1,.3,1);
+--bg:#0B1315;--bg2:#111D20;--bg3:#18272B;--sd:#EAE3D6;--aq:#8FD6C9;--aq2:#5BB3A5;--am:#E2B36E;--mu:rgba(234,227,214,.58);--ln:rgba(234,227,214,.13);--fp:"Prata",Georgia,serif;--fm:"Space Mono",ui-monospace,monospace}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--sd);font-family:var(--fm);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1280px;margin:0 auto;padding:0 max(16px,4vw)}
+.t{font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.mu{color:var(--mu)}
+.pr{font-family:var(--fp);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+.pr i{font-style:normal;color:var(--aq)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);min-height:50px;padding:0 var(--s5);background:var(--aq);color:var(--bg);font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:background .5s var(--e),box-shadow .5s}
+.btn:hover{background:var(--sd);box-shadow:0 0 34px rgba(143,214,201,.35)}
+/* top */
+.tp{position:absolute;inset:0 0 auto;z-index:10}
+.tp .w{display:flex;align-items:center;justify-content:space-between;height:72px;gap:var(--s3)}
+.back{font-size:11px;color:var(--mu);min-height:44px;display:flex;align-items:center;white-space:nowrap}
+.emb .back{visibility:hidden}
+.lo{font-family:var(--fp);font-size:22px;letter-spacing:.3em;text-transform:uppercase;min-height:44px;display:flex;align-items:center}
+.tp .t{min-height:44px;display:flex;align-items:center;gap:var(--s2)}
+.tp .t i{width:7px;height:7px;border-radius:50%;background:var(--aq);box-shadow:0 0 13px var(--aq);animation:pl 2.6s ease-in-out infinite}
+@keyframes pl{50%{opacity:.35}}
+/* hero */
+.hero{position:relative;min-height:100svh;max-height:1000px;display:flex;align-items:flex-end;overflow:hidden}
+.hero picture{position:absolute;inset:0}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(11,19,21,.6) 0,rgba(11,19,21,0) 28%,rgba(11,19,21,.1) 55%,var(--bg) 100%)}
+.hx{position:relative;z-index:2;width:100%;padding-bottom:var(--s6)}.hx>.t{text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.hx .big{font-family:var(--fp);font-size:clamp(64px,15vw,230px);line-height:.82;letter-spacing:-.02em;text-transform:uppercase;display:flex;overflow:hidden}
+.hx .big span{display:inline-block}
+.hrow{display:grid;grid-template-columns:1fr auto;gap:var(--s5);align-items:end;margin-top:var(--s5);border-top:1px solid var(--ln);padding-top:var(--s4)}
+.hrow p{max-width:48ch;color:rgba(234,227,214,.8)}
+.hrow dl{display:flex;gap:var(--s5)}
+.hrow dt{font-family:var(--fp);font-size:26px;line-height:1}.hrow dd{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu)}
+/* booking */
+.sec{padding:var(--s8) 0}
+.bh{display:flex;justify-content:space-between;align-items:end;gap:var(--s5);flex-wrap:wrap;margin-bottom:var(--s6)}
+.bh h2{font-size:clamp(36px,5.4vw,74px)}
+.bh p{max-width:38ch;color:var(--mu)}
+.bk{display:grid;grid-template-columns:1.3fr 1fr;gap:1px;background:var(--ln);border:1px solid var(--ln)}
+.bk>div{background:var(--bg2);padding:var(--s5)}
+.cn{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s4)}
+.cn h3{font-family:var(--fp);font-weight:400;font-size:26px}
+.cn button{width:44px;height:44px;border:1px solid var(--ln);transition:border-color .3s}.cn button:hover:not(:disabled){border-color:var(--aq)}.cn button:disabled{opacity:.25;cursor:default}
+.wk,.gd{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.wk span{text-align:center;font-size:10px;letter-spacing:.12em;color:var(--mu);padding-bottom:var(--s2)}
+.gd button{aspect-ratio:1;min-height:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid transparent;font-size:14px;position:relative;transition:background .3s,border-color .3s,color .3s}
+.gd button small{font-size:9px;color:var(--mu);letter-spacing:0;line-height:1}
+.gd button:hover:not(:disabled){border-color:var(--aq2)}
+.gd button:disabled{cursor:not-allowed;color:rgba(234,227,214,.22)}
+.gd button.bk0{background:repeating-linear-gradient(135deg,rgba(234,227,214,.05) 0 4px,transparent 4px 8px);color:rgba(234,227,214,.3)}
+.gd button.bk0 small{color:rgba(226,179,110,.6)}
+.gd button.in{background:rgba(143,214,201,.12)}
+.gd button.st,.gd button.en{background:var(--aq);color:var(--bg)}.gd button.st small,.gd button.en small{color:var(--bg)}
+.lg{display:flex;flex-wrap:wrap;gap:var(--s4);margin-top:var(--s4);font-size:11px;color:var(--mu)}
+.lg span{display:flex;align-items:center;gap:6px}.lg i{width:13px;height:13px;display:inline-block}
+.hint{margin-top:var(--s3);font-size:12px;color:var(--am);min-height:1.5em}
+.sd{display:grid;gap:var(--s4);align-content:start}
+.gr{display:flex;justify-content:space-between;align-items:center;gap:var(--s3);border-bottom:1px solid var(--ln);padding-bottom:var(--s3)}
+.gr small{display:block;font-size:11px;color:var(--mu)}
+.st2{display:flex;align-items:center}
+.st2 button{width:44px;height:44px;border:1px solid var(--ln);font-size:16px;transition:border-color .3s}.st2 button:hover:not(:disabled){border-color:var(--aq)}.st2 button:disabled{opacity:.25}
+.st2 output{min-width:44px;text-align:center}
+.of{border:1px solid var(--ln);padding:var(--s3) var(--s4);display:grid;gap:var(--s2)}
+.of .bar{height:3px;background:var(--ln);position:relative;overflow:hidden}
+.of .bar i{position:absolute;inset:0 auto 0 0;background:var(--am);transition:width .8s var(--e)}
+.of .tiers{display:flex;justify-content:space-between;font-size:10px;color:var(--mu)}
+.of .tiers b{font-weight:400}.of .tiers b.on{color:var(--am)}
+.of p{font-size:12px;color:var(--am)}
+.rw{display:flex;justify-content:space-between;gap:var(--s3);font-size:13px;color:var(--mu)}
+.rw b{font-weight:400;color:var(--sd);text-align:right}
+.tt{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ln);padding-top:var(--s3)}
+.tt b{font-family:var(--fp);font-weight:400;font-size:42px;line-height:1;color:var(--aq)}
+.ip{width:100%;min-height:48px;border:1px solid var(--ln);background:var(--bg);padding:0 var(--s3);font-size:16px;outline:0;border-radius:0;margin-top:4px}
+.ip:focus{border-color:var(--aq)}
+label.t{color:var(--mu)}
+.fine{font-size:11px;color:var(--mu);line-height:1.6}
+.msg{font-size:12px;min-height:1.4em;color:var(--aq)}.msg.err{color:#F0A08C}
+.code{display:none;border:1px dashed var(--aq2);padding:var(--s4);text-align:center}
+.code.on{display:block}
+.code b{display:block;font-family:var(--fp);font-weight:400;font-size:34px;letter-spacing:.12em;color:var(--aq);margin:var(--s2) 0}
+/* villa */
+.vg{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:var(--s3)}
+.vg figure{overflow:hidden;position:relative}
+.vg .a{grid-column:span 2;aspect-ratio:3/2}.vg .b{grid-row:span 2}.vg .c{grid-column:span 2;aspect-ratio:2/1}.vg .d{aspect-ratio:1}
+.vg figcaption{position:absolute;left:var(--s3);bottom:var(--s3);font-size:10px;letter-spacing:.16em;text-transform:uppercase;background:rgba(11,19,21,.7);padding:4px 8px}
+.vg img{transition:transform 1.6s var(--e)}.vg figure:hover img{transform:scale(1.05)}
+.ft{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-top:var(--s6);border-top:1px solid var(--ln);padding-top:var(--s5)}
+.ft b{display:block;font-family:var(--fp);font-weight:400;font-size:26px;color:var(--aq);line-height:1.1;margin-bottom:var(--s2)}
+.ft p{color:var(--mu);font-size:13px}
+/* offer table */
+.ot{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ln);border:1px solid var(--ln)}
+.ot div{background:var(--bg2);padding:var(--s5) var(--s4)}
+.ot b{display:block;font-family:var(--fp);font-weight:400;font-size:68px;line-height:.9;color:var(--am)}
+.ot b small{font-size:.38em;color:var(--sd)}
+.ot p{color:var(--mu);margin-top:var(--s3)}
+footer{padding:var(--s7) 0 var(--s6);border-top:1px solid var(--ln)}
+footer .w{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s5)}
+footer .lo{font-size:42px;grid-column:1/-1}
+footer p{font-size:12px;color:var(--mu);max-width:62ch}footer a{text-decoration:underline}
+@media(max-width:980px){
+ .bk{grid-template-columns:1fr}.bk>div{padding:var(--s4)}
+ .hrow{grid-template-columns:1fr}
+ .vg{grid-template-columns:1fr 1fr}.vg .a{grid-column:1/-1}.vg .b{grid-row:auto;aspect-ratio:4/5}.vg .c{grid-column:auto;aspect-ratio:4/5}
+ .ft{grid-template-columns:1fr 1fr}
+ .ot{grid-template-columns:1fr}
+ footer .w{grid-template-columns:1fr}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:560px){
+ .tp .t span{display:none}
+ .hrow dl{gap:var(--s4)}.hrow dt{font-size:20px}
+ .gd button{min-height:36px;font-size:13px}.gd button small{font-size:8px}
+ .vg .c,.vg .d{aspect-ratio:4/5}
+ .ft{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="tp"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top" aria-label="Elmorra">Elmorra</a>
+ <a class="t" href="#dat"><i></i><span>Xem ngày trống</span></a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <picture><source type="image/avif" srcset="../img/demo/elmorra/hero-640.avif 640w, ../img/demo/elmorra/hero-1280.avif 1280w, ../img/demo/elmorra/hero-1920.avif 1920w, ../img/demo/elmorra/hero-2560.avif 2560w" sizes="100vw"><img src="../img/demo/elmorra/hero-1280.webp" srcset="../img/demo/elmorra/hero-640.webp 640w, ../img/demo/elmorra/hero-1280.webp 1280w, ../img/demo/elmorra/hero-1920.webp 1920w, ../img/demo/elmorra/hero-2560.webp 2560w" sizes="100vw" width="1280" height="853" alt="Villa hai tầng sáng đèn bên hồ bơi xanh giữa vườn nhiệt đới lúc chập tối" fetchpriority="high" decoding="async"></picture>
+ <div class="w hx">
+  <p class="t" style="color:var(--aq);margin-bottom:var(--s5)">Pool villa riêng · một căn duy nhất · Concept</p>
+  <h1 class="big" aria-label="Elmorra"><span>E</span><span>l</span><span>m</span><span>o</span><span>r</span><span>r</span><span>a</span></h1>
+  <div class="hrow">
+   <p>Bốn phòng ngủ, một hồ bơi mười bốn mét và khu vườn chỉ dành cho nhóm của bạn. Xem ngày còn trống, chọn số đêm, nhận mã đặt ngay trên trang.</p>
+   <dl><div><dt>4</dt><dd>phòng ngủ</dd></div><div><dt>14 m</dt><dd>hồ bơi</dd></div><div><dt>8</dt><dd>khách tối đa</dd></div></dl>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="dat"><div class="w">
+ <div class="bh rv"><div><p class="t" style="color:var(--aq)">Đặt trực tiếp</p><h2 class="pr" style="margin-top:var(--s3)">Lịch của <i>villa.</i></h2></div><p>Ngày gạch chéo là ngày đã có khách. Ở từ 5 đêm được giảm giá lưu trú dài ngày (minh họa).</p></div>
+ <div class="bk rv">
+  <div>
+   <div class="cn"><button type="button" id="mP" aria-label="Tháng trước">←</button><h3 id="mT" aria-live="polite"></h3><button type="button" id="mN" aria-label="Tháng sau">→</button></div>
+   <div class="wk"><span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span></div>
+   <div class="gd" id="gd"></div>
+   <div class="lg"><span><i style="background:var(--aq)"></i>Đang chọn</span><span><i style="background:repeating-linear-gradient(135deg,rgba(234,227,214,.25) 0 2px,transparent 2px 4px)"></i>Đã kín</span><span><i style="border:1px solid var(--ln)"></i>Còn trống · giá / đêm (triệu)</span></div>
+   <p class="hint" id="hint" role="status"></p>
+  </div>
+  <div class="sd" aria-live="polite">
+   <div class="gr"><div>Người lớn<small>Tối đa 8 khách</small></div><div class="st2"><button type="button" data-g="a" data-d="-1" aria-label="Bớt người lớn">−</button><output id="gA">4</output><button type="button" data-g="a" data-d="1" aria-label="Thêm người lớn">+</button></div></div>
+   <div class="gr"><div>Trẻ em<small>Dưới 12 tuổi</small></div><div class="st2"><button type="button" data-g="c" data-d="-1" aria-label="Bớt trẻ em">−</button><output id="gC">0</output><button type="button" data-g="c" data-d="1" aria-label="Thêm trẻ em">+</button></div></div>
+   <div class="of"><p id="ofT"></p><div class="bar"><i id="ofB"></i></div><div class="tiers"><b data-t="5">5 đêm −10%</b><b data-t="7">7 đêm −15%</b><b data-t="14">14 đêm −22%</b></div></div>
+   <div class="rw">Ngày <b id="rD">—</b></div>
+   <div class="rw">Tiền villa <b id="rN">—</b></div>
+   <div class="rw">Ưu đãi dài ngày <b id="rO">—</b></div>
+   <div class="rw">Phụ thu khách thứ 7–8 <b id="rX">—</b></div>
+   <div class="tt"><span class="t mu">Tổng</span><b id="rT">—</b></div>
+   <form id="bf" novalidate style="display:grid;gap:var(--s3)">
+    <div><label class="t" for="fN">Họ tên</label><input class="ip" id="fN" required autocomplete="name"></div>
+    <div><label class="t" for="fT">Điện thoại</label><input class="ip" id="fT" type="tel" inputmode="tel" required autocomplete="tel"></div>
+    <button class="btn">Đặt và nhận mã</button>
+    <p class="msg" id="msg" role="status"></p>
+   </form>
+   <div class="code" id="code"><span class="t mu">Mã đặt villa (minh họa)</span><b id="cV"></b><p class="fine">Đây là trang mẫu nên chưa có thông tin nào được gửi đi.</p></div>
+   <p class="fine">Giá minh họa, đã gồm thuế phí, quản gia và dọn phòng hằng ngày. Tổng trên 20 triệu đồng hiển thị “Liên hệ” để đội ngũ gửi báo giá.</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w">
+ <div class="bh rv"><div><p class="t" style="color:var(--aq)">Villa</p><h2 class="pr" style="margin-top:var(--s3)">Cả khu vườn <i>là của bạn.</i></h2></div></div>
+ <div class="vg">
+  <figure class="a rv"><picture><source type="image/avif" srcset="../img/demo/elmorra/ho-640.avif 640w, ../img/demo/elmorra/ho-1280.avif 1280w, ../img/demo/elmorra/ho-1920.avif 1920w" sizes="(max-width:980px) 100vw, 66vw"><img src="../img/demo/elmorra/ho-1280.webp" srcset="../img/demo/elmorra/ho-640.webp 640w, ../img/demo/elmorra/ho-1280.webp 1280w, ../img/demo/elmorra/ho-1920.webp 1920w" sizes="(max-width:980px) 100vw, 66vw" width="1280" height="853" alt="Hồ bơi dài giữa hai dãy phòng ốp đá, cuối hồ có hai ghế dưới ô" loading="lazy" decoding="async"></picture><figcaption>Hồ bơi 14 m</figcaption></figure>
+  <figure class="b rv"><picture><source type="image/avif" srcset="../img/demo/elmorra/villa-640.avif 640w, ../img/demo/elmorra/villa-1280.avif 1280w, ../img/demo/elmorra/villa-1920.avif 1920w" sizes="(max-width:980px) 50vw, 33vw"><img src="../img/demo/elmorra/villa-1280.webp" srcset="../img/demo/elmorra/villa-640.webp 640w, ../img/demo/elmorra/villa-1280.webp 1280w, ../img/demo/elmorra/villa-1920.webp 1920w" sizes="(max-width:980px) 50vw, 33vw" width="1280" height="1600" alt="Nhà mái tranh cạnh hồ bơi và tán chuối xanh" loading="lazy" decoding="async"></picture><figcaption>Nhà vườn</figcaption></figure>
+  <figure class="c rv"><picture><source type="image/avif" srcset="../img/demo/elmorra/tren-cao-640.avif 640w, ../img/demo/elmorra/tren-cao-1280.avif 1280w, ../img/demo/elmorra/tren-cao-1920.avif 1920w" sizes="(max-width:980px) 50vw, 33vw"><img src="../img/demo/elmorra/tren-cao-1280.webp" srcset="../img/demo/elmorra/tren-cao-640.webp 640w, ../img/demo/elmorra/tren-cao-1280.webp 1280w, ../img/demo/elmorra/tren-cao-1920.webp 1920w" sizes="(max-width:980px) 50vw, 33vw" width="1280" height="1280" alt="Ảnh chụp từ trên cao mái villa giữa rừng cọ" loading="lazy" decoding="async"></picture><figcaption>Nhìn từ trên cao</figcaption></figure>
+ </div>
+ <div class="ft">
+  <div class="rv"><b>Quản gia riêng</b><p>Có mặt từ 7:00 đến 22:00, gọi được cả đêm.</p></div>
+  <div class="rv"><b>Bếp mở</b><p>Đầu bếp nấu tại villa theo thực đơn đặt trước.</p></div>
+  <div class="rv"><b>Bữa sáng nổi</b><p>Khay gỗ thả trên hồ, phục vụ đến 11:00.</p></div>
+  <div class="rv"><b>Trẻ em</b><p>Nôi, ghế ăn, rào hồ bơi lắp theo yêu cầu.</p></div>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w">
+ <div class="vg" style="grid-template-columns:1fr 1.6fr">
+  <figure class="rv" style="aspect-ratio:4/5"><picture><source type="image/avif" srcset="../img/demo/elmorra/sang-640.avif 640w, ../img/demo/elmorra/sang-1280.avif 1280w, ../img/demo/elmorra/sang-1920.avif 1920w" sizes="(max-width:980px) 50vw, 38vw"><img src="../img/demo/elmorra/sang-1280.webp" srcset="../img/demo/elmorra/sang-640.webp 640w, ../img/demo/elmorra/sang-1280.webp 1280w, ../img/demo/elmorra/sang-1920.webp 1920w" sizes="(max-width:980px) 50vw, 38vw" width="1280" height="1600" alt="Hai người dùng bữa sáng trên khay gỗ nổi giữa hồ bơi tràn nhìn ra rừng" loading="lazy" decoding="async"></picture><figcaption>Bữa sáng trên hồ</figcaption></figure>
+  <figure class="rv" style="aspect-ratio:auto"><picture><source type="image/avif" srcset="../img/demo/elmorra/hoang-hon-640.avif 640w, ../img/demo/elmorra/hoang-hon-1280.avif 1280w, ../img/demo/elmorra/hoang-hon-1920.avif 1920w" sizes="(max-width:980px) 50vw, 60vw"><img src="../img/demo/elmorra/hoang-hon-1280.webp" srcset="../img/demo/elmorra/hoang-hon-640.webp 640w, ../img/demo/elmorra/hoang-hon-1280.webp 1280w, ../img/demo/elmorra/hoang-hon-1920.webp 1920w" sizes="(max-width:980px) 50vw, 60vw" width="1280" height="853" alt="Ghế nằm và khăn cam bên hồ bơi tràn lúc mặt trời lặn" loading="lazy" decoding="async"></picture><figcaption>Hoàng hôn ở hồ tràn</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w">
+ <div class="bh rv"><div><p class="t" style="color:var(--am)">Lưu trú dài ngày</p><h2 class="pr" style="margin-top:var(--s3)">Ở lâu hơn, <i>trả ít hơn.</i></h2></div><p>Ưu đãi tự áp vào tổng khi bạn chọn đủ số đêm. Mức giảm là số minh họa.</p></div>
+ <div class="ot">
+  <div class="rv"><b>10<small>%</small></b><p>Từ 5 đêm. Thêm một buổi xoa bóp đôi tại villa.</p></div>
+  <div class="rv"><b>15<small>%</small></b><p>Từ 7 đêm. Thêm đưa đón sân bay hai chiều.</p></div>
+  <div class="rv"><b>22<small>%</small></b><p>Từ 14 đêm. Dọn phòng hai lần mỗi ngày, giặt ủi không giới hạn.</p></div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="lo">Elmorra</p>
+ <p>Elmorra là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, giá, địa chỉ chỉ để minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+ <p>Đồi Cọ, ven biển phía Nam (địa chỉ minh họa)<br>0258 000 0000 (số minh họa)<br>© Elmorra · Concept</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-elmorra',smDemo:'lux-lp-elmorra'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const go=s=>{const el=$(s);el&&scrollTo({top:el.getBoundingClientRect().top+scrollY-20,behavior:RM?'auto':'smooth'})};
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1&&$(h)){e.preventDefault();go(h)}}));
+/* lịch — ngày kín giả lập, giá minh họa */
+const DAY=864e5,t0=new Date();t0.setHours(0,0,0,0);const dn=d=>Math.floor((d-t0)/DAY);
+const rate=d=>{const w=d.getDay();return w===5||w===6?4300000:3400000};
+const hs=k=>{let h=(k*2654435761)>>>0;h^=h>>>15;h=Math.imul(h,2246822519)>>>0;return h%100};
+/* đêm đã có khách: theo cụm 2–4 đêm */
+const BK=new Set();{let i=2;while(i<330){const v=hs(i);if(v<34){const L=2+v%3;for(let j=0;j<L;j++)BK.add(i+j);i+=L+3}else i++}}
+const booked=d=>BK.has(dn(d));
+const TI=[[14,.22],[7,.15],[5,.10]];
+const S={m:0,in:null,out:null,a:4,c:0};
+const fmt=d=>d.toLocaleDateString('vi-VN',{day:'numeric',month:'numeric'});
+const draw=()=>{const b=new Date(t0.getFullYear(),t0.getMonth()+S.m,1),y=b.getFullYear(),m=b.getMonth(),off=(b.getDay()+6)%7,len=new Date(y,m+1,0).getDate();
+ $('#mT').textContent=`Tháng ${m+1} · ${y}`;$('#mP').disabled=S.m<=0;$('#mN').disabled=S.m>=9;
+ let g='';for(let i=0;i<off;i++)g+='<span></span>';
+ for(let d=1;d<=len;d++){const dt=new Date(y,m,d),k=+dt,past=dt<t0,bk=!past&&booked(dt);
+  /* ngày kín vẫn chọn được làm ngày trả phòng nếu đêm trước còn trống */
+  const canOut=S.in&&!S.out&&k>+S.in&&bk&&!rangeBlocked(S.in,dt);
+  let c=bk?'bk0':'';if(S.in&&k===+S.in)c+=' st';if(S.out&&k===+S.out)c+=' en';if(S.in&&S.out&&k>+S.in&&k<+S.out)c+=' in';
+  const beyond=S.in&&!S.out&&k>+S.in&&rangeBlocked(S.in,dt)&&!canOut;
+  const dis=past||(bk&&!canOut)||beyond;
+  g+=`<button type="button" class="${c.trim()}" data-d="${k}" ${dis?'disabled':''} aria-pressed="${/st|en/.test(c)}" aria-label="${dt.toLocaleDateString('vi-VN',{weekday:'long',day:'numeric',month:'numeric'})}${bk?', đã kín':''}">${d}<small>${past?'':bk?'kín':(rate(dt)/1e6).toLocaleString('vi-VN')}</small></button>`}
+ $('#gd').innerHTML=g};
+const rangeBlocked=(a,b)=>{for(let d=new Date(a);d<b;d.setDate(d.getDate()+1))if(booked(d))return true;return false};
+$('#gd').addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b||b.disabled)return;const d=new Date(+b.dataset.d);$('#hint').textContent='';
+ if(!S.in||S.out||d<=S.in){if(booked(d)){return}S.in=d;S.out=null;$('#hint').textContent='Chọn ngày trả phòng. Ngày sau đêm đã kín tạm khóa; bấm một ngày trước ngày nhận để chọn lại.'}
+ else{if(rangeBlocked(S.in,d)){$('#hint').textContent='Khoảng ngày này có đêm đã kín. Bạn chọn ngày trả phòng sớm hơn nhé.';return}if((d-S.in)/DAY>30){$('#hint').textContent='Tối đa 30 đêm cho đặt trực tuyến.';return}S.out=d}
+ draw();up()});
+$('#mP').addEventListener('click',()=>{S.m--;draw()});$('#mN').addEventListener('click',()=>{S.m++;draw()});
+$$('[data-g]').forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.g,d=+b.dataset.d;if(d>0&&S.a+S.c>=8)return;S[k]=Math.max(k==='a'?1:0,Math.min(k==='a'?8:3,S[k]+d));up()}));
+const up=()=>{let n=0,base=0;if(S.in&&S.out){for(let d=new Date(S.in);d<S.out;d.setDate(d.getDate()+1)){n++;base+=rate(d)}}
+ const t=TI.find(x=>n>=x[0]),off=t?base*t[1]:0,ex=Math.max(0,S.a+S.c-6)*650000*n,tot=base-off+ex;
+ $('#gA').textContent=S.a;$('#gC').textContent=S.c;
+ $$('[data-g]').forEach(b=>{const k=b.dataset.g,d=+b.dataset.d;b.disabled=d<0?S[k]<=(k==='a'?1:0):(S.a+S.c>=8||S[k]>=(k==='a'?8:3))});
+ $('#rD').textContent=n?`${fmt(S.in)} – ${fmt(S.out)} · ${n} đêm`:S.in?`Nhận ${fmt(S.in)}, chọn ngày trả`:'Chọn ngày nhận phòng';
+ $('#rN').textContent=n?pv(base):'—';$('#rO').textContent=off?`− ${pv(off)} (${Math.round(t[1]*100)}%)`:'Chưa áp dụng';$('#rX').textContent=ex?pv(ex):'Không';$('#rT').textContent=n?pv(tot):'—';
+ const nx=[5,7,14].find(x=>n<x);$('#ofT').textContent=nx?`${n?`Đang chọn ${n} đêm. `:''}Thêm ${nx-n} đêm để được giảm ${({5:10,7:15,14:22})[nx]}%.`:'Đã đạt mức ưu đãi cao nhất: giảm 22%.';
+ $('#ofB').style.width=Math.min(100,n/14*100)+'%';$$('.tiers b').forEach(b=>b.classList.toggle('on',n>=+b.dataset.t))};
+/* mặc định: tìm 3 đêm trống đầu tiên sau 10 ngày */
+{let s=new Date(t0);s.setDate(s.getDate()+10);for(let i=0;i<120;i++){const e=new Date(s);e.setDate(e.getDate()+3);if(!booked(s)&&!rangeBlocked(s,e)){S.in=new Date(s);S.out=e;break}s.setDate(s.getDate()+1)}
+ S.m=(S.in.getFullYear()-t0.getFullYear())*12+S.in.getMonth()-t0.getMonth()}
+draw();up();
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg');m.classList.add('err');
+ if(!S.in||!S.out){m.textContent='Bạn chọn giúp ngày nhận và trả phòng trên lịch.';return}
+ if(!$('#fN').value.trim()||!/^[0-9 +.]{9,}$/.test($('#fT').value.trim())){m.textContent='Họ tên và số điện thoại chưa đủ.';return}
+ m.classList.remove('err');m.textContent='Đã giữ ngày cho bạn trong 30 phút.';$('#cV').textContent='EL-'+Math.random().toString(36).slice(2,7).toUpperCase();$('#code').classList.add('on')});
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hx .big span',{yPercent:100,duration:1.6,ease:'expo.out',stagger:.06,delay:.2});
+ gsap.from('.hero picture',{scale:1.15,duration:3,ease:'expo.out'});
+ gsap.to('.hero picture',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.rv').forEach(el=>gsap.from(el,{y:40,opacity:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
+}
+})();
+</script>
+</body>
+</html>

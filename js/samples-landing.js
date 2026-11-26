@@ -173,5 +173,31 @@
     demo: 'demos/lux-lp-hai-am.html',
     long: 'img/sm-landing-hai-am-long.webp',
     longM: 'img/sm-landing-hai-am-long-m.webp'
+  },
+  {
+    id: 'landing-cam-thach',
+    title: 'Cẩm Thạch · Trăng mật',
+    industry: 'Nghỉ dưỡng',
+    desc: 'Landing page gói trăng mật tông hồng phấn và xanh ngọc, ảnh khung bầu dục: chọn số đêm, hạng villa, thêm trang trí phòng, bữa tối dưới lều nến, chụp ảnh hoàng hôn, spa đôi; tổng cập nhật ngay và giữ chỗ 48 giờ.',
+    tags: ['Gói trăng mật', 'Tự ghép gói', 'Giữ chỗ'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-cam-thach.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-cam-thach.html',
+    long: 'img/sm-landing-cam-thach-long.webp',
+    longM: 'img/sm-landing-cam-thach-long-m.webp'
+  },
+  {
+    id: 'landing-elmorra',
+    title: 'Elmorra · Pool villa',
+    industry: 'Nghỉ dưỡng',
+    desc: 'Landing page pool villa riêng tông đêm xanh thẫm, tên thương hiệu cỡ lớn trên ảnh villa lên đèn: lịch giá từng đêm với ngày đã kín bị khóa, số khách, thanh ưu đãi lưu trú dài ngày và đặt trực tiếp nhận mã xác nhận.',
+    tags: ['Pool villa', 'Lịch ngày trống', 'Ưu đãi dài ngày'],
+    pkg: 'Landing Page — Cao cấp',
+    cover: 'img/sm-landing-elmorra.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-elmorra.html',
+    long: 'img/sm-landing-elmorra-long.webp',
+    longM: 'img/sm-landing-elmorra-long-m.webp'
   }
 ];

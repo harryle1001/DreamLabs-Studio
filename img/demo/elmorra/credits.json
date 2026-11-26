@@ -1,0 +1,87 @@
+{
+ "hero": {
+  "author": "Vero Benedini",
+  "page": "https://www.pexels.com/photo/luxury-villa-with-pool-in-tropical-setting-28915352/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/28915352/pexels-photo-28915352.jpeg",
+  "w": 7952,
+  "h": 5304,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "ho": {
+  "author": "Maitri Wangsa",
+  "page": "https://www.pexels.com/photo/luxury-bali-villa-with-private-pool-39636520/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/39636520/pexels-photo-39636520.jpeg",
+  "w": 6249,
+  "h": 3515,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "sang": {
+  "author": "Evin Ng",
+  "page": "https://www.pexels.com/photo/a-couple-eating-on-the-swimming-pool-with-floating-wooden-tray-8414483/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8414483/pexels-photo-8414483.jpeg",
+  "w": 2419,
+  "h": 3000,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "hoang-hon": {
+  "author": "Ahmet ÇÖTÜR",
+  "page": "https://www.pexels.com/photo/sunbeds-over-pool-at-resort-at-sunset-24807132/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/24807132/pexels-photo-24807132.jpeg",
+  "w": 6720,
+  "h": 4480,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "tren-cao": {
+  "author": "Keegan Checks",
+  "page": "https://www.pexels.com/photo/34104609/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/34104609/pexels-photo-34104609.jpeg",
+  "w": 3647,
+  "h": 2735,
+  "ar": "1:1",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "villa": {
+  "author": "Kseniya Kobi",
+  "page": "https://www.pexels.com/photo/swimming-pool-of-the-resort-villa-8085317/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8085317/pexels-photo-8085317.jpeg",
+  "w": 3024,
+  "h": 4032,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

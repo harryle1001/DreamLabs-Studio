@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Làng Sương Retreat — chương trình wellness trên núi (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một retreat trên núi: chọn chương trình wellness 3, 5 hoặc 7 đêm để xem lịch hoạt động từng ngày, chọn kiểu phòng và đặt chỗ.">
+<style>
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-vietnamese-300-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-latin-300-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Josefin Sans";font-weight:100 700;font-style:normal;font-display:swap;src:url(fonts/josefin-sans-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Josefin Sans";font-weight:100 700;font-style:normal;font-display:swap;src:url(fonts/josefin-sans-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.22,1,.36,1);
+--fog:#E3E5DF;--pp:#EEEFEA;--ink:#252D2A;--moss:#56664F;--clay:#A4694A;--mu:rgba(37,45,42,.6);--ln:rgba(37,45,42,.14);--fs:"Spectral",Georgia,serif;--fj:"Josefin Sans",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fog);color:var(--ink);font-family:var(--fs);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure{margin:0}ul,ol{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1200px;margin:0 auto;padding:0 max(16px,4vw)}
+.lb{font-family:var(--fj);font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase}
+.mu{color:var(--mu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.it{font-style:italic;color:var(--moss)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 var(--s5);background:var(--ink);color:var(--pp);font-family:var(--fj);font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;border-radius:2px;transition:background .5s var(--e)}
+.btn:hover{background:var(--moss)}
+/* header */
+.hd{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);height:72px}
+.back{font-family:var(--fj);font-size:12px;letter-spacing:.06em;color:var(--mu);min-height:44px;display:flex;align-items:center;white-space:nowrap}
+.emb .back{visibility:hidden}
+.lg{font-family:var(--fs);font-style:italic;font-size:26px;min-height:44px;display:flex;align-items:center;gap:var(--s2)}
+.lg svg{width:24px;height:16px}
+.nv{display:flex;gap:var(--s5)}.nv a{font-family:var(--fj);font-size:12px;letter-spacing:.16em;text-transform:uppercase;min-height:44px;display:flex;align-items:center;color:var(--mu);transition:color .3s}.nv a:hover{color:var(--ink)}
+/* hero */
+.hero{text-align:center;padding:var(--s6) 0 0}
+.hero h1{font-weight:300;font-size:clamp(44px,8vw,110px);line-height:1;letter-spacing:-.02em;margin:var(--s4) auto var(--s4);max-width:12ch}
+.hero h1 .wd{display:inline-block}
+.hero p.ld{max-width:44ch;margin:0 auto;color:var(--mu)}
+.pano{position:relative;margin-top:var(--s6);aspect-ratio:16/9;max-height:86svh;width:100%;overflow:hidden;background:#cfd3cc}
+.pano picture{position:absolute;inset:-4% 0}
+.pano::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--fog) 0,rgba(227,229,223,0) 22%,rgba(227,229,223,0) 75%,var(--fog) 100%);pointer-events:none}
+.mist{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 40% 18% at 20% 55%,rgba(238,239,234,.55),transparent 70%),radial-gradient(ellipse 36% 14% at 75% 40%,rgba(238,239,234,.45),transparent 70%);animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translateX(6%)}}
+.pano .cap{position:absolute;right:max(16px,4vw);bottom:var(--s5);z-index:2;font-family:var(--fj);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink)}
+/* sections */
+.sec{padding:var(--s8) 0}
+.st{text-align:center;max-width:720px;margin:0 auto var(--s6)}
+.st h2{font-weight:300;font-size:clamp(34px,5vw,68px);line-height:1.05;letter-spacing:-.015em;margin-top:var(--s3)}
+.st p{color:var(--mu);margin-top:var(--s4)}
+/* program picker */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-bottom:var(--s6)}
+.pc{border:1px solid var(--ln);padding:var(--s5) var(--s4);text-align:left;display:flex;flex-direction:column;gap:var(--s2);min-height:220px;transition:background .6s var(--e),color .6s,border-color .6s;position:relative;width:100%}
+.pc:hover{border-color:var(--ink)}
+.pc .nn{font-size:68px;line-height:.9;font-weight:300}
+.pc .nn small{font-family:var(--fj);font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-left:var(--s2)}
+.pc .tn{font-style:italic;font-size:26px}
+.pc .ds{font-size:15px;color:var(--mu)}
+.pc .pr{margin-top:auto;font-family:var(--fj);font-size:13px;letter-spacing:.06em}
+.pc[aria-pressed=true]{background:var(--ink);color:var(--pp);border-color:var(--ink)}
+.pc[aria-pressed=true] .ds{color:rgba(238,239,234,.65)}
+.pc[aria-pressed=true]::after{content:"Đang xem";position:absolute;top:var(--s4);right:var(--s4);font-family:var(--fj);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#C9D3BF}
+/* schedule */
+.sch{display:grid;grid-template-columns:260px 1fr;gap:var(--s6);align-items:start}
+.sca{position:sticky;top:var(--s5);display:grid;gap:var(--s4)}
+.sca figure{aspect-ratio:4/5;overflow:hidden}
+.sca p{font-size:15px;color:var(--mu)}
+.days{border-top:1px solid var(--ln)}
+.day{display:grid;grid-template-columns:110px 1fr;gap:var(--s4);padding:var(--s5) 0;border-bottom:1px solid var(--ln)}
+.day .dn{font-family:var(--fj);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--moss);padding-top:8px}
+.day .dn b{display:block;font-family:var(--fs);font-weight:300;font-size:42px;letter-spacing:0;color:var(--ink);line-height:1}
+.day h3{font-weight:300;font-style:italic;font-size:26px;line-height:1.2;margin-bottom:var(--s3)}
+.day ol{display:grid;gap:var(--s2)}
+.day li{display:grid;grid-template-columns:64px 1fr;gap:var(--s3);font-size:16px}
+.day li span{font-family:var(--fj);font-size:12px;letter-spacing:.08em;color:var(--mu);padding-top:4px}
+/* rooms */
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.ro{text-align:left;display:flex;flex-direction:column;gap:var(--s3);width:100%;padding-bottom:var(--s3);border-bottom:1px solid var(--ln);transition:border-color .5s}
+.ro .fig{display:block;aspect-ratio:3/2;overflow:hidden;position:relative}
+.ro .fig::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 0 var(--moss);transition:box-shadow .5s var(--e)}
+.ro[aria-pressed=true] .fig::after{box-shadow:inset 0 0 0 5px var(--moss)}
+.ro[aria-pressed=true]{border-color:var(--moss)}
+.ro img{transition:transform 1.4s var(--e)}.ro:hover img{transform:scale(1.04)}
+.ro .t{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3)}
+.ro .n{font-size:26px;line-height:1.15}
+.ro .p{font-family:var(--fj);font-size:13px;white-space:nowrap;color:var(--moss)}
+.ro .d{font-size:15px;color:var(--mu)}
+.ro .chk{font-family:var(--fj);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.ro[aria-pressed=true] .chk{color:var(--moss)}
+/* gallery */
+.gal{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:var(--s3);align-items:end}
+.gal figure{overflow:hidden}
+.gal .fw:nth-child(1) figure{aspect-ratio:4/5}.gal .fw:nth-child(2) figure{aspect-ratio:3/2}.gal .fw:nth-child(3) figure{aspect-ratio:4/5}.gal .fw:nth-child(3){margin-bottom:var(--s7)}
+.gal figcaption{font-family:var(--fj);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);padding-top:var(--s2)}
+.gal .fw{display:flex;flex-direction:column}
+/* booking */
+.bk{background:var(--pp);border:1px solid var(--ln);display:grid;grid-template-columns:1fr 1fr}
+.bk>*{padding:var(--s6) var(--s5)}
+.bk .l{border-right:1px solid var(--ln)}
+.fd{display:grid;gap:6px;margin-bottom:var(--s4)}
+.fd>label,.fd>.k{font-family:var(--fj);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.in{width:100%;min-height:50px;border:0;border-bottom:1px solid var(--ln);background:transparent;padding:0 2px;font-size:18px;outline:0;border-radius:0;-webkit-appearance:none;appearance:none}
+.in:focus{border-color:var(--ink)}
+select.in{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 14px) 50%,calc(100% - 9px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.seg{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.seg button{min-height:44px;padding:0 var(--s4);border:1px solid var(--ln);font-family:var(--fj);font-size:13px;border-radius:99px;transition:background .3s,color .3s,border-color .3s}
+.seg button[aria-pressed=true]{background:var(--moss);color:var(--pp);border-color:var(--moss)}
+.rcpt{display:grid;gap:var(--s3)}
+.rcpt .rw{display:flex;justify-content:space-between;gap:var(--s3);font-size:16px;border-bottom:1px dotted var(--ln);padding-bottom:var(--s2)}
+.rcpt .rw span{color:var(--mu)}
+.rcpt .tt{display:flex;justify-content:space-between;align-items:baseline;padding-top:var(--s3)}
+.rcpt .tt b{font-weight:300;font-size:42px;line-height:1}
+.fine{font-family:var(--fj);font-size:12px;color:var(--mu);line-height:1.6}
+.msg{font-family:var(--fj);font-size:13px;min-height:1.4em;color:var(--moss)}.msg.err{color:#A4423A}
+footer{padding:var(--s7) 0 var(--s6);text-align:center}
+footer .lg{justify-content:center;font-size:42px;margin-bottom:var(--s4)}
+footer p{font-family:var(--fj);font-size:13px;color:var(--mu);max-width:62ch;margin:0 auto var(--s2);line-height:1.7}footer a{text-decoration:underline}
+@media(max-width:900px){
+ .nv{display:none}
+ .pg{grid-template-columns:1fr}.pc{min-height:0;padding:var(--s4)}.pc .nn{font-size:42px}
+ .sch{grid-template-columns:1fr}.sca{position:relative;top:0;grid-template-columns:1fr 1fr;align-items:center}
+ .rg{grid-template-columns:1fr}
+ .gal{grid-template-columns:1fr 1fr}.gal .fw:nth-child(2){grid-column:1/-1;order:-1}.gal .fw:nth-child(3){margin:0}
+ .bk{grid-template-columns:1fr}.bk .l{border-right:0;border-bottom:1px solid var(--ln)}.bk>*{padding:var(--s5) var(--s4)}
+ .sec{padding:var(--s7) 0}
+ .pano{aspect-ratio:4/3}
+}
+@media(max-width:560px){
+ .day{grid-template-columns:1fr;gap:var(--s2)}.day .dn{display:flex;align-items:baseline;gap:var(--s3)}.day .dn b{display:inline;font-size:26px}
+ .day li{grid-template-columns:54px 1fr;font-size:15px}
+ .sca{grid-template-columns:1fr}
+ .pano{aspect-ratio:1/1}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="w hd">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lg" href="#top" aria-label="Làng Sương Retreat"><svg viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M1 14L8 4l5 6 3-3 7 7M3 9h6M14 5h6"/></svg>Làng Sương</a>
+ <nav class="nv" aria-label="Chính"><a href="#chuong-trinh">Chương trình</a><a href="#phong">Phòng</a><a href="#dat-cho">Đặt chỗ</a></nav>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="w">
+  <p class="lb mu">Retreat trên núi · Concept</p>
+  <h1>Ở lại <span class="it">trong sương</span> vài ngày.</h1>
+  <p class="ld">Ba chương trình nghỉ dưỡng chữa lành ở độ cao 1.400 mét: đi rừng thông, ngâm nước nóng, ăn theo mùa và ngủ sớm. Chọn số đêm, lịch từng ngày hiện ra ngay bên dưới.</p>
+ </div>
+ <div class="pano"><picture><source type="image/avif" srcset="../img/demo/lang-suong/hero-640.avif 640w, ../img/demo/lang-suong/hero-1280.avif 1280w, ../img/demo/lang-suong/hero-1920.avif 1920w, ../img/demo/lang-suong/hero-2560.avif 2560w" sizes="100vw"><img src="../img/demo/lang-suong/hero-1280.webp" srcset="../img/demo/lang-suong/hero-640.webp 640w, ../img/demo/lang-suong/hero-1280.webp 1280w, ../img/demo/lang-suong/hero-1920.webp 1920w, ../img/demo/lang-suong/hero-2560.webp 2560w" sizes="100vw" width="1280" height="720" alt="Thung lũng ruộng bậc thang phủ mây lúc bình minh giữa những dãy núi" fetchpriority="high" decoding="async"></picture><div class="mist" aria-hidden="true"></div><p class="cap">Thung lũng phía tây · lúc 5:40 sáng</p></div>
+</section>
+
+<section class="sec" id="chuong-trinh"><div class="w">
+ <div class="st rv"><p class="lb" style="color:var(--moss)">Chương trình</p><h2>Ba nhịp, <span class="it">một ngọn núi.</span></h2><p>Giá trọn gói theo người, gồm phòng gỗ tiêu chuẩn, ba bữa ăn và mọi hoạt động trong lịch. Giá là số minh họa.</p></div>
+ <div class="pg" id="pg" role="group" aria-label="Chọn chương trình">
+  <button type="button" class="pc" data-p="0" aria-pressed="false"><span class="nn">3<small>đêm</small></span><span class="tn">Tĩnh</span><span class="ds">Cuối tuần dài, đủ để nhịp thở chậm lại.</span><span class="pr" data-pp="0"></span></button>
+  <button type="button" class="pc" data-p="1" aria-pressed="true"><span class="nn">5<small>đêm</small></span><span class="tn">Lắng</span><span class="ds">Thêm nửa ngày im lặng và một buổi đi ruộng bậc thang.</span><span class="pr" data-pp="1"></span></button>
+  <button type="button" class="pc" data-p="2" aria-pressed="false"><span class="nn">7<small>đêm</small></span><span class="tn">Hồi</span><span class="ds">Trọn một tuần, có buổi tổng kết riêng với chuyên viên.</span><span class="pr" data-pp="2"></span></button>
+ </div>
+ <div class="sch">
+  <aside class="sca rv"><figure><picture><source type="image/avif" srcset="../img/demo/lang-suong/yoga-640.avif 640w, ../img/demo/lang-suong/yoga-1280.avif 1280w, ../img/demo/lang-suong/yoga-1920.avif 1920w" sizes="(max-width:900px) 50vw, 260px"><img src="../img/demo/lang-suong/yoga-1280.webp" srcset="../img/demo/lang-suong/yoga-640.webp 640w, ../img/demo/lang-suong/yoga-1280.webp 1280w, ../img/demo/lang-suong/yoga-1920.webp 1920w" sizes="(max-width:900px) 50vw, 260px" width="1280" height="1600" alt="Người tập yoga trên hiên gỗ giữa sương mù" loading="lazy" decoding="async"></picture></figure><p id="pSum" aria-live="polite"></p></aside>
+  <div class="days" id="days" aria-live="polite"></div>
+ </div>
+</div></section>
+
+<section class="sec" id="phong" style="padding-top:0"><div class="w">
+ <div class="st rv"><p class="lb" style="color:var(--moss)">Nơi ở</p><h2>Chọn <span class="it">mái nhà</span> của bạn.</h2><p>Phòng gỗ đã gồm trong giá chương trình. Hai kiểu còn lại tính thêm theo đêm.</p></div>
+ <div class="rg" id="rg">
+  <button type="button" class="ro rv" data-r="0" aria-pressed="true"><span class="fig"><picture><source type="image/avif" srcset="../img/demo/lang-suong/nha-640.avif 640w, ../img/demo/lang-suong/nha-1280.avif 1280w, ../img/demo/lang-suong/nha-1920.avif 1920w" sizes="(max-width:900px) 100vw, 33vw"><img src="../img/demo/lang-suong/nha-1280.webp" srcset="../img/demo/lang-suong/nha-640.webp 640w, ../img/demo/lang-suong/nha-1280.webp 1280w, ../img/demo/lang-suong/nha-1920.webp 1920w" sizes="(max-width:900px) 100vw, 33vw" width="1280" height="853" alt="Căn nhà gỗ nhỏ trên đồi cỏ nhìn ra biển mây lúc hoàng hôn" loading="lazy" decoding="async"></picture></span><span class="t"><span class="n">Nhà gỗ sườn đồi</span><span class="p" data-rp="0"></span></span><span class="d">24 m², giường đôi, hiên nhìn biển mây phía tây.</span><span class="chk">Đang chọn</span></button>
+  <button type="button" class="ro rv" data-r="1" aria-pressed="false"><span class="fig"><picture><source type="image/avif" srcset="../img/demo/lang-suong/rung-640.avif 640w, ../img/demo/lang-suong/rung-1280.avif 1280w, ../img/demo/lang-suong/rung-1920.avif 1920w" sizes="(max-width:900px) 100vw, 33vw"><img src="../img/demo/lang-suong/rung-1280.webp" srcset="../img/demo/lang-suong/rung-640.webp 640w, ../img/demo/lang-suong/rung-1280.webp 1280w, ../img/demo/lang-suong/rung-1920.webp 1920w" sizes="(max-width:900px) 100vw, 33vw" width="1280" height="853" alt="Rừng thông chìm trong sương dày" loading="lazy" decoding="async"></picture></span><span class="t"><span class="n">Nhà sàn rừng thông</span><span class="p" data-rp="1"></span></span><span class="d">36 m², gác ngủ dưới mái, cửa kính nhìn rừng.</span><span class="chk">Chọn kiểu này</span></button>
+  <button type="button" class="ro rv" data-r="2" aria-pressed="false"><span class="fig"><picture><source type="image/avif" srcset="../img/demo/lang-suong/bon-640.avif 640w, ../img/demo/lang-suong/bon-1280.avif 1280w, ../img/demo/lang-suong/bon-1920.avif 1920w" sizes="(max-width:900px) 100vw, 33vw"><img src="../img/demo/lang-suong/bon-1280.webp" srcset="../img/demo/lang-suong/bon-640.webp 640w, ../img/demo/lang-suong/bon-1280.webp 1280w, ../img/demo/lang-suong/bon-1920.webp 1920w" sizes="(max-width:900px) 100vw, 33vw" width="1280" height="853" alt="Bồn tắm gỗ bốc hơi trên sàn hiên nhìn ra rừng núi" loading="lazy" decoding="async"></picture></span><span class="t"><span class="n">Villa bồn nước nóng</span><span class="p" data-rp="2"></span></span><span class="d">58 m², bồn gỗ riêng ngoài hiên, lò sưởi.</span><span class="chk">Chọn kiểu này</span></button>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w">
+ <div class="gal">
+  <div class="fw rv"><figure><picture><source type="image/avif" srcset="../img/demo/lang-suong/tra-640.avif 640w, ../img/demo/lang-suong/tra-1280.avif 1280w, ../img/demo/lang-suong/tra-1920.avif 1920w" sizes="(max-width:900px) 50vw, 25vw"><img src="../img/demo/lang-suong/tra-1280.webp" srcset="../img/demo/lang-suong/tra-640.webp 640w, ../img/demo/lang-suong/tra-1280.webp 1280w, ../img/demo/lang-suong/tra-1920.webp 1920w" sizes="(max-width:900px) 50vw, 25vw" width="1280" height="1600" alt="Hai cốc trà thảo mộc bốc khói trên bàn ngoài vườn" loading="lazy" decoding="async"></picture></figure><figcaption>Trà thảo mộc 4 giờ chiều</figcaption></div>
+  <div class="fw rv"><figure><picture><source type="image/avif" srcset="../img/demo/lang-suong/hero-640.avif 640w, ../img/demo/lang-suong/hero-1280.avif 1280w, ../img/demo/lang-suong/hero-1920.avif 1920w, ../img/demo/lang-suong/hero-2560.avif 2560w" sizes="(max-width:900px) 100vw, 45vw"><img src="../img/demo/lang-suong/hero-1280.webp" srcset="../img/demo/lang-suong/hero-640.webp 640w, ../img/demo/lang-suong/hero-1280.webp 1280w, ../img/demo/lang-suong/hero-1920.webp 1920w, ../img/demo/lang-suong/hero-2560.webp 2560w" sizes="(max-width:900px) 100vw, 45vw" width="1280" height="720" alt="Mây trôi trên thung lũng ruộng bậc thang" loading="lazy" decoding="async"></picture></figure><figcaption>Đỉnh đồi đón mây · 20 phút đi bộ</figcaption></div>
+  <div class="fw rv"><figure><picture><source type="image/avif" srcset="../img/demo/lang-suong/bon-640.avif 640w, ../img/demo/lang-suong/bon-1280.avif 1280w, ../img/demo/lang-suong/bon-1920.avif 1920w" sizes="(max-width:900px) 50vw, 25vw"><img src="../img/demo/lang-suong/bon-1280.webp" srcset="../img/demo/lang-suong/bon-640.webp 640w, ../img/demo/lang-suong/bon-1280.webp 1280w, ../img/demo/lang-suong/bon-1920.webp 1920w" sizes="(max-width:900px) 50vw, 25vw" width="1280" height="853" alt="Bồn gỗ bốc hơi ngoài hiên lúc hoàng hôn" loading="lazy" decoding="async"></picture></figure><figcaption>Bồn nước nóng lúc chiều</figcaption></div>
+ </div>
+</div></section>
+
+<section class="sec" id="dat-cho" style="padding-top:0"><div class="w">
+ <div class="st rv"><p class="lb" style="color:var(--moss)">Đặt chỗ</p><h2>Giữ một chỗ <span class="it">trong sương.</span></h2></div>
+ <div class="bk rv">
+  <form class="l" id="bf" novalidate>
+   <div class="fd"><span class="k">Chương trình</span><div class="seg" id="bP"><button type="button" data-v="0" aria-pressed="false">3 đêm · Tĩnh</button><button type="button" data-v="1" aria-pressed="true">5 đêm · Lắng</button><button type="button" data-v="2" aria-pressed="false">7 đêm · Hồi</button></div></div>
+   <div class="fd"><label for="bD">Ngày đến</label><input class="in" type="date" id="bD" required></div>
+   <div class="fd"><span class="k">Số người</span><div class="seg" id="bG"><button type="button" data-v="1" aria-pressed="false">Một mình</button><button type="button" data-v="2" aria-pressed="true">Hai người</button></div></div>
+   <div class="fd"><label for="bF">Chế độ ăn</label><select class="in" id="bF"><option>Ăn theo mùa (có cá)</option><option>Thuần chay</option><option>Không gluten</option></select></div>
+   <div class="fd"><label for="bN">Họ tên</label><input class="in" id="bN" required autocomplete="name"></div>
+   <div class="fd"><label for="bT">Điện thoại</label><input class="in" id="bT" type="tel" inputmode="tel" required autocomplete="tel"></div>
+   <button class="btn" style="width:100%">Giữ chỗ</button>
+   <p class="msg" id="msg" role="status" style="margin-top:var(--s3)"></p>
+  </form>
+  <div class="rcpt" aria-live="polite">
+   <p class="lb mu">Tạm tính</p>
+   <div class="rw"><span>Chương trình</span><b id="rP"></b></div>
+   <div class="rw"><span>Ngày</span><b id="rD"></b></div>
+   <div class="rw"><span>Nơi ở</span><b id="rR"></b></div>
+   <div class="rw"><span>Giá chương trình</span><b id="rB"></b></div>
+   <div class="rw"><span>Phụ thu nơi ở</span><b id="rU"></b></div>
+   <div class="rw"><span>Ở một mình</span><b id="rS"></b></div>
+   <div class="tt"><span class="lb">Tổng</span><b id="rT"></b></div>
+   <p class="fine">Giá minh họa, đã gồm thuế phí. Tổng trên 20 triệu đồng hiển thị “Liên hệ” để đội ngũ gửi báo giá riêng. Chương trình không thay thế tư vấn y khoa.</p>
+  </div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="lg">Làng Sương</p>
+ <p>Làng Sương Retreat là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, giá, địa chỉ chỉ để minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+ <p>Thôn Sương, vùng núi phía Bắc (địa chỉ minh họa) · 0214 000 0000 (số minh họa) · © Làng Sương · Concept</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lang-suong',smDemo:'lux-lang-suong'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const go=s=>{const el=$(s);el&&scrollTo({top:el.getBoundingClientRect().top+scrollY-20,behavior:RM?'auto':'smooth'})};
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1&&$(h)){e.preventDefault();go(h)}}));
+/* data — giá minh họa */
+const P=[{n:3,t:'Tĩnh',p:5900000},{n:5,t:'Lắng',p:8900000},{n:7,t:'Hồi',p:11900000}];
+const RO=[{n:'Nhà gỗ sườn đồi',u:0},{n:'Nhà sàn rừng thông',u:900000},{n:'Villa bồn nước nóng',u:2400000}];
+const SGL=.35;
+const ARR={t:'Đến nơi, chưa vội',a:[['14:00','Nhận phòng, trà gừng và khăn ấm'],['16:30','Trò chuyện với chuyên viên về giấc ngủ và nhịp ăn'],['18:30','Bữa tối bếp củi, món theo mùa'],['20:30','Ngâm chân thảo mộc, tắt đèn trước 22:00']]};
+const DEP={t:'Mang sương về phố',a:[['06:00','Thiền đứng đón nắng ở hiên phía đông'],['08:00','Bữa sáng cháo hạt và trái cây'],['10:00','Viết lại ba điều muốn giữ, trả phòng lúc 11:00']]};
+const MID=[
+ {t:'Rừng thông và hơi thở',a:[['06:00','Hít thở theo nhịp bốn – bảy – tám trên hiên'],['08:30','Đi bộ rừng thông 4,2 km, có người dẫn'],['15:00','Yoga phục hồi 60 phút'],['19:00','Ngâm nước nóng khoáng ngoài trời']]},
+ {t:'Trà và đất',a:[['06:30','Yoga buổi sớm trong sương'],['09:00','Hái lá trà và thảo mộc ở vườn dốc'],['14:00','Sao trà bằng chảo gang cùng bếp trưởng'],['20:00','Nằm nghe chuông xoay 40 phút']]},
+ {t:'Nước nóng và ngủ sâu',a:[['07:00','Đi bộ chân trần trên cỏ ướt sương'],['10:00','Xông lá rừng và đắp bùn khoáng'],['15:30','Xoa bóp đá nóng 75 phút'],['21:00','Trà tâm sen, ngủ không màn hình']]},
+ {t:'Nửa ngày im lặng',a:[['06:00','Bắt đầu im lặng đến 14:00'],['08:00','Bữa sáng chánh niệm, không trò chuyện'],['14:30','Chia sẻ vòng tròn nhỏ'],['19:00','Bữa tối dưới đèn dầu']]},
+ {t:'Ruộng bậc thang',a:[['05:30','Lên đỉnh đồi đón mây dưới thung lũng'],['09:00','Đi bộ xuống ruộng bậc thang cùng người bản địa'],['13:00','Cơm nắm lá dong bên suối'],['17:00','Ngâm nước nóng, giãn cơ']]},
+ {t:'Bếp lá',a:[['07:00','Yoga dòng chảy 75 phút'],['10:00','Lớp nấu ăn: rau rừng và nấm'],['15:00','Thời gian riêng, đọc sách ở nhà sàn'],['19:30','Bữa tối sáu món tự tay chuẩn bị']]},
+ {t:'Tổng kết riêng',a:[['06:30','Thiền đi bộ quanh hồ'],['09:30','Gặp riêng chuyên viên, lập nhịp sinh hoạt khi về'],['15:00','Xoa bóp toàn thân 90 phút'],['19:00','Bữa tối chia tay bên lửa trại']]}];
+const S={p:1,r:0,g:2};
+$$('[data-pp]').forEach(e=>e.textContent=`${pv(P[e.dataset.pp].p)} / người`);
+$$('[data-rp]').forEach(e=>{const u=RO[e.dataset.rp].u;e.textContent=u?`+${vnd(u)}/đêm`:'Đã gồm'});
+const sched=()=>{const n=P[S.p].n,list=[ARR,...MID.slice(0,n-1),DEP];
+ $('#days').innerHTML=list.map((d,i)=>`<article class="day"><p class="dn">Ngày<b>${String(i+1).padStart(2,'0')}</b></p><div><h3>${d.t}</h3><ol>${d.a.map(x=>`<li><span>${x[0]}</span>${x[1]}</li>`).join('')}</ol></div></article>`).join('');
+ const acts=list.reduce((a,d)=>a+d.a.length,0);
+ $('#pSum').textContent=`${P[S.p].t} · ${n} đêm, ${n+1} ngày, ${acts} hoạt động trong lịch. Lịch có thể đổi theo thời tiết.`;
+ if(!RM&&window.gsap)gsap.from('#days .day',{y:21,opacity:0,duration:.9,ease:'expo.out',stagger:.06})};
+const sync=()=>{$$('#pg [data-p]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.p===S.p));$$('#bP button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===S.p));
+ $$('#rg [data-r]').forEach(b=>{const on=+b.dataset.r===S.r;b.setAttribute('aria-pressed',on);$('.chk',b).textContent=on?'Đang chọn':'Chọn kiểu này'});
+ $$('#bG button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===S.g));calc()};
+const calc=()=>{const p=P[S.p],r=RO[S.r],base=p.p*S.g,up=r.u*p.n,sg=S.g===1?p.p*SGL:0;
+ $('#rP').textContent=`${p.t} · ${p.n} đêm`;$('#rR').textContent=r.n;$('#rB').textContent=`${pv(base)}`;$('#rU').textContent=up?pv(up):'Không';$('#rS').textContent=sg?pv(sg):'Không';
+ const d=$('#bD').value;if(d){const a=new Date(d),b=new Date(a);b.setDate(b.getDate()+p.n);$('#rD').textContent=`${a.toLocaleDateString('vi-VN',{day:'numeric',month:'numeric'})} – ${b.toLocaleDateString('vi-VN',{day:'numeric',month:'numeric'})}`}else $('#rD').textContent='—';
+ $('#rT').textContent=pv(base+up+sg)};
+$('#pg').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(!b)return;S.p=+b.dataset.p;sync();sched()});
+$('#bP').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;S.p=+b.dataset.v;sync();sched()});
+$('#rg').addEventListener('click',e=>{const b=e.target.closest('[data-r]');if(!b)return;S.r=+b.dataset.r;sync()});
+$('#bG').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;S.g=+b.dataset.v;sync()});
+const t=new Date();t.setDate(t.getDate()+10);const pad=n=>String(n).padStart(2,'0'),iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+$('#bD').min=iso(new Date());$('#bD').value=iso(t);$('#bD').addEventListener('change',calc);
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg');const ok=$('#bD').value&&$('#bN').value.trim()&&/^[0-9 +.]{9,}$/.test($('#bT').value.trim());m.classList.toggle('err',!ok);
+ if(!ok){m.textContent='Bạn điền giúp ngày đến, họ tên và số điện thoại nhé.';return}
+ m.textContent=`Đã giữ chỗ chương trình ${P[S.p].t} ${P[S.p].n} đêm, ${RO[S.r].n.toLowerCase()}, ${S.g} người. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+sched();sync();
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero h1',{y:34,opacity:0,duration:1.8,ease:'expo.out',delay:.1});
+ gsap.from('.hero .ld,.hero .lb',{y:21,opacity:0,duration:1.6,ease:'expo.out',delay:.35});
+ gsap.from('.pano picture',{scale:1.12,opacity:0,duration:2.6,ease:'expo.out',delay:.2});
+ gsap.to('.pano picture',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.pano',start:'top bottom',end:'bottom top',scrub:true}});
+ $$('.rv').forEach(el=>gsap.from(el,{y:34,opacity:0,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
+}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{
+ "sanh": {
+  "author": "thel0stkidd",
+  "page": "https://www.pexels.com/photo/luxurious-hotel-lobby-interior-with-chandeliers-31876128/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/31876128/pexels-photo-31876128.jpeg",
+  "w": 3004,
+  "h": 4006,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "phong": {
+  "author": "phát hồ",
+  "page": "https://www.pexels.com/photo/luxurious-modern-hotel-room-interior-design-28412500/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/28412500/pexels-photo-28412500.jpeg",
+  "w": 2880,
+  "h": 2160,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.64,
+    0.52,
+    0.11,
+    0.11
+   ]
+  ]
+ },
+ "phong-2": {
+  "author": "Eugenia Remark",
+  "page": "https://www.pexels.com/photo/an-elegant-modern-hotel-room-design-16975987/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/16975987/pexels-photo-16975987.jpeg",
+  "w": 2397,
+  "h": 3224,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "phong-3": {
+  "author": "F.ezzekani",
+  "page": "https://www.pexels.com/photo/modern-luxury-hotel-room-with-stylish-interior-39478531/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/39478531/pexels-photo-39478531.jpeg",
+  "w": 3000,
+  "h": 4000,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "nha-hang": {
+  "author": "Calvin Seng",
+  "page": "https://www.pexels.com/photo/31372786/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/31372786/pexels-photo-31372786.jpeg",
+  "w": 7391,
+  "h": 5280,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "hoi-nghi": {
+  "author": "Nacho Gomez",
+  "page": "https://www.pexels.com/photo/empty-conference-room-with-podium-and-chairs-37012314/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/37012314/pexels-photo-37012314.jpeg",
+  "w": 6000,
+  "h": 4000,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

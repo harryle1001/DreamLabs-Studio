@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cẩm Thạch · Gói trăng mật bên biển — tự chọn và giữ chỗ (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho gói trăng mật tại resort biển: chọn số đêm, hạng villa, thêm trang trí phòng, bữa tối riêng, chụp ảnh; xem tổng và giữ chỗ.">
+<style>
+@font-face{font-family:"Cormorant Garamond";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/cormorant-garamond-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Cormorant Garamond";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/cormorant-garamond-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-vietnamese-400-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Archivo";font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-vietnamese-wdth-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Archivo";font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.2,1,.3,1);
+--bl:#F4E8E1;--bl2:#EBD9CF;--pp:#FBF5F1;--jd:#1E4A40;--jd2:#123129;--rg:#B5745C;--ink:#22312C;--mu:rgba(34,49,44,.62);--ln:rgba(34,49,44,.14);--fc:"Cormorant Garamond",Georgia,serif;--fa:"Archivo",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bl);color:var(--ink);font-family:var(--fa);font-stretch:92%;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1180px;margin:0 auto;padding:0 max(16px,4vw)}
+.k{font-size:11px;font-weight:500;font-stretch:120%;letter-spacing:.24em;text-transform:uppercase}
+.mu{color:var(--mu)}
+.c{font-family:var(--fc);font-weight:300;line-height:1;letter-spacing:-.01em}
+.c em{font-style:italic;font-weight:400;color:var(--rg)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 var(--s5);border-radius:999px;background:var(--jd);color:var(--pp);font-size:12px;font-weight:500;font-stretch:120%;letter-spacing:.2em;text-transform:uppercase;transition:background .5s var(--e)}
+.btn:hover{background:var(--rg)}
+/* top */
+.tp{display:flex;align-items:center;justify-content:space-between;gap:var(--s3);height:72px}
+.back{font-size:12px;color:var(--mu);min-height:44px;display:flex;align-items:center;white-space:nowrap}
+.emb .back{visibility:hidden}
+.lo{font-family:var(--fc);font-size:26px;font-style:italic;min-height:44px;display:flex;align-items:center}
+.tp .k{min-height:44px;display:flex;align-items:center;border-bottom:1px solid var(--rg)}
+/* hero */
+.hero{position:relative;padding:var(--s5) 0 var(--s7);text-align:center}
+.hero .k{color:var(--rg)}
+.hero h1{font-size:clamp(54px,11vw,168px);margin-top:var(--s3);position:relative;z-index:2}
+.hero h1 .a{display:block}.hero h1 .b{display:block;margin-top:-.12em}
+.ovw{position:relative;width:min(480px,74vw);margin:var(--s4) auto 0}
+.ov{position:relative;width:100%;aspect-ratio:4/5;border-radius:50%;overflow:hidden;z-index:1;box-shadow:0 55px 89px -55px rgba(30,74,64,.55)}
+.ov picture{position:absolute;inset:0}
+.ring{position:absolute;inset:calc(-1*var(--s4));border:1px solid var(--rg);border-radius:50%;opacity:.45;pointer-events:none}
+.hero p.ld{max-width:42ch;margin:var(--s5) auto 0;color:var(--mu);font-size:17px}
+.hero .cta{margin-top:var(--s5);display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap}
+.hero .cta a.ln{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-stretch:120%;min-height:52px;display:inline-flex;align-items:center;border-bottom:1px solid var(--ink)}
+/* includes */
+.sec{padding:var(--s8) 0}
+.hd2{text-align:center;max-width:640px;margin:0 auto var(--s6)}
+.hd2 h2{font-size:clamp(40px,6vw,74px);margin-top:var(--s3)}
+.hd2 p{color:var(--mu);margin-top:var(--s4)}
+.inc{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center}
+.inc ul{border-top:1px solid var(--ln)}
+.inc li{display:grid;grid-template-columns:42px 1fr;gap:var(--s3);padding:var(--s4) 0;border-bottom:1px solid var(--ln)}
+.inc li b{font-family:var(--fc);font-style:italic;font-weight:400;font-size:26px;color:var(--rg);line-height:1}
+.inc li span{font-size:15px}.inc li small{display:block;color:var(--mu);font-size:13px}
+.duo{position:relative;padding:0 var(--s6) var(--s6) 0}
+.duo .a{aspect-ratio:3/2;overflow:hidden;border-radius:200px 200px 0 0}
+.duo .b{position:absolute;right:0;bottom:0;width:42%;aspect-ratio:4/5;overflow:hidden;border:5px solid var(--bl)}
+/* builder */
+.bd{background:var(--jd);color:var(--pp);border-radius:34px;padding:var(--s7) 0}
+.bd .hd2 p{color:rgba(251,245,241,.7)}
+.bd .hd2 .k{color:#E4B9A4}
+.bd .c em{color:#E4B9A4}
+.bg{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s6);align-items:start}
+.blk{padding:var(--s5) 0;border-top:1px solid rgba(251,245,241,.16)}
+.blk:first-child{border:0;padding-top:0}
+.blh{display:flex;justify-content:space-between;align-items:baseline;gap:var(--s3);margin-bottom:var(--s4)}
+.blh h3{font-family:var(--fc);font-weight:300;font-size:30px}
+.blh span{font-size:13px;color:rgba(251,245,241,.6)}
+.nt{display:flex;align-items:center;gap:var(--s4)}
+.nt button{width:52px;height:52px;border-radius:50%;border:1px solid rgba(251,245,241,.3);font-size:22px;transition:background .3s,border-color .3s}
+.nt button:hover:not(:disabled){background:rgba(251,245,241,.1);border-color:var(--pp)}.nt button:disabled{opacity:.3}
+.nt output{font-family:var(--fc);font-size:68px;font-weight:300;line-height:1;min-width:1.4ch;text-align:center}
+.nt small{color:rgba(251,245,241,.6);font-size:13px}
+.vl{display:grid;gap:var(--s3)}
+.vo{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:center;border:1px solid rgba(251,245,241,.18);border-radius:21px;padding:var(--s4);text-align:left;width:100%;transition:border-color .4s,background .4s}
+.vo:hover{border-color:rgba(251,245,241,.5)}
+.vo i{width:22px;height:22px;border-radius:50%;border:1px solid rgba(251,245,241,.5);position:relative}
+.vo[aria-pressed=true]{border-color:#E4B9A4;background:rgba(228,185,164,.08)}
+.vo[aria-pressed=true] i::after{content:"";position:absolute;inset:4px;border-radius:50%;background:#E4B9A4}
+.vo .n{display:block;font-family:var(--fc);font-size:26px;line-height:1.1}
+.vo .d{display:block;font-size:13px;color:rgba(251,245,241,.6)}
+.vo .p{font-size:14px;white-space:nowrap;text-align:right}
+.ad{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.ao{display:flex;flex-direction:column;align-items:flex-start;gap:6px;border:1px solid rgba(251,245,241,.18);border-radius:21px;padding:var(--s4);text-align:left;width:100%;min-height:130px;position:relative;transition:border-color .4s,background .4s}
+.ao .n{font-family:var(--fc);font-size:24px;line-height:1.1;padding-right:var(--s5)}
+.ao .d{font-size:13px;color:rgba(251,245,241,.6)}
+.ao .p{margin-top:auto;font-size:13px;color:#E4B9A4}
+.ao::after{content:"+";position:absolute;top:var(--s3);right:var(--s3);width:32px;height:32px;border-radius:50%;border:1px solid rgba(251,245,241,.4);display:grid;place-items:center;font-size:18px;line-height:1;transition:transform .5s var(--e),background .4s,color .4s}
+.ao[aria-pressed=true]{border-color:#E4B9A4;background:rgba(228,185,164,.08)}
+.ao[aria-pressed=true]::after{content:"✓";background:#E4B9A4;color:var(--jd2);border-color:#E4B9A4}
+.rc{position:sticky;top:var(--s5);background:var(--pp);color:var(--ink);border-radius:21px;overflow:hidden}
+.rc figure{aspect-ratio:3/2;overflow:hidden}
+.rc .in{padding:var(--s5) var(--s4);display:grid;gap:var(--s3)}
+.rc h3{font-family:var(--fc);font-weight:300;font-size:30px;line-height:1.1}
+.rc .rw{display:flex;justify-content:space-between;gap:var(--s3);font-size:14px;color:var(--mu)}
+.rc .rw b{font-weight:500;color:var(--ink);text-align:right}
+.rc .tt{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ln);padding-top:var(--s3)}
+.rc .tt b{font-family:var(--fc);font-size:42px;font-weight:300;line-height:1;color:var(--jd)}
+.fine{font-size:12px;color:var(--mu);line-height:1.55}
+/* gallery */
+.gl{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.gl figure{overflow:hidden;border-radius:21px;aspect-ratio:4/5}
+.gl figure:nth-child(2){transform:translateY(var(--s6))}
+/* form */
+.fm{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.fd{display:grid;gap:6px}.fd.full{grid-column:1/-1}
+.fd label{font-size:11px;font-weight:500;font-stretch:120%;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+.ip{width:100%;min-height:52px;border:1px solid var(--ln);border-radius:13px;background:var(--pp);padding:0 var(--s3);font-size:16px;outline:0;-webkit-appearance:none;appearance:none}
+.ip:focus{border-color:var(--jd)}
+textarea.ip{min-height:96px;padding:var(--s3);resize:vertical}
+.pick{grid-column:1/-1;background:var(--pp);border-radius:21px;padding:var(--s4);display:flex;justify-content:space-between;gap:var(--s3);align-items:center;flex-wrap:wrap}
+.pick b{font-family:var(--fc);font-size:26px;font-weight:300}
+.msg{font-size:13px;min-height:1.4em;color:var(--jd)}.msg.err{color:#A23B2C}
+footer{padding:var(--s7) 0 var(--s7);text-align:center}
+footer .lo{justify-content:center;font-size:42px}
+footer p{font-size:13px;color:var(--mu);max-width:62ch;margin:var(--s2) auto 0}footer a{text-decoration:underline}
+.stk{position:fixed;left:var(--s3);right:var(--s3);bottom:var(--s3);z-index:30;background:var(--jd2);color:var(--pp);border-radius:999px;display:none;align-items:center;justify-content:space-between;gap:var(--s3);padding:var(--s2) var(--s2) var(--s2) var(--s4);transform:translateY(140%);visibility:hidden;transition:transform .6s var(--e),visibility .6s}
+.stk.on{transform:none;visibility:visible}
+.stk small{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;opacity:.6}
+.stk b{font-family:var(--fc);font-size:22px;font-weight:300}
+.stk .btn{min-height:44px;padding:0 var(--s4);background:#E4B9A4;color:var(--jd2)}
+@media(max-width:900px){
+ .inc,.bg{grid-template-columns:1fr}
+ .duo{padding:0 var(--s5) var(--s5) 0;max-width:520px}
+ .rc{position:relative;top:0}
+ .stk{display:flex}
+ .sec{padding:var(--s7) 0}
+ .bd{border-radius:21px;padding:var(--s6) 0}
+}
+@media(max-width:560px){
+ .ad{grid-template-columns:1fr}.ao{min-height:0}
+ .vo{grid-template-columns:auto 1fr;gap:var(--s3)}.vo .p{grid-column:2;text-align:left}
+ .fm{grid-template-columns:1fr}
+ .gl{grid-template-columns:1fr 1fr}.gl figure:nth-child(2){transform:none}.gl figure:nth-child(3){display:none}
+ .tp .k{display:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="w tp">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top" aria-label="Cẩm Thạch">Cẩm Thạch</a>
+ <a class="k" href="#tu-chon">Tự chọn gói</a>
+</header>
+
+<main id="top">
+<section class="hero">
+ <div class="w">
+  <p class="k">Gói trăng mật bên biển · Concept</p>
+  <h1 class="c"><span class="a">Chỉ hai</span><span class="b"><em>người thôi.</em></span></h1>
+ </div>
+<div class="ovw"><div class="ring" aria-hidden="true"></div><div class="ov"><picture><source type="image/avif" srcset="../img/demo/cam-thach/hero-640.avif 640w, ../img/demo/cam-thach/hero-1280.avif 1280w, ../img/demo/cam-thach/hero-1920.avif 1920w, ../img/demo/cam-thach/hero-2560.avif 2560w" sizes="(max-width:640px) 78vw, 520px"><img src="../img/demo/cam-thach/hero-1280.webp" srcset="../img/demo/cam-thach/hero-640.webp 640w, ../img/demo/cam-thach/hero-1280.webp 1280w, ../img/demo/cam-thach/hero-1920.webp 1920w, ../img/demo/cam-thach/hero-2560.webp 2560w" sizes="(max-width:640px) 78vw, 520px" width="1280" height="853" alt="Lều vải trắng giăng đèn dưới hàng dừa, nến xếp trên cát lúc chạng vạng" fetchpriority="high" decoding="async"></picture></div></div>
+ <div class="w">
+  <p class="ld">Villa riêng nhìn biển, phòng trang trí theo màu hai bạn chọn, một bữa tối dưới lều nến và một buổi chụp ảnh lúc hoàng hôn. Tự ghép gói, xem tổng ngay.</p>
+  <div class="cta"><a class="btn" href="#tu-chon">Tự chọn gói của bạn</a><a class="ln" href="#giu-cho">Giữ chỗ</a></div>
+ </div>
+</section>
+
+<section class="sec" style="padding-top:var(--s6)"><div class="w inc">
+ <div class="duo rv"><div class="a"><picture><source type="image/avif" srcset="../img/demo/cam-thach/doi-640.avif 640w, ../img/demo/cam-thach/doi-1280.avif 1280w, ../img/demo/cam-thach/doi-1920.avif 1920w" sizes="(max-width:900px) 90vw, 45vw"><img src="../img/demo/cam-thach/doi-1280.webp" srcset="../img/demo/cam-thach/doi-640.webp 640w, ../img/demo/cam-thach/doi-1280.webp 1280w, ../img/demo/cam-thach/doi-1920.webp 1920w" sizes="(max-width:900px) 90vw, 45vw" width="1280" height="853" alt="Hai người dùng bữa tối dưới mái vải trên bãi cát trắng lúc hoàng hôn" loading="lazy" decoding="async"></picture></div><div class="b"><picture><source type="image/avif" srcset="../img/demo/cam-thach/ban-640.avif 640w, ../img/demo/cam-thach/ban-1280.avif 1280w, ../img/demo/cam-thach/ban-1920.avif 1920w" sizes="(max-width:900px) 40vw, 20vw"><img src="../img/demo/cam-thach/ban-1280.webp" srcset="../img/demo/cam-thach/ban-640.webp 640w, ../img/demo/cam-thach/ban-1280.webp 1280w, ../img/demo/cam-thach/ban-1920.webp 1920w" sizes="(max-width:900px) 40vw, 20vw" width="1280" height="1600" alt="Bàn trải khăn trắng với nến, hoa hồng đỏ và bánh trên bãi biển" loading="lazy" decoding="async"></picture></div></div>
+ <div class="rv">
+  <p class="k" style="color:var(--rg)">Gói luôn có</p>
+  <h2 class="c" style="font-size:clamp(40px,5.4vw,68px);margin:var(--s3) 0 var(--s5)">Những điều <em>không cần hỏi thêm.</em></h2>
+  <ul>
+   <li><b>i.</b><span>Đón tiễn sân bay bằng xe riêng<small>Khăn lạnh, nước dừa trên xe</small></span></li>
+   <li><b>ii.</b><span>Bữa sáng gọi món tại villa<small>Phục vụ đến 11 giờ, không cần dậy sớm</small></span></li>
+   <li><b>iii.</b><span>Bánh và rượu vang sủi chào đón<small>Thiệp viết tay theo tên hai bạn</small></span></li>
+   <li><b>iv.</b><span>Trả phòng muộn đến 16:00<small>Tùy tình trạng villa, xác nhận trước một ngày</small></span></li>
+  </ul>
+ </div>
+</div></section>
+
+<section id="tu-chon"><div class="w"><div class="bd"><div class="w">
+ <div class="hd2 rv"><p class="k">Tự chọn gói</p><h2 class="c">Ghép gói <em>theo ý hai bạn.</em></h2><p>Giá cho hai người, đã gồm thuế phí. Mọi giá là số minh họa.</p></div>
+ <div class="bg">
+  <div>
+   <div class="blk">
+    <div class="blh"><h3>Số đêm</h3><span>Từ 2 đến 10 đêm</span></div>
+    <div class="nt"><button type="button" id="nM" aria-label="Bớt một đêm">−</button><output id="nV" aria-live="polite">3</output><button type="button" id="nP" aria-label="Thêm một đêm">+</button><small id="nH"></small></div>
+   </div>
+   <div class="blk">
+    <div class="blh"><h3>Hạng villa</h3><span>Giá mỗi đêm</span></div>
+    <div class="vl" id="vl"></div>
+   </div>
+   <div class="blk">
+    <div class="blh"><h3>Tiện ích thêm</h3><span id="aC"></span></div>
+    <div class="ad" id="ad"></div>
+   </div>
+  </div>
+  <aside class="rc" aria-live="polite">
+   <figure><picture><source type="image/avif" srcset="../img/demo/cam-thach/giuong-640.avif 640w, ../img/demo/cam-thach/giuong-1280.avif 1280w, ../img/demo/cam-thach/giuong-1920.avif 1920w" sizes="(max-width:900px) 100vw, 40vw"><img src="../img/demo/cam-thach/giuong-1280.webp" srcset="../img/demo/cam-thach/giuong-640.webp 640w, ../img/demo/cam-thach/giuong-1280.webp 1280w, ../img/demo/cam-thach/giuong-1920.webp 1920w" sizes="(max-width:900px) 100vw, 40vw" width="1280" height="853" alt="Đôi thiên nga gấp từ khăn trắng trên giường cùng hoa và ly" loading="lazy" decoding="async"></picture></figure>
+   <div class="in">
+    <p class="k mu">Gói của hai bạn</p>
+    <h3 id="rT"></h3>
+    <div class="rw">Villa <b id="rV"></b></div>
+    <div id="rA"></div>
+    <div class="tt"><span class="k mu">Tổng</span><b id="rS"></b></div>
+    <p class="fine">Tổng trên 20 triệu đồng hiển thị “Liên hệ”, đội ngũ sẽ gửi báo giá chi tiết. Giữ chỗ không cần đặt cọc trên trang này.</p>
+    <a class="btn" href="#giu-cho" id="toF">Giữ chỗ với gói này</a>
+   </div>
+  </aside>
+ </div>
+</div></div></div></section>
+
+<section class="sec"><div class="w">
+ <div class="hd2 rv"><p class="k" style="color:var(--rg)">Khoảnh khắc</p><h2 class="c">Biển, nến <em>và hai người.</em></h2></div>
+ <div class="gl">
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/cam-thach/leu-640.avif 640w, ../img/demo/cam-thach/leu-1280.avif 1280w, ../img/demo/cam-thach/leu-1920.avif 1920w" sizes="(max-width:560px) 50vw, 33vw"><img src="../img/demo/cam-thach/leu-1280.webp" srcset="../img/demo/cam-thach/leu-640.webp 640w, ../img/demo/cam-thach/leu-1280.webp 1280w, ../img/demo/cam-thach/leu-1920.webp 1920w" sizes="(max-width:560px) 50vw, 33vw" width="1280" height="1600" alt="Lều vải giăng đèn và nến trên cát lúc chạng vạng" loading="lazy" decoding="async"></picture></figure>
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/cam-thach/toan-canh-640.avif 640w, ../img/demo/cam-thach/toan-canh-1280.avif 1280w, ../img/demo/cam-thach/toan-canh-1920.avif 1920w" sizes="(max-width:560px) 50vw, 33vw"><img src="../img/demo/cam-thach/toan-canh-1280.webp" srcset="../img/demo/cam-thach/toan-canh-640.webp 640w, ../img/demo/cam-thach/toan-canh-1280.webp 1280w, ../img/demo/cam-thach/toan-canh-1920.webp 1920w" sizes="(max-width:560px) 50vw, 33vw" width="1280" height="853" alt="Toàn cảnh bãi cát trắng, dãy villa trên mặt nước và bàn tối thắp đèn" loading="lazy" decoding="async"></picture></figure>
+  <figure class="rv"><picture><source type="image/avif" srcset="../img/demo/cam-thach/ban-640.avif 640w, ../img/demo/cam-thach/ban-1280.avif 1280w, ../img/demo/cam-thach/ban-1920.avif 1920w" sizes="(max-width:560px) 50vw, 33vw"><img src="../img/demo/cam-thach/ban-1280.webp" srcset="../img/demo/cam-thach/ban-640.webp 640w, ../img/demo/cam-thach/ban-1280.webp 1280w, ../img/demo/cam-thach/ban-1920.webp 1920w" sizes="(max-width:560px) 50vw, 33vw" width="1280" height="1600" alt="Bàn tiệc nhỏ với nến và hoa hồng trước biển" loading="lazy" decoding="async"></picture></figure>
+ </div>
+</div></section>
+
+<section class="sec" id="giu-cho" style="padding-top:var(--s6)"><div class="w">
+ <div class="hd2 rv"><p class="k" style="color:var(--rg)">Giữ chỗ</p><h2 class="c">Để lại <em>ngày cưới</em>, phần còn lại để chúng tôi.</h2></div>
+ <form class="fm rv" id="fm" novalidate>
+  <div class="pick"><span><span class="k mu">Gói đã chọn</span><br><b id="pk"></b></span><span id="pkT" style="font-size:15px"></span></div>
+  <div class="fd"><label for="fA">Ngày đến</label><input class="ip" type="date" id="fA" required></div>
+  <div class="fd"><label for="fW">Ngày cưới (nếu muốn)</label><input class="ip" type="date" id="fW"></div>
+  <div class="fd"><label for="fN">Tên hai bạn</label><input class="ip" id="fN" required placeholder="Ví dụ: An &amp; Minh"></div>
+  <div class="fd"><label for="fT">Điện thoại</label><input class="ip" id="fT" type="tel" inputmode="tel" required autocomplete="tel"></div>
+  <div class="fd full"><label for="fG">Màu yêu thích, điều bất ngờ muốn chuẩn bị</label><textarea class="ip" id="fG"></textarea></div>
+  <div class="fd full"><button class="btn" style="width:100%">Giữ chỗ 48 giờ</button><p class="msg" id="msg" role="status" style="margin-top:var(--s3)"></p></div>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="lo">Cẩm Thạch</p>
+ <p>Cẩm Thạch là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, giá, địa chỉ chỉ để minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+ <p>Bãi Cẩm, đảo phía Nam (địa chỉ minh họa) · 0297 000 0000 (số minh họa) · © Cẩm Thạch · Concept</p>
+</div></footer>
+<div class="stk" id="stk"><span><small>Gói trăng mật</small><b id="stT"></b></span><a class="btn" href="#giu-cho">Giữ chỗ</a></div>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-cam-thach',smDemo:'lux-lp-cam-thach'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const go=s=>{const el=$(s);el&&scrollTo({top:el.getBoundingClientRect().top+scrollY-20,behavior:RM?'auto':'smooth'})};
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1&&$(h)){e.preventDefault();go(h)}}));
+/* giá minh họa */
+const V=[{n:'Villa Vườn Dừa',d:'Hồ ngâm đá, sân vườn riêng, 80 m²',p:3900000},{n:'Villa Hồ Bơi',d:'Hồ bơi tràn 8 m, giường ngoài hiên, 110 m²',p:5600000},{n:'Villa Mũi Đá',d:'Sát mép nước, bồn tắm nhìn biển, 160 m²',p:8900000}];
+const A=[{n:'Trang trí phòng',d:'Hoa tươi, nến và cánh hồng theo màu hai bạn chọn',p:1800000},{n:'Bữa tối dưới lều nến',d:'Năm món hải sản, đầu bếp và người phục vụ riêng',p:6500000},{n:'Chụp ảnh hoàng hôn',d:'Hai giờ, 60 ảnh đã chỉnh màu',p:4900000},{n:'Spa đôi 90 phút',d:'Đá nóng và tinh dầu, phòng nhìn biển',p:3600000}];
+const S={n:3,v:1,a:new Set([0])};
+$('#vl').innerHTML=V.map((v,i)=>`<button type="button" class="vo" data-v="${i}" aria-pressed="false"><i></i><span><span class="n">${v.n}</span><span class="d">${v.d}</span></span><span class="p">${pv(v.p)}</span></button>`).join('');
+$('#ad').innerHTML=A.map((a,i)=>`<button type="button" class="ao" data-a="${i}" aria-pressed="false"><span class="n">${a.n}</span><span class="d">${a.d}</span><span class="p">+ ${pv(a.p)}</span></button>`).join('');
+let cur=0,raf;const tw=(el,to)=>{if(to>ASK||cur>ASK||RM){el.textContent=pv(to);cur=to;return}const fr=cur;cur=to;cancelAnimationFrame(raf);const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/700),e=1-Math.pow(1-u,4);el.textContent=vnd(Math.round((fr+(to-fr)*e)/1000)*1000);if(u<1)raf=requestAnimationFrame(run)};raf=requestAnimationFrame(run)};
+const up=()=>{const v=V[S.v],vs=v.p*S.n;let as=0;
+ $('#nV').textContent=S.n;$('#nM').disabled=S.n<=2;$('#nP').disabled=S.n>=10;$('#nH').textContent=`${S.n} đêm · ${S.n+1} ngày`;
+ $$('#vl [data-v]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===S.v));$$('#ad [data-a]').forEach(b=>b.setAttribute('aria-pressed',S.a.has(+b.dataset.a)));
+ $('#aC').textContent=S.a.size?`Đã chọn ${S.a.size}`:'Chưa chọn';
+ $('#rT').textContent=`${v.n} · ${S.n} đêm`;$('#rV').textContent=`${S.n} × ${pv(v.p)}`;
+ $('#rA').innerHTML=[...S.a].sort().map(i=>{as+=A[i].p;return `<div class="rw" style="margin-top:6px">${A[i].n} <b>${pv(A[i].p)}</b></div>`}).join('');
+ const tot=vs+as;tw($('#rS'),tot);$('#stT').textContent=pv(tot);$('#pk').textContent=`${v.n} · ${S.n} đêm${S.a.size?' · '+S.a.size+' tiện ích':''}`;$('#pkT').textContent=pv(tot)};
+$('#nM').addEventListener('click',()=>{S.n=Math.max(2,S.n-1);up()});$('#nP').addEventListener('click',()=>{S.n=Math.min(10,S.n+1);up()});
+$('#vl').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b){S.v=+b.dataset.v;up()}});
+$('#ad').addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b)return;const i=+b.dataset.a;S.a.has(i)?S.a.delete(i):S.a.add(i);up()});
+up();
+const pad=n=>String(n).padStart(2,'0'),iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`,t=new Date();t.setDate(t.getDate()+30);
+$('#fA').min=iso(new Date());$('#fA').value=iso(t);
+$('#fm').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg'),ok=$('#fA').value&&$('#fN').value.trim()&&/^[0-9 +.]{9,}$/.test($('#fT').value.trim());m.classList.toggle('err',!ok);
+ if(!ok){m.textContent='Bạn điền giúp ngày đến, tên và số điện thoại nhé.';return}
+ m.textContent=`Đã giữ chỗ 48 giờ: ${$('#pk').textContent}, đến ngày ${$('#fA').value.split('-').reverse().join('/')}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+/* sticky */
+const stk=$('#stk'),fm=$('#giu-cho');let tk=0;const onS=()=>{tk=0;stk.classList.toggle('on',scrollY>innerHeight*.8&&fm.getBoundingClientRect().top>innerHeight*.6)};addEventListener('scroll',()=>{tk||(tk=requestAnimationFrame(onS))},{passive:true});onS();
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero h1 .a,.hero h1 .b',{y:55,opacity:0,duration:1.6,ease:'expo.out',stagger:.15});
+ gsap.from('.ov',{clipPath:'ellipse(0% 0% at 50% 50%)',duration:2,ease:'expo.inOut',delay:.2});
+ gsap.from('.ov img',{scale:1.3,duration:2.6,ease:'expo.out',delay:.2});
+ gsap.from('.ring',{scale:.8,opacity:0,duration:2.2,ease:'expo.out',delay:.6});
+ gsap.to('.ring',{rotate:8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.rv').forEach(el=>gsap.from(el,{y:34,opacity:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
+}
+})();
+</script>
+</body>
+</html>
