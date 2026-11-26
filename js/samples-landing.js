@@ -147,5 +147,31 @@
     demo: 'demos/lux-lp-vantrel.html',
     long: 'img/sm-landing-vantrel-long.webp',
     longM: 'img/sm-landing-vantrel-long-m.webp'
+  },
+  {
+    id: 'landing-tung-son',
+    title: 'Tùng Sơn Villas · Biệt thự đồi thông',
+    industry: 'Bất động sản',
+    desc: 'Landing biệt thự đồi thông mù sương, serif nghiêng và tông rêu ấm. Đặt lịch tham quan nhà mẫu trên lịch tháng với khung giờ còn trống, chọn xe đón có lộ trình minh họa và bản đồ địa hình tiện ích quanh dự án.',
+    tags: ['Lịch tháng', 'Xe đón', 'Bản đồ tiện ích'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-tung-son.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-tung-son.html',
+    long: 'img/sm-landing-tung-son-long.webp',
+    longM: 'img/sm-landing-tung-son-long-m.webp'
+  },
+  {
+    id: 'landing-hai-am',
+    title: 'Hải Âm Villas · Mở bán villa biển',
+    industry: 'Bất động sản',
+    desc: 'Landing mở bán villa biển tông hoàng hôn trên nền xanh đêm. Bảng bốn hạng căn với giá liên hệ, lịch thanh toán sáu đợt theo tiến độ, tính trả góp có ưu đãi lãi minh họa và form đăng ký nhận bảng giá.',
+    tags: ['Bảng hạng căn', 'Lịch thanh toán', 'Nhận bảng giá'],
+    pkg: 'Landing Page — Cao cấp',
+    cover: 'img/sm-landing-hai-am.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-hai-am.html',
+    long: 'img/sm-landing-hai-am-long.webp',
+    longM: 'img/sm-landing-hai-am-long-m.webp'
   }
 ];

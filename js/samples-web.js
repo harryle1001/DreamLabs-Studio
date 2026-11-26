@@ -207,5 +207,44 @@
     demo: 'demos/lux-lac-kim.html',
     long: 'img/sm-web-lac-kim-long.webp',
     longM: 'img/sm-web-lac-kim-long-m.webp'
+  },
+  {
+    id: 'web-an-lam',
+    title: 'An Lam Residences',
+    industry: 'Bất động sản',
+    desc: 'Dự án biệt thự biển tông cát và xanh biển, chữ serif lớn trên ảnh flycam. Lọc căn ngay trên mặt bằng SVG theo loại, phòng ngủ, diện tích, hướng; bản đồ tiện ích, tính trả góp dư nợ giảm dần và đặt lịch xem nhà.',
+    tags: ['Lọc căn trên mặt bằng', 'Bản đồ tiện ích', 'Tính trả góp'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-an-lam.webp',
+    kind: 'site',
+    demo: 'demos/lux-an-lam.html',
+    long: 'img/sm-web-an-lam-long.webp',
+    longM: 'img/sm-web-an-lam-long-m.webp'
+  },
+  {
+    id: 'web-thach-ngan',
+    title: 'Thạch Ngân Tower',
+    industry: 'Bất động sản',
+    desc: 'Tháp penthouse về đêm, nền than chì, chữ condensed và điểm nhấn champagne. Chọn tầng trên mặt đứng toà nhà, đổi hướng view bằng ảnh thật, so sánh tối đa ba căn, tính trả góp theo tỷ lệ và hẹn xem căn.',
+    tags: ['Chọn tầng', 'Hướng view', 'So sánh căn'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-thach-ngan.webp',
+    kind: 'site',
+    demo: 'demos/lux-thach-ngan.html',
+    long: 'img/sm-web-thach-ngan-long.webp',
+    longM: 'img/sm-web-thach-ngan-long-m.webp'
+  },
+  {
+    id: 'web-orlanne',
+    title: 'Orlanne Estates',
+    industry: 'Bất động sản',
+    desc: 'Sàn môi giới villa sáng sủa, khung ảnh vòm và serif thanh. Lọc theo khu vực Thảo Điền, Tây Hồ, Đà Nẵng, Phú Quốc, Đà Lạt, khoảng giá, phòng ngủ, hồ bơi; sắp xếp, lưu yêu thích trên máy và đặt lịch xem.',
+    tags: ['Lọc bất động sản', 'Lưu yêu thích', 'Đặt lịch xem'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-orlanne.webp',
+    kind: 'site',
+    demo: 'demos/lux-orlanne.html',
+    long: 'img/sm-web-orlanne-long.webp',
+    longM: 'img/sm-web-orlanne-long-m.webp'
   }
 ];

@@ -1,0 +1,73 @@
+{
+ "hero": {
+  "author": "Rachel Claire",
+  "page": "https://www.pexels.com/photo/4992598/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/4992598/pexels-photo-4992598.jpeg",
+  "w": 5346,
+  "h": 3580,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "nha-go": {
+  "author": "Chris",
+  "page": "https://www.pexels.com/photo/10529859/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/10529859/pexels-photo-10529859.jpeg",
+  "w": 3414,
+  "h": 5121,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "thung-lung": {
+  "author": "eberhard grossgasteiger",
+  "page": "https://www.pexels.com/photo/28871317/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/28871317/pexels-photo-28871317.jpeg",
+  "w": 7952,
+  "h": 5304,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "phong-khach": {
+  "author": "Max Vakhtbovych",
+  "page": "https://www.pexels.com/photo/6908500/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6908500/pexels-photo-6908500.jpeg",
+  "w": 3188,
+  "h": 4406,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "doc-thong": {
+  "author": "Osman Uçar",
+  "page": "https://www.pexels.com/photo/16174422/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/16174422/pexels-photo-16174422.jpeg",
+  "w": 5304,
+  "h": 7952,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

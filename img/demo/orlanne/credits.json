@@ -1,0 +1,87 @@
+{
+ "hero": {
+  "author": "aksinfo7 universe",
+  "page": "https://www.pexels.com/photo/30781823/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/30781823/pexels-photo-30781823.jpeg",
+  "w": 7008,
+  "h": 4672,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920,
+   2560
+  ]
+ },
+ "da-nang": {
+  "author": "Ahmet ÇÖTÜR",
+  "page": "https://www.pexels.com/photo/31817156/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/31817156/pexels-photo-31817156.jpeg",
+  "w": 8192,
+  "h": 5464,
+  "ar": "4:3",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "thao-dien": {
+  "author": "Ahmet ÇÖTÜR",
+  "page": "https://www.pexels.com/photo/26859066/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/26859066/pexels-photo-26859066.jpeg",
+  "w": 5749,
+  "h": 3833,
+  "ar": "4:3",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "phu-quoc": {
+  "author": "Ahmet ÇÖTÜR",
+  "page": "https://www.pexels.com/photo/19084143/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/19084143/pexels-photo-19084143.jpeg",
+  "w": 6716,
+  "h": 4477,
+  "ar": "4:3",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "tay-ho": {
+  "author": "Max Vakhtbovych",
+  "page": "https://www.pexels.com/photo/8134745/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8134745/pexels-photo-8134745.jpeg",
+  "w": 7334,
+  "h": 4895,
+  "ar": "4:3",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "thu-duc": {
+  "author": "Jahangir Alam Jahan",
+  "page": "https://www.pexels.com/photo/12975922/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/12975922/pexels-photo-12975922.jpeg",
+  "w": 2508,
+  "h": 1672,
+  "ar": "4:3",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

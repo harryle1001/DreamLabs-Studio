@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>An Lam Residences — biệt thự biển, lọc căn trên mặt bằng (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một dự án biệt thự biển: lọc căn trên mặt bằng, bản đồ tiện ích, tính trả góp dư nợ giảm dần và đặt lịch xem nhà.">
+<style>
+@font-face{font-family:"Prata";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/prata-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Prata";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/prata-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.16,1,.3,1);
+--sa:#F1EBE1;--pa:#FAF7F1;--ink:#13302F;--mu:rgba(19,48,47,.62);--ln:rgba(19,48,47,.14);--sea:#2F6F73;--co:#C8643B;--fd:"Prata",Georgia,serif;--fb:"Manrope",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sa);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1320px;margin:0 auto;padding:0 max(21px,4vw)}
+.ey{font-size:10px;font-weight:600;letter-spacing:.26em;text-transform:uppercase}
+.mu{color:var(--mu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.h2{font-family:var(--fd);font-weight:400;font-size:clamp(34px,5vw,68px);line-height:1.04;letter-spacing:-.01em}
+.h2 em{font-style:normal;color:var(--co)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);min-height:50px;padding:0 var(--s5);border-radius:999px;background:var(--ink);color:var(--pa);font-size:13px;font-weight:600;letter-spacing:.04em;transition:background .4s,transform .5s var(--e)}
+.btn:hover{background:var(--co)}
+.btn.gh{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}.btn.gh:hover{background:var(--pa);color:var(--ink)}
+/* header */
+.hd{position:fixed;inset:0 0 auto;z-index:50;color:#fff;transition:background .5s,color .5s,box-shadow .5s}
+.hd.sol{background:rgba(250,247,241,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:var(--ink);box-shadow:0 1px 0 var(--ln)}
+.hd .w{display:flex;align-items:center;gap:var(--s4);height:68px}
+.lo{font-family:var(--fd);font-size:21px;letter-spacing:.04em;margin-right:auto;min-height:44px;display:flex;align-items:center;gap:10px}
+.lo i{width:21px;height:21px;border-radius:50%;border:1px solid currentColor;position:relative}.lo i::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:1px;background:currentColor;box-shadow:0 -4px 0 currentColor,0 4px 0 currentColor}
+.nv{display:flex;gap:var(--s4)}.nv a{font-size:13px;font-weight:500;min-height:44px;display:flex;align-items:center}
+.back{font-size:12px;min-height:44px;display:flex;align-items:center;opacity:.75}
+.emb .back{display:none}
+.mb{display:none;width:44px;height:44px;position:relative}.mb i{position:absolute;left:11px;right:11px;height:1.5px;background:currentColor;transition:transform .4s var(--e)}.mb i:first-child{top:18px}.mb i:last-child{top:25px}
+.mo .mb i:first-child{transform:translateY(3.5px) rotate(45deg)}.mo .mb i:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+/* hero */
+.hero{position:relative;height:100svh;min-height:600px;max-height:1100px;color:#fff;overflow:hidden;background:#20403f}
+.hero .bg{position:absolute;inset:0}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,26,26,.5) 0%,rgba(8,26,26,.22) 22%,rgba(8,26,26,.58) 52%,rgba(8,26,26,.88) 100%)}
+.hero .w{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:var(--s6)}
+.hero h1{font-family:var(--fd);font-weight:400;font-size:clamp(52px,10.6vw,150px);line-height:.95;letter-spacing:-.02em}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.06em}.hero h1 .l>span{display:inline-block}
+.hero h1 em{font-style:normal;color:#F3C9A9}
+.hx{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s5);align-items:end;margin-top:var(--s5)}
+.hx p{max-width:42ch;font-size:clamp(16px,1.3vw,18px);opacity:.9}
+.tide{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.35);margin-top:var(--s5)}
+.tide div{padding-top:var(--s3)}.tide b{display:block;font-family:var(--fd);font-weight:400;font-size:clamp(21px,2.4vw,34px);line-height:1.1}
+.tide span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+/* sections */
+.sec{padding:var(--s8) 0}
+.sh{display:grid;grid-template-columns:1fr 1.6fr;gap:var(--s5);align-items:end;margin-bottom:var(--s6)}
+.sh .ey{color:var(--co)}
+.sh p.d{max-width:46ch;color:var(--mu);margin-top:var(--s3)}
+/* intro */
+.it{display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:var(--s4);align-items:end}
+.it figure{position:relative;overflow:hidden;border-radius:2px}
+.it .f1{aspect-ratio:4/5}.it .f2{aspect-ratio:3/2;align-self:start}
+.it figcaption{position:absolute;left:var(--s3);bottom:var(--s3);color:#fff;font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.it .tx p{color:var(--mu);margin-top:var(--s4);max-width:44ch}
+.rows{margin-top:var(--s5);border-top:1px solid var(--ln)}
+.rows div{display:flex;justify-content:space-between;gap:var(--s3);padding:var(--s3) 0;border-bottom:1px solid var(--ln);font-size:15px}
+.rows b{font-family:var(--fd);font-weight:400}
+/* siteplan */
+.sp{display:grid;grid-template-columns:300px 1fr;gap:var(--s5);align-items:start}
+.flt{display:grid;gap:var(--s4);position:sticky;top:89px}
+.fg h3{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mu);margin-bottom:var(--s2);display:flex;justify-content:space-between}
+.fg h3 output{color:var(--ink);letter-spacing:.04em;text-transform:none;font-size:12px}
+.ch{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.ch button{min-height:40px;padding:0 var(--s3);border-radius:999px;border:1px solid var(--ln);background:var(--pa);font-size:13px;font-weight:500;transition:background .3s,color .3s,border-color .3s}
+.ch button[aria-pressed=true]{background:var(--ink);color:var(--pa);border-color:var(--ink)}
+.tg{display:flex;gap:var(--s2);align-items:center;font-size:14px;min-height:44px;cursor:pointer}
+.tg input{width:20px;height:20px;accent-color:var(--sea)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:40px;background:transparent;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--ink) var(--f,50%),var(--ln) var(--f,50%))}
+input[type=range]::-moz-range-track{height:2px;background:var(--ln)}input[type=range]::-moz-range-progress{height:2px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:21px;height:21px;border-radius:50%;background:var(--pa);border:2px solid var(--ink);margin-top:-10px}
+input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--pa);border:2px solid var(--ink)}
+.cnt{font-family:var(--fd);font-size:26px;line-height:1}.cnt small{font-family:var(--fb);font-size:13px;color:var(--mu)}
+.map{background:var(--pa);border:1px solid var(--ln);border-radius:2px;overflow:hidden;position:relative}
+.map svg{display:block;width:100%;height:auto}
+.lot{cursor:pointer;outline:none}
+.lot rect.b{fill:#E6DCCB;stroke:rgba(19,48,47,.25);stroke-width:1;transition:fill .5s,opacity .5s,stroke .3s}
+.lot .pl{fill:#9cc7c6;transition:opacity .5s}
+.lot text{font:600 9px var(--fb);fill:var(--ink);pointer-events:none;letter-spacing:.04em}
+.lot.m rect.b{fill:var(--sea)}.lot.m text{fill:#fff}
+.lot.m.h rect.b{fill:#B9AF9F}.lot.m.h text{fill:var(--ink)}
+.lot.x{opacity:.28}
+.lot.on rect.b,.lot:focus-visible rect.b{stroke:var(--co);stroke-width:3}
+.lgd{display:flex;flex-wrap:wrap;gap:var(--s4);padding:var(--s3) var(--s4);border-top:1px solid var(--ln);font-size:12px;color:var(--mu)}
+.lgd i{display:inline-block;width:13px;height:13px;border-radius:2px;margin-right:6px;vertical-align:-2px}
+.lst{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4)}
+.lst button{min-height:40px;padding:0 var(--s3);border:1px solid var(--ln);border-radius:2px;font-size:12px;background:var(--pa)}
+.lst button.h{color:var(--mu);text-decoration:line-through}
+.lst button[aria-pressed=true]{border-color:var(--co);color:var(--co)}
+.dtl{margin-top:var(--s4);display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s4);background:var(--ink);color:var(--pa);padding:var(--s5);border-radius:2px}
+.dtl h3{font-family:var(--fd);font-weight:400;font-size:42px;line-height:1}
+.dtl dl{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s4);font-size:14px}
+.dtl dt{color:rgba(250,247,241,.6)}.dtl dd{text-align:right}
+.dtl .acts{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4)}
+.dtl .btn{background:var(--co)}.dtl .btn:hover{background:var(--pa);color:var(--ink)}
+.pill{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:rgba(250,247,241,.14);margin-top:var(--s3)}
+.pill.ok{background:#3f8c7f}.pill.no{background:#7a6f60}
+/* amenity */
+.am{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s5);align-items:start}
+.amap{background:#DCE8E4;border-radius:2px;overflow:hidden;border:1px solid var(--ln)}
+.amap svg{display:block;width:100%;height:auto}
+.rt{fill:none;stroke:var(--co);stroke-width:2;stroke-dasharray:5 6}
+.pn circle{fill:var(--co)}.pn text{font:600 12px var(--fb);fill:var(--ink)}
+.al{margin-top:var(--s4);border-top:1px solid var(--ln)}
+.al li{display:grid;grid-template-columns:1fr auto;gap:var(--s3);padding:var(--s3) 0;border-bottom:1px solid var(--ln)}
+.al b{font-family:var(--fd);font-weight:400;font-size:21px}
+.al small{display:block;color:var(--mu);font-size:13px}
+.al .k{text-align:right;font-weight:600;white-space:nowrap}
+/* gallery */
+.gl{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s4)}
+.gl figure{overflow:hidden;border-radius:2px;aspect-ratio:3/2}
+.gl figure:last-child{aspect-ratio:auto}
+/* loan */
+.ln{display:grid;grid-template-columns:1fr 1.3fr;gap:1px;background:var(--ln);border:1px solid var(--ln)}
+.ln>div{background:var(--pa);padding:var(--s5)}
+.fld{display:grid;gap:var(--s1);margin-bottom:var(--s4)}
+.fld label,.fld .lb{display:flex;justify-content:space-between;gap:var(--s3);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.fld output{color:var(--co);text-transform:none;letter-spacing:0}
+.in{width:100%;min-height:50px;border:1px solid var(--ln);background:var(--sa);padding:0 var(--s3);border-radius:2px;font-size:16px;outline:0;-webkit-appearance:none;appearance:none}
+.in:focus{border-color:var(--ink)}
+select.in{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:34px}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-bottom:var(--s4)}
+.mode button{min-height:50px;border:1px solid var(--ln);border-radius:2px;font-size:13px;font-weight:600;padding:4px 8px}
+.mode button[aria-pressed=true]{background:var(--ink);color:var(--pa);border-color:var(--ink)}
+.hid{display:none!important}
+.sp>*,.am>*,.ln>*,.bk>*,.hx>*,.sh>*,.it>*,.gl>*{min-width:0}
+.big{font-family:var(--fd);font-size:clamp(42px,5vw,68px);line-height:1}
+.big small{font-family:var(--fb);font-size:14px;color:var(--mu)}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin:var(--s4) 0}
+.kp div{border-top:1px solid var(--ln);padding-top:var(--s2)}.kp b{display:block;font-family:var(--fd);font-weight:400;font-size:26px;line-height:1.1}.kp span{font-size:12px;color:var(--mu)}
+.tbw{overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid var(--ln)}
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{padding:var(--s2) var(--s2);text-align:right;border-bottom:1px solid var(--ln);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);font-weight:600}
+td i{display:inline-block;height:5px;background:var(--sea);border-radius:3px;vertical-align:middle;margin-right:6px}
+.note{font-size:12px;color:var(--mu);margin-top:var(--s3);line-height:1.6}
+/* booking */
+.bk{display:grid;grid-template-columns:1fr 1.6fr;gap:var(--s6);align-items:start}
+.days{display:flex;gap:var(--s2);overflow-x:auto;padding-bottom:var(--s2);scrollbar-width:thin}
+.days button{flex:0 0 auto;width:68px;min-height:76px;border:1px solid var(--ln);border-radius:2px;background:var(--pa);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.days button b{font-family:var(--fd);font-weight:400;font-size:26px;letter-spacing:0;line-height:1}
+.days button[aria-pressed=true]{background:var(--ink);color:var(--pa);border-color:var(--ink)}
+.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s2);margin:var(--s4) 0}
+.slots button{min-height:48px;border:1px solid var(--ln);border-radius:2px;font-size:14px;font-weight:600;background:var(--pa)}
+.slots button:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed;background:transparent}
+.slots button[aria-pressed=true]{background:var(--co);border-color:var(--co);color:#fff}
+.bkf{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3) var(--s4)}
+.bkf .fld{margin:0}.bkf .full{grid-column:1/-1}
+.sum{font-family:var(--fd);font-size:21px;line-height:1.3;padding:var(--s4);border:1px solid var(--ln);background:var(--pa);border-radius:2px}
+.msg{font-size:14px;min-height:1.5em;color:var(--sea);margin-top:var(--s3)}.msg.err{color:#A3341C}
+footer{background:var(--ink);color:var(--pa);padding:var(--s7) 0 var(--s6)}
+footer .bgt{font-family:var(--fd);font-size:clamp(52px,12vw,150px);line-height:.9;letter-spacing:-.02em;opacity:.9}
+footer .r{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--s5);margin-top:var(--s5);font-size:14px;color:rgba(250,247,241,.7)}
+footer a{text-decoration:underline}
+[data-r]{opacity:0;transform:translateY(34px);transition:opacity 1.2s var(--e),transform 1.2s var(--e)}
+[data-r].vis{opacity:1;transform:none}
+@media(max-width:980px){
+ .nv{position:fixed;inset:68px 0 auto;flex-direction:column;gap:0;background:var(--pa);color:var(--ink);padding:var(--s3) max(21px,4vw) var(--s5);box-shadow:0 1px 0 var(--ln);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .4s var(--e),visibility .3s}
+ .nv a{font-size:16px;border-bottom:1px solid var(--ln);min-height:52px}
+ .mo .nv{opacity:1;visibility:visible;transform:none}
+ .mb{display:block}
+ .hx,.sh,.sp,.am,.ln,.bk,footer .r{grid-template-columns:1fr}
+ .it{grid-template-columns:1fr 1fr}.it .tx{grid-column:1/-1;order:-1}
+ .flt{position:static}
+ .gl{grid-template-columns:1fr}.gl figure:last-child{aspect-ratio:3/2}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:600px){
+ .ln>div,.dtl{padding:var(--s4)}
+ .dtl{grid-template-columns:1fr}
+ .kp{grid-template-columns:1fr 1fr}
+ .slots{grid-template-columns:repeat(3,1fr)}
+ .bkf{grid-template-columns:1fr}
+ .tide b{font-size:19px}
+ .hero h1{font-size:44px}
+ .hero .bg::after{background:linear-gradient(180deg,rgba(8,26,26,.5),rgba(8,26,26,.2) 25%,rgba(8,26,26,.7) 55%,rgba(8,26,26,.88))}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}[data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="hd" id="hd"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top" aria-label="An Lam Residences"><i></i>An Lam</a>
+ <nav class="nv" aria-label="Chính"><a href="#mat-bang">Mặt bằng</a><a href="#tien-ich">Tiện ích</a><a href="#tra-gop">Trả góp</a><a href="#xem-nha">Xem nhà</a></nav>
+ <button class="mb" type="button" aria-label="Mở menu" aria-expanded="false"><i></i><i></i></button>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="bg"><picture><source type="image/avif" srcset="../img/demo/an-lam/hero-640.avif 640w, ../img/demo/an-lam/hero-960.avif 960w, ../img/demo/an-lam/hero-1280.avif 1280w, ../img/demo/an-lam/hero-1920.avif 1920w, ../img/demo/an-lam/hero-2560.avif 2560w" sizes="100vw"><img src="../img/demo/an-lam/hero-1280.webp" srcset="../img/demo/an-lam/hero-640.webp 640w, ../img/demo/an-lam/hero-960.webp 960w, ../img/demo/an-lam/hero-1280.webp 1280w, ../img/demo/an-lam/hero-1920.webp 1920w, ../img/demo/an-lam/hero-2560.webp 2560w" sizes="100vw" width="1280" height="853" alt="Những căn biệt thự thấp tầng có hồ bơi nằm giữa đồi cát ven biển, nhìn từ trên cao" fetchpriority="high" decoding="async"></picture></div>
+ <div class="w">
+  <p class="ey" style="opacity:.85">Biệt thự biển · Dự án minh họa · Concept</p>
+  <h1><span class="l"><span>Nhà ở mép cát,</span></span><span class="l"><span><em>cửa mở ra biển.</em></span></span></h1>
+  <div class="hx">
+   <p>Hai mươi sáu căn biệt thự trải theo đường cong của bờ biển. Mỗi căn một mảnh vườn, nhiều căn có hồ bơi riêng. Chọn căn ngay trên mặt bằng, xem tiện ích quanh dự án, rồi hẹn một buổi đi bộ trên cát.</p>
+   <div style="display:flex;gap:var(--s2);flex-wrap:wrap"><a class="btn" href="#mat-bang" style="background:#fff;color:var(--ink)">Lọc căn trên mặt bằng</a><a class="btn gh" href="#xem-nha">Đặt lịch xem nhà</a></div>
+  </div>
+  <div class="tide"><div><b>26 căn</b><span>ba hàng biệt thự</span></div><div><b>3–5 PN</b><span>300–680 m² đất</span></div><div><b>Liên hệ</b><span>bảng giá</span></div></div>
+ </div>
+</section>
+
+<section class="sec"><div class="w it">
+ <figure class="f1" data-r><picture><source type="image/avif" srcset="../img/demo/an-lam/mai-640.avif 640w, ../img/demo/an-lam/mai-1280.avif 1280w, ../img/demo/an-lam/mai-1920.avif 1920w" sizes="(max-width:980px) 50vw, 22vw"><img src="../img/demo/an-lam/mai-1280.webp" srcset="../img/demo/an-lam/mai-640.webp 640w, ../img/demo/an-lam/mai-1280.webp 1280w, ../img/demo/an-lam/mai-1920.webp 1920w" sizes="(max-width:980px) 50vw, 22vw" width="1280" height="1600" alt="Mái ngói xám của một căn biệt thự giữa vòm dừa, nhìn thẳng từ trên xuống" loading="lazy" decoding="async"></picture><figcaption>Mái ngói giữa vòm dừa</figcaption></figure>
+ <figure class="f2" data-r><picture><source type="image/avif" srcset="../img/demo/an-lam/bo-bien-640.avif 640w, ../img/demo/an-lam/bo-bien-1280.avif 1280w, ../img/demo/an-lam/bo-bien-1920.avif 1920w" sizes="(max-width:980px) 50vw, 22vw"><img src="../img/demo/an-lam/bo-bien-1280.webp" srcset="../img/demo/an-lam/bo-bien-640.webp 640w, ../img/demo/an-lam/bo-bien-1280.webp 1280w, ../img/demo/an-lam/bo-bien-1920.webp 1920w" sizes="(max-width:980px) 50vw, 22vw" width="1280" height="853" alt="Dãy biệt thự mái thấp chạy dọc bờ biển, núi xa phía chân trời" loading="lazy" decoding="async"></picture><figcaption>Bờ biển phía đông</figcaption></figure>
+ <div class="tx" data-r>
+  <p class="ey" style="color:var(--co)">01 — Dự án</p>
+  <h2 class="h2" style="margin-top:var(--s3)">Ba hàng nhà,<br><em>một bờ cát.</em></h2>
+  <p>Hàng sát biển dành cho những gia đình muốn nghe sóng mỗi sáng. Hàng giữa có hồ bơi riêng, kín gió. Hàng trong cùng là vườn rộng, yên tĩnh như một khu nghỉ trên đồi.</p>
+  <div class="rows">
+   <div><span>Biệt thự biển</span><b>8 căn · 5 PN</b></div>
+   <div><span>Biệt thự hồ bơi</span><b>9 căn · 4 PN</b></div>
+   <div><span>Biệt thự vườn</span><b>9 căn · 3 PN</b></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="mat-bang" style="padding-top:0"><div class="w">
+ <div class="sh" data-r><p class="ey">02 — Mặt bằng</p><div><h2 class="h2">Lọc căn, <em>chạm để xem.</em></h2><p class="d">Chọn loại nhà, số phòng ngủ, diện tích và hướng. Căn phù hợp sáng lên trên mặt bằng; bấm vào từng căn để xem chi tiết. Tình trạng giữ chỗ là minh họa.</p></div></div>
+ <div class="sp">
+  <div class="flt" data-r>
+   <div class="fg"><h3>Loại biệt thự</h3><div class="ch" id="fT"></div></div>
+   <div class="fg"><h3>Phòng ngủ</h3><div class="ch" id="fB"></div></div>
+   <div class="fg"><h3><label for="fA">Diện tích đất</label><output id="oA">từ 300 m²</output></h3><input id="fA" type="range" min="300" max="650" step="10" value="300"></div>
+   <div class="fg"><h3>Hướng</h3><div class="ch" id="fD"></div></div>
+   <label class="tg"><input type="checkbox" id="fS"> Chỉ hiện căn còn trống</label>
+   <p class="cnt" aria-live="polite"><span id="cN">26</span> <small>căn phù hợp</small></p>
+  </div>
+  <div data-r>
+   <div class="map">
+    <svg id="plan" viewBox="0 0 1000 600" role="group" aria-label="Mặt bằng dự án, mỗi ô là một căn biệt thự">
+     <defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fc0bd"/><stop offset="1" stop-color="#3d7d80"/></linearGradient></defs>
+     <rect width="1000" height="600" fill="#EFE8DA"/>
+     <path d="M0 470Q250 420 500 452T1000 430V600H0Z" fill="#E8DCC4"/>
+     <path d="M0 505Q250 455 500 487T1000 465V600H0Z" fill="url(#sea)"/>
+     <path d="M0 520Q250 470 500 502T1000 480" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>
+     <path d="M0 548Q250 498 500 530T1000 508" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1.5"/>
+     <path d="M40 60H960M40 60V420M960 60V420" fill="none" stroke="rgba(19,48,47,.12)" stroke-width="1"/>
+     <path d="M40 150Q500 120 960 150M40 262Q500 232 960 262" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+     <circle cx="500" cy="92" r="26" fill="#cfe0d6"/><text x="500" y="96" text-anchor="middle" font-size="10" font-weight="600" fill="#13302F" font-family="Manrope">CLUB</text>
+     <text x="500" y="585" text-anchor="middle" font-size="12" letter-spacing="4" fill="#fff" font-family="Manrope" font-weight="600">BIỂN ĐÔNG · MINH HỌA</text>
+     <g id="lots"></g>
+     <g font-family="Manrope" font-size="11" fill="#13302F" opacity=".55"><text x="52" y="108">HÀNG C · VƯỜN</text><text x="52" y="220">HÀNG B · HỒ BƠI</text><text x="52" y="330">HÀNG A · BIỂN</text></g>
+     <g transform="translate(930 110)" fill="none" stroke="#13302F" stroke-opacity=".5"><circle r="16"/><path d="M0 -12L4 0L0 12L-4 0Z" fill="#13302F" fill-opacity=".5"/></g><text x="930" y="88" text-anchor="middle" font-size="10" fill="#13302F" font-family="Manrope">B</text>
+    </svg>
+    <div class="lgd"><span><i style="background:var(--sea)"></i>Còn trống, phù hợp</span><span><i style="background:#B9AF9F"></i>Đã giữ chỗ</span><span><i style="background:#E6DCCB;border:1px solid var(--ln)"></i>Không khớp bộ lọc</span></div>
+   </div>
+   <div class="lst" id="lst" aria-label="Danh sách căn phù hợp"></div>
+   <div class="dtl" id="dtl" aria-live="polite"></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="tien-ich" style="background:var(--pa)"><div class="w">
+ <div class="sh" data-r><p class="ey">03 — Tiện ích</p><div><h2 class="h2">Những nơi <em>cần đến,</em> đều gần.</h2><p class="d">Bấm từng nhóm để thấy vị trí và quãng đường ước tính từ cổng dự án. Tên địa điểm và khoảng cách chỉ để minh họa.</p></div></div>
+ <div class="am">
+  <div class="amap" data-r>
+   <svg id="amap" viewBox="0 0 600 420" role="img" aria-label="Bản đồ tiện ích quanh dự án (minh họa)">
+    <rect width="600" height="420" fill="#E4EDE8"/>
+    <path d="M600 0V420H430Q470 330 440 250T500 120T470 0Z" fill="#9ec7c3"/>
+    <path d="M430 420Q470 330 440 250T500 120T470 0" fill="none" stroke="#EADFC8" stroke-width="10"/>
+    <g stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"><path d="M0 300Q200 270 420 255"/><path d="M180 0Q220 200 230 420"/><path d="M60 80Q260 140 450 120"/></g>
+    <g fill="#cfdcc4"><ellipse cx="110" cy="190" rx="70" ry="45"/><ellipse cx="330" cy="360" rx="60" ry="30"/></g>
+    <text x="520" y="400" font-size="11" letter-spacing="3" fill="#fff" font-family="Manrope" font-weight="600">BIỂN</text>
+    <g id="rts"></g><g id="pns"></g>
+    <g transform="translate(400 250)"><circle r="22" fill="rgba(19,48,47,.15)"><animate attributeName="r" values="14;26;14" dur="3s" repeatCount="indefinite"/></circle><circle r="9" fill="#13302F"/><text x="-14" y="-16" text-anchor="end" font-size="12" font-weight="700" fill="#13302F" font-family="Manrope">An Lam</text></g>
+   </svg>
+  </div>
+  <div data-r>
+   <div class="ch" id="aC" role="group" aria-label="Nhóm tiện ích"></div>
+   <ul class="al" id="aL" aria-live="polite"></ul>
+   <p class="note">Thời gian di chuyển bằng ô tô, ước tính trong điều kiện giao thông bình thường. Số liệu minh họa.</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec"><div class="w gl">
+ <figure data-r><picture><source type="image/avif" srcset="../img/demo/an-lam/ho-boi-640.avif 640w, ../img/demo/an-lam/ho-boi-1280.avif 1280w, ../img/demo/an-lam/ho-boi-1920.avif 1920w" sizes="(max-width:980px) 100vw, 60vw"><img src="../img/demo/an-lam/ho-boi-1280.webp" srcset="../img/demo/an-lam/ho-boi-640.webp 640w, ../img/demo/an-lam/ho-boi-1280.webp 1280w, ../img/demo/an-lam/ho-boi-1920.webp 1920w" sizes="(max-width:980px) 100vw, 60vw" width="1280" height="853" alt="Biệt thự nhiệt đới hai tầng bên hồ bơi lúc chạng vạng, đèn vàng hắt trên mặt nước" loading="lazy" decoding="async"></picture></figure>
+ <figure data-r><picture><source type="image/avif" srcset="../img/demo/an-lam/toan-canh-640.avif 640w, ../img/demo/an-lam/toan-canh-1280.avif 1280w, ../img/demo/an-lam/toan-canh-1920.avif 1920w" sizes="(max-width:980px) 100vw, 38vw"><img src="../img/demo/an-lam/toan-canh-1280.webp" srcset="../img/demo/an-lam/toan-canh-640.webp 640w, ../img/demo/an-lam/toan-canh-1280.webp 1280w, ../img/demo/an-lam/toan-canh-1920.webp 1920w" sizes="(max-width:980px) 100vw, 38vw" width="1280" height="853" alt="Biệt thự trắng nhiều tầng giữa cây xanh, sân hiên và hồ bơi nhìn từ trên cao" loading="lazy" decoding="async"></picture></figure>
+</div></section>
+
+<section class="sec" id="tra-gop" style="padding-top:0"><div class="w">
+ <div class="sh" data-r><p class="ey">04 — Trả góp</p><div><h2 class="h2">Hiểu khoản vay <em>trước khi ký.</em></h2><p class="d">Công cụ tính theo dư nợ giảm dần: gốc chia đều, lãi tính trên dư nợ còn lại. Khoản trên 20 triệu hiển thị "Liên hệ"; bạn có thể nhập một số tiền vay nhỏ để xem cách tính. Số minh họa, lãi suất giả định.</p></div></div>
+ <div class="ln" data-r>
+  <div>
+   <div class="mode" id="lM"><button type="button" data-m="u" aria-pressed="true">Theo căn đã chọn</button><button type="button" data-m="t" aria-pressed="false">Tự nhập số tiền vay</button></div>
+   <div class="fld" data-for="u"><label for="lU">Căn</label><select class="in" id="lU"></select><span class="note" style="margin:0" id="lUp">Giá căn: Liên hệ</span></div>
+   <div class="fld" data-for="u"><label for="lP">Tỷ lệ vay <output id="oP">50%</output></label><input id="lP" type="range" min="30" max="70" step="5" value="50"></div>
+   <div class="fld hid" data-for="t"><label for="lT">Số tiền vay thử (triệu đồng)</label><input class="in" id="lT" type="number" inputmode="numeric" min="50" max="100000" step="50" value="1200"></div>
+   <div class="fld"><label for="lR">Lãi suất năm (giả định) <output id="oR">8%</output></label><input id="lR" type="range" min="5" max="12" step=".25" value="8"></div>
+   <div class="fld"><label for="lN">Kỳ hạn <output id="oN">20 năm</output></label><input id="lN" type="range" min="5" max="25" step="1" value="20"></div>
+  </div>
+  <div aria-live="polite">
+   <p class="ey mu">Góp tháng đầu tiên</p>
+   <p class="big" id="rF">–</p>
+   <div class="kp">
+    <div><b id="rP1">–</b><span>tháng đầu / số vay</span></div>
+    <div><b id="rI">–</b><span>tổng lãi / số vay</span></div>
+    <div><b id="rL">–</b><span>góp tháng cuối</span></div>
+   </div>
+   <div class="tbw"><table><thead><tr><th>Năm</th><th>Dư nợ đầu năm</th><th>Lãi trong năm</th><th>Góp tháng đầu năm</th></tr></thead><tbody id="rT"></tbody></table></div>
+   <p class="note" id="rN">Số minh họa, lãi suất giả định. Ngân hàng sẽ báo lãi suất thực tế theo hồ sơ.</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="xem-nha" style="background:var(--pa)"><div class="w bk">
+ <div data-r>
+  <p class="ey" style="color:var(--co)">05 — Xem nhà</p>
+  <h2 class="h2" style="margin-top:var(--s3)">Một buổi sáng<br><em>trên cát.</em></h2>
+  <p class="mu" style="margin-top:var(--s4);max-width:38ch">Chọn ngày và khung giờ còn trống. Mỗi khung giờ dành cho một gia đình, tư vấn viên đưa bạn đi xem căn mẫu và bờ biển.</p>
+  <p class="sum" id="bS" style="margin-top:var(--s5)">Chưa chọn căn · chọn ngày và giờ</p>
+ </div>
+ <div data-r>
+  <h3 class="ey mu" style="margin-bottom:var(--s2)">Ngày</h3>
+  <div class="days" id="bD" role="group" aria-label="Chọn ngày"></div>
+  <h3 class="ey mu" style="margin-top:var(--s4)">Khung giờ còn trống</h3>
+  <div class="slots" id="bH" role="group" aria-label="Chọn giờ"></div>
+  <form class="bkf" id="bf" novalidate>
+   <div class="fld"><label for="bN">Họ tên</label><input class="in" id="bN" required autocomplete="name"></div>
+   <div class="fld"><label for="bT">Điện thoại</label><input class="in" id="bT" type="tel" required inputmode="tel" autocomplete="tel"></div>
+   <div class="fld full"><label for="bU">Căn muốn xem</label><select class="in" id="bU"></select></div>
+   <div class="full"><button class="btn" style="width:100%">Giữ lịch xem nhà</button><p class="msg" id="bM" role="status"></p></div>
+  </form>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <div class="bgt" aria-hidden="true">An Lam</div>
+ <div class="r">
+  <p>An Lam Residences là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, giá, địa chỉ chỉ để minh họa. Pháp lý, tiến độ, tiện ích và lãi suất trên trang đều là minh họa. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+  <p>Nhà mẫu: Đường Ven Biển, xã Bình Lâm (địa chỉ minh họa)<br>Hotline 0900 000 268 (số minh họa)<br>© An Lam Residences · Concept</p>
+ </div>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-an-lam',smDemo:'lux-an-lam'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const pct=(x,d=1)=>(x*100).toLocaleString('vi-VN',{maximumFractionDigits:d})+'%';
+/* header */
+const hd=$('#hd'),mb=$('.mb');const onS=()=>hd.classList.toggle('sol',scrollY>innerHeight*.6||H.classList.contains('mo'));addEventListener('scroll',onS,{passive:true});onS();
+mb.addEventListener('click',()=>{const o=H.classList.toggle('mo');mb.setAttribute('aria-expanded',o);onS()});$$('.nv a').forEach(a=>a.addEventListener('click',()=>{H.classList.remove('mo');mb.setAttribute('aria-expanded',false);onS()}));
+const go=s=>{const el=$(s);if(!el)return;scrollTo({top:el.getBoundingClientRect().top+scrollY-68,behavior:RM?'auto':'smooth'})};
+/* reveal */
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.08});$$('[data-r]').forEach(el=>io.observe(el))}else $$('[data-r]').forEach(el=>el.classList.add('vis'));
+/* data — căn minh họa */
+let sd=7;const rnd=()=>(sd=(sd*9301+49297)%233280)/233280;
+const TY={A:{n:'Biệt thự biển',s:'Biển',b:5,a:[520,680],fl:1.55,p:[34,42],d:['Đông Nam','Nam']},B:{n:'Biệt thự hồ bơi',s:'Hồ bơi',b:4,a:[380,470],fl:1.45,p:[24,30],d:['Đông','Đông Nam','Nam','Tây Nam']},C:{n:'Biệt thự vườn',s:'Vườn',b:3,a:[300,370],fl:1.3,p:[17,22],d:['Đông','Đông Nam','Nam','Tây Nam']}};
+const U=[];[['A',8,345,402],['B',9,232,290],['C',9,120,178]].forEach(([t,c,y0,y1])=>{for(let i=0;i<c;i++){const T=TY[t],x=170+i*(760/(c-1)),cv=Math.sin((x-40)/920*Math.PI)*-26;
+ const a=Math.round((T.a[0]+rnd()*(T.a[1]-T.a[0]))/5)*5;U.push({id:t+String(i+1).padStart(2,'0'),t,x,y:y0+cv,a,fa:Math.round(a*T.fl/5)*5,d:T.d[Math.floor(rnd()*T.d.length)],h:rnd()<.3,pr:(T.p[0]+rnd()*(T.p[1]-T.p[0]))*1e9})}});
+const F={t:'*',b:'*',a:300,d:'*',s:false};let sel=null;
+const chips=(el,arr,key)=>{$(el).innerHTML=arr.map(([v,l])=>`<button type="button" data-v="${v}" aria-pressed="${F[key]==v}">${l}</button>`).join('');$(el).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;F[key]=b.dataset.v;$$('button',$(el)).forEach(x=>x.setAttribute('aria-pressed',x===b));filt()})};
+chips('#fT',[['*','Tất cả'],['A','Biển'],['B','Hồ bơi'],['C','Vườn']],'t');chips('#fB',[['*','Tất cả'],['3','3 PN'],['4','4 PN'],['5','5 PN']],'b');chips('#fD',[['*','Mọi hướng'],['Đông','Đông'],['Đông Nam','Đông Nam'],['Nam','Nam'],['Tây Nam','Tây Nam']],'d');
+$('#lots').innerHTML=U.map(u=>{const w=u.t==='A'?84:76,h=u.t==='A'?52:46;return `<g class="lot" data-id="${u.id}" tabindex="0" role="button" aria-label="Căn ${u.id}, ${TY[u.t].n}, ${TY[u.t].b} phòng ngủ, ${u.a} mét vuông đất, hướng ${u.d}${u.h?', đã giữ chỗ':', còn trống'}" transform="translate(${u.x.toFixed(1)} ${u.y.toFixed(1)})"><rect class="b" x="${-w/2}" y="${-h/2}" width="${w}" height="${h}" rx="3"/>${u.t!=='C'?`<rect class="pl" x="${w/2-26}" y="${h/2-16}" width="20" height="11" rx="2"/>`:''}<text x="${-w/2+7}" y="${-h/2+15}">${u.id}</text></g>`}).join('');
+const fill=r=>r.style.setProperty('--f',((r.value-r.min)/(r.max-r.min)*100)+'%');
+const filt=()=>{F.a=+$('#fA').value;F.s=$('#fS').checked;fill($('#fA'));$('#oA').textContent='từ '+F.a+' m²';
+ let n=0;const ok=[];U.forEach(u=>{const m=(F.t==='*'||u.t===F.t)&&(F.b==='*'||TY[u.t].b==F.b)&&u.a>=F.a&&(F.d==='*'||u.d===F.d)&&!(F.s&&u.h);const g=$(`.lot[data-id="${u.id}"]`);g.classList.toggle('m',m);g.classList.toggle('x',!m);g.classList.toggle('h',u.h);if(m){n++;ok.push(u)}});
+ $('#cN').textContent=n;$('#lst').innerHTML=ok.length?ok.map(u=>`<button type="button" data-id="${u.id}" class="${u.h?'h':''}" aria-pressed="${sel&&sel.id===u.id}">${u.id} · ${TY[u.t].b} PN · ${u.a} m²</button>`).join(''):'<p class="mu">Chưa có căn khớp. Thử nới diện tích hoặc đổi hướng.</p>'};
+$('#fA').addEventListener('input',filt);$('#fS').addEventListener('change',filt);
+const pick=id=>{sel=U.find(u=>u.id===id);$$('.lot').forEach(g=>g.classList.toggle('on',g.dataset.id===id));$$('#lst button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.id===id));
+ const u=sel,T=TY[u.t];$('#dtl').innerHTML=`<div><p class="ey" style="opacity:.6">${T.n}</p><h3 style="margin-top:6px">Căn ${u.id}</h3><span class="pill ${u.h?'no':'ok'}">${u.h?'Đã giữ chỗ':'Còn trống'}</span><div class="acts"><button class="btn" type="button" id="toL">Tính trả góp căn này</button><button class="btn gh" type="button" id="toB">Hẹn xem căn</button></div></div><dl><dt>Phòng ngủ</dt><dd>${T.b}</dd><dt>Diện tích đất</dt><dd>${u.a} m²</dd><dt>Sàn xây dựng</dt><dd>${u.fa} m²</dd><dt>Hướng</dt><dd>${u.d}</dd><dt>Hồ bơi riêng</dt><dd>${u.t==='C'?'Không':'Có'}</dd><dt>Giá</dt><dd>${pv(u.pr)}</dd></dl>`;
+ $('#lU').value=id;$('#bU').value=id;loan();sumB()};
+$('#lots').addEventListener('click',e=>{const g=e.target.closest('.lot');g&&pick(g.dataset.id)});
+$('#lots').addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.closest('.lot')){e.preventDefault();pick(e.target.closest('.lot').dataset.id)}});
+$('#lst').addEventListener('click',e=>{const b=e.target.closest('button');b&&pick(b.dataset.id)});
+$('#dtl').addEventListener('click',e=>{if(e.target.id==='toL'){setM('u');go('#tra-gop')}if(e.target.id==='toB')go('#xem-nha')});
+/* amenity */
+const AM=[{k:'du',n:'Bến du thuyền',p:[['Bến du thuyền đầu vịnh',470,90,'2,4 km','6 phút']]},
+ {k:'golf',n:'Sân golf',p:[['Sân golf 18 lỗ ven đồi',110,190,'4,8 km','9 phút']]},
+ {k:'tr',n:'Trường quốc tế',p:[['Trường song ngữ liên cấp',200,60,'6,5 km','12 phút'],['Trường mầm non quốc tế',300,330,'1,9 km','5 phút']]},
+ {k:'bv',n:'Bệnh viện',p:[['Bệnh viện đa khoa quốc tế',70,330,'7,2 km','14 phút'],['Phòng khám 24/7 trong khu',350,215,'0,6 km','2 phút']]},
+ {k:'pho',n:'Phố ẩm thực',p:[['Phố đêm ven biển',455,170,'1,6 km','4 phút']]},
+ {k:'sb',n:'Sân bay',p:[['Sân bay (hướng tây)',20,280,'28 km','32 phút']]}];
+let ak='du';$('#aC').innerHTML=AM.map(a=>`<button type="button" data-k="${a.k}" aria-pressed="${a.k===ak}">${a.n}</button>`).join('');
+const amen=()=>{const a=AM.find(x=>x.k===ak);$$('#aC button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===ak));
+ $('#rts').innerHTML=a.p.map(p=>{const mx=(400+p[1])/2,my=(250+p[2])/2-40;return `<path class="rt" d="M400 250Q${mx} ${my} ${p[1]} ${p[2]}"/>`}).join('');
+ $('#pns').innerHTML=a.p.map(p=>`<g class="pn" transform="translate(${p[1]} ${p[2]})"><circle r="8"/><circle r="15" fill="none" stroke="#C8643B" stroke-opacity=".4"/><text x="${p[1]>300?-14:14}" y="5" text-anchor="${p[1]>300?'end':'start'}">${p[3]}</text></g>`).join('');
+ $('#aL').innerHTML=a.p.map(p=>`<li><div><b>${p[0]}</b><small>${a.n} · minh họa</small></div><div class="k">${p[3]}<small>${p[4]}</small></div></li>`).join('');
+ if(!RM&&window.gsap){$$('#rts path').forEach(p=>{const L=p.getTotalLength();gsap.fromTo(p,{strokeDasharray:`${L} ${L}`,strokeDashoffset:L},{strokeDashoffset:0,duration:1.2,ease:'power2.out',onComplete:()=>p.removeAttribute('style')})});gsap.from('#pns g',{scale:0,transformOrigin:'50% 50%',duration:.8,ease:'back.out(2)',stagger:.1,delay:.6})}};
+$('#aC').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;ak=b.dataset.k;amen()});
+/* loan */
+const opt=U.map(u=>`<option value="${u.id}">${u.id} · ${TY[u.t].n} · ${u.a} m²</option>`).join('');$('#lU').innerHTML=opt;$('#bU').innerHTML='<option value="">Chưa chọn, nhờ tư vấn</option>'+opt;
+let lm='u';const setM=m=>{lm=m;$$('#lM button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));$$('[data-for]').forEach(el=>el.classList.toggle('hid',el.dataset.for!==m));loan()};
+$('#lM').addEventListener('click',e=>{const b=e.target.closest('button');b&&setM(b.dataset.m)});
+const loan=()=>{$$('#tra-gop input[type=range]').forEach(fill);
+ const u=U.find(x=>x.id===$('#lU').value)||U[0],p=+$('#lP').value/100,ra=+$('#lR').value/100,yr=+$('#lN').value,n=yr*12,r=ra/12;
+ const L=lm==='u'?u.pr*p:Math.max(0,+$('#lT').value||0)*1e6;
+ $('#oP').textContent=Math.round(p*100)+'% giá căn';$('#oR').textContent=pct(ra,2);$('#oN').textContent=yr+' năm';$('#lUp').textContent='Giá căn: '+pv(u.pr)+' · số vay: '+pv(L);
+ if(!L){$('#rF').textContent='–';return}
+ const g=L/n,first=g+L*r,last=g*(1+r),ti=L*r*(n+1)/2;
+ $('#rF').innerHTML=pv(first)+(first>ASK?'':' <small>/ tháng</small>');$('#rP1').textContent=pct(first/L,2);$('#rI').textContent=pct(ti/L);$('#rL').textContent=pv(last);
+ let rows='';for(let y=0;y<yr;y++){const b0=L-y*12*g,ly=Array.from({length:12},(_,k)=>(b0-k*g)*r).reduce((a,x)=>a+x,0),m0=g+b0*r;
+  if(yr>12&&y>2&&y<yr-2&&y%5!==4)continue;
+  rows+=`<tr><td>${y+1}</td><td><i style="width:${Math.round(b0/L*54)}px"></i>${pct(b0/L,0)}</td><td>${pct(ly/L)}</td><td>${pv(m0)}</td></tr>`}
+ $('#rT').innerHTML=rows;
+ $('#rN').textContent=`Dư nợ giảm dần: gốc mỗi tháng = số vay ÷ ${n} tháng (${pct(1/n,2)} số vay); lãi tháng = dư nợ còn lại × ${pct(ra,2)} ÷ 12. Tỷ lệ tính trên số tiền vay. Số minh họa, lãi suất giả định; khoản trên 20 triệu hiển thị "Liên hệ".`};
+$$('#tra-gop input,#tra-gop select').forEach(i=>i.addEventListener('input',loan));
+/* booking */
+const pad=n=>String(n).padStart(2,'0'),WD=['CN','T2','T3','T4','T5','T6','T7'],SL=['08:30','10:00','14:00','15:30','17:00'];
+const days=Array.from({length:14},(_,i)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+i+1);return d});
+let bd=0,bh=null;
+$('#bD').innerHTML=days.map((d,i)=>`<button type="button" data-i="${i}" aria-pressed="${i===0}"><span>${WD[d.getDay()]}</span><b>${pad(d.getDate())}</b><span>Th${d.getMonth()+1}</span></button>`).join('');
+const taken=(d,s)=>((d.getDate()*7+s*13+d.getMonth())%5)<2;
+const slots=()=>{const d=days[bd];$('#bH').innerHTML=SL.map((s,i)=>{const t=taken(d,i);return `<button type="button" data-h="${s}" ${t?'disabled aria-label="'+s+' đã kín"':''} aria-pressed="${bh===s&&!t}">${s}</button>`}).join('');if(bh&&taken(d,SL.indexOf(bh)))bh=null;sumB()};
+const sumB=()=>{const d=days[bd],u=$('#bU').value;$('#bS').textContent=`${u?'Căn '+u:'Chưa chọn căn'} · ${WD[d.getDay()]} ${pad(d.getDate())}/${pad(d.getMonth()+1)} · ${bh||'chọn giờ'}`};
+$('#bD').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;bd=+b.dataset.i;$$('#bD button').forEach(x=>x.setAttribute('aria-pressed',x===b));slots()});
+$('#bH').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;bh=b.dataset.h;$$('#bH button').forEach(x=>x.setAttribute('aria-pressed',x===b));sumB()});
+$('#bU').addEventListener('change',sumB);
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#bM'),ok=$$('#bf [required]').every(i=>i.value.trim()),tel=/^[0-9 +.]{9,}$/.test($('#bT').value.trim());
+ let er=!bh?'Bạn chọn giúp một khung giờ còn trống nhé.':!ok?'Bạn điền giúp họ tên và số điện thoại nhé.':!tel?'Số điện thoại chưa đúng.':'';m.classList.toggle('err',!!er);
+ m.textContent=er||`Đã giữ lịch: ${$('#bS').textContent}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+filt();amen();slots();pick((U.find(u=>u.t==='A'&&!u.h)||U[0]).id);setM('t');
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero h1 .l>span',{yPercent:110,duration:1.6,ease:'expo.out',stagger:.14,delay:.1});
+ gsap.from('.hero .bg picture',{scale:1.14,duration:2.6,ease:'expo.out'});
+ gsap.to('.hero .bg picture',{yPercent:10,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.gl img,.it img').forEach(i=>gsap.fromTo(i,{scale:1.12},{scale:1,ease:'none',scrollTrigger:{trigger:i.closest('figure'),start:'top bottom',end:'bottom top',scrub:true}}));
+ gsap.from('.lot',{opacity:0,y:13,duration:.8,ease:'expo.out',stagger:.02,scrollTrigger:{trigger:'#plan',start:'top 80%',once:true}});
+}
+})();
+</script>
+</body>
+</html>
