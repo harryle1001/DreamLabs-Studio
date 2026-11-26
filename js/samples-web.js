@@ -285,5 +285,44 @@
     demo: 'demos/lux-lang-suong.html',
     long: 'img/sm-web-lang-suong-long.webp',
     longM: 'img/sm-web-lang-suong-long-m.webp'
+  },
+  {
+    id: 'web-thu-lan',
+    title: 'Thu Lan',
+    industry: 'Spa & mỹ phẩm',
+    desc: 'Website day spa tông kem và đất nung, chữ serif mảnh, ảnh khung mái vòm: đặt lịch theo bốn bước chọn liệu trình, thời lượng, chuyên viên, ngày và giờ còn trống, tóm tắt giá tức thì, kèm thẻ quà tặng xem trước lời nhắn.',
+    tags: ['Đặt lịch liệu trình', 'Thẻ quà tặng', 'Day spa'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-thu-lan.webp',
+    kind: 'site',
+    demo: 'demos/lux-thu-lan.html',
+    long: 'img/sm-web-thu-lan-long.webp',
+    longM: 'img/sm-web-thu-lan-long-m.webp'
+  },
+  {
+    id: 'web-vireya',
+    title: 'Vireya',
+    industry: 'Spa & mỹ phẩm',
+    desc: 'Website skincare tối giản tông sữa và xanh ngọc, chữ Italiana cao thanh, ảnh khung viên nang: quiz loại da sáu câu gợi ý quy trình sáng và tối, lọc sản phẩm theo nỗi bận tâm của da và giỏ hàng lưu trên máy.',
+    tags: ['Quiz loại da', 'Quy trình sáng tối', 'Giỏ hàng'],
+    pkg: 'Website — Cao cấp',
+    cover: 'img/sm-web-vireya.webp',
+    kind: 'site',
+    demo: 'demos/lux-vireya.html',
+    long: 'img/sm-web-vireya-long.webp',
+    longM: 'img/sm-web-vireya-long-m.webp'
+  },
+  {
+    id: 'web-oriselle',
+    title: 'Orisèlle',
+    industry: 'Spa & mỹ phẩm',
+    desc: 'Website phòng chăm sóc da chuyên sâu kiểu bảng kỹ thuật xám xanh, lưới đường mảnh: chạm vùng da trên sơ đồ khuôn mặt SVG để nhận liệu trình gợi ý, chọn gói theo số buổi ra giá trọn gói và đặt lịch tư vấn.',
+    tags: ['Sơ đồ khuôn mặt', 'Gói theo buổi', 'Đặt lịch tư vấn'],
+    pkg: 'Website — Chuyên nghiệp',
+    cover: 'img/sm-web-oriselle.webp',
+    kind: 'site',
+    demo: 'demos/lux-oriselle.html',
+    long: 'img/sm-web-oriselle-long.webp',
+    longM: 'img/sm-web-oriselle-long-m.webp'
   }
 ];

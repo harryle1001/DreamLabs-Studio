@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Orisèlle Clinic — phòng chăm sóc da chuyên sâu, chọn vùng da và gói liệu trình (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một phòng chăm sóc da chuyên sâu: chọn vùng và nỗi bận tâm trên sơ đồ khuôn mặt, nhận liệu trình phù hợp, chọn gói theo số buổi và đặt lịch tư vấn.">
+<style>
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-vietnamese-300-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/spectral-latin-300-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-vietnamese-300-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Spectral";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/spectral-latin-300-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Chakra Petch";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/chakra-petch-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Chakra Petch";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/chakra-petch-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Chakra Petch";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/chakra-petch-vietnamese-500-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Chakra Petch";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/chakra-petch-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.33,1,.68,1);
+--fog:#ECEFF0;--pp:#F7F8F8;--sl:#1D2A33;--sl2:#2B3B46;--st:#6E93A8;--st2:#A8C2D0;--co:#C8665B;--ink:#16212A;--mu:rgba(22,33,42,.6);--ln:rgba(22,33,42,.14);
+--fs:"Spectral",Georgia,serif;--ft:"Chakra Petch",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:64px}
+body{margin:0;background:var(--fog);color:var(--ink);font-family:var(--ft);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}ul,ol{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1360px;margin:0 auto;padding:0 max(16px,3vw)}
+.lb{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.mu{color:var(--mu)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.sr{font-family:var(--fs);font-weight:300;letter-spacing:-.02em;line-height:1.02}
+.sr i{font-style:italic;color:var(--st)}
+.bt{display:inline-flex;align-items:center;justify-content:space-between;gap:var(--s4);min-height:48px;padding:0 var(--s4);background:var(--sl);color:var(--pp);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;transition:background .4s,gap .5s var(--e)}
+.bt:hover{background:var(--co);gap:var(--s5)}
+.bt.l{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}.bt.l:hover{background:var(--ink);color:var(--pp)}
+/* header */
+.hd{position:sticky;top:0;z-index:40;background:var(--fog);border-bottom:1px solid var(--ln)}
+.hd .w{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:var(--s4);height:60px}
+.back{font-size:12px;color:var(--mu);min-height:44px;display:flex;align-items:center}
+.emb .back{display:none}
+.lg{font-family:var(--fs);font-size:24px;font-weight:300;letter-spacing:.04em;min-height:44px;display:flex;align-items:center;gap:var(--s2)}
+.lg small{font-family:var(--ft);font-size:10px;letter-spacing:.2em;color:var(--mu);text-transform:uppercase}
+.nv{display:flex;gap:var(--s4);justify-content:center}.nv a{font-size:12px;letter-spacing:.08em;text-transform:uppercase;min-height:44px;display:flex;align-items:center;color:var(--mu);transition:color .3s}.nv a:hover{color:var(--ink)}
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(12,1fr);border-bottom:1px solid var(--ln)}
+.hl{grid-column:1/8;padding:var(--s7) var(--s5) var(--s5) 0;display:flex;flex-direction:column;justify-content:space-between;gap:var(--s6);border-right:1px solid var(--ln)}
+.h1{font-size:clamp(44px,6.6vw,104px)}
+.h1 .l{display:block;overflow:hidden}.h1 .l span{display:inline-block}
+.hl .lead{max-width:44ch;color:var(--mu);font-size:16px;margin-top:var(--s4)}
+.spec{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ln)}
+.spec div{padding:var(--s3) var(--s3) 0 0}
+.spec div+div{padding-left:var(--s3);border-left:1px solid var(--ln)}
+.spec b{display:block;font-family:var(--fs);font-weight:300;font-size:30px;line-height:1.1}
+.hr{grid-column:8/13;position:relative;min-height:560px;overflow:hidden;background:#d9dfe2}
+.hr picture{position:absolute;height:auto;inset:-4% 0}
+.hr .tag{position:absolute;left:var(--s3);top:var(--s3);background:var(--pp);padding:4px 10px;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+.hr .cross{position:absolute;right:var(--s3);bottom:var(--s3);color:var(--pp);font-size:11px;letter-spacing:.12em;text-transform:uppercase;mix-blend-mode:difference}
+/* section */
+.sec{padding:var(--s8) 0;border-bottom:1px solid var(--ln)}
+.sh{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s4);margin-bottom:var(--s6);align-items:end}
+.sh .lb{grid-column:1/4;color:var(--co);display:flex;gap:var(--s3)}
+.sh h2{grid-column:4/10;font-size:clamp(34px,4.6vw,68px)}
+.sh p{grid-column:10/13;color:var(--mu);font-size:14px}
+/* map */
+.mp{display:grid;grid-template-columns:5fr 7fr;border:1px solid var(--ln);background:var(--pp)}
+.fc{position:relative;border-right:1px solid var(--ln);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s4)}
+.fc svg{width:100%;max-width:400px;margin:0 auto;height:auto;display:block}
+.fc .grid line{stroke:rgba(22,33,42,.06)}
+.zn{fill:rgba(110,147,168,.0);stroke:rgba(110,147,168,.35);stroke-width:1;stroke-dasharray:3 5;cursor:pointer;transition:fill .4s,stroke .4s}
+.zn:hover,.zn:focus{fill:rgba(110,147,168,.18);outline:none;stroke:var(--st)}
+.zn.on{fill:rgba(200,102,91,.2);stroke:var(--co);stroke-dasharray:none}
+.zl{font-family:var(--ft);font-size:10px;letter-spacing:.1em;fill:var(--mu);pointer-events:none;text-transform:uppercase}
+.zl.on{fill:var(--co)}
+.zb{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.zb button{min-height:40px;padding:0 var(--s3);font-size:12px;box-shadow:inset 0 0 0 1px var(--ln);transition:background .3s,color .3s}
+.zb button[aria-pressed=true]{background:var(--co);color:#fff;box-shadow:none}
+.pnl{display:grid;grid-template-rows:auto 1fr}
+.cn{padding:var(--s4) var(--s5);border-bottom:1px solid var(--ln);display:grid;gap:var(--s3)}
+.cn .rows{display:grid;gap:var(--s3)}
+.cr{display:grid;grid-template-columns:110px 1fr;gap:var(--s3);align-items:start}
+.cr .lb{padding-top:10px}
+.ch{display:flex;flex-wrap:wrap;gap:6px}
+.ch button{min-height:40px;padding:0 var(--s3);font-size:13px;background:var(--fog);transition:background .3s,color .3s}
+.ch button[aria-pressed=true]{background:var(--sl);color:var(--pp)}
+.rec{padding:var(--s4) var(--s5);display:grid;gap:var(--s2);align-content:start}
+.ri{animation:rin .6s var(--e) both;display:grid;grid-template-columns:34px 1fr auto;gap:var(--s3);align-items:center;padding:var(--s3) 0;border-bottom:1px solid var(--ln)}
+.ri .n{font-size:12px;color:var(--st)}
+.ri h3{font-family:var(--fs);font-weight:300;font-size:24px;line-height:1.1}
+.ri p{font-size:13px;color:var(--mu)}
+.ri .m{display:block;height:3px;background:var(--fog);margin-top:6px;position:relative;overflow:hidden;max-width:180px}
+.ri .m i{position:absolute;inset:0;background:var(--st);transform-origin:0 0;transition:transform .8s var(--e)}
+.ri button{min-height:44px;padding:0 var(--s3);font-size:12px;letter-spacing:.06em;text-transform:uppercase;box-shadow:inset 0 0 0 1px var(--ink)}
+.ri button[aria-pressed=true]{background:var(--ink);color:var(--pp)}
+.empty{color:var(--mu);padding:var(--s4) 0}
+@keyframes rin{from{opacity:0;transform:translateX(-8px)}}
+/* packages */
+.pk{display:grid;grid-template-columns:7fr 5fr;border:1px solid var(--ln)}
+.pk .l{padding:var(--s5);background:var(--pp);border-right:1px solid var(--ln);display:grid;gap:var(--s4);align-content:start}
+.pk select{width:100%;min-height:52px;border:1px solid var(--ln);background:var(--fog);padding:0 var(--s3);font-size:16px;border-radius:0;-webkit-appearance:none;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+.ses{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ln)}
+.ses button{min-height:89px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:var(--s3);text-align:left;transition:background .4s,color .4s}
+.ses button+button{border-left:1px solid var(--ln)}
+.ses button b{font-family:var(--fs);font-weight:300;font-size:34px;line-height:1}
+.ses button small{font-size:11px;letter-spacing:.06em;color:var(--mu)}
+.ses button[aria-pressed=true]{background:var(--sl);color:var(--pp)}.ses button[aria-pressed=true] small{color:var(--st2)}
+.tl{display:flex;gap:4px;height:34px;align-items:flex-end}
+.tl i{flex:1;background:var(--st2);height:40%;transition:height .6s var(--e),background .4s}
+.tl i.k{background:var(--co);height:100%}
+.pk .r{padding:var(--s5);background:var(--sl);color:var(--pp);display:flex;flex-direction:column;gap:var(--s3)}
+.pk .r dl{display:grid;grid-template-columns:1fr auto;gap:var(--s2) var(--s3);font-size:14px;color:rgba(247,248,248,.7);border-top:1px solid rgba(247,248,248,.16);padding-top:var(--s3)}
+.pk .r dd{color:var(--pp);text-align:right}
+.big{font-family:var(--fs);font-weight:300;font-size:clamp(42px,5vw,72px);line-height:1}
+.pk .r .bt{background:var(--co);margin-top:auto}.pk .r .bt:hover{background:var(--pp);color:var(--ink)}
+.fine{font-size:12px;color:var(--mu)}
+.pk .r .fine{color:rgba(247,248,248,.55)}
+/* steps */
+.ps{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ln)}
+.ps li{border-right:1px solid var(--ln);display:flex;flex-direction:column}
+.ps li:last-child{border-right:0}
+.ps figure{aspect-ratio:4/5;overflow:hidden;position:relative;background:#d9dfe2}
+.ps figure picture{position:absolute;height:auto;inset:-6% 0}
+.ps .t{padding:var(--s4);display:grid;gap:var(--s2);background:var(--pp);flex:1}
+.ps .t span{font-size:12px;color:var(--co)}
+.ps h3{font-family:var(--fs);font-weight:300;font-size:26px;line-height:1.1}
+.ps p{font-size:13px;color:var(--mu)}
+/* booking */
+.bk{display:grid;grid-template-columns:5fr 7fr;gap:var(--s6)}
+.bk h2{font-size:clamp(34px,4.6vw,68px);margin:var(--s3) 0 var(--s4)}
+.sumx{border:1px solid var(--ln);background:var(--pp);padding:var(--s4);display:grid;gap:var(--s2);font-size:14px;margin-top:var(--s5)}
+.sumx b{font-weight:500}
+form.f{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ln);border:1px solid var(--ln)}
+.f .fd{background:var(--pp);padding:var(--s3) var(--s4);display:grid;gap:4px}
+.f .full{grid-column:1/-1}
+.f label,.f .lab{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mu)}
+.f input,.f select,.f textarea{width:100%;min-height:40px;border:0;background:transparent;font-size:16px;outline:0;padding:0;border-radius:0;-webkit-appearance:none;appearance:none}
+.f textarea{min-height:70px;resize:vertical}
+.f .fd:focus-within{box-shadow:inset 3px 0 0 var(--co)}
+.f .sl{display:flex;flex-wrap:wrap;gap:6px}
+.f .sl button{min-height:40px;padding:0 var(--s3);font-size:13px;background:var(--fog)}
+.f .sl button[aria-pressed=true]{background:var(--ink);color:var(--pp)}
+.f .sb{background:var(--pp);padding:var(--s3) var(--s4)}
+.msg{font-size:14px;color:var(--co);min-height:1.4em;margin-top:var(--s3)}.msg.err{color:#A1261B}
+footer{padding:var(--s7) 0 var(--s6)}
+footer .w{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s4)}
+footer .lg{grid-column:1/-1;font-size:clamp(64px,13vw,190px);line-height:.9;min-height:0;letter-spacing:-.02em}
+footer p{grid-column:1/9;font-size:13px;color:var(--mu)}footer a{text-decoration:underline}
+footer .ad{grid-column:9/13;font-size:13px;color:var(--mu)}
+@media(max-width:1080px){
+ .nv{display:none}.hd .w{grid-template-columns:auto 1fr auto}
+ .hl{grid-column:1/-1;border-right:0;padding:var(--s6) 0 var(--s5)}
+ .hr{grid-column:1/-1;min-height:0;aspect-ratio:4/3;margin:0 calc(-1*max(16px,3vw))}
+ .sh .lb,.sh h2,.sh p{grid-column:1/-1}
+ .mp,.pk,.bk{grid-template-columns:1fr}
+ .fc{border-right:0;border-bottom:1px solid var(--ln)}
+ .pk .l{border-right:0}
+ .ps{grid-template-columns:1fr 1fr}.ps li:nth-child(2){border-right:0}.ps li:nth-child(-n+2){border-bottom:1px solid var(--ln)}
+ footer p,footer .ad{grid-column:1/-1}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:600px){
+ .spec b{font-size:22px}
+ .fc,.cn,.rec,.pk .l,.pk .r{padding:var(--s4)}
+ .cr{grid-template-columns:1fr;gap:6px}.cr .lb{padding:0}
+ .ri{grid-template-columns:26px 1fr}.ri button{grid-column:2;justify-self:start}
+ .ses{grid-template-columns:1fr 1fr}.ses button:nth-child(3){border-left:0}.ses button:nth-child(-n+2){border-bottom:1px solid var(--ln)}
+ .ps{grid-template-columns:1fr}.ps li{border-right:0!important;border-bottom:1px solid var(--ln)}
+ form.f{grid-template-columns:1fr}
+ .hd .bt{display:none}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lg" href="#top" aria-label="Orisèlle Clinic">Orisèlle <small>Clinic</small></a>
+ <nav class="nv" aria-label="Chính"><a href="#so-do">Sơ đồ da</a><a href="#goi">Gói buổi</a><a href="#quy-trinh">Quy trình</a><a href="#tu-van">Tư vấn</a></nav>
+ <a class="bt" href="#tu-van">Đặt tư vấn <span>→</span></a>
+</div></header>
+
+<main id="top">
+<section class="w hero">
+ <div class="hl">
+  <div>
+   <p class="lb mu">Phòng chăm sóc da chuyên sâu · TP.HCM · Concept</p>
+   <h1 class="h1 sr" style="margin-top:var(--s4)"><span class="l"><span>Bắt đầu từ</span></span><span class="l"><span><i>vùng da</i> bạn</span></span><span class="l"><span>bận tâm nhất</span></span></h1>
+   <p class="lead">Chạm vào trán, má, mắt hay cằm trên sơ đồ, chọn điều bạn để ý. Orisèlle gợi ý liệu trình, số buổi và giá trọn gói trước khi bạn ngồi xuống ghế tư vấn.</p>
+   <div style="display:flex;gap:var(--s3);flex-wrap:wrap;margin-top:var(--s5)"><a class="bt" href="#so-do">Mở sơ đồ khuôn mặt <span>→</span></a><a class="bt l" href="#goi">Xem gói buổi</a></div>
+  </div>
+  <div class="spec"><div><b>6</b><span class="lb mu">vùng trên sơ đồ</span></div><div><b>45–90′</b><span class="lb mu">mỗi buổi</span></div><div><b>1:1</b><span class="lb mu">chuyên viên riêng</span></div></div>
+ </div>
+ <div class="hr"><picture><source type="image/avif" srcset="../img/demo/oriselle/phong-640.avif 640w, ../img/demo/oriselle/phong-1280.avif 1280w, ../img/demo/oriselle/phong-1920.avif 1920w" sizes="(max-width:1080px) 100vw, 42vw"><img src="../img/demo/oriselle/phong-1280.webp" srcset="../img/demo/oriselle/phong-640.webp 640w, ../img/demo/oriselle/phong-1280.webp 1280w, ../img/demo/oriselle/phong-1920.webp 1920w" sizes="(max-width:1080px) 100vw, 42vw" width="1280" height="1600" alt="Phòng chăm sóc da sáng sủa với giường phủ khăn trắng, nến và gương viền vàng" fetchpriority="high" decoding="async"></picture><span class="tag">Phòng 02 · ảnh minh họa</span><span class="cross">+ 10.7769 N · 106.7009 E</span></div>
+</section>
+
+<section class="sec" id="so-do"><div class="w">
+ <div class="sh rv"><p class="lb"><span>01</span>Sơ đồ da</p><h2 class="sr">Chạm vào <i>vùng</i>, chọn điều bạn để ý</h2><p>Chọn được nhiều vùng. Gợi ý xếp theo mức khớp với lựa chọn của bạn, chỉ mang tính tham khảo cho buổi tư vấn.</p></div>
+ <div class="mp">
+  <div class="fc">
+   <svg viewBox="0 0 320 400" id="face" role="group" aria-label="Sơ đồ khuôn mặt, chọn vùng da">
+    <g class="grid"></g>
+    <path d="M160 26C232 26 270 82 270 162C270 250 232 330 160 368C88 330 50 250 50 162C50 82 88 26 160 26Z" fill="none" stroke="#16212A" stroke-width="1.2"/>
+    <path d="M104 150Q124 138 142 148M178 148Q196 138 216 150" fill="none" stroke="#16212A" stroke-width="1.2" stroke-linecap="round"/>
+    <path d="M110 172Q126 162 140 172Q126 180 110 172ZM180 172Q194 162 210 172Q194 180 180 172Z" fill="none" stroke="#16212A" stroke-width="1.1"/>
+    <path d="M160 168V232Q150 240 146 244M160 232Q170 240 174 244" fill="none" stroke="#16212A" stroke-width="1.1" stroke-linecap="round"/>
+    <path d="M134 282Q160 272 186 282Q160 300 134 282Z" fill="none" stroke="#16212A" stroke-width="1.1"/>
+    <path class="zn" data-z="tran" tabindex="0" role="button" aria-label="Vùng trán" d="M88 74Q160 18 232 74L238 128H82Z"/>
+    <path class="zn" data-z="mat" tabindex="0" role="button" aria-label="Vùng quanh mắt" d="M96 158H224V194H96Z"/>
+    <path class="zn" data-z="mui" tabindex="0" role="button" aria-label="Vùng mũi" d="M144 200H176V252H144Z"/>
+    <path class="zn" data-z="ma" tabindex="0" role="button" aria-label="Vùng má" d="M62 200H136V268H74Q64 236 62 200ZM184 200H258Q256 236 246 268H184Z"/>
+    <path class="zn" data-z="mieng" tabindex="0" role="button" aria-label="Vùng quanh miệng" d="M118 262H202V306H118Z"/>
+    <path class="zn" data-z="cam" tabindex="0" role="button" aria-label="Vùng cằm và đường hàm" d="M110 314H210Q190 344 160 360Q130 344 110 314Z"/>
+    <text class="zl" data-l="tran" x="160" y="104" text-anchor="middle">Trán</text>
+    <text class="zl" data-l="mat" x="160" y="152" text-anchor="middle" dy="-4">Mắt</text>
+    <text class="zl" data-l="mui" x="190" y="230">Mũi</text>
+    <text class="zl" data-l="ma" x="86" y="236">Má</text>
+    <text class="zl" data-l="mieng" x="208" y="290">Miệng</text>
+    <text class="zl" data-l="cam" x="160" y="336" text-anchor="middle">Cằm</text>
+   </svg>
+   <div class="zb" id="zb" role="group" aria-label="Chọn vùng da"></div>
+  </div>
+  <div class="pnl">
+   <div class="cn"><p class="lb mu">Điều bạn để ý ở từng vùng</p><div class="rows" id="cn"><p class="empty">Chọn ít nhất một vùng trên sơ đồ.</p></div></div>
+   <div class="rec" aria-live="polite"><p class="lb mu">Liệu trình gợi ý</p><ol id="rec"></ol></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="goi"><div class="w">
+ <div class="sh rv"><p class="lb"><span>02</span>Gói buổi</p><h2 class="sr">Chọn <i>số buổi</i>, xem giá trọn gói</h2><p>Gói nhiều buổi có giá mỗi buổi thấp hơn. Giá minh họa, đã gồm VAT; gói trên 20 triệu đồng sẽ được báo giá riêng.</p></div>
+ <div class="pk">
+  <div class="l">
+   <div><label class="lb mu" for="pT">Liệu trình</label><select id="pT" style="margin-top:6px"></select></div>
+   <div><p class="lb mu" style="margin-bottom:6px">Số buổi</p><div class="ses" id="ses" role="group" aria-label="Số buổi"></div></div>
+   <div><p class="lb mu" style="margin-bottom:6px">Lịch gợi ý · <span id="cad"></span></p><div class="tl" id="tl" aria-hidden="true"></div></div>
+  </div>
+  <div class="r" aria-live="polite">
+   <p class="lb" style="color:var(--st2)">Giá trọn gói</p>
+   <p class="big" id="pTot">0đ</p>
+   <dl><dt>Mỗi buổi</dt><dd id="pPer"></dd><dt>Thời lượng</dt><dd id="pDur"></dd><dt>Ưu đãi gói</dt><dd id="pOff"></dd><dt>Tiết kiệm</dt><dd id="pSave"></dd></dl>
+   <a class="bt" href="#tu-van" id="pUse">Tư vấn gói này <span>→</span></a>
+   <p class="fine">Số liệu minh họa. Chuyên viên sẽ điều chỉnh số buổi sau khi xem da trực tiếp.</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="sec" id="quy-trinh"><div class="w">
+ <div class="sh rv"><p class="lb"><span>03</span>Quy trình</p><h2 class="sr">Bốn bước, <i>không vội</i></h2><p>Mỗi buổi bắt đầu bằng soi da và kết thúc bằng hướng dẫn chăm sóc tại nhà.</p></div>
+ <ol class="ps">
+  <li class="rv"><figure><picture><source type="image/avif" srcset="../img/demo/oriselle/kem-640.avif 640w, ../img/demo/oriselle/kem-1280.avif 1280w, ../img/demo/oriselle/kem-1920.avif 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw"><img src="../img/demo/oriselle/kem-1280.webp" srcset="../img/demo/oriselle/kem-640.webp 640w, ../img/demo/oriselle/kem-1280.webp 1280w, ../img/demo/oriselle/kem-1920.webp 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw" width="1280" height="853" alt="Bề mặt kem trắng mịn với các vệt miết mềm" loading="lazy" decoding="async"></picture></figure><div class="t"><span>01 · 10 phút</span><h3>Soi da & trò chuyện</h3><p>Chuyên viên xem da dưới đèn soi, hỏi thói quen ngủ, nắng, sản phẩm đang dùng.</p></div></li>
+  <li class="rv"><figure><picture><source type="image/avif" srcset="../img/demo/oriselle/giot-640.avif 640w, ../img/demo/oriselle/giot-1280.avif 1280w, ../img/demo/oriselle/giot-1920.avif 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw"><img src="../img/demo/oriselle/giot-1280.webp" srcset="../img/demo/oriselle/giot-640.webp 640w, ../img/demo/oriselle/giot-1280.webp 1280w, ../img/demo/oriselle/giot-1920.webp 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw" width="1280" height="1600" alt="Ống nhỏ giọt thủy tinh cắm trong chai hổ phách trên nền trắng" loading="lazy" decoding="async"></picture></figure><div class="t"><span>02 · 15 phút</span><h3>Làm sạch kép</h3><p>Dầu tẩy trang và gel dịu, nước ấm, khăn bông mềm.</p></div></li>
+  <li class="rv"><figure><picture><source type="image/avif" srcset="../img/demo/oriselle/xanh-640.avif 640w, ../img/demo/oriselle/xanh-1280.avif 1280w, ../img/demo/oriselle/xanh-1920.avif 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw"><img src="../img/demo/oriselle/xanh-1280.webp" srcset="../img/demo/oriselle/xanh-640.webp 640w, ../img/demo/oriselle/xanh-1280.webp 1280w, ../img/demo/oriselle/xanh-1920.webp 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw" width="1280" height="1600" alt="Vệt kem và giọt dầu trên nền xanh nhạt" loading="lazy" decoding="async"></picture></figure><div class="t"><span>03 · 30–50 phút</span><h3>Liệu trình chính</h3><p>Theo vùng bạn đã chọn: cấp ẩm, làm sạch sâu, tẩy da dịu hoặc massage mặt.</p></div></li>
+  <li class="rv"><figure><picture><source type="image/avif" srcset="../img/demo/oriselle/da-640.avif 640w, ../img/demo/oriselle/da-1280.avif 1280w, ../img/demo/oriselle/da-1920.avif 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw"><img src="../img/demo/oriselle/da-1280.webp" srcset="../img/demo/oriselle/da-640.webp 640w, ../img/demo/oriselle/da-1280.webp 1280w, ../img/demo/oriselle/da-1920.webp 1920w" sizes="(max-width:600px) 100vw, (max-width:1080px) 50vw, 25vw" width="1280" height="1600" alt="Chai nhỏ giọt hổ phách đặt cạnh viên đá núi lửa dưới nắng" loading="lazy" decoding="async"></picture></figure><div class="t"><span>04 · 10 phút</span><h3>Hướng dẫn tại nhà</h3><p>Một tờ ghi chú ngắn: bước nào sáng, bước nào tối, khi nào hẹn lại.</p></div></li>
+ </ol>
+</div></section>
+
+<section class="sec" id="tu-van" style="border-bottom:0"><div class="w bk">
+ <div class="rv">
+  <p class="lb" style="color:var(--co)">04 — Tư vấn</p>
+  <h2 class="sr">Ba mươi phút <i>ngồi xuống</i> nói về da</h2>
+  <p class="mu" style="max-width:40ch">Buổi tư vấn miễn phí. Lựa chọn trên sơ đồ và gói buổi được đính kèm sẵn để chuyên viên chuẩn bị trước.</p>
+  <div class="sumx" id="sumx"></div>
+  <p class="fine" style="margin-top:var(--s3)">Tư vấn chăm sóc da thẩm mỹ, không thay thế khám và điều trị da liễu.</p>
+ </div>
+ <form class="f rv" id="bf" novalidate>
+  <div class="fd"><label for="fN">Họ tên</label><input id="fN" required autocomplete="name"></div>
+  <div class="fd"><label for="fP">Điện thoại</label><input id="fP" type="tel" inputmode="tel" required autocomplete="tel"></div>
+  <div class="fd"><label for="fD">Ngày</label><input id="fD" type="date" required></div>
+  <div class="fd"><label for="fB">Chi nhánh</label><select id="fB"><option>Quận 1 (minh họa)</option><option>Thảo Điền (minh họa)</option></select></div>
+  <div class="fd full"><span class="lab">Khung giờ</span><div class="sl" id="fH" role="group" aria-label="Khung giờ"></div></div>
+  <div class="fd full"><label for="fG">Ghi chú</label><textarea id="fG" placeholder="Sản phẩm bạn đang dùng, điều bạn muốn hỏi thêm"></textarea></div>
+  <div class="sb full"><button class="bt" style="width:100%">Gửi yêu cầu tư vấn <span>→</span></button><p class="msg" id="bM" role="status"></p></div>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="lg" aria-hidden="true">Orisèlle</p>
+ <p>Orisèlle là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; liệu trình, gói, giá, địa chỉ chỉ để minh họa. Dịch vụ chăm sóc da thẩm mỹ, không phải dịch vụ y tế và không cam kết kết quả. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+ <p class="ad">Số 8 đường Lý Tự Trọng, Quận 1, TP.HCM (địa chỉ minh họa)<br>028 0000 0808 (số minh họa)</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-oriselle',smDemo:'lux-oriselle'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+/* lưới nền sơ đồ */
+const g=$('#face .grid');let gl='';for(let x=20;x<320;x+=20)gl+=`<line x1="${x}" y1="0" x2="${x}" y2="400"/>`;for(let y=20;y<400;y+=20)gl+=`<line x1="0" y1="${y}" x2="320" y2="${y}"/>`;g.innerHTML=gl;
+/* dữ liệu concept */
+const Z={tran:['Trán',['Bóng dầu','Sần nhẹ','Lỗ chân lông']],mat:['Quanh mắt',['Khô vùng mắt','Trông mệt','Nếp nhăn nhỏ']],mui:['Mũi',['Bóng dầu','Lỗ chân lông','Đầu đen']],ma:['Má',['Thiếu ẩm','Dễ ửng đỏ','Xỉn màu','Lỗ chân lông']],mieng:['Quanh miệng',['Khô nẻ','Xỉn màu']],cam:['Cằm & hàm',['Sần nhẹ','Bóng dầu','Đường nét kém rõ']]};
+const T=[
+ {id:'hy',n:'Cấp ẩm đa tầng',d:'Làm sạch dịu, ủ tinh chất ẩm, mặt nạ thạch mát.',m:60,p:1450000,k:['Thiếu ẩm','Khô vùng mắt','Khô nẻ','Trông mệt','Nếp nhăn nhỏ']},
+ {id:'cl',n:'Làm sạch sâu lỗ chân lông',d:'Xông hơi, làm mềm, lấy nhân thủ công nhẹ tay, mặt nạ đất sét.',m:75,p:1250000,k:['Lỗ chân lông','Đầu đen','Bóng dầu','Sần nhẹ']},
+ {id:'ez',n:'Tẩy da enzyme dịu',d:'Enzyme từ trái cây làm mềm lớp sừng, không hạt chà.',m:45,p:980000,k:['Xỉn màu','Sần nhẹ','Khô nẻ']},
+ {id:'sb',n:'Chăm sóc da dễ ửng đỏ',d:'Ít bước, sản phẩm không mùi thêm, chườm mát, nhịp tay chậm.',m:60,p:1350000,k:['Dễ ửng đỏ','Thiếu ẩm']},
+ {id:'ms',n:'Massage mặt thủ công',d:'Xoa bóp theo đường cơ mặt, cổ, vai, dùng dầu hạt ấm.',m:50,p:1150000,k:['Đường nét kém rõ','Trông mệt','Nếp nhăn nhỏ']},
+ {id:'ey',n:'Chăm sóc vùng mắt',d:'Đắp mặt nạ mắt mát, massage nhẹ quanh hốc mắt bằng đá lạnh.',m:45,p:850000,k:['Khô vùng mắt','Trông mệt','Nếp nhăn nhỏ']}];
+const TM=Object.fromEntries(T.map(t=>[t.id,t]));
+const S={z:new Set(['ma']),c:{ma:new Set(['Thiếu ẩm'])},t:'hy',n:4,manual:false,h:null};
+const zb=$('#zb');zb.innerHTML=Object.entries(Z).map(([k,v])=>`<button type="button" data-z="${k}" aria-pressed="false">${v[0]}</button>`).join('');
+const togZ=k=>{S.z.has(k)?(S.z.delete(k),delete S.c[k]):S.z.add(k);draw()};
+$('#face').addEventListener('click',e=>{const p=e.target.closest('.zn');p&&togZ(p.dataset.z)});
+$('#face').addEventListener('keydown',e=>{const p=e.target.closest('.zn');if(p&&(e.key==='Enter'||e.key===' ')){e.preventDefault();togZ(p.dataset.z)}});
+zb.addEventListener('click',e=>{const b=e.target.closest('[data-z]');b&&togZ(b.dataset.z)});
+$('#cn').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const [z,c]=b.dataset.c.split('|');S.c[z]=S.c[z]||new Set();S.c[z].has(c)?S.c[z].delete(c):S.c[z].add(c);draw(false)});
+$('#rec').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b)return;S.t=b.dataset.t;S.manual=true;$('#pT').value=S.t;draw(false);pk()});
+const concerns=()=>{const a=[];for(const z of S.z){const c=S.c[z];if(c)for(const x of c)a.push(x)}return a};
+const draw=(full=true)=>{
+ $$('.zn').forEach(p=>p.classList.toggle('on',S.z.has(p.dataset.z)));$$('.zl').forEach(t=>t.classList.toggle('on',S.z.has(t.dataset.l)));
+ $$('#zb button').forEach(b=>b.setAttribute('aria-pressed',S.z.has(b.dataset.z)));
+ if(full)$('#cn').innerHTML=S.z.size?[...S.z].map(z=>`<div class="cr"><span class="lb">${Z[z][0]}</span><div class="ch">${Z[z][1].map(c=>`<button type="button" data-c="${z}|${c}" aria-pressed="false">${c}</button>`).join('')}</div></div>`).join(''):'<p class="empty">Chọn ít nhất một vùng trên sơ đồ.</p>';
+ $$('#cn [data-c]').forEach(b=>{const [z,c]=b.dataset.c.split('|');b.setAttribute('aria-pressed',!!(S.c[z]&&S.c[z].has(c)))});
+ const cs=concerns();
+ if(!cs.length){$('#rec').innerHTML=`<li class="empty">${S.z.size?'Chọn điều bạn để ý ở vùng đã chọn để xem gợi ý.':'Gợi ý sẽ hiện khi bạn chọn vùng và điều bạn để ý.'}</li>`;sum();return}
+ const sc=T.map(t=>({t,s:cs.filter(c=>t.k.includes(c)).length})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,3);
+ const mx=sc[0].s;if(!S.manual)S.t=sc[0].t.id;$('#pT').value=S.t;
+ $('#rec').innerHTML=sc.map((x,i)=>`<li class="ri"><span class="n">${String(i+1).padStart(2,'0')}</span><div><h3>${x.t.n}</h3><p>${x.t.d} · ${x.t.m} phút · ${pv(x.t.p)}/buổi</p><span class="m"><i style="transform:scaleX(${(x.s/mx).toFixed(2)})"></i></span></div><button type="button" data-t="${x.t.id}" aria-pressed="${S.t===x.t.id}">${S.t===x.t.id?'Đang chọn':'Chọn'}</button></li>`).join('');
+ pk();sum()};
+/* gói buổi */
+const N=[[1,0,'1 buổi'],[4,.08,'1 buổi/tuần'],[6,.12,'1 buổi/10 ngày'],[10,.18,'1 buổi/tuần']];
+$('#pT').innerHTML=T.map(t=>`<option value="${t.id}">${t.n} · ${t.m} phút</option>`).join('');
+$('#ses').innerHTML=N.map(n=>`<button type="button" data-n="${n[0]}" aria-pressed="false"><b>${n[0]}</b><small>${n[0]>1?'buổi · −'+Math.round(n[1]*100)+'%':'buổi lẻ'}</small></button>`).join('');
+const pk=()=>{const t=TM[S.t],n=N.find(x=>x[0]===S.n),per=t.p*(1-n[1]),tot=per*n[0],full=t.p*n[0];
+ $$('#ses button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.n===S.n));
+ $('#pTot').textContent=pv(tot);$('#pPer').textContent=pv(per);$('#pDur').textContent=t.m+' phút/buổi';$('#pOff').textContent=n[1]?'−'+Math.round(n[1]*100)+'%':'Không';$('#pSave').textContent=n[1]?pv(full-tot):'—';
+ $('#cad').textContent=n[2];$('#tl').innerHTML=Array.from({length:10},(_,i)=>`<i class="${i<n[0]?'k':''}"></i>`).join('');sum()};
+$('#ses').addEventListener('click',e=>{const b=e.target.closest('[data-n]');if(b){S.n=+b.dataset.n;pk()}});
+$('#pT').addEventListener('change',e=>{S.t=e.target.value;S.manual=true;draw(false)});
+/* tóm tắt + đặt lịch */
+const sum=()=>{const t=TM[S.t],n=N.find(x=>x[0]===S.n),tot=t.p*(1-n[1])*n[0];
+ $('#sumx').innerHTML=`<span class="lb mu">Đính kèm yêu cầu</span><span>Vùng: <b>${S.z.size?[...S.z].map(z=>Z[z][0]).join(', '):'chưa chọn'}</b></span><span>Điều để ý: <b>${concerns().join(', ')||'chưa chọn'}</b></span><span>Gói: <b>${t.n} × ${S.n} buổi · ${pv(tot)}</b></span>`};
+const SL=['09:00','10:30','13:30','15:00','16:30','18:00'];
+$('#fH').innerHTML=SL.map((h,i)=>`<button type="button" data-h="${i}" aria-pressed="false">${h}</button>`).join('');
+$('#fH').addEventListener('click',e=>{const b=e.target.closest('[data-h]');if(!b)return;S.h=+b.dataset.h;$$('#fH button').forEach(x=>x.setAttribute('aria-pressed',x===b))});
+const pad=n=>String(n).padStart(2,'0'),t1=new Date();t1.setDate(t1.getDate()+1);const iso=`${t1.getFullYear()}-${pad(t1.getMonth()+1)}-${pad(t1.getDate())}`;$('#fD').min=iso;$('#fD').value=iso;
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#bM'),n=$('#fN').value.trim(),p=$('#fP').value.trim();let er='';
+ if(!n||!p)er='Bạn điền giúp họ tên và số điện thoại.';else if(!/^[0-9 +.]{9,}$/.test(p))er='Số điện thoại chưa đúng.';else if(S.h===null)er='Bạn chọn giúp một khung giờ.';
+ m.classList.toggle('err',!!er);m.textContent=er||`Đã ghi nhận lịch tư vấn ${SL[S.h]} ngày ${$('#fD').value.split('-').reverse().join('/')}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+$('#pUse').addEventListener('click',sum);
+draw();pk();
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.h1 .l span',{yPercent:105,duration:1.3,ease:'power4.out',stagger:.1});
+ gsap.from('.hr',{clipPath:'inset(0 0 0 100%)',duration:1.6,ease:'power4.inOut'});
+ gsap.to('.hr picture',{yPercent:5,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ gsap.from('#face path:not(.zn)',{strokeDasharray:900,strokeDashoffset:900,duration:2.4,ease:'power2.inOut',scrollTrigger:{trigger:'#face',start:'top 80%',once:true}});
+ $$('.ps figure picture').forEach(p=>gsap.fromTo(p,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:p.parentNode,start:'top bottom',end:'bottom top',scrub:true}}));
+ $$('.rv').forEach(el=>gsap.from(el,{y:30,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));
+}
+})();
+</script>
+</body>
+</html>

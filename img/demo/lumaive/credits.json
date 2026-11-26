@@ -1,0 +1,80 @@
+{
+ "chai": {
+  "author": "Pegah Sharifi",
+  "page": "https://www.pexels.com/photo/serum-bottle-with-dropper-12563412/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/12563412/pexels-photo-12563412.jpeg",
+  "w": 4000,
+  "h": 6000,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.52,
+    0.48,
+    0.22,
+    0.21
+   ]
+  ]
+ },
+ "nang": {
+  "author": "Ksenia Chernaya",
+  "page": "https://www.pexels.com/photo/bottle-of-essential-oil-in-close-up-shot-8054395/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8054395/pexels-photo-8054395.jpeg",
+  "w": 2670,
+  "h": 4000,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "giot": {
+  "author": "Ani Coloca",
+  "page": "https://www.pexels.com/photo/close-up-of-liquid-dropper-with-reflection-30229018/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/30229018/pexels-photo-30229018.jpeg",
+  "w": 3456,
+  "h": 5184,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "da": {
+  "author": "Nati",
+  "page": "https://www.pexels.com/photo/minimalist-spa-essential-oil-bottle-on-stone-40557468/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/40557468/pexels-photo-40557468.jpeg",
+  "w": 4160,
+  "h": 6240,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "hoa": {
+  "author": "Alesia Kozik",
+  "page": "https://www.pexels.com/photo/brown-bottle-on-a-cream-surface-7797439/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/7797439/pexels-photo-7797439.jpeg",
+  "w": 3000,
+  "h": 4500,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

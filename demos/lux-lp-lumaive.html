@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Lumaive · Serum Hổ Phách — quiz da nhanh và đặt trước (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho buổi ra mắt một dòng serum: quiz da ba câu gợi ý công thức, chọn dung tích, số lượng và đặt trước trước ngày mở bán.">
+<style>
+@font-face{font-family:"Playfair Display";font-weight:400 900;font-style:normal;font-display:swap;src:url(fonts/playfair-display-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Playfair Display";font-weight:400 900;font-style:normal;font-display:swap;src:url(fonts/playfair-display-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Playfair Display";font-weight:400 900;font-style:italic;font-display:swap;src:url(fonts/playfair-display-vietnamese-wght-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Playfair Display";font-weight:400 900;font-style:italic;font-display:swap;src:url(fonts/playfair-display-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Unbounded";font-weight:200 900;font-style:normal;font-display:swap;src:url(fonts/unbounded-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Unbounded";font-weight:200 900;font-style:normal;font-display:swap;src:url(fonts/unbounded-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.22,1,.36,1);
+--es:#140E0A;--es2:#1E1510;--es3:#2A1E16;--am:#E0A458;--am2:#F2C98A;--ch:#F4E7D3;--mu:rgba(244,231,211,.6);--ln:rgba(244,231,211,.14);
+--fp:"Playfair Display",Georgia,serif;--fu:"Unbounded",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--es);color:var(--ch);font-family:var(--fu);font-weight:300;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1200px;margin:0 auto;padding:0 max(16px,4vw)}
+.k{font-size:10px;font-weight:400;letter-spacing:.3em;text-transform:uppercase;color:var(--am)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.pf{font-family:var(--fp);font-weight:400;line-height:1;letter-spacing:-.02em}
+.pf em{font-style:italic;color:var(--am2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);min-height:52px;padding:0 var(--s5);border-radius:999px;background:linear-gradient(135deg,var(--am2),var(--am));color:var(--es);font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;box-shadow:0 13px 34px -13px rgba(224,164,88,.7);transition:transform .5s var(--e),box-shadow .5s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 21px 44px -13px rgba(224,164,88,.8)}
+.btn.gh{background:transparent;color:var(--ch);box-shadow:inset 0 0 0 1px var(--ln)}.btn.gh:hover{box-shadow:inset 0 0 0 1px var(--ch)}
+/* top */
+.tp{position:absolute;inset:0 0 auto;z-index:20}
+.tp .w{display:flex;align-items:center;justify-content:space-between;height:76px;gap:var(--s3)}
+.back{font-size:11px;letter-spacing:.08em;color:var(--mu);min-height:44px;display:flex;align-items:center}
+.emb .back{visibility:hidden}
+.lo{font-family:var(--fp);font-style:italic;font-size:28px;min-height:44px;display:flex;align-items:center}
+.tp .cd{font-size:10px;letter-spacing:.2em;text-transform:uppercase;min-height:44px;display:flex;align-items:center;gap:var(--s2);color:var(--mu)}
+.tp .cd b{color:var(--am2);font-weight:400}
+/* hero */
+.hero{position:relative;padding:calc(76px + var(--s5)) max(16px,4vw) var(--s7);text-align:center;overflow:hidden}
+.glow{position:absolute;left:50%;top:44%;width:min(1100px,160vw);aspect-ratio:1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(224,164,88,.26) 0%,rgba(224,164,88,.06) 34%,transparent 62%);pointer-events:none}
+.hero .k{position:relative}
+.hero h1{position:relative;z-index:2;font-size:clamp(54px,11vw,168px);margin:var(--s4) 0 0}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.06em}.hero h1 .l>span{display:inline-block}
+.orbw{position:relative;width:min(420px,78vw);margin:calc(-1*var(--s5)) auto 0;aspect-ratio:1;z-index:1}
+.orb{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:var(--es3);box-shadow:0 0 0 1px rgba(242,201,138,.3),0 55px 144px -34px rgba(224,164,88,.45)}
+.orb picture{position:absolute;height:auto;inset:-6%}
+.rg{position:absolute;inset:-34px;border-radius:50%;border:1px solid rgba(242,201,138,.22)}
+.rg.b{inset:-89px;border-color:rgba(242,201,138,.1)}
+.rg i{position:absolute;top:50%;left:-4px;width:8px;height:8px;border-radius:50%;background:var(--am2);box-shadow:0 0 13px var(--am)}
+.rg.a{animation:sp 26s linear infinite}.rg.b{animation:sp 42s linear infinite reverse}
+@keyframes sp{to{transform:rotate(360deg)}}
+.hero .lead{position:relative;max-width:46ch;margin:var(--s6) auto var(--s4);color:var(--mu)}
+.hero .cta{position:relative;display:flex;gap:var(--s3);justify-content:center;flex-wrap:wrap}
+.cnt{position:relative;display:flex;justify-content:center;gap:var(--s4);margin-top:var(--s6)}
+.cnt div{min-width:68px}
+.cnt b{display:block;font-family:var(--fp);font-size:42px;font-weight:400;line-height:1;font-variant-numeric:tabular-nums}
+.cnt span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+/* sections */
+.sec{padding:var(--s8) 0}
+.ttl{text-align:center;max-width:820px;margin:0 auto var(--s6)}
+.ttl h2{font-size:clamp(38px,6vw,88px);margin:var(--s3) 0}
+.ttl p{color:var(--mu);max-width:48ch;margin:0 auto}
+/* quiz */
+.qz{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.qc{border:1px solid var(--ln);border-radius:21px;padding:var(--s4);display:flex;flex-direction:column;gap:var(--s3);background:var(--es2);transition:border-color .5s}
+.qc.ok{border-color:rgba(224,164,88,.5)}
+.qc .n{font-family:var(--fp);font-style:italic;font-size:34px;color:var(--am);line-height:1}
+.qc h3{font-family:var(--fp);font-weight:400;font-size:22px;line-height:1.2}
+.qc .o{display:grid;gap:6px;margin-top:auto}
+.qc .o button{min-height:48px;border-radius:999px;border:1px solid var(--ln);padding:0 var(--s4);text-align:left;font-size:13px;transition:background .4s,color .4s,border-color .4s}
+.qc .o button[aria-pressed=true]{background:var(--ch);color:var(--es);border-color:var(--ch)}
+.res{margin-top:var(--s5);border-radius:34px;background:linear-gradient(135deg,var(--es3),var(--es2));border:1px solid var(--ln);display:grid;grid-template-columns:1fr 1.3fr;overflow:hidden;min-height:380px}
+.res figure{position:relative;background:var(--es3);min-height:320px}
+.res figure picture{position:absolute;height:auto;inset:0}
+.res figure img{transition:opacity .6s}
+.res .tx{padding:var(--s5);display:flex;flex-direction:column;gap:var(--s3);justify-content:center}
+.res h3{font-family:var(--fp);font-weight:400;font-size:clamp(34px,4vw,58px);line-height:1}
+.res h3 em{color:var(--am2)}
+.res ul{display:grid;gap:6px;font-size:13px;color:var(--mu)}
+.res li{display:flex;gap:var(--s2)}.res li::before{content:"—";color:var(--am)}
+.res .ph{color:var(--mu)}
+.swt{display:flex;gap:6px;flex-wrap:wrap}
+.swt button{min-height:40px;padding:0 var(--s3);border-radius:999px;font-size:12px;border:1px solid var(--ln)}
+.swt button[aria-pressed=true]{border-color:var(--am);color:var(--am2)}
+.res .tx.an>*{animation:fu .8s var(--e) both}.res .tx.an>*:nth-child(2){animation-delay:.06s}.res .tx.an>*:nth-child(3){animation-delay:.12s}.res .tx.an>*:nth-child(n+4){animation-delay:.18s}
+@keyframes fu{from{opacity:0;transform:translateY(13px)}}
+/* formula */
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:center}
+.fm figure{border-radius:999px 999px 21px 21px;overflow:hidden;aspect-ratio:4/5;position:relative;background:var(--es3)}
+.fm figure picture{position:absolute;height:auto;inset:-6% 0}
+.fm dl{display:grid;gap:0;border-top:1px solid var(--ln)}
+.fm dl div{display:grid;grid-template-columns:110px 1fr;gap:var(--s3);padding:var(--s4) 0;border-bottom:1px solid var(--ln)}
+.fm dt{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--am)}
+.fm dd{font-family:var(--fp);font-size:19px;line-height:1.35}
+/* order */
+.od{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:start}
+.vol{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+.vol button{border:1px solid var(--ln);border-radius:21px;padding:var(--s4) var(--s3);display:flex;flex-direction:column;align-items:center;gap:var(--s2);transition:border-color .4s,background .4s}
+.vol button svg{height:68px;width:auto}
+.vol button b{font-family:var(--fp);font-weight:400;font-size:24px;line-height:1}
+.vol button small{font-size:11px;color:var(--mu)}
+.vol button[aria-pressed=true]{border-color:var(--am);background:rgba(224,164,88,.08)}
+.fl{display:grid;gap:var(--s4)}
+.fl>div>span,.fl label.t{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mu);margin-bottom:var(--s2)}
+.stp{display:flex;align-items:center;gap:var(--s3)}
+.stp button{width:48px;height:48px;border-radius:50%;border:1px solid var(--ln);font-size:20px}
+.stp output{font-family:var(--fp);font-size:34px;min-width:2ch;text-align:center}
+.tot{border-radius:21px;background:var(--es2);border:1px solid var(--ln);padding:var(--s4);display:grid;gap:var(--s2)}
+.tot .row{display:flex;justify-content:space-between;gap:var(--s3);font-size:13px;color:var(--mu)}.tot .row b{color:var(--ch);font-weight:400;text-align:right}
+.tot .sum{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ln);padding-top:var(--s3);gap:var(--s3)}
+.tot .sum b{font-family:var(--fp);font-size:clamp(34px,3.6vw,48px);font-weight:400;line-height:1;color:var(--am2)}
+.in{width:100%;min-height:50px;border-radius:999px;border:1px solid var(--ln);background:transparent;padding:0 var(--s4);font-size:16px;outline:0;color-scheme:dark;transition:border-color .4s}
+.in:focus{border-color:var(--am)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.msg{font-family:var(--fp);font-style:italic;font-size:18px;color:var(--am2);min-height:1.4em}.msg.err{color:#F08A7A}
+.fine{font-size:12px;color:var(--mu)}
+footer{padding:var(--s7) 0;border-top:1px solid var(--ln);text-align:center}
+footer .lo{justify-content:center;font-size:clamp(54px,11vw,140px);margin-bottom:var(--s4);color:var(--am2)}
+footer p{max-width:64ch;margin:0 auto;color:var(--mu);font-size:12px}footer a{text-decoration:underline;color:var(--ch)}
+.js [data-r]{opacity:0;transform:translateY(34px);transition:opacity 1.3s var(--e),transform 1.5s var(--e)}
+.js [data-r].vis{opacity:1;transform:none}
+@media(max-width:900px){
+ .qz{grid-template-columns:1fr}
+ .res,.fm,.od{grid-template-columns:1fr}
+ .res figure{min-height:0;aspect-ratio:4/3}
+ .fm figure{max-width:440px;margin:0 auto;width:100%}
+ .sec{padding:var(--s7) 0}
+ .tp .cd{display:none}
+}
+@media(max-width:560px){
+ .cnt{gap:var(--s3)}.cnt div{min-width:55px}.cnt b{font-size:34px}
+ .res .tx{padding:var(--s4)}
+ .fm dl div{grid-template-columns:1fr;gap:4px}
+ .two{grid-template-columns:1fr}
+ .vol button{padding:var(--s3) var(--s2)}
+ .orbw{margin-top:var(--s4)}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.js [data-r]{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header class="tp"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top" aria-label="Lumaive">Lumaive</a>
+ <a class="cd" href="#dat-truoc">Mở bán sau <b id="cdS">—</b></a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="glow" aria-hidden="true"></div>
+ <p class="k">Serum Hổ Phách · ra mắt mùa đông · Concept</p>
+ <h1 class="pf"><span class="l"><span>Một giọt</span></span><span class="l"><span><em>hổ phách</em></span></span></h1>
+ <div class="orbw"><div class="rg b" aria-hidden="true"><i></i></div><div class="rg a" aria-hidden="true"><i></i></div><div class="orb"><picture><source type="image/avif" srcset="../img/demo/lumaive/chai-640.avif 640w, ../img/demo/lumaive/chai-1280.avif 1280w, ../img/demo/lumaive/chai-1920.avif 1920w" sizes="(max-width:560px) 78vw, 420px"><img src="../img/demo/lumaive/chai-1280.webp" srcset="../img/demo/lumaive/chai-640.webp 640w, ../img/demo/lumaive/chai-1280.webp 1280w, ../img/demo/lumaive/chai-1920.webp 1920w" sizes="(max-width:560px) 78vw, 420px" width="1280" height="1600" alt="Chai serum thủy tinh nâu, ống nhỏ giọt nhỏ một giọt xuống mặt nước tối gợn sóng" fetchpriority="high" decoding="async"></picture></div></div>
+ <p class="lead">Ba công thức cho ba kiểu da, cùng một chai thủy tinh hổ phách. Trả lời ba câu để biết chai nào dành cho bạn, rồi đặt trước với giá ra mắt.</p>
+ <div class="cta"><a class="btn" href="#quiz">Làm quiz 3 câu</a><a class="btn gh" href="#dat-truoc">Đặt trước</a></div>
+ <div class="cnt" aria-live="off"><div><b id="cD">00</b><span>ngày</span></div><div><b id="cH">00</b><span>giờ</span></div><div><b id="cM">00</b><span>phút</span></div><div><b id="cS">00</b><span>giây</span></div></div>
+</section>
+
+<section class="sec" id="quiz"><div class="w">
+ <div class="ttl" data-r><p class="k">Quiz da nhanh</p><h2 class="pf">Ba câu, <em>một chai</em></h2><p>Chọn một đáp án ở mỗi thẻ. Gợi ý cập nhật ngay khi bạn trả lời đủ.</p></div>
+ <div class="qz" id="qz"></div>
+ <div class="res" id="res" aria-live="polite" data-r>
+  <figure id="rF"><picture><source type="image/avif" srcset="../img/demo/lumaive/nang-640.avif 640w, ../img/demo/lumaive/nang-1280.avif 1280w, ../img/demo/lumaive/nang-1920.avif 1920w" sizes="(max-width:900px) 100vw, 46vw"><img src="../img/demo/lumaive/nang-1280.webp" srcset="../img/demo/lumaive/nang-640.webp 640w, ../img/demo/lumaive/nang-1280.webp 1280w, ../img/demo/lumaive/nang-1920.webp 1920w" sizes="(max-width:900px) 100vw, 46vw" width="1280" height="1600" alt="Chai thủy tinh hổ phách dựa vào viên đá, bóng nắng in xuống nền trắng" loading="lazy" decoding="async"></picture></figure>
+  <div class="tx" id="rT"><p class="k">Gợi ý của bạn</p><h3>Trả lời đủ <em>ba câu</em></h3><p class="ph">Công thức phù hợp sẽ hiện ở đây, kèm cảm giác khi thoa và thời điểm nên dùng.</p></div>
+ </div>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="w fm">
+ <figure data-r><picture><source type="image/avif" srcset="../img/demo/lumaive/giot-640.avif 640w, ../img/demo/lumaive/giot-1280.avif 1280w, ../img/demo/lumaive/giot-1920.avif 1920w" sizes="(max-width:900px) 100vw, 50vw"><img src="../img/demo/lumaive/giot-1280.webp" srcset="../img/demo/lumaive/giot-640.webp 640w, ../img/demo/lumaive/giot-1280.webp 1280w, ../img/demo/lumaive/giot-1920.webp 1920w" sizes="(max-width:900px) 100vw, 50vw" width="1280" height="1600" alt="Ống nhỏ giọt thả một giọt serum trong suốt xuống mặt gương trên nền hồng" loading="lazy" decoding="async"></picture></figure>
+ <div data-r>
+  <p class="k">Trong chai có gì</p>
+  <h2 class="pf" style="font-size:clamp(36px,4.6vw,64px);margin:var(--s3) 0 var(--s5)">Viết rõ, <em>không bí ẩn</em></h2>
+  <dl>
+   <div><dt>Kết cấu</dt><dd>Lỏng như nước, hơi sánh, thấm trong một phút.</dd></div>
+   <div><dt>Màu</dt><dd>Hổ phách nhạt do dầu hạt và chiết xuất thực vật, không phẩm màu.</dd></div>
+   <div><dt>Mùi</dt><dd>Không thêm hương liệu. Có mùi thảo mộc rất nhẹ của nguyên liệu.</dd></div>
+   <div><dt>Chai</dt><dd>Thủy tinh màu hổ phách chắn sáng, ống nhỏ giọt có vạch chia.</dd></div>
+  </dl>
+  <p class="fine" style="margin-top:var(--s4)">Sản phẩm mỹ phẩm concept. Thử trên vùng da nhỏ trước khi dùng toàn mặt.</p>
+ </div>
+</div></section>
+
+<section class="sec" id="dat-truoc" style="padding-top:0"><div class="w">
+ <div class="ttl" data-r><p class="k">Đặt trước</p><h2 class="pf">Giữ chai <em>đầu tiên</em></h2><p>Giá ra mắt áp dụng cho đơn đặt trước. Giao trong tuần đầu mở bán.</p></div>
+ <div class="od">
+  <div class="fl" data-r>
+   <div><span>Công thức</span><div class="swt" id="fx" role="group" aria-label="Công thức"></div></div>
+   <div><span>Dung tích</span><div class="vol" id="vol" role="group" aria-label="Dung tích"></div></div>
+   <div><span>Số lượng</span><div class="stp"><button type="button" id="qM" aria-label="Bớt một chai">−</button><output id="qV">1</output><button type="button" id="qP" aria-label="Thêm một chai">+</button></div></div>
+   <div class="tot" aria-live="polite">
+    <div class="row">Giá niêm yết <b id="oL"></b></div>
+    <div class="row">Ưu đãi đặt trước −15% <b id="oD"></b></div>
+    <div class="row">Quà kèm <b>Bộ 3 ống thử 2 ml</b></div>
+    <div class="sum"><span class="k" style="color:var(--mu)">Tạm tính</span><b id="oT">0đ</b></div>
+   </div>
+  </div>
+  <form class="fl" id="bf" novalidate data-r>
+   <div class="two"><div><label class="t" for="fn">Họ tên</label><input class="in" id="fn" required autocomplete="name"></div><div><label class="t" for="ft">Điện thoại</label><input class="in" id="ft" type="tel" inputmode="tel" required autocomplete="tel"></div></div>
+   <div><label class="t" for="fa">Thành phố giao</label><input class="in" id="fa" required placeholder="Ví dụ: Hà Nội"></div>
+   <button class="btn" style="width:100%">Đặt trước</button>
+   <p class="msg" id="msg" role="status"></p>
+   <p class="fine">Giá minh họa, đã gồm VAT. Thanh toán khi nhận hàng.</p>
+  </form>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="lo">Lumaive</p>
+ <p>Lumaive là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; sản phẩm, công thức, giá chỉ để minh họa. Mỹ phẩm không phải là thuốc và không có tác dụng thay thế thuốc chữa bệnh. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+H.classList.add('js');if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-lumaive',smDemo:'lux-lp-lumaive'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.1});$$('[data-r]').forEach(el=>io.observe(el))}else $$('[data-r]').forEach(el=>el.classList.add('vis'));
+const go=s=>{const el=$(s);el&&scrollTo({top:el.getBoundingClientRect().top+scrollY,behavior:RM?'auto':'smooth'})};
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h.length>1&&$(h)){e.preventDefault();go(h)}}));
+/* đếm ngược: luôn còn 16 ngày tính từ nửa đêm hôm nay (demo) */
+const L=new Date();L.setHours(0,0,0,0);L.setDate(L.getDate()+16);L.setHours(10);
+const p2=n=>String(n).padStart(2,'0');
+const tick=()=>{let s=Math.max(0,Math.floor((L-Date.now())/1000));const d=Math.floor(s/86400);s%=86400;const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);s%=60;
+ $('#cD').textContent=p2(d);$('#cH').textContent=p2(h);$('#cM').textContent=p2(m);$('#cS').textContent=p2(s);$('#cdS').textContent=d+' ngày'};
+tick();setInterval(tick,1000);
+/* công thức concept */
+const F={
+ r:{n:'Rạng',t:'Serum Rạng',d:'Cho da trông xỉn, thiếu sức sống sau những ngày ngủ ít.',f:['Dẫn xuất vitamin C ổn định','Chiết xuất cam thảo','Dùng buổi sáng, trước kem chống nắng'],img:'nang'},
+ l:{n:'Lặng',t:'Serum Lặng',d:'Cho da dễ ửng đỏ, hay khó chịu khi đổi sản phẩm.',f:['Chiết xuất rau má và yến mạch','Panthenol, không hương liệu','Dùng sáng và tối'],img:'da'},
+ d:{n:'Đêm',t:'Serum Đêm',d:'Cho da khô, căng sau một ngày trong phòng máy lạnh.',f:['Dầu hạt jojoba và squalane thực vật','Bakuchiol nồng độ nhẹ','Dùng buổi tối, trước kem dưỡng'],img:'hoa'}};
+const Q=[['Cuối ngày, da bạn thường…',[['Trông mệt, xỉn màu','r'],['Hơi đỏ, châm chích','l'],['Khô, căng','d']]],
+ ['Bạn muốn dùng serum lúc nào?',[['Buổi sáng','r'],['Lúc nào cũng được','l'],['Buổi tối','d']]],
+ ['Bạn thích cảm giác nào?',[['Mỏng, ráo','r'],['Mát, dịu','l'],['Đọng, ẩm','d']]]];
+const A=[null,null,null];let PICK='r';
+$('#qz').innerHTML=Q.map((q,i)=>`<div class="qc"><span class="n">0${i+1}</span><h3>${q[0]}</h3><div class="o" role="group" aria-label="${q[0]}">${q[1].map((o,j)=>`<button type="button" data-q="${i}" data-a="${j}" aria-pressed="false">${o[0]}</button>`).join('')}</div></div>`).join('');
+
+const setImg=k=>{const src=$('#rF source'),img=$('#rF img');[src,img].forEach(el=>{['srcset','src'].forEach(a=>{const v=el.getAttribute(a);v&&el.setAttribute(a,v.replace(/lumaive\/(nang|da|hoa)-/g,`lumaive/${k}-`))})})};
+const res=()=>{if(A.includes(null))return;const c={r:0,l:0,d:0};A.forEach((a,i)=>c[Q[i][1][a][1]]++);const k=Object.keys(c).sort((a,b)=>c[b]-c[a])[0];PICK=k;show(k,true);sync()};
+const show=(k,anim)=>{const f=F[k];setImg(f.img);
+ $('#rT').innerHTML=`<p class="k">Gợi ý của bạn</p><h3>Lumaive <em>${f.n}</em></h3><p>${f.d}</p><ul>${f.f.map(x=>`<li>${x}</li>`).join('')}</ul><div class="swt" role="group" aria-label="Xem công thức khác">${Object.entries(F).map(([kk,v])=>`<button type="button" data-f="${kk}" aria-pressed="${kk===k}">${v.t}</button>`).join('')}</div><a class="btn" href="#dat-truoc" style="align-self:flex-start;margin-top:var(--s2)">Đặt trước ${f.t}</a>`;
+ $('#rT a').addEventListener('click',e=>{e.preventDefault();PICK=k;sync();go('#dat-truoc')});
+ if(anim){const t=$('#rT');t.classList.remove('an');void t.offsetWidth;t.classList.add('an')}};
+$('#qz').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b)return;const i=+b.dataset.q;A[i]=+b.dataset.a;
+ $$(`#qz [data-q="${i}"]`).forEach(x=>x.setAttribute('aria-pressed',x===b));b.closest('.qc').classList.add('ok');res()});
+$('#rT').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(b){PICK=b.dataset.f;show(PICK,true);sync()}});
+/* đặt trước */
+const V=[[15,690000],[30,1190000],[50,1790000]];const O={v:1,q:1};
+const bottle=h=>`<svg viewBox="0 0 40 80" aria-hidden="true"><rect x="15" y="${2+(60-h)}" width="10" height="12" rx="4" fill="#F4E7D3"/><rect x="${20-h/5}" y="${14+(60-h)}" width="${h/2.5}" height="${h+4}" rx="5" fill="#E0A458" opacity=".9"/><rect x="${20-h/5+3}" y="${20+(60-h)}" width="2" height="${h-10}" fill="#fff" opacity=".4"/></svg>`;
+$('#vol').innerHTML=V.map((v,i)=>`<button type="button" data-v="${i}" aria-pressed="${i===O.v}">${bottle([30,44,58][i])}<b>${v[0]} ml</b><small>${pv(v[1])}</small></button>`).join('');
+const sync=()=>{$('#fx').innerHTML=Object.entries(F).map(([k,v])=>`<button type="button" data-p="${k}" aria-pressed="${k===PICK}">${v.t}</button>`).join('');
+ $$('#vol button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===O.v));$('#qV').textContent=O.q;$('#qM').disabled=O.q<=1;$('#qP').disabled=O.q>=6;
+ const l=V[O.v][1]*O.q,d=l*.15;$('#oL').textContent=pv(l);$('#oD').textContent='−'+pv(d);$('#oT').textContent=pv(l-d)};
+$('#fx').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(b){PICK=b.dataset.p;sync();if(!A.includes(null))show(PICK)}});
+$('#vol').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b){O.v=+b.dataset.v;sync()}});
+$('#qM').addEventListener('click',()=>{O.q=Math.max(1,O.q-1);sync()});$('#qP').addEventListener('click',()=>{O.q=Math.min(6,O.q+1);sync()});
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg'),ok=$$('#bf [required]').every(i=>i.value.trim()),tel=/^[0-9 +.]{9,}$/.test($('#ft').value.trim());m.classList.toggle('err',!(ok&&tel));
+ if(!ok){m.textContent='Bạn điền giúp các ô còn trống nhé.';return}if(!tel){m.textContent='Số điện thoại chưa đúng.';return}
+ m.textContent=`Đã giữ ${O.q} × ${F[PICK].t} ${V[O.v][0]} ml, tạm tính ${$('#oT').textContent}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+sync();
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero h1 .l>span',{yPercent:110,duration:1.8,ease:'expo.out',stagger:.15,delay:.1});
+ gsap.from('.orb',{scale:.6,opacity:0,duration:2,ease:'expo.out',delay:.3});
+ gsap.from('.glow',{opacity:0,scale:.7,duration:3,ease:'expo.out'});
+ gsap.to('.orb picture',{yPercent:6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ gsap.to('.glow',{yPercent:-20,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.fm figure picture').forEach(p=>gsap.fromTo(p,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:p.parentNode,start:'top bottom',end:'bottom top',scrub:true}}));
+}
+})();
+</script>
+</body>
+</html>

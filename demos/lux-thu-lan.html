@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thu Lan Spa — day spa thư giãn giữa phố, đặt lịch liệu trình (Concept)</title>
+<meta name="description" content="Website concept do Dream Labs thiết kế cho một day spa cao cấp: chọn liệu trình, thời lượng, chuyên viên, ngày giờ còn trống và tặng thẻ quà có lời nhắn xem trước.">
+<style>
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/noto-serif-display-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:normal;font-display:swap;src:url(fonts/noto-serif-display-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:italic;font-display:swap;src:url(fonts/noto-serif-display-vietnamese-wght-italic.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Noto Serif Display";font-weight:100 900;font-style:italic;font-display:swap;src:url(fonts/noto-serif-display-latin-wght-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Manrope";font-weight:200 800;font-style:normal;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.22,1,.36,1);
+--bone:#F3EDE4;--sand:#E8DDCD;--clay:#B4583A;--clay2:#D9906F;--ol:#2C3024;--ol2:#3B4031;--ink:#22231C;--mu:rgba(34,35,28,.6);--ln:rgba(34,35,28,.14);
+--fs:"Noto Serif Display",Georgia,serif;--fb:"Manrope",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--fb);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1320px;margin:0 auto;padding:0 max(16px,4vw)}
+.ey{font-size:10px;font-weight:600;letter-spacing:.28em;text-transform:uppercase}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.sf{font-family:var(--fs);font-weight:300;letter-spacing:-.015em;line-height:1.04}
+.sf em{font-style:italic;font-weight:300;color:var(--clay)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);min-height:50px;padding:0 var(--s5);border-radius:999px;background:var(--ol);color:var(--bone);font-size:13px;font-weight:600;letter-spacing:.08em;transition:background .5s var(--e),color .5s,transform .5s var(--e)}
+.btn:hover{background:var(--clay)}
+.btn.gh{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ln)}.btn.gh:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+/* header */
+.hd{position:sticky;top:0;z-index:40;background:rgba(243,237,228,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .4s}
+.hd.sc{border-color:var(--ln)}
+.hd .w{display:flex;align-items:center;gap:var(--s4);height:68px}
+.back{font-size:12px;color:var(--mu);min-height:44px;display:flex;align-items:center}
+.emb .back{display:none}
+.lg{font-family:var(--fs);font-size:26px;font-weight:400;letter-spacing:.02em;display:flex;align-items:baseline;gap:6px;min-height:44px;align-items:center;margin-right:auto}
+.lg i{font-style:italic;color:var(--clay);font-weight:300}
+.nv{display:flex;gap:var(--s5)}.nv a{font-size:13px;font-weight:500;min-height:44px;display:flex;align-items:center;position:relative}
+.nv a::after{content:"";position:absolute;left:50%;bottom:10px;width:4px;height:4px;border-radius:50%;background:var(--clay);transform:translateX(-50%) scale(0);transition:transform .4s var(--e)}.nv a:hover::after{transform:translateX(-50%) scale(1)}
+.hd .btn{min-height:44px;padding:0 var(--s4)}
+.mb{display:none;width:44px;height:44px;position:relative}.mb i{position:absolute;left:12px;right:12px;height:1.5px;background:var(--ink);transition:transform .4s var(--e)}.mb i:first-child{top:18px}.mb i:last-child{top:25px}
+.mo .mb i:first-child{transform:translateY(3.5px) rotate(45deg)}.mo .mb i:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+/* hero */
+.hero{padding:var(--s6) 0 var(--s7)}
+.hg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:end}
+.ht .ey{color:var(--clay);display:flex;gap:var(--s3);align-items:center}
+.ht .ey::before{content:"";width:34px;height:1px;background:currentColor}
+.h1{font-size:clamp(46px,7.4vw,110px);margin:var(--s4) 0 var(--s5)}
+.h1 .l{display:block;overflow:hidden;padding-bottom:.08em}.h1 .l>span{display:inline-block}
+.lead{max-width:40ch;color:var(--mu);font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s5)}
+.facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:var(--s5);margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--ln)}
+.facts b{display:block;font-family:var(--fs);font-weight:300;font-size:26px;line-height:1.1}
+.facts span{font-size:12px;color:var(--mu)}
+.hv{position:relative}
+.arc{aspect-ratio:4/5;border-radius:999px 999px 21px 21px;overflow:hidden;background:var(--sand);position:relative}
+.arc picture{position:absolute;height:auto;inset:-5% 0}
+.orb{position:absolute;left:-55px;bottom:89px;width:clamp(120px,14vw,190px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:8px solid var(--bone);background:var(--sand)}
+.stamp{position:absolute;right:-21px;top:89px;width:110px;height:110px;color:var(--clay)}
+.stamp svg{width:100%;height:100%;animation:spin 34s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* sections */
+.sec{padding:var(--s8) 0}
+.sh{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s5);margin-bottom:var(--s6);align-items:end}
+.sh .ey{color:var(--clay)}
+.sh h2{font-size:clamp(36px,5vw,68px)}
+.sh p{color:var(--mu);max-width:46ch}
+/* menu */
+.mn{border-top:1px solid var(--ln)}
+.mi{display:grid;grid-template-columns:55px 1.3fr 1fr auto;gap:var(--s4);align-items:center;padding:var(--s4) 0;border-bottom:1px solid var(--ln);transition:background .5s var(--e),padding .6s var(--e)}
+.mi:hover{background:rgba(232,221,205,.5);padding-left:var(--s3);padding-right:var(--s3)}
+.mi .n{font-family:var(--fs);font-style:italic;color:var(--clay);font-size:20px}
+.mi h3{font-family:var(--fs);font-weight:300;font-size:clamp(22px,2.4vw,32px);line-height:1.1}
+.mi p{color:var(--mu);font-size:14px}
+.mi .pr{text-align:right;font-size:13px;white-space:nowrap}
+.mi .pr b{display:block;font-family:var(--fs);font-weight:400;font-size:20px}
+.mi .pw{display:flex;gap:var(--s4);align-items:center;justify-content:flex-end}
+.mi .lk{font-size:12px;font-weight:600;color:var(--clay);border-bottom:1px solid currentColor;min-height:44px;display:inline-flex;align-items:center}
+/* ritual strip */
+.rs{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:var(--s4);align-items:start}
+.rs figure{position:relative}
+.rs .fr{overflow:hidden;border-radius:21px;background:var(--sand);aspect-ratio:4/5;position:relative}
+.rs figure:nth-child(2) .fr{aspect-ratio:3/2;border-radius:999px}
+.rs figure:nth-child(2){margin-top:var(--s7)}
+.rs figure:nth-child(3){margin-top:var(--s5)}
+.rs .fr picture{position:absolute;height:auto;inset:-8% 0}
+.rs figcaption{margin-top:var(--s3);font-size:14px;color:var(--mu);max-width:34ch}
+.rs figcaption b{display:block;font-family:var(--fs);font-weight:400;font-size:22px;color:var(--ink)}
+/* booking */
+.bk{background:var(--ol);color:var(--bone);border-radius:34px;padding:var(--s6) var(--s5)}
+.bk .sh .ey{color:var(--clay2)}.bk .sh p{color:rgba(243,237,228,.66)}
+.bk .sh em{color:var(--clay2)}
+.bg{display:grid;grid-template-columns:1.62fr 1fr;gap:var(--s5);align-items:start}
+.steps{display:grid;gap:var(--s5);min-width:0}.bg>*{min-width:0}.st{min-width:0}
+.st h3{display:flex;align-items:baseline;gap:var(--s3);font-family:var(--fs);font-weight:300;font-size:26px;margin-bottom:var(--s3)}
+.st h3 span{font-family:var(--fb);font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--clay2)}
+.tr{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s2)}
+.tr button,.sp button,.ds button,.ts button,.du button,.ad label{border:1px solid rgba(243,237,228,.18);border-radius:13px;text-align:left;transition:border-color .4s,background .4s,color .4s}
+.tr button{padding:var(--s3) var(--s4);min-height:64px}
+.tr button b{display:block;font-weight:600;font-size:15px}
+.tr button small{color:rgba(243,237,228,.6);font-size:12px}
+.tr button[aria-pressed=true],.sp button[aria-pressed=true],.ds button[aria-pressed=true],.ts button[aria-pressed=true],.du button[aria-pressed=true]{background:var(--bone);color:var(--ol);border-color:var(--bone)}
+.tr button[aria-pressed=true] small,.sp button[aria-pressed=true] small,.ds button[aria-pressed=true] small{color:var(--clay)}
+.du{display:flex;gap:var(--s2);margin-top:var(--s3);flex-wrap:wrap}
+.du button{min-height:44px;padding:0 var(--s4);border-radius:999px;font-size:13px}
+.sp{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2)}
+.sp button{padding:var(--s3);min-height:96px;display:flex;flex-direction:column;gap:4px}
+.sp button i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-family:var(--fs);font-size:16px;background:rgba(243,237,228,.1)}
+.sp button[aria-pressed=true] i{background:var(--clay);color:var(--bone)}
+.sp button b{font-size:14px;font-weight:600}.sp button small{font-size:11px;color:rgba(243,237,228,.6);line-height:1.3}
+.ds{display:flex;gap:var(--s2);overflow-x:auto;padding-bottom:var(--s2);scrollbar-width:thin;scroll-snap-type:x mandatory}
+.ds button{flex:none;width:68px;min-height:76px;text-align:center;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ds button small{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,237,228,.6)}
+.ds button b{font-family:var(--fs);font-weight:400;font-size:24px;line-height:1.1}
+.ts{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s2);margin-top:var(--s3)}
+.ts button{min-height:46px;text-align:center;border-radius:999px;font-size:14px}
+.ts button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+.ad{display:grid;gap:var(--s2)}
+.ad label{display:flex;align-items:center;gap:var(--s3);padding:var(--s3) var(--s4);min-height:52px;cursor:pointer}
+.ad input{width:18px;height:18px;accent-color:var(--clay2)}
+.ad small{margin-left:auto;color:rgba(243,237,228,.6);white-space:nowrap}
+.sum{position:sticky;top:89px;background:var(--bone);color:var(--ink);border-radius:21px;padding:var(--s4);display:grid;gap:var(--s3)}
+.sum dl{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s3);font-size:14px}
+.sum dt{color:var(--mu)}.sum dd{text-align:right;font-weight:500}
+.sum .tot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--ln);padding-top:var(--s3)}
+.sum .tot b{font-family:var(--fs);font-weight:300;font-size:34px;line-height:1}
+.fld{display:grid;gap:4px}.fld label{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--mu)}
+.in{width:100%;min-height:48px;border:1px solid var(--ln);border-radius:12px;background:#fff;padding:0 var(--s3);font-size:16px;outline:0;transition:border-color .3s}
+textarea.in{padding:var(--s3);min-height:89px;resize:vertical}
+.in:focus{border-color:var(--clay)}
+.msg{font-size:14px;min-height:1.4em;color:var(--clay)}.msg.err{color:#9B2C2C}
+.fine{font-size:12px;color:var(--mu)}
+/* gift */
+.gf{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:center}
+.card{aspect-ratio:1.62/1;border-radius:21px;padding:var(--s5);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;color:var(--bone);background:var(--g,#2C3024);box-shadow:0 34px 55px -34px rgba(34,35,28,.6);transition:background .8s var(--e);transform:rotate(-2deg)}
+.card::before{content:"";position:absolute;right:-21%;top:-40%;width:80%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(243,237,228,.22)}
+.card::after{content:"";position:absolute;right:-8%;top:-18%;width:52%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(243,237,228,.16)}
+.card .top{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s3);position:relative;z-index:1}
+.card .lg{font-size:24px;margin:0;min-height:0}
+.card .val{font-family:var(--fs);font-weight:300;font-size:clamp(34px,4.4vw,55px);line-height:1;position:relative;z-index:1}
+.card .note{font-family:var(--fs);font-style:italic;font-weight:300;font-size:clamp(15px,1.5vw,19px);max-width:30ch;min-height:2.6em;position:relative;z-index:1;opacity:.92;overflow-wrap:anywhere}
+.card .to{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;position:relative;z-index:1}
+.gc{display:grid;gap:var(--s4)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.chips button{min-height:44px;padding:0 var(--s4);border-radius:999px;border:1px solid var(--ln);font-size:14px;transition:background .4s,color .4s,border-color .4s}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.sw{display:flex;gap:var(--s3)}
+.sw button{width:44px;height:44px;border-radius:50%;border:2px solid transparent;padding:4px;transition:border-color .3s}
+.sw button i{display:block;width:100%;height:100%;border-radius:50%}
+.sw button[aria-pressed=true]{border-color:var(--ink)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+/* visit */
+.vs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--s4);border-top:1px solid var(--ln);padding-top:var(--s5)}
+.vs h3{font-family:var(--fs);font-weight:300;font-size:24px;margin-bottom:var(--s2)}
+.vs p{color:var(--mu);font-size:15px}
+footer{padding:var(--s7) 0 var(--s6);border-top:1px solid var(--ln)}
+footer .big{font-family:var(--fs);font-weight:200;font-size:clamp(68px,16vw,220px);line-height:.9;letter-spacing:-.03em}
+footer .big i{color:var(--clay);font-weight:200}
+footer p{color:var(--mu);font-size:14px;max-width:64ch;margin-top:var(--s4)}footer a{text-decoration:underline}
+@media(max-width:980px){
+ .nv{position:fixed;inset:68px 0 auto;flex-direction:column;gap:0;background:var(--bone);padding:var(--s3) max(16px,4vw) var(--s5);border-bottom:1px solid var(--ln);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .3s,transform .4s var(--e),visibility .3s}
+ .nv a{font-size:16px;min-height:52px;border-bottom:1px solid var(--ln)}
+ .mo .nv{opacity:1;visibility:visible;transform:none}
+ .mb{display:block}.hd .btn{display:none}
+ .hg,.sh,.bg,.gf{grid-template-columns:1fr}
+ .hv{max-width:520px;margin:0 auto;width:100%;padding-left:var(--s5)}
+ .orb{left:0}
+ .stamp{right:0}
+ .rs{grid-template-columns:1fr 1fr}.rs figure:nth-child(2){grid-column:1/-1;order:-1;margin-top:0}.rs figure:nth-child(3){margin-top:var(--s7)}
+ .sum{position:relative;top:0}
+ .sec{padding:var(--s7) 0}
+}
+@media(max-width:640px){
+ .mi{grid-template-columns:34px 1fr;gap:var(--s2) var(--s3)}.mi p,.mi .pw{grid-column:2}.mi .pw{justify-content:space-between}.mi .pr{text-align:left}
+ .tr{grid-template-columns:1fr}.sp{grid-template-columns:repeat(2,1fr)}.ts{grid-template-columns:repeat(3,1fr)}
+ .bk{padding:var(--s5) var(--s4);border-radius:21px;margin:0 calc(-1*max(16px,4vw)) }
+ .facts{gap:var(--s4)}.facts b{font-size:22px}
+ .vs,.g2{grid-template-columns:1fr}
+ .card{padding:var(--s4)}
+ .stamp{width:89px;height:89px;top:34px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="hd" id="hd"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lg" href="#top" aria-label="Thu Lan Spa">Thu <i>Lan</i></a>
+ <nav class="nv" aria-label="Chính"><a href="#lieu-trinh">Liệu trình</a><a href="#nghi-thuc">Nghi thức</a><a href="#dat-lich">Đặt lịch</a><a href="#the-qua">Thẻ quà</a><a href="#ghe-tham">Ghé thăm</a></nav>
+ <a class="btn" href="#dat-lich">Đặt lịch</a>
+ <button class="mb" type="button" aria-label="Mở menu" aria-expanded="false"><i></i><i></i></button>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="w hg">
+ <div class="ht">
+  <p class="ey">Day spa · Hà Nội · Concept</p>
+  <h1 class="h1 sf"><span class="l"><span>Chậm lại</span></span><span class="l"><span>một buổi <em>chiều</em></span></span></h1>
+  <p class="lead">Phòng đá ấm, khăn hấp gừng, tinh dầu chưng tại chỗ. Chọn liệu trình, chuyên viên và giờ còn trống ngay trên trang, không cần gọi điện.</p>
+  <div class="cta"><a class="btn" href="#dat-lich">Chọn liệu trình →</a><a class="btn gh" href="#the-qua">Tặng thẻ quà</a></div>
+  <div class="facts"><div><b>6</b><span>liệu trình</span></div><div><b>4</b><span>phòng riêng</span></div><div><b>9:00–21:00</b><span>mỗi ngày</span></div></div>
+ </div>
+ <div class="hv">
+  <div class="arc" id="arc"><picture><source type="image/avif" srcset="../img/demo/thu-lan/phong-640.avif 640w, ../img/demo/thu-lan/phong-1280.avif 1280w, ../img/demo/thu-lan/phong-1920.avif 1920w" sizes="(max-width:980px) 92vw, 46vw"><img src="../img/demo/thu-lan/phong-1280.webp" srcset="../img/demo/thu-lan/phong-640.webp 640w, ../img/demo/thu-lan/phong-1280.webp 1280w, ../img/demo/thu-lan/phong-1920.webp 1920w" sizes="(max-width:980px) 92vw, 46vw" width="1280" height="1600" alt="Phòng trị liệu mái vòm, giường phủ khăn trắng dưới ánh đèn hắt ấm" fetchpriority="high" decoding="async"></picture></div>
+  <div class="orb"><picture><source type="image/avif" srcset="../img/demo/thu-lan/nen-640.avif 640w, ../img/demo/thu-lan/nen-1280.avif 1280w" sizes="190px"><img src="../img/demo/thu-lan/nen-1280.webp" srcset="../img/demo/thu-lan/nen-640.webp 640w, ../img/demo/thu-lan/nen-1280.webp 1280w" sizes="190px" width="1280" height="1280" alt="Ngọn nến trắng bên khăn lanh xanh rêu và cành bạch đàn" loading="lazy" decoding="async"></picture></div>
+  <div class="stamp" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="cp" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><text font-size="10.5" letter-spacing="3.6" fill="currentColor" font-family="Manrope"><textPath href="#cp">THU LAN · DAY SPA · CONCEPT · </textPath></text><circle cx="60" cy="60" r="4" fill="currentColor"/></svg></div>
+ </div>
+</div></section>
+
+<section class="sec" id="lieu-trinh" style="padding-top:var(--s6)"><div class="w">
+ <div class="sh rv"><p class="ey">01 — Liệu trình</p><div><h2 class="sf">Sáu nghi thức, <em>một nhịp thở</em></h2><p style="margin-top:var(--s3)">Mỗi liệu trình có hai mức thời lượng. Giá đã gồm trà gừng, phòng tắm hơi và khăn riêng.</p></div></div>
+ <ul class="mn" id="mn"></ul>
+</div></section>
+
+<section class="sec" id="nghi-thuc" style="padding-top:0"><div class="w">
+ <div class="sh rv"><p class="ey">02 — Nghi thức</p><div><h2 class="sf">Ba điều nhỏ <em>làm nên</em> buổi chiều</h2></div></div>
+ <div class="rs">
+  <figure class="rv"><div class="fr"><picture><source type="image/avif" srcset="../img/demo/thu-lan/dau-640.avif 640w, ../img/demo/thu-lan/dau-1280.avif 1280w, ../img/demo/thu-lan/dau-1920.avif 1920w" sizes="(max-width:980px) 46vw, 30vw"><img src="../img/demo/thu-lan/dau-1280.webp" srcset="../img/demo/thu-lan/dau-640.webp 640w, ../img/demo/thu-lan/dau-1280.webp 1280w, ../img/demo/thu-lan/dau-1920.webp 1920w" sizes="(max-width:980px) 46vw, 30vw" width="1280" height="1600" alt="Dầu nến ấm được rót vào lòng bàn tay chuyên viên" loading="lazy" decoding="async"></picture></div><figcaption><b>Nến dầu ấm</b>Sáp đậu nành và dầu hạt tan ở nhiệt độ vừa da, rót trực tiếp lên lòng bàn tay.</figcaption></figure>
+  <figure class="rv"><div class="fr"><picture><source type="image/avif" srcset="../img/demo/thu-lan/khan-640.avif 640w, ../img/demo/thu-lan/khan-1280.avif 1280w, ../img/demo/thu-lan/khan-1920.avif 1920w" sizes="(max-width:980px) 92vw, 40vw"><img src="../img/demo/thu-lan/khan-1280.webp" srcset="../img/demo/thu-lan/khan-640.webp 640w, ../img/demo/thu-lan/khan-1280.webp 1280w, ../img/demo/thu-lan/khan-1920.webp 1920w" sizes="(max-width:980px) 92vw, 40vw" width="1280" height="853" alt="Khăn trắng cuộn tròn xếp trên kệ gỗ cạnh đèn xông" loading="lazy" decoding="async"></picture></div><figcaption><b>Khăn hấp gừng</b>Khăn bông cuộn, hấp cùng gừng già và sả trước mỗi lượt khách.</figcaption></figure>
+  <figure class="rv"><div class="fr"><picture><source type="image/avif" srcset="../img/demo/thu-lan/da-640.avif 640w, ../img/demo/thu-lan/da-1280.avif 1280w, ../img/demo/thu-lan/da-1920.avif 1920w" sizes="(max-width:980px) 46vw, 30vw"><img src="../img/demo/thu-lan/da-1280.webp" srcset="../img/demo/thu-lan/da-640.webp 640w, ../img/demo/thu-lan/da-1280.webp 1280w, ../img/demo/thu-lan/da-1920.webp 1920w" sizes="(max-width:980px) 46vw, 30vw" width="1280" height="1600" alt="Cây lăn đá xanh và đá gua sha đặt trên khăn sọc cạnh nến" loading="lazy" decoding="async"></picture></div><figcaption><b>Đá mát cho da mặt</b>Cây lăn và đá gua sha làm mát trong tủ đá, dùng ở bước cuối của liệu trình mặt.</figcaption></figure>
+ </div>
+</div></section>
+
+<section class="sec" id="dat-lich" style="padding-top:0"><div class="w"><div class="bk">
+ <div class="sh rv"><p class="ey">03 — Đặt lịch</p><div><h2 class="sf">Giữ cho mình <em>một khoảng trống</em></h2><p style="margin-top:var(--s3)">Chọn từng bước, tóm tắt cập nhật bên cạnh. Giờ đã kín được gạch đi.</p></div></div>
+ <div class="bg">
+  <div class="steps">
+   <div class="st"><h3><span>I</span>Liệu trình</h3><div class="tr" id="tr" role="group" aria-label="Chọn liệu trình"></div><div class="du" id="du" role="group" aria-label="Thời lượng"></div></div>
+   <div class="st"><h3><span>II</span>Chuyên viên</h3><div class="sp" id="sp" role="group" aria-label="Chọn chuyên viên"></div></div>
+   <div class="st"><h3><span>III</span>Ngày & giờ</h3><div class="ds" id="ds" data-allow-overflow role="group" aria-label="Chọn ngày"></div><div class="ts" id="ts" role="group" aria-label="Chọn giờ"></div></div>
+   <div class="st"><h3><span>IV</span>Thêm vào</h3><div class="ad" id="ad"></div></div>
+  </div>
+  <form class="sum" id="bf" novalidate aria-live="polite">
+   <p class="ey" style="color:var(--clay)">Tóm tắt</p>
+   <dl><dt>Liệu trình</dt><dd id="sT">—</dd><dt>Thời lượng</dt><dd id="sD">—</dd><dt>Chuyên viên</dt><dd id="sS">—</dd><dt>Ngày giờ</dt><dd id="sW">Chưa chọn giờ</dd><dt>Thêm</dt><dd id="sA">Không</dd></dl>
+   <div class="tot"><span class="fine">Tạm tính</span><b id="sP">0đ</b></div>
+   <div class="fld"><label for="bN">Họ tên</label><input class="in" id="bN" required autocomplete="name"></div>
+   <div class="fld"><label for="bT">Điện thoại</label><input class="in" id="bT" type="tel" inputmode="tel" required autocomplete="tel"></div>
+   <button class="btn" style="width:100%">Giữ lịch</button>
+   <p class="msg" id="bM" role="status"></p>
+   <p class="fine">Giá minh họa, đã gồm VAT. Thanh toán tại quầy sau buổi trị liệu.</p>
+  </form>
+ </div>
+</div></div></section>
+
+<section class="sec" id="the-qua" style="padding-top:0"><div class="w">
+ <div class="sh rv"><p class="ey">04 — Thẻ quà tặng</p><div><h2 class="sf">Tặng một <em>buổi chiều</em></h2><p style="margin-top:var(--s3)">Chọn mệnh giá, màu thẻ và viết vài dòng. Thẻ xem trước đổi theo từng chữ bạn gõ.</p></div></div>
+ <div class="gf">
+  <div class="rv"><div class="card" id="card" aria-live="polite">
+   <div class="top"><span class="lg">Thu <i>Lan</i></span><span class="to">Thẻ quà · <span id="cN">Số 0001</span></span></div>
+   <p class="note" id="cMsg">Gửi bạn một buổi chiều thật chậm.</p>
+   <div class="top" style="align-items:flex-end"><p class="val" id="cV">1.500.000đ</p><span class="to" id="cTo">Tặng: Bạn thân</span></div>
+  </div></div>
+  <form class="gc rv" id="gf" novalidate>
+   <div class="fld"><span class="ey" style="color:var(--mu)">Mệnh giá</span><div class="chips" id="gv" role="group" aria-label="Mệnh giá"></div></div>
+   <div class="fld"><span class="ey" style="color:var(--mu)">Màu thẻ</span><div class="sw" id="gc" role="group" aria-label="Màu thẻ"></div></div>
+   <div class="g2"><div class="fld"><label for="gTo">Người nhận</label><input class="in" id="gTo" maxlength="28" value="Bạn thân" required></div><div class="fld"><label for="gFr">Người tặng</label><input class="in" id="gFr" maxlength="28" placeholder="Tên của bạn" required></div></div>
+   <div class="fld"><label for="gMsg">Lời nhắn <span id="gCnt" style="float:right;letter-spacing:0">0/120</span></label><textarea class="in" id="gMsg" maxlength="120">Gửi bạn một buổi chiều thật chậm.</textarea></div>
+   <button class="btn">Đặt thẻ quà</button>
+   <p class="msg" id="gM" role="status"></p>
+  </form>
+ </div>
+</div></section>
+
+<section class="sec" id="ghe-tham" style="padding-top:0"><div class="w">
+ <div class="sh rv"><p class="ey">05 — Ghé thăm</p><div><h2 class="sf">Một con ngõ <em>yên</em></h2></div></div>
+ <div class="vs rv">
+  <div><h3>Địa chỉ</h3><p>Số 12 ngõ Hoa Sữa, quận Tây Hồ, Hà Nội (địa chỉ minh họa)</p></div>
+  <div><h3>Giờ mở cửa</h3><p>9:00 – 21:00 mỗi ngày. Lượt cuối nhận khách lúc 19:30.</p></div>
+  <div><h3>Điện thoại</h3><p>024 0000 1212 (số minh họa)</p></div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="big" aria-hidden="true">Thu <i>Lan</i></p>
+ <p>Thu Lan là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; liệu trình, sản phẩm, giá, địa chỉ chỉ để minh họa. Trải nghiệm thư giãn, không thay thế tư vấn hay điều trị y khoa. Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+</div></footer>
+
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-thu-lan',smDemo:'lux-thu-lan'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* menu toggle */
+const mb=$('.mb');mb.addEventListener('click',()=>{const o=H.classList.toggle('mo');mb.setAttribute('aria-expanded',o)});$$('.nv a').forEach(a=>a.addEventListener('click',()=>{H.classList.remove('mo');mb.setAttribute('aria-expanded',false)}));
+addEventListener('scroll',()=>$('#hd').classList.toggle('sc',scrollY>10),{passive:true});
+/* data — liệu trình concept, giá minh họa */
+const T=[
+ {n:'Đá ấm thư giãn',d:'Đá bazan làm ấm, xoa dọc lưng và vai theo nhịp chậm.',o:[[60,890000],[90,1250000]]},
+ {n:'Chăm sóc da mặt thảo mộc',d:'Làm sạch, xông hơi thảo mộc, mặt nạ dịu nhẹ, đá lăn mát.',o:[[60,950000],[75,1150000]]},
+ {n:'Gội đầu dưỡng sinh',d:'Gội bồ kết, xoa bóp da đầu, cổ vai gáy, khăn hấp gừng.',o:[[45,450000],[60,590000]]},
+ {n:'Tẩy da muối hồng',d:'Muối hạt mịn trộn dầu hạt, tắm khoáng và thoa dưỡng ẩm.',o:[[45,690000],[60,850000]]},
+ {n:'Xoa bóp chân thảo dược',d:'Ngâm chân nước gừng sả, xoa bóp bàn chân và bắp chân.',o:[[45,420000],[60,520000]]},
+ {n:'Nghi thức Thu Lan',d:'Trọn buổi: tẩy da, đá ấm toàn thân, chăm sóc da mặt, trà chiều.',o:[[120,2650000],[150,3200000]]}];
+const SP=[{n:'Bất kỳ',d:'Người đầu tiên rảnh',k:0},{n:'Chị Hạnh',d:'Đá ấm, toàn thân',k:1},{n:'Chị Mai',d:'Da mặt, thảo mộc',k:2},{n:'Anh Quân',d:'Lực vừa đến mạnh',k:3}];
+const AD=[['Tinh dầu chọn riêng',120000],['Phòng đôi cho hai người',350000],['Trà chiều & bánh',180000]];
+const SL=['09:00','10:30','12:00','13:30','15:00','16:30','18:00','19:30'];
+const C={t:0,o:0,s:0,d:0,h:null,a:[]};
+$('#mn').innerHTML=T.map((t,i)=>`<li class="mi rv"><span class="n">${String(i+1).padStart(2,'0')}</span><div><h3>${t.n}</h3></div><p>${t.d}</p><div class="pw"><span class="pr">${t.o.map(o=>o[0]).join(' / ')} phút<b>từ ${pv(t.o[0][1])}</b></span><button class="lk" type="button" data-pick="${i}">Đặt →</button></div></li>`).join('');
+$('#tr').innerHTML=T.map((t,i)=>`<button type="button" data-t="${i}" aria-pressed="false"><b>${t.n}</b><small>${t.o.map(o=>o[0]).join(' / ')} phút · từ ${pv(t.o[0][1])}</small></button>`).join('');
+$('#sp').innerHTML=SP.map((s,i)=>`<button type="button" data-s="${i}" aria-pressed="false"><i>${i?s.n.split(' ')[1][0]:'∗'}</i><b>${s.n}</b><small>${s.d}</small></button>`).join('');
+$('#ad').innerHTML=AD.map((a,i)=>`<label><input type="checkbox" data-a="${i}">${a[0]}<small>+${pv(a[1])}</small></label>`).join('');
+const DN=['CN','T2','T3','T4','T5','T6','T7'],days=[];const t0=new Date();t0.setHours(0,0,0,0);
+for(let i=0;i<14;i++){const d=new Date(t0);d.setDate(t0.getDate()+i+1);days.push(d)}
+$('#ds').innerHTML=days.map((d,i)=>`<button type="button" data-d="${i}" aria-pressed="false" aria-label="${DN[d.getDay()]} ${d.getDate()}/${d.getMonth()+1}"><small>${DN[d.getDay()]}</small><b>${d.getDate()}</b><small>Th${d.getMonth()+1}</small></button>`).join('');
+/* lịch kín giả lập: cố định theo ngày + chuyên viên */
+const busy=(d,s,h)=>{if(s===0)return((d*7+h*3)%11)===0;return((d*5+s*13+h*7)%5)===0};
+const render=()=>{const t=T[C.t],o=t.o[C.o];
+ $$('#tr [data-t]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.t===C.t));
+ $('#du').innerHTML=t.o.map((x,i)=>`<button type="button" data-o="${i}" aria-pressed="${i===C.o}">${x[0]} phút · ${pv(x[1])}</button>`).join('');
+ $$('#sp [data-s]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.s===C.s));
+ $$('#ds [data-d]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.d===C.d));
+ if(C.h!==null&&busy(C.d,C.s,C.h))C.h=null;
+ $('#ts').innerHTML=SL.map((h,i)=>{const x=busy(C.d,C.s,i);return`<button type="button" data-h="${i}" aria-pressed="${C.h===i}" ${x?'disabled aria-label="'+h+' đã kín"':''}>${h}</button>`}).join('');
+ const add=C.a.reduce((s,i)=>s+AD[i][1],0),d=days[C.d];
+ $('#sT').textContent=t.n;$('#sD').textContent=o[0]+' phút';$('#sS').textContent=SP[C.s].n;
+ $('#sW').textContent=C.h===null?'Chưa chọn giờ':`${SL[C.h]} · ${DN[d.getDay()]} ${d.getDate()}/${d.getMonth()+1}`;
+ $('#sA').textContent=C.a.length?C.a.map(i=>AD[i][0]).join(', '):'Không';
+ $('#sP').textContent=pv(o[1]+add)};
+$('.bg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const k=b.dataset;
+ if(k.t!==undefined){C.t=+k.t;C.o=0}else if(k.o!==undefined)C.o=+k.o;else if(k.s!==undefined)C.s=+k.s;else if(k.d!==undefined)C.d=+k.d;else if(k.h!==undefined)C.h=+k.h;else return;render()});
+$('#ad').addEventListener('change',()=>{C.a=$$('#ad input:checked').map(i=>+i.dataset.a);render()});
+$('#mn').addEventListener('click',e=>{const b=e.target.closest('[data-pick]');if(!b)return;C.t=+b.dataset.pick;C.o=0;render();$('#dat-lich').scrollIntoView({behavior:RM?'auto':'smooth'})});
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#bM'),n=$('#bN').value.trim(),p=$('#bT').value.trim();let er='';
+ if(C.h===null)er='Bạn chọn giúp một khung giờ còn trống nhé.';else if(!n||!p)er='Bạn điền giúp họ tên và số điện thoại.';else if(!/^[0-9 +.]{9,}$/.test(p))er='Số điện thoại chưa đúng.';
+ m.classList.toggle('err',!!er);m.textContent=er||`Đã giữ lịch ${T[C.t].n}, ${$('#sW').textContent}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+render();
+/* gift card */
+const GV=[1000000,1500000,2500000,5000000],GC=[['Rêu','#2C3024'],['Đất nung','#9A4A30'],['Cát','#B79C7A'],['Đêm','#1E2230']];const G={v:1,c:0};
+$('#gv').innerHTML=GV.map((v,i)=>`<button type="button" data-v="${i}" aria-pressed="${i===G.v}">${pv(v)}</button>`).join('');
+$('#gc').innerHTML=GC.map((c,i)=>`<button type="button" data-c="${i}" aria-pressed="${i===G.c}" aria-label="Màu ${c[0]}"><i style="background:${c[1]}"></i></button>`).join('');
+const gr=()=>{$$('#gv button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===G.v));$$('#gc button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.c===G.c));
+ $('#card').style.setProperty('--g',GC[G.c][1]);$('#cV').textContent=pv(GV[G.v]);
+ const m=$('#gMsg').value.trim();$('#cMsg').textContent=m||'Viết vài dòng cho người nhận…';$('#gCnt').textContent=$('#gMsg').value.length+'/120';
+ const to=$('#gTo').value.trim(),fr=$('#gFr').value.trim();$('#cTo').textContent=(to?'Tặng: '+to:'Tặng: …')+(fr?' · Từ: '+fr:'')};
+$('#gv').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(b){G.v=+b.dataset.v;gr()}});
+$('#gc').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){G.c=+b.dataset.c;gr()}});
+$$('#gf input,#gf textarea').forEach(i=>i.addEventListener('input',gr));
+$('#cN').textContent='Số '+String(1000+Math.floor(Math.random()*8999));
+$('#gf').addEventListener('submit',e=>{e.preventDefault();const m=$('#gM'),ok=$('#gTo').value.trim()&&$('#gFr').value.trim();m.classList.toggle('err',!ok);
+ m.textContent=ok?`Đã tạo thẻ ${pv(GV[G.v])} tặng ${esc($('#gTo').value.trim())}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`:'Bạn điền giúp tên người nhận và người tặng.'});
+gr();
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.h1 .l>span',{yPercent:110,duration:1.6,ease:'expo.out',stagger:.14,delay:.1});
+ gsap.from('#arc',{clipPath:'inset(100% 0 0 0 round 999px 999px 21px 21px)',duration:1.8,ease:'expo.inOut'});
+ gsap.from('.orb',{scale:.6,opacity:0,duration:1.4,ease:'expo.out',delay:.9});
+ gsap.to('#arc picture',{yPercent:6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.rs .fr picture').forEach(p=>gsap.fromTo(p,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:p.parentNode,start:'top bottom',end:'bottom top',scrub:true}}));
+ $$('.rv').forEach(el=>gsap.from(el,{y:34,opacity:0,duration:1.3,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}}));
+}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+ "phong": {
+  "author": "Marine Fougère",
+  "page": "https://www.pexels.com/photo/serene-spa-interior-with-massage-table-and-candle-35884502/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/35884502/pexels-photo-35884502.jpeg",
+  "w": 3712,
+  "h": 5568,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ],
+  "blur": [
+   [
+    0.48,
+    0.22,
+    0.47,
+    0.11
+   ]
+  ]
+ },
+ "giot": {
+  "author": "Eva Bronzini",
+  "page": "https://www.pexels.com/photo/a-glass-dropper-on-the-brown-glass-bottle-6914588/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6914588/pexels-photo-6914588.jpeg",
+  "w": 3135,
+  "h": 4703,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "da": {
+  "author": "Ksenia Chernaya",
+  "page": "https://www.pexels.com/photo/close-up-of-a-bottle-a-rock-and-a-dropper-8054327/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/8054327/pexels-photo-8054327.jpeg",
+  "w": 2670,
+  "h": 4000,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "kem": {
+  "author": "Jana Kukebal",
+  "page": "https://www.pexels.com/photo/a-white-abstract-painting-6496463/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6496463/pexels-photo-6496463.jpeg",
+  "w": 2316,
+  "h": 2895,
+  "ar": "3:2",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ },
+ "xanh": {
+  "author": "Feyza Yıldırım",
+  "page": "https://www.pexels.com/photo/oil-drops-and-cream-on-blue-background-20469560/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/20469560/pexels-photo-20469560.jpeg",
+  "w": 4160,
+  "h": 6240,
+  "ar": "4:5",
+  "sizes": [
+   640,
+   1280,
+   1920
+  ]
+ }
+}

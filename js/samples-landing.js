@@ -199,5 +199,31 @@
     demo: 'demos/lux-lp-elmorra.html',
     long: 'img/sm-landing-elmorra-long.webp',
     longM: 'img/sm-landing-elmorra-long-m.webp'
+  },
+  {
+    id: 'landing-tram-an',
+    title: 'Trầm An · Gói onsen',
+    industry: 'Spa & mỹ phẩm',
+    desc: 'Landing khu ngâm khoáng nóng nền mực đen và màu than hồng, hơi nước bay lên trên ảnh toàn màn hình: chọn gói, thời lượng, số người, ngày thường hay cuối tuần và dịch vụ thêm để ra giá ngay rồi đặt lịch.',
+    tags: ['Tính giá gói', 'Onsen', 'Đặt lịch'],
+    pkg: 'Landing Page — Chuyên nghiệp',
+    cover: 'img/sm-landing-tram-an.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-tram-an.html',
+    long: 'img/sm-landing-tram-an-long.webp',
+    longM: 'img/sm-landing-tram-an-long-m.webp'
+  },
+  {
+    id: 'landing-lumaive',
+    title: 'Lumaive · Serum Hổ Phách',
+    industry: 'Spa & mỹ phẩm',
+    desc: 'Landing ra mắt serum nền nâu cà phê và ánh hổ phách, ảnh tròn phát sáng giữa các vòng quay chậm: đếm ngược ngày mở bán, quiz da ba câu gợi ý công thức, bảng thành phần viết rõ, chọn dung tích, số lượng và đặt trước.',
+    tags: ['Quiz da', 'Đặt trước', 'Đếm ngược'],
+    pkg: 'Landing Page — Cao cấp',
+    cover: 'img/sm-landing-lumaive.webp',
+    kind: 'site',
+    demo: 'demos/lux-lp-lumaive.html',
+    long: 'img/sm-landing-lumaive-long.webp',
+    longM: 'img/sm-landing-lumaive-long-m.webp'
   }
 ];

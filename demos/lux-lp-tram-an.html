@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trầm An · Onsen — gói ngâm khoáng nóng và thư giãn, tính giá và đặt lịch (Concept)</title>
+<meta name="description" content="Landing page concept do Dream Labs thiết kế cho một khu onsen thư giãn: chọn gói ngâm khoáng, thời lượng và số người để xem giá ngay, rồi đặt lịch.">
+<style>
+@font-face{font-family:"Prata";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/prata-vietnamese-400-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Prata";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/prata-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Josefin Sans";font-weight:100 700;font-style:normal;font-display:swap;src:url(fonts/josefin-sans-vietnamese-wght-normal.woff2) format("woff2");unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB}
+@font-face{font-family:"Josefin Sans";font-weight:100 700;font-style:normal;font-display:swap;src:url(fonts/josefin-sans-latin-wght-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--s1:5px;--s2:8px;--s3:13px;--s4:21px;--s5:34px;--s6:55px;--s7:89px;--s8:144px;--e:cubic-bezier(.25,1,.5,1);
+--ink:#121412;--ink2:#1B1E1B;--ink3:#252924;--wa:#E8E1D3;--wa2:#CFC6B4;--em:#C77B3A;--em2:#E0A36B;--mo:#7C8C6E;--mu:rgba(232,225,211,.62);--ln:rgba(232,225,211,.14);
+--fp:"Prata",Georgia,serif;--fj:"Josefin Sans",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--wa);font-family:var(--fj);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:none;border:0;padding:0}
+h1,h2,h3,p,ul,dl,dd,figure{margin:0}ul{padding:0;list-style:none}
+img{display:block;width:100%;height:100%;object-fit:cover}picture{display:block;height:100%}
+.w{width:100%;max-width:1240px;margin:0 auto;padding:0 max(16px,4vw)}
+.ey{font-size:11px;font-weight:400;letter-spacing:.34em;text-transform:uppercase;color:var(--em2)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.pr{font-family:var(--fp);font-weight:400;line-height:1.08;letter-spacing:-.005em}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);min-height:52px;padding:0 var(--s5);background:var(--em);color:var(--ink);font-size:13px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;transition:background .5s var(--e),color .5s}
+.btn:hover{background:var(--wa)}
+.btn.gh{background:transparent;color:var(--wa);box-shadow:inset 0 0 0 1px var(--ln)}.btn.gh:hover{box-shadow:inset 0 0 0 1px var(--wa)}
+/* top */
+.tp{position:absolute;inset:0 0 auto;z-index:20}
+.tp .w{display:flex;align-items:center;justify-content:space-between;height:76px;gap:var(--s3)}
+.back{font-size:12px;letter-spacing:.1em;color:var(--mu);min-height:44px;display:flex;align-items:center}
+.emb .back{visibility:hidden}
+.lo{font-family:var(--fp);font-size:24px;min-height:44px;display:flex;align-items:center;gap:var(--s2)}
+.lo i{font-style:normal;font-family:var(--fj);font-size:11px;letter-spacing:.3em;color:var(--em2);text-transform:uppercase}
+.tp .bk{font-size:12px;letter-spacing:.24em;text-transform:uppercase;min-height:44px;display:flex;align-items:center;border-bottom:1px solid var(--em)}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero .bg{position:absolute;inset:0}
+.hero .bg picture{position:absolute;height:auto;inset:-6% 0}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,20,18,.78) 0%,rgba(18,20,18,.35) 48%,rgba(18,20,18,0) 72%),linear-gradient(180deg,rgba(18,20,18,.6) 0%,rgba(18,20,18,.15) 34%,rgba(18,20,18,.6) 70%,var(--ink) 100%)}
+.stm{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.stm i{position:absolute;bottom:-20%;width:42vw;max-width:520px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(232,225,211,.22),transparent 62%);filter:blur(13px);animation:rise 21s linear infinite;opacity:0}
+.stm i:nth-child(1){left:-6%;animation-delay:0s}.stm i:nth-child(2){left:30%;animation-delay:-7s}.stm i:nth-child(3){left:62%;animation-delay:-14s}
+@keyframes rise{0%{transform:translateY(0) scale(.8);opacity:0}20%{opacity:1}100%{transform:translateY(-110vh) scale(1.5);opacity:0}}
+.hero .w{position:relative;z-index:2;padding-bottom:var(--s7);display:grid;grid-template-columns:1fr auto;gap:var(--s5);align-items:end}
+.hero h1{font-size:clamp(48px,8.4vw,128px)}
+.hero h1 .l{display:block;overflow:hidden}.hero h1 .l>span{display:inline-block}
+.hero .lead{max-width:42ch;color:var(--wa);opacity:.82;margin:var(--s4) 0 var(--s5)}
+.hero .cta{display:flex;gap:var(--s3);flex-wrap:wrap}
+.vt{writing-mode:vertical-rl;font-family:var(--fp);font-size:15px;letter-spacing:.5em;color:var(--wa2);border-left:1px solid var(--ln);padding-left:var(--s3)}
+/* sections */
+.sec{padding:var(--s8) 0}
+.hd2{display:grid;grid-template-columns:1fr 1.62fr;gap:var(--s5);margin-bottom:var(--s6);align-items:end}
+.hd2 h2{font-size:clamp(36px,5vw,72px)}
+.hd2 p{color:var(--mu);max-width:44ch}
+/* rituals */
+.rt{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.rt figure{display:flex;flex-direction:column;gap:var(--s3)}
+.rt .fr{aspect-ratio:4/5;overflow:hidden;position:relative;background:var(--ink3);border-radius:2px}
+.rt figure:nth-child(2) .fr{aspect-ratio:3/4;margin-top:var(--s7)}
+.rt .fr picture{position:absolute;height:auto;inset:-6% 0}
+.rt figcaption{display:grid;gap:4px}
+.rt figcaption b{font-family:var(--fp);font-weight:400;font-size:22px}
+.rt figcaption span{color:var(--mu);font-size:15px}
+/* calculator */
+.calc{display:grid;grid-template-columns:1.62fr 1fr;border:1px solid var(--ln);background:var(--ink2)}
+.calc .l{padding:var(--s5);display:grid;gap:var(--s5)}
+.calc .r{padding:var(--s5);background:var(--ink3);display:flex;flex-direction:column;gap:var(--s3);position:sticky;top:21px;align-self:start}
+.grp>span{display:block;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mu);margin-bottom:var(--s3)}
+.pkg{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.pkg button{text-align:left;padding:var(--s4);border:1px solid var(--ln);min-height:120px;display:flex;flex-direction:column;gap:6px;transition:border-color .4s,background .4s}
+.pkg button b{font-family:var(--fp);font-weight:400;font-size:21px;line-height:1.15}
+.pkg button small{color:var(--mu);font-size:14px;line-height:1.45}
+.pkg button em{font-style:normal;font-size:12px;letter-spacing:.14em;color:var(--em2);margin-top:auto;text-transform:uppercase}
+.pkg button[aria-pressed=true]{border-color:var(--em);background:rgba(199,123,58,.1)}
+.dur{display:flex;gap:var(--s2);flex-wrap:wrap}
+.dur button{min-height:48px;min-width:89px;padding:0 var(--s4);border:1px solid var(--ln);font-size:15px;transition:border-color .4s,background .4s,color .4s}
+.dur button[aria-pressed=true]{background:var(--wa);color:var(--ink);border-color:var(--wa)}
+.dur button:disabled{opacity:.25;cursor:not-allowed}
+.stp{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap}.calc>*{min-width:0}
+.stp button{width:48px;height:48px;border:1px solid var(--ln);font-size:22px;line-height:1;border-radius:50%}
+.stp button:disabled{opacity:.25}
+.stp output{font-family:var(--fp);font-size:42px;min-width:2ch;text-align:center;line-height:1}
+.ppl{display:flex;gap:6px;align-items:flex-end;height:34px}
+.ppl i{width:13px;height:26px;border-radius:7px 7px 2px 2px;background:var(--em);transition:opacity .4s,transform .5s var(--e)}
+.ppl i.off{opacity:.15;transform:scaleY(.6)}
+.days{display:flex;gap:var(--s2);flex-wrap:wrap}
+.days button{min-height:48px;padding:0 var(--s4);border:1px solid var(--ln);font-size:15px}
+.days button[aria-pressed=true]{border-color:var(--em);color:var(--em2)}
+.tg{display:flex;align-items:center;gap:var(--s3);min-height:48px;cursor:pointer;border-bottom:1px solid var(--ln);font-size:16px}
+.tg input{width:18px;height:18px;accent-color:var(--em)}
+.tg small{margin-left:auto;color:var(--mu);white-space:nowrap}
+.price{font-family:var(--fp);font-size:clamp(40px,4.6vw,64px);line-height:1}
+.bd{display:grid;gap:6px;font-size:14px;color:var(--mu);border-top:1px solid var(--ln);padding-top:var(--s3)}
+.bd div{display:flex;justify-content:space-between;gap:var(--s3)}.bd b{font-weight:400;color:var(--wa);text-align:right}
+.fine{font-size:13px;color:var(--mu)}
+/* info strip */
+.inf{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.inf div{padding:var(--s4) var(--s4) var(--s4) 0}
+.inf div+div{padding-left:var(--s4);border-left:1px solid var(--ln)}
+.inf b{display:block;font-family:var(--fp);font-weight:400;font-size:20px;margin-bottom:4px}
+.inf span{color:var(--mu);font-size:15px}
+/* wide */
+.wide{position:relative;aspect-ratio:21/9;overflow:hidden;background:var(--ink3)}
+.wide picture{position:absolute;height:auto;inset:-8% 0}
+.wide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,20,18,.72),rgba(18,20,18,.1) 62%)}
+.wide p{z-index:1;position:absolute;left:max(16px,4vw);bottom:var(--s5);max-width:22ch;font-family:var(--fp);font-size:clamp(26px,3.4vw,46px);line-height:1.15;text-shadow:0 2px 21px rgba(0,0,0,.5)}
+/* booking */
+.bk2{display:grid;grid-template-columns:1fr 1.3fr;gap:var(--s6)}
+.bk2 h2{font-size:clamp(36px,5vw,72px);margin:var(--s3) 0 var(--s4)}
+.sum{border:1px solid var(--ln);padding:var(--s4);margin-top:var(--s5);display:grid;gap:6px;font-size:15px}
+.sum b{font-family:var(--fp);font-weight:400;font-size:24px}
+form.f{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.f .full{grid-column:1/-1}
+.f label{display:block;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.f input,.f select,.f textarea{width:100%;min-height:50px;background:transparent;border:0;border-bottom:1px solid var(--ln);padding:6px 0;font-size:17px;outline:0;border-radius:0;-webkit-appearance:none;appearance:none;color-scheme:dark;transition:border-color .4s}
+.f select option{background:var(--ink2)}
+.f textarea{min-height:80px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--em)}
+.msg{font-family:var(--fp);font-size:18px;color:var(--em2);min-height:1.4em}.msg.err{color:#E2786A}
+footer{padding:var(--s7) 0;border-top:1px solid var(--ln);text-align:center}
+footer .lo{justify-content:center;font-size:clamp(46px,9vw,110px);margin-bottom:var(--s4)}
+footer p{max-width:64ch;margin:0 auto;color:var(--mu);font-size:14px}footer a{text-decoration:underline;color:var(--wa)}
+.stk{position:fixed;left:var(--s2);right:var(--s2);bottom:calc(var(--s2) + env(safe-area-inset-bottom));z-index:30;display:none;align-items:center;gap:var(--s3);background:var(--ink3);border:1px solid var(--ln);padding:6px 6px 6px var(--s4);transform:translateY(160%);transition:transform .7s var(--e)}
+.stk.on{transform:none}
+.stk span{font-family:var(--fp);font-size:20px;margin-right:auto;white-space:nowrap}
+.stk span small{display:block;font-family:var(--fj);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mu);line-height:1}
+.stk .btn{min-height:46px;padding:0 var(--s4)}
+.js [data-r]{opacity:0;transform:translateY(34px);transition:opacity 1.4s var(--e),transform 1.6s var(--e)}
+.js [data-r].in{opacity:1;transform:none}
+@media(max-width:900px){
+ .hd2,.calc,.bk2{grid-template-columns:1fr}
+ .calc .r{position:relative;top:0}
+ .rt{grid-template-columns:1fr 1fr}.rt figure:nth-child(2) .fr{margin-top:0}.rt figure:nth-child(3){grid-column:1/-1}.rt figure:nth-child(3) .fr{aspect-ratio:3/2}
+ .inf{grid-template-columns:1fr 1fr}.inf div:nth-child(3){border-left:0;padding-left:0}.inf div:nth-child(-n+2){border-bottom:1px solid var(--ln)}
+ .wide{aspect-ratio:4/3}
+ .sec{padding:var(--s7) 0}
+ .stk{display:flex}
+ footer{padding-bottom:calc(var(--s7) + 34px)}
+ .tp .bk{display:none}
+ .vt{display:none}.hero .w{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+ .pkg{grid-template-columns:1fr}.pkg button{min-height:0}
+ .calc .l,.calc .r{padding:var(--s4)}
+ form.f{grid-template-columns:1fr}
+ .inf{grid-template-columns:1fr}.inf div{border-left:0!important;padding-left:0!important;border-bottom:1px solid var(--ln)}
+ .dur button{min-width:0;flex:1}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.js [data-r]{opacity:1;transform:none}.stm{display:none}}
+</style>
+</head>
+<body>
+<header class="tp"><div class="w">
+ <a class="back" href="../index.html" target="_top">← Dream Labs</a>
+ <a class="lo" href="#top" aria-label="Trầm An Onsen">Trầm An <i>Onsen</i></a>
+ <a class="bk" href="#dat-lich">Đặt lịch</a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="bg"><picture><source type="image/avif" srcset="../img/demo/tram-an/suoi-640.avif 640w, ../img/demo/tram-an/suoi-1280.avif 1280w, ../img/demo/tram-an/suoi-1920.avif 1920w, ../img/demo/tram-an/suoi-2560.avif 2560w" sizes="100vw"><img src="../img/demo/tram-an/suoi-1280.webp" srcset="../img/demo/tram-an/suoi-640.webp 640w, ../img/demo/tram-an/suoi-1280.webp 1280w, ../img/demo/tram-an/suoi-1920.webp 1920w, ../img/demo/tram-an/suoi-2560.webp 2560w" sizes="100vw" width="1280" height="720" alt="Hồ khoáng nóng bốc hơi giữa rừng cây xanh" fetchpriority="high" decoding="async"></picture></div>
+ <div class="stm" aria-hidden="true"><i></i><i></i><i></i></div>
+ <div class="w">
+  <div>
+   <p class="ey">Ngâm khoáng nóng · Đà Lạt · Concept</p>
+   <h1 class="pr" style="margin-top:var(--s3)"><span class="l"><span>Để hơi nước</span></span><span class="l"><span>nói thay bạn</span></span></h1>
+   <p class="lead">Bể khoáng nóng ngoài trời, phòng xông đá, trà gừng sau khi ngâm. Chọn gói, thời lượng và số người, giá hiện ngay bên dưới.</p>
+   <div class="cta"><a class="btn" href="#tinh-gia">Xem giá gói</a><a class="btn gh" href="#nghi-thuc">Một vòng ngâm</a></div>
+  </div>
+  <p class="vt" aria-hidden="true">TRẦM · AN · ONSEN</p>
+ </div>
+</section>
+
+<section class="sec" id="nghi-thuc"><div class="w">
+ <div class="hd2" data-r><div><p class="ey">Một vòng ngâm</p></div><div><h2 class="pr">Nóng, mát, rồi ngồi yên</h2><p style="margin-top:var(--s3)">Ba nhịp lặp lại hai đến ba lần. Nhân viên nhắc giờ và mang nước ấm cho bạn giữa các lượt.</p></div></div>
+ <div class="rt">
+  <figure data-r><div class="fr"><picture><source type="image/avif" srcset="../img/demo/tram-an/hoi-640.avif 640w, ../img/demo/tram-an/hoi-1280.avif 1280w, ../img/demo/tram-an/hoi-1920.avif 1920w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/tram-an/hoi-1280.webp" srcset="../img/demo/tram-an/hoi-640.webp 640w, ../img/demo/tram-an/hoi-1280.webp 1280w, ../img/demo/tram-an/hoi-1920.webp 1920w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="1600" alt="Hơi nước bốc lên từ mặt hồ khoáng xanh giữa đá núi" loading="lazy" decoding="async"></picture></div><figcaption><b>Bể khoáng 40–41°C</b><span>Ngâm mười lăm phút, đầu mát, vai ấm.</span></figcaption></figure>
+  <figure data-r><div class="fr"><picture><source type="image/avif" srcset="../img/demo/tram-an/nen-640.avif 640w, ../img/demo/tram-an/nen-1280.avif 1280w, ../img/demo/tram-an/nen-1920.avif 1920w" sizes="(max-width:900px) 46vw, 30vw"><img src="../img/demo/tram-an/nen-1280.webp" srcset="../img/demo/tram-an/nen-640.webp 640w, ../img/demo/tram-an/nen-1280.webp 1280w, ../img/demo/tram-an/nen-1920.webp 1920w" sizes="(max-width:900px) 46vw, 30vw" width="1280" height="853" alt="Khăn xám và cầu muối tắm bên mép bồn, ánh nến trong bóng tối" loading="lazy" decoding="async"></picture></div><figcaption><b>Phòng nghỉ tối</b><span>Khăn ấm, nến, không điện thoại. Mười phút.</span></figcaption></figure>
+  <figure data-r><div class="fr"><picture><source type="image/avif" srcset="../img/demo/tram-an/da-640.avif 640w, ../img/demo/tram-an/da-1280.avif 1280w, ../img/demo/tram-an/da-1920.avif 1920w" sizes="(max-width:900px) 92vw, 30vw"><img src="../img/demo/tram-an/da-1280.webp" srcset="../img/demo/tram-an/da-640.webp 640w, ../img/demo/tram-an/da-1280.webp 1280w, ../img/demo/tram-an/da-1920.webp 1920w" sizes="(max-width:900px) 92vw, 30vw" width="1280" height="1600" alt="Bánh xà phòng thủ công trên đá cuội, rêu xanh và vỏ hạt" loading="lazy" decoding="async"></picture></div><figcaption><b>Xông đá & rêu</b><span>Đá cuội làm nóng, nước sả rưới lên tạo hơi.</span></figcaption></figure>
+ </div>
+</div></section>
+
+<section class="sec" id="tinh-gia" style="padding-top:0"><div class="w">
+ <div class="hd2" data-r><div><p class="ey">Gói & giá</p></div><div><h2 class="pr">Chọn gói, xem giá ngay</h2><p style="margin-top:var(--s3)">Giá theo người, đã gồm khăn, áo choàng, tủ đồ và trà. Cuối tuần cộng thêm 15%.</p></div></div>
+ <div class="calc" data-r>
+  <div class="l">
+   <div class="grp"><span>Gói</span><div class="pkg" id="pkg" role="group" aria-label="Chọn gói"></div></div>
+   <div class="grp"><span>Thời lượng</span><div class="dur" id="dur" role="group" aria-label="Thời lượng"></div></div>
+   <div class="grp"><span>Số người</span><div class="stp"><button type="button" id="pM" aria-label="Bớt một người">−</button><output id="pV" aria-live="polite">2</output><button type="button" id="pP" aria-label="Thêm một người">+</button><div class="ppl" id="ppl" aria-hidden="true"></div></div></div>
+   <div class="grp"><span>Ngày</span><div class="days" id="dy" role="group" aria-label="Ngày trong tuần"><button type="button" data-w="0" aria-pressed="true">Thứ Hai – Thứ Năm</button><button type="button" data-w="1" aria-pressed="false">Thứ Sáu – Chủ Nhật <small style="color:var(--mu)">+15%</small></button></div></div>
+   <div class="grp"><span>Thêm</span>
+    <label class="tg"><input type="checkbox" id="xR">Bể riêng cho nhóm<small>+600.000đ/giờ</small></label>
+    <label class="tg"><input type="checkbox" id="xT">Trà chiều & bánh ngọt<small>+150.000đ/người</small></label>
+    <label class="tg"><input type="checkbox" id="xY">Áo yukata mang về<small>+420.000đ/người</small></label>
+   </div>
+  </div>
+  <div class="r" aria-live="polite">
+   <p class="ey">Tạm tính</p>
+   <p class="price" id="tot">0đ</p>
+   <p class="fine" id="tn"></p>
+   <div class="bd" id="bd"></div>
+   <a class="btn" href="#dat-lich" style="margin-top:var(--s3)">Đặt gói này</a>
+   <p class="fine">Giá minh họa cho trang mẫu, đã gồm VAT.</p>
+  </div>
+ </div>
+</div></section>
+
+<section class="wide" data-r><picture><source type="image/avif" srcset="../img/demo/tram-an/khan-640.avif 640w, ../img/demo/tram-an/khan-1280.avif 1280w, ../img/demo/tram-an/khan-1920.avif 1920w" sizes="100vw"><img src="../img/demo/tram-an/khan-1280.webp" srcset="../img/demo/tram-an/khan-640.webp 640w, ../img/demo/tram-an/khan-1280.webp 1280w, ../img/demo/tram-an/khan-1920.webp 1920w" sizes="100vw" width="1280" height="853" alt="Ba chiếc khăn trắng cuộn tròn trên khay gỗ cạnh bồn tắm" loading="lazy" decoding="async"></picture><p>Khăn được hấp lại sau mỗi lượt khách.</p></section>
+
+<section class="sec" style="padding-bottom:0"><div class="w">
+ <div class="inf" data-r>
+  <div><b>Giờ mở cửa</b><span>8:00 – 22:00, lượt cuối 20:30</span></div>
+  <div><b>Mang theo</b><span>Không cần gì, khăn và áo có sẵn</span></div>
+  <div><b>Lưu ý</b><span>Mang thai, huyết áp cao: hỏi bác sĩ trước khi ngâm nóng</span></div>
+  <div><b>Trẻ em</b><span>Từ 6 tuổi, đi cùng người lớn</span></div>
+ </div>
+</div></section>
+
+<section class="sec" id="dat-lich"><div class="w bk2">
+ <div data-r>
+  <p class="ey">Đặt lịch</p>
+  <h2 class="pr">Giữ một bể, <br>một khung giờ</h2>
+  <p style="color:var(--mu);max-width:38ch">Gửi yêu cầu, lễ tân gọi lại xác nhận trong ngày. Không cần đặt cọc.</p>
+  <div class="sum"><span class="ey" style="color:var(--mu)">Lựa chọn của bạn</span><b id="sq">—</b><span id="sp">—</span></div>
+ </div>
+ <form class="f" id="bf" novalidate data-r>
+  <div><label for="fn">Họ tên</label><input id="fn" required autocomplete="name"></div>
+  <div><label for="ft">Điện thoại</label><input id="ft" type="tel" inputmode="tel" required autocomplete="tel"></div>
+  <div><label for="fd">Ngày đến</label><input id="fd" type="date" required></div>
+  <div><label for="fh">Giờ bắt đầu</label><select id="fh"><option>08:00</option><option>10:00</option><option>13:00</option><option>15:00</option><option>17:00</option><option>19:00</option></select></div>
+  <div class="full"><label for="fg">Ghi chú</label><textarea id="fg" placeholder="Dịp đặc biệt, yêu cầu về nhiệt độ nước, đồ ăn"></textarea></div>
+  <div class="full"><button class="btn" style="width:100%">Gửi yêu cầu</button><p class="msg" id="msg" role="status" style="margin-top:var(--s3)"></p></div>
+ </form>
+</div></section>
+</main>
+
+<footer><div class="w">
+ <p class="lo">Trầm An</p>
+ <p>Trầm An là thương hiệu concept do <a href="../index.html" target="_top">Dream Labs</a> thiết kế; gói, giá, địa chỉ chỉ để minh họa. Khu ngâm khoáng giả định tại Số 3 đường Đồi Thông, Đà Lạt (địa chỉ minh họa), điện thoại 0263 000 0303 (số minh họa). Ảnh: Pexels/Unsplash (đã làm mờ logo).</p>
+</div></footer>
+<div class="stk" id="stk"><span><small>Tạm tính</small><b id="stv" style="font-weight:400">0đ</b></span><a class="btn" href="#dat-lich">Đặt lịch</a></div>
+
+<script src="../vendor/lenis.min.js"></script>
+<script src="../vendor/gsap.min.js"></script>
+<script src="../vendor/ScrollTrigger.min.js"></script>
+<script>
+(()=>{
+const D=document,H=D.documentElement,$=(s,r=D)=>r.querySelector(s),$$=(s,r=D)=>[...r.querySelectorAll(s)],RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+H.classList.add('js');if(parent!==window)H.classList.add('emb');
+try{parent!==window&&parent.postMessage({wkDemo:'lux-lp-tram-an',smDemo:'lux-lp-tram-an'},'*')}catch(e){}
+const ASK=20e6,vnd=n=>Math.round(n).toLocaleString('vi-VN')+'đ',pv=n=>n>ASK?'Liên hệ':vnd(n);
+let lenis=null;if(window.Lenis&&!RM&&matchMedia('(pointer:fine)').matches){try{lenis=new Lenis({duration:1.4});const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf)}catch(e){lenis=null}}
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const h=a.getAttribute('href');const el=h.length>1&&$(h);if(!el)return;e.preventDefault();const y=el.getBoundingClientRect().top+scrollY;lenis?lenis.scrollTo(y,{duration:1.6}):scrollTo({top:y,behavior:RM?'auto':'smooth'})}));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});$$('[data-r]').forEach(el=>io.observe(el))}else $$('[data-r]').forEach(el=>el.classList.add('in'));
+/* gói — giá minh họa theo người */
+const PK=[
+ {n:'Ngâm khoáng',d:'Bể khoáng ngoài trời, phòng nghỉ, trà gừng.',p:{60:390000,90:490000,120:580000}},
+ {n:'Khoáng & xông đá',d:'Thêm phòng xông đá cuội và tắm lạnh.',p:{90:690000,120:820000,180:1050000}},
+ {n:'Onsen & massage',d:'Ngâm khoáng rồi massage dầu ấm 60 phút.',p:{120:1350000,180:1690000}},
+ {n:'Trọn ngày riêng tư',d:'Phòng nghỉ riêng, bữa trưa nhẹ, ra vào tự do.',p:{360:3200000,480:3900000}}];
+const DU=[60,90,120,180,360,480],lab=m=>m>=360?m/60+' giờ':m+' phút';
+const S={k:0,m:60,n:2,w:0};
+$('#pkg').innerHTML=PK.map((p,i)=>{const m=Math.min(...Object.values(p.p));return`<button type="button" data-k="${i}" aria-pressed="${i===S.k}"><b>${p.n}</b><small>${p.d}</small><em>từ ${pv(m)}/người</em></button>`}).join('');
+const ppl=()=>{$('#ppl').innerHTML=Array.from({length:8},(_,i)=>`<i class="${i<S.n?'':'off'}"></i>`).join('')};
+const tw=(el,to)=>{const fr=el._v??to;el._v=to;cancelAnimationFrame(el._r);if(RM||fr===to||to>ASK||fr>ASK){el.textContent=pv(to);return}const t0=performance.now(),run=t=>{const u=Math.min(1,(t-t0)/600),e=1-Math.pow(1-u,3);el.textContent=pv(Math.round((fr+(to-fr)*e)/1000)*1000);if(u<1)el._r=requestAnimationFrame(run)};el._r=requestAnimationFrame(run)};
+const up=()=>{const p=PK[S.k];if(!p.p[S.m])S.m=+Object.keys(p.p)[0];
+ $$('#pkg button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.k===S.k));
+ $('#dur').innerHTML=DU.filter(m=>m<=180||p.p[m]).map(m=>`<button type="button" data-m="${m}" aria-pressed="${m===S.m}" ${p.p[m]?'':'disabled'}>${lab(m)}</button>`).join('');
+ $$('#dy button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.w===S.w));
+ $('#pV').textContent=S.n;$('#pM').disabled=S.n<=1;$('#pP').disabled=S.n>=8;ppl();
+ const base=p.p[S.m]*S.n,wk=S.w?base*.15:0,hr=Math.ceil(S.m/60),xr=$('#xR').checked?600000*hr:0,xt=$('#xT').checked?150000*S.n:0,xy=$('#xY').checked?420000*S.n:0,tot=base+wk+xr+xt+xy;
+ tw($('#tot'),tot);$('#stv').textContent=pv(tot);
+ $('#tn').textContent=`${p.n} · ${lab(S.m)} · ${S.n} người`;
+ $('#bd').innerHTML=[[`${pv(p.p[S.m])} × ${S.n} người`,base],['Phụ thu cuối tuần',wk],[`Bể riêng × ${hr} giờ`,xr],['Trà chiều',xt],['Áo yukata',xy]].filter(r=>r[1]).map(r=>`<div><span>${r[0]}</span><b>${pv(r[1])}</b></div>`).join('');
+ $('#sq').textContent=`${p.n} · ${lab(S.m)}`;$('#sp').textContent=`${S.n} người · ${S.w?'cuối tuần':'ngày thường'} · tạm tính ${pv(tot)}`};
+$('#pkg').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b){S.k=+b.dataset.k;up()}});
+$('#dur').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b&&!b.disabled){S.m=+b.dataset.m;up()}});
+$('#dy').addEventListener('click',e=>{const b=e.target.closest('[data-w]');if(b){S.w=+b.dataset.w;up()}});
+$('#pM').addEventListener('click',()=>{S.n=Math.max(1,S.n-1);up()});$('#pP').addEventListener('click',()=>{S.n=Math.min(8,S.n+1);up()});
+$$('.tg input').forEach(i=>i.addEventListener('change',up));
+/* ngày đặt: tự chuyển ngày thường/cuối tuần */
+const pad=n=>String(n).padStart(2,'0'),t1=new Date();t1.setDate(t1.getDate()+1);$('#fd').min=`${t1.getFullYear()}-${pad(t1.getMonth()+1)}-${pad(t1.getDate())}`;$('#fd').value=$('#fd').min;
+const syncW=()=>{const d=new Date($('#fd').value+'T00:00');if(!isNaN(d)){S.w=[0,5,6].includes(d.getDay())?1:0;up()}};$('#fd').addEventListener('change',syncW);
+$('#bf').addEventListener('submit',e=>{e.preventDefault();const m=$('#msg'),ok=$$('#bf [required]').every(i=>i.value.trim()),tel=/^[0-9 +.]{9,}$/.test($('#ft').value.trim());m.classList.toggle('err',!(ok&&tel));
+ if(!ok){m.textContent='Bạn điền giúp các ô còn trống nhé.';return}if(!tel){m.textContent='Số điện thoại chưa đúng.';return}
+ m.textContent=`Đã ghi nhận: ${$('#sq').textContent}, ${S.n} người, ${$('#fh').value} ngày ${$('#fd').value.split('-').reverse().join('/')}. Đây là trang mẫu nên chưa có thông tin nào được gửi đi.`});
+syncW();up();
+/* sticky bar */
+const stk=$('#stk');addEventListener('scroll',()=>{const c=$('#tinh-gia').getBoundingClientRect(),b=$('#dat-lich').getBoundingClientRect();stk.classList.toggle('on',c.top<innerHeight*.6&&b.top>innerHeight*.5)},{passive:true});
+/* motion */
+if(!RM&&window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);
+ gsap.from('.hero h1 .l>span',{yPercent:110,duration:1.8,ease:'expo.out',stagger:.16,delay:.2});
+ gsap.fromTo('.hero .bg picture',{scale:1.12},{scale:1,duration:2.6,ease:'expo.out'});
+ gsap.to('.hero .bg picture',{yPercent:8,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+ $$('.rt .fr picture,.wide picture').forEach(p=>gsap.fromTo(p,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:p.parentNode,start:'top bottom',end:'bottom top',scrub:true}}));
+}
+})();
+</script>
+</body>
+</html>
