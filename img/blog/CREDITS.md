@@ -4,6 +4,21 @@
 
 | Bài | Ảnh | Tác giả | Nguồn | Link |
 |---|---|---|---|---|
+| [Website thương hiệu đồng hồ](https://dreamlabs.vn/blog/thiet-ke-website-thuong-hieu-dong-ho/) | cover | Daniel Smyth | Pexels | https://www.pexels.com/photo/silver-and-black-luxury-watch-10741520/ |
+| [Website thương hiệu đồng hồ](https://dreamlabs.vn/blog/thiet-ke-website-thuong-hieu-dong-ho/) | a1 | Pixabay | Pexels | https://www.pexels.com/photo/round-gray-skeleton-watch-on-brown-pad-416339/ |
+| [Website thương hiệu đồng hồ](https://dreamlabs.vn/blog/thiet-ke-website-thuong-hieu-dong-ho/) | a2 | Tima Miroshnichenko | Pexels | https://www.pexels.com/photo/watch-mechanism-on-desk-in-overhead-view-8327866/ |
+| [Website dự án BĐS hạng sang](https://dreamlabs.vn/blog/thiet-ke-website-du-an-bat-dong-san-hang-sang/) | cover | Ahmet ÇÖTÜR | Pexels | https://www.pexels.com/photo/view-of-the-terrace-with-a-swimming-pool-at-the-resort-24805054/ |
+| [Website dự án BĐS hạng sang](https://dreamlabs.vn/blog/thiet-ke-website-du-an-bat-dong-san-hang-sang/) | a1 | Max Vakhtbovych | Pexels | https://www.pexels.com/photo/interior-of-modern-studio-apartment-with-living-room-and-kitchen-with-wooden-furniture-6933852/ |
+| [Website dự án BĐS hạng sang](https://dreamlabs.vn/blog/thiet-ke-website-du-an-bat-dong-san-hang-sang/) | a2 | Thibault Om | Pexels | https://www.pexels.com/photo/a-beautiful-house-with-swimming-pool-13914273/ |
+| [Website resort, khách sạn 5 sao](https://dreamlabs.vn/blog/thiet-ke-website-resort-khach-san-5-sao/) | cover | Denys Gromov | Pexels | https://www.pexels.com/photo/palm-trees-around-swimming-pool-in-tropical-holiday-resort-17520813/ |
+| [Website resort, khách sạn 5 sao](https://dreamlabs.vn/blog/thiet-ke-website-resort-khach-san-5-sao/) | a1 | thiha soe | Pexels | https://www.pexels.com/photo/modern-hotel-bedroom-interior-5883725/ |
+| [Website resort, khách sạn 5 sao](https://dreamlabs.vn/blog/thiet-ke-website-resort-khach-san-5-sao/) | a2 | Asad Photo Maldives | Pexels | https://www.pexels.com/photo/romantic-dinner-setting-at-sunset-beach-28408459/ |
+| [Website spa, mỹ phẩm cao cấp](https://dreamlabs.vn/blog/thiet-ke-website-spa-my-pham-cao-cap/) | cover | RDNE Stock project | Pexels | https://www.pexels.com/photo/healthy-wood-nature-fashion-6724446/ |
+| [Website spa, mỹ phẩm cao cấp](https://dreamlabs.vn/blog/thiet-ke-website-spa-my-pham-cao-cap/) | a1 | Anna Tarazevich | Pexels | https://www.pexels.com/photo/top-view-of-a-person-with-hot-stones-on-their-back-6560266/ |
+| [Website spa, mỹ phẩm cao cấp](https://dreamlabs.vn/blog/thiet-ke-website-spa-my-pham-cao-cap/) | a2 | Mira Fialkova | Pexels | https://www.pexels.com/photo/close-up-of-dropper-with-amber-bottle-35874415/ |
+| [Website thương hiệu xa xỉ tại Việt Nam](https://dreamlabs.vn/blog/website-thuong-hieu-xa-xi-tai-viet-nam/) | a2 | aksinfo7 universe | Pexels | https://www.pexels.com/photo/modern-luxury-villa-with-pool-exterior-at-twilight-30781823/ |
+| [Website thương hiệu xa xỉ tại Việt Nam](https://dreamlabs.vn/blog/website-thuong-hieu-xa-xi-tai-viet-nam/) | cover | Rana Matloob Hussain | Pexels | https://www.pexels.com/photo/luxurious-jewelry-store-interior-with-elegant-display-33257668/ |
+| [Website thương hiệu xa xỉ tại Việt Nam](https://dreamlabs.vn/blog/website-thuong-hieu-xa-xi-tai-viet-nam/) | a1 | Karola G (Kaboompics) | Pexels | https://www.pexels.com/photo/clear-glass-perfume-bottle-on-white-sand-8361539/ |
 | [Thiết kế website bán hàng](https://dreamlabs.vn/blog/thiet-ke-website-ban-hang/) | a1 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
 | [Thiết kế website bán hàng](https://dreamlabs.vn/blog/thiet-ke-website-ban-hang/) | a2 | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |
 | [Thiết kế website bán hàng](https://dreamlabs.vn/blog/thiet-ke-website-ban-hang/) | cover | Dream Labs (ảnh AI) | ComfyUI · Z-Image Turbo | https://dreamlabs.vn/ |

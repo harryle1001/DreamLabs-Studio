@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Denys Gromov",
+  "page": "https://www.pexels.com/photo/palm-trees-around-swimming-pool-in-tropical-holiday-resort-17520813/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/17520813/pexels-photo-17520813.jpeg",
+  "w": 7008,
+  "h": 4672
+ },
+ "a1": {
+  "author": "thiha soe",
+  "page": "https://www.pexels.com/photo/modern-hotel-bedroom-interior-5883725/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/5883725/pexels-photo-5883725.jpeg",
+  "w": 4898,
+  "h": 3265
+ },
+ "a2": {
+  "author": "Asad Photo Maldives",
+  "page": "https://www.pexels.com/photo/romantic-dinner-setting-at-sunset-beach-28408459/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/28408459/pexels-photo-28408459.jpeg",
+  "w": 4256,
+  "h": 2832
+ }
+}

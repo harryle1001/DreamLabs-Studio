@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "RDNE Stock project",
+  "page": "https://www.pexels.com/photo/healthy-wood-nature-fashion-6724446/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6724446/pexels-photo-6724446.jpeg",
+  "w": 5610,
+  "h": 3740
+ },
+ "a1": {
+  "author": "Anna Tarazevich",
+  "page": "https://www.pexels.com/photo/top-view-of-a-person-with-hot-stones-on-their-back-6560266/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6560266/pexels-photo-6560266.jpeg",
+  "w": 4000,
+  "h": 2667
+ },
+ "a2": {
+  "author": "Mira Fialkova",
+  "page": "https://www.pexels.com/photo/close-up-of-dropper-with-amber-bottle-35874415/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/35874415/pexels-photo-35874415.jpeg",
+  "w": 4802,
+  "h": 3181
+ }
+}

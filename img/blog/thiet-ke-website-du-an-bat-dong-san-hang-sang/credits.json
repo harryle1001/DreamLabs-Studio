@@ -1,0 +1,26 @@
+{
+ "cover": {
+  "author": "Ahmet ÇÖTÜR",
+  "page": "https://www.pexels.com/photo/view-of-the-terrace-with-a-swimming-pool-at-the-resort-24805054/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/24805054/pexels-photo-24805054.jpeg",
+  "w": 6720,
+  "h": 4480
+ },
+ "a1": {
+  "author": "Max Vakhtbovych",
+  "page": "https://www.pexels.com/photo/interior-of-modern-studio-apartment-with-living-room-and-kitchen-with-wooden-furniture-6933852/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/6933852/pexels-photo-6933852.jpeg",
+  "w": 7360,
+  "h": 4912
+ },
+ "a2": {
+  "author": "Thibault Om",
+  "page": "https://www.pexels.com/photo/a-beautiful-house-with-swimming-pool-13914273/",
+  "site": "Pexels",
+  "src": "https://images.pexels.com/photos/13914273/pexels-photo-13914273.jpeg",
+  "w": 5184,
+  "h": 3456
+ }
+}
